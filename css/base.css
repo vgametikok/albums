@@ -46,6 +46,10 @@ img,video{max-width:100%}
     justify-content:center;box-shadow:0 6px 18px rgba(232,85,43,.35);margin:0 4px}
   .mobnav-add svg{stroke:#fff}
   body.has-mobnav .wrap{padding-bottom:96px}
+  /* тост и модалка не должны уезжать под панель */
+  body.has-mobnav .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+  body.has-mobnav .modal-bg{align-items:flex-start;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  body.has-mobnav .modal{margin-top:auto;margin-bottom:auto}
 }
 
 .lang-select{height:44px;border-radius:999px;border:1.5px solid var(--line);background:transparent;
