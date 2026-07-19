@@ -10,6 +10,7 @@
 import { sb, currentUser } from './sb.js';
 import { LIMITS } from './config.js';
 import { canTranscode, needsTranscode, transcodeToMp4, posterFromVideo } from './transcode.js';
+import { readCaptureDate } from './exif.js';
 import { t } from './i18n.js';
 
 const MAX_EDGE = 2560;
@@ -150,6 +151,14 @@ export async function uploadMedia(file, onStage) {
   const id = crypto.randomUUID();
   let body = file, thumb = null, width = null, height = null, duration = null;
 
+  // Дату съёмки читаем из ОРИГИНАЛА до сжатия: при перекодировании в WebP EXIF
+  // (и GPS вместе с ним) стирается. Координаты не сохраняем — только момент времени.
+  let capturedAt = null, capturedFrom = null;
+  try {
+    capturedAt = await readCaptureDate(file);
+    if (capturedAt) capturedFrom = 'exif';
+  } catch (_) { /* без даты — не критично */ }
+
   if (kind === 'photo') {
     const animated = (file.type || '').toLowerCase() === 'image/gif';
     const bmp = await decode(file, onStage);
@@ -202,13 +211,14 @@ export async function uploadMedia(file, onStage) {
   let thumbPath = null;
   if (thumb) {
     thumbPath = `${user.id}/${id}/thumb.${EXT[thumb.type] || 'jpg'}`;
-    const t = await sb.storage.from('media').upload(thumbPath, thumb, { contentType: thumb.type, upsert: true });
-    if (t.error) thumbPath = null;
+    const up2 = await sb.storage.from('media').upload(thumbPath, thumb, { contentType: thumb.type, upsert: true });
+    if (up2.error) thumbPath = null;
   }
 
   const { data, error } = await sb.from('media').insert({
     id, owner_id: user.id, kind, storage_path: path, thumb_path: thumbPath,
     width, height, duration_seconds: duration, size_bytes: body.size,
+    captured_at: capturedAt, captured_from: capturedFrom,
   }).select().single();
   if (error) throw error;
   return data;

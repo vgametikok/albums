@@ -1,7 +1,7 @@
 // Редактор альбома: медиа, главы, обложка, видимость (включая «друзьям кроме…»).
 import { sb, currentUser, isAuthed } from './sb.js';
 import { CATEGORIES } from './config.js';
-import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t, thumbEl } from './ui.js';
+import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t, thumbEl, modal } from './ui.js';
 import { uploadMedia, backfillPoster } from './upload.js';
 
 const app = $('#app');
@@ -126,14 +126,18 @@ function render() {
   drawMedia(mlist);
 
   /* ---- главы ---- */
-  left.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
+  const chapHead = el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
     el('h2', { text: t('chapters') }),
-    el('button', { class: 'btn btn-ghost btn-sm', onclick: addChapter }, t('add_chapter'))));
+    el('div', { class: 'rowx' },
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: autoChapters }, t('auto_chapters')),
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: addChapter }, t('add_chapter'))));
+  left.appendChild(chapHead);
   const clist = el('div', { id: 'clist' });
   left.appendChild(clist);
   drawChapters(clist);
 
-  /* ---- сайдбар: видимость + соавторы + действия ---- */
+  /* ---- сайдбар: даты + видимость + соавторы + действия ---- */
+  if (isOwner) right.appendChild(datesBox());
   if (isOwner) right.appendChild(visibilityBox());
   else right.appendChild(el('div', { class: 'side-card' },
     el('div', { class: 'label', text: t('collab_note_title') }),
@@ -411,7 +415,123 @@ async function drawMedia(host) {
   }
 }
 
+/* ---------------------------------------------------------------- даты альбома */
+/**
+ * Альбом можно приурочить к дню, диапазону, месяцу или году. Точность выбирается
+ * явно — «1–7 мая» и «май 2025» и «2025 год» хранятся по-разному и по-разному
+ * показываются. Есть подсказка по датам съёмки загруженных файлов.
+ */
+function datesBox() {
+  const box = el('div', { class: 'side-card' }, el('div', { class: 'label', text: t('album_dates') }));
+
+  const prec = el('select', { class: 'select', style: 'height:40px;font-size:14.5px;margin-top:10px' },
+    el('option', { value: '' }, t('date_none')),
+    el('option', { value: 'day' }, t('date_day')),
+    el('option', { value: 'range' }, t('date_range')),
+    el('option', { value: 'month' }, t('date_month')),
+    el('option', { value: 'year' }, t('date_year')));
+  prec.value = album?.date_precision || '';
+
+  const from = el('input', { class: 'input', type: 'date', style: 'height:40px;font-size:14px', value: album?.date_from || '' });
+  const to = el('input', { class: 'input', type: 'date', style: 'height:40px;font-size:14px', value: album?.date_to || '' });
+  const toRow = el('div', { class: 'form-row', style: 'margin:10px 0 0' },
+    el('label', { class: 'label', text: t('date_to') }), to);
+  const fromRow = el('div', { class: 'form-row', style: 'margin:10px 0 0' },
+    el('label', { class: 'label', text: t('date_from') }), from);
+
+  const sync = () => {
+    const p = prec.value;
+    fromRow.classList.toggle('hide', !p);
+    toRow.classList.toggle('hide', p !== 'range');
+    from.type = (p === 'month' || p === 'year') ? 'month' : (p === 'year' ? 'number' : 'date');
+    if (p === 'year') { from.type = 'number'; from.placeholder = '2025'; from.min = '1900'; from.max = '2100'; }
+    else from.type = (p === 'month') ? 'month' : 'date';
+  };
+  prec.onchange = () => { sync(); save(); };
+
+  const hint = el('div', { class: 'muted', style: 'font-size:13px;margin-top:10px;line-height:1.4' });
+  loadHint();
+
+  async function loadHint() {
+    if (!albumId) return;
+    const { data } = await sb.rpc('album_date_hint', { p_album: albumId });
+    if (!data || !data.min) return;
+    hint.textContent = t('date_hint', { from: data.min, to: data.max });
+    hint.style.cursor = 'pointer';
+    hint.onclick = () => {
+      prec.value = data.min === data.max ? 'day' : 'range';
+      from.value = data.min; to.value = data.max;
+      sync(); save();
+    };
+  }
+
+  async function save() {
+    await ensureAlbum();
+    const p = prec.value || null;
+    let df = null, dt = null;
+    if (p === 'year' && from.value) df = `${from.value}-01-01`;
+    else if (p === 'month' && from.value) df = `${from.value}-01`;
+    else if (from.value) df = from.value;
+    if (p === 'range' && to.value) dt = to.value;
+    const patch = { date_precision: p, date_from: df, date_to: dt };
+    const { error } = await sb.from('albums').update(patch).eq('id', albumId);
+    if (error) { toast(error.message); return; }
+    Object.assign(album, patch);
+  }
+
+  from.onchange = save;
+  to.onchange = save;
+
+  box.append(prec, fromRow, toRow, hint);
+  sync();
+  return box;
+}
+
 /* ---------------------------------------------------------------- главы */
+
+/** Авто-главы: показываем предпросмотр разбивки по дням и спрашиваем согласие. */
+async function autoChapters() {
+  await ensureAlbum();
+  const { data: preview, error } = await sb.rpc('album_autochapter_preview', { p_album: albumId, p_gap_hours: 10 });
+  if (error) { toast(error.message); return; }
+  if (!preview || !preview.length) { toast(t('auto_none')); return; }
+
+  modal((box, close) => {
+    box.append(
+      el('h2', { text: t('auto_chapters') }),
+      el('p', { text: t('auto_preview', { count: preview.length }) }));
+    const list = el('div', { class: 'stack', style: 'max-height:300px;overflow:auto;margin-bottom:16px' });
+    preview.forEach((g, i) => list.appendChild(el('div', {
+      style: 'display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)',
+    },
+      el('b', { text: g.from === g.to ? fmtDate(g.from) : `${fmtDate(g.from)} – ${fmtDate(g.to)}` }),
+      el('span', { class: 'muted', text: t('n_files', { count: g.media_ids.length }) }))));
+    const apply = el('button', { class: 'btn btn-primary', style: 'width:100%' }, t('auto_apply'));
+    apply.onclick = async () => {
+      apply.disabled = true;
+      clear(apply).appendChild(el('span', { class: 'spinner' }));
+      const r = await sb.rpc('album_autochapter_apply', { p_album: albumId, p_gap_hours: 10 });
+      if (r.error) { toast(r.error.message); apply.disabled = false; clear(apply).appendChild(document.createTextNode(t('auto_apply'))); return; }
+      close();
+      toast(t('auto_done', { count: r.data?.created || 0 }));
+      // перезагружаем главы и медиа
+      const [ch, im] = await Promise.all([
+        sb.from('album_chapters').select('*').eq('album_id', albumId).order('position'),
+        sb.from('album_media').select('id,chapter_id,position,caption,is_private,media:media_id(*)').eq('album_id', albumId).order('position'),
+      ]);
+      chapters = ch.data || []; items = im.data || [];
+      drawChapters($('#clist')); drawMedia($('#mlist'));
+    };
+    box.append(list, apply,
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  });
+}
+
+function fmtDate(iso) {
+  try { return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }); }
+  catch (_) { return iso; }
+}
+
 async function addChapter() {
   await ensureAlbum();
   const pos = chapters.length ? Math.max(...chapters.map(c => c.position)) + 1 : 0;

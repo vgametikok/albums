@@ -29,6 +29,11 @@ img,video{max-width:100%}
 .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
 .nav-link{font-size:16px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
+/* ---------- календарь ---------- */
+.cal-group{margin-bottom:44px}
+.cal-heading{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;
+  letter-spacing:-.02em;margin-bottom:18px;text-transform:capitalize}
+
 /* ---------- страница дозагрузки события ---------- */
 .join-hero{position:relative;border-radius:22px;overflow:hidden;min-height:220px;background:var(--ph);
   display:flex;align-items:flex-end}
