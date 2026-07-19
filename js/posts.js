@@ -141,7 +141,7 @@ function openComposer() {
 
     const strip = el('div', { style: 'display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px' });
     const input = el('input', {
-      type: 'file', multiple: 'multiple', class: 'hide', accept: 'image/*,video/*',
+      type: 'file', multiple: 'multiple', class: 'hide', accept: 'image/*,.heic,.heif,video/*',
       onchange: (e) => { add([...e.currentTarget.files]); e.currentTarget.value = ''; },
     });
     const drop = el('div', { class: 'drop', style: 'padding:26px', onclick: () => input.click() },
@@ -166,10 +166,15 @@ function openComposer() {
         if (picked.length >= LIMITS.slides) { toast('Maximum 10 slides'); break; }
         const k = kindOf(f);
         if (k !== 'photo' && k !== 'video') { toast('Photos and videos only'); continue; }
-        const ph = el('div', { class: 'skel', style: 'width:76px;height:76px;border-radius:12px' });
+        const ph = el('div', {
+          class: 'skel',
+          style: 'width:76px;height:76px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#6E6A63;text-align:center',
+        }, '…');
         strip.appendChild(ph);
         try {
-          const media = await uploadMedia(f);
+          const media = await uploadMedia(f, (stage) => {
+            ph.textContent = stage === 'converting' ? 'HEIC…' : stage === 'uploading' ? '↑' : '…';
+          });
           const urls = await signUrls([media.thumb_path, media.storage_path]);
           picked.push({ media });
           ph.remove();

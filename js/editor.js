@@ -12,6 +12,7 @@ let chapters = [];         // album_chapters
 let friends = [];          // для «кроме»
 let excluded = new Set();  // username'ы исключённых
 let saving = false;
+let busy = 0;              // файлов в обработке/загрузке прямо сейчас
 
 (async function main() {
   await mountShell('home');
@@ -99,7 +100,7 @@ function render() {
 
   const fileInput = el('input', {
     type: 'file', multiple: 'multiple', class: 'hide',
-    accept: 'image/*,video/*,audio/*',
+    accept: 'image/*,.heic,.heif,video/*,audio/*',
     onchange: (e) => { addFiles([...e.currentTarget.files]); e.currentTarget.value = ''; },
   });
   const drop = el('div', {
@@ -109,7 +110,7 @@ function render() {
     ondragleave: () => drop.classList.remove('over'),
     ondrop: (e) => { e.preventDefault(); drop.classList.remove('over'); addFiles([...e.dataTransfer.files]); },
   }, el('div', { style: 'font-size:17px;font-weight:600', text: 'Drop files here or click to choose' }),
-     el('div', { style: 'font-size:14.5px;margin-top:6px', text: 'JPG/PNG/WebP · MP4/WebM · MP3/M4A' }));
+     el('div', { style: 'font-size:14.5px;margin-top:6px', text: 'JPG/PNG/HEIC/WebP · MP4/WebM · MP3/M4A' }));
   left.append(fileInput, drop);
 
   const mlist = el('div', { class: 'mlist', id: 'mlist' });
@@ -130,17 +131,27 @@ function render() {
 }
 
 /* ---------------------------------------------------------------- медиа */
+const STAGE_TEXT = {
+  converting: 'Converting from HEIC…',
+  processing: 'Processing…',
+  uploading: 'Uploading…',
+};
+
 async function addFiles(files) {
   if (!files.length) return;
   const host = $('#mlist');
   for (const f of files) {
+    const status = el('div', { class: 'muted', text: `${f.name} — queued` });
     const row = el('div', { class: 'mitem' },
       el('div', { class: 'skel', style: 'width:88px;height:66px;border-radius:10px' }),
-      el('div', { class: 'grow' }, el('div', { class: 'muted', text: `Uploading ${f.name}…` })));
+      el('div', { class: 'grow' }, status));
     host.appendChild(row);
+    busy++; refreshBusy();
     try {
       await ensureAlbum();
-      const media = await uploadMedia(f);
+      const media = await uploadMedia(f, (stage) => {
+        status.textContent = `${f.name} — ${STAGE_TEXT[stage] || stage}`;
+      });
       const pos = items.length ? Math.max(...items.map(i => i.position)) + 1 : 0;
       const { data, error } = await sb.from('album_media')
         .insert({ album_id: albumId, media_id: media.id, position: pos })
@@ -154,9 +165,21 @@ async function addFiles(files) {
     } catch (err) {
       toast(err.message || `Failed: ${f.name}`);
     }
+    busy--; refreshBusy();
     row.remove();
     drawMedia(host);
   }
+}
+
+/** Пока что-то конвертируется/грузится — альбом остаётся черновиком, публикация заблокирована. */
+function refreshBusy() {
+  const note = $('#busy-note');
+  document.querySelectorAll('[data-needs-ready]').forEach(b => { b.disabled = busy > 0; });
+  if (!note) return;
+  note.textContent = busy > 0
+    ? `В обработке: ${busy} — публикация станет доступна, когда закончится`
+    : '';
+  note.classList.toggle('hide', busy === 0);
 }
 
 async function drawMedia(host) {
@@ -339,14 +362,18 @@ function actionsBox() {
   };
   setStatus();
 
-  const publishBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' },
+  const publishBtn = el('button', { class: 'btn btn-primary', style: 'width:100%', 'data-needs-ready': '1' },
     album?.published_at ? 'Save changes' : 'Publish');
   const draftBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, 'Save draft');
+  const busyNote = el('div', {
+    id: 'busy-note', class: 'muted hide',
+    style: 'font-size:13.5px;margin-top:10px;line-height:1.4',
+  });
 
   publishBtn.onclick = () => save(true, publishBtn);
   draftBtn.onclick = () => save(false, draftBtn);
 
-  box.append(status, publishBtn, draftBtn);
+  box.append(status, publishBtn, draftBtn, busyNote);
 
   if (albumId) {
     if (album?.published_at) {
@@ -373,6 +400,7 @@ function actionsBox() {
 
 async function save(publish, btn) {
   if (saving) return;
+  if (publish && busy > 0) { toast('Дождитесь окончания обработки файлов'); return; }
   const title = ($('#f-title').value || '').trim();
   if (!title) { toast('Give the album a title'); $('#f-title').focus(); return; }
   saving = true;
