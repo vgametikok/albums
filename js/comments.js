@@ -1,28 +1,28 @@
 // Блок комментариев (общий для альбомов и постов): ветки в один уровень.
 import { sb, currentUser, currentProfile } from './sb.js';
-import { el, clear, avatarImg, timeAgo, toast, needAuth, icon } from './ui.js';
+import { el, clear, avatarImg, timeAgo, toast, needAuth, icon, t } from './ui.js';
 
 export function mountComments(host, subjectType, subjectId, opts = {}) {
   const list = el('div', {});
   const box = el('section', { class: 'comments' },
-    el('h3', { text: 'Comments' }), buildForm(), list);
+    el('h3', { text: t('comments_title') }), buildForm(), list);
   clear(host).appendChild(box);
   load();
 
   function buildForm(parentId = null, onDone = null) {
     const me = currentProfile();
     const ta = el('textarea', {
-      placeholder: parentId ? 'Write a reply…' : 'Add a comment…', maxlength: '2000',
+      placeholder: parentId ? t('reply_ph') : t('comment_ph'), maxlength: '2000',
       oninput: (e) => { e.currentTarget.style.height = 'auto'; e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px'; },
     });
-    const send = el('button', { class: 'btn btn-primary btn-sm', onclick: submit }, parentId ? 'Reply' : 'Post');
+    const send = el('button', { class: 'btn btn-primary btn-sm', onclick: submit }, parentId ? t('reply_btn') : t('post_btn'));
     const form = el('div', { class: 'cform' },
       avatarImg(me?.avatar_url, me?.display_name, 44), ta,
       el('div', { class: 'stack' }, send,
-        parentId ? el('button', { class: 'mini', onclick: () => onDone && onDone() }, 'Cancel') : null));
+        parentId ? el('button', { class: 'mini', onclick: () => onDone && onDone() }, t('cancel')) : null));
 
     async function submit() {
-      if (!needAuth('Sign in to comment')) return;
+      if (!needAuth(t('signin_to_comment'))) return;
       const body = ta.value.trim();
       if (!body) return;
       send.disabled = true;
@@ -31,7 +31,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
         author_id: currentUser().id, parent_id: parentId, body,
       });
       send.disabled = false;
-      if (error) { toast(error.message || 'Could not post'); return; }
+      if (error) { toast(error.message || t('comment_post_error')); return; }
       ta.value = ''; ta.style.height = 'auto';
       if (onDone) onDone();
       load();
@@ -45,7 +45,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
       .select('id,body,created_at,parent_id,author_id,author:profiles!comments_author_id_fkey(username,display_name,avatar_url)')
       .eq('subject_type', subjectType).eq('subject_id', subjectId)
       .order('created_at', { ascending: true });
-    if (error) { clear(list).appendChild(el('div', { class: 'muted', text: 'Comments unavailable' })); return; }
+    if (error) { clear(list).appendChild(el('div', { class: 'muted', text: t('comments_unavailable') })); return; }
 
     const roots = (data || []).filter(c => !c.parent_id);
     const kids = new Map();
@@ -56,7 +56,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
 
     clear(list);
     if (!roots.length) {
-      list.appendChild(el('div', { class: 'muted', style: 'padding:8px 0', text: 'No comments yet — be the first.' }));
+      list.appendChild(el('div', { class: 'muted', style: 'padding:8px 0', text: t('no_comments') }));
       return;
     }
     for (const c of roots) {
@@ -74,7 +74,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
     if (!isReply) {
       actions.appendChild(el('button', {
         onclick: (e) => {
-          if (!needAuth('Sign in to reply')) return;
+          if (!needAuth(t('signin_to_reply'))) return;
           const btn = e.currentTarget;
           if (btn._open) { btn._open.remove(); btn._open = null; return; }
           const f = buildForm(c.id, () => { btn._open?.remove(); btn._open = null; });
@@ -82,16 +82,16 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
           btn._open = f;
           node.after(f);
         },
-      }, 'Reply'));
+      }, t('reply_btn')));
     }
     if (canDelete) {
       actions.appendChild(el('button', {
         onclick: async () => {
           const { error } = await sb.from('comments').delete().eq('id', c.id);
-          if (error) { toast('Could not delete'); return; }
+          if (error) { toast(t('comment_delete_error')); return; }
           load(); opts.onChange && opts.onChange();
         },
-      }, 'Delete'));
+      }, t('delete')));
     }
 
     const node = el('div', { class: 'comment' + (isReply ? ' reply' : '') },

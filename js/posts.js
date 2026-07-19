@@ -3,7 +3,7 @@ import { sb, currentUser, isAuthed } from './sb.js';
 import { LIMITS } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, avatarImg, timeAgo, fmtCount, icon,
-  toast, needAuth, emptyState, modal,
+  toast, needAuth, emptyState, modal, t,
 } from './ui.js';
 import { uploadMedia, kindOf } from './upload.js';
 import { mountComments } from './comments.js';
@@ -14,9 +14,10 @@ let offset = 0, loading = false, done = false, col = null;
 
 (async function main() {
   await mountShell('posts');
+  document.title = t('posts_title') + ' — Albums';
   const head = el('div', { class: 'section-head', style: 'margin:8px 0 22px' },
-    el('h2', { style: 'font-size:30px', text: 'Posts' }),
-    el('button', { class: 'btn btn-primary btn-sm', onclick: openComposer }, icon('plus', 16, { sw: 2.4 }), 'New post'));
+    el('h2', { style: 'font-size:30px', text: t('posts_title') }),
+    el('button', { class: 'btn btn-primary btn-sm', onclick: openComposer }, icon('plus', 16, { sw: 2.4 }), t('new_post')));
   col = el('div', { class: 'posts-col' });
   const sentinel = el('div', { style: 'height:1px' });
   clear(app).append(el('div', { class: 'posts-col' }, head), col, sentinel);
@@ -34,12 +35,12 @@ async function load() {
   loading = true;
   const { data, error } = await sb.rpc('feed_posts', { p_limit: PAGE, p_offset: offset });
   loading = false;
-  if (error) { toast(error.message || 'Could not load posts'); return; }
+  if (error) { toast(error.message || t('feed_error')); return; }
   const rows = data || [];
   if (rows.length < PAGE) done = true;
   if (!rows.length && !offset) {
-    col.appendChild(emptyState('No posts yet', 'Share a photo, a video, or a carousel of both.',
-      el('button', { class: 'btn btn-primary', onclick: openComposer }, 'Create a post')));
+    col.appendChild(emptyState(t('posts_empty_title'), t('posts_empty_text'),
+      el('button', { class: 'btn btn-primary', onclick: openComposer }, t('create_post'))));
     return;
   }
   const paths = [];
@@ -93,14 +94,14 @@ function postCard(p, urls) {
   };
   const likeBtn = el('button', {
     onclick: async () => {
-      if (!needAuth('Sign in to like posts')) return;
+      if (!needAuth(t('signin_to_like'))) return;
       const uid = currentUser().id;
       liked = !liked; likes += liked ? 1 : -1; paintLike();
       const q = liked
         ? sb.from('likes').insert({ subject_type: 'post', subject_id: p.id, user_id: uid })
         : sb.from('likes').delete().eq('subject_type', 'post').eq('subject_id', p.id).eq('user_id', uid);
       const { error } = await q;
-      if (error) { liked = !liked; likes += liked ? 1 : -1; paintLike(); toast('Could not update like'); }
+      if (error) { liked = !liked; likes += liked ? 1 : -1; paintLike(); toast(t('like_error')); }
     },
   }, likeIcon, likeCount);
   paintLike();
@@ -123,7 +124,7 @@ function postCard(p, urls) {
 
 function openComments(p) {
   modal((box) => {
-    box.appendChild(el('h2', { text: 'Comments' }));
+    box.appendChild(el('h2', { text: t('comments_title') }));
     const host = el('div', {});
     box.appendChild(host);
     mountComments(host, 'post', p.id, { isOwner: p.is_author });
@@ -132,13 +133,13 @@ function openComments(p) {
 
 /* ---------------------------------------------------------------- композер */
 function openComposer() {
-  if (!needAuth('Sign in to post')) return;
+  if (!needAuth(t('signin_to_post'))) return;
   const picked = [];          // media-строки в порядке выбора = порядок слайдов
   const thumbUrls = {};       // media.id -> url превью
 
   modal((box, close) => {
-    box.appendChild(el('h2', { text: 'New post' }));
-    box.appendChild(el('p', { text: 'Up to 10 photos and videos in any mix — they become one carousel.' }));
+    box.appendChild(el('h2', { text: t('new_post') }));
+    box.appendChild(el('p', { text: t('composer_hint', { n: LIMITS.slides }) }));
 
     /* --- вкладки: загрузить новое / взять из медиатеки --- */
     const tabs = el('div', { class: 'tabs' });
@@ -150,7 +151,7 @@ function openComposer() {
       paneLib.classList.toggle('hide', which !== 'lib');
       if (which === 'lib') loadLibrary();
     };
-    [['upload', 'Upload new'], ['lib', 'From my library']].forEach(([k, label]) => {
+    [['upload', t('tab_upload')], ['lib', t('tab_library')]].forEach(([k, label]) => {
       tabs.appendChild(el('button', { 'data-tab': k, onclick: () => setTab(k) }, label));
     });
 
@@ -159,26 +160,26 @@ function openComposer() {
       onchange: (e) => { addFiles([...e.currentTarget.files]); e.currentTarget.value = ''; },
     });
     const drop = el('div', { class: 'drop', style: 'padding:26px', onclick: () => input.click() },
-      el('div', { style: 'font-weight:600', text: 'Choose photos or videos' }));
+      el('div', { style: 'font-weight:600', text: t('choose_files') }));
     paneUpload.append(input, drop);
 
     const libGrid = el('div', { class: 'lib-grid' });
-    const libHint = el('div', { class: 'muted', style: 'font-size:14px;padding:8px 2px', text: 'Loading…' });
+    const libHint = el('div', { class: 'muted', style: 'font-size:14px;padding:8px 2px', text: t('loading') });
     paneLib.append(libHint, libGrid);
 
     const strip = el('div', { class: 'picked-strip' });
-    const caption = el('textarea', { class: 'textarea', placeholder: 'Write a caption…', maxlength: '2200' });
+    const caption = el('textarea', { class: 'textarea', placeholder: t('caption_ph'), maxlength: '2200' });
     const vis = el('select', { class: 'select' },
-      el('option', { value: 'public' }, 'Public'),
-      el('option', { value: 'friends' }, 'Friends only'),
-      el('option', { value: 'private' }, 'Only me'));
-    const publish = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:18px', onclick: submit }, 'Share');
+      el('option', { value: 'public' }, t('vis_public')),
+      el('option', { value: 'friends' }, t('friends_only')),
+      el('option', { value: 'private' }, t('only_me')));
+    const publish = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:18px', onclick: submit }, t('share'));
 
     box.append(tabs, paneUpload, paneLib, strip,
-      el('div', { class: 'form-row', style: 'margin-top:16px' }, el('label', { class: 'label', text: 'Caption' }), caption),
-      el('div', { class: 'form-row' }, el('label', { class: 'label', text: 'Who can see it' }), vis),
+      el('div', { class: 'form-row', style: 'margin-top:16px' }, el('label', { class: 'label', text: t('caption') }), caption),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('who_can_see') }), vis),
       publish,
-      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, 'Cancel'));
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
     setTab('upload');
 
     /* --- выбранные слайды --- */
@@ -203,7 +204,7 @@ function openComposer() {
 
     async function addMedia(media) {
       if (picked.some(x => x.id === media.id)) return;
-      if (picked.length >= LIMITS.slides) { toast(`Maximum ${LIMITS.slides} slides`); return; }
+      if (picked.length >= LIMITS.slides) { toast(t('max_slides', { n: LIMITS.slides })); return; }
       if (!thumbUrls[media.id]) {
         const u = await signUrls([media.thumb_path, media.storage_path]);
         thumbUrls[media.id] = u[media.thumb_path] || u[media.storage_path];
@@ -214,9 +215,9 @@ function openComposer() {
 
     async function addFiles(files) {
       for (const f of files) {
-        if (picked.length >= LIMITS.slides) { toast(`Maximum ${LIMITS.slides} slides`); break; }
+        if (picked.length >= LIMITS.slides) { toast(t('max_slides', { n: LIMITS.slides })); break; }
         const k = kindOf(f);
-        if (k !== 'photo' && k !== 'video') { toast('Photos and videos only'); continue; }
+        if (k !== 'photo' && k !== 'video') { toast(t('photos_videos_only')); continue; }
         const ph = el('div', {
           class: 'skel',
           style: 'width:76px;height:76px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#6E6A63;text-align:center',
@@ -233,7 +234,7 @@ function openComposer() {
           await addMedia(media);
         } catch (err) {
           ph.remove();
-          toast(err.message || 'Upload failed');
+          toast(err.message || t('upload_failed'));
         }
       }
     }
@@ -242,23 +243,23 @@ function openComposer() {
     let libItems = [], libLoaded = false;
     async function loadLibrary() {
       if (libLoaded) { markLibrary(); return; }
-      libHint.textContent = 'Loading…';
+      libHint.textContent = t('loading');
       const { data, error } = await sb.rpc('my_media', { p_limit: 120, p_offset: 0 });
-      if (error) { libHint.textContent = 'Could not load your library'; return; }
+      if (error) { libHint.textContent = t('lib_error'); return; }
       libItems = (data || []).filter(m => m.kind !== 'audio');
       if (!libItems.length) {
-        libHint.textContent = 'Nothing uploaded yet — add files on the other tab.';
+        libHint.textContent = t('lib_empty');
         clear(libGrid);
         return;
       }
-      libHint.textContent = 'Tap to add — the number shows the slide order.';
+      libHint.textContent = t('lib_hint');
       const urls = await signUrls(libItems.flatMap(m => [m.thumb_path, m.storage_path]));
       clear(libGrid);
       libItems.forEach(m => {
         const src = urls[m.thumb_path] || urls[m.storage_path];
         const cell = el('div', { class: 'lib-cell', 'data-id': m.id, onclick: () => toggle(m) });
         if (src) cell.appendChild(el('img', { src, alt: '', loading: 'lazy' }));
-        if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: 'VIDEO' }));
+        if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: t('video_tag') }));
         libGrid.appendChild(cell);
       });
       libLoaded = true;
@@ -282,7 +283,7 @@ function openComposer() {
     }
 
     async function submit() {
-      if (!picked.length) { toast('Add at least one photo or video'); return; }
+      if (!picked.length) { toast(t('add_one_file')); return; }
       publish.disabled = true;
       clear(publish).appendChild(el('span', { class: 'spinner' }));
       try {
@@ -296,12 +297,12 @@ function openComposer() {
         const r = await sb.from('post_media').insert(rows);
         if (r.error) throw r.error;
         close();
-        toast('Posted');
+        toast(t('posted'));
         offset = 0; done = false; clear(col); load();
       } catch (err) {
-        toast(err.message || 'Could not post');
+        toast(err.message || t('post_error'));
         publish.disabled = false;
-        clear(publish).appendChild(document.createTextNode('Share'));
+        clear(publish).appendChild(document.createTextNode(t('share')));
       }
     }
   }, { wide: true });

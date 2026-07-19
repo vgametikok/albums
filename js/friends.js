@@ -1,27 +1,28 @@
 // Друзья: входящие заявки, отправленные, список друзей, поиск людей.
 import { sb, isAuthed } from './sb.js';
-import { el, $, clear, mountShell, avatarImg, toast, showLogin, emptyState } from './ui.js';
+import { el, $, clear, mountShell, avatarImg, toast, showLogin, emptyState, t } from './ui.js';
 
 const app = $('#app');
 
 (async function main() {
   await mountShell('friends');
   if (!isAuthed()) {
-    app.appendChild(emptyState('Sign in to see friends', 'Friend lists are private to you.',
-      el('button', { class: 'btn btn-primary', onclick: () => showLogin('Sign in to manage friends') }, 'Sign in')));
+    app.appendChild(emptyState(t('friends_signin_title'), t('friends_signin_text'),
+      el('button', { class: 'btn btn-primary', onclick: () => showLogin(t('signin_to_friend')) }, t('sign_in'))));
     return;
   }
+  document.title = t('friends_title') + ' — Albums';
   render();
 })();
 
 async function render() {
   clear(app);
-  app.appendChild(el('h1', { style: 'font-size:34px;font-weight:800;letter-spacing:-.03em;margin:6px 0 24px', text: 'Friends' }));
+  app.appendChild(el('h1', { style: 'font-size:34px;font-weight:800;letter-spacing:-.03em;margin:6px 0 24px', text: t('friends_title') }));
 
   /* ---- поиск людей ---- */
   const results = el('div', { class: 'stack', style: 'margin-bottom:12px' });
   const q = el('input', {
-    class: 'input', placeholder: 'Find people by name or @username',
+    class: 'input', placeholder: t('find_people_ph'),
     oninput: (e) => { clearTimeout(q._t); q._t = setTimeout(() => search(e.currentTarget.value.trim()), 300); },
   });
   app.append(el('div', { class: 'form-row', style: 'max-width:520px' }, q, results));
@@ -31,17 +32,17 @@ async function render() {
     if (text.length < 2) return;
     const { data } = await sb.rpc('search_all', { p_q: text });
     const people = data?.people || [];
-    if (!people.length) { results.appendChild(el('div', { class: 'muted', style: 'font-size:14.5px', text: 'Nobody found' })); return; }
+    if (!people.length) { results.appendChild(el('div', { class: 'muted', style: 'font-size:14.5px', text: t('nobody_found') })); return; }
     people.forEach(p => results.appendChild(personRow(p, [
       el('button', {
         class: 'mini', onclick: async (e) => {
           const r = await sb.rpc('friend_request', { p_username: p.username });
           if (r.error) { toast(r.error.message); return; }
-          e.currentTarget.textContent = r.data?.state === 'friends' ? 'Friends ✓' : 'Sent';
+          e.currentTarget.textContent = r.data?.state === 'friends' ? t('friends_yes') : t('sent_short');
           e.currentTarget.disabled = true;
           load();
         },
-      }, 'Add friend'),
+      }, t('add_friend')),
     ])));
   }
 
@@ -51,42 +52,42 @@ async function render() {
 
   async function load() {
     const { data, error } = await sb.rpc('my_friends');
-    if (error) { clear(box).appendChild(emptyState('Could not load', error.message)); return; }
+    if (error) { clear(box).appendChild(emptyState(t('friends_load_error'), error.message)); return; }
     clear(box);
-    section('Requests to you', data.incoming || [], (p) => [
+    section(t('requests_to_you'), data.incoming || [], (p) => [
       el('button', {
         class: 'btn btn-primary btn-sm', onclick: async () => {
           const r = await sb.rpc('friend_respond', { p_username: p.username, p_accept: true });
-          if (r.error) toast(r.error.message); else { toast('Now friends'); load(); }
+          if (r.error) toast(r.error.message); else { toast(t('now_friends')); load(); }
         },
-      }, 'Accept'),
+      }, t('accept')),
       el('button', {
         class: 'mini', onclick: async () => {
           const r = await sb.rpc('friend_respond', { p_username: p.username, p_accept: false });
           if (r.error) toast(r.error.message); else load();
         },
-      }, 'Decline'),
+      }, t('decline')),
     ]);
-    section('Sent', data.sent || [], (p) => [
+    section(t('sent_section'), data.sent || [], (p) => [
       el('button', {
         class: 'mini', onclick: async () => {
           const r = await sb.rpc('friend_remove', { p_username: p.username });
           if (r.error) toast(r.error.message); else load();
         },
-      }, 'Cancel'),
+      }, t('cancel')),
     ]);
-    section('Your friends', data.friends || [], (p) => [
+    section(t('your_friends'), data.friends || [], (p) => [
       el('button', {
         class: 'mini danger', onclick: async () => {
-          if (!confirm(`Remove ${p.name || p.username} from friends?`)) return;
+          if (!confirm(t('remove_friend_q', { name: p.name || p.username }))) return;
           const r = await sb.rpc('friend_remove', { p_username: p.username });
           if (r.error) toast(r.error.message); else load();
         },
-      }, 'Remove'),
+      }, t('remove')),
     ]);
 
     if (!(data.friends || []).length && !(data.incoming || []).length && !(data.sent || []).length) {
-      box.appendChild(emptyState('No friends yet', 'Search for people above and send a request.'));
+      box.appendChild(emptyState(t('no_friends_title'), t('no_friends_text')));
     }
 
     function section(title, list, actions) {

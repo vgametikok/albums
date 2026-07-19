@@ -10,6 +10,7 @@
 import { sb, currentUser } from './sb.js';
 import { LIMITS } from './config.js';
 import { canTranscode, needsTranscode, transcodeToMp4 } from './transcode.js';
+import { t } from './i18n.js';
 
 const MAX_EDGE = 2560;
 const THUMB_EDGE = 640;
@@ -24,10 +25,10 @@ const EXT = {
 
 /** Тип файла. HEIC часто приходит с пустым file.type — поэтому смотрим и на расширение. */
 export function kindOf(file) {
-  const t = (file.type || '').toLowerCase();
-  if (t.startsWith('image/')) return 'photo';
-  if (t.startsWith('video/')) return 'video';
-  if (t.startsWith('audio/')) return 'audio';
+  const mime = (file.type || '').toLowerCase();
+  if (mime.startsWith('image/')) return 'photo';
+  if (mime.startsWith('video/')) return 'video';
+  if (mime.startsWith('audio/')) return 'audio';
   const n = (file.name || '').toLowerCase();
   if (/\.(heic|heif|jpe?g|png|webp|gif|bmp|avif)$/.test(n)) return 'photo';
   if (/\.(mp4|webm|mov|m4v)$/.test(n)) return 'video';
@@ -36,8 +37,8 @@ export function kindOf(file) {
 }
 
 export function isHeic(file) {
-  const t = (file.type || '').toLowerCase();
-  if (t.startsWith('image/heic') || t.startsWith('image/heif')) return true;
+  const mime = (file.type || '').toLowerCase();
+  if (mime.startsWith('image/heic') || mime.startsWith('image/heif')) return true;
   return /\.(heic|heif)$/i.test(file.name || '');
 }
 
@@ -70,7 +71,7 @@ async function decode(file, onStage) {
     try {
       src = await heicToJpeg(file);
     } catch (e) {
-      throw new Error('Не удалось прочитать HEIC. Включите на айфоне «Наиболее совместимый» формат.');
+      throw new Error(t('err_heic'));
     }
   }
   return createImageBitmap(src, { imageOrientation: 'from-image' });
@@ -86,7 +87,7 @@ async function encodeFrom(bmp, maxEdge, quality) {
   c.getContext('2d').drawImage(bmp, 0, 0, w, h);
   const type = (await webpSupported()) ? 'image/webp' : 'image/jpeg';
   const blob = await new Promise(r => c.toBlob(r, type, quality));
-  if (!blob) throw new Error('Не удалось обработать изображение');
+  if (!blob) throw new Error(t('err_image_process'));
   return { blob, width: w, height: h };
 }
 
@@ -97,8 +98,8 @@ async function videoMeta(file) {
     v.preload = 'metadata'; v.muted = true; v.playsInline = true; v.src = url;
     await new Promise((res, rej) => {
       v.onloadeddata = res;
-      v.onerror = () => rej(new Error('Браузер не смог открыть это видео (возможно, HEVC с айфона)'));
-      setTimeout(() => rej(new Error('Видео читается слишком долго')), 20000);
+      v.onerror = () => rej(new Error(t('err_video_open')));
+      setTimeout(() => rej(new Error(t('err_video_slow'))), 20000);
     });
     const duration = isFinite(v.duration) ? v.duration : null;
     try {
@@ -124,7 +125,7 @@ async function audioDuration(file) {
     a.preload = 'metadata'; a.src = url;
     await new Promise((res, rej) => {
       a.onloadedmetadata = res;
-      a.onerror = () => rej(new Error('Не удалось прочитать аудио'));
+      a.onerror = () => rej(new Error(t('err_audio')));
       setTimeout(res, 8000);
     });
     return isFinite(a.duration) ? a.duration : null;
@@ -139,11 +140,11 @@ async function audioDuration(file) {
  */
 export async function uploadMedia(file, onStage) {
   const user = currentUser();
-  if (!user) throw new Error('Сначала войдите');
+  if (!user) throw new Error(t('err_signin_first'));
   const kind = kindOf(file);
-  if (!kind) throw new Error(`${file.name}: неподдерживаемый формат`);
+  if (!kind) throw new Error(t('err_unsupported', { name: file.name }));
   if (file.size > LIMITS[kind]) {
-    throw new Error(`${file.name}: слишком большой файл (максимум ${Math.round(LIMITS[kind] / 1048576)} МБ)`);
+    throw new Error(t('err_too_large', { name: file.name, mb: Math.round(LIMITS[kind] / 1048576) }));
   }
 
   const id = crypto.randomUUID();
@@ -167,10 +168,10 @@ export async function uploadMedia(file, onStage) {
     if (canTranscode() && await needsTranscode(file)) {
       onStage && onStage('transcoding', 0);
       try {
-        const t = await transcodeToMp4(file, (p) => onStage && onStage('transcoding', p));
-        if (t) {
-          body = new File([t.blob], 'video.mp4', { type: 'video/mp4' });
-          width = t.width; height = t.height; duration = t.duration;
+        const out = await transcodeToMp4(file, (p) => onStage && onStage('transcoding', p));
+        if (out) {
+          body = new File([out.blob], 'video.mp4', { type: 'video/mp4' });
+          width = out.width; height = out.height; duration = out.duration;
         }
       } catch (_) { /* не вышло — грузим оригинал как есть */ }
     }
@@ -214,8 +215,8 @@ export async function uploadMedia(file, onStage) {
 /** Аватар/баннер — публичный бакет, стабильный URL. */
 export async function uploadAvatar(file, which = 'avatar') {
   const user = currentUser();
-  if (!user) throw new Error('Сначала войдите');
-  if (kindOf(file) !== 'photo') throw new Error('Только изображения');
+  if (!user) throw new Error(t('err_signin_first'));
+  if (kindOf(file) !== 'photo') throw new Error(t('err_images_only'));
   const bmp = await decode(file);
   let out;
   try {

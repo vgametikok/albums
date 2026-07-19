@@ -1,7 +1,7 @@
 // Редактор альбома: медиа, главы, обложка, видимость (включая «друзьям кроме…»).
 import { sb, currentUser, isAuthed } from './sb.js';
 import { CATEGORIES } from './config.js';
-import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg } from './ui.js';
+import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t } from './ui.js';
 import { uploadMedia } from './upload.js';
 
 const app = $('#app');
@@ -19,11 +19,12 @@ let isOwner = true;        // владелец или соавтор (у соа�
 (async function main() {
   await mountShell('home');
   if (!isAuthed()) {
-    app.appendChild(emptyState('Sign in to create albums', 'Albums are tied to your account.',
-      el('button', { class: 'btn btn-primary', onclick: () => showLogin('Sign in to create albums') }, 'Sign in')));
+    app.appendChild(emptyState(t('editor_signin_title'), t('editor_signin_text'),
+      el('button', { class: 'btn btn-primary', onclick: () => showLogin(t('editor_signin_title')) }, t('sign_in'))));
     return;
   }
 
+  document.title = (albumId ? t('edit_album') : t('new_album_title')) + ' — Albums';
   const mf = await sb.rpc('my_friends');
   friends = mf.data?.friends || [];
 
@@ -33,7 +34,7 @@ let isOwner = true;        // владелец или соавтор (у соа�
       sb.from('album_chapters').select('*').eq('album_id', albumId).order('position'),
       sb.from('album_media').select('id,chapter_id,position,caption,is_private,media:media_id(*)').eq('album_id', albumId).order('position'),
     ]);
-    if (a.error || !a.data) { app.appendChild(emptyState('Album not found', 'It may have been deleted.')); return; }
+    if (a.error || !a.data) { app.appendChild(emptyState(t('album_not_found'), t('album_not_found_text'))); return; }
     album = a.data; chapters = ch.data || []; items = im.data || [];
     isOwner = album.author_id === currentUser().id;
     const co = await sb.from('album_collaborators')
@@ -73,11 +74,11 @@ function currentVisibility() {
 function render() {
   clear(app);
   app.appendChild(el('a', { class: 'back', href: albumId ? `album.html?id=${albumId}` : 'index.html' },
-    icon('back', 16, { sw: 2 }), albumId ? 'Back to album' : 'Back to feed'));
+    icon('back', 16, { sw: 2 }), albumId ? t('back_to_album') : t('back_to_feed')));
 
   app.appendChild(el('h1', {
     style: 'font-size:34px;font-weight:800;letter-spacing:-.03em;margin:6px 0 28px',
-    text: albumId ? 'Edit album' : 'New album',
+    text: albumId ? t('edit_album') : t('new_album_title'),
   }));
 
   const cols = el('div', { class: 'editor-cols' });
@@ -88,22 +89,22 @@ function render() {
 
   /* ---- основное ---- */
   left.appendChild(el('div', { class: 'form-row' },
-    el('label', { class: 'label', for: 'f-title', text: 'Title' }),
-    el('input', { class: 'input', id: 'f-title', maxlength: '120', placeholder: 'Two Weeks in Lisbon', value: album?.title || '' })));
+    el('label', { class: 'label', for: 'f-title', text: t('f_title') }),
+    el('input', { class: 'input', id: 'f-title', maxlength: '120', placeholder: t('f_title_ph'), value: album?.title || '' })));
 
   left.appendChild(el('div', { class: 'form-row' },
-    el('label', { class: 'label', for: 'f-desc', text: 'Description' }),
-    el('textarea', { class: 'textarea', id: 'f-desc', maxlength: '2000', placeholder: 'What is this album about?' }, album?.description || '')));
+    el('label', { class: 'label', for: 'f-desc', text: t('f_desc') }),
+    el('textarea', { class: 'textarea', id: 'f-desc', maxlength: '2000', placeholder: t('f_desc_ph') }, album?.description || '')));
 
   const catSel = el('select', { class: 'select', id: 'f-cat' },
     el('option', { value: '' }, '—'),
-    ...CATEGORIES.map(c => el('option', { value: c, selected: album?.category === c ? 'selected' : null }, c)));
-  left.appendChild(el('div', { class: 'form-row' }, el('label', { class: 'label', text: 'Category' }), catSel));
+    ...CATEGORIES.map(c => el('option', { value: c, selected: album?.category === c ? 'selected' : null }, t('cat_' + c))));
+  left.appendChild(el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_category') }), catSel));
 
   /* ---- медиа ---- */
   left.appendChild(el('div', { class: 'section-head', style: 'margin:36px 0 16px' },
-    el('h2', { text: 'Media' }),
-    el('span', { class: 'muted', style: 'font-size:14.5px', text: 'Photos, videos and voice notes' })));
+    el('h2', { text: t('media_section') }),
+    el('span', { class: 'muted', style: 'font-size:14.5px', text: t('media_hint') })));
 
   const fileInput = el('input', {
     type: 'file', multiple: 'multiple', class: 'hide',
@@ -116,8 +117,8 @@ function render() {
     ondragover: (e) => { e.preventDefault(); drop.classList.add('over'); },
     ondragleave: () => drop.classList.remove('over'),
     ondrop: (e) => { e.preventDefault(); drop.classList.remove('over'); addFiles([...e.dataTransfer.files]); },
-  }, el('div', { style: 'font-size:17px;font-weight:600', text: 'Drop files here or click to choose' }),
-     el('div', { style: 'font-size:14.5px;margin-top:6px', text: 'JPG/PNG/HEIC/WebP · MP4/WebM · MP3/M4A' }));
+  }, el('div', { style: 'font-size:17px;font-weight:600', text: t('drop_hint') }),
+     el('div', { style: 'font-size:14.5px;margin-top:6px', text: t('drop_formats') }));
   left.append(fileInput, drop);
 
   const mlist = el('div', { class: 'mlist', id: 'mlist' });
@@ -126,8 +127,8 @@ function render() {
 
   /* ---- главы ---- */
   left.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
-    el('h2', { text: 'Chapters' }),
-    el('button', { class: 'btn btn-ghost btn-sm', onclick: addChapter }, 'Add chapter')));
+    el('h2', { text: t('chapters') }),
+    el('button', { class: 'btn btn-ghost btn-sm', onclick: addChapter }, t('add_chapter'))));
   const clist = el('div', { id: 'clist' });
   left.appendChild(clist);
   drawChapters(clist);
@@ -135,9 +136,9 @@ function render() {
   /* ---- сайдбар: видимость + соавторы + действия ---- */
   if (isOwner) right.appendChild(visibilityBox());
   else right.appendChild(el('div', { class: 'side-card' },
-    el('div', { class: 'label', text: 'Совместный альбом' }),
+    el('div', { class: 'label', text: t('collab_note_title') }),
     el('div', { class: 'muted', style: 'font-size:14.5px;line-height:1.5;margin-top:6px',
-      text: 'Вы соавтор: можно добавлять и убирать медиа, править главы и описание. Видимость и публикацию меняет владелец.' })));
+      text: t('collab_note_text') })));
   right.appendChild(collaboratorsBox());
   right.appendChild(actionsBox());
 }
@@ -145,14 +146,14 @@ function render() {
 /* ---------------------------------------------------------------- соавторы */
 function collaboratorsBox() {
   const box = el('div', { class: 'side-card', style: 'margin-top:18px' },
-    el('div', { class: 'label', text: 'Соавторы' }));
+    el('div', { class: 'label', text: t('collaborators') }));
   const list = el('div', { class: 'stack', style: 'margin-top:10px' });
 
   const draw = () => {
     clear(list);
     if (!collaborators.length) {
       list.appendChild(el('div', { class: 'muted', style: 'font-size:14px',
-        text: 'Пока никого. Соавтор может наполнять альбом вместе с вами.' }));
+        text: t('collab_empty') }));
     }
     collaborators.forEach(c => {
       const row = el('div', { style: 'display:flex;gap:10px;align-items:center' },
@@ -166,7 +167,7 @@ function collaboratorsBox() {
             collaborators = collaborators.filter(x => x.username !== c.username);
             draw();
           },
-        }, 'Убрать'));
+        }, t('remove')));
       }
       list.appendChild(row);
     });
@@ -176,7 +177,7 @@ function collaboratorsBox() {
 
   if (isOwner) {
     const pick = el('select', { class: 'select', style: 'height:40px;font-size:14.5px;margin-top:12px' },
-      el('option', { value: '' }, 'Добавить друга…'));
+      el('option', { value: '' }, t('add_friend_opt')));
     friends.forEach(f => {
       if (collaborators.some(c => c.username === f.username)) return;
       pick.appendChild(el('option', { value: f.username }, f.name || f.username));
@@ -192,15 +193,15 @@ function collaboratorsBox() {
         const f = friends.find(x => x.username === u);
         collaborators.push({ username: u, display_name: f?.name || u, avatar_url: f?.avatar });
         draw();
-        toast('Соавтор добавлен');
+        toast(t('collab_added'));
       } catch (err) {
-        toast(err.message || 'Не удалось добавить');
+        toast(err.message || t('collab_add_error'));
       }
     };
     box.append(pick, el('div', {
       class: 'muted', style: 'font-size:13px;margin-top:8px;line-height:1.4',
-      text: friends.length ? 'Соавтором можно сделать только друга.'
-                           : 'Сначала добавьтесь с человеком в друзья.',
+      text: friends.length ? t('collab_only_friend')
+                           : t('collab_need_friends'),
     }));
   }
   return box;
@@ -208,17 +209,17 @@ function collaboratorsBox() {
 
 /* ---------------------------------------------------------------- медиа */
 const STAGE_TEXT = {
-  converting: 'Converting from HEIC…',
-  transcoding: 'Converting video to MP4…',
-  processing: 'Processing…',
-  uploading: 'Uploading…',
+  get converting() { return t('stage_heic'); },
+  get transcoding() { return t('stage_video'); },
+  get processing() { return t('stage_processing'); },
+  get uploading() { return t('stage_uploading'); },
 };
 
 async function addFiles(files) {
   if (!files.length) return;
   const host = $('#mlist');
   for (const f of files) {
-    const status = el('div', { class: 'muted', text: `${f.name} — queued` });
+    const status = el('div', { class: 'muted', text: `${f.name} — ${t('queued')}` });
     const row = el('div', { class: 'mitem' },
       el('div', { class: 'skel', style: 'width:88px;height:66px;border-radius:10px' }),
       el('div', { class: 'grow' }, status));
@@ -263,7 +264,7 @@ function refreshBusy() {
 async function drawMedia(host) {
   clear(host);
   if (!items.length) {
-    host.appendChild(el('div', { class: 'muted', style: 'padding:14px 2px', text: 'No media yet.' }));
+    host.appendChild(el('div', { class: 'muted', style: 'padding:14px 2px', text: t('no_media') }));
     return;
   }
   items.sort((a, b) => a.position - b.position);
@@ -281,14 +282,14 @@ async function drawMedia(host) {
       it.chapter_id = v;
       await sb.from('album_media').update({ chapter_id: v }).eq('id', it.id);
     } },
-      el('option', { value: '' }, 'No chapter'),
+      el('option', { value: '' }, t('no_chapter_opt')),
       ...chapters.map(c => el('option', {
         value: c.id, selected: it.chapter_id === c.id ? 'selected' : null,
-      }, c.label || c.title || 'Chapter')));
+      }, c.label || c.title || t('chapters'))));
 
     const cap = el('input', {
       class: 'input', style: 'height:36px;padding:0 12px;font-size:14px;border-radius:10px',
-      placeholder: m.kind === 'audio' ? 'Voice note title' : 'Caption', maxlength: '500', value: it.caption || '',
+      placeholder: m.kind === 'audio' ? t('voice_ph') : t('cap_ph'), maxlength: '500', value: it.caption || '',
       onchange: async (e) => {
         it.caption = e.currentTarget.value;
         await sb.from('album_media').update({ caption: it.caption }).eq('id', it.id);
@@ -303,29 +304,29 @@ async function drawMedia(host) {
         style: album?.cover_media_id === m.id ? 'border-color:var(--accent);color:var(--accent)' : null,
         onclick: async () => {
           await sb.from('albums').update({ cover_media_id: m.id }).eq('id', albumId);
-          album.cover_media_id = m.id; drawMedia(host); toast('Cover updated');
+          album.cover_media_id = m.id; drawMedia(host); toast(t('changes_saved'));
         },
-      }, album?.cover_media_id === m.id ? 'Cover ✓' : 'Set cover') : null,
+      }, album?.cover_media_id === m.id ? t('cover_set') : t('set_cover')) : null,
       el('button', {
         class: 'mini',
         style: it.is_private ? 'border-color:var(--accent);color:var(--accent)' : null,
-        title: 'Приватный файл виден только вам и соавторам, даже если альбом опубликован',
+        title: t('private_hint'),
         onclick: async (e) => {
           const next = !it.is_private;
           const { error } = await sb.from('album_media').update({ is_private: next }).eq('id', it.id);
           if (error) { toast(error.message); return; }
           it.is_private = next;
           drawMedia(host);
-          toast(next ? 'Файл скрыт от зрителей' : 'Файл снова виден');
+          toast(next ? t('private_on') : t('private_off'));
         },
-      }, it.is_private ? '🔒 Приватный' : 'Сделать приватным'),
+      }, it.is_private ? t('is_private') : t('make_private')),
       el('button', {
         class: 'mini danger', onclick: async () => {
           await sb.from('album_media').delete().eq('id', it.id);
           items = items.filter(x => x.id !== it.id);
           drawMedia(host);
         },
-      }, 'Remove'));
+      }, t('remove')));
 
     host.appendChild(el('div', { class: 'mitem' }, th, el('div', { class: 'grow' }, cap, row)));
   });
@@ -360,7 +361,7 @@ async function addChapter() {
 function drawChapters(host) {
   clear(host);
   if (!chapters.length) {
-    host.appendChild(el('div', { class: 'muted', style: 'padding:4px 2px', text: 'No chapters — media will show as one flow.' }));
+    host.appendChild(el('div', { class: 'muted', style: 'padding:4px 2px', text: t('no_chapters') }));
     return;
   }
   chapters.sort((a, b) => a.position - b.position);
@@ -369,11 +370,11 @@ function drawChapters(host) {
     host.appendChild(el('div', { class: 'chapter-edit' },
       el('div', { class: 'row', style: 'display:flex;gap:10px;margin-bottom:10px' },
         el('input', {
-          class: 'input', style: 'height:40px;max-width:180px;font-size:14px', placeholder: 'DAY 1–3',
+          class: 'input', style: 'height:40px;max-width:180px;font-size:14px', placeholder: t('chapter_label_ph'),
           maxlength: '40', value: c.label || '', onchange: (e) => save({ label: e.currentTarget.value }),
         }),
         el('input', {
-          class: 'input', style: 'height:40px;font-size:15px', placeholder: 'Chapter title', maxlength: '120',
+          class: 'input', style: 'height:40px;font-size:15px', placeholder: t('chapter_title_ph'), maxlength: '120',
           value: c.title || '', onchange: (e) => save({ title: e.currentTarget.value }),
         }),
         el('button', {
@@ -383,9 +384,9 @@ function drawChapters(host) {
             items.forEach(i => { if (i.chapter_id === c.id) i.chapter_id = null; });
             drawChapters(host); drawMedia($('#mlist'));
           },
-        }, 'Delete')),
+        }, t('delete'))),
       el('textarea', {
-        class: 'textarea', style: 'min-height:70px;font-size:15px', placeholder: 'Text of this chapter…',
+        class: 'textarea', style: 'min-height:70px;font-size:15px', placeholder: t('chapter_body_ph'),
         maxlength: '4000', onchange: (e) => save({ body: e.currentTarget.value }),
       }, c.body || '')));
   });
@@ -393,7 +394,7 @@ function drawChapters(host) {
 
 /* ---------------------------------------------------------------- видимость */
 function visibilityBox() {
-  const box = el('div', { class: 'side-card' }, el('div', { class: 'label', text: 'Who can see it' }));
+  const box = el('div', { class: 'side-card' }, el('div', { class: 'label', text: t('who_can_see') }));
   const initial = album
     ? (album.visibility === 'friends' && excluded.size ? 'friends_except' : album.visibility)
     : 'private';
@@ -405,10 +406,10 @@ function visibilityBox() {
   const drawExcept = () => {
     clear(exceptBox);
     if (!friends.length) {
-      exceptBox.appendChild(el('div', { class: 'muted', style: 'font-size:14px', text: 'You have no friends yet.' }));
+      exceptBox.appendChild(el('div', { class: 'muted', style: 'font-size:14px', text: t('no_friends_yet') }));
       return;
     }
-    exceptBox.appendChild(el('div', { class: 'muted', style: 'font-size:13.5px;margin-bottom:8px', text: 'Tick the friends who should NOT see it:' }));
+    exceptBox.appendChild(el('div', { class: 'muted', style: 'font-size:13.5px;margin-bottom:8px', text: t('except_hint') }));
     friends.forEach(f => {
       const cb = el('input', {
         type: 'checkbox', checked: excluded.has(f.username) ? 'checked' : null,
@@ -421,10 +422,10 @@ function visibilityBox() {
   drawExcept();
 
   const opts = [
-    ['public', 'Public', 'Anyone can find and open it'],
-    ['friends', 'Friends', 'Only people you are friends with'],
-    ['friends_except', 'Friends, except…', 'Friends minus the people you pick'],
-    ['private', 'Only me', 'Nobody else can open it'],
+    ['public', t('vis_public'), t('vis_public_d')],
+    ['friends', t('vis_friends'), t('vis_friends_d')],
+    ['friends_except', t('vis_except'), t('vis_except_d')],
+    ['private', t('vis_private'), t('vis_private_d')],
   ];
   const wrap = el('div', { class: 'vis-opts', style: 'margin-top:10px' });
   opts.forEach(([val, title, sub]) => {
@@ -448,14 +449,14 @@ function actionsBox() {
   const box = el('div', { class: 'side-card', style: 'margin-top:18px' });
   const status = el('div', { class: 'muted', style: 'font-size:14px;margin-bottom:12px' });
   const setStatus = () => {
-    status.textContent = !albumId ? 'Not saved yet'
-      : album?.published_at ? 'Published' : 'Draft — only you can see it';
+    status.textContent = !albumId ? t('not_saved')
+      : album?.published_at ? t('status_published') : t('status_draft');
   };
   setStatus();
 
   const publishBtn = el('button', { class: 'btn btn-primary', style: 'width:100%', 'data-needs-ready': '1' },
-    !isOwner || album?.published_at ? 'Save changes' : 'Publish');
-  const draftBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, 'Save draft');
+    !isOwner || album?.published_at ? t('save_changes') : t('publish'));
+  const draftBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, t('save_draft'));
   const busyNote = el('div', {
     id: 'busy-note', class: 'muted hide',
     style: 'font-size:13.5px;margin-top:10px;line-height:1.4',
@@ -472,28 +473,28 @@ function actionsBox() {
         class: 'mini', style: 'width:100%;margin-top:10px;height:40px',
         onclick: async () => {
           await sb.from('albums').update({ published_at: null }).eq('id', albumId);
-          album.published_at = null; setStatus(); toast('Moved back to drafts');
+          album.published_at = null; setStatus(); toast(t('moved_to_drafts'));
         },
-      }, 'Unpublish'));
+      }, t('unpublish')));
     }
     box.appendChild(el('button', {
       class: 'mini danger', style: 'width:100%;margin-top:10px;height:40px',
       onclick: async () => {
-        if (!confirm('Delete this album? Media stays in your library.')) return;
+        if (!confirm(t('delete_album_confirm'))) return;
         const { error } = await sb.from('albums').delete().eq('id', albumId);
         if (error) { toast(error.message); return; }
         location.href = 'index.html';
       },
-    }, 'Delete album'));
+    }, t('delete_album')));
   }
   return box;
 }
 
 async function save(publish, btn) {
   if (saving) return;
-  if (publish && busy > 0) { toast('Дождитесь окончания обработки файлов'); return; }
+  if (publish && busy > 0) { toast(t('wait_processing')); return; }
   const title = ($('#f-title').value || '').trim();
-  if (!title) { toast('Give the album a title'); $('#f-title').focus(); return; }
+  if (!title) { toast(t('need_title')); $('#f-title').focus(); return; }
   saving = true;
   const label = btn.textContent;
   clear(btn).appendChild(el('span', { class: 'spinner' }));
@@ -515,7 +516,7 @@ async function save(publish, btn) {
     if (error) throw error;
     Object.assign(album, patch);
 
-    if (!isOwner) { toast('Изменения сохранены'); return; }
+    if (!isOwner) { toast(t('changes_saved')); return; }
 
     // исключения актуальны только для friends + «кроме»
     await sb.from('album_exceptions').delete().eq('album_id', albumId);
@@ -526,10 +527,10 @@ async function save(publish, btn) {
       if (rows.length) await sb.from('album_exceptions').insert(rows);
     }
 
-    toast(publish ? 'Album published' : 'Draft saved');
+    toast(publish ? t('album_published') : t('draft_saved'));
     if (publish) { location.href = `album.html?id=${albumId}`; return; }
   } catch (err) {
-    toast(err.message || 'Could not save');
+    toast(err.message || t('save_error'));
   } finally {
     saving = false;
     clear(btn).appendChild(document.createTextNode(label));

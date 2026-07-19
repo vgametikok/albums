@@ -2,7 +2,7 @@
 import { sb, currentUser } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, icon, playTriangle, toast, needAuth,
-  composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard,
+  composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
 } from './ui.js';
 import { mountComments } from './comments.js';
 
@@ -11,16 +11,15 @@ const id = new URLSearchParams(location.search).get('id');
 
 (async function main() {
   await mountShell('home');
-  if (!id) { app.appendChild(emptyState('No album', 'This link has no album id.')); return; }
+  if (!id) { app.appendChild(emptyState(t('album_no_id'), t('album_no_id_text'))); return; }
 
   app.appendChild(el('div', { class: 'skel', style: 'height:440px;border-radius:22px' }));
   const { data, error } = await sb.rpc('get_album', { p_id: id });
   clear(app);
 
-  if (error) { app.appendChild(emptyState('Could not load', error.message)); return; }
+  if (error) { app.appendChild(emptyState(t('album_load_error'), error.message)); return; }
   if (!data) {
-    app.appendChild(emptyState('Album not available',
-      'It may be private, shared with a different circle, or deleted.'));
+    app.appendChild(emptyState(t('album_unavailable'), t('album_unavailable_text')));
     return;
   }
   render(data);
@@ -40,7 +39,7 @@ async function render(d) {
   const urls = await signUrls(paths);
 
   clear(app);
-  app.appendChild(el('a', { class: 'back', href: 'index.html' }, icon('back', 16, { sw: 2 }), 'Back to feed'));
+  app.appendChild(el('a', { class: 'back', href: 'index.html' }, icon('back', 16, { sw: 2 }), t('back_to_feed')));
 
   /* ---- hero ---- */
   const hero = el('div', { class: 'album-hero' });
@@ -48,15 +47,15 @@ async function render(d) {
 
   const actions = el('div', { style: 'display:flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap' });
   const watchBtn = el('button', { class: 'btn btn-primary', style: 'height:50px', onclick: watch },
-    playTriangle(14), 'Watch album');
+    playTriangle(14), t('watch_album'));
   actions.append(watchBtn, likeBtn(a, d.liked), saveBtn(a, d.saved), shareBtn());
-  if (d.is_author) actions.appendChild(el('a', { class: 'btn btn-ghost', style: 'height:50px', href: `editor.html?id=${a.id}` }, 'Edit'));
+  if (d.is_author) actions.appendChild(el('a', { class: 'btn btn-ghost', style: 'height:50px', href: `editor.html?id=${a.id}` }, t('edit')));
 
   hero.appendChild(el('div', { class: 'hero-card' },
     el('div', { class: 'hero-inner' },
       a.category ? el('div', { class: 'kicker', text: a.category.toUpperCase() }) : null,
       el('div', { class: 'hero-title', text: a.title }),
-      el('div', { class: 'hero-sub', text: `${author.name || author.username} · ${a.published_at ? new Date(a.published_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'Draft'}` }),
+      el('div', { class: 'hero-sub', text: `${author.name || author.username} · ${a.published_at ? new Date(a.published_at).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : t('draft')}` }),
       el('div', { class: 'pill', text: composition(a) }),
       actions)));
   app.appendChild(hero);
@@ -80,7 +79,7 @@ async function render(d) {
       if (m === 'grid') renderGrid(body, all, urls);
       else renderStory(body, d, urls);
     };
-    [['story', 'Story'], ['grid', 'Grid']].forEach(([m, label]) => {
+    [['story', t('view_story')], ['grid', t('view_grid')]].forEach(([m, label]) => {
       toggle.appendChild(el('button', {
         'data-mode': m, onclick: () => setMode(m),
       }, label));
@@ -89,7 +88,7 @@ async function render(d) {
     left.append(modeRow, body);
     setMode(localStorage.getItem('albumView') === 'grid' ? 'grid' : 'story');
   } else {
-    left.appendChild(el('p', { class: 'muted', style: 'margin-top:32px', text: 'This album has no media yet.' }));
+    left.appendChild(el('p', { class: 'muted', style: 'margin-top:32px', text: t('album_no_media') }));
   }
 
   /* ---- сайдбар ---- */
@@ -101,10 +100,10 @@ async function render(d) {
         el('div', { style: 'font-size:17px;font-weight:700', text: author.name || author.username }),
         el('div', { class: 'card-sub', text: '@' + author.username }))),
     el('div', { style: 'margin-top:18px;border-top:1px solid var(--line);padding-top:16px' },
-      stat('In this album', composition(a)),
-      stat('Views', fmtCount(a.views_count)),
-      stat('Likes', fmtCount(a.likes_count)),
-      stat('Published', a.published_at ? timeAgo(a.published_at) : 'Draft'))));
+      stat(t('side_in_album'), composition(a)),
+      stat(t('side_views'), fmtCount(a.views_count)),
+      stat(t('side_likes'), fmtCount(a.likes_count)),
+      stat(t('side_published'), a.published_at ? timeAgo(a.published_at) : t('draft')))));
   right.appendChild(side);
 
   loadMore(side, author.username, a.id, urls);
@@ -116,7 +115,7 @@ async function render(d) {
 
   function watch() {
     const first = all.find(m => m.kind !== 'audio');
-    if (!first) { toast('Nothing to watch yet'); return; }
+    if (!first) { toast(t('nothing_to_watch')); return; }
     lightbox(all.filter(m => m.kind !== 'audio'), urls, 0);
   }
 }
@@ -157,7 +156,7 @@ function renderStory(host, d, urls) {
   }
   if ((d.loose || []).length) {
     const sec = el('div', { class: 'chapter' });
-    if ((d.chapters || []).length) sec.appendChild(el('div', { class: 'kicker kicker-muted', text: 'MORE' }));
+    if ((d.chapters || []).length) sec.appendChild(el('div', { class: 'kicker kicker-muted', text: t('more').toUpperCase() }));
     appendMedia(sec, d.loose, urls);
     host.appendChild(sec);
   }
@@ -286,7 +285,7 @@ function audioRow(m, urls) {
 
   return el('div', { class: 'audio-row' }, btn, wave,
     el('div', { style: 'text-align:right;flex-shrink:0' },
-      el('div', { style: 'font-size:15px;font-weight:600', text: m.caption || 'Voice note' }),
+      el('div', { style: 'font-size:15px;font-weight:600', text: m.caption || t('voice_note') }),
       el('div', { style: 'font-size:13.5px;color:var(--faint);margin-top:2px', text: dur(m.duration) })),
     audio);
 }
@@ -353,14 +352,14 @@ function likeBtn(a, liked) {
     b.appendChild(icon('heart', 20, { fill: on ? '#E8552B' : 'none', stroke: on ? '#E8552B' : '#141414' }));
   };
   b.onclick = async () => {
-    if (!needAuth('Sign in to like albums')) return;
+    if (!needAuth(t('signin_to_like'))) return;
     const uid = currentUser().id;
     on = !on; paint();
     const q = on
       ? sb.from('likes').insert({ subject_type: 'album', subject_id: a.id, user_id: uid })
       : sb.from('likes').delete().eq('subject_type', 'album').eq('subject_id', a.id).eq('user_id', uid);
     const { error } = await q;
-    if (error) { on = !on; paint(); toast('Could not update like'); }
+    if (error) { on = !on; paint(); toast(t('like_error')); }
   };
   paint();
   return b;
@@ -375,14 +374,14 @@ function saveBtn(a, saved) {
     b.appendChild(icon('bookmark', 19, { fill: on ? '#E8552B' : 'none', stroke: on ? '#E8552B' : '#141414' }));
   };
   b.onclick = async () => {
-    if (!needAuth('Sign in to save albums')) return;
+    if (!needAuth(t('signin_to_save'))) return;
     const uid = currentUser().id;
     on = !on; paint();
     const q = on
       ? sb.from('saves').insert({ album_id: a.id, user_id: uid })
       : sb.from('saves').delete().eq('album_id', a.id).eq('user_id', uid);
     const { error } = await q;
-    if (error) { on = !on; paint(); toast('Could not update'); }
+    if (error) { on = !on; paint(); toast(t('like_error')); }
   };
   paint();
   return b;
@@ -394,7 +393,7 @@ function shareBtn() {
     onclick: async () => {
       try {
         await navigator.clipboard.writeText(location.href);
-        toast('Link copied');
+        toast(t('link_copied'));
       } catch (_) { toast(location.href); }
     },
   }, icon('share', 19));
@@ -406,7 +405,7 @@ async function loadMore(side, username, exceptId, urls) {
   if (!others.length) return;
   const more = await signUrls(others.map(o => o.cover_path || o.thumb1));
   const card = el('div', { class: 'side-card', style: 'margin-top:18px' },
-    el('div', { class: 'kicker kicker-muted', style: 'margin-bottom:14px', text: 'MORE FROM THIS CREATOR' }));
+    el('div', { class: 'kicker kicker-muted', style: 'margin-bottom:14px', text: t('side_more_from') }));
   others.forEach(o => {
     const src = more[o.cover_path] || more[o.thumb1];
     const th = el('div', { style: 'width:76px;height:56px;border-radius:10px;overflow:hidden;background:var(--ph);flex-shrink:0' });

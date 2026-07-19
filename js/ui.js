@@ -1,5 +1,14 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
 import { sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut } from './sb.js';
+import {
+  t, initI18n, fmtNumber, fmtTimeAgo, composition, catLabel,
+  LANGS, currentLang, setLang,
+} from './i18n.js';
+
+// Форматирование и склонения живут в i18n, но исторически импортируются отсюда.
+export { t, composition, catLabel, LANGS, currentLang, setLang };
+export const fmtCount = fmtNumber;
+export const timeAgo = fmtTimeAgo;
 
 /* ---------------- безопасный DOM ---------------- */
 // Текст всегда через textContent — пользовательские данные никогда не идут в innerHTML.
@@ -54,30 +63,6 @@ export function playTriangle(size = 13, color = '#fff') {
 }
 
 /* ---------------- форматирование ---------------- */
-export function fmtCount(n) {
-  n = Number(n) || 0;
-  if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace('.0', '') + 'M';
-  if (n >= 1e3) return (n / 1e3).toFixed(n >= 1e4 ? 0 : 1).replace('.0', '') + 'K';
-  return String(n);
-}
-export function timeAgo(iso) {
-  if (!iso) return 'draft';
-  const s = (Date.now() - new Date(iso).getTime()) / 1000;
-  if (s < 60) return 'just now';
-  const m = s / 60; if (m < 60) return `${Math.floor(m)} min ago`;
-  const h = m / 60; if (h < 24) return `${Math.floor(h)} hour${Math.floor(h) > 1 ? 's' : ''} ago`;
-  const d = h / 24; if (d < 7) return `${Math.floor(d)} day${Math.floor(d) > 1 ? 's' : ''} ago`;
-  const w = d / 7; if (w < 5) return `${Math.floor(w)} week${Math.floor(w) > 1 ? 's' : ''} ago`;
-  const mo = d / 30; if (mo < 12) return `${Math.floor(mo)} month${Math.floor(mo) > 1 ? 's' : ''} ago`;
-  return `${Math.floor(d / 365)} year${Math.floor(d / 365) > 1 ? 's' : ''} ago`;
-}
-export function composition(a) {
-  const p = [];
-  if (a.photos_count) p.push(`${a.photos_count} photo${a.photos_count > 1 ? 's' : ''}`);
-  if (a.videos_count) p.push(`${a.videos_count} video${a.videos_count > 1 ? 's' : ''}`);
-  if (a.audio_count) p.push(`${a.audio_count} audio`);
-  return p.join(' · ') || 'empty';
-}
 export function dur(sec) {
   if (!sec) return '';
   const s = Math.round(Number(sec));
@@ -123,19 +108,19 @@ export function modal(build, opts = {}) {
   return close;
 }
 
-export function showLogin(reason = 'Sign in to continue') {
+export function showLogin(reason) {
   modal((box, close) => {
     box.append(
-      el('h2', { text: 'Welcome to Albums' }),
-      el('p', { text: reason }),
+      el('h2', { text: t('welcome_title') }),
+      el('p', { text: reason || t('signin_reason_default') }),
       el('button', {
         class: 'btn btn-primary', style: 'width:100%',
         onclick: async (e) => {
           e.currentTarget.disabled = true;
-          try { await signIn(); } catch (err) { toast(err.message || 'Sign-in failed'); e.currentTarget.disabled = false; }
+          try { await signIn(); } catch (err) { toast(err.message || t('signin_failed')); e.currentTarget.disabled = false; }
         },
-      }, 'Continue with Google'),
-      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, 'Not now'),
+      }, t('continue_google')),
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')),
     );
   });
 }
@@ -143,19 +128,19 @@ export function showLogin(reason = 'Sign in to continue') {
 /** Возвращает true, если пользователь авторизован; иначе открывает модалку. */
 export function needAuth(reason) {
   if (isAuthed()) return true;
-  showLogin(reason || 'Sign in to continue');
+  showLogin(reason);
   return false;
 }
 
 /* ---------------- шапка ---------------- */
 export async function mountShell(active) {
-  await ready();
+  await Promise.all([ready(), initI18n()]);
   const host = $('#shell');
   if (!host) return;
   const me = currentProfile();
 
   const searchInput = el('input', {
-    placeholder: 'Search albums and creators',
+    placeholder: t('search_ph'),
     value: new URLSearchParams(location.search).get('q') || '',
     onkeydown: (e) => {
       if (e.key === 'Enter') {
@@ -167,9 +152,10 @@ export async function mountShell(active) {
 
   const right = el('div', { class: 'hdr-right' });
   right.append(
-    el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, 'Posts'),
-    el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, 'Friends'),
-    el('a', { class: 'btn btn-primary', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), 'New Album'),
+    el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, t('nav_posts')),
+    el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
+    el('a', { class: 'btn btn-primary', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
+    langPicker(),
   );
 
   if (me) {
@@ -177,8 +163,8 @@ export async function mountShell(active) {
       avatarImg(me.avatar_url, me.display_name, 44)));
   } else {
     right.append(el('button', {
-      class: 'btn btn-ghost', onclick: () => showLogin('Sign in to create albums, comment and add friends'),
-    }, 'Sign in'));
+      class: 'btn btn-ghost', onclick: () => showLogin(t('signin_to_create')),
+    }, t('sign_in')));
   }
 
   clear(host).append(el('header', { class: 'hdr' },
@@ -187,6 +173,18 @@ export async function mountShell(active) {
       el('div', { class: 'search' }, icon('search', 20, { stroke: '#8F8B84', sw: 2 }), searchInput)),
     right,
   ));
+}
+
+/** Переключатель языка. Выбор запоминается и применяется перезагрузкой страницы. */
+function langPicker() {
+  const sel = el('select', {
+    class: 'lang-select', title: t('language'), 'aria-label': t('language'),
+    onchange: (e) => setLang(e.currentTarget.value),
+  });
+  for (const [code, label] of Object.entries(LANGS)) {
+    sel.appendChild(el('option', { value: code, selected: code === currentLang() ? 'selected' : null }, label));
+  }
+  return sel;
 }
 
 export function avatarImg(url, name, size = 44) {
@@ -224,7 +222,7 @@ export function albumCard(a, urls = {}, opts = {}) {
       (a.videos_count > 0 ? playTriangle(11) : null), composition(a)),
     (a.visibility && a.visibility !== 'public'
       ? el('div', { class: 'badge badge-lock' }, icon(a.visibility === 'friends' ? 'users' : 'lock', 12, { sw: 2 }),
-          a.visibility === 'friends' ? 'Friends' : 'Private')
+          a.visibility === 'friends' ? t('friends') : t('private'))
       : null),
   );
 
@@ -241,7 +239,10 @@ export function albumCard(a, urls = {}, opts = {}) {
       text: a.author_name || a.author_username,
     }));
   }
-  info.appendChild(el('div', { class: 'card-stat', text: `${fmtCount(a.views_count)} views · ${timeAgo(a.published_at)}` }));
+  info.appendChild(el('div', {
+    class: 'card-stat',
+    text: `${t('n_views', { count: a.views_count || 0 })} · ${fmtTimeAgo(a.published_at)}`,
+  }));
   meta.appendChild(info);
 
   return el('div', {}, link, meta);

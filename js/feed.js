@@ -3,7 +3,7 @@ import { sb } from './sb.js';
 import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, albumCard, skeletonGrid, signUrls, emptyState,
-  composition, fmtCount, timeAgo, avatarImg, icon, playTriangle,
+  composition, fmtCount, timeAgo, avatarImg, icon, playTriangle, t, catLabel,
 } from './ui.js';
 
 const app = $('#app');
@@ -17,6 +17,7 @@ let category = null, offset = 0, loading = false, done = false, grid = null;
 
 (async function main() {
   await mountShell('home');
+  document.title = 'Albums';
   const q = new URLSearchParams(location.search).get('q');
   if (q) return renderSearch(q);
   renderFeed();
@@ -35,7 +36,7 @@ function renderFeed() {
       chips.appendChild(el('button', {
         class: 'chip' + (category === c ? ' on' : ''),
         onclick: () => { category = c; reset(); },
-      }, c || 'All'));
+      }, catLabel(c)));
     });
   };
   drawChips();
@@ -60,7 +61,7 @@ function renderFeed() {
     loading = false;
 
     if (error) {
-      if (!offset) clear(app).appendChild(emptyState('Could not load the feed', error.message || ''));
+      if (!offset) clear(app).appendChild(emptyState(t('feed_error'), error.message || ''));
       return;
     }
     const rows = data || [];
@@ -68,9 +69,9 @@ function renderFeed() {
     if (!rows.length && !offset) {
       clear(featuredHost);
       grid.replaceWith(emptyState(
-        'Nothing here yet',
-        'Albums that are public — or shared with you — will show up in this feed.',
-        el('a', { class: 'btn btn-primary', href: 'editor.html' }, 'Create the first album')));
+        t('feed_empty_title'),
+        t('feed_empty_text'),
+        el('a', { class: 'btn btn-primary', href: 'editor.html' }, t('create_first_album'))));
       return;
     }
 
@@ -80,7 +81,8 @@ function renderFeed() {
 
     let rest = rows;
     if (offset === 0 && rows.length >= 1) {
-      rest = rows.slice(rows.length >= 3 ? 2 : 1);
+      // во врезку уходят первый и (если есть) второй альбом — в сетке их быть не должно
+      rest = rows.slice(rows.length >= 2 ? 2 : 1);
       featuredHost.appendChild(featured(rows[0], rows[1], urls));
     }
     rest.forEach(a => grid.appendChild(albumCard(a, urls)));
@@ -107,7 +109,7 @@ function featured(a, b, urls) {
       el('div', { class: 'hero-title', text: a.title }),
       el('div', { class: 'hero-sub', text: a.author_name || a.author_username }),
       el('div', { class: 'pill', text: composition(a) }),
-      el('div', { style: 'font-size:18px;font-weight:700;margin-top:15px', text: 'Watch' }))));
+      el('div', { style: 'font-size:18px;font-weight:700;margin-top:15px', text: t('watch') }))));
   wrap.appendChild(main);
 
   if (b) {
@@ -122,19 +124,19 @@ function featured(a, b, urls) {
 /* ---------------- поиск ---------------- */
 async function renderSearch(q) {
   clear(app).append(
-    el('h1', { style: 'font-size:30px;font-weight:800;letter-spacing:-.02em;margin:8px 0 24px', text: `Search: ${q}` }),
+    el('h1', { style: 'font-size:30px;font-weight:800;letter-spacing:-.02em;margin:8px 0 24px', text: t('search_title', { q }) }),
     skeletonGrid(4));
 
   const { data, error } = await sb.rpc('search_all', { p_q: q });
-  if (error) { clear(app).appendChild(emptyState('Search failed', error.message || '')); return; }
+  if (error) { clear(app).appendChild(emptyState(t('search_failed'), error.message || '')); return; }
 
   const albums = data?.albums || [], people = data?.people || [];
   clear(app).appendChild(el('h1', {
-    style: 'font-size:30px;font-weight:800;letter-spacing:-.02em;margin:8px 0 24px', text: `Search: ${q}`,
+    style: 'font-size:30px;font-weight:800;letter-spacing:-.02em;margin:8px 0 24px', text: t('search_title', { q }),
   }));
 
   if (people.length) {
-    app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: 'People' })));
+    app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: t('search_people') })));
     const row = el('div', { class: 'grid' });
     people.forEach(p => row.appendChild(el('a', {
       class: 'side-card', href: `profile.html?u=${encodeURIComponent(p.username)}`,
@@ -147,9 +149,9 @@ async function renderSearch(q) {
     app.appendChild(row);
   }
 
-  app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: 'Albums' })));
+  app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: t('search_albums') })));
   if (!albums.length) {
-    app.appendChild(emptyState('No albums found', 'Try a different title or creator.'));
+    app.appendChild(emptyState(t('search_no_albums'), t('search_try_other')));
     return;
   }
   const paths = [];
