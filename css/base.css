@@ -109,8 +109,30 @@ img,video{max-width:100%}
 .media-grid.g1{grid-template-columns:1fr}
 .media-grid.g2{grid-template-columns:1fr 1fr}
 .media-grid.g3{grid-template-columns:1fr 1fr 1fr}
-.media-grid img,.media-grid video{width:100%;object-fit:cover;border-radius:16px;display:block;background:var(--ph)}
-.media-grid img{aspect-ratio:4/3}
+.media-grid img,.media-grid video{width:100%;border-radius:16px;display:block;background:var(--ph)}
+.media-grid img{aspect-ratio:4/3;object-fit:cover}
+/* видео никогда не режем: рамка по своим пропорциям, кадр вписывается целиком */
+.media-grid video{object-fit:contain;background:#0d0c0b}
+
+/* ---------- адаптивная раскладка: ничего не обрезается ---------- */
+/* Размеры ячеек считает JS (justified rows): высота ряда подбирается так,
+   чтобы ряд точно занял ширину, а пропорции каждого медиа остались нетронутыми. */
+.adaptive{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+.adaptive .cell{position:relative;border-radius:16px;overflow:hidden;background:var(--ph);flex:0 0 auto}
+.adaptive .cell img,.adaptive .cell video{width:100%;height:100%;display:block;object-fit:cover}
+.adaptive .cell.video-cell{background:#0d0c0b}
+.adaptive .cell.video-cell video{object-fit:contain}
+.adaptive .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;color:#fff;
+  font-size:13.5px;line-height:1.35;background:linear-gradient(transparent,rgba(10,8,6,.72))}
+.adaptive .vbadge{position:absolute;right:10px;top:10px;background:rgba(22,19,16,.62);
+  backdrop-filter:blur(8px);color:#fff;font-size:12.5px;font-weight:600;padding:5px 9px;border-radius:8px}
+@media (max-width:720px){ .adaptive .cell{--row:180px} }
+
+/* ---------- переключатель вида ---------- */
+.view-toggle{display:inline-flex;background:var(--chip);border-radius:999px;padding:4px;gap:4px}
+.view-toggle button{border:none;background:transparent;border-radius:999px;height:38px;padding:0 18px;
+  font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.view-toggle button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
 .audio-row{display:flex;align-items:center;gap:18px;background:#fff;border-radius:16px;padding:16px 20px;
   margin-top:24px;box-shadow:var(--shadow)}
 .audio-play{width:48px;height:48px;border-radius:999px;background:var(--accent);border:none;display:flex;

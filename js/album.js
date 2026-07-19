@@ -33,7 +33,9 @@ async function render(d) {
 
   // все медиа-пути одним батчем
   const paths = [a.cover_path];
-  const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])];
+  // Сквозной порядок «от первого к последнему загруженному»: position уникален в пределах альбома.
+  const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])]
+    .sort((x, y) => (x.position ?? 0) - (y.position ?? 0));
   all.forEach(m => { paths.push(m.path, m.thumb); });
   const urls = await signUrls(paths);
 
@@ -66,21 +68,29 @@ async function render(d) {
 
   if (a.description) left.appendChild(el('p', { class: 'lede', text: a.description }));
 
-  for (const c of (d.chapters || [])) {
-    const sec = el('div', { class: 'chapter' });
-    if (c.label) sec.appendChild(el('div', { class: 'kicker', text: c.label.toUpperCase() }));
-    if (c.title) sec.appendChild(el('h3', { text: c.title }));
-    if (c.body) sec.appendChild(el('p', { text: c.body }));
-    appendMedia(sec, c.media || [], urls);
-    left.appendChild(sec);
+  /* ---- переключатель вида ---- */
+  const body = el('div', {});
+  if (all.length) {
+    const modeRow = el('div', { style: 'margin-top:32px' });
+    const toggle = el('div', { class: 'view-toggle' });
+    const setMode = (m) => {
+      localStorage.setItem('albumView', m);
+      [...toggle.children].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+      clear(body);
+      if (m === 'grid') renderGrid(body, all, urls);
+      else renderStory(body, d, urls);
+    };
+    [['story', 'Story'], ['grid', 'Grid']].forEach(([m, label]) => {
+      toggle.appendChild(el('button', {
+        'data-mode': m, onclick: () => setMode(m),
+      }, label));
+    });
+    modeRow.appendChild(toggle);
+    left.append(modeRow, body);
+    setMode(localStorage.getItem('albumView') === 'grid' ? 'grid' : 'story');
+  } else {
+    left.appendChild(el('p', { class: 'muted', style: 'margin-top:32px', text: 'This album has no media yet.' }));
   }
-  if ((d.loose || []).length) {
-    const sec = el('div', { class: 'chapter' });
-    if ((d.chapters || []).length) sec.appendChild(el('div', { class: 'kicker kicker-muted', text: 'MORE' }));
-    appendMedia(sec, d.loose, urls);
-    left.appendChild(sec);
-  }
-  if (!all.length) left.appendChild(el('p', { class: 'muted', style: 'margin-top:32px', text: 'This album has no media yet.' }));
 
   /* ---- сайдбар ---- */
   const side = el('div', { class: 'sticky' });
@@ -116,6 +126,112 @@ function stat(k, v) {
     el('span', { class: 'muted', text: k }), el('b', { text: String(v) }));
 }
 
+/** Соотношение сторон медиа; null, если размеры неизвестны. */
+function ratioOf(m) {
+  const w = Number(m.width), h = Number(m.height);
+  return (w > 0 && h > 0) ? w / h : null;
+}
+
+function videoEl(m, urls) {
+  const v = el('video', { controls: 'controls', preload: 'metadata', playsinline: 'playsinline' });
+  if (urls[m.thumb]) v.poster = urls[m.thumb];
+  if (urls[m.path]) v.src = urls[m.path];
+  const r = ratioOf(m);
+  // Рамка по РЕАЛЬНЫМ пропорциям ролика: вертикальное видео остаётся вертикальным.
+  if (r) v.style.aspectRatio = `${m.width} / ${m.height}`;
+  else v.addEventListener('loadedmetadata', () => {
+    if (v.videoWidth && v.videoHeight) v.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
+  });
+  return v;
+}
+
+/* ---- режим «Story»: как в макете — главы с текстом, по порядку загрузки ---- */
+function renderStory(host, d, urls) {
+  for (const c of (d.chapters || [])) {
+    const sec = el('div', { class: 'chapter' });
+    if (c.label) sec.appendChild(el('div', { class: 'kicker', text: c.label.toUpperCase() }));
+    if (c.title) sec.appendChild(el('h3', { text: c.title }));
+    if (c.body) sec.appendChild(el('p', { text: c.body }));
+    appendMedia(sec, c.media || [], urls);
+    host.appendChild(sec);
+  }
+  if ((d.loose || []).length) {
+    const sec = el('div', { class: 'chapter' });
+    if ((d.chapters || []).length) sec.appendChild(el('div', { class: 'kicker kicker-muted', text: 'MORE' }));
+    appendMedia(sec, d.loose, urls);
+    host.appendChild(sec);
+  }
+}
+
+/* ---- режим «Grid»: адаптивная раскладка, ничего не обрезается ---- */
+function renderGrid(host, all, urls) {
+  const visual = all.filter(m => m.kind !== 'audio');
+  const audio = all.filter(m => m.kind === 'audio');
+
+  const wrap = el('div', { class: 'adaptive', style: 'margin-top:24px' });
+  const cells = [];
+  visual.forEach((m, i) => {
+    const ratio = ratioOf(m) || (m.kind === 'video' ? 16 / 9 : 3 / 2);
+    const cell = el('div', { class: 'cell' + (m.kind === 'video' ? ' video-cell' : '') });
+    if (m.kind === 'video') {
+      const v = videoEl(m, urls);
+      v.style.aspectRatio = '';          // размер ячейки уже точен, кадр вписывается целиком
+      cell.appendChild(v);
+      if (m.duration) cell.appendChild(el('div', { class: 'vbadge', text: dur(m.duration) }));
+    } else {
+      const img = el('img', { alt: m.caption || '', loading: 'lazy', style: 'cursor:zoom-in' });
+      if (urls[m.thumb] || urls[m.path]) img.src = urls[m.thumb] || urls[m.path];
+      img.onclick = () => lightbox(visual, urls, i);
+      cell.appendChild(img);
+      if (m.caption) cell.appendChild(el('div', { class: 'cap', text: m.caption }));
+    }
+    cells.push({ el: cell, ratio });
+    wrap.appendChild(cell);
+  });
+  host.appendChild(wrap);
+
+  justify(wrap, cells);
+  const onResize = () => justify(wrap, cells);
+  addEventListener('resize', onResize, { passive: true });
+  // страница живёт до перезагрузки, но если блок убрали — снимаем слушатель
+  new MutationObserver((_, obs) => {
+    if (!document.contains(wrap)) { removeEventListener('resize', onResize); obs.disconnect(); }
+  }).observe(document.body, { childList: true, subtree: true });
+
+  audio.forEach(m => host.appendChild(audioRow(m, urls)));
+}
+
+/**
+ * Justified rows: набираем ряд, пока он не заполнит ширину, затем подбираем высоту
+ * ряда так, чтобы он занял её ровно. Пропорции каждого медиа сохраняются точно.
+ */
+export function justify(wrap, cells, target = null, gap = 12) {
+  const W = wrap.clientWidth;
+  if (!W || !cells.length) return;
+  const rowH = target || (W < 560 ? 180 : 260);
+
+  let row = [], sum = 0;
+  const flush = (isLast) => {
+    if (!row.length) return;
+    // -1px запаса: при точном попадании в ширину округление роняет последний элемент на новую строку
+    const avail = W - gap * (row.length - 1) - 1;
+    let h = avail / sum;
+    // последний неполный ряд не растягиваем на всю ширину — иначе одиночное фото станет гигантским
+    if (isLast && h > rowH * 1.35) h = rowH;
+    row.forEach(c => {
+      c.el.style.height = `${Math.round(h)}px`;
+      c.el.style.width = `${Math.floor(h * c.ratio)}px`;   // floor, чтобы ряд не переполнялся
+    });
+    row = []; sum = 0;
+  };
+
+  for (const c of cells) {
+    row.push(c); sum += c.ratio;
+    if (sum * rowH + gap * (row.length - 1) >= W) flush(false);
+  }
+  flush(true);
+}
+
 function appendMedia(host, items, urls) {
   const visual = items.filter(m => m.kind !== 'audio');
   const audio = items.filter(m => m.kind === 'audio');
@@ -123,11 +239,7 @@ function appendMedia(host, items, urls) {
     const g = el('div', { class: 'media-grid g' + Math.min(3, visual.length) });
     visual.forEach((m, i) => {
       if (m.kind === 'video') {
-        const v = el('video', { controls: 'controls', preload: 'metadata', playsinline: 'playsinline' });
-        if (urls[m.thumb]) v.poster = urls[m.thumb];
-        if (urls[m.path]) v.src = urls[m.path];
-        v.style.aspectRatio = '16/9';
-        g.appendChild(v);
+        g.appendChild(videoEl(m, urls));
       } else {
         const img = el('img', { alt: m.caption || '', loading: 'lazy', onclick: () => lightbox(visual, urls, i) });
         if (urls[m.thumb] || urls[m.path]) img.src = urls[m.thumb] || urls[m.path];
