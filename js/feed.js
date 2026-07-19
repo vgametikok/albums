@@ -15,6 +15,10 @@ if (!seed) { seed = Math.random().toString(36).slice(2, 10); sessionStorage.setI
 
 let category = null, offset = 0, loading = false, done = false, grid = null;
 
+// Режим ленты: for-you (персональная), trending (в тренде), fresh (как было — всё подряд).
+let mode = localStorage.getItem('feedMode') || 'for-you';
+let trendPeriod = 'week';
+
 (async function main() {
   await mountShell('home');
   document.title = 'Albums';
@@ -25,13 +29,34 @@ let category = null, offset = 0, loading = false, done = false, grid = null;
 
 /* ---------------- лента ---------------- */
 function renderFeed() {
+  const tabs = el('div', { class: 'view-toggle', style: 'margin:8px 0 20px' });
   const chips = el('div', { class: 'chips' });
   const featuredHost = el('div', {});
   grid = el('div', { class: 'grid' });
   const sentinel = el('div', { style: 'height:1px' });
 
+  const drawTabs = () => {
+    clear(tabs);
+    [['for-you', t('feed_for_you')], ['trending', t('feed_trending')], ['fresh', t('feed_fresh')]]
+      .forEach(([m, label]) => tabs.appendChild(el('button', {
+        class: mode === m ? 'on' : '', 'data-mode': m,
+        onclick: () => { if (mode !== m) { mode = m; localStorage.setItem('feedMode', m); reset(); } },
+      }, label)));
+  };
+
   const drawChips = () => {
     clear(chips);
+    // в трендах — переключатель периода; в «свежем» — категории;
+    // в «для вас» чипов нет: категории учитываются рекомендациями сами
+    if (mode === 'trending') {
+      [['week', t('period_week')], ['month', t('period_month')]].forEach(([p, label]) =>
+        chips.appendChild(el('button', {
+          class: 'chip' + (trendPeriod === p ? ' on' : ''),
+          onclick: () => { trendPeriod = p; reset(); },
+        }, label)));
+      return;
+    }
+    if (mode !== 'fresh') return;
     [null, ...CATEGORIES].forEach(c => {
       chips.appendChild(el('button', {
         class: 'chip' + (category === c ? ' on' : ''),
@@ -39,24 +64,35 @@ function renderFeed() {
       }, catLabel(c)));
     });
   };
+  drawTabs();
   drawChips();
 
-  clear(app).append(chips, featuredHost, grid, sentinel);
+  clear(app).append(tabs, chips, featuredHost, grid, sentinel);
   app.appendChild(skeletonGrid(6));
 
   function reset() {
     offset = 0; done = false;
     clear(featuredHost); clear(grid);
-    drawChips();
+    drawTabs(); drawChips();
     load();
   }
 
   async function load() {
     if (loading || done) return;
     loading = true;
-    const { data, error } = await sb.rpc('feed_albums', {
-      p_seed: seed, p_category: category, p_limit: PAGE, p_offset: offset,
-    });
+    let data, error;
+    if (mode === 'trending') {
+      // тренды не бесконечны — грузим один раз
+      if (offset > 0) { loading = false; done = true; return; }
+      ({ data, error } = await sb.rpc('trending_albums', { p_period: trendPeriod, p_limit: 48 }));
+      done = true;
+    } else if (mode === 'for-you') {
+      ({ data, error } = await sb.rpc('feed_recommended', { p_seed: seed, p_limit: PAGE, p_offset: offset }));
+    } else {
+      ({ data, error } = await sb.rpc('feed_albums', {
+        p_seed: seed, p_category: category, p_limit: PAGE, p_offset: offset,
+      }));
+    }
     app.querySelectorAll('.skel').forEach(n => n.closest('.grid')?.remove());
     loading = false;
 

@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: '删除这个相册的旁白？',
   narr_deleted: '旁白已删除',
   narr_listen: '听故事',
+  feed_for_you: '为你推荐',
+  feed_trending: '热门',
+  feed_fresh: '最新',
+  period_week: '本周',
+  period_month: '本月',
 };

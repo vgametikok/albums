@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: '이 앨범의 내레이션을 삭제할까요?',
   narr_deleted: '내레이션을 삭제했습니다',
   narr_listen: '이야기 듣기',
+  feed_for_you: '추천',
+  feed_trending: '인기',
+  feed_fresh: '최신',
+  period_week: '이번 주',
+  period_month: '이번 달',
 };

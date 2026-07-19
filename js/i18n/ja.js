@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: 'このアルバムのナレーションを削除しますか？',
   narr_deleted: 'ナレーションを削除しました',
   narr_listen: '物語を聴く',
+  feed_for_you: 'おすすめ',
+  feed_trending: '急上昇',
+  feed_fresh: '新着',
+  period_week: '今週',
+  period_month: '今月',
 };

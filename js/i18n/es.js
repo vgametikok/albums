@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: '¿Eliminar la narración de este álbum?',
   narr_deleted: 'Narración eliminada',
   narr_listen: 'Escuchar la historia',
+  feed_for_you: 'Para ti',
+  feed_trending: 'Tendencias',
+  feed_fresh: 'Recientes',
+  period_week: 'Esta semana',
+  period_month: 'Este mes',
 };

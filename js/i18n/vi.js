@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: 'Xoá thuyết minh của album này?',
   narr_deleted: 'Đã xoá thuyết minh',
   narr_listen: 'Nghe câu chuyện',
+  feed_for_you: 'Dành cho bạn',
+  feed_trending: 'Thịnh hành',
+  feed_fresh: 'Mới',
+  period_week: 'Tuần này',
+  period_month: 'Tháng này',
 };

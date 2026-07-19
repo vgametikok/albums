@@ -349,4 +349,9 @@ export default {
   narr_delete_confirm: 'Удалить озвучку этого альбома?',
   narr_deleted: 'Рассказ удалён',
   narr_listen: 'Слушать рассказ',
+  feed_for_you: 'Для вас',
+  feed_trending: 'В тренде',
+  feed_fresh: 'Свежее',
+  period_week: 'За неделю',
+  period_month: 'За месяц',
 };
