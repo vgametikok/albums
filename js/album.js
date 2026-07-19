@@ -79,6 +79,20 @@ async function render(d) {
 
   if (a.description) left.appendChild(el('p', { class: 'lede', text: a.description }));
 
+  /* ---- плеер рассказа ---- */
+  if (d.has_narration) {
+    const narrHost = el('div', { style: 'margin-top:24px' });
+    left.appendChild(narrHost);
+    const { mountNarrationPlayer } = await import('./narration.js');
+    mountNarrationPlayer(narrHost, a.id, (amId) => {
+      const cell = document.querySelector(`[data-am="${amId}"]`);
+      if (!cell) return;
+      document.querySelectorAll('.narr-focus').forEach(n => n.classList.remove('narr-focus'));
+      cell.classList.add('narr-focus');
+      cell.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
   /* ---- переключатель вида ---- */
   const body = el('div', {});
   if (all.length) {
@@ -272,7 +286,7 @@ function renderGrid(host, all, urls) {
   const cells = [];
   visual.forEach((m, i) => {
     const ratio = ratioOf(m) || (m.kind === 'video' ? 16 / 9 : 3 / 2);
-    const cell = el('div', { class: 'cell' + (m.kind === 'video' ? ' video-cell' : '') });
+    const cell = el('div', { class: 'cell' + (m.kind === 'video' ? ' video-cell' : ''), 'data-am': m.am_id || '' });
     if (m.kind === 'video') {
       const v = videoEl(m, urls);
       v.style.aspectRatio = '';          // размер ячейки уже точен, кадр вписывается целиком

@@ -125,6 +125,22 @@ function render() {
   left.appendChild(mlist);
   drawMedia(mlist);
 
+  /* ---- озвучка ---- */
+  left.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
+    el('h2', { text: t('narr_section') }),
+    el('button', {
+      class: 'btn btn-ghost btn-sm',
+      onclick: async () => {
+        await ensureAlbum();
+        const media = items.map(it => ({
+          am_id: it.id, id: it.media?.id, kind: it.media?.kind,
+          path: it.media?.storage_path, thumb: it.media?.thumb_path, caption: it.caption,
+        }));
+        const { openNarrationEditor } = await import('./narration.js');
+        openNarrationEditor(albumId, media);
+      },
+    }, icon('mic', 16, { sw: 2 }), t('narr_edit'))));
+
   /* ---- главы ---- */
   const chapHead = el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
     el('h2', { text: t('chapters') }),
