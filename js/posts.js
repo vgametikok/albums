@@ -172,8 +172,10 @@ function openComposer() {
         }, '…');
         strip.appendChild(ph);
         try {
-          const media = await uploadMedia(f, (stage) => {
-            ph.textContent = stage === 'converting' ? 'HEIC…' : stage === 'uploading' ? '↑' : '…';
+          const media = await uploadMedia(f, (stage, p) => {
+            ph.textContent = stage === 'converting' ? 'HEIC…'
+              : stage === 'transcoding' ? `MP4 ${Math.round((p || 0) * 100)}%`
+              : stage === 'uploading' ? '↑' : '…';
           });
           const urls = await signUrls([media.thumb_path, media.storage_path]);
           picked.push({ media });

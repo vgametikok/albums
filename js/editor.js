@@ -133,6 +133,7 @@ function render() {
 /* ---------------------------------------------------------------- медиа */
 const STAGE_TEXT = {
   converting: 'Converting from HEIC…',
+  transcoding: 'Converting video to MP4…',
   processing: 'Processing…',
   uploading: 'Uploading…',
 };
@@ -149,8 +150,9 @@ async function addFiles(files) {
     busy++; refreshBusy();
     try {
       await ensureAlbum();
-      const media = await uploadMedia(f, (stage) => {
-        status.textContent = `${f.name} — ${STAGE_TEXT[stage] || stage}`;
+      const media = await uploadMedia(f, (stage, p) => {
+        const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
+        status.textContent = `${f.name} — ${STAGE_TEXT[stage] || stage}${pct}`;
       });
       const pos = items.length ? Math.max(...items.map(i => i.position)) + 1 : 0;
       const { data, error } = await sb.from('album_media')

@@ -9,6 +9,7 @@
 //   видео — пока как есть + постер; перекодирование в MP4 через WebCodecs — следующий шаг.
 import { sb, currentUser } from './sb.js';
 import { LIMITS } from './config.js';
+import { canTranscode, needsTranscode, transcodeToMp4 } from './transcode.js';
 
 const MAX_EDGE = 2560;
 const THUMB_EDGE = 640;
@@ -162,9 +163,26 @@ export async function uploadMedia(file, onStage) {
       }
     } finally { bmp.close?.(); }
   } else if (kind === 'video') {
+    // Приводим к MP4/H.264 — .mov и прочие кодеки открываются не у всех.
+    if (canTranscode() && await needsTranscode(file)) {
+      onStage && onStage('transcoding', 0);
+      try {
+        const t = await transcodeToMp4(file, (p) => onStage && onStage('transcoding', p));
+        if (t) {
+          body = new File([t.blob], 'video.mp4', { type: 'video/mp4' });
+          width = t.width; height = t.height; duration = t.duration;
+        }
+      } catch (_) { /* не вышло — грузим оригинал как есть */ }
+    }
     onStage && onStage('processing');
-    const m = await videoMeta(file);
-    thumb = m.thumb; width = m.width; height = m.height; duration = m.duration;
+    try {
+      const m = await videoMeta(body);
+      thumb = m.thumb;
+      width = width || m.width; height = height || m.height; duration = duration || m.duration;
+    } catch (_) {
+      // Постер снять не удалось — обычно значит, что браузер не открывает этот кодек.
+      // Файл всё равно грузим, но без превью.
+    }
   } else {
     onStage && onStage('processing');
     duration = await audioDuration(file);
