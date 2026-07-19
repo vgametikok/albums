@@ -73,7 +73,7 @@ function render() {
     text: albumId ? 'Edit album' : 'New album',
   }));
 
-  const cols = el('div', { style: 'display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start' });
+  const cols = el('div', { class: 'editor-cols' });
   const left = el('div', {});
   const right = el('div', { class: 'sticky' });
   cols.append(left, right);
