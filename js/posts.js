@@ -133,37 +133,88 @@ function openComments(p) {
 /* ---------------------------------------------------------------- композер */
 function openComposer() {
   if (!needAuth('Sign in to post')) return;
-  const picked = [];   // {media, url}
+  const picked = [];          // media-строки в порядке выбора = порядок слайдов
+  const thumbUrls = {};       // media.id -> url превью
 
   modal((box, close) => {
     box.appendChild(el('h2', { text: 'New post' }));
-    box.appendChild(el('p', { text: 'Pick up to 10 photos or videos — they become one carousel.' }));
+    box.appendChild(el('p', { text: 'Up to 10 photos and videos in any mix — they become one carousel.' }));
 
-    const strip = el('div', { style: 'display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px' });
+    /* --- вкладки: загрузить новое / взять из медиатеки --- */
+    const tabs = el('div', { class: 'tabs' });
+    const paneUpload = el('div', {});
+    const paneLib = el('div', { class: 'hide' });
+    const setTab = (which) => {
+      [...tabs.children].forEach(b => b.classList.toggle('on', b.dataset.tab === which));
+      paneUpload.classList.toggle('hide', which !== 'upload');
+      paneLib.classList.toggle('hide', which !== 'lib');
+      if (which === 'lib') loadLibrary();
+    };
+    [['upload', 'Upload new'], ['lib', 'From my library']].forEach(([k, label]) => {
+      tabs.appendChild(el('button', { 'data-tab': k, onclick: () => setTab(k) }, label));
+    });
+
     const input = el('input', {
       type: 'file', multiple: 'multiple', class: 'hide', accept: 'image/*,.heic,.heif,video/*',
-      onchange: (e) => { add([...e.currentTarget.files]); e.currentTarget.value = ''; },
+      onchange: (e) => { addFiles([...e.currentTarget.files]); e.currentTarget.value = ''; },
     });
     const drop = el('div', { class: 'drop', style: 'padding:26px', onclick: () => input.click() },
       el('div', { style: 'font-weight:600', text: 'Choose photos or videos' }));
+    paneUpload.append(input, drop);
 
+    const libGrid = el('div', { class: 'lib-grid' });
+    const libHint = el('div', { class: 'muted', style: 'font-size:14px;padding:8px 2px', text: 'Loading…' });
+    paneLib.append(libHint, libGrid);
+
+    const strip = el('div', { class: 'picked-strip' });
     const caption = el('textarea', { class: 'textarea', placeholder: 'Write a caption…', maxlength: '2200' });
     const vis = el('select', { class: 'select' },
       el('option', { value: 'public' }, 'Public'),
       el('option', { value: 'friends' }, 'Friends only'),
       el('option', { value: 'private' }, 'Only me'));
-
     const publish = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:18px', onclick: submit }, 'Share');
 
-    box.append(input, drop, strip,
+    box.append(tabs, paneUpload, paneLib, strip,
       el('div', { class: 'form-row', style: 'margin-top:16px' }, el('label', { class: 'label', text: 'Caption' }), caption),
       el('div', { class: 'form-row' }, el('label', { class: 'label', text: 'Who can see it' }), vis),
       publish,
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, 'Cancel'));
+    setTab('upload');
 
-    async function add(files) {
+    /* --- выбранные слайды --- */
+    function renderStrip() {
+      clear(strip);
+      picked.forEach((m, i) => {
+        const cell = el('div', { class: 'p' });
+        const src = thumbUrls[m.id];
+        if (src) cell.appendChild(el('img', { src, alt: '' }));
+        cell.append(
+          el('div', { class: 'n', text: String(i + 1) }),
+          el('button', {
+            class: 'x', onclick: () => {
+              const k = picked.findIndex(x => x.id === m.id);
+              if (k >= 0) picked.splice(k, 1);
+              renderStrip(); markLibrary();
+            },
+          }, '×'));
+        strip.appendChild(cell);
+      });
+    }
+
+    async function addMedia(media) {
+      if (picked.some(x => x.id === media.id)) return;
+      if (picked.length >= LIMITS.slides) { toast(`Maximum ${LIMITS.slides} slides`); return; }
+      if (!thumbUrls[media.id]) {
+        const u = await signUrls([media.thumb_path, media.storage_path]);
+        thumbUrls[media.id] = u[media.thumb_path] || u[media.storage_path];
+      }
+      picked.push(media);
+      renderStrip(); markLibrary();
+    }
+
+    async function addFiles(files) {
       for (const f of files) {
-        if (picked.length >= LIMITS.slides) { toast('Maximum 10 slides'); break; }
+        if (picked.length >= LIMITS.slides) { toast(`Maximum ${LIMITS.slides} slides`); break; }
         const k = kindOf(f);
         if (k !== 'photo' && k !== 'video') { toast('Photos and videos only'); continue; }
         const ph = el('div', {
@@ -177,26 +228,57 @@ function openComposer() {
               : stage === 'transcoding' ? `MP4 ${Math.round((p || 0) * 100)}%`
               : stage === 'uploading' ? '↑' : '…';
           });
-          const urls = await signUrls([media.thumb_path, media.storage_path]);
-          picked.push({ media });
           ph.remove();
-          const src = urls[media.thumb_path] || urls[media.storage_path];
-          const cell = el('div', { style: 'position:relative;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--ph)' });
-          if (src) cell.appendChild(el('img', { src, alt: '', style: 'width:100%;height:100%;object-fit:cover' }));
-          cell.appendChild(el('button', {
-            style: 'position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:999px;border:none;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;font-size:13px;line-height:1',
-            onclick: () => {
-              const i = picked.findIndex(x => x.media.id === media.id);
-              if (i >= 0) picked.splice(i, 1);
-              cell.remove();
-            },
-          }, '×'));
-          strip.appendChild(cell);
+          libLoaded = false;              // медиатека устарела
+          await addMedia(media);
         } catch (err) {
           ph.remove();
           toast(err.message || 'Upload failed');
         }
       }
+    }
+
+    /* --- медиатека --- */
+    let libItems = [], libLoaded = false;
+    async function loadLibrary() {
+      if (libLoaded) { markLibrary(); return; }
+      libHint.textContent = 'Loading…';
+      const { data, error } = await sb.rpc('my_media', { p_limit: 120, p_offset: 0 });
+      if (error) { libHint.textContent = 'Could not load your library'; return; }
+      libItems = (data || []).filter(m => m.kind !== 'audio');
+      if (!libItems.length) {
+        libHint.textContent = 'Nothing uploaded yet — add files on the other tab.';
+        clear(libGrid);
+        return;
+      }
+      libHint.textContent = 'Tap to add — the number shows the slide order.';
+      const urls = await signUrls(libItems.flatMap(m => [m.thumb_path, m.storage_path]));
+      clear(libGrid);
+      libItems.forEach(m => {
+        const src = urls[m.thumb_path] || urls[m.storage_path];
+        const cell = el('div', { class: 'lib-cell', 'data-id': m.id, onclick: () => toggle(m) });
+        if (src) cell.appendChild(el('img', { src, alt: '', loading: 'lazy' }));
+        if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: 'VIDEO' }));
+        libGrid.appendChild(cell);
+      });
+      libLoaded = true;
+      markLibrary();
+    }
+
+    function toggle(m) {
+      const i = picked.findIndex(x => x.id === m.id);
+      if (i >= 0) { picked.splice(i, 1); renderStrip(); markLibrary(); }
+      else addMedia(m);
+    }
+
+    function markLibrary() {
+      libGrid.querySelectorAll('.lib-cell').forEach(cell => {
+        const idx = picked.findIndex(x => x.id === cell.dataset.id);
+        cell.classList.toggle('on', idx >= 0);
+        const old = cell.querySelector('.num');
+        if (old) old.remove();
+        if (idx >= 0) cell.appendChild(el('div', { class: 'num', text: String(idx + 1) }));
+      });
     }
 
     async function submit() {
@@ -210,7 +292,7 @@ function openComposer() {
           visibility: vis.value,
         }).select().single();
         if (error) throw error;
-        const rows = picked.map((p, i) => ({ post_id: post.id, position: i, media_id: p.media.id }));
+        const rows = picked.map((m, i) => ({ post_id: post.id, position: i, media_id: m.id }));
         const r = await sb.from('post_media').insert(rows);
         if (r.error) throw r.error;
         close();

@@ -196,6 +196,31 @@ img,video{max-width:100%}
   font-size:15px;font-weight:600;color:var(--ink)}
 .post-caption{padding:6px 18px 18px;font-size:15.5px;line-height:1.6;color:#3A3733;white-space:pre-wrap;overflow-wrap:anywhere}
 
+/* ---------- медиатека (выбор уже загруженного) ---------- */
+.tabs{display:flex;gap:4px;background:var(--chip);border-radius:999px;padding:4px;margin-bottom:16px}
+.tabs button{flex:1;border:none;background:transparent;border-radius:999px;height:38px;font-size:15px;
+  font-weight:600;color:var(--muted);cursor:pointer}
+.tabs button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;
+  max-height:320px;overflow:auto;padding:2px}
+.lib-cell{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--ph);
+  cursor:pointer;border:2px solid transparent}
+.lib-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.lib-cell.on{border-color:var(--accent)}
+.lib-cell .num{position:absolute;top:5px;right:5px;min-width:22px;height:22px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;padding:0 5px}
+.lib-cell .tag{position:absolute;left:5px;bottom:5px;background:rgba(22,19,16,.68);color:#fff;
+  font-size:10.5px;font-weight:600;padding:3px 6px;border-radius:6px}
+.picked-strip{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.picked-strip .p{position:relative;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--ph)}
+.picked-strip .p img{width:100%;height:100%;object-fit:cover;display:block}
+.picked-strip .p .x{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:999px;
+  border:none;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;font-size:13px;line-height:1;padding:0}
+.picked-strip .p .n{position:absolute;left:4px;bottom:4px;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700;width:18px;height:18px;border-radius:999px;display:flex;
+  align-items:center;justify-content:center}
+
 /* ---------- editor ---------- */
 .editor-cols{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
 .form-row{margin-bottom:22px}

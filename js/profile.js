@@ -120,6 +120,33 @@ async function render() {
   draw();
 
   app.append(el('div', { class: 'section-head' }, el('h2', { text: 'All albums' }), chips), grid);
+
+  if (data.is_me) renderShared(app);
+}
+
+/* ---------------- совместные альбомы (где я соавтор) ---------------- */
+async function renderShared(host) {
+  const { data, error } = await sb.rpc('my_shared_albums');
+  const list = error ? [] : (data || []);
+  if (!list.length) return;
+
+  const urls = await signUrls(list.flatMap(a => [a.cover_path, a.thumb1, a.thumb2]));
+  const grid = el('div', { class: 'grid' });
+  list.forEach(a => {
+    const card = albumCard({
+      ...a, cover_path: a.cover_path, thumb1_path: a.thumb1, thumb2_path: a.thumb2,
+    }, urls, { hideAuthor: true });
+    card.appendChild(el('div', { style: 'margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap' },
+      el('span', { class: 'card-stat', text: `владелец: ${a.owner_name || a.owner_username}` }),
+      el('a', { class: 'mini', href: `editor.html?id=${a.id}`, style: 'display:inline-flex;align-items:center' }, 'Редактировать')));
+    grid.appendChild(card);
+  });
+
+  host.append(
+    el('div', { class: 'section-head' },
+      el('h2', { text: 'Совместные альбомы' }),
+      el('span', { class: 'muted', style: 'font-size:14.5px', text: 'вы соавтор' })),
+    grid);
 }
 
 /* ---------------- дружба ---------------- */
