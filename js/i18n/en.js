@@ -3,6 +3,8 @@
 export default {
   /* ---- shell / nav ---- */
   search_ph: 'Search albums and creators',
+  nav_home: 'Home',
+  nav_profile: 'Profile',
   nav_posts: 'Posts',
   nav_friends: 'Friends',
   new_album: 'New Album',

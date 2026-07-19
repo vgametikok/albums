@@ -1,5 +1,7 @@
 export default {
   search_ph: '앨범과 만든 사람 검색',
+  nav_home: '홈',
+  nav_profile: '프로필',
   nav_posts: '게시물',
   nav_friends: '친구',
   new_album: '새 앨범',

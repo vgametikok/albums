@@ -47,6 +47,9 @@ const I = {
   chevR: '<path d="M9 18l6-6-6-6"/>',
   x: '<path d="M18 6L6 18M6 6l12 12"/>',
   pin: '<path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1z"/>',
+  home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>',
+  grid: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 16 0v1"/>',
 };
 export function icon(name, size = 20, opts = {}) {
   const s = el('span', { class: 'ic' });
@@ -173,6 +176,33 @@ export async function mountShell(active) {
       el('div', { class: 'search' }, icon('search', 20, { stroke: '#8F8B84', sw: 2 }), searchInput)),
     right,
   ));
+
+  mountMobileNav(active, me);
+}
+
+/**
+ * Нижняя панель на телефоне. Раньше «Посты» и «Друзья» были в шапке с классом
+ * hide-sm и на узком экране просто исчезали — попасть в ленту постов с телефона
+ * было невозможно вообще.
+ */
+function mountMobileNav(active, me) {
+  document.querySelector('.mobnav')?.remove();
+  const item = (key, href, iconName, label) => el('a', {
+    class: 'mobnav-item' + (active === key ? ' on' : ''), href,
+  }, icon(iconName, 22, { sw: active === key ? 2.2 : 1.8 }), el('span', { text: label }));
+
+  document.body.appendChild(el('nav', { class: 'mobnav' },
+    item('home', 'index.html', 'home', t('nav_home')),
+    item('posts', 'posts.html', 'grid', t('nav_posts')),
+    el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album') },
+      icon('plus', 24, { sw: 2.6, stroke: '#fff' })),
+    item('friends', 'friends.html', 'users', t('nav_friends')),
+    me
+      ? item('profile', `profile.html?u=${encodeURIComponent(me.username)}`, 'user', t('nav_profile'))
+      : el('button', { class: 'mobnav-item', onclick: () => showLogin(t('signin_to_create')) },
+          icon('user', 22), el('span', { text: t('sign_in') })),
+  ));
+  document.body.classList.add('has-mobnav');
 }
 
 /** Переключатель языка. Выбор запоминается и применяется перезагрузкой страницы. */
@@ -185,6 +215,23 @@ function langPicker() {
     sel.appendChild(el('option', { value: code, selected: code === currentLang() ? 'selected' : null }, label));
   }
   return sel;
+}
+
+/**
+ * Превью медиа для карточек. Если постера нет и подставлен сам ролик, показываем
+ * <video> с меткой #t=0.1 — браузер отрисует кадр без воспроизведения. Раньше путь
+ * к .mp4 попадал в <img>, и на месте превью была битая картинка.
+ */
+export function thumbEl(path, url, kind, alt = '') {
+  if (!url) return null;
+  const isVideoFile = kind === 'video' && /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(path || ''));
+  if (!isVideoFile) return el('img', { src: url, alt, loading: 'lazy' });
+  const v = el('video', {
+    src: url + '#t=0.1', preload: 'metadata', muted: 'muted',
+    playsinline: 'playsinline', tabindex: '-1', 'aria-label': alt,
+  });
+  v.controls = false;
+  return v;
 }
 
 export function avatarImg(url, name, size = 44) {
@@ -204,20 +251,24 @@ export function albumCard(a, urls = {}, opts = {}) {
   const t1 = urls[a.thumb1_path || a.thumb1] || null;
   const t2 = urls[a.thumb2_path || a.thumb2] || null;
 
-  const cell = (src, isVideo) => {
+  const cell = (path, src, kind) => {
     const c = el('div', {});
-    if (src) c.appendChild(el('img', { src, alt: '' }));
-    if (isVideo) c.appendChild(el('div', { class: 'play-dot' }, el('i', {}, playTriangle(13))));
+    const node = thumbEl(path, src, kind);
+    if (node) c.appendChild(node);
+    if (kind === 'video') c.appendChild(el('div', { class: 'play-dot' }, el('i', {}, playTriangle(13))));
     return c;
   };
 
+  const coverPath = a.cover_path || a.cover || a.thumb1_path || a.thumb1;
+  const coverKind = (a.cover_path || a.cover) ? null : (a.thumb1_kind || a.thumb1_type);
   const big = el('div', { class: 'big' });
-  if (cover) big.appendChild(el('img', { src: cover, alt: a.title || '' }));
+  const coverNode = thumbEl(coverPath, cover, coverKind, a.title || '');
+  if (coverNode) big.appendChild(coverNode);
 
   const link = el('a', { class: 'card-cover', href },
     el('div', { class: 'mosaic' }, big,
-      cell(t1, (a.thumb1_kind || a.thumb1_type) === 'video'),
-      cell(t2, (a.thumb2_kind || a.thumb2_type) === 'video')),
+      cell(a.thumb1_path || a.thumb1, t1, a.thumb1_kind || a.thumb1_type),
+      cell(a.thumb2_path || a.thumb2, t2, a.thumb2_kind || a.thumb2_type)),
     el('div', { class: 'badge' },
       (a.videos_count > 0 ? playTriangle(11) : null), composition(a)),
     (a.visibility && a.visibility !== 'public'

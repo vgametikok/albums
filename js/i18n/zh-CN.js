@@ -1,5 +1,7 @@
 export default {
   search_ph: '搜索相册和创作者',
+  nav_home: '首页',
+  nav_profile: '我的',
   nav_posts: '动态',
   nav_friends: '好友',
   new_album: '新建相册',

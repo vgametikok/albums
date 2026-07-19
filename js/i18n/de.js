@@ -1,5 +1,7 @@
 export default {
   search_ph: 'Alben und Urheber suchen',
+  nav_home: 'Start',
+  nav_profile: 'Profil',
   nav_posts: 'Beiträge',
   nav_friends: 'Freunde',
   new_album: 'Neues Album',

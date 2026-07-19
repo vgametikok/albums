@@ -190,6 +190,98 @@ async function encodeAudio(audio, muxer) {
   enc.close();
 }
 
+/* ---------------- постер ---------------- */
+
+/**
+ * Кадр-постер без воспроизведения: демультиплексируем и декодируем один первый
+ * ключевой кадр. Прежний способ (перемотать <video> и снять кадр канвасом) на
+ * телефонах молча не срабатывает — браузер не отдаёт кадр, пока ролик не играл,
+ * а автовоспроизведение в фоне запрещено. Из-за этого у всех загруженных с
+ * телефона видео постер отсутствовал.
+ */
+export async function posterFromVideo(file, maxEdge = 640) {
+  if (typeof VideoDecoder === 'undefined' || !isIsobmff(file)) return null;
+  let mp4, MP4Box, vtrack;
+  try {
+    ({ mp4, MP4Box, video: vtrack } = await probeContainer(file));
+  } catch (_) { return null; }
+  if (!vtrack) return null;
+
+  const srcW = vtrack.track_width || vtrack.video?.width;
+  const srcH = vtrack.track_height || vtrack.video?.height;
+  if (!srcW || !srcH) return null;
+
+  const description = codecDescription(MP4Box, mp4, vtrack.id);
+  const cfg = { codec: vtrack.codec, codedWidth: srcW, codedHeight: srcH, ...(description ? { description } : {}) };
+  try {
+    const sup = await VideoDecoder.isConfigSupported(cfg);
+    if (!sup.supported) return null;
+  } catch (_) { return null; }
+
+  const rotation = rotationOf(vtrack);
+  const upW = rotation % 180 === 0 ? srcW : srcH;
+  const upH = rotation % 180 === 0 ? srcH : srcW;
+  const scale = Math.min(1, maxEdge / Math.max(upW, upH));
+  const w = Math.max(1, Math.round(upW * scale));
+  const h = Math.max(1, Math.round(upH * scale));
+
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = (v) => { if (!done) { done = true; resolve(v); } };
+    const canvas = new OffscreenCanvas(w, h);
+    const ctx = canvas.getContext('2d');
+
+    const decoder = new VideoDecoder({
+      output: async (frame) => {
+        try {
+          ctx.save();
+          ctx.translate(w / 2, h / 2);
+          ctx.rotate(rotation * Math.PI / 180);
+          const dw = rotation % 180 === 0 ? w : h;
+          const dh = rotation % 180 === 0 ? h : w;
+          ctx.drawImage(frame, -dw / 2, -dh / 2, dw, dh);
+          ctx.restore();
+          frame.close();
+          const type = await webpOk() ? 'image/webp' : 'image/jpeg';
+          finish(await canvas.convertToBlob({ type, quality: 0.75 }));
+        } catch (_) { finish(null); }
+        try { decoder.close(); } catch (_) {}
+      },
+      error: () => finish(null),
+    });
+
+    try {
+      decoder.configure(cfg);
+      const acc = [];
+      mp4.onSamples = (_i, _u, s) => { acc.push(...s); };
+      mp4.setExtractionOptions(vtrack.id, null, { nbSamples: 1 });
+      mp4.start();
+      mp4.flush();
+      const first = acc.find(s => s.is_sync) || acc[0];
+      if (!first) { finish(null); return; }
+      decoder.decode(new EncodedVideoChunk({
+        type: 'key', timestamp: 0,
+        duration: Math.round((first.duration / first.timescale) * 1e6),
+        data: first.data,
+      }));
+      decoder.flush().catch(() => finish(null));
+    } catch (_) { finish(null); }
+
+    setTimeout(() => finish(null), 15000);
+  });
+}
+
+let _webp = null;
+async function webpOk() {
+  if (_webp !== null) return _webp;
+  try {
+    const c = new OffscreenCanvas(1, 1);
+    const b = await c.convertToBlob({ type: 'image/webp' });
+    _webp = b.type === 'image/webp';
+  } catch (_) { _webp = false; }
+  return _webp;
+}
+
 /* ---------------- основной путь ---------------- */
 
 /**

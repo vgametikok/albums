@@ -1,5 +1,7 @@
 export default {
   search_ph: 'アルバムや作成者を検索',
+  nav_home: 'ホーム',
+  nav_profile: 'プロフィール',
   nav_posts: '投稿',
   nav_friends: '友だち',
   new_album: '新しいアルバム',

@@ -9,7 +9,7 @@
 //   видео — пока как есть + постер; перекодирование в MP4 через WebCodecs — следующий шаг.
 import { sb, currentUser } from './sb.js';
 import { LIMITS } from './config.js';
-import { canTranscode, needsTranscode, transcodeToMp4 } from './transcode.js';
+import { canTranscode, needsTranscode, transcodeToMp4, posterFromVideo } from './transcode.js';
 import { t } from './i18n.js';
 
 const MAX_EDGE = 2560;
@@ -176,13 +176,15 @@ export async function uploadMedia(file, onStage) {
       } catch (_) { /* не вышло — грузим оригинал как есть */ }
     }
     onStage && onStage('processing');
+    // Сначала надёжный путь: декодируем первый кадр без воспроизведения.
+    // На телефоне снять кадр через <video>+canvas не выходит, поэтому он лишь запасной.
+    try { thumb = await posterFromVideo(body); } catch (_) { /* ниже запасной путь */ }
     try {
       const m = await videoMeta(body);
-      thumb = m.thumb;
+      thumb = thumb || m.thumb;
       width = width || m.width; height = height || m.height; duration = duration || m.duration;
     } catch (_) {
-      // Постер снять не удалось — обычно значит, что браузер не открывает этот кодек.
-      // Файл всё равно грузим, но без превью.
+      // Браузер не открывает этот кодек — грузим файл как есть, размеры возьмём из транскода.
     }
   } else {
     onStage && onStage('processing');
@@ -210,6 +212,37 @@ export async function uploadMedia(file, onStage) {
   }).select().single();
   if (error) throw error;
   return data;
+}
+
+/**
+ * Дозаполнение постера для уже загруженного видео. Ролики, залитые до того, как
+ * появился надёжный способ снять кадр, лежат без превью — восстанавливаем их,
+ * когда владелец открывает редактор.
+ */
+export async function backfillPoster(media) {
+  const user = currentUser();
+  if (!user || !media || media.kind !== 'video' || media.thumb_path) return null;
+  if (media.owner_id && media.owner_id !== user.id) return null;
+
+  const { data: signed } = await sb.storage.from('media').createSignedUrl(media.storage_path, 300);
+  if (!signed?.signedUrl) return null;
+
+  let blob;
+  try {
+    const resp = await fetch(signed.signedUrl);
+    if (!resp.ok) return null;
+    const file = new File([await resp.blob()], 'v.mp4', { type: 'video/mp4' });
+    blob = await posterFromVideo(file);
+  } catch (_) { return null; }
+  if (!blob) return null;
+
+  const path = `${user.id}/${media.id}/thumb.${EXT[blob.type] || 'jpg'}`;
+  const up = await sb.storage.from('media').upload(path, blob, { contentType: blob.type, upsert: true });
+  if (up.error) return null;
+  const { error } = await sb.from('media').update({ thumb_path: path }).eq('id', media.id);
+  if (error) return null;
+  media.thumb_path = path;
+  return path;
 }
 
 /** Аватар/баннер — публичный бакет, стабильный URL. */

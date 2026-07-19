@@ -3,7 +3,7 @@ import { sb, currentUser, isAuthed } from './sb.js';
 import { LIMITS } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, avatarImg, timeAgo, fmtCount, icon,
-  toast, needAuth, emptyState, modal, t,
+  toast, needAuth, emptyState, modal, t, thumbEl,
 } from './ui.js';
 import { uploadMedia, kindOf } from './upload.js';
 import { mountComments } from './comments.js';
@@ -188,7 +188,8 @@ function openComposer() {
       picked.forEach((m, i) => {
         const cell = el('div', { class: 'p' });
         const src = thumbUrls[m.id];
-        if (src) cell.appendChild(el('img', { src, alt: '' }));
+        const node = thumbEl(m.thumb_path || m.storage_path, src, m.thumb_path ? null : m.kind);
+        if (node) cell.appendChild(node);
         cell.append(
           el('div', { class: 'n', text: String(i + 1) }),
           el('button', {
@@ -258,7 +259,8 @@ function openComposer() {
       libItems.forEach(m => {
         const src = urls[m.thumb_path] || urls[m.storage_path];
         const cell = el('div', { class: 'lib-cell', 'data-id': m.id, onclick: () => toggle(m) });
-        if (src) cell.appendChild(el('img', { src, alt: '', loading: 'lazy' }));
+        const node = thumbEl(m.thumb_path || m.storage_path, src, m.thumb_path ? null : m.kind);
+        if (node) cell.appendChild(node);
         if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: t('video_tag') }));
         libGrid.appendChild(cell);
       });

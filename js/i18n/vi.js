@@ -1,5 +1,7 @@
 export default {
   search_ph: 'Tìm album và tác giả',
+  nav_home: 'Trang chủ',
+  nav_profile: 'Hồ sơ',
   nav_posts: 'Bài viết',
   nav_friends: 'Bạn bè',
   new_album: 'Album mới',

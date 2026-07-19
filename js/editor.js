@@ -1,8 +1,8 @@
 // Редактор альбома: медиа, главы, обложка, видимость (включая «друзьям кроме…»).
 import { sb, currentUser, isAuthed } from './sb.js';
 import { CATEGORIES } from './config.js';
-import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t } from './ui.js';
-import { uploadMedia } from './upload.js';
+import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t, thumbEl } from './ui.js';
+import { uploadMedia, backfillPoster } from './upload.js';
 
 const app = $('#app');
 let albumId = new URLSearchParams(location.search).get('id');
@@ -261,8 +261,24 @@ function refreshBusy() {
   note.classList.toggle('hide', busy === 0);
 }
 
+/** Разово досоздаём отсутствующие постеры видео — по одному, чтобы не грузить сеть. */
+let posterQueueRunning = false;
+async function fillMissingPosters(host) {
+  if (posterQueueRunning) return;
+  const pending = items.filter(i => i.media?.kind === 'video' && !i.media.thumb_path);
+  if (!pending.length) return;
+  posterQueueRunning = true;
+  for (const it of pending) {
+    try {
+      if (await backfillPoster(it.media)) drawMedia(host);
+    } catch (_) { /* не критично: превью останется кадром из <video> */ }
+  }
+  posterQueueRunning = false;
+}
+
 async function drawMedia(host) {
   clear(host);
+  fillMissingPosters(host);
   if (!items.length) {
     host.appendChild(el('div', { class: 'muted', style: 'padding:14px 2px', text: t('no_media') }));
     return;
@@ -274,8 +290,12 @@ async function drawMedia(host) {
     const m = it.media || {};
     const src = urls[m.thumb_path] || urls[m.storage_path];
     const th = el('div', { class: 'mthumb', style: 'display:flex;align-items:center;justify-content:center;overflow:hidden' });
-    if (m.kind === 'audio') th.appendChild(el('div', { style: 'font-size:12px;font-weight:700;color:#8F8B84', text: dur(m.duration_seconds) || 'AUDIO' }));
-    else if (src) th.appendChild(el('img', { src, alt: '', style: 'width:100%;height:100%;object-fit:cover' }));
+    if (m.kind === 'audio') {
+      th.appendChild(el('div', { style: 'font-size:12px;font-weight:700;color:#8F8B84', text: dur(m.duration_seconds) || 'AUDIO' }));
+    } else {
+      const node = thumbEl(m.thumb_path || m.storage_path, src, m.thumb_path ? null : m.kind);
+      if (node) { node.style.width = '100%'; node.style.height = '100%'; node.style.objectFit = 'cover'; th.appendChild(node); }
+    }
 
     const chapSel = el('select', { class: 'mini', style: 'min-width:150px', onchange: async (e) => {
       const v = e.currentTarget.value || null;

@@ -1,5 +1,7 @@
 export default {
   search_ph: 'Поиск альбомов и авторов',
+  nav_home: 'Главная',
+  nav_profile: 'Профиль',
   nav_posts: 'Посты',
   nav_friends: 'Друзья',
   new_album: 'Новый альбом',
