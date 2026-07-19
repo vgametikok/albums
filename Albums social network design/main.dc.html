@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Albums — Feed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F5F4F0;font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#141414}a:hover{color:#C64518}
+::placeholder{color:#928E86;opacity:1}
+input,button{font-family:inherit}
+</style>
+</helmet>
+<section data-screen-label="Home feed" style="min-height:100vh;background:#F5F4F0;min-width:1024px">
+<div style="max-width:1440px;margin:0 auto;padding:0 clamp(28px,3.1vw,44px) 80px">
+
+<header style="display:flex;align-items:center;gap:28px;padding:26px 0 22px">
+<a href="Home.dc.html" style="font-size:34px;font-weight:800;letter-spacing:-0.035em;color:#141414;text-decoration:none;flex-shrink:0">Albums</a>
+<div style="flex:1;display:flex;justify-content:center;min-width:0">
+<div style="display:flex;align-items:center;gap:12px;background:#ECEAE5;border-radius:999px;padding:0 22px;height:52px;width:100%;max-width:560px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8F8B84" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+<input placeholder="Search albums and creators" style="border:none;background:transparent;outline:none;font-size:16.5px;color:#141414;flex:1;min-width:0;padding:0">
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;flex-shrink:0">
+<button style="display:flex;align-items:center;gap:9px;background:#E8552B;color:#fff;height:52px;padding:0 26px;border-radius:999px;border:none;font-size:17px;font-weight:600;cursor:pointer" style-hover="background:#D6491F">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+New Album</button>
+<button style="width:48px;height:48px;border-radius:999px;border:none;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:#ECEAE5">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+</button>
+<a href="Profile.dc.html" style="display:block;flex-shrink:0"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=96&q=80" alt="Your profile" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block"></a>
+</div>
+</header>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:4px 0 28px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="7">
+<button onClick="{{c.pick}}" style="height:47px;padding:0 23px;border-radius:999px;border:1.5px solid {{c.bd}};background:{{c.bg}};color:{{c.fg}};font-size:16.5px;font-weight:500;cursor:pointer;transition:border-color .15s">{{c.name}}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{showFeatured}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;gap:24px;align-items:stretch;margin-bottom:40px">
+<a href="Album.dc.html" style="flex:2.85 1 0;position:relative;border-radius:20px;overflow:hidden;display:block;min-height:330px;text-decoration:none;background:#E7E4DE">
+<img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80" alt="Two Weeks in Lisbon" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+<div style="background:#fff;border-radius:18px;padding:32px 52px;text-align:center;box-shadow:0 24px 60px rgba(30,20,10,0.2)">
+<div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;color:#141414">Two Weeks in Lisbon</div>
+<div style="font-size:17px;color:#6E6A63;margin-top:7px">Anna Petrova</div>
+<div style="display:inline-block;background:#F1EFEA;border-radius:999px;padding:9px 18px;font-size:14.5px;color:#43403B;margin-top:14px">12 photos · 3 videos · 2 audio</div>
+<div style="font-size:18px;font-weight:700;color:#141414;margin-top:15px">Watch</div>
+</div>
+</div>
+</a>
+<div style="flex:1 1 0;min-width:280px;display:flex;flex-direction:column">
+<a href="Album.dc.html" style="display:block;position:relative;border-radius:18px;overflow:hidden;flex:1;min-height:210px;background:#E7E4DE;transition:transform .25s ease" style-hover="transform:translateY(-3px)">
+<div style="position:absolute;inset:0;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:4px">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Into the Forest" style="grid-row:1/3;width:100%;height:100%;object-fit:cover">
+<div style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=420&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+<div style="position:relative;overflow:hidden"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=420&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:999px;background:#E8552B;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" style="margin-left:2px"><polygon points="6,4 20,12 6,20"></polygon></svg></div></div>
+</div>
+</div>
+<div style="position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;background:rgba(22,19,16,0.62);backdrop-filter:blur(8px);color:#fff;font-size:13.5px;font-weight:500;padding:8px 13px;border-radius:10px"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><polygon points="6,4 20,12 6,20"></polygon></svg>8 photos · 1 video</div>
+</a>
+<div style="display:flex;gap:12px;margin-top:14px;align-items:flex-start">
+<a href="Profile.dc.html" style="flex-shrink:0"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" alt="Anna Petrova" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block"></a>
+<div style="min-width:0">
+<a href="Album.dc.html" style="display:block;font-size:18px;font-weight:700;color:#141414;letter-spacing:-0.01em;text-decoration:none" style-hover="color:#C64518">Into the Forest</a>
+<a href="Profile.dc.html" style="display:block;font-size:14.5px;color:#6E6A63;margin-top:3px;text-decoration:none" style-hover="text-decoration:underline;color:#43403B">Anna Petrova</a>
+<div style="font-size:14.5px;color:#9B978F;margin-top:2px">24K views · 3 days ago</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:38px 24px">
+<sc-for list="{{feed}}" as="al" hint-placeholder-count="8">
+<div>
+<a href="Album.dc.html" style="display:block;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/2;background:#E7E4DE;transition:transform .25s ease" style-hover="transform:translateY(-3px)">
+<div style="position:absolute;inset:0;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:4px">
+<img src="{{al.cover}}" alt="{{al.t}}" style="grid-row:1/3;width:100%;height:100%;object-fit:cover">
+<div style="position:relative;overflow:hidden"><img src="{{al.t1}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<sc-if value="{{al.v1}}" hint-placeholder-val="{{false}}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:999px;background:#E8552B;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" style="margin-left:2px"><polygon points="6,4 20,12 6,20"></polygon></svg></div></div></sc-if>
+</div>
+<div style="position:relative;overflow:hidden"><img src="{{al.t2}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<sc-if value="{{al.v2}}" hint-placeholder-val="{{false}}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:999px;background:#E8552B;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" style="margin-left:2px"><polygon points="6,4 20,12 6,20"></polygon></svg></div></div></sc-if>
+</div>
+</div>
+<div style="position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;background:rgba(22,19,16,0.62);backdrop-filter:blur(8px);color:#fff;font-size:13.5px;font-weight:500;padding:8px 13px;border-radius:10px"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><polygon points="6,4 20,12 6,20"></polygon></svg>{{al.c}}</div>
+</a>
+<div style="display:flex;gap:12px;margin-top:14px;align-items:flex-start">
+<a href="Profile.dc.html" style="flex-shrink:0"><img src="{{al.av}}" alt="{{al.a}}" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block"></a>
+<div style="min-width:0">
+<a href="Album.dc.html" style="display:block;font-size:18px;font-weight:700;color:#141414;letter-spacing:-0.01em;text-decoration:none" style-hover="color:#C64518">{{al.t}}</a>
+<a href="Profile.dc.html" style="display:block;font-size:14.5px;color:#6E6A63;margin-top:3px;text-decoration:none" style-hover="text-decoration:underline;color:#43403B">{{al.a}}</a>
+<div style="font-size:14.5px;color:#9B978F;margin-top:2px">{{al.vw}} views · {{al.tm}}</div>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFeatured&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Feed&quot;},&quot;defaultFilter&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;All&quot;,&quot;Following&quot;,&quot;Travel&quot;,&quot;Music&quot;,&quot;Family&quot;,&quot;Art&quot;,&quot;Sport&quot;],&quot;default&quot;:&quot;All&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feed&quot;}}">
+class Component extends DCLogic {
+  state = { cat: this.props.defaultFilter ?? 'All' };
+  renderVals() {
+    const img = (id, w) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+    const A = [
+      { t: 'Summer at the Lake', a: 'Maya Lindqvist', av: '1438761681033-6461ffad8d80', vw: '24K', tm: '3 days ago', c: '8 photos · 1 video', cat: 'Family', cover: '1476514525535-07fb3b4ae5f1', t1: '1439066615861-d1af74d74000', t2: '1475924156734-496f6cac6ec1', v: 2, fol: true },
+      { t: 'Demo Tapes, June', a: 'Theo Marchetti', av: '1500648767791-00dcc994a43e', vw: '11K', tm: '5 days ago', c: '6 photos · 4 audio', cat: 'Music', cover: '1511671782779-c97d3d27a1d4', t1: '1510915361894-db8b60106cb1', t2: '1493225457124-a3eb161ffa5f', v: 0, fol: true },
+      { t: 'Streets of Tokyo', a: 'Kenji Nakamura', av: '1507003211169-0a1dd7228f2d', vw: '38K', tm: '1 week ago', c: '12 photos · 1 video', cat: 'Travel', cover: '1540959733332-eab4deabeeaf', t1: '1542051841857-5f90071e7989', t2: '1493976040374-85c8e12f0c0e', v: 1, fol: false },
+      { t: 'City of Light', a: 'Céline Dubois', av: '1534528741775-53994a69daeb', vw: '19K', tm: '4 days ago', c: '10 photos · 2 videos', cat: 'Travel', cover: '1502602898657-3e91760cbb34', t1: '1449034446853-66c86144b0ad', t2: '1444723121867-7a241cacace9', v: 2, fol: false },
+      { t: 'The Wedding of J & M', a: 'Sofia Rossi', av: '1517841905240-472988babdf9', vw: '52K', tm: '2 weeks ago', c: '18 photos · 3 videos', cat: 'Family', cover: '1519741497674-611481863552', t1: '1511285560929-80b456fea0bc', t2: '1520854221256-17451cc331bf', v: 1, fol: true },
+      { t: 'Studio Sessions', a: 'Amara Okafor', av: '1531123897727-8f129e1688ce', vw: '9.2K', tm: '6 days ago', c: '7 photos · 5 audio', cat: 'Music', cover: '1470225620780-dba8ba36b745', t1: '1514320291840-2e0a9bf2a9ae', t2: '1458560871784-56d23406c091', v: 0, fol: false },
+      { t: 'Ridge Trail Sunrise', a: 'Jonas Weber', av: '1506794778202-cad84cf45f1d', vw: '15K', tm: '1 week ago', c: '9 photos · 2 videos', cat: 'Sport', cover: '1464822759023-fed622ff2c3b', t1: '1469474968028-56623f02e42e', t2: '1501785888041-af3ef285b470', v: 1, fol: false },
+      { t: 'Shapes & Light', a: 'Iris van Dam', av: '1529626455594-4ff0802cfb7e', vw: '6.8K', tm: '2 days ago', c: '14 photos', cat: 'Art', cover: '1513364776144-60967b0f800f', t1: '1465146344425-f00d5f5c8f07', t2: '1472214103451-9374bd1c798e', v: 0, fol: true }
+    ];
+    const cat = this.state.cat;
+    const feed = A.filter(a => cat === 'All' || (cat === 'Following' ? a.fol : a.cat === cat))
+      .map(a => ({ ...a, cover: img(a.cover, 800), t1: img(a.t1, 420), t2: img(a.t2, 420), av: img(a.av, 96), v1: a.v === 1, v2: a.v === 2 }));
+    const cats = ['All', 'Following', 'Travel', 'Music', 'Family', 'Art', 'Sport'].map(n => ({
+      name: n,
+      bg: n === cat ? '#141414' : 'transparent',
+      fg: n === cat ? '#fff' : '#141414',
+      bd: n === cat ? '#141414' : '#DBD7D0',
+      pick: () => this.setState({ cat: n })
+    }));
+    return { cats, feed, showFeatured: this.props.showFeatured ?? true };
+  }
+}
+</script>
+</body>
+</html>
