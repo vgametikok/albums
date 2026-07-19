@@ -48,6 +48,8 @@ const I = {
   x: '<path d="M18 6L6 18M6 6l12 12"/>',
   pin: '<path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1z"/>',
   bell: '<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>',
+  dots: '<circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
   home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>',
   grid: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 16 0v1"/>',
@@ -127,6 +129,65 @@ export function showLogin(reason) {
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')),
     );
   });
+}
+
+/**
+ * Пожаловаться / заблокировать. Одна точка на все типы объектов, чтобы кнопка
+ * выглядела и вела себя одинаково на альбоме, посте, комментарии и в профиле.
+ */
+export function openReport(subjectType, subjectId, ownerUsername) {
+  if (!needAuth(t('signin_reason_default'))) return;
+  const REASONS = ['spam', 'abuse', 'nudity', 'violence', 'copyright', 'other'];
+
+  modal((box, close) => {
+    const sel = el('select', { class: 'select' },
+      ...REASONS.map(r => el('option', { value: r }, t('reason_' + r))));
+    const note = el('textarea', { class: 'textarea', maxlength: '1000', placeholder: t('report_note_ph') });
+    const send = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:8px' }, t('report_send'));
+
+    send.onclick = async () => {
+      send.disabled = true;
+      const { error } = await sb.rpc('report_submit', {
+        p_subject_type: subjectType, p_subject_id: subjectId,
+        p_reason: sel.value, p_note: note.value.trim() || null,
+      });
+      if (error) { toast(error.message || t('report_error')); send.disabled = false; return; }
+      close();
+      toast(t('report_sent'));
+    };
+
+    box.append(
+      el('h2', { text: t('report_title') }),
+      el('p', { text: t('report_hint') }),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('report_reason') }), sel),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('report_note') }), note),
+      send);
+
+    if (ownerUsername) {
+      box.append(el('div', { style: 'border-top:1px solid var(--line);margin-top:18px;padding-top:16px' },
+        el('div', { class: 'muted', style: 'font-size:14px;margin-bottom:10px', text: t('block_hint') }),
+        el('button', {
+          class: 'btn btn-ghost', style: 'width:100%',
+          onclick: async () => {
+            if (!confirm(t('block_confirm', { name: ownerUsername }))) return;
+            const { error } = await sb.rpc('block_user', { p_username: ownerUsername });
+            if (error) { toast(error.message); return; }
+            close();
+            toast(t('blocked_done'));
+            location.href = 'index.html';
+          },
+        }, t('block_user'))));
+    }
+    box.append(el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  });
+}
+
+/** Кнопка «…» с жалобой — ставится рядом с контентом чужого автора. */
+export function moreButton(subjectType, subjectId, ownerUsername) {
+  return el('button', {
+    class: 'btn-icon', 'aria-label': t('report_title'), title: t('report_title'),
+    onclick: (e) => { e.preventDefault(); e.stopPropagation(); openReport(subjectType, subjectId, ownerUsername); },
+  }, icon('dots', 20));
 }
 
 /** Возвращает true, если пользователь авторизован; иначе открывает модалку. */

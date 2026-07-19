@@ -3,7 +3,7 @@ import { sb, currentProfile, isAuthed, signOut } from './sb.js';
 import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, albumCard, avatarImg, fmtCount, icon,
-  toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel,
+  toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton,
 } from './ui.js';
 import { uploadAvatar } from './upload.js';
 
@@ -43,7 +43,7 @@ async function render() {
       el('a', { class: 'btn btn-ghost btn-sm', href: 'friends.html' }, t('nav_friends')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: () => signOut() }, t('sign_out')));
   } else {
-    actions.appendChild(friendButton());
+    actions.append(friendButton(), followButton(), moreButton('profile', p.id, p.username));
   }
 
   app.appendChild(el('div', { class: 'prof-head' },
@@ -54,7 +54,9 @@ async function render() {
       p.bio ? el('div', { class: 'prof-bio', text: p.bio }) : null,
       el('div', { class: 'prof-stats' },
         el('div', {}, el('b', { text: fmtCount(data.albums_count) }), ' ', el('span', { text: t('stat_albums') })),
-        el('div', {}, el('b', { text: fmtCount(data.friends_count) }), ' ', el('span', { text: t('stat_friends') }))))));
+        el('div', {}, el('b', { text: fmtCount(data.friends_count) }), ' ', el('span', { text: t('stat_friends') })),
+        el('div', {}, el('b', { text: fmtCount(data.followers_count) }), ' ', el('span', { text: t('stat_followers') })),
+        el('div', {}, el('b', { text: fmtCount(data.following_count) }), ' ', el('span', { text: t('stat_following') }))))));
 
   /* ---- закреплённый ---- */
   const albums = data.albums || [];
@@ -147,6 +149,34 @@ async function renderShared(host) {
       el('h2', { text: t('shared_albums') }),
       el('span', { class: 'muted', style: 'font-size:14.5px', text: t('you_are_collaborator') })),
     grid);
+}
+
+/* ---------------- подписка ---------------- */
+/**
+ * Подписка отдельно от дружбы: односторонняя, влияет только на ленту.
+ * Доступ к контенту «для друзей» она НЕ даёт — это разные вещи, и подпись
+ * под кнопкой об этом говорит прямо, чтобы человек не путался.
+ */
+function followButton() {
+  let on = !!data.is_following;
+  const btn = el('button', { class: 'btn btn-sm' });
+  const paint = () => {
+    clear(btn);
+    btn.className = on ? 'btn btn-ghost btn-sm' : 'btn btn-ghost btn-sm';
+    btn.title = t('follow_hint');
+    btn.appendChild(document.createTextNode(on ? t('following') : t('follow')));
+  };
+  btn.onclick = async () => {
+    if (!needAuth(t('signin_to_friend'))) return;
+    btn.disabled = true;
+    const rpc = on ? 'unfollow_user' : 'follow_user';
+    const { error } = await sb.rpc(rpc, { p_username: username });
+    btn.disabled = false;
+    if (error) { toast(error.message || t('update_error')); return; }
+    on = !on; paint();
+  };
+  paint();
+  return btn;
 }
 
 /* ---------------- дружба ---------------- */

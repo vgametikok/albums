@@ -3,6 +3,7 @@ import { sb, currentUser } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
+  modal, thumbEl, moreButton,
 } from './ui.js';
 import { mountComments } from './comments.js';
 
@@ -49,7 +50,18 @@ async function render(d) {
   const watchBtn = el('button', { class: 'btn btn-primary', style: 'height:50px', onclick: watch },
     playTriangle(14), t('watch_album'));
   actions.append(watchBtn, likeBtn(a, d.liked), saveBtn(a, d.saved), shareBtn());
-  if (d.is_author) actions.appendChild(el('a', { class: 'btn btn-ghost', style: 'height:50px', href: `editor.html?id=${a.id}` }, t('edit')));
+
+  // Пост можно собрать только из СВОИХ файлов: в совместном альбоме каждый
+  // публикует лишь то, что залил сам. Правило проверяется ещё и в базе.
+  const own = all.filter(m => m.mine && m.kind !== 'audio');
+  if (own.length) {
+    actions.appendChild(el('button', {
+      class: 'btn btn-ghost', style: 'height:50px',
+      onclick: () => openAlbumComposer(own, urls, a),
+    }, t('post_from_album')));
+  }
+  if (d.can_edit) actions.appendChild(el('a', { class: 'btn btn-ghost', style: 'height:50px', href: `editor.html?id=${a.id}` }, t('edit')));
+  if (!d.is_author) actions.appendChild(moreButton('album', a.id, author.username));
 
   hero.appendChild(el('div', { class: 'hero-card' },
     el('div', { class: 'hero-inner' },
@@ -118,6 +130,95 @@ async function render(d) {
     if (!first) { toast(t('nothing_to_watch')); return; }
     lightbox(all.filter(m => m.kind !== 'audio'), urls, 0);
   }
+}
+
+/* ---- пост из альбома ---- */
+function openAlbumComposer(own, urls, album) {
+  if (!needAuth(t('signin_to_post'))) return;
+  const picked = [];
+
+  modal((box, close) => {
+    const strip = el('div', { class: 'picked-strip' });
+    const grid = el('div', { class: 'lib-grid' });
+    const caption = el('textarea', { class: 'textarea', placeholder: t('caption_ph'), maxlength: '2200' });
+    const vis = el('select', { class: 'select' },
+      el('option', { value: 'public' }, t('vis_public')),
+      el('option', { value: 'friends' }, t('friends_only')),
+      el('option', { value: 'private' }, t('only_me')));
+    const share = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:18px' }, t('share'));
+
+    const redraw = () => {
+      clear(strip);
+      picked.forEach((m, i) => {
+        const c = el('div', { class: 'p' });
+        const src = urls[m.thumb] || urls[m.path];
+        const node = thumbEl(m.thumb || m.path, src, m.thumb ? null : m.kind);
+        if (node) c.appendChild(node);
+        c.append(el('div', { class: 'n', text: String(i + 1) }),
+          el('button', { class: 'x', onclick: () => { picked.splice(i, 1); redraw(); mark(); } }, '×'));
+        strip.appendChild(c);
+      });
+    };
+    const mark = () => {
+      grid.querySelectorAll('.lib-cell').forEach(cell => {
+        const idx = picked.findIndex(x => x.id === cell.dataset.id);
+        cell.classList.toggle('on', idx >= 0);
+        cell.querySelector('.num')?.remove();
+        if (idx >= 0) cell.appendChild(el('div', { class: 'num', text: String(idx + 1) }));
+      });
+    };
+
+    own.forEach(m => {
+      const cell = el('div', {
+        class: 'lib-cell', 'data-id': m.id,
+        onclick: () => {
+          const i = picked.findIndex(x => x.id === m.id);
+          if (i >= 0) picked.splice(i, 1);
+          else if (picked.length < 10) picked.push(m);
+          else { toast(t('max_slides', { n: 10 })); return; }
+          redraw(); mark();
+        },
+      });
+      const src = urls[m.thumb] || urls[m.path];
+      const node = thumbEl(m.thumb || m.path, src, m.thumb ? null : m.kind);
+      if (node) cell.appendChild(node);
+      if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: t('video_tag') }));
+      grid.appendChild(cell);
+    });
+
+    share.onclick = async () => {
+      if (!picked.length) { toast(t('add_one_file')); return; }
+      share.disabled = true;
+      clear(share).appendChild(el('span', { class: 'spinner' }));
+      try {
+        const { data: post, error } = await sb.from('posts').insert({
+          author_id: currentUser().id,
+          caption: caption.value.trim() || null,
+          visibility: vis.value,
+          album_id: album.id,
+        }).select().single();
+        if (error) throw error;
+        const rows = picked.map((m, i) => ({ post_id: post.id, position: i, media_id: m.id }));
+        const r = await sb.from('post_media').insert(rows);
+        if (r.error) throw r.error;
+        close();
+        toast(t('posted'));
+      } catch (err) {
+        toast(err.message || t('post_error'));
+        share.disabled = false;
+        clear(share).appendChild(document.createTextNode(t('share')));
+      }
+    };
+
+    box.append(
+      el('h2', { text: t('post_from_album') }),
+      el('p', { text: t('post_from_album_hint') }),
+      grid, strip,
+      el('div', { class: 'form-row', style: 'margin-top:16px' }, el('label', { class: 'label', text: t('caption') }), caption),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('who_can_see') }), vis),
+      share,
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  }, { wide: true });
 }
 
 function stat(k, v) {

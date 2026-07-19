@@ -29,6 +29,19 @@ img,video{max-width:100%}
 .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
 .nav-link{font-size:16px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
+/* ---------- страница дозагрузки события ---------- */
+.join-hero{position:relative;border-radius:22px;overflow:hidden;min-height:220px;background:var(--ph);
+  display:flex;align-items:flex-end}
+.join-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.join-hero-body{position:relative;padding:28px;background:linear-gradient(transparent,rgba(10,8,6,.78));
+  width:100%;color:#fff}
+.join-hero-body .kicker{color:#fff;opacity:.85}
+.join-title{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px}
+.join-owner{font-size:16px;opacity:.9}
+.lib-cell .lib-remove{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:999px;
+  border:none;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;font-size:14px;line-height:1;padding:0}
+@media (max-width:720px){ .join-title{font-size:24px} .join-hero-body{padding:18px} }
+
 /* ---------- уведомления ---------- */
 .notif-btn{position:relative}
 .notif-badge{position:absolute;top:2px;right:2px;min-width:18px;height:18px;padding:0 5px;
