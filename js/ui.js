@@ -47,6 +47,7 @@ const I = {
   chevR: '<path d="M9 18l6-6-6-6"/>',
   x: '<path d="M18 6L6 18M6 6l12 12"/>',
   pin: '<path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1z"/>',
+  bell: '<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>',
   home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>',
   grid: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 16 0v1"/>',
@@ -162,8 +163,11 @@ export async function mountShell(active) {
   );
 
   if (me) {
-    right.append(el('a', { href: `profile.html?u=${encodeURIComponent(me.username)}`, style: 'flex-shrink:0' },
-      avatarImg(me.avatar_url, me.display_name, 44)));
+    const { notifButton } = await import('./notifications.js');
+    right.append(
+      notifButton(),
+      el('a', { href: `profile.html?u=${encodeURIComponent(me.username)}`, style: 'flex-shrink:0' },
+        avatarImg(me.avatar_url, me.display_name, 44)));
   } else {
     right.append(el('button', {
       class: 'btn btn-ghost', onclick: () => showLogin(t('signin_to_create')),
