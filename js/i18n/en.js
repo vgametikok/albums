@@ -369,4 +369,5 @@ export default {
   feed_fresh: 'Fresh',
   period_week: 'This week',
   period_month: 'This month',
+  nav_albums: 'Albums',
 };

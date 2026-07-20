@@ -354,4 +354,5 @@ export default {
   feed_fresh: 'Свежее',
   period_week: 'За неделю',
   period_month: 'За месяц',
+  nav_albums: 'Альбомы',
 };

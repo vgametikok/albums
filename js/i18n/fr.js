@@ -354,4 +354,5 @@ export default {
   feed_fresh: 'Récents',
   period_week: 'Cette semaine',
   period_month: 'Ce mois-ci',
+  nav_albums: 'Albums',
 };

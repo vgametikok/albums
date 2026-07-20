@@ -354,4 +354,5 @@ export default {
   feed_fresh: '新着',
   period_week: '今週',
   period_month: '今月',
+  nav_albums: 'アルバム',
 };

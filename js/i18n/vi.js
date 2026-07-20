@@ -354,4 +354,5 @@ export default {
   feed_fresh: 'Mới',
   period_week: 'Tuần này',
   period_month: 'Tháng này',
+  nav_albums: 'Album',
 };

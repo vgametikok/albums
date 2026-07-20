@@ -12,21 +12,38 @@ const app = $('#app');
 const PAGE = 8;
 let offset = 0, loading = false, done = false, col = null;
 
+let feed = null, sentinel = null;
+
 (async function main() {
   await mountShell('posts');
   document.title = t('posts_title') + ' — Albums';
-  const head = el('div', { class: 'section-head', style: 'margin:8px 0 22px' },
-    el('h2', { style: 'font-size:30px', text: t('posts_title') }),
-    el('button', { class: 'btn btn-primary btn-sm', onclick: openComposer }, icon('plus', 16, { sw: 2.4 }), t('new_post')));
-  col = el('div', { class: 'posts-col' });
-  const sentinel = el('div', { style: 'height:1px' });
-  clear(app).append(el('div', { class: 'posts-col' }, head), col, sentinel);
+  // помечаем страницу — на мобильном шапка прячется, лента идёт на весь экран
+  document.body.classList.add('posts-page');
 
-  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) load(); }, { rootMargin: '600px' });
+  const head = el('div', { class: 'posts-topbar' },
+    el('h2', { text: t('posts_title') }),
+    el('button', { class: 'btn btn-primary btn-sm', onclick: openComposer }, icon('plus', 16, { sw: 2.4 }), t('new_post')));
+
+  feed = el('div', { class: 'posts-feed' });
+  col = feed;                       // карточки кладём прямо в ленту-скроллер
+  sentinel = el('div', { class: 'posts-sentinel' });
+  feed.appendChild(sentinel);
+
+  // плавающая кнопка «новый пост» — только на мобильном (CSS)
+  const fab = el('button', { class: 'posts-fab', 'aria-label': t('new_post'), onclick: openComposer },
+    icon('plus', 24, { sw: 2.6, stroke: '#fff' }));
+
+  clear(app).append(head, feed, fab);
+
+  // бесконечная подгрузка: и по окну (десктоп), и по контейнеру ленты (мобильный снап)
+  const near = (el, px) => el.scrollHeight - el.scrollTop - el.clientHeight < px;
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) load(); }, { rootMargin: '800px' });
   io.observe(sentinel);
   addEventListener('scroll', () => {
     if (innerHeight + scrollY > document.body.offsetHeight - 800) load();
   }, { passive: true });
+  feed.addEventListener('scroll', () => { if (near(feed, 1200)) load(); }, { passive: true });
+
   load();
 })();
 
@@ -39,14 +56,14 @@ async function load() {
   const rows = data || [];
   if (rows.length < PAGE) done = true;
   if (!rows.length && !offset) {
-    col.appendChild(emptyState(t('posts_empty_title'), t('posts_empty_text'),
-      el('button', { class: 'btn btn-primary', onclick: openComposer }, t('create_post'))));
+    feed.insertBefore(emptyState(t('posts_empty_title'), t('posts_empty_text'),
+      el('button', { class: 'btn btn-primary', onclick: openComposer }, t('create_post'))), sentinel);
     return;
   }
   const paths = [];
   rows.forEach(p => (p.slides || []).forEach(s => paths.push(s.path, s.thumb)));
   const urls = await signUrls(paths);
-  rows.forEach(p => col.appendChild(postCard(p, urls)));
+  rows.forEach(p => feed.insertBefore(postCard(p, urls), sentinel));
   offset += rows.length;
 }
 
@@ -71,18 +88,27 @@ function postCard(p, urls) {
   });
 
   const dots = el('div', { class: 'dots' });
+  const go = (d) => {
+    stage.querySelectorAll('video').forEach(v => v.pause());
+    idx = (idx + d + slides.length) % slides.length;
+    [...stage.querySelectorAll('.slide')].forEach((n, i) => n.classList.toggle('on', i === idx));
+    [...dots.children].forEach((n, i) => n.classList.toggle('on', i === idx));
+  };
   if (slides.length > 1) {
     slides.forEach((_, i) => dots.appendChild(el('i', { class: i === 0 ? 'on' : '' })));
-    const go = (d) => {
-      stage.querySelectorAll('video').forEach(v => v.pause());
-      idx = (idx + d + slides.length) % slides.length;
-      [...stage.children].forEach((n, i) => n.classList.toggle('on', i === idx));
-      [...dots.children].forEach((n, i) => n.classList.toggle('on', i === idx));
-    };
     stage.append(
       el('button', { class: 'car-nav prev', onclick: () => go(-1) }, icon('chevL', 18, { stroke: '#141414', sw: 2 })),
       el('button', { class: 'car-nav next', onclick: () => go(1) }, icon('chevR', 18, { stroke: '#141414', sw: 2 })),
       dots);
+
+    // на телефоне карусель листается горизонтальным свайпом (кнопки скрыты)
+    let sx = 0, sy = 0;
+    stage.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      // только явно горизонтальный жест — вертикальный отдаём снап-скроллу ленты
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.6) go(dx < 0 ? 1 : -1);
+    }, { passive: true });
   }
 
   let liked = !!p.liked, likes = p.likes_count || 0;
@@ -112,13 +138,28 @@ function postCard(p, urls) {
   const card = el('article', { class: 'post' },
     el('div', { class: 'post-head' },
       el('a', { href: `profile.html?u=${encodeURIComponent(p.author_username)}` },
-        avatarImg(p.author_avatar, p.author_name, 40)),
+        avatarImg(p.author_avatar, p.author_name, 38)),
       el('div', { style: 'min-width:0' },
         el('a', { class: 'post-name', href: `profile.html?u=${encodeURIComponent(p.author_username)}`, text: p.author_name || p.author_username }),
         el('div', { class: 'post-time', text: timeAgo(p.created_at) }))),
     stage,
     el('div', { class: 'post-actions' }, likeBtn, commentBtn),
     p.caption ? el('div', { class: 'post-caption', text: p.caption }) : null);
+
+  // Автоплей текущего видео, когда пост занимает экран (как в инстаграме). Только
+  // в мобильном снап-режиме; на десктопе видео с обычными controls.
+  if (window.matchMedia('(max-width:720px)').matches) {
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => {
+        const v = stage.querySelector('.slide.on video') || stage.querySelector('video');
+        if (!v) return;
+        if (e.isIntersecting && e.intersectionRatio > 0.7) {
+          v.muted = true; v.loop = true; v.play().catch(() => {});
+        } else { v.pause(); }
+      });
+    }, { threshold: [0, 0.7, 1] });
+    io.observe(card);
+  }
   return card;
 }
 

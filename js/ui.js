@@ -232,7 +232,7 @@ export async function mountShell(active) {
     right.append(
       notifButton(),
       el('a', { href: `profile.html?u=${encodeURIComponent(me.username)}`, style: 'flex-shrink:0' },
-        avatarImg(me.avatar_url, me.display_name, 44)));
+        avatarImg(me.avatar_url, me.display_name, 38)));
   } else {
     right.append(el('button', {
       class: 'btn btn-ghost', onclick: () => showLogin(t('signin_to_create')),
@@ -261,7 +261,7 @@ function mountMobileNav(active, me) {
   }, icon(iconName, 22, { sw: active === key ? 2.2 : 1.8 }), el('span', { text: label }));
 
   document.body.appendChild(el('nav', { class: 'mobnav' },
-    item('home', 'index.html', 'home', t('nav_home')),
+    item('home', 'index.html', 'home', t('nav_albums')),
     item('posts', 'posts.html', 'grid', t('nav_posts')),
     el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album') },
       icon('plus', 24, { sw: 2.6, stroke: '#fff' })),

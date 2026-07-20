@@ -354,4 +354,5 @@ export default {
   feed_fresh: '最新',
   period_week: '本周',
   period_month: '本月',
+  nav_albums: '相册',
 };

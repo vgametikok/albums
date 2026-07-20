@@ -18,16 +18,16 @@ img,video{max-width:100%}
 .wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,3.1vw,44px) 80px}
 
 /* ---------- header ---------- */
-.hdr{display:flex;align-items:center;gap:28px;padding:26px 0 22px}
-.logo{font-size:34px;font-weight:800;letter-spacing:-.035em;flex-shrink:0}
+.hdr{display:flex;align-items:center;gap:22px;padding:20px 0 18px}
+.logo{font-size:24px;font-weight:800;letter-spacing:-.035em;flex-shrink:0}
 .logo:hover{color:var(--ink)}
 .search-wrap{flex:1;display:flex;justify-content:center;min-width:0}
-.search{display:flex;align-items:center;gap:12px;background:var(--chip);border-radius:999px;
-  padding:0 22px;height:52px;width:100%;max-width:560px}
-.search input{border:none;background:transparent;outline:none;font-size:16.5px;color:var(--ink);flex:1;min-width:0;padding:0}
-.hdr-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.search{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:999px;
+  padding:0 18px;height:44px;width:100%;max-width:520px}
+.search input{border:none;background:transparent;outline:none;font-size:15px;color:var(--ink);flex:1;min-width:0;padding:0}
+.hdr-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
-.nav-link{font-size:16px;font-weight:600;color:var(--muted);white-space:nowrap}
+.nav-link{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
 /* ---------- озвучка ---------- */
 .narr-player{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;
@@ -124,14 +124,14 @@ img,video{max-width:100%}
 @media (max-width:720px){ .lang-select{height:40px;font-size:14px;max-width:104px} }
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 26px;
-  border-radius:999px;border:1.5px solid transparent;font-size:17px;font-weight:600;cursor:pointer;
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;
+  border-radius:999px;border:1.5px solid transparent;font-size:15px;font-weight:600;cursor:pointer;
   background:transparent;color:var(--ink);transition:background .15s,border-color .15s}
 .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
 .btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
 .btn-ghost{border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--ink)}
-.btn-sm{height:44px;padding:0 21px;font-size:15.5px}
+.btn-sm{height:40px;padding:0 18px;font-size:14px}
 .btn-icon{width:48px;height:48px;padding:0;border-radius:999px;display:inline-flex;align-items:center;
   justify-content:center;border:none;background:transparent;cursor:pointer}
 .btn-icon:hover{background:var(--chip)}
@@ -142,9 +142,9 @@ img,video{max-width:100%}
 .btn[disabled]{opacity:.5;cursor:default}
 
 /* ---------- chips ---------- */
-.chips{display:flex;gap:12px;flex-wrap:wrap;margin:4px 0 28px}
-.chip{height:47px;padding:0 23px;border-radius:999px;border:1.5px solid var(--line);
-  background:transparent;color:var(--ink);font-size:16.5px;font-weight:500;cursor:pointer;transition:border-color .15s}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 24px}
+.chip{height:40px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);
+  background:transparent;color:var(--ink);font-size:14.5px;font-weight:500;cursor:pointer;transition:border-color .15s}
 .chip:hover{border-color:var(--ink)}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 
@@ -179,21 +179,21 @@ img,video{max-width:100%}
 .featured-side{flex:1 1 0;min-width:280px;display:flex;flex-direction:column}
 .featured-side .card-cover{flex:1;min-height:210px;aspect-ratio:auto}
 .hero-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px}
-.hero-inner{background:#fff;border-radius:18px;padding:32px 52px;text-align:center;box-shadow:var(--shadow-lg);max-width:560px}
-.hero-title{font-size:30px;font-weight:800;letter-spacing:-.02em}
-.hero-sub{font-size:17px;color:var(--muted);margin-top:7px}
-.pill{display:inline-block;background:var(--tint);border-radius:999px;padding:9px 18px;
-  font-size:14.5px;color:#43403B;margin-top:14px}
+.hero-inner{background:#fff;border-radius:16px;padding:24px 34px;text-align:center;box-shadow:var(--shadow-lg);max-width:460px}
+.hero-title{font-size:23px;font-weight:800;letter-spacing:-.02em}
+.hero-sub{font-size:15px;color:var(--muted);margin-top:5px}
+.pill{display:inline-block;background:var(--tint);border-radius:999px;padding:7px 14px;
+  font-size:13px;color:#43403B;margin-top:11px}
 .kicker{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
 .kicker-muted{color:var(--faint)}
 
 /* ---------- album page ---------- */
 .back{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--muted);margin-bottom:16px}
 .back:hover{color:var(--ink)}
-.album-hero{position:relative;border-radius:22px;overflow:hidden;height:440px;background:var(--ph)}
+.album-hero{position:relative;border-radius:20px;overflow:hidden;height:380px;background:var(--ph)}
 .album-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.album-hero .hero-inner{padding:38px 60px}
-.album-hero .hero-title{font-size:40px;letter-spacing:-.025em;margin-top:8px}
+.album-hero .hero-inner{padding:30px 44px}
+.album-hero .hero-title{font-size:30px;letter-spacing:-.025em;margin-top:6px}
 .album-cols{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start;margin-top:44px}
 .lede{font-size:18px;line-height:1.7;color:#3A3733;margin:0}
 .chapter{margin-top:44px}
@@ -270,25 +270,64 @@ img,video{max-width:100%}
 .section-head h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:0}
 
 /* ---------- posts (инста-лента) ---------- */
-.posts-col{max-width:620px;margin:0 auto}
-.post{background:#fff;border-radius:18px;box-shadow:var(--shadow);margin-bottom:28px;overflow:hidden}
-.post-head{display:flex;align-items:center;gap:12px;padding:16px 18px}
-.post-name{font-size:15.5px;font-weight:700}
-.post-time{font-size:13.5px;color:var(--faint)}
+/* Десктоп: центрированная колонка карточек, скроллит окно.
+   Мобильный: полноэкранная лента со снапом — свайп вверх = следующий пост. */
+.posts-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  max-width:560px;margin:6px auto 18px}
+.posts-topbar h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:0}
+.posts-feed{max-width:560px;margin:0 auto}
+.posts-fab{display:none}
+.post{background:#fff;border-radius:18px;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden}
+.post-head{display:flex;align-items:center;gap:10px;padding:14px 16px}
+.post-name{font-size:14.5px;font-weight:700}
+.post-time{font-size:13px;color:var(--faint)}
 .carousel{position:relative;background:#0d0c0b;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
 .carousel .slide{position:absolute;inset:0;display:none;align-items:center;justify-content:center}
 .carousel .slide.on{display:flex}
 .carousel img,.carousel video{width:100%;height:100%;object-fit:contain}
-.car-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:999px;
+.car-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;
   border:none;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;cursor:pointer}
 .car-nav.prev{left:12px} .car-nav.next{right:12px}
 .dots{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:6px;justify-content:center}
 .dots i{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.5)}
 .dots i.on{background:#fff}
-.post-actions{display:flex;align-items:center;gap:18px;padding:14px 18px 6px}
+.post-actions{display:flex;align-items:center;gap:18px;padding:12px 16px 4px}
 .post-actions button{background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:7px;
-  font-size:15px;font-weight:600;color:var(--ink)}
-.post-caption{padding:6px 18px 18px;font-size:15.5px;line-height:1.6;color:#3A3733;white-space:pre-wrap;overflow-wrap:anywhere}
+  font-size:14px;font-weight:600;color:var(--ink)}
+.post-caption{padding:6px 16px 16px;font-size:14.5px;line-height:1.55;color:#3A3733;white-space:pre-wrap;overflow-wrap:anywhere}
+
+@media (max-width:720px){
+  body.posts-page #shell{display:none}          /* лента на весь экран */
+  body.posts-page .wrap{padding:0}
+  .posts-topbar{display:none}
+  .posts-feed{position:fixed;left:0;right:0;top:0;bottom:0;max-width:none;margin:0;
+    overflow-y:auto;scroll-snap-type:y mandatory;background:#000;-webkit-overflow-scrolling:touch}
+  .post{height:100dvh;margin:0;border-radius:0;box-shadow:none;background:#000;color:#fff;
+    scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;flex-direction:column;
+    justify-content:center;overflow:hidden}
+  /* автор — оверлеем сверху */
+  .post-head{position:absolute;top:0;left:0;right:0;z-index:2;padding:14px 16px;
+    padding-top:calc(14px + env(safe-area-inset-top));
+    background:linear-gradient(rgba(0,0,0,.55),transparent)}
+  .post-name{color:#fff} .post-time{color:rgba(255,255,255,.75)}
+  .carousel{aspect-ratio:auto;flex:1;min-height:0;background:#000}
+  /* действия и подпись — оверлеем снизу, над нижней навигацией */
+  .post-actions{position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:12px 16px calc(70px + env(safe-area-inset-bottom));gap:22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.6))}
+  .post-actions button{color:#fff;font-size:15px}
+  .post-caption{position:absolute;left:0;right:0;z-index:2;color:#fff;
+    bottom:calc(112px + env(safe-area-inset-bottom));padding:0 16px;max-height:22vh;overflow:auto;
+    text-shadow:0 1px 4px rgba(0,0,0,.5)}
+  .dots{bottom:calc(150px + env(safe-area-inset-bottom))}
+  .car-nav{display:none}                          /* на телефоне листаем свайпом по горизонтали */
+  .posts-sentinel{height:1px}
+  /* плавающая кнопка нового поста */
+  .posts-fab{display:flex;position:fixed;right:16px;z-index:80;
+    bottom:calc(84px + env(safe-area-inset-bottom));width:52px;height:52px;border-radius:999px;
+    border:none;background:var(--accent);align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 6px 18px rgba(232,85,43,.4)}
+}
 
 /* ---------- медиатека (выбор уже загруженного) ---------- */
 .tabs{display:flex;gap:4px;background:var(--chip);border-radius:999px;padding:4px;margin-bottom:16px}
@@ -380,17 +419,30 @@ img,video{max-width:100%}
   .album-hero .hero-title{font-size:30px}
 }
 @media (max-width:720px){
-  .hdr{gap:14px;padding:18px 0 16px;flex-wrap:wrap}
-  .logo{font-size:26px}
-  .search{height:46px}
+  .hdr{gap:12px;padding:14px 0 12px;flex-wrap:wrap}
+  .logo{font-size:22px}
+  .search{height:42px}
   .search-wrap{order:3;flex-basis:100%}
-  .btn{height:46px;padding:0 18px;font-size:15px}
+  .btn{height:42px;padding:0 16px;font-size:14px}
+  .btn-sm{height:38px;font-size:13.5px}
   .hide-sm{display:none}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px 16px}
-  .prof-head{gap:20px}
-  .prof-head h1{font-size:28px}
-  .hero-inner{padding:22px 26px}
-  .hero-title{font-size:22px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px 12px}
+  .chip{height:36px;padding:0 15px;font-size:13.5px}
+  .card-title{font-size:15.5px}
+  .card-sub,.card-stat{font-size:13px}
+  .badge{font-size:12px;padding:6px 10px}
+  .prof-head{gap:16px}
+  .prof-head h1{font-size:24px}
+  .prof-head .avatar{width:88px!important;height:88px!important}
+  .hero-inner{padding:18px 22px;max-width:340px;border-radius:14px}
+  .hero-title{font-size:19px}
+  .hero-sub{font-size:13.5px}
+  .album-hero{height:300px}
+  .album-hero .hero-inner{padding:20px 24px}
+  .album-hero .hero-title{font-size:22px}
   .comment.reply{margin-left:28px}
   .media-grid.g3,.media-grid.g2{grid-template-columns:1fr 1fr}
+  .chapter h3{font-size:20px}
+  .lede{font-size:16px}
+  .section-head h2{font-size:20px}
 }

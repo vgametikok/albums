@@ -354,4 +354,5 @@ export default {
   feed_fresh: '최신',
   period_week: '이번 주',
   period_month: '이번 달',
+  nav_albums: '앨범',
 };
