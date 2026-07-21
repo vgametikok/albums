@@ -1,28 +1,81 @@
 // Загрузка медиа: декод (включая HEIC) → WebP на клиенте → приватный бакет → строка в media.
 //
 // Политика (решено 2026-07-19):
-//   фото  — длинная сторона ≤2560px, WebP q0.82 (JPEG-фолбэк), превью 640px;
+//   фото  — длинная сторона ≤2048px, WebP q0.80 (JPEG-фолбэк), превью 640px;
 //           апскейла нет — меньшее остаётся меньшим; оригинал не хранится (HD — на платном тарифе);
 //           EXIF стирается при перекодировании, включая GPS — геометки не утекают;
 //   HEIC  — конвертируется в браузере через WASM (libheif), статус «в обработке»;
 //   GIF   — заливается как есть (анимация сохраняется), превью — первый кадр;
 //   видео — пока как есть + постер; перекодирование в MP4 через WebCodecs — следующий шаг.
 import { sb, currentUser } from './sb.js';
-import { LIMITS } from './config.js';
+import { LIMITS, SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import { canTranscode, needsTranscode, transcodeToMp4, posterFromVideo } from './transcode.js';
 import { readCaptureDate } from './exif.js';
 import { t } from './i18n.js';
 
-const MAX_EDGE = 2560;
+const MAX_EDGE = 2048;
 const THUMB_EDGE = 640;
-const Q_FULL = 0.82;
+const Q_FULL = 0.80;
 const Q_THUMB = 0.75;
 
 const EXT = {
   'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif',
-  'video/mp4': 'mp4', 'video/webm': 'webm', 'video/quicktime': 'mov',
+  'video/mp4': 'mp4', 'video/webm': 'webm', 'video/quicktime': 'mov', 'video/x-m4v': 'm4v',
   'audio/webm': 'weba', 'audio/mpeg': 'mp3', 'audio/mp4': 'm4a', 'audio/ogg': 'ogg', 'audio/wav': 'wav',
 };
+
+// Бэкенд хранилища медиа: 'r2' (боевой) | 'supabase' (откат — вернуть старый путь записи).
+const MEDIA_BACKEND = 'r2';
+const isR2Path = (p) => typeof p === 'string' && p.startsWith('r2/');
+// MIME без параметров (audio/webm;codecs=opus -> audio/webm) и в нижнем регистре.
+const cleanType = (m) => (m || '').split(';')[0].trim().toLowerCase();
+
+/* ---------------- R2: подпись и заливка через edge-функцию r2-sign ---------------- */
+async function authToken() {
+  return (await sb.auth.getSession()).data.session?.access_token || SUPABASE_KEY;
+}
+async function r2SignUpload(payload) {
+  const resp = await fetch(SUPABASE_URL + '/functions/v1/r2-sign/sign-upload', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + await authToken() },
+    body: JSON.stringify(payload),
+  });
+  if (!resp.ok) {
+    const e = await resp.json().catch(() => ({}));
+    throw new Error(t('err_upload') + (e.error ? ` (${e.error})` : ''));
+  }
+  return resp.json();
+}
+async function r2Put(url, blob, contentType) {
+  const r = await fetch(url, { method: 'PUT', body: blob, headers: { 'Content-Type': contentType } });
+  return r.ok;
+}
+// Основная загрузка: подпись -> миниатюра первой (мелкая) -> оригинал -> вернуть пути.
+async function r2Write({ kind, body, origType, thumb, thumbType }) {
+  const sign = await r2SignUpload({
+    kind, contentType: origType, size: body.size,
+    thumbType: thumb ? thumbType : undefined, thumbSize: thumb ? thumb.size : undefined,
+  });
+  let thumbPath = sign.thumbPath;
+  if (thumb && sign.thumbPutUrl) {
+    if (!(await r2Put(sign.thumbPutUrl, thumb, thumbType))) thumbPath = null;   // без превью не критично
+  } else {
+    thumbPath = null;
+  }
+  if (!(await r2Put(sign.putUrl, body, origType))) throw new Error(t('err_upload'));   // ретрай = новая загрузка
+  return { id: sign.mediaId, path: sign.path, thumbPath };
+}
+// GET-ссылка на собственный объект (для backfill постера R2-видео).
+async function r2GetUrl(path) {
+  const resp = await fetch(SUPABASE_URL + '/functions/v1/r2-sign/sign-view', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + await authToken() },
+    body: JSON.stringify({ paths: [path] }),
+  });
+  if (!resp.ok) return null;
+  const { urls } = await resp.json();
+  return (urls && urls[path]) || null;
+}
 
 /** Тип файла. HEIC часто приходит с пустым file.type — поэтому смотрим и на расширение. */
 export function kindOf(file) {
@@ -85,7 +138,9 @@ async function encodeFrom(bmp, maxEdge, quality) {
   const h = Math.max(1, Math.round(bmp.height * scale));
   const c = document.createElement('canvas');
   c.width = w; c.height = h;
-  c.getContext('2d').drawImage(bmp, 0, 0, w, h);
+  const ctx = c.getContext('2d');
+  ctx.imageSmoothingQuality = 'high';   // качественный ресайз — можно держать q ниже без видимой потери
+  ctx.drawImage(bmp, 0, 0, w, h);
   const type = (await webpSupported()) ? 'image/webp' : 'image/jpeg';
   const blob = await new Promise(r => c.toBlob(r, type, quality));
   if (!blob) throw new Error(t('err_image_process'));
@@ -148,7 +203,6 @@ export async function uploadMedia(file, onStage) {
     throw new Error(t('err_too_large', { name: file.name, mb: Math.round(LIMITS[kind] / 1048576) }));
   }
 
-  const id = crypto.randomUUID();
   let body = file, thumb = null, width = null, height = null, duration = null;
 
   // Дату съёмки читаем из ОРИГИНАЛА до сжатия: при перекодировании в WebP EXIF
@@ -201,18 +255,23 @@ export async function uploadMedia(file, onStage) {
   }
 
   onStage && onStage('uploading');
-  const ext = EXT[body.type] || EXT[file.type] || 'bin';
-  const path = `${user.id}/${id}/orig.${ext}`;
-  const up = await sb.storage.from('media').upload(path, body, {
-    contentType: body.type || file.type, upsert: false,
-  });
-  if (up.error) throw up.error;
+  const origType = cleanType(body.type) || cleanType(file.type);
+  const thumbType = thumb ? (cleanType(thumb.type) || 'image/jpeg') : null;
 
-  let thumbPath = null;
-  if (thumb) {
-    thumbPath = `${user.id}/${id}/thumb.${EXT[thumb.type] || 'jpg'}`;
-    const up2 = await sb.storage.from('media').upload(thumbPath, thumb, { contentType: thumb.type, upsert: true });
-    if (up2.error) thumbPath = null;
+  let id, path, thumbPath;
+  if (MEDIA_BACKEND === 'r2') {
+    ({ id, path, thumbPath } = await r2Write({ kind, body, origType, thumb, thumbType }));
+  } else {
+    id = crypto.randomUUID();
+    path = `${user.id}/${id}/orig.${EXT[origType] || 'bin'}`;
+    const up = await sb.storage.from('media').upload(path, body, { contentType: body.type || file.type, upsert: false });
+    if (up.error) throw up.error;
+    thumbPath = null;
+    if (thumb) {
+      thumbPath = `${user.id}/${id}/thumb.${EXT[thumbType] || 'jpg'}`;
+      const up2 = await sb.storage.from('media').upload(thumbPath, thumb, { contentType: thumb.type, upsert: true });
+      if (up2.error) thumbPath = null;
+    }
   }
 
   const { data, error } = await sb.from('media').insert({
@@ -234,6 +293,29 @@ export async function backfillPoster(media) {
   if (!user || !media || media.kind !== 'video' || media.thumb_path) return null;
   if (media.owner_id && media.owner_id !== user.id) return null;
 
+  if (isR2Path(media.storage_path)) {
+    const getUrl = await r2GetUrl(media.storage_path);
+    if (!getUrl) return null;
+    let blob;
+    try {
+      const resp = await fetch(getUrl);
+      if (!resp.ok) return null;
+      const file = new File([await resp.blob()], 'v.mp4', { type: 'video/mp4' });
+      blob = await posterFromVideo(file);
+    } catch (_) { return null; }
+    if (!blob) return null;
+    const tType = cleanType(blob.type) || 'image/jpeg';
+    let sign;
+    try { sign = await r2SignUpload({ target: 'thumb', mediaId: media.id, thumbType: tType }); }
+    catch (_) { return null; }
+    if (!sign.thumbPutUrl || !(await r2Put(sign.thumbPutUrl, blob, tType))) return null;
+    const { error } = await sb.from('media').update({ thumb_path: sign.thumbPath }).eq('id', media.id);
+    if (error) return null;
+    media.thumb_path = sign.thumbPath;
+    return sign.thumbPath;
+  }
+
+  // ── легаси: Supabase Storage ──
   const { data: signed } = await sb.storage.from('media').createSignedUrl(media.storage_path, 300);
   if (!signed?.signedUrl) return null;
 

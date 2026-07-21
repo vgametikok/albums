@@ -43,15 +43,23 @@ function isIsobmff(file) {
   return t === 'video/mp4' || t === 'video/quicktime' || /\.(mp4|m4v|mov)$/.test(n);
 }
 
-/** MP4 с H.264 уже играет везде — такой файл не трогаем. */
+/**
+ * MP4 с H.264 в пределах 1080p уже играет везде — такой файл не трогаем.
+ * Но H.264 крупнее 1080p (например 4K) пережимаем: иначе он лёг бы в хранилище
+ * в исходном разрешении и «видео ≤1080» по факту не соблюдалось бы.
+ */
 export async function needsTranscode(file) {
   const t = (file.type || '').toLowerCase();
   const n = (file.name || '').toLowerCase();
   const isMp4 = t === 'video/mp4' || /\.mp4$/.test(n);
   if (!isMp4) return true;
   try {
-    const info = await probeContainer(file);
-    return !(info?.video?.codec || '').startsWith('avc1');
+    const probe = await probeContainer(file);
+    const v = probe?.video;
+    if (!(v?.codec || '').startsWith('avc1')) return true;   // не H.264 — приводим к нему
+    const w = v.track_width || v.video?.width || 0;
+    const h = v.track_height || v.video?.height || 0;
+    return Math.max(w, h) > MAX_EDGE;                         // крупнее 1080p — ужимаем
   } catch (_) {
     return true;
   }

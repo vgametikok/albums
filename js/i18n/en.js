@@ -252,6 +252,7 @@ export default {
   err_too_large: '{name}: too large (max {mb} MB)',
   err_heic: 'Could not read the HEIC file. Turn on “Most Compatible” format on your iPhone.',
   err_image_process: 'Could not process the image',
+  err_upload: 'Upload failed, please try again',
   err_video_open: 'The browser could not open this video (possibly HEVC from an iPhone)',
   err_video_slow: 'The video is taking too long to read',
   err_audio: 'Could not read the audio',

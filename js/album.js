@@ -1,7 +1,7 @@
 // Страница альбома: обложка, главы, медиа, голосовые заметки, сайдбар, комментарии.
 import { sb, currentUser } from './sb.js';
 import {
-  el, $, clear, mountShell, signUrls, icon, playTriangle, toast, needAuth,
+  el, $, clear, mountShell, signUrls, attachMediaRefresh, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
   modal, thumbEl, moreButton,
 } from './ui.js';
@@ -250,6 +250,7 @@ function videoEl(m, urls) {
   const v = el('video', { controls: 'controls', preload: 'metadata', playsinline: 'playsinline' });
   if (urls[m.thumb]) v.poster = urls[m.thumb];
   if (urls[m.path]) v.src = urls[m.path];
+  attachMediaRefresh(v, m.path);   // переподпись при протухании R2-ссылки
   const r = ratioOf(m);
   // Рамка по РЕАЛЬНЫМ пропорциям ролика: вертикальное видео остаётся вертикальным.
   if (r) v.style.aspectRatio = `${m.width} / ${m.height}`;

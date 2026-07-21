@@ -1,5 +1,6 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
 import { sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut } from './sb.js';
+import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import {
   t, initI18n, fmtNumber, fmtTimeAgo, composition, catLabel,
   LANGS, currentLang, setLang,
@@ -79,20 +80,83 @@ export function dur(sec) {
 }
 
 /* ---------------- подписанные URL для приватного бакета ---------------- */
+// Медиа живёт в двух бэкендах: старое — в Supabase Storage, новое — в R2 (путь
+// с префиксом `r2/`). Ветвление здесь, в единственной точке; 17 вызывающих мест
+// работают с одной map `path -> url` и префикса не замечают.
 const urlCache = new Map();
+const isR2 = p => typeof p === 'string' && p.startsWith('r2/');
+const R2_SIGN_VIEW = SUPABASE_URL + '/functions/v1/r2-sign/sign-view';
+
 export async function signUrls(paths) {
   const now = Date.now();
   const need = [...new Set(paths.filter(p => p && !(urlCache.get(p)?.exp > now)))];
-  for (let i = 0; i < need.length; i += 100) {
-    const chunk = need.slice(i, i + 100);
-    const { data } = await sb.storage.from('media').createSignedUrls(chunk, 3600);
-    (data || []).forEach(d => {
-      if (d.signedUrl) urlCache.set(d.path, { url: d.signedUrl, exp: now + 3400e3 });
-    });
+  const legacy = need.filter(p => !isR2(p));
+  const r2 = need.filter(isR2);
+  const jobs = [];
+
+  // старое — Supabase Storage, ссылка живёт час
+  for (let i = 0; i < legacy.length; i += 100) {
+    const chunk = legacy.slice(i, i + 100);
+    jobs.push((async () => {
+      const { data } = await sb.storage.from('media').createSignedUrls(chunk, 3600);
+      (data || []).forEach(d => {
+        if (d.signedUrl) urlCache.set(d.path, { url: d.signedUrl, exp: now + 3400e3 });
+      });
+    })());
   }
+
+  // новое — edge-функция sign-view (гость шлёт публичный ключ, юзер — свой JWT)
+  if (r2.length) {
+    jobs.push((async () => {
+      const token = (await sb.auth.getSession()).data.session?.access_token || SUPABASE_KEY;
+      for (let i = 0; i < r2.length; i += 240) {
+        const chunk = r2.slice(i, i + 240);
+        try {
+          const resp = await fetch(R2_SIGN_VIEW, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + token },
+            body: JSON.stringify({ paths: chunk }),
+          });
+          if (!resp.ok) throw new Error('sign-view HTTP ' + resp.status);
+          const { urls, exp } = await resp.json();
+          const cacheExp = exp ? Math.max(now, exp * 1000 - 60e3) : now + 240e3;
+          Object.entries(urls || {}).forEach(([p, u]) => urlCache.set(p, { url: u, exp: cacheExp }));
+        } catch (e) {
+          // Глотаем, как и легаси-ветка (thumbEl вернёт null -> карточка без превью),
+          // но с предупреждением: иначе сбой r2-sign невидим.
+          console.warn('r2 sign-view failed:', e);
+        }
+      }
+    })());
+  }
+
+  await Promise.all(jobs);
   const out = {};
   for (const p of paths) if (p && urlCache.get(p)) out[p] = urlCache.get(p).url;
   return out;
+}
+
+// Подписи R2 живут 5–15 минут, поэтому у долгоживущих <video>/<audio> ссылка может
+// протухнуть к моменту перемотки или позднего play. Ловим `error`, переподписываем
+// и возвращаем позицию. Троттлинг 30с — защита от петли, если источник реально мёртв.
+export function attachMediaRefresh(mediaEl, path) {
+  if (!isR2(path)) return;   // легаси-ссылки живут час, им это не нужно
+  let last = 0;
+  mediaEl.addEventListener('error', async () => {
+    const t = Date.now();
+    if (t - last < 30000) return;
+    last = t;
+    urlCache.delete(path);
+    const map = await signUrls([path]);
+    if (!map[path]) return;
+    const pos = mediaEl.currentTime || 0;
+    mediaEl.src = map[path];
+    try { mediaEl.load(); } catch (_) { /* no-op */ }
+    if (pos) mediaEl.addEventListener('loadedmetadata', function once() {
+      try { mediaEl.currentTime = pos; } catch (_) { /* no-op */ }
+      mediaEl.removeEventListener('loadedmetadata', once);
+    }, { once: true });
+  });
 }
 
 /* ---------------- toast ---------------- */
@@ -247,6 +311,20 @@ export async function mountShell(active) {
   ));
 
   mountMobileNav(active, me);
+  mountFooter();
+}
+
+// Реквизиты продавца в подвале — временно, для подключения приёма оплаты (Prodamus).
+// Убирается удалением этого вызова/функции.
+function mountFooter() {
+  document.querySelector('.site-foot')?.remove();
+  document.body.appendChild(el('footer', {
+    class: 'site-foot',
+    style: 'text-align:center;padding:28px 16px 96px;color:#8F8B84;font-size:12.5px;line-height:1.7',
+  },
+    el('div', { text: 'Поклонцев Владислав Васильевич' }),
+    el('div', { text: 'ИНН 780428509307' }),
+  ));
 }
 
 /**

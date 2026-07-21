@@ -11,6 +11,7 @@
 // своя. Защита — пароль + rate-limit по хэшу IP + короткий срок токена.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { AwsClient } from 'https://esm.sh/aws4fetch@1.0.20';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -18,11 +19,23 @@ const MOD_LOGIN = Deno.env.get('MOD_LOGIN') ?? '';
 const MOD_PASSWORD = Deno.env.get('MOD_PASSWORD') ?? '';
 
 const ALLOW_ORIGINS = [
+  'https://albums.ink',
+  'https://www.albums.ink',
   'https://vgametikok.github.io',
   'http://localhost:5085',
 ];
 
 const sb = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false } });
+
+// R2: подпись просмотра для медиа, уехавшего в Cloudflare R2 (префикс пути r2/).
+const R2_ENDPOINT = Deno.env.get('R2_ENDPOINT') ?? '';
+const R2_BUCKET = Deno.env.get('R2_BUCKET') ?? '';
+const r2 = new AwsClient({
+  accessKeyId: Deno.env.get('R2_ACCESS_KEY_ID') ?? '',
+  secretAccessKey: Deno.env.get('R2_SECRET_ACCESS_KEY') ?? '',
+  service: 's3',
+  region: 'auto',
+});
 
 function cors(origin: string | null) {
   const allow = origin && ALLOW_ORIGINS.includes(origin) ? origin : ALLOW_ORIGINS[0];
@@ -103,10 +116,23 @@ Deno.serve(async (req) => {
         })).data;
         break;
       case 'sign': {
-        // подписанные URL для медиа спорного альбома — тоже под service-ключом
+        // подписанные URL для медиа спорного альбома — под service-ключом.
+        // Медиа в двух бэкендах: старое — Supabase Storage, новое (r2/) — R2.
         const paths = (body.paths ?? []) as string[];
-        const { data } = await sb.storage.from('media').createSignedUrls(paths, 600);
-        out = data;
+        const legacy = paths.filter((p) => !p.startsWith('r2/'));
+        const r2paths = paths.filter((p) => p.startsWith('r2/'));
+        const signed: { path: string; signedUrl: string }[] = [];
+        if (legacy.length) {
+          const { data } = await sb.storage.from('media').createSignedUrls(legacy, 600);
+          (data ?? []).forEach((d) => { if (d.signedUrl) signed.push({ path: d.path, signedUrl: d.signedUrl }); });
+        }
+        for (const p of r2paths) {
+          const u = new URL(`${R2_ENDPOINT}/${R2_BUCKET}/${p}`);
+          u.searchParams.set('X-Amz-Expires', '600');
+          const s = await r2.sign(u.toString(), { method: 'GET', aws: { signQuery: true } });
+          signed.push({ path: p, signedUrl: s.url.toString() });
+        }
+        out = signed;
         break;
       }
       case 'hide':

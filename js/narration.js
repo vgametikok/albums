@@ -5,7 +5,7 @@
 // логику расстановки и чтения меток. Запись с микрофона — основной сценарий,
 // поэтому рассчитано в первую очередь на телефон.
 import { sb, currentUser } from './sb.js';
-import { el, clear, icon, toast, t, signUrls, thumbEl, dur, modal, playTriangle } from './ui.js';
+import { el, clear, icon, toast, t, signUrls, attachMediaRefresh, thumbEl, dur, modal, playTriangle } from './ui.js';
 import { uploadMedia } from './upload.js';
 
 /* ================================================================ РЕДАКТОР */
@@ -168,6 +168,7 @@ export function mountNarrationPlayer(host, albumId, onFocus) {
 
     const u = await signUrls([data.path]);
     const audio = el('audio', { src: u[data.path], preload: 'none' });
+    attachMediaRefresh(audio, data.path);   // переподпись при протухании R2-ссылки
     const btn = el('button', { class: 'narr-play' }, playTriangle(16));
     const bar = el('div', { class: 'narr-bar' }, el('i'));
     const fill = bar.querySelector('i');
