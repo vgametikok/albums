@@ -324,6 +324,8 @@ function mountFooter() {
   },
     el('div', { text: 'Поклонцев Владислав Васильевич' }),
     el('div', { text: 'ИНН 780428509307' }),
+    el('div', { style: 'margin-top:6px' },
+      el('a', { href: 'offer.html', style: 'color:#8F8B84;text-decoration:underline' }, 'Публичная оферта')),
   ));
 }
 
