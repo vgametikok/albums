@@ -371,4 +371,14 @@ export default {
   period_week: 'This week',
   period_month: 'This month',
   nav_albums: 'Albums',
+
+  /* ---- guest hero / footer legal links ---- */
+  hero_title: 'Turn your memories into stories',
+  hero_text: 'Albums is where photos, videos and voice notes become stories — with chapters, narration and privacy you control. Share with everyone, with friends only, or keep it just for you. And an Event Album collects photos from every guest at your wedding, trip or party.',
+  hero_start: 'Start free',
+  hero_pricing: 'See pricing',
+  foot_pricing: 'Pricing',
+  foot_terms: 'Terms of Service',
+  foot_privacy: 'Privacy Policy',
+  foot_refunds: 'Refund Policy',
 };

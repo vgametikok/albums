@@ -322,6 +322,12 @@ function mountFooter() {
     class: 'site-foot',
     style: 'text-align:center;padding:28px 16px 96px;color:#8F8B84;font-size:12.5px;line-height:1.7',
   },
+    el('div', { style: 'margin-bottom:8px' },
+      ['pricing.html|foot_pricing', 'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
+        .map(s => s.split('|'))
+        .map(([href, key]) => el('a', {
+          href, style: 'color:#8F8B84;text-decoration:underline;margin:0 8px;white-space:nowrap',
+        }, t(key)))),
     el('div', { text: 'Поклонцев Владислав Васильевич' }),
     el('div', { text: 'ИНН 780428509307' }),
     el('div', { style: 'margin-top:6px' },
