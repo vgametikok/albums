@@ -33,6 +33,8 @@
   .cta:hover{border-color:var(--accent);color:var(--accent);}
   .cta.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
   .cta.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff;}
+  .status{display:block;text-align:center;font-weight:700;font-size:15.5px;padding:12px 16px;border-radius:12px;color:var(--accent);background:rgba(232,85,43,.09);cursor:default;}
+  .status::before{content:'✓ ';font-weight:800;}
   .fine{margin-top:36px;color:var(--soft);font-size:14px;max-width:760px;}
   .fine p{margin:0 0 10px;}
   .fine a{color:var(--accent);}
@@ -62,7 +64,7 @@
         <li data-i18n="pr_free_f4">Privacy controls: public, friends-only or private, with per-person exceptions</li>
         <li data-i18n="pr_free_f5">Friends, comments, likes and a personal feed</li>
       </ul>
-      <a class="cta" href="index.html" data-i18n="pr_free_cta">Start free</a>
+      <div class="status" data-i18n="pr_free_cta">Active</div>
     </div>
 
     <div class="plan hot">
@@ -114,7 +116,7 @@
   <div class="qa">
     <p><b data-i18n="pr_q1">What happens to my content if I cancel Pro?</b> <span data-i18n="pr_q1a">Nothing is deleted. If you are over the free storage limit, you won't be able to upload new media until you free up space, but everything already uploaded stays viewable and shareable.</span></p>
     <p><b data-i18n="pr_q2">Do event guests have to pay?</b> <span data-i18n="pr_q2a">No. Only the event organizer pays once. Guests join and upload for free.</span></p>
-    <p><b data-i18n="pr_q3">How do I get an invoice or a refund?</b> <span data-i18n="pr_q3a">Details are in the Refund Policy above. For invoices and refund requests, write to us at:</span> <a href="mailto:vgametikok@gmail.com">vgametikok@gmail.com</a></p>
+    <p><b data-i18n="pr_q3">How do I get an invoice or a refund?</b> <span data-i18n="pr_q3a">Details are in the Refund Policy above. For invoices and refund requests, write to us at:</span> <a href="mailto:sales@albums.ink">sales@albums.ink</a></p>
   </div>
 </div>
 <script type="module" src="js/pricing.js"></script>

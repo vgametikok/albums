@@ -380,7 +380,7 @@ export default {
   pr_free_f3: '앨범 위에 음성 내레이션',
   pr_free_f4: '공개 범위 설정: 전체 공개, 친구만, 비공개 + 사람별 예외',
   pr_free_f5: '친구, 댓글, 좋아요, 개인 맞춤 피드',
-  pr_free_cta: '무료로 시작',
+  pr_free_cta: '활성화됨',
   pr_tag_popular: '가장 인기',
   pr_month: '/ 월',
   pr_pro_per: '월 단위 결제, 언제든 해지 가능',

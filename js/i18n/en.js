@@ -396,7 +396,7 @@ export default {
   pr_free_f3: 'Voice narration over your albums',
   pr_free_f4: 'Privacy controls: public, friends-only or private, with per-person exceptions',
   pr_free_f5: 'Friends, comments, likes and a personal feed',
-  pr_free_cta: 'Start free',
+  pr_free_cta: 'Active',
   pr_tag_popular: 'Most popular',
   pr_month: '/ month',
   pr_pro_per: 'billed monthly, cancel anytime',

@@ -380,7 +380,7 @@ export default {
   pr_free_f3: 'Narration vocale de vos albums',
   pr_free_f4: 'Confidentialité : public, amis uniquement ou privé, avec exceptions par personne',
   pr_free_f5: 'Amis, commentaires, likes et fil personnalisé',
-  pr_free_cta: 'Commencer gratuitement',
+  pr_free_cta: 'Activé',
   pr_tag_popular: 'Le plus populaire',
   pr_month: '/ mois',
   pr_pro_per: 'facturé chaque mois, annulable à tout moment',

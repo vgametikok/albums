@@ -380,7 +380,7 @@ export default {
   pr_free_f3: '为相册录制语音旁白',
   pr_free_f4: '隐私控制：公开、仅好友或私密，还可按人设置例外',
   pr_free_f5: '好友、评论、点赞和个性化信息流',
-  pr_free_cta: '免费开始',
+  pr_free_cta: '已启用',
   pr_tag_popular: '最受欢迎',
   pr_month: '/ 月',
   pr_pro_per: '按月计费，随时取消',

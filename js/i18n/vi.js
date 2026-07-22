@@ -380,7 +380,7 @@ export default {
   pr_free_f3: 'Lời kể bằng giọng nói cho album của bạn',
   pr_free_f4: 'Quyền riêng tư: công khai, chỉ bạn bè hoặc riêng tư, có ngoại lệ theo từng người',
   pr_free_f5: 'Bạn bè, bình luận, lượt thích và bảng tin cá nhân',
-  pr_free_cta: 'Bắt đầu miễn phí',
+  pr_free_cta: 'Đang hoạt động',
   pr_tag_popular: 'Phổ biến nhất',
   pr_month: '/ tháng',
   pr_pro_per: 'thanh toán hằng tháng, hủy bất cứ lúc nào',

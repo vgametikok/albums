@@ -380,7 +380,7 @@ export default {
   pr_free_f3: 'Sprach-Erzählung über deinen Alben',
   pr_free_f4: 'Privatsphäre: öffentlich, nur Freunde oder privat, mit Ausnahmen pro Person',
   pr_free_f5: 'Freunde, Kommentare, Likes und ein persönlicher Feed',
-  pr_free_cta: 'Kostenlos starten',
+  pr_free_cta: 'Aktiviert',
   pr_tag_popular: 'Am beliebtesten',
   pr_month: '/ Monat',
   pr_pro_per: 'monatliche Abrechnung, jederzeit kündbar',

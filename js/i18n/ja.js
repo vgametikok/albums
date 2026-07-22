@@ -380,7 +380,7 @@ export default {
   pr_free_f3: 'アルバムに音声ナレーション',
   pr_free_f4: '公開範囲の設定：全体公開・友達のみ・非公開、人ごとの例外も',
   pr_free_f5: '友達、コメント、いいね、パーソナルフィード',
-  pr_free_cta: '無料ではじめる',
+  pr_free_cta: '有効',
   pr_tag_popular: '一番人気',
   pr_month: '/ 月',
   pr_pro_per: '月額課金・いつでも解約可能',

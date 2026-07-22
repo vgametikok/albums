@@ -380,7 +380,7 @@ export default {
   pr_free_f3: 'Narración de voz sobre tus álbumes',
   pr_free_f4: 'Privacidad: público, solo amigos o privado, con excepciones por persona',
   pr_free_f5: 'Amigos, comentarios, «me gusta» y un feed personal',
-  pr_free_cta: 'Empezar gratis',
+  pr_free_cta: 'Activado',
   pr_tag_popular: 'El más popular',
   pr_month: '/ mes',
   pr_pro_per: 'cobro mensual, cancela cuando quieras',
