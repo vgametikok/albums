@@ -317,8 +317,8 @@ export async function mountShell(active) {
   mountFooter();
 }
 
-// Реквизиты продавца в подвале — временно, для подключения приёма оплаты (Prodamus).
-// Убирается удалением этого вызова/функции.
+// Подвал: правовые страницы и контакты. Реквизиты продавца (имя и ИНН) отсюда
+// убраны 2026-07-22 — их требовал Prodamus, а он отказал.
 function mountFooter() {
   document.querySelector('.site-foot')?.remove();
   document.body.appendChild(el('footer', {
@@ -331,8 +331,6 @@ function mountFooter() {
         .map(([href, key]) => el('a', {
           href, style: 'color:#8F8B84;text-decoration:underline;margin:0 8px;white-space:nowrap',
         }, t(key)))),
-    el('div', { text: 'Поклонцев Владислав Васильевич' }),
-    el('div', { text: 'ИНН 780428509307' }),
     el('div', {}, t('foot_support') + ': ',
       el('a', { href: 'mailto:support@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'support@albums.ink')),
     el('div', {}, t('foot_partnership') + ': ',
