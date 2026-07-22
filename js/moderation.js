@@ -62,11 +62,11 @@ function head(title, active) {
     el('h1', { style: 'font-size:26px;font-weight:800;margin:0', text: title }),
     el('div', { class: 'rowx' },
       el('button', {
-        class: 'mini' + (active === 'queue' ? ' on' : ''),
+        class: 'chip btn-sm' + (active ==='queue' ? ' on' : ''),
         onclick: () => renderQueue(),
       }, 'Reports'),
       el('button', {
-        class: 'mini' + (active === 'stats' ? ' on' : ''),
+        class: 'chip btn-sm' + (active ==='stats' ? ' on' : ''),
         onclick: () => renderStats(),
       }, 'Statistics'),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: logout }, 'Sign out')));
