@@ -2,7 +2,8 @@
 // mod-api). Пользовательская авторизация Albums тут ни при чём — у модератора своя.
 // Токен сессии живёт в sessionStorage: закрыл вкладку — вышел.
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
-import { el, clear, icon, toast } from './ui.js';
+import { el, clear, icon, toast, composition, avatarImg, timeAgo } from './ui.js';
+import { renderStory, audioRow } from './albumview.js';
 
 const API = `${SUPABASE_URL}/functions/v1/mod-api`;
 const app = document.getElementById('app');
@@ -162,6 +163,8 @@ async function resolve(r, status, card) {
 
 /* ---------------- просмотр спорного контента ---------------- */
 async function openSubject(r) {
+  // Альбом смотрим целиком в вёрстке сайта, а не плиткой превью.
+  if (r.subject_type === 'album') { openAlbum(r.subject_id); return; }
   let sub;
   try { sub = (await call('open', { subject_type: r.subject_type, subject_id: r.subject_id })).data; }
   catch (e) { toast(e.message); return; }
@@ -258,11 +261,142 @@ function pendingCard(a) {
   };
 
   card.appendChild(el('div', { class: 'rowx' },
-    el('button', { class: 'mini', onclick: () => openSubject({ subject_type: 'album', subject_id: a.id }) }, 'Open'),
+    el('button', { class: 'mini', onclick: () => openAlbum(a.id) }, 'Open'),
     el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
     el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Reject')));
   return card;
 }
+
+/* ---------------- альбом целиком, как его увидит зритель ---------------- */
+
+/**
+ * Решение принимается по полному альбому, а не по плитке превью: нужны подписи
+ * под кадрами, видео со звуком и голосовые заметки. Вёрстка — общая с сайтом
+ * (albumview.js), поэтому модератор видит ровно то, что увидят люди.
+ */
+async function openAlbum(albumId) {
+  clear(app);
+  app.appendChild(el('div', { class: 'muted', text: 'Loading album…' }));
+
+  let d;
+  try { d = (await call('open_album', { album_id: albumId })).data; }
+  catch (e) { clear(app).appendChild(el('div', { class: 'muted', text: e.message })); return; }
+  if (!d) { clear(app).appendChild(el('div', { class: 'muted', text: 'Album not found' })); return; }
+
+  const a = d.album, author = d.author || {};
+  const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])];
+  const paths = [a.cover_path, ...all.flatMap(m => [m.path, m.thumb]), d.narration?.path];
+  const urls = await signPaths(paths);
+
+  clear(app);
+  app.appendChild(el('div', { style: 'display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap' },
+    el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderPending() }, '← Back to queue'),
+    el('div', { class: 'rowx' },
+      el('span', { class: 'muted', style: 'font-size:13.5px', text: `status: ${a.moderation_status}` }),
+      el('button', { class: 'mini', onclick: () => reviewFromViewer(albumId, true) }, 'Approve'),
+      el('button', { class: 'mini danger', onclick: () => reviewFromViewer(albumId, false) }, 'Reject'))));
+
+  /* ---- шапка альбома: как на странице альбома ---- */
+  const hero = el('div', { class: 'album-hero' });
+  if (urls[a.cover_path]) hero.appendChild(el('img', { src: urls[a.cover_path], alt: a.title }));
+  hero.appendChild(el('div', { class: 'hero-card' },
+    el('div', { class: 'hero-inner' },
+      a.category ? el('div', { class: 'kicker', text: String(a.category).toUpperCase() }) : null,
+      el('div', { class: 'hero-title', text: a.title }),
+      el('div', { class: 'hero-sub', text: `${author.name || author.username} · ${a.published_at ? timeAgo(a.published_at) : 'draft'}` }),
+      el('div', { class: 'pill', text: composition(a) }))));
+  app.appendChild(hero);
+
+  const left = el('div', { style: 'max-width:800px' });
+  const right = el('aside', {});
+  app.appendChild(el('div', { class: 'album-cols' }, left, right));
+
+  if (a.description) left.appendChild(el('p', { class: 'lede', text: a.description }));
+
+  // Дорожка-рассказ: её тоже нужно прослушать.
+  if (d.narration?.path) {
+    left.appendChild(el('div', { class: 'kicker kicker-muted', style: 'margin-top:22px', text: 'NARRATION' }));
+    left.appendChild(audioRow({ id: d.narration.id, path: d.narration.path, duration: d.narration.duration, caption: 'Narration track' }, urls, VIEW));
+  }
+
+  const body = el('div', { style: 'margin-top:24px' });
+  left.appendChild(body);
+  if (all.length) renderStory(body, d, urls, VIEW);
+  else left.appendChild(el('p', { class: 'muted', text: 'No media in this album.' }));
+
+  /* ---- боковая справка о находке ---- */
+  const side = el('div', { class: 'sticky' },
+    el('div', { class: 'side-card' },
+      el('div', { style: 'display:flex;gap:12px;align-items:center' },
+        avatarImg(author.avatar, author.name, 48),
+        el('div', {},
+          el('div', { style: 'font-size:16px;font-weight:700', text: author.name || author.username }),
+          el('div', { class: 'card-sub', text: '@' + author.username }))),
+      el('div', { style: 'margin-top:14px;border-top:1px solid var(--line);padding-top:12px' },
+        row('Visibility', a.visibility),
+        row('Albums by author', author.albums_total),
+        row('Author banned', author.banned ? 'YES' : 'no'),
+        row('Private files', all.filter(m => m.is_private).length),
+        row('Collaborators', (d.collaborators || []).length),
+        row('Comments', (d.comments || []).length))));
+  right.appendChild(side);
+
+  if ((d.comments || []).length) {
+    const cbox = el('div', { class: 'side-card', style: 'margin-top:16px' },
+      el('div', { style: 'font-weight:700;margin-bottom:8px', text: 'Comments' }));
+    d.comments.forEach(c => cbox.appendChild(el('div', { style: 'font-size:14px;padding:6px 0;border-bottom:1px solid #F5F3EF' },
+      el('b', { text: '@' + c.author + ' ' }),
+      el('span', { text: c.body }),
+      c.hidden ? el('span', { class: 'muted', text: ' (hidden)' }) : null)));
+    right.appendChild(cbox);
+  }
+}
+
+function row(k, v) {
+  return el('div', { style: 'display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:14.5px' },
+    el('span', { class: 'muted', text: k }), el('b', { text: String(v) }));
+}
+
+async function reviewFromViewer(albumId, approve) {
+  const note = approve ? null : (prompt('Reason (sent to the author):') || null);
+  try {
+    await call('review', { album_id: albumId, approve, note });
+    toast(approve ? 'Approved' : 'Rejected');
+    renderPending();
+  } catch (e) { toast(e.message); }
+}
+
+/** Подписанные ссылки на медиа — их выдаёт та же функция под сервисным ключом. */
+async function signPaths(paths) {
+  const list = [...new Set(paths.filter(Boolean))];
+  if (!list.length) return {};
+  const out = {};
+  try {
+    const signed = (await call('sign', { paths: list })).data || [];
+    signed.forEach(s => { if (s.signedUrl) out[s.path] = s.signedUrl; });
+  } catch (_) { /* без ссылок покажем хотя бы текст */ }
+  return out;
+}
+
+// Ссылка живёт 10 минут: если модератор засмотрелся, переподписываем по ошибке.
+const VIEW = {
+  onImageClick: (items, i, urls) => {
+    const u = urls[items[i].path] || urls[items[i].thumb];
+    if (u) window.open(u, '_blank', 'noopener');
+  },
+  refresh: (node, path) => {
+    let retried = false;
+    node.addEventListener('error', async () => {
+      if (retried) return;
+      retried = true;
+      const urls = await signPaths([path]);
+      if (urls[path]) { node.src = urls[path]; node.load?.(); retried = false; }
+    });
+  },
+  mark: (m) => (m.is_private
+    ? el('div', { class: 'muted', style: 'font-size:13px;margin-top:2px', text: 'private file — visible only to the author and collaborators' })
+    : null),
+};
 
 /* ---------------- продуктовая статистика ---------------- */
 let statDays = 30;

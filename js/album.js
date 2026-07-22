@@ -7,6 +7,7 @@ import {
 } from './ui.js';
 import { mountComments } from './comments.js';
 import { trackAlbumView } from './stats.js';
+import { renderStory, audioRow, videoEl, ratioOf } from './albumview.js';
 
 const app = $('#app');
 const id = new URLSearchParams(location.search).get('id');
@@ -100,7 +101,7 @@ async function render(d) {
       [...toggle.children].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
       clear(body);
       if (m === 'grid') renderGrid(body, all, urls);
-      else renderStory(body, d, urls);
+      else renderStory(body, d, urls, VIEW);
     };
     [['story', t('view_story')], ['grid', t('view_grid')]].forEach(([m, label]) => {
       toggle.appendChild(el('button', {
@@ -237,43 +238,13 @@ function stat(k, v) {
     el('span', { class: 'muted', text: k }), el('b', { text: String(v) }));
 }
 
-/** Соотношение сторон медиа; null, если размеры неизвестны. */
-function ratioOf(m) {
-  const w = Number(m.width), h = Number(m.height);
-  return (w > 0 && h > 0) ? w / h : null;
-}
-
-function videoEl(m, urls) {
-  const v = el('video', { controls: 'controls', preload: 'metadata', playsinline: 'playsinline' });
-  if (urls[m.thumb]) v.poster = urls[m.thumb];
-  if (urls[m.path]) v.src = urls[m.path];
-  attachMediaRefresh(v, m.path);   // переподпись при протухании R2-ссылки
-  const r = ratioOf(m);
-  // Рамка по РЕАЛЬНЫМ пропорциям ролика: вертикальное видео остаётся вертикальным.
-  if (r) v.style.aspectRatio = `${m.width} / ${m.height}`;
-  else v.addEventListener('loadedmetadata', () => {
-    if (v.videoWidth && v.videoHeight) v.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
-  });
-  return v;
-}
-
-/* ---- режим «Story»: как в макете — главы с текстом, по порядку загрузки ---- */
-function renderStory(host, d, urls) {
-  for (const c of (d.chapters || [])) {
-    const sec = el('div', { class: 'chapter' });
-    if (c.label) sec.appendChild(el('div', { class: 'kicker', text: c.label.toUpperCase() }));
-    if (c.title) sec.appendChild(el('h3', { text: c.title }));
-    if (c.body) sec.appendChild(el('p', { text: c.body }));
-    appendMedia(sec, c.media || [], urls);
-    host.appendChild(sec);
-  }
-  if ((d.loose || []).length) {
-    const sec = el('div', { class: 'chapter' });
-    if ((d.chapters || []).length) sec.appendChild(el('div', { class: 'kicker kicker-muted', text: t('more').toUpperCase() }));
-    appendMedia(sec, d.loose, urls);
-    host.appendChild(sec);
-  }
-}
+// Вёрстка глав, подписей, видео и голосовых заметок переехала в albumview.js —
+// её же показывает панель модерации. Здесь только то, чего у модератора нет:
+// лайтбокс и переподпись ссылок под сессией пользователя.
+const VIEW = {
+  refresh: attachMediaRefresh,
+  onImageClick: (items, i, urls) => lightbox(items, urls, i),
+};
 
 /* ---- режим «Grid»: адаптивная раскладка, ничего не обрезается ---- */
 function renderGrid(host, all, urls) {
@@ -286,7 +257,7 @@ function renderGrid(host, all, urls) {
     const ratio = ratioOf(m) || (m.kind === 'video' ? 16 / 9 : 3 / 2);
     const cell = el('div', { class: 'cell' + (m.kind === 'video' ? ' video-cell' : ''), 'data-am': m.am_id || '' });
     if (m.kind === 'video') {
-      const v = videoEl(m, urls);
+      const v = videoEl(m, urls, VIEW);
       v.style.aspectRatio = '';          // размер ячейки уже точен, кадр вписывается целиком
       cell.appendChild(v);
       if (m.duration) cell.appendChild(el('div', { class: 'vbadge', text: dur(m.duration) }));
@@ -310,7 +281,7 @@ function renderGrid(host, all, urls) {
     if (!document.contains(wrap)) { removeEventListener('resize', onResize); obs.disconnect(); }
   }).observe(document.body, { childList: true, subtree: true });
 
-  audio.forEach(m => host.appendChild(audioRow(m, urls)));
+  audio.forEach(m => host.appendChild(audioRow(m, urls, VIEW)));
 }
 
 /**
@@ -342,72 +313,6 @@ export function justify(wrap, cells, target = null, gap = 12) {
     if (sum * rowH + gap * (row.length - 1) >= W) flush(false);
   }
   flush(true);
-}
-
-/* История: медиа во всю ширину колонки, одно под другим, без обрезки. */
-function appendMedia(host, items, urls) {
-  const visual = items.filter(m => m.kind !== 'audio');
-  const audio = items.filter(m => m.kind === 'audio');
-  visual.forEach((m, i) => {
-    const fig = el('div', { class: 'story-media' });
-    if (m.kind === 'video') {
-      fig.appendChild(videoEl(m, urls));
-    } else {
-      const img = el('img', { alt: m.caption || '', loading: 'lazy', onclick: () => lightbox(visual, urls, i) });
-      // сразу превью (лёгкое), оригинал подменяем как догрузится
-      const full = urls[m.path], th = urls[m.thumb];
-      if (th || full) img.src = th || full;
-      if (full && th && full !== th) {
-        const pre = new Image();
-        pre.onload = () => { img.src = full; };
-        pre.src = full;
-      }
-      img.style.cursor = 'zoom-in';
-      fig.appendChild(img);
-    }
-    if (m.caption) fig.appendChild(el('div', { class: 'story-cap', text: m.caption }));
-    host.appendChild(fig);
-  });
-  audio.forEach(m => host.appendChild(audioRow(m, urls)));
-}
-
-/* Голосовая заметка: полоски-волнограмма детерминированы по id, прогресс — реальный. */
-function audioRow(m, urls) {
-  const bars = [];
-  const wave = el('div', { class: 'wave' });
-  let h = 0;
-  for (let i = 0; i < (m.id || '').length; i++) h = (h * 31 + m.id.charCodeAt(i)) >>> 0;
-  for (let i = 0; i < 40; i++) {
-    h = (h * 1103515245 + 12345) >>> 0;
-    const b = el('i', { style: `height:${8 + (h % 28)}px` });
-    bars.push(b); wave.appendChild(b);
-  }
-
-  const audio = el('audio', { preload: 'none' });
-  if (urls[m.path]) audio.src = urls[m.path];
-  const btn = el('button', { class: 'audio-play' }, playTriangle(15));
-  const setIcon = (playing) => {
-    clear(btn);
-    if (playing) {
-      const s = el('span');
-      s.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff" style="display:block"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
-      btn.appendChild(s.firstElementChild);
-    } else btn.appendChild(playTriangle(15));
-  };
-  btn.onclick = () => { audio.paused ? audio.play() : audio.pause(); };
-  audio.onplay = () => setIcon(true);
-  audio.onpause = () => setIcon(false);
-  audio.ontimeupdate = () => {
-    const p = audio.duration ? audio.currentTime / audio.duration : 0;
-    bars.forEach((b, i) => b.classList.toggle('on', i / bars.length <= p));
-  };
-  audio.onended = () => { setIcon(false); bars.forEach(b => b.classList.remove('on')); };
-
-  return el('div', { class: 'audio-row' }, btn, wave,
-    el('div', { style: 'text-align:right;flex-shrink:0' },
-      el('div', { style: 'font-size:15px;font-weight:600', text: m.caption || t('voice_note') }),
-      el('div', { style: 'font-size:13.5px;color:var(--faint);margin-top:2px', text: dur(m.duration) })),
-    audio);
 }
 
 /* ---- лайтбокс «Watch» ---- */

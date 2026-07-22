@@ -148,6 +148,9 @@ Deno.serve(async (req) => {
           p_user: body.user_id, p_ban: body.ban, p_login: login, p_reason: body.reason ?? null,
         })).data;
         break;
+      case 'open_album':
+        out = (await sb.rpc('mod_open_album', { p_id: body.album_id, p_login: login })).data;
+        break;
       case 'pending':
         out = {
           albums: (await sb.rpc('mod_pending_albums', { p_limit: body.limit ?? 50, p_offset: body.offset ?? 0 })).data,
