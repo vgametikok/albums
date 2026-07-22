@@ -156,57 +156,133 @@ export function openNarrationEditor(albumId, mediaItems) {
 /* ================================================================ ПЛЕЕР */
 
 /**
- * Плеер рассказа на странице альбома. Пока играет дорожка, подсвечивает текущее
- * медиа и подкручивает к нему. Если пользователь сам скроллит — не мешаем,
- * только подсветка. onFocus(am_id) отдаётся наружу, чтобы страница подсветила
- * нужную карточку в своей раскладке.
+ * Плеер рассказа на странице альбома. Кнопка на странице открывает
+ * полноэкранное слайдшоу: фото сменяются по меткам дорожки, внизу — плеер
+ * с полосой прокрутки, метками на ней и паузой. Вручную листать нельзя.
  */
-export function mountNarrationPlayer(host, albumId, onFocus) {
+export function mountNarrationPlayer(host, albumId, mediaItems, urls) {
   (async () => {
     const { data } = await sb.rpc('narration_get', { p_album: albumId });
     if (!data || !data.cues?.length) return;
 
     const u = await signUrls([data.path]);
-    const audio = el('audio', { src: u[data.path], preload: 'none' });
+    const audio = el('audio', { src: u[data.path], preload: 'metadata' });
     attachMediaRefresh(audio, data.path);   // переподпись при протухании R2-ссылки
-    const btn = el('button', { class: 'narr-play' }, playTriangle(16));
-    const bar = el('div', { class: 'narr-bar' }, el('i'));
-    const fill = bar.querySelector('i');
 
     const cues = (data.cues || []).map(c => ({ id: c.album_media_id, at: Number(c.at) }))
       .sort((a, b) => a.at - b.at);
+    const total = () => data.duration || audio.duration || 0;
 
-    const setPlaying = (on) => {
-      clear(btn);
-      if (on) {
-        const s = el('span');
-        s.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" style="display:block"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
-        btn.appendChild(s.firstElementChild);
-      } else btn.appendChild(playTriangle(16));
-    };
-    btn.onclick = () => { audio.paused ? audio.play() : audio.pause(); };
-    audio.onplay = () => setPlaying(true);
-    audio.onpause = () => setPlaying(false);
-
-    let lastFocus = null;
-    audio.ontimeupdate = () => {
-      const dt = data.duration || audio.duration || 1;
-      fill.style.width = `${Math.min(100, (audio.currentTime / dt) * 100)}%`;
-      // текущий cue — последний, чьё время уже наступило
-      let cur = null;
-      for (const c of cues) { if (c.at <= audio.currentTime + 0.05) cur = c; else break; }
-      if (cur && cur.id !== lastFocus) { lastFocus = cur.id; onFocus && onFocus(cur.id); }
-    };
-    // перемотка по клику на полосу
-    bar.onclick = (e) => {
-      const r = bar.getBoundingClientRect();
-      const p = (e.clientX - r.left) / r.width;
-      audio.currentTime = (data.duration || audio.duration || 0) * Math.max(0, Math.min(1, p));
-    };
-
-    clear(host).append(el('div', { class: 'narr-player' },
-      btn, el('div', { class: 'narr-info' },
-        el('div', { class: 'narr-label', text: t('narr_listen') }), bar),
+    /* кнопка на странице альбома */
+    clear(host).append(el('div', { class: 'narr-player', style: 'cursor:pointer', onclick: () => openShow() },
+      el('button', { class: 'narr-play', 'aria-label': t('narr_listen') }, playTriangle(16)),
+      el('div', { class: 'narr-info' },
+        el('div', { class: 'narr-label', text: t('narr_listen') }),
+        el('div', { class: 'muted', style: 'font-size:13.5px', text: dur(data.duration || 0) })),
       audio));
+
+    /* ---- полноэкранное слайдшоу ---- */
+    function openShow() {
+      let shownId = null;
+      const stage = el('div', { class: 'narr-stage' });
+
+      const showCue = (cue) => {
+        if (!cue || cue.id === shownId) return;
+        shownId = cue.id;
+        clear(stage);
+        const m = mediaItems.find(x => x.am_id === cue.id);
+        if (!m) return;
+        if (m.kind === 'video') {
+          // рассказ озвучивает автор — само видео идёт без звука
+          const v = el('video', { autoplay: 'autoplay', loop: 'loop', playsinline: 'playsinline' });
+          v.muted = true;
+          if (urls[m.thumb]) v.poster = urls[m.thumb];
+          if (urls[m.path]) v.src = urls[m.path];
+          stage.appendChild(v);
+        } else {
+          const img = el('img', { alt: m.caption || '' });
+          const full = urls[m.path], th = urls[m.thumb];
+          if (th || full) img.src = th || full;
+          if (full && th && full !== th) {
+            const pre = new Image();
+            pre.onload = () => { img.src = full; };
+            pre.src = full;
+          }
+          stage.appendChild(img);
+        }
+        if (m.caption) stage.appendChild(el('div', { class: 'narr-show-cap', text: m.caption }));
+      };
+
+      /* плеер: полоса с метками, пауза/плей, время */
+      const fill = el('i');
+      const bar = el('div', { class: 'narr-show-bar' }, fill);
+      const ticks = cues.map(c => { const b = el('b'); bar.appendChild(b); return { at: c.at, elb: b }; });
+      const placeTicks = () => {
+        const dt = total();
+        if (dt) ticks.forEach(x => { x.elb.style.left = `${Math.min(100, (x.at / dt) * 100)}%`; });
+      };
+      placeTicks();
+      audio.addEventListener('loadedmetadata', placeTicks);
+
+      const timeCur = el('span', { class: 'narr-show-time', text: dur(0) });
+      const timeTot = el('span', { class: 'narr-show-time', text: dur(total()) });
+      const pp = el('button', { class: 'narr-show-pp', 'aria-label': t('narr_listen'),
+        onclick: () => { audio.paused ? audio.play() : audio.pause(); } });
+      const paintPP = () => {
+        clear(pp);
+        if (audio.paused) pp.appendChild(playTriangle(16));
+        else {
+          const s = el('span');
+          s.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" style="display:block"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+          pp.appendChild(s.firstElementChild);
+        }
+      };
+      audio.onplay = paintPP;
+      audio.onpause = paintPP;
+
+      bar.onclick = (e) => {
+        const r = bar.getBoundingClientRect();
+        const p = (e.clientX - r.left) / r.width;
+        audio.currentTime = total() * Math.max(0, Math.min(1, p));
+      };
+
+      audio.ontimeupdate = () => {
+        const dt = total() || 1;
+        fill.style.width = `${Math.min(100, (audio.currentTime / dt) * 100)}%`;
+        timeCur.textContent = dur(audio.currentTime);
+        if (!timeTot.textContent || timeTot.textContent === dur(0)) timeTot.textContent = dur(total());
+        // текущая метка — последняя, чьё время уже наступило
+        let cur = null;
+        for (const c of cues) { if (c.at <= audio.currentTime + 0.05) cur = c; else break; }
+        showCue(cur || cues[0]);
+      };
+      audio.onended = () => { paintPP(); };
+
+      const overlay = el('div', { class: 'narr-show' },
+        el('button', { class: 'narr-show-x', 'aria-label': t('cancel'), onclick: () => close(), text: '✕' }),
+        stage,
+        el('div', { class: 'narr-show-ctl' }, pp, timeCur, bar, timeTot));
+
+      function key(e) {
+        if (e.key === 'Escape') close();
+        if (e.key === ' ') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); }
+      }
+      function close() {
+        audio.pause();
+        audio.ontimeupdate = null; audio.onplay = null; audio.onpause = null; audio.onended = null;
+        audio.removeEventListener('loadedmetadata', placeTicks);
+        document.removeEventListener('keydown', key);
+        if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+        overlay.remove();
+      }
+
+      document.addEventListener('keydown', key);
+      document.body.appendChild(overlay);
+      if (overlay.requestFullscreen) overlay.requestFullscreen().catch(() => {});
+      showCue(cues[0]);
+      paintPP();
+      audio.currentTime = 0;
+      audio.play().then(paintPP).catch(() => {});
+    }
   })();
 }

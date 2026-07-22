@@ -84,13 +84,7 @@ async function render(d) {
     const narrHost = el('div', { style: 'margin-top:24px' });
     left.appendChild(narrHost);
     const { mountNarrationPlayer } = await import('./narration.js');
-    mountNarrationPlayer(narrHost, a.id, (amId) => {
-      const cell = document.querySelector(`[data-am="${amId}"]`);
-      if (!cell) return;
-      document.querySelectorAll('.narr-focus').forEach(n => n.classList.remove('narr-focus'));
-      cell.classList.add('narr-focus');
-      cell.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+    mountNarrationPlayer(narrHost, a.id, all.filter(m => m.kind !== 'audio'), urls);
   }
 
   /* ---- переключатель вида ---- */
@@ -347,23 +341,30 @@ export function justify(wrap, cells, target = null, gap = 12) {
   flush(true);
 }
 
+/* История: медиа во всю ширину колонки, одно под другим, без обрезки. */
 function appendMedia(host, items, urls) {
   const visual = items.filter(m => m.kind !== 'audio');
   const audio = items.filter(m => m.kind === 'audio');
-  if (visual.length) {
-    const g = el('div', { class: 'media-grid g' + Math.min(3, visual.length) });
-    visual.forEach((m, i) => {
-      if (m.kind === 'video') {
-        g.appendChild(videoEl(m, urls));
-      } else {
-        const img = el('img', { alt: m.caption || '', loading: 'lazy', onclick: () => lightbox(visual, urls, i) });
-        if (urls[m.thumb] || urls[m.path]) img.src = urls[m.thumb] || urls[m.path];
-        img.style.cursor = 'zoom-in';
-        g.appendChild(img);
+  visual.forEach((m, i) => {
+    const fig = el('div', { class: 'story-media' });
+    if (m.kind === 'video') {
+      fig.appendChild(videoEl(m, urls));
+    } else {
+      const img = el('img', { alt: m.caption || '', loading: 'lazy', onclick: () => lightbox(visual, urls, i) });
+      // сразу превью (лёгкое), оригинал подменяем как догрузится
+      const full = urls[m.path], th = urls[m.thumb];
+      if (th || full) img.src = th || full;
+      if (full && th && full !== th) {
+        const pre = new Image();
+        pre.onload = () => { img.src = full; };
+        pre.src = full;
       }
-    });
-    host.appendChild(g);
-  }
+      img.style.cursor = 'zoom-in';
+      fig.appendChild(img);
+    }
+    if (m.caption) fig.appendChild(el('div', { class: 'story-cap', text: m.caption }));
+    host.appendChild(fig);
+  });
   audio.forEach(m => host.appendChild(audioRow(m, urls)));
 }
 
@@ -410,6 +411,7 @@ function audioRow(m, urls) {
 function lightbox(items, urls, start) {
   let i = start;
   const stage = el('div', { style: 'position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center' });
+  const cap = el('div', { style: 'display:none;text-align:center;color:#fff;font-size:14.5px;max-width:min(1100px,92vw);padding:0 10px' });
   const draw = () => {
     clear(stage);
     const m = items[i];
@@ -422,16 +424,17 @@ function lightbox(items, urls, start) {
       if (urls[m.path] || urls[m.thumb]) img.src = urls[m.path] || urls[m.thumb];
       stage.appendChild(img);
     }
-    if (m.caption) stage.appendChild(el('div', {
-      style: 'position:absolute;left:0;right:0;bottom:-34px;text-align:center;color:#fff;font-size:14.5px', text: m.caption,
-    }));
+    cap.textContent = m.caption || '';
+    cap.style.display = m.caption ? 'block' : 'none';
+    counter.textContent = `${i + 1} / ${items.length}`;
   };
 
   const bg = el('div', {
     class: 'modal-bg',
-    style: 'background:rgba(12,10,8,.92);flex-direction:column;gap:18px',
+    style: 'background:rgba(12,10,8,.92);flex-direction:column;gap:14px',
     onclick: (e) => { if (e.target === bg) close(); },
   });
+  const counter = el('div', { style: 'color:#fff;font-size:14.5px' });
   const nav = (dir) => el('button', {
     class: 'car-nav ' + (dir < 0 ? 'prev' : 'next'),
     style: 'position:static;transform:none',
@@ -439,10 +442,11 @@ function lightbox(items, urls, start) {
   }, icon(dir < 0 ? 'chevL' : 'chevR', 20, { stroke: '#141414', sw: 2 }));
 
   bg.append(
-    el('div', { style: 'width:min(1100px,92vw);height:min(76vh,780px);position:relative' }, stage),
+    el('div', { style: 'width:min(1100px,92vw);height:min(72vh,740px);position:relative' }, stage),
+    cap,
     el('div', { style: 'display:flex;gap:14px;align-items:center' },
       items.length > 1 ? nav(-1) : null,
-      el('div', { style: 'color:#fff;font-size:14.5px', text: `${i + 1} / ${items.length}` }),
+      counter,
       items.length > 1 ? nav(1) : null,
       el('button', { class: 'car-nav', style: 'position:static;transform:none', onclick: () => close() },
         icon('x', 20, { stroke: '#141414', sw: 2 }))));

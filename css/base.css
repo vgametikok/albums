@@ -39,7 +39,25 @@ img,video{max-width:100%}
 .narr-label{font-size:14.5px;font-weight:600;margin-bottom:8px}
 .narr-bar{height:6px;border-radius:999px;background:var(--line);cursor:pointer;overflow:hidden}
 .narr-bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px}
-.narr-focus{outline:3px solid var(--accent);outline-offset:2px;border-radius:16px;transition:outline .2s}
+/* полноэкранное слайдшоу рассказа */
+.narr-show{position:fixed;inset:0;z-index:200;background:#0d0c0b;display:flex;flex-direction:column}
+.narr-stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;padding:24px}
+.narr-stage img,.narr-stage video{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+.narr-show-cap{position:absolute;left:0;right:0;bottom:8px;text-align:center;color:#fff;
+  font-size:14.5px;padding:0 16px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.narr-show-ctl{display:flex;align-items:center;gap:14px;padding:16px 20px calc(16px + env(safe-area-inset-bottom))}
+.narr-show-pp{width:46px;height:46px;border-radius:999px;background:var(--accent);border:none;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.narr-show-pp:hover{background:var(--accent-dark)}
+.narr-show-time{color:#CFCBC4;font-size:13px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:38px;text-align:center}
+.narr-show-bar{position:relative;flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.22);cursor:pointer}
+.narr-show-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);border-radius:999px}
+.narr-show-bar b{position:absolute;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;
+  border-radius:999px;background:#fff;box-shadow:0 0 0 2px rgba(13,12,11,.5);pointer-events:none}
+.narr-show-x{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:999px;
+  border:none;background:rgba(255,255,255,.14);color:#fff;font-size:17px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center}
+.narr-show-x:hover{background:rgba(255,255,255,.26)}
 .narr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;
   max-height:300px;overflow:auto}
 .narr-cell{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--ph)}
@@ -179,9 +197,10 @@ img,video{max-width:100%}
 .featured-side{flex:1 1 0;min-width:280px;display:flex;flex-direction:column}
 .featured-side .card-cover{flex:1;min-height:210px;aspect-ratio:auto}
 .hero-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px}
-.hero-inner{background:#fff;border-radius:16px;padding:24px 34px;text-align:center;box-shadow:var(--shadow-lg);max-width:460px}
-.hero-title{font-size:23px;font-weight:800;letter-spacing:-.02em}
-.hero-sub{font-size:15px;color:var(--muted);margin-top:5px}
+.hero-inner{background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:16px;padding:16px 24px;text-align:center;box-shadow:var(--shadow-lg);max-width:420px}
+.hero-title{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.hero-sub{font-size:14px;color:var(--muted);margin-top:4px}
 .pill{display:inline-block;background:var(--tint);border-radius:999px;padding:7px 14px;
   font-size:13px;color:#43403B;margin-top:11px}
 .kicker{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
@@ -199,6 +218,11 @@ img,video{max-width:100%}
 .chapter{margin-top:44px}
 .chapter h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:8px 0 12px}
 .chapter p{font-size:16.5px;line-height:1.7;color:#4A4741;margin:0 0 20px}
+/* история: медиа колонкой, во всю ширину, пропорции не трогаем */
+.story-media{margin-top:20px}
+.story-media img,.story-media video{width:100%;height:auto;display:block;border-radius:16px;background:var(--ph)}
+.story-media video{background:#0d0c0b}
+.story-cap{font-size:14px;color:var(--faint);margin-top:10px}
 .media-grid{display:grid;gap:16px}
 .media-grid.g1{grid-template-columns:1fr}
 .media-grid.g2{grid-template-columns:1fr 1fr}
@@ -321,6 +345,7 @@ img,video{max-width:100%}
     text-shadow:0 1px 4px rgba(0,0,0,.5)}
   .dots{bottom:calc(150px + env(safe-area-inset-bottom))}
   .car-nav{display:none}                          /* на телефоне листаем свайпом по горизонтали */
+  .modal-bg .car-nav{display:flex}                /* но в лайтбоксе свайпа нет — кнопки нужны */
   .posts-sentinel{height:1px}
   /* плавающая кнопка нового поста */
   .posts-fab{display:flex;position:fixed;right:16px;z-index:80;
@@ -434,12 +459,13 @@ img,video{max-width:100%}
   .prof-head{gap:16px}
   .prof-head h1{font-size:24px}
   .prof-head .avatar{width:88px!important;height:88px!important}
-  .hero-inner{padding:18px 22px;max-width:340px;border-radius:14px}
-  .hero-title{font-size:19px}
-  .hero-sub{font-size:13.5px}
+  .hero-inner{padding:10px 14px;max-width:240px;border-radius:12px}
+  .hero-title{font-size:13px}
+  .hero-sub{font-size:11.5px}
+  .hero-inner .pill{padding:4px 10px;font-size:11px;margin-top:7px}
   .album-hero{height:300px}
-  .album-hero .hero-inner{padding:20px 24px}
-  .album-hero .hero-title{font-size:22px}
+  .album-hero .hero-inner{padding:12px 16px}
+  .album-hero .hero-title{font-size:15px}
   .comment.reply{margin-left:28px}
   .media-grid.g3,.media-grid.g2{grid-template-columns:1fr 1fr}
   .chapter h3{font-size:20px}

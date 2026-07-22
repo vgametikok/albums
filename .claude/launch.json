@@ -5,7 +5,8 @@
       "name": "albums",
       "runtimeExecutable": "node",
       "runtimeArgs": ["serve.js"],
-      "port": 5085
+      "port": 5085,
+      "autoPort": true
     }
   ]
 }
