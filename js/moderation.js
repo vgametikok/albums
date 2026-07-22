@@ -67,9 +67,10 @@ function head(title, active) {
         onclick: () => renderQueue(),
       }, 'Reports'),
       el('button', {
+        id: 'tab-pending',
         class: 'chip btn-sm' + (active ==='pending' ? ' on' : ''),
         onclick: () => renderPending(),
-      }, pendingCount === null ? 'New albums' : `New albums (${pendingCount})`),
+      }, pendingLabel()),
       el('button', {
         class: 'chip btn-sm' + (active ==='stats' ? ' on' : ''),
         onclick: () => renderStats(),
@@ -211,6 +212,7 @@ async function openSubject(r) {
 // Каждый альбом, опубликованный автором, ждёт здесь решения и посторонним не
 // виден. Одобренный уходит в ленту, отклонённый остаётся у автора с пометкой.
 let pendingCount = null;
+const pendingLabel = () => (pendingCount ? `New albums (${pendingCount})` : 'New albums');
 
 async function renderPending() {
   clear(app);
@@ -224,7 +226,11 @@ async function renderPending() {
   try { d = (await call('pending')).data; }
   catch (e) { clear(list).appendChild(el('div', { class: 'muted', text: e.message })); return; }
 
+  // Шапка рисуется до запроса, поэтому число в ярлыке обновляем уже по ответу —
+  // иначе оно отстаёт на одно решение.
   pendingCount = d?.count ?? 0;
+  const tab = document.getElementById('tab-pending');
+  if (tab) tab.textContent = pendingLabel();
   const items = d?.albums || [];
   clear(list);
   if (!items.length) {
