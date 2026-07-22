@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
 <meta name="description" content="Albums pricing: free plan, Pro subscription for $9.99/month, and one-time Event Albums for $39.99.">
 <title>Pricing — Albums</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,76 +39,84 @@
   h3{font-size:18px;font-weight:700;margin:40px 0 8px;}
   .qa p{margin:0 0 14px;max-width:760px;}
   .qa b{font-weight:600;display:block;}
+  .qa a{color:var(--accent);}
   @media (max-width:860px){ .plans{grid-template-columns:1fr;} h1{font-size:28px;} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="index.html">← Albums</a>
-  <h1>Simple pricing</h1>
-  <p class="lead">Albums is free to use. Go Pro for more space and original quality, or buy a one-time Event Album to collect photos from everyone at your wedding, trip or party.</p>
+  <h1 data-i18n="pr_h1">Simple pricing</h1>
+  <p class="lead" data-i18n="pr_lead">Albums is free to use. Go Pro for more space, original quality and audience analytics, or buy a one-time Event Album to collect photos from everyone at your wedding, trip or party.</p>
 
   <div class="plans">
     <div class="plan">
       <p class="tag"></p>
-      <h2>Free</h2>
+      <h2 data-i18n="pr_free_name">Free</h2>
       <p class="price">$0</p>
-      <p class="per">forever</p>
+      <p class="per" data-i18n="pr_free_per">forever</p>
       <ul>
-        <li>Unlimited albums and posts</li>
-        <li>Photos, videos and voice notes with chapters</li>
-        <li>Voice narration over your albums</li>
-        <li>Privacy controls: public, friends-only or private, with per-person exceptions</li>
-        <li>Friends, comments, likes and a personal feed</li>
-        <li>1 GB of media storage</li>
+        <li data-i18n="pr_free_f1">Unlimited albums and posts</li>
+        <li data-i18n="pr_free_f2">Photos, videos and voice notes with chapters</li>
+        <li data-i18n="pr_free_f3">Voice narration over your albums</li>
+        <li data-i18n="pr_free_f4">Privacy controls: public, friends-only or private, with per-person exceptions</li>
+        <li data-i18n="pr_free_f5">Friends, comments, likes and a personal feed</li>
       </ul>
-      <a class="cta" href="index.html">Start free</a>
+      <a class="cta" href="index.html" data-i18n="pr_free_cta">Start free</a>
     </div>
 
     <div class="plan hot">
-      <p class="tag">Most popular</p>
+      <p class="tag" data-i18n="pr_tag_popular">Most popular</p>
       <h2>Pro</h2>
-      <p class="price">$9.99 <small>/ month</small></p>
-      <p class="per">billed monthly, cancel anytime</p>
+      <p class="price">$9.99 <small data-i18n="pr_month">/ month</small></p>
+      <p class="per" data-i18n="pr_pro_per">billed monthly, cancel anytime</p>
       <ul>
-        <li>Everything in Free</li>
-        <li>100 GB of media storage</li>
-        <li>Original-quality photo uploads — your full-resolution originals are preserved</li>
-        <li>Bigger video uploads</li>
-        <li>Priority support</li>
-        <li>Early access to new features</li>
+        <li data-i18n="pr_pro_f1">Everything in Free</li>
+        <li data-i18n="pr_pro_f2">100 GB of media storage</li>
+        <li data-i18n="pr_pro_f3">Original-quality photo uploads — your full-resolution originals are preserved</li>
+        <li data-i18n="pr_pro_f4">Bigger video uploads</li>
+        <li data-i18n="pr_pro_f5">Advanced statistics and audience analytics</li>
+        <li data-i18n="pr_pro_f6">Action buttons in chat for your business (soon)</li>
+        <li data-i18n="pr_pro_f7">Priority support</li>
+        <li data-i18n="pr_pro_f8">Early access to new features</li>
       </ul>
-      <a class="cta primary" href="index.html">Get Pro</a>
+      <a class="cta primary" href="index.html" data-i18n="pr_pro_cta">Get Pro</a>
     </div>
 
     <div class="plan">
-      <p class="tag">One-time</p>
-      <h2>Event Album</h2>
-      <p class="price">$39.99 <small>/ event</small></p>
-      <p class="per">one-time payment, no subscription</p>
+      <p class="tag" data-i18n="pr_tag_onetime">One-time</p>
+      <h2 data-i18n="pr_event_name">Event Album</h2>
+      <p class="price">$39.99 <small data-i18n="pr_event_unit">/ event</small></p>
+      <p class="per" data-i18n="pr_event_per">one-time payment, no subscription</p>
       <ul>
-        <li>A shared album for your wedding, trip or party</li>
-        <li>Guests join by link or QR code</li>
-        <li>Uploads straight from the phone browser — no app to install</li>
-        <li>Everyone's photos and videos collected in one place</li>
-        <li>Your privacy settings apply to the whole event</li>
-        <li>The album stays yours forever</li>
+        <li data-i18n="pr_event_f1">A shared album for your wedding, trip or party</li>
+        <li data-i18n="pr_event_f2">Guests join by link or QR code</li>
+        <li data-i18n="pr_event_f3">Uploads straight from the phone browser — no app to install</li>
+        <li data-i18n="pr_event_f4">Everyone's photos and videos collected in one place</li>
+        <li data-i18n="pr_event_f5">Your privacy settings apply to the whole event</li>
+        <li data-i18n="pr_event_f6">The album stays yours forever</li>
       </ul>
-      <a class="cta" href="editor.html">Create an Event Album</a>
+      <a class="cta" href="editor.html" data-i18n="pr_event_cta">Create an Event Album</a>
     </div>
   </div>
 
   <div class="fine">
-    <p>All prices are in US dollars. Applicable taxes (VAT, sales tax) may be added at checkout depending on your country. Payments are processed securely by our payment partner; Albums never sees your card details.</p>
-    <p>Pro renews automatically every month until cancelled. You can cancel anytime and keep Pro until the end of the paid period. See our <a href="refunds.html">Refund Policy</a>, <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+    <p data-i18n="pr_fine1">All prices are in US dollars. Applicable taxes (VAT, sales tax) may be added at checkout depending on your country. Payments are processed securely by our payment partner; Albums never sees your card details.</p>
+    <p data-i18n="pr_fine2">Pro renews automatically every month until cancelled. You can cancel anytime and keep Pro until the end of the paid period.</p>
+    <p>
+      <a href="refunds.html" data-i18n="foot_refunds">Refund Policy</a> ·
+      <a href="terms.html" data-i18n="foot_terms">Terms of Service</a> ·
+      <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+    </p>
   </div>
 
-  <h3>Questions</h3>
+  <h3 data-i18n="pr_q_title">Questions</h3>
   <div class="qa">
-    <p><b>What happens to my content if I cancel Pro?</b> Nothing is deleted. If you are over the free storage limit, you won't be able to upload new media until you free up space, but everything already uploaded stays viewable and shareable.</p>
-    <p><b>Do event guests have to pay?</b> No. Only the event organizer pays once. Guests join and upload for free.</p>
-    <p><b>How do I get an invoice or a refund?</b> Write to us at <a href="mailto:vgametikok@gmail.com">vgametikok@gmail.com</a> — see the <a href="refunds.html">Refund Policy</a> for details.</p>
+    <p><b data-i18n="pr_q1">What happens to my content if I cancel Pro?</b> <span data-i18n="pr_q1a">Nothing is deleted. If you are over the free storage limit, you won't be able to upload new media until you free up space, but everything already uploaded stays viewable and shareable.</span></p>
+    <p><b data-i18n="pr_q2">Do event guests have to pay?</b> <span data-i18n="pr_q2a">No. Only the event organizer pays once. Guests join and upload for free.</span></p>
+    <p><b data-i18n="pr_q3">How do I get an invoice or a refund?</b> <span data-i18n="pr_q3a">Details are in the Refund Policy above. For invoices and refund requests, write to us at:</span> <a href="mailto:vgametikok@gmail.com">vgametikok@gmail.com</a></p>
   </div>
 </div>
+<script type="module" src="js/pricing.js"></script>
 </body>
 </html>
