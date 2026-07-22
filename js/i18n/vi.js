@@ -1,4 +1,7 @@
 export default {
+  foot_support: 'Hỗ trợ và góp ý',
+  foot_partnership: 'Hợp tác',
+  foot_offer: 'Chào hàng công khai',
   search_ph: 'Tìm album và tác giả',
   nav_home: 'Trang chủ',
   nav_profile: 'Hồ sơ',

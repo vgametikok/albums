@@ -1,4 +1,7 @@
 export default {
+  foot_support: '支持与建议',
+  foot_partnership: '商务合作',
+  foot_offer: '公开要约',
   search_ph: '搜索相册和创作者',
   nav_home: '首页',
   nav_profile: '我的',

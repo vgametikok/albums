@@ -330,8 +330,12 @@ function mountFooter() {
         }, t(key)))),
     el('div', { text: 'Поклонцев Владислав Васильевич' }),
     el('div', { text: 'ИНН 780428509307' }),
+    el('div', {}, t('foot_support') + ': ',
+      el('a', { href: 'mailto:support@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'support@albums.ink')),
+    el('div', {}, t('foot_partnership') + ': ',
+      el('a', { href: 'mailto:partnership@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'partnership@albums.ink')),
     el('div', { style: 'margin-top:6px' },
-      el('a', { href: 'offer.html', style: 'color:#8F8B84;text-decoration:underline' }, 'Публичная оферта')),
+      el('a', { href: 'offer.html', style: 'color:#8F8B84;text-decoration:underline' }, t('foot_offer'))),
   ));
 }
 

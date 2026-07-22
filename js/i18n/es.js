@@ -1,4 +1,7 @@
 export default {
+  foot_support: 'Soporte y sugerencias',
+  foot_partnership: 'Colaboraciones',
+  foot_offer: 'Oferta pública',
   search_ph: 'Buscar álbumes y autores',
   nav_home: 'Inicio',
   nav_profile: 'Perfil',
