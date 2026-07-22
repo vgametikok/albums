@@ -1,10 +1,9 @@
 // Главная: лента рекомендаций альбомов + режим поиска (?q=).
-import { sb, isAuthed } from './sb.js';
+import { sb } from './sb.js';
 import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, albumCard, skeletonGrid, signUrls, emptyState,
   composition, fmtCount, timeAgo, avatarImg, icon, playTriangle, t, catLabel,
-  showLogin,
 } from './ui.js';
 import { observeImpressions } from './stats.js';
 
@@ -31,18 +30,6 @@ let trendPeriod = 'week';
 /* ---------------- лента ---------------- */
 
 // Гостю над лентой показываем, что это за сервис: описание + вход + цены.
-function guestHero() {
-  return el('div', {
-    class: 'side-card',
-    style: 'margin:8px 0 26px;padding:30px 28px;max-width:820px',
-  },
-    el('h1', { style: 'margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:-.02em;line-height:1.2', text: t('hero_title') }),
-    el('p', { style: 'margin:0 0 18px;font-size:16px;line-height:1.6;color:#6b6862;max-width:640px', text: t('hero_text') }),
-    el('div', { style: 'display:flex;gap:12px;flex-wrap:wrap' },
-      el('button', { class: 'btn btn-primary', onclick: () => showLogin(t('signin_to_create')) }, t('hero_start')),
-      el('a', { class: 'btn btn-ghost', href: 'pricing.html' }, t('hero_pricing'))));
-}
-
 function renderFeed() {
   const tabs = el('div', { class: 'view-toggle', style: 'margin:8px 0 20px' });
   const chips = el('div', { class: 'chips' });
@@ -83,7 +70,6 @@ function renderFeed() {
   drawChips();
 
   clear(app);
-  if (!isAuthed()) app.appendChild(guestHero());
   app.append(tabs, chips, featuredHost, grid, sentinel);
   app.appendChild(skeletonGrid(6));
 

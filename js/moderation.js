@@ -42,7 +42,7 @@ function renderLogin() {
       const r = await call('login', { login: login.value, password: pass.value });
       token = r.token;
       sessionStorage.setItem('modToken', token);
-      renderQueue();
+      renderPending();
     } catch (e) {
       err.textContent = e.message === 'too_many' ? 'Too many attempts, wait 15 min' : 'Wrong login or password';
       btn.disabled = false;
@@ -65,6 +65,10 @@ function head(title, active) {
         class: 'chip btn-sm' + (active ==='queue' ? ' on' : ''),
         onclick: () => renderQueue(),
       }, 'Reports'),
+      el('button', {
+        class: 'chip btn-sm' + (active ==='pending' ? ' on' : ''),
+        onclick: () => renderPending(),
+      }, pendingCount === null ? 'New albums' : `New albums (${pendingCount})`),
       el('button', {
         class: 'chip btn-sm' + (active ==='stats' ? ' on' : ''),
         onclick: () => renderStats(),
@@ -200,6 +204,66 @@ async function openSubject(r) {
   document.body.appendChild(bg);
 }
 
+/* ---------------- новые альбомы на проверке ---------------- */
+// Каждый альбом, опубликованный автором, ждёт здесь решения и посторонним не
+// виден. Одобренный уходит в ленту, отклонённый остаётся у автора с пометкой.
+let pendingCount = null;
+
+async function renderPending() {
+  clear(app);
+  app.appendChild(head('New albums', 'pending'));
+
+  const list = el('div', { class: 'stack' });
+  app.appendChild(list);
+  list.appendChild(el('div', { class: 'muted', text: 'Loading…' }));
+
+  let d;
+  try { d = (await call('pending')).data; }
+  catch (e) { clear(list).appendChild(el('div', { class: 'muted', text: e.message })); return; }
+
+  pendingCount = d?.count ?? 0;
+  const items = d?.albums || [];
+  clear(list);
+  if (!items.length) {
+    list.appendChild(el('div', { class: 'empty' },
+      el('h3', { text: 'Nothing to review' }),
+      el('div', { text: 'Every published album has been reviewed.' })));
+    return;
+  }
+  items.forEach(a => list.appendChild(pendingCard(a)));
+}
+
+function pendingCard(a) {
+  const card = el('div', { class: 'side-card', style: 'display:flex;flex-direction:column;gap:10px' });
+  card.appendChild(el('div', { style: 'display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap' },
+    el('div', {},
+      el('b', { text: a.title || '(no title)' }),
+      el('div', { class: 'muted', style: 'font-size:13.5px',
+        text: `@${a.author} · ${a.visibility} · ${a.photos || 0}p ${a.videos || 0}v ${a.audio || 0}a` })),
+    a.author_banned ? el('span', { class: 'badge', style: 'position:static', text: 'AUTHOR BANNED' }) : null,
+    a.reports ? el('span', { class: 'badge', style: 'position:static', text: `${a.reports} report(s)` }) : null));
+
+  if (a.description) card.appendChild(el('div', { style: 'font-size:14.5px', text: a.description }));
+
+  const note = el('input', { class: 'input', placeholder: 'Reason (sent to the author on reject)', autocomplete: 'off' });
+  card.appendChild(note);
+
+  const decide = async (approve) => {
+    try {
+      await call('review', { album_id: a.id, approve, note: note.value.trim() || null });
+      toast(approve ? 'Approved' : 'Rejected');
+      card.style.opacity = '0.4';
+      setTimeout(renderPending, 400);
+    } catch (e) { toast(e.message); }
+  };
+
+  card.appendChild(el('div', { class: 'rowx' },
+    el('button', { class: 'mini', onclick: () => openSubject({ subject_type: 'album', subject_id: a.id }) }, 'Open'),
+    el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
+    el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Reject')));
+  return card;
+}
+
 /* ---------------- продуктовая статистика ---------------- */
 let statDays = 30;
 
@@ -329,5 +393,6 @@ function secs(ms) {
 }
 
 /* ---------------- старт ---------------- */
-if (token) renderQueue().catch(renderLogin);
+// Первым делом — очередь новых альбомов: это ежедневная работа модератора.
+if (token) renderPending().catch(renderLogin);
 else renderLogin();

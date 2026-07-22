@@ -430,6 +430,14 @@ export default {
   pr_q3: 'How do I get an invoice or a refund?',
   pr_q3a: 'Details are in the Refund Policy above. For invoices and refund requests, write to us at:',
 
+  /* ---- review ---- */
+  drafts_title: 'Drafts and pending review',
+  drafts_hint: 'visible only to you',
+  review_pending: 'In review',
+  review_rejected: 'Rejected',
+  status_review: 'Published — waiting for review',
+  album_sent_review: 'Sent for review',
+
   /* ---- statistics ---- */
   st_title: 'Statistics',
   st_sub: 'How people find your albums and how long they stay.',

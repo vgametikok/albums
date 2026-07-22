@@ -148,6 +148,17 @@ Deno.serve(async (req) => {
           p_user: body.user_id, p_ban: body.ban, p_login: login, p_reason: body.reason ?? null,
         })).data;
         break;
+      case 'pending':
+        out = {
+          albums: (await sb.rpc('mod_pending_albums', { p_limit: body.limit ?? 50, p_offset: body.offset ?? 0 })).data,
+          count: (await sb.rpc('mod_pending_count')).data,
+        };
+        break;
+      case 'review':
+        out = (await sb.rpc('mod_review_album', {
+          p_album: body.album_id, p_approve: !!body.approve, p_login: login, p_note: body.note ?? null,
+        })).data;
+        break;
       case 'stats':
         out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
         break;

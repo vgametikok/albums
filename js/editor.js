@@ -651,8 +651,12 @@ function actionsBox() {
   const box = el('div', { class: 'side-card', style: 'margin-top:18px' });
   const status = el('div', { class: 'muted', style: 'font-size:14px;margin-bottom:12px' });
   const setStatus = () => {
+    // Опубликованный альбом ждёт проверки модератора и до неё виден только автору
+    // и соавторам — говорим это прямо, иначе автор не понимает, почему его нет в ленте.
     status.textContent = !albumId ? t('not_saved')
-      : album?.published_at ? t('status_published') : t('status_draft');
+      : album?.published_at
+        ? (album?.moderation_status === 'approved' ? t('status_published') : t('status_review'))
+        : t('status_draft');
   };
   setStatus();
 
@@ -729,7 +733,9 @@ async function save(publish, btn) {
       if (rows.length) await sb.from('album_exceptions').insert(rows);
     }
 
-    toast(publish ? t('album_published') : t('draft_saved'));
+    toast(publish
+      ? (album.moderation_status === 'approved' ? t('album_published') : t('album_sent_review'))
+      : t('draft_saved'));
     if (publish) { location.href = `album.html?id=${albumId}`; return; }
   } catch (err) {
     toast(err.message || t('save_error'));

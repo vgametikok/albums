@@ -89,8 +89,57 @@ async function render() {
   }
 
   /* ---- сетка ---- */
+  // Статусы проверки нужны только на своём профиле: чужие альбомы, не прошедшие
+  // модерацию, сюда и не приходят.
+  let status = {};
+  if (data.is_me) {
+    const { data: st } = await sb.rpc('my_album_status');
+    status = st || {};
+  }
+  const statusOf = (a) => status[a.id]?.status || 'approved';
+  const isLive = (a) => !!a.published_at && statusOf(a) === 'approved';
+
   const chips = el('div', { style: 'display:flex;gap:12px;flex-wrap:wrap' });
   const grid = el('div', { class: 'grid' });
+  const draftHead = el('div', { class: 'section-head' },
+    el('h2', { text: t('drafts_title') }),
+    el('span', { class: 'muted', style: 'font-size:14.5px', text: t('drafts_hint') }));
+  const draftGrid = el('div', { class: 'grid' });
+
+  const makeCard = (a) => {
+    const card = albumCard({
+      ...a, cover_path: a.cover_path, thumb1_path: a.thumb1, thumb2_path: a.thumb2,
+    }, urls, { hideAuthor: true });
+    if (!data.is_me) return card;
+
+    const s = statusOf(a);
+    const mark = !a.published_at ? [t('draft'), '#8F8B84']
+      : s === 'pending' ? [t('review_pending'), '#E8552B']
+      : s === 'rejected' ? [t('review_rejected'), '#c0392b'] : null;
+    if (mark) {
+      card.insertBefore(el('div', {
+        style: `display:inline-block;margin-bottom:6px;padding:3px 10px;border-radius:99px;font-size:12.5px;
+                font-weight:700;color:#fff;background:${mark[1]}`,
+        text: mark[0],
+      }), card.firstChild);
+      if (s === 'rejected' && status[a.id]?.note) {
+        card.appendChild(el('div', { class: 'muted', style: 'font-size:13px;margin-top:6px', text: status[a.id].note }));
+      }
+    }
+
+    card.appendChild(el('div', { style: 'margin-top:8px;display:flex;gap:8px' },
+      el('a', { class: 'mini', href: `editor.html?id=${a.id}`, style: 'display:inline-flex;align-items:center' }, t('edit')),
+      el('button', {
+        class: 'mini', onclick: async () => {
+          const next = !a.is_pinned;
+          await sb.from('albums').update({ is_pinned: false }).eq('author_id', data.profile.id);
+          if (next) await sb.from('albums').update({ is_pinned: true }).eq('id', a.id);
+          location.reload();
+        },
+      }, a.is_pinned ? t('unpin') : t('pin'))));
+    return card;
+  };
+
   const draw = () => {
     clear(chips);
     const used = [...new Set(albums.map(a => a.category).filter(Boolean))];
@@ -100,36 +149,26 @@ async function render() {
       onclick: () => { category = c; draw(); },
     }, catLabel(c))));
 
-    clear(grid);
+    clear(grid); clear(draftGrid);
     const list = albums.filter(a => !category || a.category === category);
-    if (!list.length) {
+    const live = data.is_me ? list.filter(isLive) : list;
+    const drafts = data.is_me ? list.filter(a => !isLive(a)) : [];
+
+    if (!live.length && !drafts.length) {
       grid.appendChild(emptyState(data.is_me ? t('no_albums_title') : t('nothing_to_show'),
         data.is_me ? t('no_albums_text') : t('no_visible_albums'),
         data.is_me ? el('a', { class: 'btn btn-primary', href: 'editor.html' }, t('new_album_title')) : null));
-      return;
+    } else {
+      live.forEach(a => grid.appendChild(makeCard(a)));
+      drafts.forEach(a => draftGrid.appendChild(makeCard(a)));
     }
-    list.forEach(a => {
-      const card = albumCard({
-        ...a, cover_path: a.cover_path, thumb1_path: a.thumb1, thumb2_path: a.thumb2,
-      }, urls, { hideAuthor: true });
-      if (data.is_me) {
-        card.appendChild(el('div', { style: 'margin-top:8px;display:flex;gap:8px' },
-          el('a', { class: 'mini', href: `editor.html?id=${a.id}`, style: 'display:inline-flex;align-items:center' }, t('edit')),
-          el('button', {
-            class: 'mini', onclick: async () => {
-              const next = !a.is_pinned;
-              await sb.from('albums').update({ is_pinned: false }).eq('author_id', data.profile.id);
-              if (next) await sb.from('albums').update({ is_pinned: true }).eq('id', a.id);
-              location.reload();
-            },
-          }, a.is_pinned ? t('unpin') : t('pin'))));
-      }
-      grid.appendChild(card);
-    });
+    draftHead.style.display = drafts.length ? '' : 'none';
+    draftGrid.style.display = drafts.length ? '' : 'none';
   };
   draw();
 
-  app.append(el('div', { class: 'section-head' }, el('h2', { text: t('all_albums') }), chips), grid);
+  app.append(el('div', { class: 'section-head' }, el('h2', { text: t('all_albums') }), chips), grid,
+    draftHead, draftGrid);
 
   if (data.is_me) renderShared(app);
 }
