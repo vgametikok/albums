@@ -287,7 +287,9 @@ export async function mountShell(active) {
     el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, t('nav_posts')),
     el('a', { class: 'nav-link hide-sm' + (active === 'calendar' ? ' active' : ''), href: 'calendar.html' }, t('calendar_title')),
     el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
-    me ? el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title')) : null,
+    // Раскрываем массивом, а не через null: append() у DOM превращает null
+    // в текст «null» и пишет его прямо в шапку (el() ниже такое фильтрует, а append — нет).
+    ...(me ? [el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title'))] : []),
     el('a', { class: 'btn btn-primary', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
     langPicker(),
   );
