@@ -41,7 +41,9 @@ function cors(origin: string | null) {
   const allow = origin && ALLOW_ORIGINS.includes(origin) ? origin : ALLOW_ORIGINS[0];
   return {
     'Access-Control-Allow-Origin': allow,
-    'Access-Control-Allow-Headers': 'content-type, x-mod-token',
+    // apikey и authorization обязательны: клиент шлёт publishable-ключ, и без них
+    // браузер валит предполётную проверку CORS — запрос не уходит вообще.
+    'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-mod-token',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json',
   };
@@ -144,6 +146,14 @@ Deno.serve(async (req) => {
       case 'ban':
         out = (await sb.rpc('mod_ban', {
           p_user: body.user_id, p_ban: body.ban, p_login: login, p_reason: body.reason ?? null,
+        })).data;
+        break;
+      case 'stats':
+        out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
+        break;
+      case 'set_plan':
+        out = (await sb.rpc('admin_set_plan', {
+          p_username: body.username, p_plan: body.plan, p_days: body.plan_days ?? 30,
         })).data;
         break;
       case 'resolve':

@@ -6,6 +6,7 @@ import {
   modal, thumbEl, moreButton,
 } from './ui.js';
 import { mountComments } from './comments.js';
+import { trackAlbumView } from './stats.js';
 
 const app = $('#app');
 const id = new URLSearchParams(location.search).get('id');
@@ -24,7 +25,9 @@ const id = new URLSearchParams(location.search).get('id');
     return;
   }
   render(data);
-  sb.rpc('log_album_view', { p_id: id });
+  // Просмотр и удержание. Раньше здесь был вызов log_album_view без await —
+  // supabase-js ленив, запрос не уходил, и просмотры не считались вообще.
+  trackAlbumView(id);
 })();
 
 async function render(d) {

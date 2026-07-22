@@ -287,6 +287,7 @@ export async function mountShell(active) {
     el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, t('nav_posts')),
     el('a', { class: 'nav-link hide-sm' + (active === 'calendar' ? ' active' : ''), href: 'calendar.html' }, t('calendar_title')),
     el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
+    me ? el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title')) : null,
     el('a', { class: 'btn btn-primary', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
     langPicker(),
   );
@@ -455,7 +456,8 @@ export function albumCard(a, urls = {}, opts = {}) {
   }));
   meta.appendChild(info);
 
-  return el('div', {}, link, meta);
+  // data-album-id — метка для учёта показов (js/stats.js наблюдает за карточками).
+  return el('div', { 'data-album-id': a.id }, link, meta);
 }
 
 export function skeletonGrid(n = 8) {

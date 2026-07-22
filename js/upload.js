@@ -14,6 +14,7 @@ import { readCaptureDate } from './exif.js';
 import { t } from './i18n.js';
 
 const MAX_EDGE = 2048;
+const MAX_EDGE_PRO = 3840;      // 4K по длинной стороне — возможность тарифа Pro
 const THUMB_EDGE = 640;
 const Q_FULL = 0.80;
 const Q_THUMB = 0.75;
@@ -26,6 +27,17 @@ const EXT = {
 
 // Бэкенд хранилища медиа: 'r2' (боевой) | 'supabase' (откат — вернуть старый путь записи).
 const MEDIA_BACKEND = 'r2';
+
+// Тариф спрашиваем один раз за сессию: он решает размер стороны фото и потолок
+// файла. Настоящую проверку всё равно делает сервер при выдаче подписи.
+let _plan = null;
+async function plan() {
+  if (_plan) return _plan;
+  const { data } = await sb.rpc('my_settings');
+  _plan = data?.plan === 'pro' ? 'pro' : 'free';
+  return _plan;
+}
+const limitFor = (kind, p) => (p === 'pro' ? { photo: 60, video: 500, audio: 50 }[kind] * 1048576 : LIMITS[kind]);
 const isR2Path = (p) => typeof p === 'string' && p.startsWith('r2/');
 // MIME без параметров (audio/webm;codecs=opus -> audio/webm) и в нижнем регистре.
 const cleanType = (m) => (m || '').split(';')[0].trim().toLowerCase();
@@ -199,8 +211,10 @@ export async function uploadMedia(file, onStage) {
   if (!user) throw new Error(t('err_signin_first'));
   const kind = kindOf(file);
   if (!kind) throw new Error(t('err_unsupported', { name: file.name }));
-  if (file.size > LIMITS[kind]) {
-    throw new Error(t('err_too_large', { name: file.name, mb: Math.round(LIMITS[kind] / 1048576) }));
+  const myPlan = await plan();
+  const cap = limitFor(kind, myPlan);
+  if (file.size > cap) {
+    throw new Error(t('err_too_large', { name: file.name, mb: Math.round(cap / 1048576) }));
   }
 
   let body = file, thumb = null, width = null, height = null, duration = null;
@@ -222,7 +236,7 @@ export async function uploadMedia(file, onStage) {
       if (animated) {
         body = file; width = bmp.width; height = bmp.height;   // анимацию не трогаем
       } else {
-        const full = await encodeFrom(bmp, MAX_EDGE, Q_FULL);
+        const full = await encodeFrom(bmp, myPlan === 'pro' ? MAX_EDGE_PRO : MAX_EDGE, Q_FULL);
         body = full.blob; width = full.width; height = full.height;
       }
     } finally { bmp.close?.(); }

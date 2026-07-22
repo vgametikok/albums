@@ -6,6 +6,7 @@ import {
   composition, fmtCount, timeAgo, avatarImg, icon, playTriangle, t, catLabel,
   showLogin,
 } from './ui.js';
+import { observeImpressions } from './stats.js';
 
 const app = $('#app');
 const PAGE = 24;
@@ -139,6 +140,7 @@ function renderFeed() {
     }
     rest.forEach(a => grid.appendChild(albumCard(a, urls)));
     offset += rows.length;
+    observeImpressions(app);   // учёт показов карточек
   }
 
   // IntersectionObserver + scroll-фолбэк (в throttled-окружениях IO не срабатывает).

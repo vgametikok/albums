@@ -54,6 +54,9 @@ const TYPE_EXT: Record<string, Record<string, string>> = {
 };
 const THUMB_TYPE: Record<string, string> = { 'image/jpeg': 'jpg', 'image/webp': 'webp' };
 const SIZE_LIMIT: Record<string, number> = { photo: 30 * 1048576, video: 50 * 1048576, audio: 20 * 1048576 };
+// Тариф Pro: фото до 4K весит больше, видео разрешаем до 500 МБ.
+const SIZE_LIMIT_PRO: Record<string, number> = { photo: 60 * 1048576, video: 500 * 1048576, audio: 50 * 1048576 };
+const PRO_QUOTA = Number(Deno.env.get('R2_PRO_QUOTA_BYTES') ?? String(100 * 1073741824));
 const THUMB_LIMIT = 2 * 1048576;
 
 const norm = (t: unknown) => String(t ?? '').split(';')[0].trim().toLowerCase();
@@ -174,8 +177,15 @@ Deno.serve(async (req) => {
     const cType = norm(body.contentType);
     const ext = TYPE_EXT[kind]?.[cType];
     if (!ext) return json(400, { error: 'bad_type', kind, contentType: cType }, h);
+    // Лимит файла и квота зависят от тарифа. Тариф читаем на сервере: клиенту
+    // тут верить нельзя, он может прислать что угодно.
+    const { data: prof } = await sb.from('profiles').select('plan').eq('id', viewer).maybeSingle();
+    const pro = prof?.plan === 'pro';
+    const sizeLimit = (pro ? SIZE_LIMIT_PRO : SIZE_LIMIT)[kind];
+    const quota = pro ? PRO_QUOTA : QUOTA;
+
     const size = Number(body.size ?? 0);
-    if (!(size >= 0) || size > SIZE_LIMIT[kind]) return json(413, { error: 'too_large' }, h);
+    if (!(size >= 0) || size > sizeLimit) return json(413, { error: 'too_large' }, h);
 
     let thumbExt: string | null = null, thumbType = '', thumbSize = 0;
     if (body.thumbType != null) {
@@ -188,7 +198,7 @@ Deno.serve(async (req) => {
 
     const mediaId = crypto.randomUUID();
     const reserve = (await sb.rpc('r2_reserve_upload', {
-      p_owner: viewer, p_media: mediaId, p_size: size, p_thumb: thumbSize, p_quota: QUOTA,
+      p_owner: viewer, p_media: mediaId, p_size: size, p_thumb: thumbSize, p_quota: quota,
     })).data as { ok: boolean; used: number; limit: number };
     if (!reserve?.ok) return json(413, { error: 'quota_exceeded', used: reserve?.used, limit: reserve?.limit }, h);
 

@@ -56,12 +56,26 @@ function renderLogin() {
     login, pass, err, btn));
 }
 
+/* ---------------- общая шапка ---------------- */
+function head(title, active) {
+  return el('div', { style: 'display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap' },
+    el('h1', { style: 'font-size:26px;font-weight:800;margin:0', text: title }),
+    el('div', { class: 'rowx' },
+      el('button', {
+        class: 'mini' + (active === 'queue' ? ' on' : ''),
+        onclick: () => renderQueue(),
+      }, 'Reports'),
+      el('button', {
+        class: 'mini' + (active === 'stats' ? ' on' : ''),
+        onclick: () => renderStats(),
+      }, 'Statistics'),
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: logout }, 'Sign out')));
+}
+
 /* ---------------- очередь ---------------- */
 async function renderQueue() {
   clear(app);
-  app.appendChild(el('div', { style: 'display:flex;align-items:center;justify-content:space-between;margin-bottom:20px' },
-    el('h1', { style: 'font-size:26px;font-weight:800;margin:0', text: 'Reports' }),
-    el('button', { class: 'btn btn-ghost btn-sm', onclick: logout }, 'Sign out')));
+  app.appendChild(head('Reports', 'queue'));
 
   const list = el('div', { class: 'stack' });
   app.appendChild(list);
@@ -184,6 +198,134 @@ async function openSubject(r) {
 
   box.appendChild(el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:16px', onclick: () => bg.remove() }, 'Close'));
   document.body.appendChild(bg);
+}
+
+/* ---------------- продуктовая статистика ---------------- */
+let statDays = 30;
+
+async function renderStats() {
+  clear(app);
+  app.appendChild(head('Statistics', 'stats'));
+
+  const bar = el('div', { class: 'rowx', style: 'margin-bottom:18px' });
+  [7, 30, 90].forEach(n => bar.appendChild(el('button', {
+    class: 'chip' + (statDays === n ? ' on' : ''),
+    onclick: () => { statDays = n; renderStats(); },
+  }, `${n} days`)));
+  app.appendChild(bar);
+
+  const body = el('div', {}, el('div', { class: 'muted', text: 'Loading…' }));
+  app.appendChild(body);
+
+  let d;
+  try { d = (await call('stats', { days: statDays })).data; }
+  catch (e) { clear(body).appendChild(el('div', { class: 'muted', text: e.message })); return; }
+  if (!d) { clear(body).appendChild(el('div', { class: 'muted', text: 'No data' })); return; }
+
+  clear(body);
+  const u = d.users || {}, c = d.content || {}, a = d.activity || {};
+  body.appendChild(tiles([
+    ['Users', u.total, `+${u.new || 0} in period`],
+    ['Pro', u.pro, `${u.banned || 0} banned`],
+    ['Albums', c.albums, `${c.published || 0} published, +${c.new_albums || 0}`],
+    ['Media', c.media, `${gb(c.bytes)} · ${c.media_r2 || 0} in R2`],
+    ['Visits', a.views, `${a.impressions || 0} impressions`],
+    ['Time on album', secs(a.avg_dwell_ms), 'average'],
+    ['Button clicks', a.clicks, 'Pro profiles'],
+    ['Open reports', a.reports_open, 'awaiting review'],
+  ]));
+
+  body.appendChild(panel('By day', dayTable(d.by_day || [])));
+  body.appendChild(panel('Countries', barList((d.geo || []).map(g => [g.code || '??', g.n]))));
+  body.appendChild(panel('Top albums', topList(d.top_albums || [])));
+  body.appendChild(planForm());
+}
+
+function tiles(items) {
+  const wrap = el('div', { style: 'display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px' });
+  items.forEach(([label, value, hint]) => wrap.appendChild(
+    el('div', { class: 'side-card', style: 'padding:16px' },
+      el('div', { class: 'muted', style: 'font-size:13px', text: label }),
+      el('div', { style: 'font-size:24px;font-weight:800;margin-top:2px', text: String(value ?? 0) }),
+      el('div', { class: 'muted', style: 'font-size:12px', text: hint || '' }))));
+  return wrap;
+}
+
+function panel(title, node) {
+  return el('div', { class: 'side-card', style: 'margin-top:18px' },
+    el('div', { style: 'font-size:17px;font-weight:700;margin-bottom:10px', text: title }), node);
+}
+
+function dayTable(rows) {
+  const live = rows.filter(r => r.views || r.actives || r.signups || r.albums);
+  if (!live.length) return el('div', { class: 'muted', text: 'Nothing happened in this period.' });
+  const line = (cells, muted) => el('div', {
+    class: muted ? 'muted' : '',
+    style: 'display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:8px;padding:6px 0;font-size:14px'
+      + (muted ? ';border-bottom:1px solid #EFEDE8;font-size:12.5px' : ';border-bottom:1px solid #F5F3EF'),
+  }, ...cells.map(x => el('span', { text: String(x) })));
+  const box = el('div', {}, line(['Day', 'Visits', 'Active', 'Signups', 'Albums'], true));
+  live.forEach(r => box.appendChild(line([r.day, r.views, r.actives, r.signups, r.albums])));
+  return box;
+}
+
+function barList(rows) {
+  const clean = rows.filter(r => r[1] > 0);
+  if (!clean.length) return el('div', { class: 'muted', text: 'No data yet.' });
+  const max = Math.max(...clean.map(r => r[1]));
+  const box = el('div', { class: 'stack', style: 'gap:8px' });
+  clean.forEach(([label, n]) => box.appendChild(el('div', {},
+    el('div', { style: 'display:flex;justify-content:space-between;font-size:14px' },
+      el('span', { text: label }), el('span', { class: 'muted', text: String(n) })),
+    el('div', { style: 'height:7px;border-radius:99px;background:#EFEDE8;margin-top:3px' },
+      el('i', { style: `display:block;height:100%;border-radius:99px;background:#E8552B;width:${Math.max(3, (n / max) * 100)}%` })))));
+  return box;
+}
+
+function topList(rows) {
+  if (!rows.length) return el('div', { class: 'muted', text: 'No visits yet.' });
+  const box = el('div', { class: 'stack', style: 'gap:6px' });
+  rows.forEach(r => box.appendChild(el('div', { style: 'display:flex;justify-content:space-between;gap:12px;font-size:14.5px' },
+    el('span', { text: `${r.title || '—'} · @${r.author}` }),
+    el('b', { text: String(r.views) }))));
+  return box;
+}
+
+/** Выдача тарифа вручную: оплата пока принимается не автоматически. */
+function planForm() {
+  const user = el('input', { class: 'input', placeholder: 'username', autocomplete: 'off' });
+  const plan = el('select', { class: 'select' },
+    el('option', { value: 'pro' }, 'pro'), el('option', { value: 'free' }, 'free'));
+  const days = el('input', { class: 'input', type: 'number', value: '30', min: '1', max: '3650' });
+  const out = el('div', { class: 'muted', style: 'font-size:13.5px;min-height:20px' });
+  const go = el('button', { class: 'btn btn-primary btn-sm' }, 'Apply');
+  go.onclick = async () => {
+    go.disabled = true;
+    try {
+      const r = await call('set_plan', {
+        username: user.value.trim(), plan: plan.value, plan_days: parseInt(days.value, 10) || 30,
+      });
+      out.textContent = r.data?.error ? 'User not found' : `${r.data.username}: ${r.data.plan}`;
+      toast('Done');
+    } catch (e) { out.textContent = e.message; }
+    go.disabled = false;
+  };
+  return panel('Plan', el('div', { class: 'stack' },
+    el('div', { class: 'muted', style: 'font-size:13.5px', text: 'Payments are manual for now — grant Pro here after a PayPal payment.' }),
+    user, plan, days, go, out));
+}
+
+function gb(bytes) {
+  const n = Number(bytes || 0);
+  if (n > 1e9) return `${(n / 1e9).toFixed(2)} GB`;
+  if (n > 1e6) return `${(n / 1e6).toFixed(1)} MB`;
+  return `${Math.round(n / 1024)} KB`;
+}
+
+function secs(ms) {
+  const s = Math.round((ms || 0) / 1000);
+  if (!s) return '—';
+  return s < 60 ? `${s}s` : `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 }
 
 /* ---------------- старт ---------------- */

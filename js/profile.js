@@ -6,6 +6,7 @@ import {
   toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton,
 } from './ui.js';
 import { uploadAvatar } from './upload.js';
+import { trackButton } from './stats.js';
 
 const app = $('#app');
 let username = new URLSearchParams(location.search).get('u');
@@ -40,6 +41,8 @@ async function render() {
   if (data.is_me) {
     actions.append(
       el('button', { class: 'btn btn-ghost btn-sm', onclick: editProfile }, t('edit_profile')),
+      el('a', { class: 'btn btn-ghost btn-sm', href: 'stats.html' }, t('st_title')),
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: editButtons }, t('pb_title')),
       el('a', { class: 'btn btn-ghost btn-sm', href: 'friends.html' }, t('nav_friends')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: () => signOut() }, t('sign_out')));
   } else {
@@ -57,6 +60,11 @@ async function render() {
         el('div', {}, el('b', { text: fmtCount(data.friends_count) }), ' ', el('span', { text: t('stat_friends') })),
         el('div', {}, el('b', { text: fmtCount(data.followers_count) }), ' ', el('span', { text: t('stat_followers') })),
         el('div', {}, el('b', { text: fmtCount(data.following_count) }), ' ', el('span', { text: t('stat_following') }))))));
+
+  /* ---- кнопки-ссылки (тариф Pro) ---- */
+  const btnRow = el('div', { class: 'rowx', style: 'margin-top:14px' });
+  app.appendChild(btnRow);
+  renderButtons(btnRow);
 
   /* ---- закреплённый ---- */
   const albums = data.albums || [];
@@ -124,6 +132,69 @@ async function render() {
   app.append(el('div', { class: 'section-head' }, el('h2', { text: t('all_albums') }), chips), grid);
 
   if (data.is_me) renderShared(app);
+}
+
+/* ---------------- кнопки-ссылки ---------------- */
+
+/**
+ * Кнопки владельца профиля: прямые ссылки на его ресурсы. Возвращаются сервером
+ * только для тарифа Pro. Переход считается статистикой: запрос уходит из живой
+ * страницы, а сама ссылка открывается в новой вкладке — поэтому событие успевает
+ * записаться и всплывающие окна не блокируются.
+ */
+async function renderButtons(host) {
+  const { data: list, error } = await sb.rpc('profile_buttons_get', { p_username: username });
+  if (error || !Array.isArray(list) || !list.length) return;
+  list.forEach(b => host.appendChild(el('a', {
+    class: 'btn btn-ghost btn-sm', href: b.url, target: '_blank', rel: 'noopener noreferrer nofollow',
+    onclick: () => trackButton(b.id),
+  }, icon('link', 16, { sw: 2 }), b.label)));
+}
+
+/** Редактор кнопок. Не Pro — показываем, что это даёт, и ведём на тариф. */
+function editButtons() {
+  modal(async (box, close) => {
+    box.appendChild(el('h2', { text: t('pb_title') }));
+    const { data: st } = await sb.rpc('my_settings');
+    if (!st || st.plan !== 'pro') {
+      box.append(
+        el('p', { class: 'muted', text: t('pb_pro_only') }),
+        el('a', { class: 'btn btn-primary', style: 'width:100%;margin-top:8px', href: 'pricing.html' }, t('st_see_pro')),
+        el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+      return;
+    }
+
+    const { data: cur } = await sb.rpc('profile_buttons_get', { p_username: username });
+    const rows = el('div', { class: 'stack' });
+    const addRow = (b = {}) => {
+      if (rows.children.length >= 6) return;
+      const label = el('input', { class: 'input', maxlength: '40', placeholder: t('pb_label'), value: b.label || '' });
+      const url = el('input', { class: 'input', maxlength: '500', placeholder: 'https://', value: b.url || '' });
+      const row = el('div', { class: 'stack', style: 'gap:8px;border-bottom:1px solid #F0EEE9;padding-bottom:12px' },
+        label, url,
+        el('button', { class: 'mini danger', style: 'align-self:flex-start', onclick: () => row.remove() }, t('remove')));
+      row._get = () => ({ label: label.value.trim(), url: url.value.trim() });
+      rows.appendChild(row);
+    };
+    (Array.isArray(cur) ? cur : []).forEach(addRow);
+    if (!rows.children.length) addRow();
+
+    const save = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:8px' }, t('save'));
+    save.onclick = async () => {
+      save.disabled = true;
+      const items = [...rows.children].map(r => r._get()).filter(x => x.label && x.url);
+      const { error } = await sb.rpc('profile_buttons_set', { p_items: items });
+      if (error) { toast(error.message); save.disabled = false; return; }
+      close(); location.reload();
+    };
+
+    box.append(
+      el('p', { class: 'muted', style: 'margin-top:0', text: t('pb_hint') }),
+      rows,
+      el('button', { class: 'mini', style: 'margin-top:10px', onclick: () => addRow() }, t('pb_add')),
+      save,
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  });
 }
 
 /* ---------------- совместные альбомы (где я соавтор) ---------------- */
@@ -223,11 +294,22 @@ function friendButton() {
 /* ---------------- редактирование профиля ---------------- */
 function editProfile() {
   const p = data.profile;
-  modal((box, close) => {
+  modal(async (box, close) => {
     box.appendChild(el('h2', { text: t('edit_profile') }));
     const name = el('input', { class: 'input', maxlength: '60', value: p.name || '' });
     const bio = el('textarea', { class: 'textarea', maxlength: '300' }, p.bio || '');
     const loc = el('input', { class: 'input', maxlength: '80', value: p.location || '' });
+
+    // Год рождения и пол — необязательные, только для обезличенной статистики
+    // авторов. Google при обычном входе этих данных не отдаёт.
+    const { data: st } = await sb.rpc('my_settings');
+    const year = el('input', {
+      class: 'input', type: 'number', min: '1900', max: '2018', placeholder: '1990',
+      value: st?.birth_year || '',
+    });
+    const gender = el('select', { class: 'select' },
+      ...[['', t('st_unknown')], ['female', t('st_female')], ['male', t('st_male')], ['other', t('st_other')]]
+        .map(([v, label]) => el('option', { value: v, selected: (st?.gender || '') === v ? 'selected' : null }, label)));
 
     const avaPreview = avatarImg(p.avatar, p.name, 72);
     let newAvatar = null;
@@ -251,6 +333,10 @@ function editProfile() {
       if (newAvatar) patch.avatar_url = newAvatar;
       const { error } = await sb.from('profiles').update(patch).eq('id', p.id);
       if (error) { toast(error.message); save.disabled = false; return; }
+      await sb.rpc('profile_set_demographics', {
+        p_birth_year: parseInt(year.value, 10) || null,
+        p_gender: gender.value || null,
+      });
       close(); location.reload();
     };
 
@@ -260,6 +346,9 @@ function editProfile() {
       el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_name') }), name),
       el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_bio') }), bio),
       el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_location') }), loc),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_birth_year') }), year),
+      el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_gender') }), gender),
+      el('div', { class: 'muted', style: 'font-size:13px;margin:-6px 0 14px', text: t('f_demo_hint') }),
       save,
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
   });
