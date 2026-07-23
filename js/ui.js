@@ -1,7 +1,7 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
 import {
   sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut,
-  signInByEmail, verifyEmailCode,
+  signInByEmail, verifyEmailCode, signInYandex, takeYandexError,
 } from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import {
@@ -184,10 +184,19 @@ export function modal(build, opts = {}) {
   return close;
 }
 
+/** Фирменная «Я» Яндекса — рисуем сами, чтобы не тянуть картинку со стороны. */
+function yandexMark() {
+  const s = el('span', { style: 'display:inline-flex;flex-shrink:0' });
+  s.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">'
+    + '<circle cx="12" cy="12" r="12" fill="#FC3F1D"/>'
+    + '<path d="M13.1 19h2.2V5h-3.2c-3.2 0-4.9 1.7-4.9 4.2 0 2 .9 3.1 2.6 4.3L6.9 19h2.4l3.2-4.8-1.1-.8c-1.4-.9-2-1.6-2-3.1 0-1.3.9-2.2 2.6-2.2h1.1V19z" fill="#fff"/></svg>';
+  return s.firstElementChild;
+}
+
 /**
- * Вход: Google первым, почта следом. Почта — запасной путь для тех, у кого
- * Google-аккаунта нет вовсе (а таких заметно больше, чем кажется), поэтому она
- * не спорит с основной кнопкой, а живёт под разделителем.
+ * Вход: Google первым, Яндекс следом, почта под разделителем. Порядок не
+ * случайный — почта нужна тем, у кого нет ни того, ни другого, и не должна
+ * спорить с кнопками, которые решают вопрос в один клик.
  */
 export function showLogin(reason) {
   modal((box, close) => {
@@ -201,6 +210,10 @@ export function showLogin(reason) {
           try { await signIn(); } catch (err) { toast(err.message || t('signin_failed')); e.currentTarget.disabled = false; }
         },
       }, t('continue_google')),
+      el('button', {
+        class: 'btn btn-ghost', style: 'width:100%;margin-top:10px',
+        onclick: (e) => { e.currentTarget.disabled = true; signInYandex(); },
+      }, yandexMark(), t('continue_yandex')),
       el('div', { class: 'or-line' }, el('span', { text: t('or') })));
 
     const host = el('div', {});
@@ -365,6 +378,12 @@ export function needAuth(reason) {
 /* ---------------- шапка ---------------- */
 export async function mountShell(active) {
   await Promise.all([ready(), initI18n()]);
+
+  // Вход через Яндекс возвращает человека на ту же страницу; если по дороге
+  // что-то сломалось, он должен об этом узнать, а не гадать, почему не вошёл.
+  const yaErr = takeYandexError();
+  if (yaErr) toast(t('yandex_error'));
+
   const host = $('#shell');
   if (!host) return;
   const me = currentProfile();

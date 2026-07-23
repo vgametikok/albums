@@ -15,6 +15,8 @@
   signin_reason_default: 'Войдите, чтобы продолжить',
   continue_google: 'Войти через Google',
   not_now: 'Не сейчас',
+  continue_yandex: 'Войти через Яндекс',
+  yandex_error: 'Не удалось войти через Яндекс. Попробуйте ещё раз или другим способом.',
   or: 'или',
   email_ph: 'ваша@почта.ru',
   email_send: 'Войти по почте',
