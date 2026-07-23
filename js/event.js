@@ -2,22 +2,26 @@
 //
 // Две страницы в одном файле:
 //   event.html          — список моих событий и создание нового (тратит квоту);
-//   event.html?id=<uuid> — управление одним событием: QR, настройки, гости,
-//                          разбор фотографий по видимости.
+//   event.html?id=<uuid> — управление одним событием: обложка, слово гостям,
+//                          QR, гости, разбор фотографий.
 //
 // Право на событие даёт квота event_quota.credits (её выдаёт админ после
 // оплаты). Без квоты страница объясняет, что это, и ведёт на тариф.
 import { sb, isAuthed } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t,
-  thumbEl, dur, modal, avatarImg,
+  dur, modal, avatarImg,
 } from './ui.js';
 import { qrSvg, qrDownload } from './qr.js';
+import { uploadMedia } from './upload.js';
 
 const app = $('#app');
 const albumId = new URLSearchParams(location.search).get('id');
 
-let credits = 0;
+// Обложку меняют из двух мест — из своего блока и из просмотра фотографии.
+// Чтобы картинка наверху не отставала, блок обложки оставляет здесь свою
+// перерисовку.
+let repaintCover = () => {};
 
 (async function main() {
   await mountShell('profile');
@@ -40,20 +44,18 @@ async function renderList() {
     sb.rpc('my_event_credits'),
     sb.rpc('my_event_albums'),
   ]);
-  credits = Number(cr) || 0;
+  const credits = Number(cr) || 0;
   const albums = list || [];
 
   app.appendChild(el('div', { class: 'section-head', style: 'margin:0 0 6px' },
     el('h1', { style: 'font-size:30px;letter-spacing:-.02em', text: t('ev_title') })));
   app.appendChild(el('p', { class: 'lede', style: 'margin:0 0 24px;max-width:720px', text: t('ev_lede') }));
 
-  /* квота и создание */
   const quota = el('div', { class: 'side-card', style: 'max-width:720px' });
   if (credits > 0) {
     quota.append(
       el('div', { class: 'label', text: t('ev_available') }),
-      el('div', { style: 'font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px',
-        text: String(credits) }),
+      el('div', { style: 'font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px', text: String(credits) }),
       el('div', { class: 'muted', style: 'font-size:14.5px;margin-top:4px', text: t('ev_available_hint') }),
       el('button', { class: 'btn btn-primary', style: 'margin-top:16px', onclick: openCreate },
         icon('plus', 16, { sw: 2.4 }), t('ev_create')));
@@ -65,16 +67,12 @@ async function renderList() {
   }
   app.appendChild(quota);
 
-  /* что это даёт — короткой памяткой, чтобы не гадать до покупки */
   app.appendChild(el('div', { style: 'display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px;max-width:1080px' },
-    featureCard('ev_f1_t', 'ev_f1_d'),
-    featureCard('ev_f2_t', 'ev_f2_d'),
-    featureCard('ev_f3_t', 'ev_f3_d')));
+    featureCard('ev_f1_t', 'ev_f1_d'), featureCard('ev_f2_t', 'ev_f2_d'), featureCard('ev_f3_t', 'ev_f3_d')));
 
   if (!albums.length) return;
 
-  app.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
-    el('h2', { text: t('ev_my') })));
+  app.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' }, el('h2', { text: t('ev_my') })));
 
   const urls = await signUrls(albums.flatMap(a => [a.cover_path, a.thumb1]));
   const grid = el('div', { class: 'grid' });
@@ -123,19 +121,8 @@ function openCreate() {
     const desc = el('textarea', { class: 'input', rows: '3', style: 'margin-top:10px;height:auto;padding:10px 14px',
       placeholder: t('ev_f_desc'), maxlength: '600' });
 
-    const opts = [
-      ['private', t('ev_vis_private'), t('ev_vis_private_d')],
-      ['friends', t('ev_vis_friends'), t('ev_vis_friends_d')],
-      ['public', t('ev_vis_public'), t('ev_vis_public_d')],
-    ];
-    const wrap = el('div', { class: 'vis-opts', style: 'margin-top:14px' });
     let vis = 'private';
-    opts.forEach(([val, ttl, sub]) => {
-      const input = el('input', { type: 'radio', name: 'evvis', value: val, checked: val === vis ? 'checked' : null,
-        onchange: () => { vis = val; wrap.querySelectorAll('.vis-opt').forEach(n => n.classList.toggle('on', n.contains(input) && input.checked)); } });
-      wrap.appendChild(el('label', { class: 'vis-opt' + (val === vis ? ' on' : '') },
-        input, el('div', {}, el('b', { text: ttl }), el('span', { text: sub }))));
-    });
+    const wrap = visPicker('evvis', vis, (v) => { vis = v; });
 
     const go = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:18px' }, t('ev_create_go'));
     go.onclick = async () => {
@@ -154,6 +141,27 @@ function openCreate() {
   });
 }
 
+function visPicker(name, initial, onPick) {
+  const opts = [
+    ['private', t('ev_vis_private'), t('ev_vis_private_d')],
+    ['friends', t('ev_vis_friends'), t('ev_vis_friends_d')],
+    ['public', t('ev_vis_public'), t('ev_vis_public_d')],
+  ];
+  const wrap = el('div', { class: 'vis-opts', style: 'margin-top:14px' });
+  opts.forEach(([val, ttl, sub]) => {
+    const input = el('input', {
+      type: 'radio', name, value: val, checked: val === initial ? 'checked' : null,
+      onchange: () => {
+        onPick(val);
+        wrap.querySelectorAll('.vis-opt').forEach(n => n.classList.toggle('on', n.contains(input) && input.checked));
+      },
+    });
+    wrap.appendChild(el('label', { class: 'vis-opt' + (val === initial ? ' on' : '') },
+      input, el('div', {}, el('b', { text: ttl }), el('span', { text: sub }))));
+  });
+  return wrap;
+}
+
 /* ================================================================ одно событие */
 
 async function renderOne() {
@@ -169,7 +177,7 @@ async function renderOne() {
   app.appendChild(el('div', { class: 'section-head', style: 'margin:0 0 20px' },
     el('h1', { style: 'font-size:30px;letter-spacing:-.02em', text: a.title }),
     el('div', { class: 'rowx' },
-      el('span', { class: 'chip', style: 'pointer-events:none', text: statusText({ ...a, ...data.album }) }),
+      el('span', { class: 'chip', style: 'pointer-events:none', text: statusText(a) }),
       el('a', { class: 'btn btn-ghost btn-sm', href: `album.html?id=${a.id}` }, t('ev_open_album')))));
 
   const cols = el('div', { class: 'album-cols' });
@@ -178,8 +186,77 @@ async function renderOne() {
   cols.append(left, right);
   app.appendChild(cols);
 
+  await coverBox(left, a);
   right.append(await linkBox(a), settingsBox(a), await guestsBox(a));
   await mediaBox(left, data);
+}
+
+/* ---------------------------------------------------------------- обложка */
+
+async function coverBox(host, a) {
+  const box = el('div', { class: 'side-card', style: 'margin:0 0 28px;padding:0;overflow:hidden' });
+  const stage = el('div', { class: 'ev-cover' });
+  box.appendChild(stage);
+
+  const body = el('div', { style: 'padding:16px 20px' });
+  box.appendChild(body);
+  host.appendChild(box);
+
+  const paint = async (fresh) => {
+    if (fresh) {
+      const { data } = await sb.rpc('get_album', { p_id: a.id });
+      if (data?.album) {
+        a.cover_path = data.album.cover_path;
+        a.cover_thumb = data.album.cover_thumb;
+        a.cover_media_id = data.album.cover_media_id;
+      }
+    }
+    clear(stage);
+    if (a.cover_path || a.cover_thumb) {
+      const u = await signUrls([a.cover_path, a.cover_thumb]);
+      const src = u[a.cover_path] || u[a.cover_thumb];
+      if (src) stage.appendChild(el('img', { src, alt: a.title }));
+      else stage.appendChild(el('div', { class: 'ev-cover-empty', text: t('ev_cover_empty') }));
+    } else {
+      stage.appendChild(el('div', { class: 'ev-cover-empty' },
+        el('div', { style: 'font-size:16px;font-weight:600', text: t('ev_cover_none') }),
+        el('div', { class: 'muted', style: 'font-size:14px;margin-top:6px;max-width:460px;line-height:1.5',
+          text: t('ev_cover_none_d') })));
+    }
+  };
+
+  const file = el('input', {
+    type: 'file', accept: 'image/*,.heic,.heif', class: 'hide',
+    onchange: async (e) => {
+      const f = e.currentTarget.files[0];
+      e.currentTarget.value = '';
+      if (!f) return;
+      up.disabled = true;
+      const old = up.textContent;
+      up.textContent = t('ev_cover_uploading');
+      try {
+        const media = await uploadMedia(f);
+        const { error } = await sb.rpc('album_set_cover_media', { p_album: a.id, p_media: media.id });
+        if (error) throw error;
+        a.cover_path = media.storage_path;
+        a.cover_thumb = media.thumb_path || media.storage_path;
+        await paint();
+        toast(t('ev_cover_set'));
+      } catch (err) {
+        toast(err.message || t('upload_failed'));
+      }
+      up.textContent = old;
+      up.disabled = false;
+    },
+  });
+  const up = el('button', { class: 'btn btn-ghost btn-sm', onclick: () => file.click() }, t('ev_cover_upload'));
+
+  body.append(
+    el('div', { class: 'label', text: t('ev_cover') }),
+    el('div', { class: 'muted', style: 'font-size:14px;line-height:1.5;margin:6px 0 12px', text: t('ev_cover_hint') }),
+    el('div', { class: 'rowx' }, up, file));
+  repaintCover = () => paint(true);
+  await paint();
 }
 
 /* ---------------------------------------------------------------- QR и ссылка */
@@ -204,17 +281,15 @@ async function linkBox(a) {
       onclick: (e) => e.currentTarget.select(),
     }));
 
-    const row = el('div', { class: 'rowx', style: 'margin-top:10px;flex-wrap:wrap' },
+    body.appendChild(el('div', { class: 'rowx', style: 'margin-top:10px;flex-wrap:wrap' },
       el('button', {
         class: 'mini', onclick: async () => {
           try { await navigator.clipboard.writeText(url); toast(t('link_copied')); }
           catch (_) { toast(url); }
         },
       }, t('copy_link')),
-      el('button', { class: 'mini', onclick: () => qrDownload(url, `${a.title.replace(/[^\wЀ-ӿ -]/g, '').trim() || 'album'}-qr.svg`) },
-        t('ev_qr_download')),
-      el('button', { class: 'mini', onclick: () => printQr(a.title, url) }, t('ev_qr_print')));
-    body.appendChild(row);
+      el('button', { class: 'mini', onclick: () => qrDownload(url, `${safeName(a.title)}-qr.svg`) }, t('ev_qr_download')),
+      el('button', { class: 'mini', onclick: () => printQr(a.title, url) }, t('ev_qr_print'))));
 
     body.appendChild(el('button', {
       class: 'mini', style: 'margin-top:14px;color:var(--muted)',
@@ -233,6 +308,8 @@ async function linkBox(a) {
   else draw(data.token);
   return box;
 }
+
+const safeName = (s) => String(s).replace(/[^\wЀ-ӿ -]/g, '').trim() || 'album';
 
 /** Печатная табличка «сканируйте и добавьте свои фото» — то, что ставят на стол. */
 function printQr(title, url) {
@@ -267,19 +344,12 @@ function settingsBox(a) {
     maxlength: '600', placeholder: t('ev_f_desc') });
   desc.value = a.description || '';
 
-  const opts = [
-    ['private', t('ev_vis_private'), t('ev_vis_private_d')],
-    ['friends', t('ev_vis_friends'), t('ev_vis_friends_d')],
-    ['public', t('ev_vis_public'), t('ev_vis_public_d')],
-  ];
+  const greet = el('textarea', { class: 'input', rows: '4', style: 'margin-top:6px;height:auto;padding:10px 14px',
+    maxlength: '1200', placeholder: t('ev_greeting_ph') });
+  greet.value = a.event_greeting || '';
+
   let vis = a.visibility;
-  const wrap = el('div', { class: 'vis-opts', style: 'margin-top:12px' });
-  opts.forEach(([val, ttl, sub]) => {
-    const input = el('input', { type: 'radio', name: 'evvis2', value: val, checked: val === vis ? 'checked' : null,
-      onchange: () => { vis = val; wrap.querySelectorAll('.vis-opt').forEach(n => n.classList.toggle('on', n.contains(input) && input.checked)); } });
-    wrap.appendChild(el('label', { class: 'vis-opt' + (val === vis ? ' on' : '') },
-      input, el('div', {}, el('b', { text: ttl }), el('span', { text: sub }))));
-  });
+  const wrap = visPicker('evvis2', vis, (v) => { vis = v; });
 
   const hold = el('input', { type: 'checkbox', checked: a.event_hold_guest ? 'checked' : null });
   const holdRow = el('label', { style: 'display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14.5px;line-height:1.45;cursor:pointer' },
@@ -292,6 +362,7 @@ function settingsBox(a) {
     const patch = {
       title: title.value.trim() || a.title,
       description: desc.value.trim() || null,
+      event_greeting: greet.value.trim() || null,
       visibility: vis,
       event_hold_guest: hold.checked,
     };
@@ -307,7 +378,10 @@ function settingsBox(a) {
     location.reload();
   };
 
-  box.append(title, desc, wrap, holdRow, save);
+  box.append(title, desc,
+    el('div', { class: 'label', style: 'margin-top:16px', text: t('ev_greeting') }),
+    el('div', { class: 'muted', style: 'font-size:13.5px;line-height:1.45;margin-top:4px', text: t('ev_greeting_d') }),
+    greet, wrap, holdRow, save);
   return box;
 }
 
@@ -324,12 +398,17 @@ async function guestsBox(a) {
   }
   const stack = el('div', { class: 'stack', style: 'margin-top:10px' });
   list.forEach(g => {
-    stack.appendChild(el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`,
-      style: 'display:flex;gap:10px;align-items:center' },
-      avatarImg(g.avatar, g.name, 34),
-      el('div', { style: 'min-width:0' },
-        el('div', { style: 'font-size:14.5px;font-weight:600', text: g.name || g.username }),
-        el('div', { class: 'muted', style: 'font-size:13px', text: t('ev_uploaded_n', { count: g.uploaded || 0 }) }))));
+    const rel = g.is_friend ? t('ev_rel_friend') : (g.is_follower ? t('ev_rel_follower') : t('ev_rel_guest'));
+    stack.appendChild(el('div', { style: 'display:flex;gap:10px;align-items:center' },
+      el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`, style: 'flex-shrink:0' },
+        avatarImg(g.avatar, g.name, 36)),
+      el('div', { style: 'min-width:0;flex:1' },
+        el('div', { style: 'display:flex;gap:8px;align-items:center;flex-wrap:wrap' },
+          el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`,
+            style: 'font-size:14.5px;font-weight:600', text: g.name || g.username }),
+          el('span', { class: 'ev-rel' + (g.is_friend ? ' friend' : g.is_follower ? ' follower' : ''), text: rel })),
+        el('div', { class: 'muted', style: 'font-size:13px;margin-top:2px',
+          text: t('ev_guest_stat', { total: g.uploaded || 0, shown: g.shown || 0, held: g.held || 0 }) }))));
   });
   box.appendChild(stack);
   return box;
@@ -344,9 +423,7 @@ async function mediaBox(host, data) {
     ...(data.loose || []),
   ].filter(m => m.kind !== 'audio').sort((x, y) => (x.position ?? 0) - (y.position ?? 0));
 
-  const head = el('div', { class: 'section-head', style: 'margin:0 0 6px' },
-    el('h2', { text: t('ev_photos') }));
-  host.appendChild(head);
+  host.appendChild(el('div', { class: 'section-head', style: 'margin:0 0 6px' }, el('h2', { text: t('ev_photos') })));
   host.appendChild(el('p', { class: 'muted', style: 'margin:0 0 16px;font-size:14.5px;line-height:1.55', text: t('ev_photos_hint') }));
 
   if (!items.length) {
@@ -359,29 +436,27 @@ async function mediaBox(host, data) {
   const visOf = (m) => m.visibility || (m.is_private ? 'private' : 'all');
   const selected = new Set();
   let filter = 'all';
+  let byUser = null;          // username или null = все
+  let order = false;          // режим «порядок публикации»
 
-  /* фильтр по видимости */
-  const counts = () => ({
-    all: items.length,
-    shown: items.filter(m => visOf(m) === 'all' || visOf(m) === 'public').length,
-    friends: items.filter(m => visOf(m) === 'friends').length,
-    hidden: items.filter(m => visOf(m) === 'private').length,
-  });
-  const filterRow = el('div', { class: 'chips', style: 'margin-bottom:14px' });
-  host.appendChild(filterRow);
+  const filterRow = el('div', { class: 'chips', style: 'margin-bottom:10px' });
+  const userRow = el('div', { class: 'chips', style: 'margin-bottom:14px' });
+  host.append(filterRow, userRow);
 
   /* панель массовых действий */
   const bulk = el('div', { class: 'ev-bulk hide' });
   const bulkCount = el('span', { style: 'font-weight:600' });
-  const setVis = async (value) => {
-    const ids = [...selected];
-    if (!ids.length) return;
-    const { error } = await sb.rpc('album_media_set_visibility', {
-      p_ids: ids, p_visibility: value,
-    });
+  const setVis = async (value, ids) => {
+    const list = ids || [...selected];
+    if (!list.length) return;
+    const { error } = await sb.rpc('album_media_set_visibility', { p_ids: list, p_visibility: value });
     if (error) { toast(error.message); return; }
-    items.forEach(m => { if (selected.has(m.am_id)) m.visibility = value; });
-    selected.clear();
+    items.forEach(m => {
+      if (!list.includes(m.am_id)) return;
+      m.visibility = value;
+      m.is_private = value === 'private' || value === 'friends';
+    });
+    if (!ids) selected.clear();
     draw();
     toast(t('ev_applied'));
   };
@@ -398,10 +473,150 @@ async function mediaBox(host, data) {
 
   const urls = await signUrls(items.flatMap(m => [m.thumb, m.path]));
 
+  /* ---- превью плитки: если превью не отдалось, пробуем оригинал ---- */
+  function tileMedia(m) {
+    const th = urls[m.thumb], full = urls[m.path];
+    if (!th && !full) {
+      return el('div', { class: 'ev-broken' },
+        el('div', { text: t('ev_no_preview') }),
+        el('div', { style: 'font-size:11px;opacity:.7;margin-top:3px', text: t('ev_no_preview_d') }));
+    }
+    if (m.kind === 'video') {
+      const v = el('video', { preload: 'metadata', muted: 'muted', playsinline: 'playsinline', tabindex: '-1' });
+      v.controls = false;
+      v.src = (full || th) + '#t=0.1';
+      return v;
+    }
+    const img = el('img', { alt: m.caption || '', loading: 'lazy' });
+    img.src = th || full;
+    // Превью и оригинал лежат в R2 разными объектами: если превью не доехало,
+    // молча показываем оригинал вместо пустого серого квадрата.
+    if (th && full) img.onerror = () => { img.onerror = null; img.src = full; };
+    return img;
+  }
+
+  const contributors = () => {
+    const map = new Map();
+    items.forEach(m => {
+      const u = m.by?.username || '—';
+      const cur = map.get(u) || { username: m.by?.username, name: m.by?.name || m.by?.username, n: 0 };
+      cur.n++;
+      map.set(u, cur);
+    });
+    return [...map.values()].sort((x, y) => y.n - x.n);
+  };
+
+  function visible() {
+    return items.filter(m => {
+      const v = visOf(m);
+      if (byUser && m.by?.username !== byUser) return false;
+      if (filter === 'shown') return v === 'all' || v === 'public';
+      if (filter === 'friends') return v === 'friends';
+      if (filter === 'hidden') return v === 'private';
+      return true;
+    });
+  }
+
+  function visLabel(v) {
+    if (v === 'friends') return t('ev_q_friends');
+    if (v === 'private') return t('ev_q_hidden');
+    return t('ev_q_all');
+  }
+
+  /* ---- просмотр во весь экран: тут же видно, кто прислал, и меняется видимость ---- */
+  function openViewer(startId) {
+    const list = visible();
+    let i = Math.max(0, list.findIndex(m => m.am_id === startId));
+
+    const stage = el('div', { class: 'ev-view-stage' });
+    const meta = el('div', { class: 'ev-view-meta' });
+    const ctl = el('div', { class: 'ev-view-ctl' });
+
+    const paint = () => {
+      const m = list[i];
+      clear(stage); clear(meta); clear(ctl);
+
+      const src = urls[m.path] || urls[m.thumb];
+      if (!src) stage.appendChild(el('div', { class: 'ev-broken', text: t('ev_no_preview') }));
+      else if (m.kind === 'video') {
+        const v = el('video', { src, controls: 'controls', playsinline: 'playsinline', autoplay: 'autoplay' });
+        stage.appendChild(v);
+      } else stage.appendChild(el('img', { src, alt: m.caption || '' }));
+
+      meta.append(
+        avatarImg(m.by?.avatar, m.by?.name, 32),
+        el('div', { style: 'min-width:0' },
+          el('div', { style: 'font-size:14.5px;font-weight:600', text: m.by?.name || m.by?.username || t('ev_unknown_guest') }),
+          el('div', { style: 'font-size:12.5px;opacity:.7', text: `${i + 1} / ${list.length}${m.caption ? ' · ' + m.caption : ''}` })));
+
+      const v = visOf(m);
+      [['all', t('ev_q_all')], ['friends', t('ev_q_friends')], ['private', t('ev_q_hidden')]].forEach(([val, label]) => {
+        ctl.appendChild(el('button', {
+          class: 'ev-vbtn' + (v === val || (val === 'all' && v === 'public') ? ' on' : ''),
+          onclick: async () => { await setVis(val === 'all' ? null : val, [m.am_id]); paint(); },
+        }, label));
+      });
+      ctl.appendChild(el('button', {
+        class: 'ev-vbtn' + (a.cover_media_id === m.id ? ' on' : ''), onclick: async () => {
+          const { error } = await sb.rpc('album_set_cover', { p_am_id: m.am_id });
+          if (error) { toast(error.message); return; }
+          a.cover_media_id = m.id;
+          await repaintCover();
+          paint();
+          toast(t('ev_cover_set'));
+        },
+      }, t('ev_make_cover')));
+    };
+
+    const step = (d) => { i = (i + d + list.length) % list.length; paint(); };
+    const nav = (d) => el('button', { class: 'ev-view-nav ' + (d < 0 ? 'prev' : 'next'), onclick: () => step(d) },
+      icon(d < 0 ? 'chevL' : 'chevR', 22, { stroke: '#141414', sw: 2 }));
+
+    const overlay = el('div', { class: 'ev-view', onclick: (e) => { if (e.target === overlay) close(); } },
+      el('button', { class: 'ev-view-x', onclick: () => close(), text: '✕' }),
+      stage,
+      el('div', { class: 'ev-view-bar' },
+        list.length > 1 ? nav(-1) : null, meta, ctl, list.length > 1 ? nav(1) : null));
+
+    function key(e) {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
+    }
+    function close() { document.removeEventListener('keydown', key); overlay.remove(); draw(); }
+
+    document.addEventListener('keydown', key);
+    document.body.appendChild(overlay);
+    paint();
+  }
+
+  async function move(m, d) {
+    const shown = visible();
+    const idx = shown.findIndex(x => x.am_id === m.am_id);
+    const to = idx + d;
+    if (to < 0 || to >= shown.length) return;
+    [shown[idx], shown[to]] = [shown[to], shown[idx]];
+    // порядок задаём по всему альбому, а не по текущему фильтру: иначе позиции
+    // отфильтрованных файлов разъехались бы с видимыми
+    const rest = items.filter(x => !shown.some(s => s.am_id === x.am_id));
+    const finalOrder = [...shown, ...rest];
+    finalOrder.forEach((x, k) => { x.position = k; });
+    items.sort((x, y) => x.position - y.position);
+    draw();
+    const { error } = await sb.rpc('album_media_reorder', { p_ids: finalOrder.map(x => x.am_id) });
+    if (error) toast(error.message);
+  }
+
   function draw() {
-    /* чипы-фильтры */
+    /* чипы: видимость */
     clear(filterRow);
-    const c = counts();
+    const pool = byUser ? items.filter(m => m.by?.username === byUser) : items;
+    const c = {
+      all: pool.length,
+      shown: pool.filter(m => ['all', 'public'].includes(visOf(m))).length,
+      friends: pool.filter(m => visOf(m) === 'friends').length,
+      hidden: pool.filter(m => visOf(m) === 'private').length,
+    };
     [['all', t('ev_flt_all'), c.all], ['shown', t('ev_flt_shown'), c.shown],
       ['friends', t('ev_flt_friends'), c.friends], ['hidden', t('ev_flt_hidden'), c.hidden]]
       .forEach(([key, label, n]) => {
@@ -410,6 +625,26 @@ async function mediaBox(host, data) {
           onclick: () => { filter = key; draw(); },
         }, `${label} · ${n}`));
       });
+    filterRow.appendChild(el('button', {
+      class: 'chip' + (order ? ' on' : ''),
+      onclick: () => { order = !order; draw(); },
+    }, t('ev_order_mode')));
+
+    /* чипы: кто прислал */
+    clear(userRow);
+    const cons = contributors();
+    if (cons.length > 1 || (cons.length === 1 && cons[0].username)) {
+      userRow.appendChild(el('button', {
+        class: 'chip' + (byUser === null ? ' on' : ''),
+        onclick: () => { byUser = null; draw(); },
+      }, `${t('ev_by_all')} · ${items.length}`));
+      cons.forEach(u => {
+        userRow.appendChild(el('button', {
+          class: 'chip' + (byUser === u.username ? ' on' : ''),
+          onclick: () => { byUser = byUser === u.username ? null : u.username; draw(); },
+        }, `${u.name || t('ev_unknown_guest')} · ${u.n}`));
+      });
+    }
 
     /* панель выделения */
     bulk.classList.toggle('hide', selected.size === 0);
@@ -417,75 +652,60 @@ async function mediaBox(host, data) {
 
     /* плитки */
     clear(grid);
-    const shown = items.filter(m => {
-      const v = visOf(m);
-      if (filter === 'all') return true;
-      if (filter === 'shown') return v === 'all' || v === 'public';
-      if (filter === 'friends') return v === 'friends';
-      return v === 'private';
-    });
-
+    const shown = visible();
     if (!shown.length) {
       grid.appendChild(el('div', { class: 'muted', style: 'grid-column:1/-1', text: t('ev_flt_empty') }));
       return;
     }
 
-    shown.forEach(m => {
+    shown.forEach((m, idx) => {
       const v = visOf(m);
       const on = selected.has(m.am_id);
-      const cell = el('div', { class: 'ev-cell' + (on ? ' sel' : '') + (v === 'private' ? ' dim' : '') });
+      const isCover = a.cover_media_id && m.id === a.cover_media_id;
+      const cell = el('div', {
+        class: 'ev-cell' + (on ? ' sel' : '') + (v === 'private' ? ' dim' : ''),
+        title: t('ev_open_photo'),
+        onclick: (e) => { if (!e.target.closest('.ev-quick,.ev-pick,.ev-move')) openViewer(m.am_id); },
+      });
 
-      const node = thumbEl(m.thumb || m.path, urls[m.thumb] || urls[m.path], m.thumb ? null : m.kind);
-      if (node) cell.appendChild(node);
+      cell.appendChild(tileMedia(m));
       if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: dur(m.duration) || t('video_tag') }));
 
-      cell.appendChild(el('div', { class: 'ev-mark ' + v, text: visLabel(v) }));
+      cell.appendChild(el('button', {
+        class: 'ev-pick' + (on ? ' on' : ''), 'aria-label': t('ev_select'),
+        onclick: () => { on ? selected.delete(m.am_id) : selected.add(m.am_id); draw(); },
+      }, on ? '✓' : ''));
 
-      // клик по плитке — выделение; переключатель видимости отдельной кнопкой
-      cell.onclick = (e) => {
-        if (e.target.closest('.ev-quick')) return;
-        if (selected.has(m.am_id)) selected.delete(m.am_id); else selected.add(m.am_id);
-        draw();
-      };
+      cell.appendChild(el('div', { class: 'ev-mark ' + v, text: isCover ? t('ev_is_cover') : visLabel(v) }));
 
-      const quick = el('div', { class: 'ev-quick' });
-      [['all', t('ev_q_all')], ['friends', t('ev_q_friends')], ['private', t('ev_q_hidden')]]
-        .forEach(([val, label]) => {
+      if (order) {
+        cell.appendChild(el('div', { class: 'ev-move' },
+          el('button', { disabled: idx === 0 ? 'disabled' : null, onclick: () => move(m, -1) }, '←'),
+          el('span', { text: String(idx + 1) }),
+          el('button', { disabled: idx === shown.length - 1 ? 'disabled' : null, onclick: () => move(m, 1) }, '→')));
+      } else {
+        const quick = el('div', { class: 'ev-quick' });
+        [['all', t('ev_q_all')], ['friends', t('ev_q_friends')], ['private', t('ev_q_hidden')]].forEach(([val, label]) => {
           quick.appendChild(el('button', {
             class: 'ev-q' + (v === val || (val === 'all' && v === 'public') ? ' on' : ''),
-            title: label,
-            onclick: async (e) => {
-              e.stopPropagation();
-              const { error } = await sb.rpc('album_media_set_visibility', {
-                p_ids: [m.am_id], p_visibility: val === 'all' ? null : val,
-              });
-              if (error) { toast(error.message); return; }
-              m.visibility = val === 'all' ? null : val;
-              m.is_private = val === 'private' || val === 'friends';
-              draw();
-            },
+            onclick: () => setVis(val === 'all' ? null : val, [m.am_id]),
           }, label));
         });
-      cell.appendChild(quick);
+        cell.appendChild(quick);
+      }
+
+      if (m.by?.name || m.by?.username) {
+        cell.appendChild(el('div', { class: 'ev-by', text: m.by.name || m.by.username }));
+      }
 
       grid.appendChild(cell);
     });
 
-    /* выделить всё в текущем фильтре */
     const allSel = shown.every(m => selected.has(m.am_id));
     grid.appendChild(el('button', {
       class: 'ev-selall',
-      onclick: () => {
-        shown.forEach(m => allSel ? selected.delete(m.am_id) : selected.add(m.am_id));
-        draw();
-      },
+      onclick: () => { shown.forEach(m => allSel ? selected.delete(m.am_id) : selected.add(m.am_id)); draw(); },
     }, allSel ? t('ev_unselect_all') : t('ev_select_all')));
-  }
-
-  function visLabel(v) {
-    if (v === 'friends') return t('ev_q_friends');
-    if (v === 'private') return t('ev_q_hidden');
-    return t('ev_q_all');
   }
 
   draw();

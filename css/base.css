@@ -76,17 +76,24 @@ img,video{max-width:100%}
   letter-spacing:-.02em;margin-bottom:18px;text-transform:capitalize}
 
 /* ---------- страница дозагрузки события ---------- */
-.join-hero{position:relative;border-radius:22px;overflow:hidden;min-height:220px;background:var(--ph);
-  display:flex;align-items:flex-end}
+/* Обложка широкая и низкая (3:1): гость открывает ссылку с телефона, и высокая
+   картинка съедала бы весь экран до объяснения, зачем он сюда попал. */
+.join-hero{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/1;min-height:220px;
+  background:var(--ph);display:flex;align-items:flex-end}
 .join-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .join-hero-body{position:relative;padding:28px;background:linear-gradient(transparent,rgba(10,8,6,.78));
   width:100%;color:#fff}
 .join-hero-body .kicker{color:#fff;opacity:.85}
 .join-title{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px}
 .join-owner{font-size:16px;opacity:.9}
+.join-greet{max-width:640px;margin:24px 0 0;font-size:16.5px;line-height:1.65;color:#3A3733;
+  white-space:pre-line}
+.join-greet-by{display:flex;align-items:center;gap:10px;margin-bottom:10px;
+  font-size:14px;font-weight:600;color:var(--muted)}
 .lib-cell .lib-remove{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:999px;
   border:none;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;font-size:14px;line-height:1;padding:0}
-@media (max-width:720px){ .join-title{font-size:24px} .join-hero-body{padding:18px} }
+@media (max-width:720px){ .join-title{font-size:24px} .join-hero-body{padding:18px}
+  .join-hero{aspect-ratio:16/9;min-height:180px} .join-greet{font-size:15.5px} }
 
 /* ---------- уведомления ---------- */
 .notif-btn{position:relative}
@@ -248,6 +255,48 @@ img,video{max-width:100%}
   background:rgba(22,19,16,.66);backdrop-filter:blur(6px);color:#fff;pointer-events:none}
 .ev-mark.friends{background:rgba(232,85,43,.9)}
 .ev-mark.private{background:rgba(20,20,20,.86)}
+/* галочка выбора отдельной кнопкой: клик по самой плитке открывает просмотр */
+.ev-pick{position:absolute;left:8px;top:8px;width:24px;height:24px;border-radius:999px;padding:0;
+  border:2px solid rgba(255,255,255,.9);background:rgba(22,19,16,.35);color:#fff;cursor:pointer;
+  font-size:13px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center}
+.ev-pick.on{background:var(--accent);border-color:var(--accent)}
+.ev-by{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 6px;color:#fff;font-size:11.5px;
+  font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;
+  background:linear-gradient(transparent,rgba(10,8,6,.75))}
+.ev-cell:hover .ev-by{opacity:0}
+.ev-broken{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:10px;font-size:12.5px;color:var(--muted);background:var(--ph)}
+.ev-move{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;
+  gap:8px;padding:8px;background:rgba(10,8,6,.72);color:#fff;font-size:13px;font-weight:700}
+.ev-move button{width:28px;height:28px;border-radius:8px;border:none;background:rgba(255,255,255,.9);
+  color:#141414;font-size:14px;cursor:pointer;padding:0}
+.ev-move button:disabled{opacity:.35;cursor:default}
+
+/* обложка события */
+.ev-cover{position:relative;aspect-ratio:3/1;background:var(--ph);display:flex;align-items:center;justify-content:center}
+.ev-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.ev-cover-empty{text-align:center;padding:20px;color:var(--muted)}
+
+/* просмотр фотографии в разборе */
+.ev-view{position:fixed;inset:0;z-index:200;background:rgba(12,10,8,.94);display:flex;
+  flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px}
+.ev-view-stage{flex:1;min-height:0;width:min(1100px,94vw);display:flex;align-items:center;justify-content:center}
+.ev-view-stage img,.ev-view-stage video{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+.ev-view-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  background:#fff;border-radius:16px;padding:12px 16px;max-width:min(1100px,94vw)}
+.ev-view-meta{display:flex;align-items:center;gap:10px;min-width:0}
+.ev-view-ctl{display:flex;gap:8px;flex-wrap:wrap}
+.ev-vbtn{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 14px;
+  font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink)}
+.ev-vbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.ev-view-nav{width:38px;height:38px;border-radius:999px;border:none;background:var(--line);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.ev-view-x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:999px;border:none;
+  background:rgba(255,255,255,.16);color:#fff;font-size:17px;cursor:pointer}
+.ev-rel{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:var(--tint);color:var(--muted)}
+.ev-rel.friend{background:rgba(232,85,43,.14);color:var(--accent-ink)}
+.ev-rel.follower{background:rgba(20,20,20,.08);color:#43403B}
 .ev-quick{position:absolute;left:0;right:0;bottom:0;display:flex;gap:4px;padding:7px;
   background:linear-gradient(transparent,rgba(10,8,6,.78));opacity:0;transition:opacity .15s}
 .ev-cell:hover .ev-quick,.ev-cell:focus-within .ev-quick{opacity:1}

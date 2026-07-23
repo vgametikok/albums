@@ -5,7 +5,7 @@
 // что уже положил.
 import { sb, isAuthed, currentUser } from './sb.js';
 import {
-  el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur,
+  el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur, avatarImg,
 } from './ui.js';
 import { uploadMedia } from './upload.js';
 
@@ -38,8 +38,9 @@ let busy = 0;
 async function render() {
   clear(app);
 
-  const urls = info.cover_path ? await signUrls([info.cover_path]) : {};
-  const cover = urls[info.cover_path];
+  const urls = (info.cover_path || info.cover_full)
+    ? await signUrls([info.cover_full, info.cover_path]) : {};
+  const cover = urls[info.cover_full] || urls[info.cover_path];
 
   const hero = el('div', { class: 'join-hero' });
   if (cover) hero.appendChild(el('img', { src: cover, alt: info.title }));
@@ -48,6 +49,15 @@ async function render() {
     el('h1', { class: 'join-title', text: info.title }),
     el('div', { class: 'join-owner', text: t('join_by', { name: info.owner_name || info.owner_username }) })));
   app.appendChild(hero);
+
+  // Слово автора: зачем гость здесь и что от него нужно. Автор мог ничего не
+  // написать — тогда объясняем сами, иначе страница выглядит как пустая форма.
+  const greet = (info.greeting || '').trim();
+  app.appendChild(el('div', { class: 'join-greet' },
+    el('div', { class: 'join-greet-by' },
+      avatarImg(info.owner_avatar, info.owner_name, 28),
+      el('span', { text: greet ? (info.owner_name || info.owner_username) : 'Albums' })),
+    el('div', { text: greet || t('join_default_greeting') })));
 
   if (!isAuthed()) {
     app.appendChild(el('div', { class: 'side-card', style: 'margin-top:24px;max-width:520px' },
