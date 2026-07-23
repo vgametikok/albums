@@ -45,6 +45,7 @@ async function render() {
       el('button', { class: 'btn btn-ghost btn-sm', onclick: editButtons }, t('pb_title')),
       el('a', { class: 'btn btn-ghost btn-sm', href: 'friends.html' }, t('nav_friends')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: () => signOut() }, t('sign_out')));
+    mountEventEntry(actions);
   } else {
     actions.append(friendButton(), followButton(), moreButton('profile', p.id, p.username));
   }
@@ -328,6 +329,27 @@ function friendButton() {
   };
   paint();
   return btn;
+}
+
+/* ---------------- вход в общий альбом события ---------------- */
+/**
+ * Кнопка появляется только у тех, кому событие уже выдано (после оплаты) или
+ * кто его уже проводил. Остальным её показывать незачем — на витрине цен и так
+ * рассказано, что это. Проверка асинхронная: профиль не должен её ждать.
+ */
+async function mountEventEntry(actions) {
+  const [{ data: credits }, { data: mine }] = await Promise.all([
+    sb.rpc('my_event_credits'),
+    sb.rpc('my_event_albums'),
+  ]);
+  const n = Number(credits) || 0;
+  const has = (mine || []).length > 0;
+  if (!n && !has) return;
+
+  const label = n > 0 ? t('ev_cta_create') : t('ev_cta_manage');
+  const btn = el('a', { class: 'btn btn-primary btn-sm', href: 'event.html' }, label);
+  if (n > 0) btn.appendChild(el('span', { class: 'ev-badge', text: String(n) }));
+  actions.insertBefore(btn, actions.firstChild);
 }
 
 /* ---------------- редактирование профиля ---------------- */

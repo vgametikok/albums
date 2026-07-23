@@ -443,6 +443,7 @@ async function renderStats() {
   body.appendChild(panel('Countries', barList((d.geo || []).map(g => [g.code || '??', g.n]))));
   body.appendChild(panel('Top albums', topList(d.top_albums || [])));
   body.appendChild(planForm());
+  body.appendChild(eventForm());
 }
 
 function tiles(items) {
@@ -517,6 +518,35 @@ function planForm() {
   return panel('Plan', el('div', { class: 'stack' },
     el('div', { class: 'muted', style: 'font-size:13.5px', text: 'Payments are manual for now — grant Pro here after a PayPal payment.' }),
     user, plan, days, go, out));
+}
+
+/**
+ * Выдача общих альбомов события — та же ручная схема, что и Pro, но считается
+ * штуками: одна оплата Event Album = одна единица квоты. Отрицательное число
+ * забирает обратно (например, при возврате платежа).
+ */
+function eventForm() {
+  const user = el('input', { class: 'input', placeholder: 'username', autocomplete: 'off' });
+  const count = el('input', { class: 'input', type: 'number', value: '1', min: '-20', max: '20' });
+  const out = el('div', { class: 'muted', style: 'font-size:13.5px;min-height:20px' });
+  const go = el('button', { class: 'btn btn-primary btn-sm' }, 'Grant');
+  go.onclick = async () => {
+    go.disabled = true;
+    try {
+      const r = await call('grant_event', {
+        username: user.value.trim(), count: parseInt(count.value, 10) || 0,
+      });
+      out.textContent = r.data?.error
+        ? 'User not found'
+        : `${r.data.username}: ${r.data.credits} left · ${r.data.events} created`;
+      toast('Done');
+    } catch (e) { out.textContent = e.message; }
+    go.disabled = false;
+  };
+  return panel('Event albums', el('div', { class: 'stack' },
+    el('div', { class: 'muted', style: 'font-size:13.5px',
+      text: 'One paid Event Album = one credit. The user then sees "Shared album" in their profile, creates it and gets a permanent QR for guests. Negative number takes credits back.' }),
+    user, count, go, out));
 }
 
 function gb(bytes) {

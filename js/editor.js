@@ -160,52 +160,28 @@ function render() {
     el('div', { class: 'muted', style: 'font-size:14.5px;line-height:1.5;margin-top:6px',
       text: t('collab_note_text') })));
   right.appendChild(collaboratorsBox());
-  if (isOwner) right.appendChild(inviteBox());
+  if (isOwner) right.appendChild(eventBox());
   right.appendChild(actionsBox());
 }
 
 /* ---------------------------------------------------------------- ссылка на дозагрузку */
 /**
- * Событийный альбом: одна ссылка в общий чат, гости дозаливают свои фото.
- * Токен показывается ровно один раз — в базе лежит только его хэш.
+ * Гостевая ссылка живёт не здесь: она входит в платный «общий альбом события»
+ * и настраивается на event.html вместе с постоянным QR. Раньше её мог выпустить
+ * владелец любого альбома прямо отсюда — то есть платная возможность
+ * раздавалась даром. Здесь остался только указатель на неё.
  */
-function inviteBox() {
+function eventBox() {
+  const isEvent = !!album?.is_event;
   const box = el('div', { class: 'side-card', style: 'margin-top:18px' },
     el('div', { class: 'label', text: t('invite_title') }),
-    el('div', { class: 'muted', style: 'font-size:14px;line-height:1.5;margin-top:6px', text: t('invite_hint') }));
+    el('div', { class: 'muted', style: 'font-size:14px;line-height:1.5;margin-top:6px',
+      text: isEvent ? t('ev_editor_is_event') : t('ev_editor_hint') }));
 
-  const out = el('div', { style: 'margin-top:12px' });
-
-  const make = el('button', {
+  box.appendChild(el('a', {
     class: 'btn btn-ghost btn-sm', style: 'width:100%;margin-top:12px',
-    onclick: async () => {
-      make.disabled = true;
-      try {
-        await ensureAlbum();
-        const { data, error } = await sb.rpc('album_invite_create', { p_album: albumId, p_days: 30, p_max_uses: null });
-        if (error) throw error;
-        const url = `${location.origin}${location.pathname.replace(/[^/]*$/, '')}join.html?t=${data.token}`;
-        clear(out).append(
-          el('input', { class: 'input', style: 'font-size:13px;height:38px', readonly: 'readonly', value: url,
-            onclick: (e) => e.currentTarget.select() }),
-          el('div', { class: 'rowx', style: 'margin-top:8px' },
-            el('button', {
-              class: 'mini', onclick: async () => {
-                try { await navigator.clipboard.writeText(url); toast(t('link_copied')); }
-                catch (_) { toast(url); }
-              },
-            }, t('copy_link'))),
-          el('div', { class: 'muted', style: 'font-size:13px;margin-top:8px;line-height:1.4', text: t('invite_once') }));
-      } catch (err) {
-        toast(err.message || t('save_error'));
-      }
-      make.disabled = false;
-    },
-  }, icon('link', 16, { sw: 2 }), t('invite_create'));
-
-  box.append(make, out, el('div', {
-    class: 'muted', style: 'font-size:13px;margin-top:10px;line-height:1.4', text: t('invite_revoke_note'),
-  }));
+    href: isEvent && albumId ? `event.html?id=${albumId}` : 'event.html',
+  }, icon('link', 16, { sw: 2 }), isEvent ? t('ev_editor_open') : t('ev_editor_learn')));
   return box;
 }
 

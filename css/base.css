@@ -232,6 +232,38 @@ img,video{max-width:100%}
 /* видео никогда не режем: рамка по своим пропорциям, кадр вписывается целиком */
 .media-grid video{object-fit:contain;background:#0d0c0b}
 
+/* ---------- общий альбом события: разбор гостевых фото ---------- */
+.ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
+  padding:0 6px;margin-left:8px;border-radius:999px;background:rgba(255,255,255,.28);
+  font-size:12.5px;font-weight:700;line-height:1}
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.ev-cell{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--ph);
+  cursor:pointer;border:2px solid transparent;transition:border-color .15s,opacity .15s}
+.ev-cell img,.ev-cell video{width:100%;height:100%;object-fit:cover;display:block}
+.ev-cell.sel{border-color:var(--accent)}
+.ev-cell.sel::after{content:'✓';position:absolute;left:8px;top:8px;width:22px;height:22px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ev-cell.dim img,.ev-cell.dim video{opacity:.42}
+.ev-mark{position:absolute;right:8px;top:8px;padding:4px 8px;border-radius:8px;font-size:11.5px;font-weight:600;
+  background:rgba(22,19,16,.66);backdrop-filter:blur(6px);color:#fff;pointer-events:none}
+.ev-mark.friends{background:rgba(232,85,43,.9)}
+.ev-mark.private{background:rgba(20,20,20,.86)}
+.ev-quick{position:absolute;left:0;right:0;bottom:0;display:flex;gap:4px;padding:7px;
+  background:linear-gradient(transparent,rgba(10,8,6,.78));opacity:0;transition:opacity .15s}
+.ev-cell:hover .ev-quick,.ev-cell:focus-within .ev-quick{opacity:1}
+.ev-q{flex:1;min-width:0;border:none;border-radius:7px;background:rgba(255,255,255,.9);color:#141414;
+  font-size:11.5px;font-weight:600;padding:5px 2px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-q.on{background:var(--accent);color:#fff}
+.ev-selall{grid-column:1/-1;justify-self:start;margin-top:4px;border:1px solid var(--line);background:transparent;
+  border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink)}
+.ev-selall:hover{border-color:var(--ink)}
+.ev-bulk{position:sticky;top:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+@media (max-width:720px){ .ev-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
+  .ev-quick{opacity:1}
+  .ev-q{font-size:10.5px;padding:4px 1px} }
+
 /* ---------- адаптивная раскладка: ничего не обрезается ---------- */
 /* Размеры ячеек считает JS (justified rows): высота ряда подбирается так,
    чтобы ряд точно занял ширину, а пропорции каждого медиа остались нетронутыми. */

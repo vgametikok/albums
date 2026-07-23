@@ -1,3 +1,7 @@
+﻿// qrcode-generator v1.4.4 — Kazuhiko Arase, MIT (http://www.d-project.com/).
+// Вендорим в репозиторий, а не тянем с CDN: QR события печатают на табличке,
+// и он обязан рисоваться даже когда сторонний CDN недоступен.
+// Изменение относительно оригинала ровно одно — экспорт в конце файла.
 //---------------------------------------------------------------------
 //
 // QR Code Generator for JavaScript
@@ -2295,3 +2299,6 @@ var qrcode = function() {
 }(function () {
     return qrcode;
 }));
+
+export default qrcode;
+

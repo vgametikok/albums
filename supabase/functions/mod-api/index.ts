@@ -170,6 +170,12 @@ Deno.serve(async (req) => {
           p_username: body.username, p_plan: body.plan, p_days: body.plan_days ?? 30,
         })).data;
         break;
+      case 'grant_event':
+        // общие альбомы события выдаются штуками; отрицательное число — забрать
+        out = (await sb.rpc('admin_grant_event', {
+          p_username: body.username, p_count: Number(body.count ?? 1),
+        })).data;
+        break;
       case 'resolve':
         out = (await sb.rpc('mod_resolve', {
           p_report: body.report_id, p_status: body.status, p_login: login, p_note: body.note ?? null,
