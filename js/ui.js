@@ -1,5 +1,8 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
-import { sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut } from './sb.js';
+import {
+  sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut,
+  signInByEmail, verifyEmailCode,
+} from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import {
   t, initI18n, fmtNumber, fmtTimeAgo, composition, catLabel,
@@ -181,6 +184,11 @@ export function modal(build, opts = {}) {
   return close;
 }
 
+/**
+ * Вход: Google первым, почта следом. Почта — запасной путь для тех, у кого
+ * Google-аккаунта нет вовсе (а таких заметно больше, чем кажется), поэтому она
+ * не спорит с основной кнопкой, а живёт под разделителем.
+ */
 export function showLogin(reason) {
   modal((box, close) => {
     box.append(
@@ -193,8 +201,98 @@ export function showLogin(reason) {
           try { await signIn(); } catch (err) { toast(err.message || t('signin_failed')); e.currentTarget.disabled = false; }
         },
       }, t('continue_google')),
-      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')),
-    );
+      el('div', { class: 'or-line' }, el('span', { text: t('or') })));
+
+    const host = el('div', {});
+    box.append(host, el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')));
+
+    /* ---- шаг 1: адрес ---- */
+    const askEmail = () => {
+      clear(host);
+      const input = el('input', {
+        class: 'input', type: 'email', autocomplete: 'email', inputmode: 'email',
+        placeholder: t('email_ph'),
+      });
+      const send = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, t('email_send'));
+
+      const go = async () => {
+        const email = input.value.trim();
+        // Проверяем на глаз, а не строгим разбором: настоящую валидность всё
+        // равно решает доставка письма, а придирчивая регулярка режет живые
+        // адреса вроде имён с плюсом или новых доменов.
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { toast(t('email_bad')); return; }
+        send.disabled = true;
+        send.textContent = t('email_sending');
+        try {
+          await signInByEmail(email);
+          askCode(email);
+        } catch (err) {
+          toast(err.message || t('signin_failed'));
+          send.disabled = false;
+          send.textContent = t('email_send');
+        }
+      };
+      input.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
+      send.onclick = go;
+      host.append(input, send);
+      input.focus();
+    };
+
+    /* ---- шаг 2: код из письма ---- */
+    const askCode = (email) => {
+      clear(host);
+      host.append(
+        el('p', { style: 'margin:0 0 12px;font-size:15px;line-height:1.55', text: t('email_sent', { email }) }));
+
+      const code = el('input', {
+        class: 'input', inputmode: 'numeric', autocomplete: 'one-time-code',
+        maxlength: '8', placeholder: t('email_code_ph'),
+        style: 'letter-spacing:.24em;font-size:19px;font-weight:700;text-align:center',
+      });
+      const enter = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:10px' }, t('email_enter'));
+
+      const go = async () => {
+        const value = code.value.replace(/\s+/g, '');
+        if (value.length < 6) { toast(t('email_code_bad')); return; }
+        enter.disabled = true;
+        try {
+          await verifyEmailCode(email, value);
+          location.reload();
+        } catch (err) {
+          toast(err.message || t('email_code_bad'));
+          enter.disabled = false;
+        }
+      };
+      code.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
+      enter.onclick = go;
+
+      // Supabase не даёт слать письма чаще раза в минуту — не предлагаем кнопку,
+      // которая заведомо ответит отказом.
+      let left = 60;
+      const again = el('button', { class: 'mini', style: 'margin-top:12px', disabled: 'disabled' },
+        t('email_again_in', { sec: left }));
+      const tick = setInterval(() => {
+        left--;
+        if (left > 0) { again.textContent = t('email_again_in', { sec: left }); return; }
+        clearInterval(tick);
+        again.disabled = false;
+        again.textContent = t('email_again');
+      }, 1000);
+      again.onclick = async () => {
+        again.disabled = true;
+        try { await signInByEmail(email); toast(t('email_resent')); }
+        catch (err) { toast(err.message || t('signin_failed')); again.disabled = false; }
+      };
+
+      host.append(code, enter,
+        el('div', { class: 'rowx', style: 'justify-content:space-between;align-items:center' },
+          again,
+          el('button', { class: 'mini', style: 'margin-top:12px', onclick: () => { clearInterval(tick); askEmail(); } },
+            t('email_other'))));
+      code.focus();
+    };
+
+    askEmail();
   });
 }
 

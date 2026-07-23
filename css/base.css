@@ -239,6 +239,10 @@ img,video{max-width:100%}
 /* видео никогда не режем: рамка по своим пропорциям, кадр вписывается целиком */
 .media-grid video{object-fit:contain;background:#0d0c0b}
 
+/* разделитель «или» между способами входа */
+.or-line{display:flex;align-items:center;gap:12px;margin:16px 0 4px;color:var(--faint);font-size:13.5px}
+.or-line::before,.or-line::after{content:'';flex:1;height:1px;background:var(--line)}
+
 /* ---------- общий альбом события: разбор гостевых фото ---------- */
 .ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
   padding:0 6px;margin-left:8px;border-radius:999px;background:rgba(255,255,255,.28);
