@@ -433,8 +433,6 @@ function mountFooter() {
       el('a', { href: 'mailto:support@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'support@albums.ink')),
     el('div', {}, t('foot_partnership') + ': ',
       el('a', { href: 'mailto:partnership@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'partnership@albums.ink')),
-    el('div', { style: 'margin-top:6px' },
-      el('a', { href: 'offer.html', style: 'color:#8F8B84;text-decoration:underline' }, t('foot_offer'))),
   ));
 }
 

@@ -1,7 +1,6 @@
-export default {
+﻿export default {
   foot_support: 'Поддержка и предложения',
   foot_partnership: 'Партнёрство',
-  foot_offer: 'Публичная оферта',
   search_ph: 'Поиск альбомов и авторов',
   nav_home: 'Главная',
   nav_profile: 'Профиль',

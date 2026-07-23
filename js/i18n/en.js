@@ -1,9 +1,8 @@
-// English — базовый словарь. Остальные языки дополняют его; недостающие ключи
+﻿// English — базовый словарь. Остальные языки дополняют его; недостающие ключи
 // автоматически падают сюда, поэтому здесь должен быть ПОЛНЫЙ набор.
 export default {
   foot_support: 'Support & suggestions',
   foot_partnership: 'Partnerships',
-  foot_offer: 'Public offer',
   /* ---- shell / nav ---- */
   search_ph: 'Search albums and creators',
   nav_home: 'Home',
