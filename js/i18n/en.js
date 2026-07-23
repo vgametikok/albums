@@ -560,6 +560,8 @@ export default {
   pr_q3: 'How do I get an invoice or a refund?',
   pr_q3a: 'Details are in the Refund Policy above. For invoices and refund requests, write to us at:',
 
+  badge_invited: 'Invited only',
+
   /* ---- review ---- */
   drafts_title: 'Drafts and pending review',
   drafts_hint: 'visible only to you',

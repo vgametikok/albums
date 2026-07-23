@@ -519,6 +519,25 @@ export function avatarImg(url, name, size = 44) {
   return img;
 }
 
+/**
+ * Пометка о доступе на обложке. Общий альбом события — отдельный вид приватности:
+ * его видит каждый, кто вошёл по ссылке-приглашению, поэтому подпись «Только мне»
+ * на нём была бы неправдой. Публичное событие тоже помечаем — по карточке должно
+ * быть видно, что это общий альбом, а не обычный.
+ */
+function albumBadge(a) {
+  if (a.is_event) {
+    const invitedOnly = a.visibility === 'private';
+    return el('div', { class: 'badge badge-lock' },
+      icon(invitedOnly ? 'lock' : 'users', 12, { sw: 2 }),
+      invitedOnly ? t('badge_invited') : t('ev_title'));
+  }
+  if (!a.visibility || a.visibility === 'public') return null;
+  return el('div', { class: 'badge badge-lock' },
+    icon(a.visibility === 'friends' ? 'users' : 'lock', 12, { sw: 2 }),
+    a.visibility === 'friends' ? t('friends') : t('private'));
+}
+
 /* ---------------- карточка альбома ---------------- */
 export function albumCard(a, urls = {}, opts = {}) {
   const href = `album.html?id=${a.id}`;
@@ -546,10 +565,7 @@ export function albumCard(a, urls = {}, opts = {}) {
       cell(a.thumb2_path || a.thumb2, t2, a.thumb2_kind || a.thumb2_type)),
     el('div', { class: 'badge' },
       (a.videos_count > 0 ? playTriangle(11) : null), composition(a)),
-    (a.visibility && a.visibility !== 'public'
-      ? el('div', { class: 'badge badge-lock' }, icon(a.visibility === 'friends' ? 'users' : 'lock', 12, { sw: 2 }),
-          a.visibility === 'friends' ? t('friends') : t('private'))
-      : null),
+    albumBadge(a),
   );
 
   const meta = el('div', { class: 'card-meta' });
