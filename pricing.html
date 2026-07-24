@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; frame-src https://oauth.telegram.org; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://rizveurkjpcwrmbtoawj.supabase.co; base-uri 'none'; frame-src https://oauth.telegram.org; frame-ancestors 'none'">
 <meta name="description" content="Albums pricing: free plan, Pro subscription for $9.99/month, and one-time Event Albums for $39.99.">
 <title>Pricing — Albums</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -34,6 +34,8 @@
   .cta:hover{border-color:var(--accent);color:var(--accent);}
   .cta.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
   .cta.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff;}
+  button.cta{width:100%;cursor:pointer;font-family:inherit;}
+  button.cta:disabled{opacity:.6;cursor:default;}
   .status{display:block;text-align:center;font-weight:700;font-size:15.5px;padding:12px 16px;border-radius:12px;color:var(--accent);background:rgba(232,85,43,.09);cursor:default;}
   .status::before{content:'✓ ';font-weight:800;}
   .fine{margin-top:36px;color:var(--soft);font-size:14px;max-width:760px;}
@@ -83,7 +85,7 @@
         <li data-i18n="pr_pro_f7">Priority support</li>
         <li data-i18n="pr_pro_f8">Early access to new features</li>
       </ul>
-      <a class="cta primary" href="mailto:sales@albums.ink">sales@albums.ink</a>
+      <button class="cta primary" id="pro-cta" data-i18n="pro_get">Get Pro</button>
     </div>
 
     <div class="plan">
