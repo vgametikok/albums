@@ -236,3 +236,9 @@ v0.17.0 — 2026-07-24
 v0.17.1 — 2026-07-24
   Кнопка Telegram включена: config.TELEGRAM_BOT = 'albumsregsbot' (бот
         @albumsregsbot, токен в секрете, домен albums.ink привязан в BotFather).
+
+v0.17.2 — 2026-07-24
+  Починен CSP: на страницах без 'wasm-unsafe-eval' (index, album, friends,
+        calendar, stats, moderation) прошлый патч не добавил telegram.org в
+        script-src, и скрипт виджета блокировался. Теперь telegram.org в
+        script-src на всех страницах с окном входа.
