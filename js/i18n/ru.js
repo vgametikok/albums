@@ -129,6 +129,9 @@
   video_tag: 'ВИДЕО',
 
   edit_profile: 'Изменить профиль',
+  pro_get: 'Оформить Pro',
+  pro_until: 'Pro активен до {date}',
+  pro_start_error: 'Не удалось открыть оплату. Попробуйте ещё раз.',
   joined: 'С {year} года',
   stat_albums: 'Альбомов',
   stat_friends: 'Друзей',

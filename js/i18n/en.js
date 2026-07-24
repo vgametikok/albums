@@ -140,6 +140,9 @@ export default {
 
   /* ---- profile ---- */
   edit_profile: 'Edit profile',
+  pro_get: 'Get Pro',
+  pro_until: 'Pro active until {date}',
+  pro_start_error: 'Could not start checkout. Please try again.',
   joined: 'Joined {year}',
   stat_albums: 'Albums',
   stat_friends: 'Friends',

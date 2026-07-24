@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
+<title>Thank you — Albums Pro</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#F5F4F0; --ink:#1c1a17; --soft:#6b6862; --accent:#E8552B; --accent-dark:#cf4a21; --line:#e4dfd6; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;max-width:520px;width:100%;padding:44px 36px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.06);}
+  .badge{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:rgba(232,85,43,.1);display:flex;align-items:center;justify-content:center;}
+  .badge svg{width:32px;height:32px;stroke:var(--accent);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 12px;}
+  p{color:var(--soft);font-size:16px;margin:0 0 10px;}
+  .cta{display:inline-block;margin-top:24px;text-decoration:none;font-weight:700;font-size:15.5px;padding:12px 26px;border-radius:12px;background:var(--accent);color:#fff;}
+  .cta:hover{background:var(--accent-dark);}
+  .small{font-size:13.5px;margin-top:20px;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>Thank you — Pro is on its way</h1>
+    <p>Your payment went through and we're activating Albums Pro on your account.</p>
+    <p>This usually happens within a minute. If you don't see Pro right away, refresh the page.</p>
+    <a class="cta" href="index.html">Back to Albums</a>
+    <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+  </div>
+</body>
+</html>

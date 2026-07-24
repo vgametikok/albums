@@ -1,6 +1,6 @@
 // Профиль: шапка, дружба, редактирование своего профиля, сетка альбомов.
 import { sb, currentProfile, isAuthed, signOut } from './sb.js';
-import { CATEGORIES } from './config.js';
+import { CATEGORIES, SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, albumCard, avatarImg, fmtCount, icon,
   toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton,
@@ -46,6 +46,7 @@ async function render() {
       el('a', { class: 'btn btn-ghost btn-sm', href: 'friends.html' }, t('nav_friends')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: () => signOut() }, t('sign_out')));
     mountEventEntry(actions);
+    mountProEntry(actions);
   } else {
     actions.append(friendButton(), followButton(), moreButton('profile', p.id, p.username));
   }
@@ -329,6 +330,47 @@ function friendButton() {
   };
   paint();
   return btn;
+}
+
+/* ---------------- тариф Pro ---------------- */
+/**
+ * У владельца профиля: «Get Pro» (бесплатный тариф) или отметка «Pro» со сроком.
+ * Кнопка вызывает edge-функцию create-subscription, которая создаёт подписку в
+ * PayPal с custom_id = наш uid и возвращает ссылку на оплату; на неё и уходим.
+ * Включение Pro делает не этот переход, а вебхук после реальной оплаты.
+ */
+async function mountProEntry(actions) {
+  const { data: st } = await sb.rpc('my_settings');
+  if (st?.plan === 'pro') {
+    const until = st.plan_until ? new Date(st.plan_until).toLocaleDateString() : '';
+    actions.insertBefore(el('span', {
+      class: 'btn btn-ghost btn-sm', style: 'cursor:default',
+      title: until ? t('pro_until', { date: until }) : '',
+    }, '★ Pro'), actions.firstChild);
+    return;
+  }
+  const btn = el('button', { class: 'btn btn-primary btn-sm' }, t('pro_get'));
+  btn.onclick = () => startProCheckout(btn);
+  actions.insertBefore(btn, actions.firstChild);
+}
+
+async function startProCheckout(btn) {
+  btn.disabled = true;
+  try {
+    const token = (await sb.auth.getSession()).data.session?.access_token;
+    if (!token) { needAuth(t('signin_to_create')); btn.disabled = false; return; }
+    const resp = await fetch(`${SUPABASE_URL}/functions/v1/paypal-webhook/create-subscription`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + token },
+      body: '{}',
+    });
+    const out = await resp.json().catch(() => ({}));
+    if (resp.ok && out.url) { location.href = out.url; return; }   // на страницу оплаты PayPal
+    toast(t('pro_start_error'));
+  } catch (_) {
+    toast(t('pro_start_error'));
+  }
+  btn.disabled = false;
 }
 
 /* ---------------- вход в общий альбом события ---------------- */
