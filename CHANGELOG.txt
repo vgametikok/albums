@@ -232,3 +232,7 @@ v0.17.0 — 2026-07-24
   ЗАВИСИМОСТЬ: нужен бот у @BotFather с доменом albums.ink, его @username в
         config.TELEGRAM_BOT и токен в секрете TELEGRAM_BOT_TOKEN. Без них
         кнопки Telegram нет, а функция отвечает 503.
+
+v0.17.1 — 2026-07-24
+  Кнопка Telegram включена: config.TELEGRAM_BOT = 'albumsregsbot' (бот
+        @albumsregsbot, токен в секрете, домен albums.ink привязан в BotFather).
