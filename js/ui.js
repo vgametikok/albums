@@ -1,9 +1,9 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
 import {
   sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut,
-  signInByEmail, verifyEmailCode, signInYandex, takeYandexError,
+  takeAuthError, TG_CALLBACK,
 } from './sb.js';
-import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
+import { SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT } from './config.js';
 import {
   t, initI18n, fmtNumber, fmtTimeAgo, composition, catLabel,
   LANGS, currentLang, setLang,
@@ -184,19 +184,10 @@ export function modal(build, opts = {}) {
   return close;
 }
 
-/** Фирменная «Я» Яндекса — рисуем сами, чтобы не тянуть картинку со стороны. */
-function yandexMark() {
-  const s = el('span', { style: 'display:inline-flex;flex-shrink:0' });
-  s.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">'
-    + '<circle cx="12" cy="12" r="12" fill="#FC3F1D"/>'
-    + '<path d="M13.1 19h2.2V5h-3.2c-3.2 0-4.9 1.7-4.9 4.2 0 2 .9 3.1 2.6 4.3L6.9 19h2.4l3.2-4.8-1.1-.8c-1.4-.9-2-1.6-2-3.1 0-1.3.9-2.2 2.6-2.2h1.1V19z" fill="#fff"/></svg>';
-  return s.firstElementChild;
-}
-
 /**
- * Вход: Google первым, Яндекс следом, почта под разделителем. Порядок не
- * случайный — почта нужна тем, у кого нет ни того, ни другого, и не должна
- * спорить с кнопками, которые решают вопрос в один клик.
+ * Вход: Google и Telegram. Telegram-виджет рисует Telegram своей кнопкой в
+ * iframe — появляется только когда задан @username бота (config.TELEGRAM_BOT)
+ * и домен привязан в @BotFather; до этого в окне только Google.
  */
 export function showLogin(reason) {
   modal((box, close) => {
@@ -209,104 +200,32 @@ export function showLogin(reason) {
           e.currentTarget.disabled = true;
           try { await signIn(); } catch (err) { toast(err.message || t('signin_failed')); e.currentTarget.disabled = false; }
         },
-      }, t('continue_google')),
-      el('button', {
-        class: 'btn btn-ghost', style: 'width:100%;margin-top:10px',
-        onclick: (e) => { e.currentTarget.disabled = true; signInYandex(); },
-      }, yandexMark(), t('continue_yandex')),
-      el('div', { class: 'or-line' }, el('span', { text: t('or') })));
+      }, t('continue_google')));
 
-    const host = el('div', {});
-    box.append(host, el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')));
+    if (TELEGRAM_BOT) box.appendChild(telegramButton());
 
-    /* ---- шаг 1: адрес ---- */
-    const askEmail = () => {
-      clear(host);
-      const input = el('input', {
-        class: 'input', type: 'email', autocomplete: 'email', inputmode: 'email',
-        placeholder: t('email_ph'),
-      });
-      const send = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, t('email_send'));
-
-      const go = async () => {
-        const email = input.value.trim();
-        // Проверяем на глаз, а не строгим разбором: настоящую валидность всё
-        // равно решает доставка письма, а придирчивая регулярка режет живые
-        // адреса вроде имён с плюсом или новых доменов.
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { toast(t('email_bad')); return; }
-        send.disabled = true;
-        send.textContent = t('email_sending');
-        try {
-          await signInByEmail(email);
-          askCode(email);
-        } catch (err) {
-          toast(err.message || t('signin_failed'));
-          send.disabled = false;
-          send.textContent = t('email_send');
-        }
-      };
-      input.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
-      send.onclick = go;
-      host.append(input, send);
-      input.focus();
-    };
-
-    /* ---- шаг 2: код из письма ---- */
-    const askCode = (email) => {
-      clear(host);
-      host.append(
-        el('p', { style: 'margin:0 0 12px;font-size:15px;line-height:1.55', text: t('email_sent', { email }) }));
-
-      const code = el('input', {
-        class: 'input', inputmode: 'numeric', autocomplete: 'one-time-code',
-        maxlength: '8', placeholder: t('email_code_ph'),
-        style: 'letter-spacing:.24em;font-size:19px;font-weight:700;text-align:center',
-      });
-      const enter = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:10px' }, t('email_enter'));
-
-      const go = async () => {
-        const value = code.value.replace(/\s+/g, '');
-        if (value.length < 6) { toast(t('email_code_bad')); return; }
-        enter.disabled = true;
-        try {
-          await verifyEmailCode(email, value);
-          location.reload();
-        } catch (err) {
-          toast(err.message || t('email_code_bad'));
-          enter.disabled = false;
-        }
-      };
-      code.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
-      enter.onclick = go;
-
-      // Supabase не даёт слать письма чаще раза в минуту — не предлагаем кнопку,
-      // которая заведомо ответит отказом.
-      let left = 60;
-      const again = el('button', { class: 'mini', style: 'margin-top:12px', disabled: 'disabled' },
-        t('email_again_in', { sec: left }));
-      const tick = setInterval(() => {
-        left--;
-        if (left > 0) { again.textContent = t('email_again_in', { sec: left }); return; }
-        clearInterval(tick);
-        again.disabled = false;
-        again.textContent = t('email_again');
-      }, 1000);
-      again.onclick = async () => {
-        again.disabled = true;
-        try { await signInByEmail(email); toast(t('email_resent')); }
-        catch (err) { toast(err.message || t('signin_failed')); again.disabled = false; }
-      };
-
-      host.append(code, enter,
-        el('div', { class: 'rowx', style: 'justify-content:space-between;align-items:center' },
-          again,
-          el('button', { class: 'mini', style: 'margin-top:12px', onclick: () => { clearInterval(tick); askEmail(); } },
-            t('email_other'))));
-      code.focus();
-    };
-
-    askEmail();
+    box.append(el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('not_now')));
   });
+}
+
+/**
+ * Кнопка Telegram — это официальный виджет: <script> подменяет себя на iframe
+ * с кнопкой «Log in with Telegram». Redirect-режим (data-auth-url) вместо
+ * колбэка: колбэк исполнялся бы через eval, а CSP у нас без 'unsafe-eval'.
+ * Telegram уводит на свою страницу и возвращает уже на tg-auth/callback.
+ */
+function telegramButton() {
+  const host = el('div', { style: 'display:flex;justify-content:center;margin-top:10px;min-height:48px' });
+  const back = location.origin + location.pathname + location.search;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://telegram.org/js/telegram-widget.js?22';
+  s.setAttribute('data-telegram-login', TELEGRAM_BOT);
+  s.setAttribute('data-size', 'large');
+  s.setAttribute('data-radius', '12');
+  s.setAttribute('data-auth-url', `${TG_CALLBACK}?return=${encodeURIComponent(back)}`);
+  host.appendChild(s);
+  return host;
 }
 
 /**
@@ -379,10 +298,10 @@ export function needAuth(reason) {
 export async function mountShell(active) {
   await Promise.all([ready(), initI18n()]);
 
-  // Вход через Яндекс возвращает человека на ту же страницу; если по дороге
-  // что-то сломалось, он должен об этом узнать, а не гадать, почему не вошёл.
-  const yaErr = takeYandexError();
-  if (yaErr) toast(t('yandex_error'));
+  // Внешний вход (Telegram/Яндекс) возвращает человека на ту же страницу; если
+  // по дороге что-то сломалось, он должен об этом узнать, а не гадать.
+  const authErr = takeAuthError();
+  if (authErr) toast(t('auth_error'));
 
   const host = $('#shell');
   if (!host) return;

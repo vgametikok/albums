@@ -17,7 +17,7 @@ export function ready() {
 }
 
 async function init() {
-  await finishYandex();
+  await finishExternalAuth();
   const { data } = await sb.auth.getSession();
   _session = data.session || null;
   if (_session) {
@@ -77,44 +77,51 @@ export async function verifyEmailCode(email, code) {
   throw last || new Error('bad code');
 }
 
-/* ---------------- Яндекс ID ---------------- */
+/* ---------------- Яндекс ID (пока скрыт из UI, плюмбинг живой) ---------------- */
 
 const YANDEX_START = `${SUPABASE_URL}/functions/v1/yandex-auth/start`;
 
-/** Уводит на страницу согласия Яндекса. Возврат обрабатывает finishYandex. */
+/** Уводит на страницу согласия Яндекса. Возврат обрабатывает finishExternalAuth. */
 export function signInYandex() {
   const back = location.origin + location.pathname + location.search;
   location.href = `${YANDEX_START}?redirect_to=${encodeURIComponent(back)}`;
 }
 
+/* ---------------- Telegram ---------------- */
+
+/** База адреса возврата для виджета Telegram (redirect-режим). */
+export const TG_CALLBACK = `${SUPABASE_URL}/functions/v1/tg-auth/callback`;
+
 /**
- * Возврат от Яндекса. Функция кладёт одноразовый токен во фрагмент адреса —
- * туда, куда браузер не пускает ни серверы, ни заголовок Referer. Меняем его
- * на настоящую сессию и сразу вычищаем из адресной строки, чтобы токен не
- * остался в истории и не уехал с копипастом ссылки.
+ * Возврат от внешнего провайдера (Яндекс, Telegram). Их функции кладут
+ * одноразовый токен во фрагмент адреса — туда, куда браузер не пускает ни
+ * серверы, ни заголовок Referer. Меняем его на настоящую сессию и сразу
+ * вычищаем из адресной строки, чтобы токен не остался в истории и не уехал
+ * с копипастом ссылки.
  */
-let _yandexError = null;
-async function finishYandex() {
+let _authError = null;
+async function finishExternalAuth() {
   if (!location.hash) return;
   const h = new URLSearchParams(location.hash.slice(1));
-  const token = h.get('yandex_token');
+  const token = h.get('tg_token') || h.get('yandex_token');
   const err = h.get('auth_error');
   if (!token && !err) return;
 
+  h.delete('tg_token');
   h.delete('yandex_token');
   h.delete('auth_error');
   const rest = h.toString();
   history.replaceState(null, '', location.pathname + location.search + (rest ? '#' + rest : ''));
 
-  if (err) { _yandexError = err; return; }
+  if (err) { _authError = err; return; }
   const { error } = await sb.auth.verifyOtp({ token_hash: token, type: 'magiclink' });
-  if (error) _yandexError = 'verify';
+  if (error) _authError = 'verify';
 }
 
-/** Забирает код ошибки входа через Яндекс, если он был (одноразово). */
-export function takeYandexError() {
-  const e = _yandexError;
-  _yandexError = null;
+/** Забирает код ошибки внешнего входа, если он был (одноразово). */
+export function takeAuthError() {
+  const e = _authError;
+  _authError = null;
   return e;
 }
 

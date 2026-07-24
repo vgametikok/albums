@@ -19,6 +19,7 @@ export default {
   signin_reason_default: 'Sign in to continue',
   continue_google: 'Continue with Google',
   not_now: 'Not now',
+  auth_error: 'Sign-in failed. Try again or use another way.',
   continue_yandex: 'Continue with Yandex',
   yandex_error: 'Yandex sign-in failed. Try again or use another way.',
   or: 'or',
