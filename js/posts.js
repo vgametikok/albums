@@ -12,6 +12,11 @@ const app = $('#app');
 const PAGE = 8;
 let offset = 0, loading = false, done = false, col = null;
 
+// Сид ранжирования держим на сессию — пагинация не дублирует посты между
+// страницами, но при новом заходе порядок освежается. Как в ленте альбомов.
+let seed = sessionStorage.getItem('postsSeed');
+if (!seed) { seed = Math.random().toString(36).slice(2, 10); sessionStorage.setItem('postsSeed', seed); }
+
 let feed = null, sentinel = null;
 
 (async function main() {
@@ -50,7 +55,7 @@ let feed = null, sentinel = null;
 async function load() {
   if (loading || done) return;
   loading = true;
-  const { data, error } = await sb.rpc('feed_posts', { p_limit: PAGE, p_offset: offset });
+  const { data, error } = await sb.rpc('feed_posts_recommended', { p_seed: seed, p_limit: PAGE, p_offset: offset });
   loading = false;
   if (error) { toast(error.message || t('feed_error')); return; }
   const rows = data || [];
