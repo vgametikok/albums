@@ -139,6 +139,16 @@ export async function signUrls(paths) {
   return out;
 }
 
+/** Принудительная переподпись одного пути: сбросить кэш и получить свежую
+ *  ссылку. Нужна плееру истории — у него один <audio> на много дорожек, и
+ *  вешать attachMediaRefresh на каждую смену src нельзя (обработчики копятся). */
+export async function resignUrl(path) {
+  if (!path) return null;
+  urlCache.delete(path);
+  const map = await signUrls([path]);
+  return map[path] || null;
+}
+
 // Подписи R2 живут 5–15 минут, поэтому у долгоживущих <video>/<audio> ссылка может
 // протухнуть к моменту перемотки или позднего play. Ловим `error`, переподписываем
 // и возвращаем позицию. Троттлинг 30с — защита от петли, если источник реально мёртв.

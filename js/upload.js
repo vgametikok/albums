@@ -196,6 +196,16 @@ async function audioDuration(file) {
       a.onerror = () => rej(new Error(t('err_audio')));
       setTimeout(res, 8000);
     });
+    if (!isFinite(a.duration)) {
+      // Chrome: у webm-записи с микрофона duration = Infinity, пока не
+      // домотать до конца. Известный трюк: seek в «бесконечность» заставляет
+      // браузер досчитать реальную длительность.
+      a.currentTime = 1e101;
+      await new Promise((res) => {
+        a.ondurationchange = () => { if (isFinite(a.duration)) res(); };
+        setTimeout(res, 3000);
+      });
+    }
     return isFinite(a.duration) ? a.duration : null;
   } catch (_) { return null; } finally { URL.revokeObjectURL(url); }
 }

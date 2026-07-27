@@ -4,8 +4,8 @@
 // Редактор (для автора) и плеер (для зрителя) в одном модуле, потому что делят
 // логику расстановки и чтения меток. Запись с микрофона — основной сценарий,
 // поэтому рассчитано в первую очередь на телефон.
-import { sb, currentUser } from './sb.js';
-import { el, clear, icon, toast, t, signUrls, attachMediaRefresh, thumbEl, dur, modal, playTriangle } from './ui.js';
+import { sb } from './sb.js';
+import { el, clear, icon, toast, t, signUrls, thumbEl, dur, modal, playTriangle } from './ui.js';
 import { uploadMedia } from './upload.js';
 
 /* ================================================================ РЕДАКТОР */
@@ -156,9 +156,10 @@ export function openNarrationEditor(albumId, mediaItems) {
 /* ================================================================ ПЛЕЕР */
 
 /**
- * Плеер рассказа на странице альбома. Кнопка на странице открывает
- * полноэкранное слайдшоу: фото сменяются по меткам дорожки, внизу — плеер
- * с полосой прокрутки, метками на ней и паузой. Вручную листать нельзя.
+ * Плеер рассказа на странице альбома. Кнопка открывает полноэкранное
+ * слайд-шоу; сам показ живёт в общем плеере историй (storyplayer.js) — тот же
+ * оверлей играет и сборку из голосовых. Здесь остались только загрузка
+ * narration_get и кнопка. API прежний.
  */
 export function mountNarrationPlayer(host, albumId, mediaItems, urls) {
   (async () => {
@@ -166,123 +167,24 @@ export function mountNarrationPlayer(host, albumId, mediaItems, urls) {
     if (!data || !data.cues?.length) return;
 
     const u = await signUrls([data.path]);
-    const audio = el('audio', { src: u[data.path], preload: 'metadata' });
-    attachMediaRefresh(audio, data.path);   // переподпись при протухании R2-ссылки
-
     const cues = (data.cues || []).map(c => ({ id: c.album_media_id, at: Number(c.at) }))
       .sort((a, b) => a.at - b.at);
-    const total = () => data.duration || audio.duration || 0;
 
-    /* кнопка на странице альбома */
-    clear(host).append(el('div', { class: 'narr-player', style: 'cursor:pointer', onclick: () => openShow() },
+    clear(host).append(el('div', {
+      class: 'narr-player', style: 'cursor:pointer',
+      onclick: async () => {
+        const { openNarrationShow } = await import('./storyplayer.js');
+        openNarrationShow({
+          albumId,
+          audioUrl: u[data.path], audioPath: data.path,
+          duration: Number(data.duration) || 0,
+          cues, mediaItems, urls,
+        });
+      },
+    },
       el('button', { class: 'narr-play', 'aria-label': t('narr_listen') }, playTriangle(16)),
       el('div', { class: 'narr-info' },
         el('div', { class: 'narr-label', text: t('narr_listen') }),
-        el('div', { class: 'muted', style: 'font-size:13.5px', text: dur(data.duration || 0) })),
-      audio));
-
-    /* ---- полноэкранное слайдшоу ---- */
-    function openShow() {
-      let shownId = null;
-      const stage = el('div', { class: 'narr-stage' });
-
-      const showCue = (cue) => {
-        if (!cue || cue.id === shownId) return;
-        shownId = cue.id;
-        clear(stage);
-        const m = mediaItems.find(x => x.am_id === cue.id);
-        if (!m) return;
-        if (m.kind === 'video') {
-          // рассказ озвучивает автор — само видео идёт без звука
-          const v = el('video', { autoplay: 'autoplay', loop: 'loop', playsinline: 'playsinline' });
-          v.muted = true;
-          if (urls[m.thumb]) v.poster = urls[m.thumb];
-          if (urls[m.path]) v.src = urls[m.path];
-          stage.appendChild(v);
-        } else {
-          const img = el('img', { alt: m.caption || '' });
-          const full = urls[m.path], th = urls[m.thumb];
-          if (th || full) img.src = th || full;
-          if (full && th && full !== th) {
-            const pre = new Image();
-            pre.onload = () => { img.src = full; };
-            pre.src = full;
-          }
-          stage.appendChild(img);
-        }
-        if (m.caption) stage.appendChild(el('div', { class: 'narr-show-cap', text: m.caption }));
-      };
-
-      /* плеер: полоса с метками, пауза/плей, время */
-      const fill = el('i');
-      const bar = el('div', { class: 'narr-show-bar' }, fill);
-      const ticks = cues.map(c => { const b = el('b'); bar.appendChild(b); return { at: c.at, elb: b }; });
-      const placeTicks = () => {
-        const dt = total();
-        if (dt) ticks.forEach(x => { x.elb.style.left = `${Math.min(100, (x.at / dt) * 100)}%`; });
-      };
-      placeTicks();
-      audio.addEventListener('loadedmetadata', placeTicks);
-
-      const timeCur = el('span', { class: 'narr-show-time', text: dur(0) });
-      const timeTot = el('span', { class: 'narr-show-time', text: dur(total()) });
-      const pp = el('button', { class: 'narr-show-pp', 'aria-label': t('narr_listen'),
-        onclick: () => { audio.paused ? audio.play() : audio.pause(); } });
-      const paintPP = () => {
-        clear(pp);
-        if (audio.paused) pp.appendChild(playTriangle(16));
-        else {
-          const s = el('span');
-          s.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" style="display:block"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
-          pp.appendChild(s.firstElementChild);
-        }
-      };
-      audio.onplay = paintPP;
-      audio.onpause = paintPP;
-
-      bar.onclick = (e) => {
-        const r = bar.getBoundingClientRect();
-        const p = (e.clientX - r.left) / r.width;
-        audio.currentTime = total() * Math.max(0, Math.min(1, p));
-      };
-
-      audio.ontimeupdate = () => {
-        const dt = total() || 1;
-        fill.style.width = `${Math.min(100, (audio.currentTime / dt) * 100)}%`;
-        timeCur.textContent = dur(audio.currentTime);
-        if (!timeTot.textContent || timeTot.textContent === dur(0)) timeTot.textContent = dur(total());
-        // текущая метка — последняя, чьё время уже наступило
-        let cur = null;
-        for (const c of cues) { if (c.at <= audio.currentTime + 0.05) cur = c; else break; }
-        showCue(cur || cues[0]);
-      };
-      audio.onended = () => { paintPP(); };
-
-      const overlay = el('div', { class: 'narr-show' },
-        el('button', { class: 'narr-show-x', 'aria-label': t('cancel'), onclick: () => close(), text: '✕' }),
-        stage,
-        el('div', { class: 'narr-show-ctl' }, pp, timeCur, bar, timeTot));
-
-      function key(e) {
-        if (e.key === 'Escape') close();
-        if (e.key === ' ') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); }
-      }
-      function close() {
-        audio.pause();
-        audio.ontimeupdate = null; audio.onplay = null; audio.onpause = null; audio.onended = null;
-        audio.removeEventListener('loadedmetadata', placeTicks);
-        document.removeEventListener('keydown', key);
-        if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
-        overlay.remove();
-      }
-
-      document.addEventListener('keydown', key);
-      document.body.appendChild(overlay);
-      if (overlay.requestFullscreen) overlay.requestFullscreen().catch(() => {});
-      showCue(cues[0]);
-      paintPP();
-      audio.currentTime = 0;
-      audio.play().then(paintPP).catch(() => {});
-    }
+        el('div', { class: 'muted', style: 'font-size:13.5px', text: dur(data.duration || 0) }))));
   })();
 }

@@ -291,7 +291,8 @@ async function openAlbum(albumId) {
 
   const a = d.album, author = d.author || {};
   const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])];
-  const paths = [a.cover_path, ...all.flatMap(m => [m.path, m.thumb]), d.narration?.path];
+  const paths = [a.cover_path, ...all.flatMap(m => [m.path, m.thumb, m.voice_path]),
+    d.narration?.path, ...(d.galleries || []).map(g => g.voice_path)];
   const urls = await signPaths(paths);
 
   clear(app);
@@ -327,7 +328,7 @@ async function openAlbum(albumId) {
 
   const body = el('div', { style: 'margin-top:24px' });
   left.appendChild(body);
-  if (all.length) renderStory(body, d, urls, VIEW);
+  if (all.length || (d.texts || []).length) renderStory(body, d, urls, VIEW);
   else left.appendChild(el('p', { class: 'muted', text: 'No media in this album.' }));
 
   /* ---- боковая справка о находке ---- */

@@ -35,12 +35,13 @@ async function render(d) {
   const a = d.album, author = d.author;
   document.title = `${a.title} — Albums`;
 
-  // все медиа-пути одним батчем
+  // все медиа-пути одним батчем (включая голосовые кадров и галерей)
   const paths = [a.cover_path];
   // Сквозной порядок «от первого к последнему загруженному»: position уникален в пределах альбома.
   const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])]
     .sort((x, y) => (x.position ?? 0) - (y.position ?? 0));
-  all.forEach(m => { paths.push(m.path, m.thumb); });
+  all.forEach(m => { paths.push(m.path, m.thumb); if (m.voice_path) paths.push(m.voice_path); });
+  (d.galleries || []).forEach(g => { if (g.voice_path) paths.push(g.voice_path); });
   const urls = await signUrls(paths);
 
   clear(app);
@@ -83,12 +84,11 @@ async function render(d) {
 
   if (a.description) left.appendChild(el('p', { class: 'lede', text: a.description }));
 
-  /* ---- плеер рассказа ---- */
-  if (d.has_narration) {
-    const narrHost = el('div', { style: 'margin-top:24px' });
-    left.appendChild(narrHost);
-    const { mountNarrationPlayer } = await import('./narration.js');
-    mountNarrationPlayer(narrHost, a.id, all.filter(m => m.kind !== 'audio'), urls);
+  /* ---- плеер истории: сборка из голосовых или единый рассказ ---- */
+  if (d.has_narration || d.has_voices) {
+    const storyHost = el('div', { style: 'margin-top:24px' });
+    left.appendChild(storyHost);
+    mountStoryEntry(storyHost, d, a, all, urls);
   }
 
   /* ---- переключатель вида ---- */
@@ -142,6 +142,37 @@ async function render(d) {
     if (!first) { toast(t('nothing_to_watch')); return; }
     lightbox(all.filter(m => m.kind !== 'audio'), urls, 0);
   }
+}
+
+/**
+ * Кнопка истории. Источник решает автор (albums.story_mode); «авто» = сборка
+ * из голосовых, если они есть, иначе единый рассказ. Если выбранная сборка
+ * зрителю не видна (все озвученные кадры скрыты), показываем рассказ — лучше
+ * запасная история, чем мёртвая кнопка.
+ */
+async function mountStoryEntry(host, d, a, all, urls) {
+  const wantVoices = a.story_mode === 'voices' || (!a.story_mode && d.has_voices);
+  if (wantVoices && d.has_voices) {
+    const { buildVoiceSegments, openVoicesShow } = await import('./storyplayer.js');
+    const { segments, total, voiced } = buildVoiceSegments(d, urls);
+    if (voiced > 0 && total > 0) {
+      clear(host).append(el('div', {
+        class: 'narr-player', style: 'cursor:pointer',
+        onclick: () => openVoicesShow({ albumId: a.id, segments, total, urls }),
+      },
+        el('button', { class: 'narr-play', 'aria-label': t('narr_listen') }, playTriangle(16)),
+        el('div', { class: 'narr-info' },
+          el('div', { class: 'narr-label', text: t('story_watch') }),
+          el('div', { class: 'muted', style: 'font-size:13.5px', text: dur(total) }))));
+      return;
+    }
+  }
+  if (d.has_narration) {
+    const { mountNarrationPlayer } = await import('./narration.js');
+    mountNarrationPlayer(host, a.id, all.filter(m => m.kind !== 'audio'), urls);
+    return;
+  }
+  host.remove();   // ни одна история зрителю не доступна — пустой отступ не нужен
 }
 
 /* ---- пост из альбома ---- */

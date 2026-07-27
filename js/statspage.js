@@ -73,6 +73,7 @@ function draw() {
     [t('st_views'), fmtCount(T.views || 0), t('st_views_hint')],
     [t('st_ctr'), pct(T.views, T.impressions), t('st_ctr_hint')],
     [t('st_dwell'), secs(T.avg_dwell_ms), t('st_dwell_hint')],
+    [t('st_listens'), fmtCount(T.listens || 0), t('st_listens_hint')],
     [t('st_viewers'), fmtCount(T.viewers || 0), t('st_viewers_hint')],
     [t('st_reactions'), fmtCount((T.likes || 0) + (T.comments || 0)), t('st_reactions_hint')],
   ]));
@@ -193,19 +194,21 @@ function albumTable(rows) {
   if (!rows.length) return el('div', { class: 'muted', text: t('st_no_albums') });
   const head = el('div', {
     class: 'muted',
-    style: 'display:grid;grid-template-columns:2fr repeat(4,minmax(64px,.7fr));gap:8px;font-size:12.5px;padding:6px 0;border-bottom:1px solid #EFEDE8',
+    style: 'display:grid;grid-template-columns:2fr repeat(5,minmax(58px,.7fr));gap:8px;font-size:12.5px;padding:6px 0;border-bottom:1px solid #EFEDE8',
   },
     el('span', { text: t('st_album') }), el('span', { text: t('st_impressions') }),
-    el('span', { text: t('st_views') }), el('span', { text: t('st_dwell') }),
+    el('span', { text: t('st_views') }), el('span', { text: t('st_listens') }),
+    el('span', { text: t('st_dwell') }),
     el('span', { text: t('st_reactions') }));
   const box = el('div', { style: 'margin-top:8px' }, head);
   rows.forEach(a => {
     box.appendChild(el('div', {
-      style: 'display:grid;grid-template-columns:2fr repeat(4,minmax(64px,.7fr));gap:8px;font-size:14.5px;padding:10px 0;border-bottom:1px solid #F5F3EF;align-items:center',
+      style: 'display:grid;grid-template-columns:2fr repeat(5,minmax(58px,.7fr));gap:8px;font-size:14.5px;padding:10px 0;border-bottom:1px solid #F5F3EF;align-items:center',
     },
       el('a', { href: `album.html?id=${a.id}`, style: 'font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap', text: a.title || '—' }),
       el('span', { text: fmtCount(a.impressions || 0) }),
       el('span', { text: fmtCount(a.views || 0) }),
+      el('span', { text: fmtCount(a.listens || 0) }),
       el('span', { text: secs(a.avg_dwell_ms) }),
       el('span', { text: fmtCount((a.likes || 0) + (a.comments || 0)) })));
   });

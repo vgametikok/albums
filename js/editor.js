@@ -1,13 +1,20 @@
 // Редактор альбома: медиа, главы, обложка, видимость (включая «друзьям кроме…»).
 import { sb, currentUser, isAuthed } from './sb.js';
 import { CATEGORIES } from './config.js';
-import { el, $, clear, mountShell, signUrls, toast, showLogin, icon, emptyState, dur, avatarImg, t, thumbEl, modal } from './ui.js';
+import { el, $, clear, mountShell, toast, showLogin, icon, emptyState, avatarImg, t, modal } from './ui.js';
 import { uploadMedia, backfillPoster } from './upload.js';
+import { createStoryEditor, storySettingsBox } from './storyeditor.js';
+
+// Колонки album_media: media — сам файл, voice — голосовая заметка кадра.
+const AM_COLS = 'id,chapter_id,position,caption,is_private,gallery_id,voice_media_id,'
+  + 'media:media_id(*),voice:voice_media_id(storage_path,duration_seconds)';
 
 const app = $('#app');
 let albumId = new URLSearchParams(location.search).get('id');
 let album = null;          // строка albums
 let items = [];            // album_media + вложенный media
+let texts = [];            // album_texts — текстовые блоки истории
+let galleries = [];        // album_galleries — галереи (могут нести голосовую)
 let chapters = [];         // album_chapters
 let friends = [];          // для «кроме»
 let excluded = new Set();  // username'ы исключённых
@@ -15,6 +22,18 @@ let saving = false;
 let busy = 0;              // файлов в обработке/загрузке прямо сейчас
 let collaborators = [];    // соавторы альбома
 let isOwner = true;        // владелец или соавтор (у соавтора прав меньше)
+let storyEd = null;        // блочный редактор истории (storyeditor.js)
+let storyBox = null;       // блок «История»: сводка и переключатель источника
+
+// Контекст, который storyeditor.js получает от этого модуля.
+const storyCtx = () => ({
+  ensureAlbum,
+  getState: () => ({ items, texts, galleries, chapters, album }),
+  busyInc: () => { busy++; refreshBusy(); },
+  busyDec: () => { busy--; refreshBusy(); },
+  storyRefresh: () => storyBox?.refresh(),
+  onCover: (mid) => { if (album) album.cover_media_id = mid; },
+});
 
 (async function main() {
   await mountShell('home');
@@ -29,13 +48,16 @@ let isOwner = true;        // владелец или соавтор (у соа�
   friends = mf.data?.friends || [];
 
   if (albumId) {
-    const [a, ch, im] = await Promise.all([
+    const [a, ch, im, tx, gl] = await Promise.all([
       sb.from('albums').select('*').eq('id', albumId).single(),
       sb.from('album_chapters').select('*').eq('album_id', albumId).order('position'),
-      sb.from('album_media').select('id,chapter_id,position,caption,is_private,media:media_id(*)').eq('album_id', albumId).order('position'),
+      sb.from('album_media').select(AM_COLS).eq('album_id', albumId).order('position'),
+      sb.from('album_texts').select('*').eq('album_id', albumId).order('position'),
+      sb.from('album_galleries').select('id,voice_media_id,voice:voice_media_id(storage_path,duration_seconds)').eq('album_id', albumId),
     ]);
     if (a.error || !a.data) { app.appendChild(emptyState(t('album_not_found'), t('album_not_found_text'))); return; }
     album = a.data; chapters = ch.data || []; items = im.data || [];
+    texts = tx.data || []; galleries = gl.data || [];
     isOwner = album.author_id === currentUser().id;
     const co = await sb.from('album_collaborators')
       .select('user_id,profiles:user_id(username,display_name,avatar_url)')
@@ -123,23 +145,21 @@ function render() {
 
   const mlist = el('div', { class: 'mlist', id: 'mlist' });
   left.appendChild(mlist);
-  drawMedia(mlist);
+  storyEd = createStoryEditor(mlist, storyCtx());
+  storyEd.draw();
+  fillMissingPosters();
 
-  /* ---- озвучка ---- */
-  left.appendChild(el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
-    el('h2', { text: t('narr_section') }),
-    el('button', {
-      class: 'btn btn-ghost btn-sm',
-      onclick: async () => {
-        await ensureAlbum();
-        const media = items.map(it => ({
-          am_id: it.id, id: it.media?.id, kind: it.media?.kind,
-          path: it.media?.storage_path, thumb: it.media?.thumb_path, caption: it.caption,
-        }));
-        const { openNarrationEditor } = await import('./narration.js');
-        openNarrationEditor(albumId, media);
-      },
-    }, icon('mic', 16, { sw: 2 }), t('narr_edit'))));
+  /* ---- история: голосовые, источник, редактор меток рассказа ---- */
+  storyBox = storySettingsBox(storyCtx(), async () => {
+    await ensureAlbum();
+    const media = items.map(it => ({
+      am_id: it.id, id: it.media?.id, kind: it.media?.kind,
+      path: it.media?.storage_path, thumb: it.media?.thumb_path, caption: it.caption,
+    }));
+    const { openNarrationEditor } = await import('./narration.js');
+    openNarrationEditor(albumId, media);
+  });
+  left.appendChild(storyBox.node);
 
   /* ---- главы ---- */
   const chapHead = el('div', { class: 'section-head', style: 'margin:40px 0 16px' },
@@ -273,12 +293,13 @@ async function addFiles(files) {
         const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
         status.textContent = `${f.name} — ${STAGE_TEXT[stage] || stage}${pct}`;
       });
-      const pos = items.length ? Math.max(...items.map(i => i.position)) + 1 : 0;
+      // позиция — хвост ОБЩЕЙ последовательности истории (кадры + тексты)
+      const pos = Math.max(-1, ...items.map(i => i.position), ...texts.map(x => x.position)) + 1;
       const { data, error } = await sb.from('album_media')
         .insert({ album_id: albumId, media_id: media.id, position: pos })
-        .select('id,chapter_id,position,caption').single();
+        .select('id,chapter_id,position,caption,is_private,gallery_id,voice_media_id').single();
       if (error) throw error;
-      items.push({ ...data, media });
+      items.push({ ...data, media, voice: null });
       if (!album.cover_media_id && media.kind === 'photo') {
         await sb.from('albums').update({ cover_media_id: media.id }).eq('id', albumId);
         album.cover_media_id = media.id;
@@ -288,8 +309,9 @@ async function addFiles(files) {
     }
     busy--; refreshBusy();
     row.remove();
-    drawMedia(host);
+    storyEd?.draw();
   }
+  fillMissingPosters();   // видео, у которого постер не снялся при заливке
 }
 
 /** Пока что-то конвертируется/грузится — альбом остаётся черновиком, публикация заблокирована. */
@@ -305,106 +327,17 @@ function refreshBusy() {
 
 /** Разово досоздаём отсутствующие постеры видео — по одному, чтобы не грузить сеть. */
 let posterQueueRunning = false;
-async function fillMissingPosters(host) {
+async function fillMissingPosters() {
   if (posterQueueRunning) return;
   const pending = items.filter(i => i.media?.kind === 'video' && !i.media.thumb_path);
   if (!pending.length) return;
   posterQueueRunning = true;
   for (const it of pending) {
     try {
-      if (await backfillPoster(it.media)) drawMedia(host);
+      if (await backfillPoster(it.media)) storyEd?.draw();
     } catch (_) { /* не критично: превью останется кадром из <video> */ }
   }
   posterQueueRunning = false;
-}
-
-async function drawMedia(host) {
-  clear(host);
-  fillMissingPosters(host);
-  if (!items.length) {
-    host.appendChild(el('div', { class: 'muted', style: 'padding:14px 2px', text: t('no_media') }));
-    return;
-  }
-  items.sort((a, b) => a.position - b.position);
-  const urls = await signUrls(items.map(i => i.media?.thumb_path || i.media?.storage_path));
-
-  items.forEach((it, idx) => {
-    const m = it.media || {};
-    const src = urls[m.thumb_path] || urls[m.storage_path];
-    const th = el('div', { class: 'mthumb', style: 'display:flex;align-items:center;justify-content:center;overflow:hidden' });
-    if (m.kind === 'audio') {
-      th.appendChild(el('div', { style: 'font-size:12px;font-weight:700;color:#8F8B84', text: dur(m.duration_seconds) || 'AUDIO' }));
-    } else {
-      const node = thumbEl(m.thumb_path || m.storage_path, src, m.thumb_path ? null : m.kind);
-      if (node) { node.style.width = '100%'; node.style.height = '100%'; node.style.objectFit = 'cover'; th.appendChild(node); }
-    }
-
-    const chapSel = el('select', { class: 'mini', style: 'min-width:150px', onchange: async (e) => {
-      const v = e.currentTarget.value || null;
-      it.chapter_id = v;
-      await sb.from('album_media').update({ chapter_id: v }).eq('id', it.id);
-    } },
-      el('option', { value: '' }, t('no_chapter_opt')),
-      ...chapters.map(c => el('option', {
-        value: c.id, selected: it.chapter_id === c.id ? 'selected' : null,
-      }, c.label || c.title || t('chapters'))));
-
-    const cap = el('input', {
-      class: 'input', style: 'height:36px;padding:0 12px;font-size:14px;border-radius:10px',
-      placeholder: m.kind === 'audio' ? t('voice_ph') : t('cap_ph'), maxlength: '500', value: it.caption || '',
-      onchange: async (e) => {
-        it.caption = e.currentTarget.value;
-        await sb.from('album_media').update({ caption: it.caption }).eq('id', it.id);
-      },
-    });
-
-    const row = el('div', { class: 'row' }, chapSel,
-      el('button', { class: 'mini', onclick: () => move(idx, -1), disabled: idx === 0 ? 'disabled' : null }, '↑'),
-      el('button', { class: 'mini', onclick: () => move(idx, 1), disabled: idx === items.length - 1 ? 'disabled' : null }, '↓'),
-      m.kind === 'photo' ? el('button', {
-        class: 'mini' + (album?.cover_media_id === m.id ? ' on' : ''),
-        style: album?.cover_media_id === m.id ? 'border-color:var(--accent);color:var(--accent)' : null,
-        onclick: async () => {
-          await sb.from('albums').update({ cover_media_id: m.id }).eq('id', albumId);
-          album.cover_media_id = m.id; drawMedia(host); toast(t('changes_saved'));
-        },
-      }, album?.cover_media_id === m.id ? t('cover_set') : t('set_cover')) : null,
-      el('button', {
-        class: 'mini',
-        style: it.is_private ? 'border-color:var(--accent);color:var(--accent)' : null,
-        title: t('private_hint'),
-        onclick: async (e) => {
-          const next = !it.is_private;
-          const { error } = await sb.from('album_media').update({ is_private: next }).eq('id', it.id);
-          if (error) { toast(error.message); return; }
-          it.is_private = next;
-          drawMedia(host);
-          toast(next ? t('private_on') : t('private_off'));
-        },
-      }, it.is_private ? t('is_private') : t('make_private')),
-      el('button', {
-        class: 'mini danger', onclick: async () => {
-          await sb.from('album_media').delete().eq('id', it.id);
-          items = items.filter(x => x.id !== it.id);
-          drawMedia(host);
-        },
-      }, t('remove')));
-
-    host.appendChild(el('div', { class: 'mitem' }, th, el('div', { class: 'grow' }, cap, row)));
-  });
-
-  async function move(idx, dir) {
-    const j = idx + dir;
-    if (j < 0 || j >= items.length) return;
-    const a = items[idx], b = items[j];
-    const pa = a.position, pb = b.position;
-    a.position = pb; b.position = pa;
-    await Promise.all([
-      sb.from('album_media').update({ position: a.position }).eq('id', a.id),
-      sb.from('album_media').update({ position: b.position }).eq('id', b.id),
-    ]);
-    drawMedia(host);
-  }
 }
 
 /* ---------------------------------------------------------------- даты альбома */
@@ -509,10 +442,10 @@ async function autoChapters() {
       // перезагружаем главы и медиа
       const [ch, im] = await Promise.all([
         sb.from('album_chapters').select('*').eq('album_id', albumId).order('position'),
-        sb.from('album_media').select('id,chapter_id,position,caption,is_private,media:media_id(*)').eq('album_id', albumId).order('position'),
+        sb.from('album_media').select(AM_COLS).eq('album_id', albumId).order('position'),
       ]);
       chapters = ch.data || []; items = im.data || [];
-      drawChapters($('#clist')); drawMedia($('#mlist'));
+      drawChapters($('#clist')); storyEd?.draw();
     };
     box.append(list, apply,
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
@@ -533,7 +466,7 @@ async function addChapter() {
   if (error) { toast(error.message); return; }
   chapters.push(data);
   drawChapters($('#clist'));
-  drawMedia($('#mlist'));
+  storyEd?.draw();
 }
 
 function drawChapters(host) {
@@ -560,7 +493,8 @@ function drawChapters(host) {
             await sb.from('album_chapters').delete().eq('id', c.id);
             chapters = chapters.filter(x => x.id !== c.id);
             items.forEach(i => { if (i.chapter_id === c.id) i.chapter_id = null; });
-            drawChapters(host); drawMedia($('#mlist'));
+            texts.forEach(x => { if (x.chapter_id === c.id) x.chapter_id = null; });
+            drawChapters(host); storyEd?.draw();
           },
         }, t('delete'))),
       el('textarea', {
