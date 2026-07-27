@@ -93,14 +93,29 @@ export function voiceChip(path, duration, urls, opts = {}) {
   return chip;
 }
 
-/* Галерея в истории: карусель, как у постов (стрелки + свайп + точки). */
-function galleryCarousel(members, urls, opts = {}) {
-  let idx = 0;
-  const stage = el('div', { class: 'carousel story-car' });
+/**
+ * Галерея в истории — горизонтальная лента, а не слайдер по одному кадру.
+ *
+ * Высота ряда общая, ширина каждого снимка — по его собственным пропорциям,
+ * поэтому в ряд сами собой встают два вертикальных кадра и краешек третьего,
+ * либо вертикальный и часть горизонтального, либо горизонтальный и часть
+ * следующего. Выглядывающий край — приглашение листать дальше; у слайдера
+ * с одним кадром по центру этого не было, а вертикальное фото оставляло
+ * широкие пустые поля по бокам.
+ *
+ * Листается свайпом (нативная прокрутка со снапом), на десктопе — стрелками.
+ */
+function galleryStrip(members, urls, opts = {}) {
+  const strip = el('div', { class: 'gal-strip' });
   members.forEach((m, i) => {
-    const cell = el('div', { class: 'slide' + (i === 0 ? ' on' : '') });
-    if (m.kind === 'video') cell.appendChild(videoEl(m, urls, opts));
-    else {
+    // размеры бывают неизвестны у старых файлов — тогда берём типовые
+    const ratio = ratioOf(m) || (m.kind === 'video' ? 16 / 9 : 3 / 2);
+    const cell = el('div', { class: 'gal-shot', style: `aspect-ratio:${ratio}` });
+    if (m.kind === 'video') {
+      const v = videoEl(m, urls, opts);
+      v.style.aspectRatio = '';          // пропорции держит сама ячейка
+      cell.appendChild(v);
+    } else {
       const img = el('img', {
         alt: m.caption || '', loading: 'lazy',
         onclick: () => opts.onImageClick?.(members, i, urls),
@@ -116,30 +131,21 @@ function galleryCarousel(members, urls, opts = {}) {
       if (opts.onImageClick) img.style.cursor = 'zoom-in';
       cell.appendChild(img);
     }
-    stage.appendChild(cell);
+    if (m.caption) cell.appendChild(el('div', { class: 'gal-cap', text: m.caption }));
+    strip.appendChild(cell);
   });
 
-  const dots = el('div', { class: 'dots' });
-  const go = (d) => {
-    stage.querySelectorAll('video').forEach(v => v.pause());
-    idx = (idx + d + members.length) % members.length;
-    [...stage.querySelectorAll('.slide')].forEach((n, i) => n.classList.toggle('on', i === idx));
-    [...dots.children].forEach((n, i) => n.classList.toggle('on', i === idx));
-  };
+  const wrap = el('div', { class: 'gal-wrap' }, strip);
   if (members.length > 1) {
-    members.forEach((_, i) => dots.appendChild(el('i', { class: i === 0 ? 'on' : '' })));
-    stage.append(
-      el('button', { class: 'car-nav prev', onclick: () => go(-1) }, icon('chevL', 18, { stroke: '#141414', sw: 2 })),
-      el('button', { class: 'car-nav next', onclick: () => go(1) }, icon('chevR', 18, { stroke: '#141414', sw: 2 })),
-      dots);
-    let sx = 0, sy = 0;
-    stage.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
-    stage.addEventListener('touchend', (e) => {
-      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.6) go(dx < 0 ? 1 : -1);
-    }, { passive: true });
+    // прокрутка почти на экран: последний видимый кадр остаётся зацепкой
+    const go = (d) => strip.scrollBy({ left: d * strip.clientWidth * 0.85, behavior: 'smooth' });
+    wrap.append(
+      el('button', { class: 'gal-nav prev', 'aria-label': '←', onclick: () => go(-1) },
+        icon('chevL', 18, { stroke: '#141414', sw: 2 })),
+      el('button', { class: 'gal-nav next', 'aria-label': '→', onclick: () => go(1) },
+        icon('chevR', 18, { stroke: '#141414', sw: 2 })));
   }
-  return stage;
+  return wrap;
 }
 
 /* История: блоки (кадр / галерея / текст) во всю ширину колонки, по позициям. */
@@ -171,7 +177,7 @@ function appendStoryBlocks(host, items, texts, galleries, urls, opts = {}) {
     if (b.type === 'g') {
       const g = galleries.get(b.gid);
       const fig = el('div', { class: 'story-media' });
-      fig.appendChild(galleryCarousel(b.members, urls, opts));
+      fig.appendChild(galleryStrip(b.members, urls, opts));
       if (g?.voice_path) fig.appendChild(voiceChip(g.voice_path, g.voice_duration, urls, opts));
       host.appendChild(fig);
       continue;

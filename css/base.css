@@ -566,8 +566,30 @@ img,video{max-width:100%}
 
 /* ---- история v0.20: тексты, галереи, голосовые, блочный редактор ---- */
 .story-text{font-size:16.5px;line-height:1.7;color:#4A4741;margin:20px 0 0;white-space:pre-wrap}
-.story-media .story-car{aspect-ratio:3/2;border-radius:16px;overflow:hidden}
-.story-car .dots{bottom:12px}
+/* Галерея — лента в натуральных пропорциях: высота ряда общая, ширину задаёт
+   aspect-ratio самого кадра, поэтому рядом встают два вертикальных снимка и
+   край следующего либо вертикальный и часть горизонтального. */
+.gal-wrap{position:relative}
+.gal-strip{display:flex;gap:8px;height:420px;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gal-strip::-webkit-scrollbar{display:none}
+/* max-width: на узком экране широкий кадр иначе оказывается шире ленты и
+   целиком не показывается вовсе; полный кадр всегда открывается по тапу. */
+.gal-shot{position:relative;flex:0 0 auto;height:100%;max-width:100%;border-radius:16px;overflow:hidden;
+  background:var(--ph);scroll-snap-align:start}
+.gal-shot img,.gal-shot video{width:100%;height:100%;object-fit:cover;display:block}
+.gal-shot video{background:#0d0c0b;object-fit:contain}
+.gal-cap{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;color:#fff;
+  font-size:13.5px;line-height:1.35;background:linear-gradient(transparent,rgba(10,8,6,.72))}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;
+  border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(20,17,14,.18);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2}
+.gal-nav.prev{left:10px} .gal-nav.next{right:10px}
+@media (pointer:coarse){ .gal-nav{display:none} }   /* на телефоне листаем свайпом */
+@media (max-width:900px){ .gal-strip{height:340px} }
+/* На телефоне высота подобрана так, чтобы композиция сохранялась и там:
+   горизонтальный кадр помещается целиком, два вертикальных — рядом. */
+@media (max-width:560px){ .gal-strip{height:200px;gap:6px} }
 .voice-chip{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:5px 12px 5px 5px;
   background:#fff;border:1.5px solid var(--line);border-radius:999px;font-size:13.5px;cursor:pointer;
   user-select:none;-webkit-user-select:none}
