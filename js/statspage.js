@@ -47,7 +47,7 @@ function render() {
     }, label));
   });
 
-  const sel = el('select', { class: 'select', style: 'width:auto;min-width:220px;padding:10px 14px;height:40px' },
+  const sel = el('select', { class: 'select', style: 'width:auto;min-width:220px;padding:0 14px;height:40px' },
     el('option', { value: '', text: t('st_all_albums') }));
   sel.onchange = async () => { albumId = sel.value || null; await load(); };
   bar.appendChild(sel);

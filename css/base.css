@@ -471,6 +471,12 @@ img,video{max-width:100%}
   color:var(--faint);margin-bottom:8px}
 .input,.select,.textarea{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;
   font-size:16px;background:#fff;color:var(--ink);outline:none}
+/* У select высоту задают напрямую (в сайдбарах она меньше стандартной), а
+   вертикальный padding из общего правила при box-sizing:border-box съедал
+   строку целиком — текст обрезался и читался только в раскрытом списке.
+   Строку селекта браузер центрирует сам, поэтому padding по вертикали не
+   нужен вовсе — так же сделаны .lang-select и .mini. */
+.select{padding-top:0;padding-bottom:0;height:52px}
 .input:focus,.select:focus,.textarea:focus{border-color:var(--ink)}
 .textarea{line-height:1.6;resize:vertical;min-height:100px}
 .drop{border:2px dashed var(--line);border-radius:18px;padding:38px;text-align:center;color:var(--muted);
