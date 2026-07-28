@@ -3,7 +3,7 @@ import {
   sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut,
   takeAuthError, TG_CALLBACK,
 } from './sb.js';
-import { SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT } from './config.js';
+import { SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT, BLOG_URL } from './config.js';
 import {
   t, initI18n, fmtNumber, fmtTimeAgo, composition, catLabel,
   LANGS, currentLang, setLang,
@@ -372,7 +372,8 @@ function mountFooter() {
     style: 'text-align:center;padding:28px 16px 96px;color:#8F8B84;font-size:12.5px;line-height:1.7',
   },
     el('div', { style: 'margin-bottom:8px' },
-      ['pricing.html|foot_pricing', 'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
+      [`pricing.html|foot_pricing`, `${BLOG_URL}|foot_blog`,
+        'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {
           href, style: 'color:#8F8B84;text-decoration:underline;margin:0 8px;white-space:nowrap',

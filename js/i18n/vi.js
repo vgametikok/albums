@@ -1,6 +1,7 @@
 ﻿export default {
   foot_support: 'Hỗ trợ và góp ý',
   foot_partnership: 'Hợp tác',
+  foot_blog: 'Blog',
   search_ph: 'Tìm album và tác giả',
   nav_home: 'Trang chủ',
   nav_profile: 'Hồ sơ',

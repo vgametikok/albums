@@ -7,6 +7,11 @@ export const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
 // Публичный идентификатор, не секрет; сам токен бота живёт в секрете функции.
 export const TELEGRAM_BOT = 'albumsregsbot';
 
+// Блог живёт на отдельном поддомене (свой репозиторий GitHub Pages со своим
+// CNAME). Адрес держим здесь: если однажды переедем на albums.ink/blog/,
+// поменять придётся одну строку, а не подвал на каждой странице.
+export const BLOG_URL = 'https://blog.albums.ink/';
+
 export const CATEGORIES = ['Travel', 'Music', 'Family', 'Art', 'Sport', 'Other'];
 
 // Лимиты на ИСХОДНЫЙ файл. Фото после сжатия всегда укладывается в пару сотен КБ,

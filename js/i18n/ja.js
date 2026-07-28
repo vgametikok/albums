@@ -1,6 +1,7 @@
 ﻿export default {
   foot_support: 'サポート・ご提案',
   foot_partnership: 'パートナーシップ',
+  foot_blog: 'ブログ',
   search_ph: 'アルバムや作成者を検索',
   nav_home: 'ホーム',
   nav_profile: 'プロフィール',

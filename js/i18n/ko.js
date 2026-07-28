@@ -1,6 +1,7 @@
 ﻿export default {
   foot_support: '지원 및 제안',
   foot_partnership: '제휴 문의',
+  foot_blog: '블로그',
   search_ph: '앨범과 만든 사람 검색',
   nav_home: '홈',
   nav_profile: '프로필',
