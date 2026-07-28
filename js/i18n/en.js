@@ -670,4 +670,18 @@ export default {
   add: 'Add',
   st_listens: 'Story listens',
   st_listens_hint: 'Story plays over 5 seconds',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: 'Download everything',
+  ex_title: 'Preparing your archive',
+  ex_hint: 'Keep this tab open — photos, videos and voice notes are being packed into one ZIP file.',
+  ex_author: 'Author',
+  ex_date: 'Published',
+  ex_exported: 'Exported',
+  ex_has_voice: 'voice note',
+  ex_missing: 'Could not be downloaded:',
+  ex_nothing: 'Nothing to download yet',
+  ex_failed: 'The archive could not be built. Please try again.',
+  ex_done: 'Archive downloaded',
+  ex_done_partial: 'Archive downloaded, {count} file(s) skipped',
 };

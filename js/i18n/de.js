@@ -650,4 +650,18 @@
   add: 'Hinzufügen',
   st_listens: 'Geschichte-Wiedergaben',
   st_listens_hint: 'Geschichte über 5 Sekunden abgespielt',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: 'Alles herunterladen',
+  ex_title: 'Archiv wird vorbereitet',
+  ex_hint: 'Lassen Sie diesen Tab geöffnet — Fotos, Videos und Sprachnotizen werden in eine ZIP-Datei gepackt.',
+  ex_author: 'Autor',
+  ex_date: 'Veröffentlicht',
+  ex_exported: 'Exportiert',
+  ex_has_voice: 'Sprachnotiz',
+  ex_missing: 'Konnte nicht geladen werden:',
+  ex_nothing: 'Noch nichts zum Herunterladen',
+  ex_failed: 'Das Archiv konnte nicht erstellt werden. Bitte erneut versuchen.',
+  ex_done: 'Archiv heruntergeladen',
+  ex_done_partial: 'Archiv heruntergeladen, {count} Datei(en) übersprungen',
 };

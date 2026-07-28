@@ -639,4 +639,18 @@
   add: '추가',
   st_listens: '스토리 청취',
   st_listens_hint: '5초 넘게 재생된 스토리',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: '전체 다운로드',
+  ex_title: '아카이브를 준비하는 중',
+  ex_hint: '이 탭을 닫지 마세요. 사진, 동영상, 음성 메모를 하나의 ZIP으로 묶고 있습니다.',
+  ex_author: '작성자',
+  ex_date: '게시일',
+  ex_exported: '내보낸 시각',
+  ex_has_voice: '음성 메모',
+  ex_missing: '다운로드하지 못한 항목:',
+  ex_nothing: '아직 다운로드할 항목이 없습니다',
+  ex_failed: '아카이브를 만들지 못했습니다. 다시 시도해 주세요.',
+  ex_done: '아카이브를 다운로드했습니다',
+  ex_done_partial: '아카이브를 다운로드했습니다. {count}개 항목을 건너뛰었습니다',
 };

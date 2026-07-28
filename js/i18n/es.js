@@ -652,4 +652,18 @@
   add: 'Añadir',
   st_listens: 'Escuchas de la historia',
   st_listens_hint: 'Reproducciones de la historia de más de 5 segundos',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: 'Descargar todo',
+  ex_title: 'Preparando el archivo',
+  ex_hint: 'Mantén esta pestaña abierta: las fotos, los vídeos y las notas de voz se están empaquetando en un ZIP.',
+  ex_author: 'Autor',
+  ex_date: 'Publicado',
+  ex_exported: 'Exportado',
+  ex_has_voice: 'nota de voz',
+  ex_missing: 'No se pudo descargar:',
+  ex_nothing: 'Todavía no hay nada que descargar',
+  ex_failed: 'No se pudo crear el archivo. Inténtalo de nuevo.',
+  ex_done: 'Archivo descargado',
+  ex_done_partial: 'Archivo descargado, {count} archivo(s) omitido(s)',
 };

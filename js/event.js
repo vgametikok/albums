@@ -13,6 +13,7 @@ import {
   dur, modal, avatarImg,
 } from './ui.js';
 import { qrSvg, qrDownload } from './qr.js';
+import { downloadAlbumArchive } from './export.js';
 import { uploadMedia } from './upload.js';
 
 const app = $('#app');
@@ -178,6 +179,7 @@ async function renderOne() {
     el('h1', { style: 'font-size:30px;letter-spacing:-.02em', text: a.title }),
     el('div', { class: 'rowx' },
       el('span', { class: 'chip', style: 'pointer-events:none', text: statusText(a) }),
+      exportButton(data),
       el('a', { class: 'btn btn-ghost btn-sm', href: `album.html?id=${a.id}` }, t('ev_open_album')))));
 
   const cols = el('div', { class: 'album-cols' });
@@ -310,6 +312,16 @@ async function linkBox(a) {
 }
 
 const safeName = (s) => String(s).replace(/[^\wЀ-ӿ -]/g, '').trim() || 'album';
+
+/** «Скачать всё» — гостевые фото события забираются одним архивом. */
+function exportButton(data) {
+  const btn = el('button', { class: 'btn btn-ghost btn-sm' }, t('ex_download'));
+  btn.onclick = async () => {
+    btn.disabled = true;
+    try { await downloadAlbumArchive(data); } finally { btn.disabled = false; }
+  };
+  return btn;
+}
 
 /** Печатная табличка «сканируйте и добавьте свои фото» — то, что ставят на стол. */
 function printQr(title, url) {

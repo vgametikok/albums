@@ -8,6 +8,7 @@ import {
 import { mountComments } from './comments.js';
 import { trackAlbumView } from './stats.js';
 import { renderStory, audioRow, videoEl, ratioOf } from './albumview.js';
+import { downloadAlbumArchive } from './export.js';
 
 const app = $('#app');
 const id = new URLSearchParams(location.search).get('id');
@@ -66,6 +67,18 @@ async function render(d) {
     }, t('post_from_album')));
   }
   if (d.can_edit) actions.appendChild(el('a', { class: 'btn btn-ghost', style: 'height:50px', href: `editor.html?id=${a.id}` }, t('edit')));
+
+  // Забрать всё себе может тот, кто альбомом владеет: гость события скачивает
+  // не чужой архив, а только свои кадры — через страницу события.
+  if (d.is_author) {
+    const dl = el('button', { class: 'btn btn-ghost', style: 'height:50px' }, t('ex_download'));
+    dl.onclick = async () => {
+      dl.disabled = true;
+      try { await downloadAlbumArchive(d); } finally { dl.disabled = false; }
+    };
+    actions.appendChild(dl);
+  }
+
   if (!d.is_author) actions.appendChild(moreButton('album', a.id, author.username));
 
   hero.appendChild(el('div', { class: 'hero-card' },

@@ -640,4 +640,18 @@
   add: 'Ajouter',
   st_listens: 'Écoutes du récit',
   st_listens_hint: 'lecture du récit de plus de 5 secondes',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: 'Tout télécharger',
+  ex_title: 'Préparation de l’archive',
+  ex_hint: 'Gardez cet onglet ouvert — photos, vidéos et notes vocales sont regroupées dans un fichier ZIP.',
+  ex_author: 'Auteur',
+  ex_date: 'Publié',
+  ex_exported: 'Exporté',
+  ex_has_voice: 'note vocale',
+  ex_missing: 'Impossible à télécharger :',
+  ex_nothing: 'Rien à télécharger pour l’instant',
+  ex_failed: 'Impossible de créer l’archive. Réessayez.',
+  ex_done: 'Archive téléchargée',
+  ex_done_partial: 'Archive téléchargée, {count} fichier(s) ignoré(s)',
 };

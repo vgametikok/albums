@@ -650,4 +650,18 @@
   add: '添加',
   st_listens: '故事播放',
   st_listens_hint: '播放时长超过 5 秒',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: '全部下载',
+  ex_title: '正在准备压缩包',
+  ex_hint: '请勿关闭此标签页 —— 照片、视频和语音备注正在打包成一个 ZIP 文件。',
+  ex_author: '作者',
+  ex_date: '发布于',
+  ex_exported: '导出于',
+  ex_has_voice: '语音备注',
+  ex_missing: '无法下载：',
+  ex_nothing: '暂时没有可下载的内容',
+  ex_failed: '压缩包创建失败，请重试。',
+  ex_done: '压缩包已下载',
+  ex_done_partial: '压缩包已下载，已跳过 {count} 个文件',
 };

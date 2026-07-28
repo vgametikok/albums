@@ -648,4 +648,18 @@
   add: 'Thêm',
   st_listens: 'Lượt nghe câu chuyện',
   st_listens_hint: 'lượt phát câu chuyện dài hơn 5 giây',
+
+  /* ---- выгрузка архива ---- */
+  ex_download: 'Tải xuống tất cả',
+  ex_title: 'Đang chuẩn bị tệp lưu trữ',
+  ex_hint: 'Giữ nguyên tab này — ảnh, video và ghi âm đang được gói vào một tệp ZIP.',
+  ex_author: 'Tác giả',
+  ex_date: 'Đã đăng',
+  ex_exported: 'Đã xuất',
+  ex_has_voice: 'ghi âm',
+  ex_missing: 'Không tải được:',
+  ex_nothing: 'Chưa có gì để tải xuống',
+  ex_failed: 'Không tạo được tệp lưu trữ. Vui lòng thử lại.',
+  ex_done: 'Đã tải tệp lưu trữ',
+  ex_done_partial: 'Đã tải tệp lưu trữ, bỏ qua {count} tệp',
 };
