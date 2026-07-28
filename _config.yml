@@ -1,0 +1,20 @@
+# Конфиг сборки GitHub Pages (Jekyll).
+#
+# `exclude` — что остаётся в репозитории, но НЕ публикуется на albums.ink.
+# Нужно, чтобы схема БД, RLS-политики, деплой-скрипты и README не отдавались
+# краулерам: они путают поисковики и нейросети и раскрывают внутреннее устройство.
+#
+# Внимание: список полностью заменяет дефолтный exclude Jekyll, поэтому
+# node_modules/vendor/Gemfile перечислены явно.
+exclude:
+  - supabase
+  - tools
+  - internal
+  - serve.js
+  - README.md
+  - _config.yml
+  - .gitignore
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock

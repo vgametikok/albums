@@ -4,12 +4,13 @@
 заметок, которая читается как история. Плюс вторая поверхность — инста-стайл лента постов
 (пост = фото/видео или карусель).
 
-Прод: https://vgametikok.github.io/albums/
+Прод: https://albums.ink
 
 ## Стек
 
 Статика без сборки (HTML + ES-модули) на GitHub Pages, данные — Supabase
-(Postgres + RLS, Google-auth, Storage, SECURITY DEFINER RPC). Архитектура: [ARCHITECTURE.md](ARCHITECTURE.md).
+(Postgres + RLS, Google-auth, Storage, SECURITY DEFINER RPC).
+Архитектура, планы и стратегия — в приватном репозитории документации (`internal/`).
 
 ## Страницы
 

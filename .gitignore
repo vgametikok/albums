@@ -1,5 +1,11 @@
 .supabase-token
+.cf-token
 .env
 .env.local
 node_modules/
 *.zip
+
+# Внутренние документы (планы, стратегия, питч, дизайн-макеты).
+# Живут в отдельном ПРИВАТНОМ репозитории: D:\Albums\internal\ — свой .git.
+# Не должны попадать ни в публичный репозиторий, ни на albums.ink.
+internal/
