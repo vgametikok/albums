@@ -149,11 +149,10 @@ Deno.serve(async (req) => {
     if (seen.data) return json(200, { ok: true, dup: true }, h);
 
     const type = String(evt.event_type ?? '');
-    const relevant = type.startsWith('BILLING.SUBSCRIPTION') || type === 'PAYMENT.SALE.COMPLETED';
-    if (relevant) {
-      // id подписки: у SALE это billing_agreement_id, у BILLING.SUBSCRIPTION — resource.id
-      const subId = evt.resource?.billing_agreement_id ?? evt.resource?.id;
-      try {
+    try {
+      if (type.startsWith('BILLING.SUBSCRIPTION') || type === 'PAYMENT.SALE.COMPLETED') {
+        // Подписка Pro. id: у SALE это billing_agreement_id, у BILLING — resource.id.
+        const subId = evt.resource?.billing_agreement_id ?? evt.resource?.id;
         if (subId) {
           // истину о подписке берём напрямую у PayPal, а не из тела вебхука
           const sub = await pp(token, `/v1/billing/subscriptions/${subId}`);
@@ -167,11 +166,19 @@ Deno.serve(async (req) => {
             });
           }
         }
-      } catch (e) {
-        // 500 -> PayPal повторит позже; событие НЕ помечаем обработанным
-        console.error('process', type, e);
-        return json(500, { error: 'process' }, h);
+      } else if (type === 'PAYMENT.CAPTURE.COMPLETED') {
+        // Разовая оплата события (страховка к пути возврата capture-order):
+        // custom_id эхом возвращается в capture-ресурсе, order_id — в related_ids.
+        const uid = evt.resource?.custom_id;
+        const orderId = evt.resource?.supplementary_data?.related_ids?.order_id ?? evt.resource?.id;
+        if (uid && UUID_RE.test(uid) && orderId) {
+          await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
+        }
       }
+    } catch (e) {
+      // 500 -> PayPal повторит позже; событие НЕ помечаем обработанным
+      console.error('process', type, e);
+      return json(500, { error: 'process' }, h);
     }
 
     // помечаем обработанным (дубликат PK молча глотаем)
@@ -188,6 +195,9 @@ Deno.serve(async (req) => {
   if (bearer && bearer !== PUBLISHABLE) {
     try { viewer = (await sb.auth.getUser(bearer)).data.user?.id ?? null; } catch { viewer = null; }
   }
+
+  let body: Record<string, any> = {};
+  try { body = await req.json(); } catch { /* не все маршруты шлют тело */ }
 
   if (route === 'create-subscription') {
     if (!viewer) return json(401, { error: 'auth_required' }, h);
@@ -210,6 +220,63 @@ Deno.serve(async (req) => {
       return json(200, { url: approve }, h);
     } catch (e) {
       console.error('create-sub', e);
+      return json(502, { error: 'paypal_error' }, h);
+    }
+  }
+
+  // Разовая оплата события: создаём заказ на $39.99 с custom_id = uid.
+  if (route === 'create-order') {
+    if (!viewer) return json(401, { error: 'auth_required' }, h);
+    try {
+      const token = await ppToken();
+      const order = await pp(token, '/v2/checkout/orders', 'POST', {
+        intent: 'CAPTURE',
+        purchase_units: [{
+          custom_id: viewer,
+          description: 'Albums Event Album',
+          amount: { currency_code: 'USD', value: '39.99' },
+        }],
+        application_context: {
+          brand_name: 'Albums',
+          user_action: 'PAY_NOW',
+          shipping_preference: 'NO_SHIPPING',
+          return_url: `${SITE}/event-thanks.html`,
+          cancel_url: `${SITE}/pricing.html`,
+        },
+      });
+      const approve = (order.links ?? []).find((l: any) => l.rel === 'approve')?.href;
+      if (!approve) return json(502, { error: 'no_approve_link' }, h);
+      return json(200, { url: approve }, h);
+    } catch (e) {
+      console.error('create-order', e);
+      return json(502, { error: 'paypal_error' }, h);
+    }
+  }
+
+  // Захват платежа после одобрения (страница возврата шлёт order_id). Кредит
+  // выдаём только тому, чей uid зашит в custom_id заказа. Идемпотентно.
+  if (route === 'capture-order') {
+    if (!viewer) return json(401, { error: 'auth_required' }, h);
+    const orderId = String(body?.order_id ?? '').trim();
+    if (!orderId) return json(400, { error: 'no_order' }, h);
+    try {
+      const token = await ppToken();
+      const order = await pp(token, `/v2/checkout/orders/${orderId}`);
+      if (order.purchase_units?.[0]?.custom_id !== viewer) {
+        return json(403, { error: 'not_your_order' }, h);
+      }
+      let status = order.status;
+      if (status === 'APPROVED') {
+        const cap = await pp(token, `/v2/checkout/orders/${orderId}/capture`, 'POST', {});
+        status = cap.status;
+      }
+      if (status === 'COMPLETED') {
+        await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: viewer });
+        return json(200, { ok: true }, h);
+      }
+      return json(409, { error: 'not_completed', status }, h);
+    } catch (e) {
+      console.error('capture-order', e);
       return json(502, { error: 'paypal_error' }, h);
     }
   }

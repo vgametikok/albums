@@ -1,7 +1,7 @@
-// Локализация статичной страницы цен + кнопка «Get Pro» прямо в оплату.
-// Английский текст лежит в разметке; после initI18n подставляем перевод во
-// все узлы с data-i18n. Клиент Supabase нужен только для сессии и вызова
-// edge-функции create-subscription — CSP страницы под это расширен.
+// Локализация страницы цен + кнопки «в оплату» для Pro (подписка) и события
+// (разовый заказ). Английский текст лежит в разметке; после initI18n подставляем
+// перевод во все data-i18n. Клиент Supabase нужен для сессии и вызова edge-функции
+// paypal-webhook — CSP страницы под это расширен.
 import { initI18n, t } from './i18n.js';
 import { sb, signIn } from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
@@ -13,30 +13,35 @@ import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
     n.textContent = t(n.dataset.i18n);
   });
 
-  const proBtn = document.getElementById('pro-cta');
-  if (proBtn) {
-    proBtn.addEventListener('click', () => startPro(proBtn, false));
-    // Вернулись после входа, начатого ради Pro — продолжаем сразу.
-    if (localStorage.getItem('pro_after_login') === '1') {
-      localStorage.removeItem('pro_after_login');
-      startPro(proBtn, true);
-    }
-  }
+  wire('pro-cta', 'create-subscription', 'pro_after_login');
+  wire('event-cta', 'create-order', 'event_after_login');
 })();
 
-// Залогинен — создаём подписку и уходим на оплату PayPal; гость — сперва вход
-// (после возврата продолжим по флагу). fromLogin защищает от зацикливания входа.
-async function startPro(btn, fromLogin) {
+// Навешиваем клик и, если вернулись после входа именно ради этой покупки
+// (флаг в localStorage), сразу продолжаем.
+function wire(id, route, flag) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener('click', () => startCheckout(btn, route, flag, false));
+  if (localStorage.getItem(flag) === '1') {
+    localStorage.removeItem(flag);
+    startCheckout(btn, route, flag, true);
+  }
+}
+
+// Залогинен — создаём заказ/подписку и уходим на оплату PayPal; гость — сперва
+// вход (после возврата продолжим по флагу). fromLogin гасит зацикливание входа.
+async function startCheckout(btn, route, flag, fromLogin) {
   btn.disabled = true;
   try {
     const { data: { session } } = await sb.auth.getSession();
     if (!session) {
       if (fromLogin) { btn.disabled = false; return; }
-      localStorage.setItem('pro_after_login', '1');
+      localStorage.setItem(flag, '1');
       await signIn();
       return;
     }
-    const resp = await fetch(`${SUPABASE_URL}/functions/v1/paypal-webhook/create-subscription`, {
+    const resp = await fetch(`${SUPABASE_URL}/functions/v1/paypal-webhook/${route}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
