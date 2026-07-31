@@ -461,11 +461,7 @@ function saveBtn(a, saved) {
 }
 
 function shareBtn() {
-  // Делимся ссылкой ЧЕРЕЗ og-функцию: она отдаёт краулерам мессенджеров карточку
-  // с обложкой/названием/автором (сам album.html статичен, JS краулеры не читают),
-  // а живого человека мгновенно перекидывает на album.html. Без этого в чате
-  // появлялась голая ссылка — а шеринг альбома и есть вирусный контур сети.
-  const shareUrl = `${SUPABASE_URL}/functions/v1/og/a/${id}`;
+  const shareUrl = `${location.origin}${location.pathname}?id=${id}`;
   return el('button', {
     class: 'btn-round',
     onclick: async () => {
