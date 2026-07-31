@@ -1,5 +1,6 @@
 // Страница альбома: обложка, главы, медиа, голосовые заметки, сайдбар, комментарии.
 import { sb, currentUser } from './sb.js';
+import { SUPABASE_URL } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, attachMediaRefresh, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
@@ -460,13 +461,19 @@ function saveBtn(a, saved) {
 }
 
 function shareBtn() {
+  // Делимся ссылкой ЧЕРЕЗ og-функцию: она отдаёт краулерам мессенджеров карточку
+  // с обложкой/названием/автором (сам album.html статичен, JS краулеры не читают),
+  // а живого человека мгновенно перекидывает на album.html. Без этого в чате
+  // появлялась голая ссылка — а шеринг альбома и есть вирусный контур сети.
+  const shareUrl = `${SUPABASE_URL}/functions/v1/og/a/${id}`;
   return el('button', {
     class: 'btn-round',
     onclick: async () => {
+      if (navigator.share) { try { await navigator.share({ url: shareUrl }); } catch (_) { /* отмена */ } return; }
       try {
-        await navigator.clipboard.writeText(location.href);
+        await navigator.clipboard.writeText(shareUrl);
         toast(t('link_copied'));
-      } catch (_) { toast(location.href); }
+      } catch (_) { toast(shareUrl); }
     },
   }, icon('share', 19));
 }

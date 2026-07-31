@@ -507,9 +507,12 @@ function drawChapters(host) {
 /* ---------------------------------------------------------------- видимость */
 function visibilityBox() {
   const box = el('div', { class: 'side-card' }, el('div', { class: 'label', text: t('who_can_see') }));
+  // Новый альбом по умолчанию ПУБЛИЧНЫЙ: иначе первый альбом человека не видит
+  // никто, включая ленту — ни просмотра, ни повода вернуться. Приватность —
+  // осознанный выбор, а не тихий дефолт, который глушит распространение.
   const initial = album
     ? (album.visibility === 'friends' && excluded.size ? 'friends_except' : album.visibility)
-    : 'private';
+    : 'public';
 
   const exceptBox = el('div', {
     style: 'margin-top:10px;padding-left:6px;max-height:220px;overflow:auto',
