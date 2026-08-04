@@ -166,12 +166,22 @@ async function render() {
   const status = el('div', { class: 'muted hide', style: 'margin-top:12px;font-size:14.5px' });
   const listHost = el('div', { style: 'margin-top:24px' });
 
-  panel.append(fileInput, drop, status, listHost);
+  // После удачной пачки зона загрузки сменяется на «готово»: человек у стола
+  // с QR-кодом должен понять, что дело сделано и страницу можно закрывать.
+  const done = el('div', { class: 'side-card hide', style: 'text-align:center' },
+    el('div', { style: 'font-size:19px;font-weight:700', text: t('join_done_title') }),
+    el('div', { class: 'muted', style: 'font-size:14.5px;margin-top:6px', text: t('join_done_text') }),
+    el('button', {
+      class: 'btn btn-primary', style: 'margin-top:14px',
+      onclick: () => { done.classList.add('hide'); drop.classList.remove('hide'); },
+    }, t('join_add_more')));
+
+  panel.append(fileInput, drop, done, status, listHost);
   loadMine();
 
   async function loadMine() {
     const { data } = await sb.from('album_media')
-      .select('id,position,media:media_id(id,kind,storage_path,thumb_path,duration_seconds,owner_id)')
+      .select('id,position,is_private,visibility,media:media_id(id,kind,storage_path,thumb_path,duration_seconds,owner_id)')
       .eq('album_id', info.album_id)
       .order('position');
     mine = (data || []).filter(r => r.media?.owner_id === currentUser().id);
@@ -197,6 +207,14 @@ async function render() {
         m.thumb_path ? null : m.kind);
       if (node) cell.appendChild(node);
       if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: dur(m.duration_seconds) || t('video_tag') }));
+      // Придержанный файл: автор альбома (или модератор) ещё не показал его
+      // остальным. Загрузившему честно говорим, что кадр пока ждёт одобрения.
+      if (r.is_private) {
+        cell.appendChild(el('div', {
+          class: 'tag', style: 'bottom:auto;top:5px;background:rgba(232,85,43,.92)',
+          text: t('join_on_review'),
+        }));
+      }
       cell.appendChild(el('button', {
         class: 'lib-remove', 'aria-label': t('remove'),
         onclick: async () => {
@@ -235,8 +253,12 @@ async function render() {
     }
     status.classList.add('hide');
     loadMine();
-    // Гость только что положил файлы — самое время предложить забрать их себе.
-    if (ok > 0 && isGuest() && busy === 0) openClaimModal(true);
+    if (ok > 0 && busy === 0) {
+      drop.classList.add('hide');
+      done.classList.remove('hide');
+      // Гость только что положил файлы — самое время предложить забрать их себе.
+      if (isGuest()) openClaimModal(true);
+    }
   }
 
   /**

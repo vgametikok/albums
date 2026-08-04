@@ -72,6 +72,11 @@ function head(title, active) {
         onclick: () => renderPending(),
       }, pendingLabel()),
       el('button', {
+        id: 'tab-media',
+        class: 'chip btn-sm' + (active ==='media' ? ' on' : ''),
+        onclick: () => renderMedia(),
+      }, mediaLabel()),
+      el('button', {
         class: 'chip btn-sm' + (active ==='stats' ? ' on' : ''),
         onclick: () => renderStats(),
       }, 'Statistics'),
@@ -270,6 +275,81 @@ function pendingCard(a) {
     el('button', { class: 'mini', onclick: () => openAlbum(a.id) }, 'Open'),
     el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
     el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Reject')));
+  return card;
+}
+
+/* ---------------- новые медиа в чужих альбомах ---------------- */
+// Гость общего альбома или соавтор долил файлы после проверки альбома — они
+// проходят здесь. Approve — проверено; Hide — файл становится private (публика
+// не видит, загрузивший видит своё).
+let mediaCount = null;
+const mediaLabel = () => (mediaCount ? `New media (${mediaCount})` : 'New media');
+
+async function renderMedia() {
+  clear(app);
+  app.appendChild(head('New media', 'media'));
+
+  const list = el('div', {});
+  app.appendChild(list);
+  list.appendChild(el('div', { class: 'muted', text: 'Loading…' }));
+
+  let d;
+  try { d = (await call('media_pending')).data; }
+  catch (e) { clear(list).appendChild(el('div', { class: 'muted', text: e.message })); return; }
+
+  mediaCount = d?.count ?? 0;
+  const tab = document.getElementById('tab-media');
+  if (tab) tab.textContent = mediaLabel();
+
+  const items = d?.items || [];
+  clear(list);
+  if (!items.length) {
+    list.appendChild(el('div', { class: 'empty' },
+      el('h3', { text: 'Nothing to review' }),
+      el('div', { text: 'Every uploaded file has been reviewed.' })));
+    return;
+  }
+
+  const urls = await signPaths(items.flatMap(m => [m.thumb, m.path]));
+  const grid = el('div', { style: 'display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px' });
+  list.appendChild(grid);
+  items.forEach(m => grid.appendChild(mediaCard(m, urls)));
+}
+
+function mediaCard(m, urls) {
+  const card = el('div', { class: 'side-card', style: 'padding:12px;display:flex;flex-direction:column;gap:10px' });
+
+  const stage = el('div', { style: 'border-radius:12px;overflow:hidden;background:#EFEDE8;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;cursor:zoom-in' });
+  const src = urls[m.thumb] || urls[m.path];
+  if (src) {
+    if (m.kind === 'video') stage.appendChild(el('video', { src: (urls[m.path] || src) + '#t=0.1', muted: 'muted', playsinline: 'playsinline', controls: 'controls', style: 'width:100%;height:100%;object-fit:contain' }));
+    else stage.appendChild(el('img', { src, alt: '', style: 'width:100%;height:100%;object-fit:cover' }));
+  } else stage.appendChild(el('div', { class: 'muted', text: 'no preview' }));
+  if (m.kind !== 'video') {
+    stage.onclick = () => { const u = urls[m.path] || urls[m.thumb]; if (u) window.open(u, '_blank', 'noopener'); };
+  }
+  card.appendChild(stage);
+
+  const who = m.uploader_guest ? `guest (no sign-in)` : `@${m.uploader || '?'}`;
+  card.appendChild(el('div', {},
+    el('b', { style: 'font-size:14.5px', text: m.album_title || '(album)' }),
+    el('div', { class: 'muted', style: 'font-size:13px',
+      text: `by ${who}${m.anon ? ' · anon' : ''}${m.is_private ? ' · held by owner' : ''} · ${timeAgo(m.added_at)}` }),
+    m.caption ? el('div', { style: 'font-size:13.5px;margin-top:4px', text: `“${m.caption}”` }) : null));
+
+  const decide = async (approve) => {
+    try {
+      await call('media_review', { am_id: m.am_id, approve });
+      toast(approve ? 'Approved' : 'Hidden');
+      card.style.opacity = '0.35';
+      setTimeout(renderMedia, 350);
+    } catch (e) { toast(e.message); }
+  };
+
+  card.appendChild(el('div', { class: 'rowx' },
+    el('button', { class: 'mini', onclick: () => openAlbum(m.album_id) }, 'Album'),
+    el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
+    el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Hide')));
   return card;
 }
 

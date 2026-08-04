@@ -88,6 +88,14 @@ async function render(d) {
       el('div', { class: 'hero-title', text: a.title }),
       el('div', { class: 'hero-sub', text: `${author.name || author.username} · ${a.published_at ? new Date(a.published_at).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : t('draft')}` }),
       el('div', { class: 'pill', text: composition(a) }),
+      // Неодобренный альбом видят только участники — им честно говорим, почему
+      // его нет в ленте. Отклонённый помечаем автору.
+      (a.published_at && a.moderation_status === 'pending')
+        ? el('div', { class: 'pill', style: 'background:#E8552B;color:#fff;margin-left:8px', text: t('album_on_review') })
+        : null,
+      (d.is_author && a.moderation_status === 'rejected')
+        ? el('div', { class: 'pill', style: 'background:#8A2B14;color:#fff;margin-left:8px', text: t('album_rejected') })
+        : null,
       actions)));
   app.appendChild(hero);
 
@@ -114,9 +122,14 @@ async function render(d) {
       localStorage.setItem('albumView', m);
       [...toggle.children].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
       clear(body);
-      if (m === 'grid') renderGrid(body, all, urls);
+      if (m === 'grid') renderGrid(body, all, urls, d.can_edit);
       else renderStory(body, d, urls, VIEW);
     };
+    // Свой придержанный кадр в сторис-режиме: загрузившему говорим, что кадр
+    // ждёт одобрения. Владельцу не показываем — он сам его и скрыл.
+    VIEW.mark = (m) => (m.mine && m.is_private && !d.can_edit
+      ? el('div', { class: 'muted', style: 'font-size:13px;margin-top:4px', text: t('media_on_review') })
+      : null);
     [['story', t('view_story')], ['grid', t('view_grid')]].forEach(([m, label]) => {
       toggle.appendChild(el('button', {
         'data-mode': m, onclick: () => setMode(m),
@@ -310,7 +323,7 @@ function byBadge(m) {
 }
 
 /* ---- режим «Grid»: адаптивная раскладка, ничего не обрезается ---- */
-function renderGrid(host, all, urls) {
+function renderGrid(host, all, urls, canEdit) {
   const visual = all.filter(m => m.kind !== 'audio');
   const audio = all.filter(m => m.kind === 'audio');
 
@@ -333,6 +346,9 @@ function renderGrid(host, all, urls) {
     }
     const by = byBadge(m);
     if (by) cell.appendChild(by);
+    if (m.mine && m.is_private && !canEdit) {
+      cell.appendChild(el('div', { class: 'vbadge', style: 'right:auto;left:10px;background:rgba(232,85,43,.92)', text: t('join_on_review') }));
+    }
     cells.push({ el: cell, ratio });
     wrap.appendChild(cell);
   });

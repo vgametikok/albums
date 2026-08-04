@@ -162,6 +162,18 @@ Deno.serve(async (req) => {
           p_album: body.album_id, p_approve: !!body.approve, p_login: login, p_note: body.note ?? null,
         })).data;
         break;
+      case 'media_pending':
+        // новые файлы, долитые в чужие альбомы (гости общих альбомов и соавторы)
+        out = {
+          items: (await sb.rpc('mod_media_pending', { p_limit: body.limit ?? 60, p_offset: body.offset ?? 0 })).data,
+          count: (await sb.rpc('mod_media_count')).data,
+        };
+        break;
+      case 'media_review':
+        out = (await sb.rpc('mod_media_review', {
+          p_am_id: body.am_id, p_approve: !!body.approve, p_login: login,
+        })).data;
+        break;
       case 'stats':
         out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
         break;
