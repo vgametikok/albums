@@ -33,6 +33,19 @@ async function init() {
 export function currentUser() { return _session?.user || null; }
 export function currentProfile() { return _me; }
 export function isAuthed() { return !!_session; }
+/** Гостевая (анонимная) сессия: человек загружает без регистрации. */
+export function isGuest() { return !!_session?.user?.is_anonymous; }
+
+/**
+ * Вход «без регистрации»: Supabase создаёт анонимного пользователя. Для базы
+ * это обычный authenticated — работают RLS, квоты и rate-limit'ы. Профиль
+ * (user123) заведёт ensure_profile при следующем ready(), поэтому после
+ * успеха страницу нужно перезагрузить.
+ */
+export async function signInAnonymously() {
+  const { error } = await sb.auth.signInAnonymously();
+  if (error) throw error;
+}
 
 export async function signIn() {
   const redirectTo = location.origin + location.pathname + location.search;

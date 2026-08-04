@@ -410,14 +410,22 @@ async function guestsBox(a) {
   }
   const stack = el('div', { class: 'stack', style: 'margin-top:10px' });
   list.forEach(g => {
-    const rel = g.is_friend ? t('ev_rel_friend') : (g.is_follower ? t('ev_rel_follower') : t('ev_rel_guest'));
+    // Гость без входа сидит под техническим профилем — вести на его страницу
+    // некуда, показываем как анонима.
+    const rel = g.is_guest ? t('ev_rel_noauth')
+      : g.is_friend ? t('ev_rel_friend') : (g.is_follower ? t('ev_rel_follower') : t('ev_rel_guest'));
+    const name = g.is_guest ? t('ev_unknown_guest') : (g.name || g.username);
     stack.appendChild(el('div', { style: 'display:flex;gap:10px;align-items:center' },
-      el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`, style: 'flex-shrink:0' },
-        avatarImg(g.avatar, g.name, 36)),
+      g.is_guest
+        ? el('span', { style: 'flex-shrink:0' }, avatarImg(null, name, 36))
+        : el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`, style: 'flex-shrink:0' },
+          avatarImg(g.avatar, g.name, 36)),
       el('div', { style: 'min-width:0;flex:1' },
         el('div', { style: 'display:flex;gap:8px;align-items:center;flex-wrap:wrap' },
-          el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`,
-            style: 'font-size:14.5px;font-weight:600', text: g.name || g.username }),
+          g.is_guest
+            ? el('span', { style: 'font-size:14.5px;font-weight:600', text: name })
+            : el('a', { href: `profile.html?u=${encodeURIComponent(g.username)}`,
+              style: 'font-size:14.5px;font-weight:600', text: name }),
           el('span', { class: 'ev-rel' + (g.is_friend ? ' friend' : g.is_follower ? ' follower' : ''), text: rel })),
         el('div', { class: 'muted', style: 'font-size:13px;margin-top:2px',
           text: t('ev_guest_stat', { total: g.uploaded || 0, shown: g.shown || 0, held: g.held || 0 }) }))));

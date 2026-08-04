@@ -291,6 +291,24 @@ const VIEW = {
   onImageClick: (items, i, urls) => lightbox(items, urls, i),
 };
 
+/**
+ * Подпись «кто прислал» на файле общего альбома. Показываем только то, что
+ * участник сам решил подписать (anon = false); base отдаёт by владельцу всегда,
+ * поэтому флаг проверяем отдельно — иначе автор альбома видел бы имена и на
+ * анонимных файлах прямо в публичной сетке. Ставим по верхнему краю: нижний
+ * занят подписью к кадру (.cap).
+ */
+function byBadge(m) {
+  if (!m.by || m.anon !== false) return null;
+  return el('a', {
+    class: 'ev-by',
+    style: 'top:0;bottom:auto;padding:8px 10px 16px;background:linear-gradient(180deg,rgba(12,10,8,.55),rgba(12,10,8,0))',
+    href: `profile.html?u=${encodeURIComponent(m.by.username)}`,
+    onclick: (e) => e.stopPropagation(),
+    text: m.by.name || m.by.username,
+  });
+}
+
 /* ---- режим «Grid»: адаптивная раскладка, ничего не обрезается ---- */
 function renderGrid(host, all, urls) {
   const visual = all.filter(m => m.kind !== 'audio');
@@ -313,6 +331,8 @@ function renderGrid(host, all, urls) {
       cell.appendChild(img);
       if (m.caption) cell.appendChild(el('div', { class: 'cap', text: m.caption }));
     }
+    const by = byBadge(m);
+    if (by) cell.appendChild(by);
     cells.push({ el: cell, ratio });
     wrap.appendChild(cell);
   });
@@ -365,9 +385,19 @@ function lightbox(items, urls, start) {
   let i = start;
   const stage = el('div', { style: 'position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center' });
   const cap = el('div', { style: 'display:none;text-align:center;color:#fff;font-size:14.5px;max-width:min(1100px,92vw);padding:0 10px' });
+  const byLine = el('div', { style: 'display:none;text-align:center;font-size:13px' });
   const draw = () => {
     clear(stage);
     const m = items[i];
+    clear(byLine);
+    byLine.style.display = 'none';
+    if (m.by && m.anon === false) {
+      byLine.style.display = 'block';
+      byLine.appendChild(el('a', {
+        href: `profile.html?u=${encodeURIComponent(m.by.username)}`,
+        style: 'color:#cfcac2', text: m.by.name || m.by.username,
+      }));
+    }
     if (m.kind === 'video') {
       const v = el('video', { controls: 'controls', autoplay: 'autoplay', playsinline: 'playsinline', style: 'max-width:100%;max-height:100%' });
       if (urls[m.path]) v.src = urls[m.path];
@@ -396,7 +426,7 @@ function lightbox(items, urls, start) {
 
   bg.append(
     el('div', { style: 'width:min(1100px,92vw);height:min(72vh,740px);position:relative' }, stage),
-    cap,
+    cap, byLine,
     el('div', { style: 'display:flex;gap:14px;align-items:center' },
       items.length > 1 ? nav(-1) : null,
       counter,

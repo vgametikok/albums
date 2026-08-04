@@ -3,14 +3,24 @@
 // Намеренно проще редактора: гость не правит альбом, не видит чужих приватных
 // файлов и не может удалить чужое. Всё, что он делает, — кладёт своё и видит,
 // что уже положил.
-import { sb, isAuthed, currentUser } from './sb.js';
+//
+// Входить не обязательно: «Продолжить без входа» создаёт анонимную сессию,
+// файлы ложатся в альбом без подписи. После загрузки предлагаем войти — тогда
+// файлы можно забрать себе (guest_claim_start/finish) и, по желанию, подписать.
+// Зарегистрированный участник сам выбирает, как подписывать: своим именем или
+// анонимно (album_media.anon).
+import { sb, isAuthed, isGuest, currentUser, signInAnonymously } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur, avatarImg,
+  modal,
 } from './ui.js';
 import { uploadMedia } from './upload.js';
 
 const app = $('#app');
 const token = new URLSearchParams(location.search).get('t');
+
+const CLAIM_KEY = 'albumsClaim';        // {code, pub, ts} — переезд гостевых файлов после входа
+const AS_ANON_KEY = 'joinAsAnon';       // выбор подписи зарегистрированного участника
 
 let info = null;      // ответ album_invite_peek
 let mine = [];        // мои файлы в этом альбоме
@@ -21,6 +31,8 @@ let busy = 0;
   document.title = t('join_title') + ' — Albums';
 
   if (!token) { app.appendChild(emptyState(t('join_bad_link'), t('join_bad_link_text'))); return; }
+
+  await finishClaimIfAny();
 
   const { data, error } = await sb.rpc('album_invite_peek', { p_token: token });
   if (error || !data?.ok) {
@@ -34,6 +46,24 @@ let busy = 0;
   info = data;
   render();
 })();
+
+/**
+ * Человек загрузил как гость, а теперь вернулся уже с настоящим аккаунтом:
+ * предъявляем код и забираем файлы себе. Код одноразовый, попытка — тоже:
+ * при ошибке ключ выбрасываем, чтобы не дёргать RPC на каждом заходе.
+ */
+async function finishClaimIfAny() {
+  if (!isAuthed() || isGuest()) return;
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(CLAIM_KEY) || 'null'); } catch (_) { /* мусор */ }
+  localStorage.removeItem(CLAIM_KEY);
+  if (!saved?.code || (Date.now() - (saved.ts || 0)) > 7 * 86400e3) return;
+  const { data, error } = await sb.rpc('guest_claim_finish', {
+    p_code: saved.code, p_public: !!saved.pub,
+  });
+  if (error) { toast(t('claim_failed')); return; }
+  if (data?.moved > 0) toast(t('claim_done'));
+}
 
 async function render() {
   clear(app);
@@ -60,12 +90,21 @@ async function render() {
     el('div', { text: greet || t('join_default_greeting') })));
 
   if (!isAuthed()) {
+    const guestBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' }, t('join_guest_btn'));
+    guestBtn.onclick = async () => {
+      guestBtn.disabled = true;
+      try { await signInAnonymously(); location.reload(); }
+      catch (err) { toast(err.message || t('signin_failed')); guestBtn.disabled = false; }
+    };
     app.appendChild(el('div', { class: 'side-card', style: 'margin-top:24px;max-width:520px' },
-      el('p', { style: 'margin:0 0 16px;font-size:16.5px;line-height:1.6', text: t('join_signin_text') }),
+      el('p', { style: 'margin:0 0 16px;font-size:16.5px;line-height:1.6', text: t('join_choice_text') }),
+      guestBtn,
+      el('div', { class: 'muted', style: 'font-size:13.5px;line-height:1.5;margin:8px 0 14px', text: t('join_guest_hint') }),
       el('button', {
-        class: 'btn btn-primary', style: 'width:100%',
+        class: 'btn btn-ghost', style: 'width:100%',
         onclick: () => showLogin(t('join_signin_reason')),
-      }, t('sign_in'))));
+      }, t('sign_in')),
+      el('div', { class: 'muted', style: 'font-size:13.5px;line-height:1.5;margin-top:8px', text: t('join_signin_hint') })));
     return;
   }
 
@@ -78,6 +117,37 @@ async function render() {
 
   const panel = el('div', { style: 'max-width:720px;margin-top:24px' });
   app.appendChild(panel);
+
+  // Как подписывать файлы. Гость выбора не имеет: без аккаунта подпись ставить
+  // не на кого — только анонимно (до переноса после входа).
+  let asAnon = isGuest() ? true : localStorage.getItem(AS_ANON_KEY) === '1';
+
+  if (isGuest()) {
+    panel.appendChild(el('div', { class: 'side-card', style: 'margin-bottom:18px' },
+      el('div', { style: 'font-size:15px;line-height:1.55', text: t('join_guest_banner') }),
+      el('button', {
+        class: 'btn btn-ghost btn-sm', style: 'margin-top:10px',
+        onclick: () => openClaimModal(false),
+      }, t('sign_in'))));
+  } else {
+    const wrap = el('div', { class: 'vis-opts', style: 'margin-bottom:18px' });
+    [[false, t('join_as_public'), t('join_as_public_d')], [true, t('join_as_anon'), t('join_as_anon_d')]]
+      .forEach(([val, ttl, sub]) => {
+        const input = el('input', {
+          type: 'radio', name: 'joinas', checked: val === asAnon ? 'checked' : null,
+          onchange: () => {
+            asAnon = val;
+            localStorage.setItem(AS_ANON_KEY, val ? '1' : '0');
+            wrap.querySelectorAll('.vis-opt').forEach(n => n.classList.toggle('on', n.contains(input)));
+          },
+        });
+        wrap.appendChild(el('label', { class: 'vis-opt' + (val === asAnon ? ' on' : '') },
+          input, el('div', {}, el('b', { text: ttl }), el('span', { text: sub }))));
+      });
+    panel.append(
+      el('div', { class: 'label', style: 'margin-bottom:8px', text: t('join_as_label') }),
+      wrap);
+  }
 
   const fileInput = el('input', {
     type: 'file', multiple: 'multiple', class: 'hide', accept: 'image/*,.heic,.heif,video/*',
@@ -143,6 +213,7 @@ async function render() {
 
   async function addFiles(files) {
     if (!files.length) return;
+    let ok = 0;
     for (const f of files) {
       busy++;
       status.classList.remove('hide');
@@ -154,8 +225,9 @@ async function render() {
         });
         const pos = Date.now() % 100000;
         const { error } = await sb.from('album_media')
-          .insert({ album_id: info.album_id, media_id: media.id, position: pos });
+          .insert({ album_id: info.album_id, media_id: media.id, position: pos, anon: asAnon });
         if (error) throw error;
+        ok++;
       } catch (err) {
         toast(err.message || t('upload_failed'));
       }
@@ -163,5 +235,36 @@ async function render() {
     }
     status.classList.add('hide');
     loadMine();
+    // Гость только что положил файлы — самое время предложить забрать их себе.
+    if (ok > 0 && isGuest() && busy === 0) openClaimModal(true);
+  }
+
+  /**
+   * Предложение входа гостю. justUploaded меняет только заголовок и текст:
+   * из баннера — «войдите», после загрузки — «фото загружены, подпишите их».
+   * Код переноса просим ДО входа: после редиректа гостевой сессии уже не будет.
+   */
+  function openClaimModal(justUploaded) {
+    modal((box, close) => {
+      const startClaim = async (pub, btn) => {
+        btn.disabled = true;
+        const { data, error } = await sb.rpc('guest_claim_start');
+        if (error || !data?.code) { toast(error?.message || t('claim_failed')); btn.disabled = false; return; }
+        localStorage.setItem(CLAIM_KEY, JSON.stringify({ code: data.code, pub, ts: Date.now() }));
+        close();
+        showLogin(t('claim_signin_reason'));
+      };
+      const pubBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' }, t('claim_signin_public'));
+      pubBtn.onclick = () => startClaim(true, pubBtn);
+      const anonBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, t('claim_signin_anon'));
+      anonBtn.onclick = () => startClaim(false, anonBtn);
+
+      box.append(
+        el('h2', { text: justUploaded ? t('claim_title') : t('claim_title_idle') }),
+        el('p', { text: t('claim_text') }),
+        pubBtn, anonBtn,
+        el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close },
+          t('claim_stay_anon')));
+    });
   }
 }
