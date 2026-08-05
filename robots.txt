@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /editor.html
+Disallow: /moderation.html
+
+Sitemap: https://albums.ink/sitemap.xml
