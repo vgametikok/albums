@@ -34,6 +34,29 @@ const r2 = new AwsClient({
 
 const TYPE = { a: 'album', u: 'user' } as const;
 
+// Тот же формат ключа, что подписывает r2-sign. Без него сегменты «..» внутри
+// storage_path (колонка пишется клиентом) нормализуются разбором URL и подпись
+// уходит за пределы бакета.
+const UUID = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
+const PATH_RE = new RegExp(`^r2/${UUID}/${UUID}/(orig|thumb)\\.[a-z0-9]{2,5}$`);
+
+// Куда разрешено уводить редиректом. avatar_url — обычная колонка профиля,
+// которую владелец пишет сам, поэтому без списка функция работает открытым
+// редиректором на домене *.supabase.co.
+const AVATAR_HOSTS = new Set([
+  'lh3.googleusercontent.com',      // Google
+  'avatars.yandex.net',             // Яндекс ID
+  't.me',                           // Telegram
+  new URL(SUPABASE_URL).host,       // собственный публичный бакет аватаров
+]);
+function avatarAllowed(raw: string): boolean {
+  try {
+    const u = new URL(raw);
+    return u.protocol === 'https:'
+      && (AVATAR_HOSTS.has(u.host) || u.host.endsWith('.telesco.pe'));
+  } catch { return false; }
+}
+
 async function signGet(key: string): Promise<string> {
   const u = new URL(`${R2_ENDPOINT}/${R2_BUCKET}/${key}`);
   u.searchParams.set('X-Amz-Expires', '900');
@@ -71,9 +94,9 @@ Deno.serve(async (req) => {
     const card = (data && typeof data === 'object') ? data as Record<string, unknown> : null;
     if (card) {
       const cover = card.cover as string | undefined;
-      if (cover && cover.startsWith('r2/')) return redirect(await signGet(cover), 'public, max-age=600');
+      if (cover && PATH_RE.test(cover)) return redirect(await signGet(cover), 'public, max-age=600');
       const avatar = card.avatar as string | undefined;   // аватар — уже публичный URL
-      if (avatar) return redirect(avatar, 'public, max-age=600');
+      if (avatar && avatarAllowed(avatar)) return redirect(avatar, 'public, max-age=600');
     }
   } catch { /* упадём в брендовую картинку */ }
   return redirect(FALLBACK_IMG, 'public, max-age=600');

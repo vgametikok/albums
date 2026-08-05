@@ -330,7 +330,7 @@ export async function backfillPoster(media) {
     if (!blob) return null;
     const tType = cleanType(blob.type) || 'image/jpeg';
     let sign;
-    try { sign = await r2SignUpload({ target: 'thumb', mediaId: media.id, thumbType: tType }); }
+    try { sign = await r2SignUpload({ target: 'thumb', mediaId: media.id, thumbType: tType, thumbSize: blob.size }); }
     catch (_) { return null; }
     if (!sign.thumbPutUrl || !(await r2Put(sign.thumbPutUrl, blob, tType))) return null;
     const { error } = await sb.from('media').update({ thumb_path: sign.thumbPath }).eq('id', media.id);

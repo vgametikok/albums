@@ -440,12 +440,21 @@ export function thumbEl(path, url, kind, alt = '') {
 }
 
 export function avatarImg(url, name, size = 44) {
+  // Без ссылки — заглушка с инициалом: <img> без src местами рисуется как битая
+  // картинка, а аватар и правда не всегда есть (гости, старые записи, search_all).
+  if (!url) {
+    return el('span', {
+      class: 'avatar avatar-ph', 'aria-label': name || 'avatar',
+      style: `width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px`,
+      text: ([...String(name || '').trim()][0] || '').toUpperCase(),
+    });
+  }
   const img = el('img', {
     class: 'avatar', alt: name || 'avatar',
     style: `width:${size}px;height:${size}px`,
     referrerpolicy: 'no-referrer',
   });
-  if (url) img.src = url;
+  img.src = url;
   return img;
 }
 

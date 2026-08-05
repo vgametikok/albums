@@ -31,7 +31,14 @@ revoke execute on function
   public.mod_ban(uuid, boolean, text, text),
   public.mod_resolve(uuid, text, text, text),
   public.mod_note_attempt(text, boolean),
-  public.mod_recent_fails(text),
   public.mod_session_create(text, text, text),
   public.mod_session_check(text)
 from public, anon, authenticated;
+
+-- mod_recent_fails когда-то была заведена прямо в проде и в миграциях
+-- отсутствовала, из-за чего на чистой базе этот revoke падал и всё, что за
+-- ним, не применялось. Функция создаётся в 041; здесь снимаем права, только
+-- если она уже есть (порядок «сначала 020, потом 041» тоже должен проходить).
+do $$ begin
+  revoke execute on function public.mod_recent_fails(text) from public, anon, authenticated;
+exception when undefined_function then null; end $$;

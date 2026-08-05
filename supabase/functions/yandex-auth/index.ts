@@ -163,10 +163,11 @@ Deno.serve(async (req) => {
         } else {
           // Уже есть аккаунт с этой почтой — заведён через Google или по коду.
           // Это ожидаемо и правильно: один человек, одна почта, один аккаунт.
-          const { data: list } = await sb.auth.admin.listUsers({ page: 1, perPage: 200 });
-          const found = list?.users?.find((u) => (u.email ?? '').toLowerCase() === email);
+          // Ищем запросом, а не перебором первой страницы listUsers: с ростом
+          // базы страница перестаёт покрывать всех и вход ломается.
+          const { data: found } = await sb.rpc('auth_user_by_email', { p_email: email });
           if (!found) return fail(back, 'nouser');
-          userId = found.id;
+          userId = found as string;
         }
       }
 

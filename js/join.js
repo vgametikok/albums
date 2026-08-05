@@ -232,6 +232,14 @@ async function render() {
   async function addFiles(files) {
     if (!files.length) return;
     let ok = 0;
+    // Хвост общей последовательности альбома: редактор держит позиции плотными
+    // (0..n), гостевые файлы продолжают их. Один запрос до пачки, дальше
+    // локальный инкремент. Если политика чтения не отдала чужих строк —
+    // отталкиваемся от максимума среди своих.
+    const { data: tail } = await sb.from('album_media')
+      .select('position').eq('album_id', info.album_id)
+      .order('position', { ascending: false }).limit(1);
+    let pos = (tail?.[0]?.position ?? Math.max(-1, ...mine.map(r => r.position))) + 1;
     for (const f of files) {
       busy++;
       status.classList.remove('hide');
@@ -241,9 +249,8 @@ async function render() {
           const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
           status.textContent = `${f.name} — ${t('stage_' + (stage === 'converting' ? 'heic' : stage === 'transcoding' ? 'video' : stage))}${pct}`;
         });
-        const pos = Date.now() % 100000;
         const { error } = await sb.from('album_media')
-          .insert({ album_id: info.album_id, media_id: media.id, position: pos, anon: asAnon });
+          .insert({ album_id: info.album_id, media_id: media.id, position: pos++, anon: asAnon });
         if (error) throw error;
         ok++;
       } catch (err) {

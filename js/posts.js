@@ -49,7 +49,12 @@ let feed = null, sentinel = null;
   }, { passive: true });
   feed.addEventListener('scroll', () => { if (near(feed, 1200)) load(); }, { passive: true });
 
-  load();
+  await load();
+
+  // переход из уведомления: #post-<id>. Пост из глубины ленты в первой порции
+  // может не оказаться — тогда просто остаёмся наверху.
+  const target = /^#(post-[\w-]+)$/.exec(location.hash);
+  if (target) document.getElementById(target[1])?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 })();
 
 async function load() {
@@ -140,7 +145,7 @@ function postCard(p, urls) {
   const commentBtn = el('button', { onclick: () => openComments(p) },
     icon('comment', 20), el('span', { text: fmtCount(p.comments_count) }));
 
-  const card = el('article', { class: 'post' },
+  const card = el('article', { class: 'post', id: `post-${p.id}` },
     el('div', { class: 'post-head' },
       el('a', { href: `profile.html?u=${encodeURIComponent(p.author_username)}` },
         avatarImg(p.author_avatar, p.author_name, 38)),
@@ -346,7 +351,9 @@ function openComposer() {
         if (r.error) throw r.error;
         close();
         toast(t('posted'));
-        offset = 0; done = false; clear(col); load();
+        offset = 0; done = false;
+        clear(col).appendChild(sentinel);   // sentinel — якорь вставки в load(), возвращаем после очистки
+        load();
       } catch (err) {
         toast(err.message || t('post_error'));
         publish.disabled = false;

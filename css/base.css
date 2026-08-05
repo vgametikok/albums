@@ -27,6 +27,9 @@ img,video{max-width:100%}
 .search input{border:none;background:transparent;outline:none;font-size:15px;color:var(--ink);flex:1;min-width:0;padding:0}
 .hdr-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
+/* заглушка без снимка: инициал вместо пустого <img>, который выглядит битым */
+.avatar-ph{display:flex;align-items:center;justify-content:center;color:var(--muted);
+  font-weight:700;flex-shrink:0;user-select:none}
 .nav-link{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
 /* ---------- озвучка ---------- */
@@ -226,8 +229,10 @@ img,video{max-width:100%}
 .chapter h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:8px 0 12px}
 .chapter p{font-size:16.5px;line-height:1.7;color:#4A4741;margin:0 0 20px}
 /* история: медиа колонкой, во всю ширину, пропорции не трогаем */
-.story-media{margin-top:20px}
+.story-media{position:relative;margin-top:20px}
 .story-media img,.story-media video{width:100%;height:auto;display:block;border-radius:16px;background:var(--ph)}
+/* подпись «кто прислал» в истории: кадр не обрезается рамкой, поэтому скругляем сам градиент */
+.story-media>.ev-by{border-radius:16px 16px 0 0}
 .story-media video{background:#0d0c0b}
 .story-cap{font-size:14px;color:var(--faint);margin-top:10px}
 .media-grid{display:grid;gap:16px}

@@ -274,7 +274,8 @@ function followButton() {
   const btn = el('button', { class: 'btn btn-sm' });
   const paint = () => {
     clear(btn);
-    btn.className = on ? 'btn btn-ghost btn-sm' : 'btn btn-ghost btn-sm';
+    // не подписан — заметный призыв, подписан — приглушённая, как у дружбы
+    btn.className = on ? 'btn btn-ghost btn-sm' : 'btn btn-primary btn-sm';
     btn.title = t('follow_hint');
     btn.appendChild(document.createTextNode(on ? t('following') : t('follow')));
   };
@@ -414,14 +415,19 @@ function editProfile() {
       ...[['', t('st_unknown')], ['female', t('st_female')], ['male', t('st_male')], ['other', t('st_other')]]
         .map(([v, label]) => el('option', { value: v, selected: (st?.gender || '') === v ? 'selected' : null }, label)));
 
-    const avaPreview = avatarImg(p.avatar, p.name, 72);
+    let avaPreview = avatarImg(p.avatar, p.name, 72);
     let newAvatar = null;
     const avaInput = el('input', {
       type: 'file', accept: 'image/*', class: 'hide',
       onchange: async (e) => {
         const f = e.currentTarget.files[0]; if (!f) return;
-        try { newAvatar = await uploadAvatar(f, 'avatar'); avaPreview.src = newAvatar; }
-        catch (err) { toast(err.message || t('upload_failed')); }
+        try {
+          newAvatar = await uploadAvatar(f, 'avatar');
+          // без снимка avatarImg отдаёт заглушку-инициал, а не <img> — поэтому узел заменяем
+          const fresh = avatarImg(newAvatar, p.name, 72);
+          avaPreview.replaceWith(fresh);
+          avaPreview = fresh;
+        } catch (err) { toast(err.message || t('upload_failed')); }
       },
     });
 
@@ -453,6 +459,49 @@ function editProfile() {
       el('div', { class: 'form-row' }, el('label', { class: 'label', text: t('f_gender') }), gender),
       el('div', { class: 'muted', style: 'font-size:13px;margin:-6px 0 14px', text: t('f_demo_hint') }),
       save,
+      el('div', { style: 'border-top:1px solid var(--line);margin-top:18px;padding-top:16px' },
+        el('button', { class: 'btn btn-ghost', style: 'width:100%', onclick: showBlocked }, t('blocked_title'))),
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  });
+}
+
+/* ---------------- блокировки ---------------- */
+/**
+ * Список заблокированных. Блокировка ставится из «Пожаловаться» на чужом
+ * контенте, а снимается только здесь — другого входа у unblock_user нет.
+ */
+function showBlocked() {
+  modal(async (box, close) => {
+    const host = el('div', { class: 'stack', style: 'gap:0' });
+    box.append(
+      el('h2', { text: t('blocked_title') }),
+      el('p', { class: 'muted', style: 'margin-top:0', text: t('blocked_hint') }),
+      host,
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+
+    const { data, error } = await sb.rpc('my_blocks');
+    if (error) { host.appendChild(el('p', { class: 'muted', text: error.message })); return; }
+    const list = Array.isArray(data) ? data : [];
+    const empty = el('p', { class: 'muted', text: t('blocked_empty') });
+    if (!list.length) { host.appendChild(empty); return; }
+
+    list.forEach(u => {
+      const un = el('button', { class: 'mini' }, t('unblock'));
+      const row = el('div', { class: 'rowx', style: 'flex-wrap:nowrap;padding:8px 0;border-bottom:1px solid var(--line)' },
+        avatarImg(u.avatar, u.name || u.username, 40),
+        el('div', { style: 'min-width:0;flex:1' },
+          el('div', { style: 'font-size:15px;font-weight:600', text: u.name || u.username }),
+          el('div', { class: 'card-sub', text: '@' + u.username })),
+        un);
+      un.onclick = async () => {
+        un.disabled = true;
+        const { error } = await sb.rpc('unblock_user', { p_username: u.username });
+        if (error) { toast(error.message || t('update_error')); un.disabled = false; return; }
+        row.remove();
+        toast(t('unblocked_done'));
+        if (!host.children.length) host.appendChild(empty);
+      };
+      host.appendChild(row);
+    });
   });
 }

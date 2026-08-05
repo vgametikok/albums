@@ -152,6 +152,7 @@ function openShow({ albumId, segments, total, urls, cueTicks }) {
     const fullKey = segIdx + '/' + key;
     if (!m || fullKey === shownKey) return;
     shownKey = fullKey;
+    if (stageVideo) { stageVideo.onended = null; stageVideo.pause?.(); }   // прежний ролик не должен дострелить next()
     clear(stage);
     stageVideo = null;
     if (m.kind === 'video') {
@@ -164,6 +165,13 @@ function openShow({ albumId, segments, total, urls, cueTicks }) {
         // тогда играем немым, таймлайн ведёт время видео в любом случае
         v.muted = false;
         stageVideo = v;
+        // durGuess-сегмент таймер не закрывает — конец даёт сам ролик
+        v.onended = () => { if (playing && stageVideo === v) { next(); paint(); } };
+        v.addEventListener('loadedmetadata', () => {
+          if (s.durGuess && isFinite(v.duration) && v.duration > 0) {
+            s.dur = v.duration; s.durGuess = false; recompute();
+          }
+        });
       } else {
         v.muted = true;
         v.loop = true;

@@ -11,11 +11,16 @@ const TYPES = {
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon',
 };
 
+// Внутри ROOT лежат и секреты (.supabase-token — токен Management API), и .git,
+// и приватные документы. Раздаём только то, что и так уезжает на сайт.
+const DENY = /(^|[/\\])(\.[^/\\]+|internal|tools|supabase|node_modules)([/\\]|$)/i;
+
 http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]);
   if (p === '/') p = '/index.html';
-  const file = path.join(ROOT, path.normalize(p).replace(/^([/\\])+/, ''));
-  if (!file.startsWith(ROOT)) { res.writeHead(403).end('forbidden'); return; }
+  const rel = path.normalize(p).replace(/^([/\\])+/, '');
+  const file = path.join(ROOT, rel);
+  if (!file.startsWith(ROOT) || DENY.test(rel)) { res.writeHead(403).end('forbidden'); return; }
   fs.readFile(file, (err, buf) => {
     if (err) { res.writeHead(404, { 'Content-Type': 'text/plain' }).end('not found'); return; }
     res.writeHead(200, {
@@ -24,4 +29,6 @@ http.createServer((req, res) => {
     });
     res.end(buf);
   });
-}).listen(PORT, () => console.log(`Albums dev server: http://localhost:${PORT}`));
+// Только петля: сервер поднимается в общей Wi-Fi и раздаёт содержимое каталога
+// разработки — соседям по сети его видеть незачем.
+}).listen(PORT, '127.0.0.1', () => console.log(`Albums dev server: http://localhost:${PORT}`));

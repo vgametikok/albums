@@ -319,9 +319,7 @@ function refreshBusy() {
   const note = $('#busy-note');
   document.querySelectorAll('[data-needs-ready]').forEach(b => { b.disabled = busy > 0; });
   if (!note) return;
-  note.textContent = busy > 0
-    ? `В обработке: ${busy} — публикация станет доступна, когда закончится`
-    : '';
+  note.textContent = busy > 0 ? t('busy_note', { n: busy }) : '';
   note.classList.toggle('hide', busy === 0);
 }
 
@@ -364,13 +362,26 @@ function datesBox() {
   const fromRow = el('div', { class: 'form-row', style: 'margin:10px 0 0' },
     el('label', { class: 'label', text: t('date_from') }), from);
 
+  // Смена type у input молча очищает значение несовместимого формата,
+  // поэтому конвертируем его сами: YYYY-MM-DD ↔ YYYY-MM ↔ YYYY.
+  const fit = (v, type) => {
+    if (!v) return '';
+    const [y, m, d] = v.split('-');
+    if (type === 'number') return y;
+    if (type === 'month') return `${y}-${m || '01'}`;
+    return `${y}-${m || '01'}-${d || '01'}`;
+  };
   const sync = () => {
     const p = prec.value;
     fromRow.classList.toggle('hide', !p);
     toRow.classList.toggle('hide', p !== 'range');
-    from.type = (p === 'month' || p === 'year') ? 'month' : (p === 'year' ? 'number' : 'date');
-    if (p === 'year') { from.type = 'number'; from.placeholder = '2025'; from.min = '1900'; from.max = '2100'; }
-    else from.type = (p === 'month') ? 'month' : 'date';
+    const type = p === 'year' ? 'number' : (p === 'month' ? 'month' : 'date');
+    if (from.type !== type) {
+      const v = from.value;
+      from.type = type;
+      from.value = fit(v, type);
+    }
+    if (type === 'number') { from.placeholder = '2025'; from.min = '1900'; from.max = '2100'; }
   };
   prec.onchange = () => { sync(); save(); };
 
@@ -385,8 +396,9 @@ function datesBox() {
     hint.style.cursor = 'pointer';
     hint.onclick = () => {
       prec.value = data.min === data.max ? 'day' : 'range';
+      sync();                                   // сначала тип date, потом полные значения
       from.value = data.min; to.value = data.max;
-      sync(); save();
+      save();
     };
   }
 

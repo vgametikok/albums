@@ -16,6 +16,24 @@ export function ratioOf(m) {
   return (w > 0 && h > 0) ? w / h : null;
 }
 
+/**
+ * Подпись «кто прислал» на файле общего альбома. Показываем только то, что
+ * участник сам решил подписать (anon = false); base отдаёт by владельцу всегда,
+ * поэтому флаг проверяем отдельно — иначе автор альбома видел бы имена и на
+ * анонимных файлах прямо в публичной сетке. Ставим по верхнему краю: нижний
+ * занят подписью к кадру (.cap).
+ */
+export function byBadge(m) {
+  if (!m.by || m.anon !== false) return null;
+  return el('a', {
+    class: 'ev-by',
+    style: 'top:0;bottom:auto;padding:8px 10px 16px;background:linear-gradient(180deg,rgba(12,10,8,.55),rgba(12,10,8,0))',
+    href: `profile.html?u=${encodeURIComponent(m.by.username)}`,
+    onclick: (e) => e.stopPropagation(),
+    text: m.by.name || m.by.username,
+  });
+}
+
 export function videoEl(m, urls, opts = {}) {
   const v = el('video', { controls: 'controls', preload: 'metadata', playsinline: 'playsinline' });
   if (urls[m.thumb]) v.poster = urls[m.thumb];
@@ -132,6 +150,8 @@ function galleryStrip(members, urls, opts = {}) {
       cell.appendChild(img);
     }
     if (m.caption) cell.appendChild(el('div', { class: 'gal-cap', text: m.caption }));
+    const by = byBadge(m);
+    if (by) cell.appendChild(by);
     strip.appendChild(cell);
   });
 
@@ -203,6 +223,8 @@ function appendStoryBlocks(host, items, texts, galleries, urls, opts = {}) {
       if (opts.onImageClick) img.style.cursor = 'zoom-in';
       fig.appendChild(img);
     }
+    const by = byBadge(m);
+    if (by) fig.appendChild(by);
     if (m.caption) fig.appendChild(el('div', { class: 'story-cap', text: m.caption }));
     if (m.voice_path) fig.appendChild(voiceChip(m.voice_path, m.voice_duration, urls, opts));
     const mark = opts.mark?.(m);

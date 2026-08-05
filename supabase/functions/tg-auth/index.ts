@@ -103,7 +103,11 @@ Deno.serve(async (req) => {
     const username = (p.get('username') ?? '').replace(/[^a-zA-Z0-9_]/g, '');
     const name = [p.get('first_name'), p.get('last_name')].filter(Boolean).join(' ').trim();
     const avatar = p.get('photo_url') || null;
-    const email = (username ? username.toLowerCase() : `tg${tgId}`) + '@telegram.local';
+    // Почта выводится ТОЛЬКО из id. Telegram отдаёт брошенные @username новым
+    // владельцам, поэтому адрес вида <username>@telegram.local означал бы, что
+    // новый владелец чужого бывшего ника входит в старый аккаунт. Ник профиля
+    // при этом по-прежнему берётся из @username — через user_metadata.
+    const email = `tg${tgId}@telegram.local`;
 
     // 1. существующий пользователь по связке telegram → user (переживает смену
     //    @username и почты)
@@ -116,13 +120,14 @@ Deno.serve(async (req) => {
       if (u?.user) { userId = u.user.id; userEmail = u.user.email ?? email; }
     }
 
-    // 2. по почте — тот же человек, входивший другим способом (или прошлый
-    //    вход, ещё не связанный). Проверяем ДО создания: createUser на гонке
-    //    репликации мог отдать пустого user при фактически созданной записи.
+    // 2. по почте — прошлый вход, ещё не связанный. Проверяем ДО создания:
+    //    createUser на гонке репликации мог отдать пустого user при фактически
+    //    созданной записи. Ищем запросом к auth.users, а не перебором страниц:
+    //    listUsers отдаёт только первую сотню-другую и с ростом базы промахнулся
+    //    бы мимо существующего аккаунта.
     if (!userId) {
-      const { data: list } = await sb.auth.admin.listUsers({ page: 1, perPage: 200 });
-      const found = list?.users?.find((u) => (u.email ?? '').toLowerCase() === email);
-      if (found) { userId = found.id; userEmail = found.email ?? email; }
+      const { data: found } = await sb.rpc('auth_user_by_email', { p_email: email });
+      if (found) { userId = found as string; userEmail = email; }
     }
 
     // 3. иначе заводим

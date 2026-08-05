@@ -37,6 +37,12 @@ const r2 = new AwsClient({
   region: 'auto',
 });
 
+// Допустимые формы ключей: новый R2 (как в r2-sign) и старый Supabase Storage
+// (<uid>/<файл>). Всё остальное к подписи не принимается.
+const UUID = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
+const R2_PATH_RE = new RegExp(`^r2/${UUID}/${UUID}/(orig|thumb)\\.[a-z0-9]{2,5}$`);
+const LEGACY_PATH_RE = new RegExp(`^${UUID}/[A-Za-z0-9._-]{1,120}$`);
+
 function cors(origin: string | null) {
   const allow = origin && ALLOW_ORIGINS.includes(origin) ? origin : ALLOW_ORIGINS[0];
   return {
@@ -120,7 +126,23 @@ Deno.serve(async (req) => {
       case 'sign': {
         // подписанные URL для медиа спорного альбома — под service-ключом.
         // Медиа в двух бэкендах: старое — Supabase Storage, новое (r2/) — R2.
-        const paths = (body.paths ?? []) as string[];
+        //
+        // Подписываем только те пути, которые реально числятся за какой-то
+        // строкой media: иначе сессия модератора превращается в подпись любого
+        // ключа хранилища, а «..» внутри ключа ещё и уводит подпись из бакета.
+        const asked = [...new Set(((body.paths ?? []) as unknown[]).map(String))]
+          .filter((p) => R2_PATH_RE.test(p) || LEGACY_PATH_RE.test(p))
+          .slice(0, 240);
+        if (asked.length === 0) { out = []; break; }
+        const real = new Set<string>();
+        for (const col of ['storage_path', 'thumb_path'] as const) {
+          const { data } = await sb.from('media').select('storage_path, thumb_path').in(col, asked);
+          for (const r of (data ?? []) as { storage_path: string | null; thumb_path: string | null }[]) {
+            if (r.storage_path) real.add(r.storage_path);
+            if (r.thumb_path) real.add(r.thumb_path);
+          }
+        }
+        const paths = asked.filter((p) => real.has(p));
         const legacy = paths.filter((p) => !p.startsWith('r2/'));
         const r2paths = paths.filter((p) => p.startsWith('r2/'));
         const signed: { path: string; signedUrl: string }[] = [];

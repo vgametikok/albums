@@ -1,6 +1,5 @@
 // Страница альбома: обложка, главы, медиа, голосовые заметки, сайдбар, комментарии.
 import { sb, currentUser } from './sb.js';
-import { SUPABASE_URL } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, attachMediaRefresh, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
@@ -8,7 +7,7 @@ import {
 } from './ui.js';
 import { mountComments } from './comments.js';
 import { trackAlbumView } from './stats.js';
-import { renderStory, audioRow, videoEl, ratioOf } from './albumview.js';
+import { renderStory, audioRow, videoEl, ratioOf, byBadge } from './albumview.js';
 import { downloadAlbumArchive } from './export.js';
 
 const app = $('#app');
@@ -303,24 +302,6 @@ const VIEW = {
   refresh: attachMediaRefresh,
   onImageClick: (items, i, urls) => lightbox(items, urls, i),
 };
-
-/**
- * Подпись «кто прислал» на файле общего альбома. Показываем только то, что
- * участник сам решил подписать (anon = false); base отдаёт by владельцу всегда,
- * поэтому флаг проверяем отдельно — иначе автор альбома видел бы имена и на
- * анонимных файлах прямо в публичной сетке. Ставим по верхнему краю: нижний
- * занят подписью к кадру (.cap).
- */
-function byBadge(m) {
-  if (!m.by || m.anon !== false) return null;
-  return el('a', {
-    class: 'ev-by',
-    style: 'top:0;bottom:auto;padding:8px 10px 16px;background:linear-gradient(180deg,rgba(12,10,8,.55),rgba(12,10,8,0))',
-    href: `profile.html?u=${encodeURIComponent(m.by.username)}`,
-    onclick: (e) => e.stopPropagation(),
-    text: m.by.name || m.by.username,
-  });
-}
 
 /* ---- режим «Grid»: адаптивная раскладка, ничего не обрезается ---- */
 function renderGrid(host, all, urls, canEdit) {

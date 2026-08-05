@@ -88,14 +88,16 @@ async function signGet(key: string, amz: string): Promise<string> {
   return signed.url.toString();
 }
 
-async function signPut(key: string, contentType: string): Promise<string> {
+async function signPut(key: string, contentType: string, size: number): Promise<string> {
   const u = new URL(`${R2_ENDPOINT}/${R2_BUCKET}/${key}`);
   u.searchParams.set('X-Amz-Expires', '900');
-  // allHeaders:true -> Content-Type попадает в подпись (иначе aws4fetch его выкинет),
-  // и R2 вернёт 403, если браузер зальёт файл с другим типом.
+  // allHeaders:true -> Content-Type и Content-Length попадают в подпись (иначе
+  // aws4fetch их выкинет). Длина в подписи обязательна: размер приходит из тела
+  // запроса и по нему считается квота — без этого можно объявить килобайт,
+  // а залить сколько угодно.
   const signed = await r2.sign(u.toString(), {
     method: 'PUT',
-    headers: { 'Content-Type': contentType },
+    headers: { 'Content-Type': contentType, 'Content-Length': String(size) },
     aws: { signQuery: true, allHeaders: true },
   });
   return signed.url.toString();
@@ -166,10 +168,23 @@ Deno.serve(async (req) => {
       const tType = norm(body.thumbType);
       const tExt = THUMB_TYPE[tType];
       if (!tExt) return json(400, { error: 'bad_thumb_type' }, h);
-      const { data: row } = await sb.from('media').select('owner_id').eq('id', mediaId).maybeSingle();
+      const tSize = Number(body.thumbSize ?? 0);
+      if (!(tSize > 0) || tSize > THUMB_LIMIT) return json(413, { error: 'thumb_too_large' }, h);
+      const { data: row } = await sb.from('media').select('owner_id, size_bytes')
+        .eq('id', mediaId).maybeSingle();
       if (!row || row.owner_id !== viewer) return json(403, { error: 'not_owner' }, h);
+
+      // Постер тоже занимает место. Размер оригинала передаём прежний: резервация
+      // идёт по media_id через upsert, и обнулять его здесь нельзя.
+      const { data: prof } = await sb.from('profiles').select('plan').eq('id', viewer).maybeSingle();
+      const reserve = (await sb.rpc('r2_reserve_upload', {
+        p_owner: viewer, p_media: mediaId, p_size: Number(row.size_bytes ?? 0), p_thumb: tSize,
+        p_quota: prof?.plan === 'pro' ? PRO_QUOTA : QUOTA,
+      })).data as { ok: boolean; used: number; limit: number };
+      if (!reserve?.ok) return json(413, { error: 'quota_exceeded', used: reserve?.used, limit: reserve?.limit }, h);
+
       const thumbPath = `r2/${viewer}/${mediaId}/thumb.${tExt}`;
-      return json(200, { mediaId, thumbPath, thumbPutUrl: await signPut(thumbPath, tType), expiresIn: 900 }, h);
+      return json(200, { mediaId, thumbPath, thumbPutUrl: await signPut(thumbPath, tType, tSize), expiresIn: 900 }, h);
     }
 
     // Основная загрузка: оригинал (+ миниатюра, если есть).
@@ -184,8 +199,9 @@ Deno.serve(async (req) => {
     const sizeLimit = (pro ? SIZE_LIMIT_PRO : SIZE_LIMIT)[kind];
     const quota = pro ? PRO_QUOTA : QUOTA;
 
+    // Размер обязателен и попадает в подпись PUT: по нему считается квота.
     const size = Number(body.size ?? 0);
-    if (!(size >= 0) || size > sizeLimit) return json(413, { error: 'too_large' }, h);
+    if (!(size > 0) || size > sizeLimit) return json(413, { error: 'too_large' }, h);
 
     let thumbExt: string | null = null, thumbType = '', thumbSize = 0;
     if (body.thumbType != null) {
@@ -193,7 +209,7 @@ Deno.serve(async (req) => {
       thumbExt = THUMB_TYPE[thumbType] ?? null;
       if (!thumbExt) return json(400, { error: 'bad_thumb_type' }, h);
       thumbSize = Number(body.thumbSize ?? 0);
-      if (!(thumbSize >= 0) || thumbSize > THUMB_LIMIT) return json(413, { error: 'thumb_too_large' }, h);
+      if (!(thumbSize > 0) || thumbSize > THUMB_LIMIT) return json(413, { error: 'thumb_too_large' }, h);
     }
 
     const mediaId = crypto.randomUUID();
@@ -204,13 +220,13 @@ Deno.serve(async (req) => {
 
     const path = `r2/${viewer}/${mediaId}/orig.${ext}`;
     const out: Record<string, unknown> = {
-      mediaId, path, putUrl: await signPut(path, cType), expiresIn: 900,
+      mediaId, path, putUrl: await signPut(path, cType, size), expiresIn: 900,
       thumbPath: null, thumbPutUrl: null,
     };
     if (thumbExt) {
       const thumbPath = `r2/${viewer}/${mediaId}/thumb.${thumbExt}`;
       out.thumbPath = thumbPath;
-      out.thumbPutUrl = await signPut(thumbPath, thumbType);
+      out.thumbPutUrl = await signPut(thumbPath, thumbType, thumbSize);
     }
     return json(200, out, h);
   }
