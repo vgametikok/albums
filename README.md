@@ -8,9 +8,26 @@
 
 ## Стек
 
-Статика без сборки (HTML + ES-модули) на GitHub Pages, данные — Supabase
-(Postgres + RLS, Google-auth, Storage, SECURITY DEFINER RPC).
+Статика без сборки (HTML + ES-модули) на Cloudflare Pages, данные — Supabase
+(Postgres + RLS, вход через Google и Telegram, R2 для медиа, SECURITY DEFINER RPC).
 Архитектура, планы и стратегия — в приватном репозитории документации (`internal/`).
+
+## Публикация
+
+Cloudflare Pages собирает сайт по push в `main`:
+
+```
+node build.mjs        # раскладывает публикуемые файлы в dist/
+```
+
+Каталог сборки — `dist`. В него попадает не всё: `supabase/`, `tools/`, `internal/`,
+`serve.js` и README остаются в репозитории и на сайт не уезжают (список — в
+`build.mjs`, он же продублирован в `_config.yml` для старой сборки GitHub Pages).
+
+`functions/_middleware.js` — Pages Function: отдаёт краулерам мессенджеров
+страницу с настоящими og-тегами (название альбома и обложка), обычному
+посетителю — обычную статику. Без неё Telegram видит только теги из `album.html`,
+потому что данные подставляет JS уже в браузере.
 
 ## Страницы
 

@@ -9,3 +9,4 @@ node_modules/
 # Живут в отдельном ПРИВАТНОМ репозитории: D:\Albums\internal\ — свой .git.
 # Не должны попадать ни в публичный репозиторий, ни на albums.ink.
 internal/
+dist/
