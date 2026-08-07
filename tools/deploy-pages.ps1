@@ -1,5 +1,7 @@
 ﻿param(
-  [string]$Project = "albums",
+  # Имя проекта = поддомен <имя>.pages.dev, а он уникален на весь Cloudflare.
+  # Короткое «albums» уже занято чужим проектом.
+  [string]$Project = "albums-ink",
   [switch]$Preview          # выложить в предпросмотр, не трогая боевую ветку
 )
 # Прямая выкладка сайта в Cloudflare Pages, без привязки к GitHub.
