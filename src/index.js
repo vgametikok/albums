@@ -1,12 +1,13 @@
 /**
- * Превью ссылок в мессенджерах (Open Graph) для Cloudflare Pages.
+ * Превью ссылок в мессенджерах (Open Graph).
  *
  * Страницы сайта — статические: название альбома и обложку подставляет JS уже
  * в браузере. Краулер мессенджера скрипты не исполняет и видит только теги из
  * album.html, поэтому в Telegram показывалась одна и та же заглушка.
  *
  * Здесь запрос краулера перехватывается и ему отдаётся маленькая HTML-страница
- * с настоящими og-тегами. Человек проходит мимо: ему отдаётся обычная статика.
+ * с настоящими og-тегами. Человек проходит мимо: ему отдаётся обычная статика
+ * через биндинг ASSETS.
  *
  * Почему не в edge-функции Supabase: её шлюз принудительно отвечает
  * text/plain + nosniff, и такую страницу не разбирает ни один краулер.
@@ -21,7 +22,6 @@ const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
 
 const SITE = 'https://albums.ink';
 const BRAND = 'Albums.ink';
-const FALLBACK_IMG = `${SITE}/og-cover.png`;
 
 // Кто именно приходит за превью. Список закрытый: обычный посетитель должен
 // получать настоящую страницу, а не эту заглушку для роботов.
@@ -84,46 +84,50 @@ function page({ title, desc, image, url }) {
 </html>`;
 }
 
-export async function onRequest(context) {
-  const { request, next } = context;
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-  if (request.method !== 'GET' && request.method !== 'HEAD') return next();
-  if (!CRAWLER.test(request.headers.get('user-agent') || '')) return next();
+    // Всё, что не превью, отдаёт статика — код в это не вмешивается.
+    // Корень отдаём вручную: переписывание адресов выключено (см. wrangler.jsonc),
+    // поэтому «/» сам по себе с index.html не сопоставляется.
+    const asset = () => env.ASSETS.fetch(
+      url.pathname === '/' ? new Request(new URL('/index.html', url), request) : request,
+    );
 
-  const url = new URL(request.url);
-  let card = null, image = FALLBACK_IMG, canonical = SITE;
+    if (request.method !== 'GET' && request.method !== 'HEAD') return asset();
+    if (!CRAWLER.test(request.headers.get('user-agent') || '')) return asset();
 
-  if (url.pathname === '/album.html') {
-    const id = url.searchParams.get('id');
-    if (!id) return next();
-    card = await ogCard('album', id);
-    if (!card) return next();          // приватный, скрытый или несуществующий
-    image = `${SUPABASE_URL}/functions/v1/og/a/${encodeURIComponent(id)}/i`;
-    canonical = `${SITE}/album.html?id=${encodeURIComponent(id)}`;
-    return html(page({
-      title: `${card.title || 'Album'} — ${BRAND}`,
-      desc: card.desc || [card.author, contents(card)].filter(Boolean).join(' · '),
-      image, url: canonical,
-    }));
-  }
+    if (url.pathname === '/album.html') {
+      const id = url.searchParams.get('id');
+      if (!id) return asset();
+      const card = await ogCard('album', id);
+      if (!card) return asset();          // приватный, скрытый или несуществующий
+      return html(page({
+        title: `${card.title || 'Album'} — ${BRAND}`,
+        desc: card.desc || [card.author, contents(card)].filter(Boolean).join(' · '),
+        image: `${SUPABASE_URL}/functions/v1/og/a/${encodeURIComponent(id)}/i`,
+        url: `${SITE}/album.html?id=${encodeURIComponent(id)}`,
+      }));
+    }
 
-  if (url.pathname === '/profile.html') {
-    const u = url.searchParams.get('u');
-    if (!u) return next();
-    card = await ogCard('user', u);
-    if (!card) return next();
-    image = `${SUPABASE_URL}/functions/v1/og/u/${encodeURIComponent(u)}/i`;
-    canonical = `${SITE}/profile.html?u=${encodeURIComponent(u)}`;
-    const albums = Number(card.albums) || 0;
-    return html(page({
-      title: `${card.title || card.username} — ${BRAND}`,
-      desc: card.desc || `${albums} ${albums === 1 ? 'album' : 'albums'} on ${BRAND}`,
-      image, url: canonical,
-    }));
-  }
+    if (url.pathname === '/profile.html') {
+      const u = url.searchParams.get('u');
+      if (!u) return asset();
+      const card = await ogCard('user', u);
+      if (!card) return asset();
+      const albums = Number(card.albums) || 0;
+      return html(page({
+        title: `${card.title || card.username} — ${BRAND}`,
+        desc: card.desc || `${albums} ${albums === 1 ? 'album' : 'albums'} on ${BRAND}`,
+        image: `${SUPABASE_URL}/functions/v1/og/u/${encodeURIComponent(u)}/i`,
+        url: `${SITE}/profile.html?u=${encodeURIComponent(u)}`,
+      }));
+    }
 
-  return next();
-}
+    return asset();
+  },
+};
 
 function html(body) {
   return new Response(body, {

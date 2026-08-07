@@ -1,0 +1,25 @@
+{
+  // Сайт живёт как Worker со статикой: статические файлы отдаёт сам Cloudflare,
+  // а код запускается только там, где нужен — на страницах альбома и профиля,
+  // чтобы отдать краулеру мессенджера настоящие og-теги (см. src/index.js).
+  //
+  // run_worker_first перечисляет эти два пути. Всё остальное (css, js, картинки,
+  // прочие страницы) идёт мимо кода: так быстрее, и такие запросы не считаются
+  // в лимит бесплатного тарифа.
+  "name": "albums",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // html_handling по умолчанию срезает «.html» и редиректит /album.html на
+    // /album. Адреса страниц уже разосланы людям и прописаны в sitemap.xml,
+    // поэтому переписывание выключено, а корень сайта отдаёт сам Worker.
+    "html_handling": "none",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/", "/album.html", "/profile.html"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
