@@ -10,3 +10,4 @@ node_modules/
 # Не должны попадать ни в публичный репозиторий, ни на albums.ink.
 internal/
 dist/
+.wrangler/
