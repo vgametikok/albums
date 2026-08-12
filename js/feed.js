@@ -1,5 +1,5 @@
 // Главная: лента рекомендаций альбомов + режим поиска (?q=).
-import { sb } from './sb.js';
+import { sb, currentProfile } from './sb.js';
 import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, albumCard, skeletonGrid, signUrls, emptyState,
@@ -23,6 +23,15 @@ let trendPeriod = 'week';
 (async function main() {
   await mountShell('home');
   const q = new URLSearchParams(location.search).get('q');
+
+  // Статическая витрина из index.html: краулерам и гостям — остаётся (гостю
+  // её переводим на его язык), залогиненным и в режиме поиска — лишняя.
+  const intro = document.getElementById('home-intro');
+  if (intro) {
+    if (q || currentProfile()) intro.remove();
+    else intro.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
+  }
+
   if (q) return renderSearch(q);
   renderFeed();
 })();

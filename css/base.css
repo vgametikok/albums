@@ -618,3 +618,18 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
 .drag-handle:active{cursor:grabbing}
 @media (pointer:coarse){.drag-handle{display:none}}
 .voice-btn{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+
+/* ---- Гостевая витрина на главной (#home-intro): статический HTML для
+   краулеров и первый экран для незалогиненных. Залогиненным feed.js её убирает. ---- */
+.home-intro{max-width:980px;margin:26px auto 10px;padding:0 2px}
+.home-intro h1{font-size:clamp(30px,4.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin:18px 0 14px}
+.home-intro .hi-lead{font-size:17.5px;line-height:1.6;color:var(--muted);max-width:640px;margin:0 0 20px}
+.home-intro .hi-cta{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 34px}
+.home-intro .hi-cta .btn{padding:12px 22px;font-size:15.5px}
+.hi-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin:0 0 12px}
+.hi-cols h2{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
+.hi-cols p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0}
+.hi-faq{border-top:1px solid var(--line);margin-top:30px;padding-top:26px}
+.hi-faq h2{font-size:21px;font-weight:800;letter-spacing:-.015em;margin:0 0 18px}
+.hi-faq h3{font-size:15.5px;font-weight:700;margin:18px 0 6px}
+.hi-faq p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;max-width:680px}

@@ -372,7 +372,9 @@ function mountFooter() {
     style: 'text-align:center;padding:28px 16px 96px;color:#8F8B84;font-size:12.5px;line-height:1.7',
   },
     el('div', { style: 'margin-bottom:8px' },
-      [`pricing.html|foot_pricing`, `${BLOG_URL}|foot_blog`,
+      // Ссылка на блог (BLOG_URL, ключ foot_blog) вернётся, когда появится
+      // /blog/ — старый поддомен blog.albums.ink не существует в DNS.
+      [`pricing.html|foot_pricing`,
         'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {

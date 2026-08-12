@@ -25,7 +25,12 @@ const BRAND = 'Albums.ink';
 
 // Кто именно приходит за превью. Список закрытый: обычный посетитель должен
 // получать настоящую страницу, а не эту заглушку для роботов.
-const CRAWLER = /(TelegramBot|WhatsApp|twitterbot|facebookexternalhit|facebookcatalog|Discordbot|Slackbot|Slack-ImgProxy|LinkedInBot|vkShare|OdklBot|redditbot|Pinterest|SkypeUriPreview|viber|Line-ApacheHttpClient|Googlebot|bingbot|Applebot|DuckDuckBot|YandexBot|Iframely|Embedly)/i;
+//
+// ВАЖНО: только краулеры мессенджеров и соцсетей. Поисковых ботов
+// (Googlebot, bingbot, YandexBot, Applebot, DuckDuckBot) здесь быть НЕ должно:
+// заглушка уходит с X-Robots-Tag: noindex, и поисковик, получивший её,
+// выкидывает страницу из индекса. Поисковики должны видеть обычную статику.
+const CRAWLER = /(TelegramBot|WhatsApp|twitterbot|facebookexternalhit|facebookcatalog|Discordbot|Slackbot|Slack-ImgProxy|LinkedInBot|vkShare|OdklBot|redditbot|Pinterest|SkypeUriPreview|viber|Line-ApacheHttpClient|Iframely|Embedly)/i;
 
 const esc = (s) => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -84,6 +89,15 @@ function page({ title, desc, image, url }) {
 </html>`;
 }
 
+// Маркетинговые и правовые страницы живут на чистых адресах: /pricing.
+// Так они уже разосланы в sitemap и работали на GitHub Pages; html_handling
+// в wrangler.jsonc выключен, поэтому сопоставление делаем сами.
+// С формы с расширением (/pricing.html) — 301 на чистую: обе отдавали 200,
+// а дубль без canonical размывает индекс.
+// Приложенческие адреса (album.html?id=, profile.html?u=, editor.html…)
+// не трогаем: они разосланы людям именно в таком виде.
+const CLEAN_PAGES = new Set(['pricing', 'terms', 'privacy', 'refunds']);
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -94,6 +108,22 @@ export default {
     const asset = () => env.ASSETS.fetch(
       url.pathname === '/' ? new Request(new URL('/index.html', url), request) : request,
     );
+
+    const clean = url.pathname.match(/^\/([a-z-]+?)(\.html)?\/?$/);
+    if (clean && CLEAN_PAGES.has(clean[1])) {
+      // /pricing.html и /pricing/ → 301 /pricing; /pricing → сам файл.
+      if (clean[2] || url.pathname.endsWith('/')) {
+        return Response.redirect(`${SITE}/${clean[1]}${url.search}`, 301);
+      }
+      return env.ASSETS.fetch(new Request(new URL(`/${clean[1]}.html`, url), request));
+    }
+
+    // /event из старого sitemap → экран событий приложения. Наоборот (со
+    // страницы на чистый адрес) не редиректим: event.html — приложение,
+    // внутренние переходы ходят на event.html?id= и не должны ловить 301.
+    if (url.pathname === '/event') {
+      return Response.redirect(`${SITE}/event.html${url.search}`, 301);
+    }
 
     if (request.method !== 'GET' && request.method !== 'HEAD') return asset();
     if (!CRAWLER.test(request.headers.get('user-agent') || '')) return asset();

@@ -1,7 +1,34 @@
+# albums.ink — robots policy.
+#
+# AI crawlers are welcome: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
+# Claude-User, Claude-SearchBot, PerplexityBot, Perplexity-User,
+# Google-Extended, Applebot, Applebot-Extended, Amazonbot, Meta-ExternalAgent,
+# Bytespider, cohere-ai, YouBot, DuckAssistBot and friends.
+# They are intentionally NOT given their own groups: a per-bot group would
+# replace the * rules below and expose service screens. No group = inherit *.
+#
+# See also: https://albums.ink/llms.txt
+
 User-agent: *
 Allow: /
 
+# App/service screens — no content for crawlers, some require auth.
 Disallow: /editor.html
 Disallow: /moderation.html
+Disallow: /stats.html
+Disallow: /pro-thanks.html
+Disallow: /event-thanks.html
+Disallow: /join.html
+Disallow: /calendar.html
+Disallow: /friends.html
+
+# Parameterized app URLs: albums/profiles render client-side for now
+# (crawlers would only see an empty shell), search is an infinite space.
+# The ?id= / ?u= rules will be lifted once server-side rendering of public
+# albums ships — see internal/SEO-PLAN.md, phase 4.
+Disallow: /*?id=
+Disallow: /*?u=
+Disallow: /*?q=
+Disallow: /*?t=
 
 Sitemap: https://albums.ink/sitemap.xml

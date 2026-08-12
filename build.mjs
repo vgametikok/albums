@@ -17,6 +17,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, 'dist');
 
+// Перед раскладкой — прошивка SEO-блоков и генерация sitemap.xml.
+// Скрипт идемпотентен: правит только блок между <!-- seo --> … <!-- /seo -->.
+await import('./tools/build-head.mjs');
+
 // Не публикуем. Всё, что начинается с точки, отсекается отдельно ниже.
 const SKIP = new Set([
   'dist',           // результат прошлой сборки

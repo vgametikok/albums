@@ -7,10 +7,10 @@ export const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
 // Публичный идентификатор, не секрет; сам токен бота живёт в секрете функции.
 export const TELEGRAM_BOT = 'albumsregsbot';
 
-// Блог живёт на отдельном поддомене (свой репозиторий GitHub Pages со своим
-// CNAME). Адрес держим здесь: если однажды переедем на albums.ink/blog/,
-// поменять придётся одну строку, а не подвал на каждой странице.
-export const BLOG_URL = 'https://blog.albums.ink/';
+// Блог будет жить на albums.ink/blog/ — подкаталог, а не поддомен: авторитет
+// домена должен копиться в одном месте (поддомен blog.albums.ink так и не был
+// заведён в DNS). Ссылка в футере (foot_blog) вернётся вместе с первыми статьями.
+export const BLOG_URL = '/blog/';
 
 export const CATEGORIES = ['Travel', 'Music', 'Family', 'Art', 'Sport', 'Other'];
 

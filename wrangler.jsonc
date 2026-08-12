@@ -17,7 +17,15 @@
     // поэтому переписывание выключено, а корень сайта отдаёт сам Worker.
     "html_handling": "none",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/", "/album.html", "/profile.html"]
+    // Через Worker идут: корень, og-превью альбомов и профилей, и чистые
+    // адреса маркетинговых страниц (/pricing и редирект с /pricing.html —
+    // см. CLEAN_PAGES в src/index.js). Остальная статика — мимо кода.
+    "run_worker_first": [
+      "/", "/album.html", "/profile.html",
+      "/pricing", "/pricing.html", "/event",
+      "/terms", "/terms.html", "/privacy", "/privacy.html",
+      "/refunds", "/refunds.html"
+    ]
   },
   "observability": {
     "enabled": true

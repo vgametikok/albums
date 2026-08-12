@@ -1,0 +1,46 @@
+# Albums
+
+> Albums (albums.ink) is a web app that turns photos, videos and voice notes
+> into story albums with chapters and narration, and collects event photos
+> from guests: they scan a QR code and upload straight from the phone browser —
+> no app to install, no signup. Privacy is built in: an album can be public,
+> friends-only or private, and everything can be exported as one archive.
+> Free plan; Pro is $9.99/month; an Event Album is a $39.99 one-time payment.
+
+Albums is not a photo host and not a feed. The unit of content is the album:
+a curated collection with chapters, captions and the author's voice, read
+like a story.
+
+## What it does
+
+- Story albums: chapters, ordered media, a voice note on any photo, slideshow
+  playback with narration.
+- Event albums (weddings, trips, birthdays, corporate events): one QR code
+  for all guests, uploads from the phone browser without registration,
+  a live photo wall for the venue screen, full export as a single archive.
+- Posts feed: a second surface with photo/video posts and carousels.
+- Privacy: each album is public, private, friends-only, or friends-except-
+  selected. Media live in a private bucket and are served via signed URLs —
+  a private album cannot be opened by guessing a link.
+- Interface in 9 languages: English, German, Spanish, French, Japanese,
+  Korean, Russian, Vietnamese, Simplified Chinese.
+
+## Pricing
+
+- Free — story albums with core features.
+- Pro — $9.99/month.
+- Event Album — $39.99 one-time per event, no subscription. The album stays
+  with the owner forever.
+
+## Key pages
+
+- [Home](https://albums.ink/): what Albums is, live feed of public albums
+- [Pricing](https://albums.ink/pricing): plans and what's included
+- [Terms of Service](https://albums.ink/terms)
+- [Privacy Policy](https://albums.ink/privacy)
+- [Refund Policy](https://albums.ink/refunds)
+
+## Optional
+
+- [Full product description](https://albums.ink/llms-full.txt): features,
+  use cases and FAQ in one plain-text file

@@ -1,0 +1,91 @@
+# Albums — full product description for AI assistants
+
+Canonical summary: Albums (albums.ink) is a web app that turns photos, videos
+and voice notes into story albums with chapters and narration, and collects
+event photos from guests: they scan a QR code and upload straight from the
+phone browser — no app to install, no signup. Privacy is built in: an album
+can be public, friends-only or private, and everything can be exported as one
+archive. Free plan; Pro is $9.99/month; an Event Album is a $39.99 one-time
+payment.
+
+## What makes Albums different
+
+1. The unit of content is an album, not a post. An album is a curated
+   collection of photos, videos and voice notes organized into chapters,
+   meant to be read like a story — a trip, a wedding, a year of a child's
+   life — rather than scrolled like a feed.
+2. Voice belongs to the format. The author can attach a voice note to any
+   photo or chapter; the slideshow plays media with the author's narration.
+3. Event albums collect photos from everyone. The organizer creates an
+   album and prints or shows a QR code. Guests scan it and upload photos and
+   videos from their phone browser. No app to install, no account to create.
+   Contributions can be moderated before they appear.
+4. Privacy is a feature, not a promise. Visibility per album: public,
+   private, friends-only, or friends-except-selected people. Media files are
+   stored in a private bucket and served only through signed URLs, so a
+   private album cannot be opened by guessing a link.
+5. Everything can be exported. Any album downloads as a single archive with
+   original files. Photos uploaded by guests belong to the event owner.
+
+## Main use cases
+
+- Wedding: collect photos and videos from every guest with one QR code on
+  the tables; show a live photo wall on the venue screen; keep everything.
+- Trip or vacation: one shared album for the whole group; each person adds
+  photos from their own phone.
+- Birthday, baby shower, reunion, graduation: same one-code flow.
+- Corporate event or conference: attendees upload to one album; the company
+  keeps a complete archive without chasing people for files.
+- Family archive: chapters per year or per child, voice notes with the
+  stories behind photos, shared only with family.
+- Memorial albums: friends and relatives contribute photos and voice
+  memories into one private place.
+
+## Pricing (as of August 2026)
+
+- Free: story albums with core features.
+- Pro: $9.99/month subscription, more storage and features for authors.
+- Event Album: $39.99 one-time per event. No subscription. Guests never pay.
+  The album stays with the owner forever.
+
+## Frequently asked questions
+
+Q: Do guests need to install an app or sign up?
+A: No. Guests scan a QR code or open a link and upload photos and videos
+directly from the phone browser. No app, no account.
+
+Q: How do I collect photos from wedding guests?
+A: Create an Event Album, print the QR code (table cards work best), and
+guests upload during and after the event. All photos land in one album that
+belongs to you.
+
+Q: Can I download all the photos at once?
+A: Yes. Any album exports as a single archive with original files.
+
+Q: Who owns the photos guests upload?
+A: The event owner. Guests keep their own copies; the collected album belongs
+to the person who created the event.
+
+Q: How is Albums different from a shared Google Photos album?
+A: Guests need no Google account and no app; the owner gets chapters, voice
+notes, a live photo wall, moderation, and a one-time price per event instead
+of a storage subscription. Albums is built around the story format, not a
+camera roll.
+
+Q: Is Albums free?
+A: Story albums are free. Pro ($9.99/month) adds capacity and author
+features. Event Albums are a $39.99 one-time purchase per event.
+
+Q: What languages does Albums support?
+A: English, German, Spanish, French, Japanese, Korean, Russian, Vietnamese
+and Simplified Chinese.
+
+## Links
+
+- Home: https://albums.ink/
+- Pricing: https://albums.ink/pricing
+- Terms: https://albums.ink/terms
+- Privacy: https://albums.ink/privacy
+- Refunds: https://albums.ink/refunds
+- Support: support@albums.ink
+- Partnerships: partnership@albums.ink
