@@ -257,7 +257,11 @@ function collaboratorsBox() {
         draw();
         toast(t('collab_added'));
       } catch (err) {
-        toast(err.message || t('collab_add_error'));
+        // Потолок тарифа приходит с hint 'collab_limit:<план>' (миграция 045):
+        // по нему показываем локализованный текст, остальное — как раньше.
+        const lim = /^collab_limit:(free|pro)$/.exec(err.hint || '');
+        toast(lim ? t(lim[1] === 'pro' ? 'collab_limit_pro' : 'collab_limit_free')
+                  : (err.message || t('collab_add_error')));
       }
     };
     box.append(pick, el('div', {
