@@ -10,9 +10,11 @@ import { observeImpressions } from './stats.js';
 const app = $('#app');
 const PAGE = 24;
 
-// Сид держим на сессию — так пагинация не дублирует альбомы между страницами.
-let seed = sessionStorage.getItem('feedSeed');
-if (!seed) { seed = Math.random().toString(36).slice(2, 10); sessionStorage.setItem('feedSeed', seed); }
+// Сид живёт ровно одну загрузку страницы: внутри неё hash(id||seed) стабилен,
+// поэтому пагинация не дублирует альбомы, — а каждый новый заход перемешивает
+// ленту заново. Раньше сид лежал в sessionStorage, вкладка держала его между
+// перезагрузками, и порядок казался приколоченным навсегда.
+const seed = Math.random().toString(36).slice(2, 10);
 
 let category = null, offset = 0, loading = false, done = false, grid = null;
 

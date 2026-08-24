@@ -14,8 +14,9 @@ let offset = 0, loading = false, done = false, col = null;
 
 // Сид ранжирования держим на сессию — пагинация не дублирует посты между
 // страницами, но при новом заходе порядок освежается. Как в ленте альбомов.
-let seed = sessionStorage.getItem('postsSeed');
-if (!seed) { seed = Math.random().toString(36).slice(2, 10); sessionStorage.setItem('postsSeed', seed); }
+// Сид на одну загрузку страницы, не на сессию: пагинация внутри визита не
+// дублирует посты, а новый заход перемешивает ленту (та же правка, что в feed.js).
+const seed = Math.random().toString(36).slice(2, 10);
 
 let feed = null, sentinel = null;
 
