@@ -43,7 +43,7 @@ function renderLogin() {
       const r = await call('login', { login: login.value, password: pass.value });
       token = r.token;
       sessionStorage.setItem('modToken', token);
-      renderPending();
+      start();
     } catch (e) {
       err.textContent = e.message === 'too_many' ? 'Too many attempts, wait 15 min' : 'Wrong login or password';
       btn.disabled = false;
@@ -76,6 +76,10 @@ function head(title, active) {
         class: 'chip btn-sm' + (active ==='media' ? ' on' : ''),
         onclick: () => renderMedia(),
       }, mediaLabel()),
+      el('button', {
+        class: 'chip btn-sm' + (active ==='users' ? ' on' : ''),
+        onclick: () => renderUsers(),
+      }, 'Users'),
       el('button', {
         class: 'chip btn-sm' + (active ==='stats' ? ' on' : ''),
         onclick: () => renderStats(),
@@ -367,7 +371,18 @@ async function openAlbum(albumId) {
   let d;
   try { d = (await call('open_album', { album_id: albumId })).data; }
   catch (e) { clear(app).appendChild(el('div', { class: 'muted', text: e.message })); return; }
-  if (!d) { clear(app).appendChild(el('div', { class: 'muted', text: 'Album not found' })); return; }
+  // Ссылка из уведомления живёт дольше самого альбома: автор может удалить его
+  // через минуту после публикации. Тупик с «not found» тут читается как поломка
+  // панели, поэтому объясняем, что произошло, и возвращаем в очередь.
+  if (!d) {
+    clear(app);
+    app.appendChild(el('div', { class: 'empty' },
+      el('h3', { text: 'Album is gone' }),
+      el('div', { text: 'The author deleted it after publishing — the media stays in their own library.' })));
+    app.appendChild(el('div', { style: 'display:flex;justify-content:center;margin-top:16px' },
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderPending() }, '← Back to queue')));
+    return;
+  }
 
   const a = d.album, author = d.author || {};
   const all = [...(d.chapters || []).flatMap(c => c.media || []), ...(d.loose || [])];
@@ -484,6 +499,171 @@ const VIEW = {
     ? el('div', { class: 'muted', style: 'font-size:13px;margin-top:2px', text: 'private file — visible only to the author and collaborators' })
     : null),
 };
+
+/* ---------------- пользователи ---------------- */
+
+// Фильтры переживают перерисовку списка: «загрузить ещё» и смена страны не
+// должны сбрасывать друг друга.
+const usersFilter = { plan: null, country: null, q: null, limit: 50, offset: 0 };
+
+const PLAN_LABEL = { free: 'Free', pro: 'Pro' };
+
+/** Дата без времени: в списке важен день, а не минута. */
+function day(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? '—' : d.toISOString().slice(0, 10);
+}
+
+/** Флаг страны эмодзи из кода ISO: две буквы → два региональных символа. */
+function flag(code) {
+  if (!code || code === '??' || code.length !== 2) return '🌍';
+  return String.fromCodePoint(...[...code.toUpperCase()].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
+}
+
+async function renderUsers() {
+  clear(app);
+  app.appendChild(head('Users', 'users'));
+
+  const filters = el('div', { style: 'margin-bottom:16px' });
+  const body = el('div', {}, el('div', { class: 'muted', text: 'Loading…' }));
+  app.append(filters, body);
+
+  let d;
+  try { d = (await call('users', usersFilter)).data; }
+  catch (e) { clear(body).appendChild(el('div', { class: 'muted', text: e.message })); return; }
+  if (!d) { clear(body).appendChild(el('div', { class: 'muted', text: 'No data' })); return; }
+
+  drawUsersFilters(filters, d);
+  drawUsersList(body, d);
+}
+
+/** Смена фильтра всегда начинает список заново — иначе смещение врёт. */
+function applyUsersFilter(patch) {
+  Object.assign(usersFilter, patch, { offset: 0 });
+  renderUsers();
+}
+
+function drawUsersFilters(host, d) {
+  clear(host);
+  const plans = d.plans || {};
+
+  const planRow = el('div', { class: 'rowx', style: 'margin-bottom:10px' },
+    el('span', { class: 'muted', style: 'font-size:13px;min-width:64px', text: 'Plan' }));
+  [[null, `All (${(plans.free || 0) + (plans.pro || 0)})`],
+   ['free', `Free (${plans.free || 0})`],
+   ['pro', `Pro (${plans.pro || 0})`]].forEach(([value, label]) => {
+    planRow.appendChild(el('button', {
+      class: 'chip btn-sm' + (usersFilter.plan === value ? ' on' : ''),
+      onclick: () => applyUsersFilter({ plan: value }),
+    }, label));
+  });
+
+  const countryRow = el('div', { class: 'rowx', style: 'margin-bottom:10px' },
+    el('span', { class: 'muted', style: 'font-size:13px;min-width:64px', text: 'Country' }));
+  countryRow.appendChild(el('button', {
+    class: 'chip btn-sm' + (usersFilter.country === null ? ' on' : ''),
+    onclick: () => applyUsersFilter({ country: null }),
+  }, 'All'));
+  (d.countries || []).forEach(c => countryRow.appendChild(el('button', {
+    class: 'chip btn-sm' + (usersFilter.country === c.code ? ' on' : ''),
+    onclick: () => applyUsersFilter({ country: c.code }),
+  }, `${flag(c.code)} ${c.code === '??' ? 'Unknown' : c.code} (${c.n})`)));
+
+  const search = el('input', {
+    class: 'input', style: 'max-width:280px;height:40px;padding:0 14px',
+    placeholder: 'name or email', autocomplete: 'off', value: usersFilter.q || '',
+  });
+  search.onkeydown = (e) => {
+    if (e.key === 'Enter') applyUsersFilter({ q: search.value.trim() || null });
+  };
+  const searchRow = el('div', { class: 'rowx' },
+    el('span', { class: 'muted', style: 'font-size:13px;min-width:64px', text: 'Search' }),
+    search,
+    el('button', { class: 'mini', onclick: () => applyUsersFilter({ q: search.value.trim() || null }) }, 'Find'));
+  if (usersFilter.q) {
+    searchRow.appendChild(el('button', { class: 'mini', onclick: () => applyUsersFilter({ q: null }) }, 'Reset'));
+  }
+
+  host.append(planRow, countryRow, searchRow);
+}
+
+function drawUsersList(host, d) {
+  clear(host);
+  const rows = d.rows || [];
+  const total = d.total || 0;
+
+  host.appendChild(el('div', { class: 'muted', style: 'font-size:13.5px;margin-bottom:10px',
+    text: `${total} ${total === 1 ? 'person' : 'people'}`
+        + (d.guests ? ` · ${d.guests} guest ${d.guests === 1 ? 'session' : 'sessions'} without sign-in (not listed)` : '') }));
+
+  if (!rows.length) {
+    host.appendChild(el('div', { class: 'muted', text: 'Nobody matches these filters.' }));
+    return;
+  }
+
+  const COLS = '1.4fr 1.8fr .7fr .9fr .9fr .5fr .7fr';
+  const line = (cells, head) => el('div', {
+    class: head ? 'muted' : '',
+    style: `display:grid;grid-template-columns:${COLS};gap:10px;padding:9px 0;font-size:14px;align-items:baseline;`
+      + (head ? 'border-bottom:1px solid #EFEDE8;font-size:12.5px' : 'border-bottom:1px solid #F5F3EF'),
+  }, ...cells.map(c => (typeof c === 'string' ? el('span', { text: c }) : c)));
+
+  const box = el('div', { style: 'overflow-x:auto' });
+  const table = el('div', { style: 'min-width:820px' },
+    line(['User', 'Email', 'Plan', 'Plan since', 'Plan until', 'Country', 'Events'], true));
+
+  rows.forEach(u => {
+    const name = el('span', {},
+      el('b', { text: '@' + u.username }),
+      u.display_name ? el('span', { class: 'muted', style: 'font-size:12.5px;display:block', text: u.display_name }) : null,
+      u.banned_at ? el('span', { style: 'font-size:12px;color:#c0392b;display:block', text: 'banned' }) : null,
+      u.deleted_at ? el('span', { class: 'muted', style: 'font-size:12px;display:block', text: 'deleted' }) : null);
+
+    const plan = el('span', {
+      style: 'font-weight:700;font-size:13px;padding:2px 9px;border-radius:999px;'
+        + (u.plan === 'pro' ? 'background:rgba(232,85,43,.12);color:#E8552B' : 'background:#EFEDE8;color:#6b6862'),
+      text: PLAN_LABEL[u.plan] || u.plan,
+    });
+
+    // Событийные альбомы: сколько создано и сколько оплачено, но ещё не
+    // потрачено. Ноль показываем прочерком, чтобы столбец не рябил нулями.
+    const events = u.event_albums || u.event_bought
+      ? el('span', {},
+        el('b', { text: String(u.event_albums || 0) }),
+        u.event_left ? el('span', { class: 'muted', style: 'font-size:12.5px', text: ` +${u.event_left} unused` }) : null)
+      : el('span', { class: 'muted', text: '—' });
+
+    table.appendChild(line([
+      name,
+      el('span', { style: 'font-size:13px;word-break:break-all', text: u.email || '—' }),
+      plan,
+      day(u.plan_since),
+      day(u.plan_until),
+      el('span', { title: u.country || 'unknown', text: `${flag(u.country)} ${u.country || '—'}` }),
+      events,
+    ]));
+  });
+
+  box.appendChild(table);
+  host.appendChild(box);
+
+  if (rows.length < total) {
+    const more = el('button', { class: 'btn btn-ghost btn-sm', style: 'margin-top:14px' },
+      `Load more (${total - rows.length} left)`);
+    more.onclick = async () => {
+      more.disabled = true;
+      usersFilter.offset += usersFilter.limit;
+      let next;
+      try { next = (await call('users', usersFilter)).data; }
+      catch (e) { toast(e.message); more.disabled = false; usersFilter.offset -= usersFilter.limit; return; }
+      // Дорисовываем к уже показанному: перерисовка с нуля увела бы
+      // прокрутку в начало на каждой подгрузке.
+      drawUsersList(host, { ...next, rows: [...rows, ...(next.rows || [])] });
+    };
+    host.appendChild(more);
+  }
+}
 
 /* ---------------- продуктовая статистика ---------------- */
 let statDays = 30;
@@ -644,6 +824,10 @@ function secs(ms) {
 }
 
 /* ---------------- старт ---------------- */
-// Первым делом — очередь новых альбомов: это ежедневная работа модератора.
-if (token) renderPending().catch(renderLogin);
+// Ссылка из телеграм-уведомления ведёт сразу к альбому: moderation.html?album=<id>.
+// Без неё — очередь новых альбомов, это ежедневная работа модератора.
+const deepLink = new URLSearchParams(location.search).get('album');
+const start = () => (deepLink ? openAlbum(deepLink) : renderPending());
+
+if (token) start().catch(renderLogin);
 else renderLogin();

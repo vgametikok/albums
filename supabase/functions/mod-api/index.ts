@@ -199,6 +199,17 @@ Deno.serve(async (req) => {
       case 'stats':
         out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
         break;
+      case 'users':
+        // Список людей с фильтрами. Почта уходит только сюда: наружу её не
+        // отдаёт ни одна пользовательская RPC.
+        out = (await sb.rpc('admin_users', {
+          p_plan: body.plan ?? null,
+          p_country: body.country ?? null,
+          p_q: body.q ?? null,
+          p_limit: body.limit ?? 50,
+          p_offset: body.offset ?? 0,
+        })).data;
+        break;
       case 'set_plan':
         out = (await sb.rpc('admin_set_plan', {
           p_username: body.username, p_plan: body.plan, p_days: body.plan_days ?? 30,
