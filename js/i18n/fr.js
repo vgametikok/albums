@@ -211,6 +211,7 @@
   collab_need_friends: 'Ajoutez d’abord cette personne en ami.',
   collab_added: 'Collaborateur ajouté',
   collab_add_error: 'Ajout impossible',
+  collab_slots: 'Il reste {left} places sur {max}',
   collab_limit_free: 'L’offre gratuite permet un collaborateur par album. Avec Pro, jusqu’à dix.',
   collab_limit_pro: 'L’offre Pro permet jusqu’à dix collaborateurs par album.',
   collab_note_title: 'Album partagé',

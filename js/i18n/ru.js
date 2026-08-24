@@ -230,6 +230,7 @@
   collab_need_friends: 'Сначала добавьтесь с человеком в друзья.',
   collab_added: 'Соавтор добавлен',
   collab_add_error: 'Не удалось добавить',
+  collab_slots: 'Осталось мест: {left} из {max}',
   collab_limit_free: 'На бесплатном тарифе в альбоме один соавтор. На Pro — до десяти.',
   collab_limit_pro: 'На тарифе Pro — до десяти соавторов в альбоме.',
   collab_note_title: 'Совместный альбом',

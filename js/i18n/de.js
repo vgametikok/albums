@@ -211,6 +211,7 @@
   collab_need_friends: 'Füge diese Person zuerst als Freund hinzu.',
   collab_added: 'Mitwirkende:r hinzugefügt',
   collab_add_error: 'Hinzufügen fehlgeschlagen',
+  collab_slots: 'Noch {left} von {max} Plätzen frei',
   collab_limit_free: 'Im Gratis-Tarif ist eine mitwirkende Person pro Album möglich. Mit Pro bis zu zehn.',
   collab_limit_pro: 'Im Pro-Tarif sind bis zu zehn Mitwirkende pro Album möglich.',
   collab_note_title: 'Gemeinsames Album',

@@ -211,6 +211,7 @@
   collab_need_friends: '请先与这个人成为好友。',
   collab_added: '已添加协作者',
   collab_add_error: '添加失败',
+  collab_slots: '还剩 {left}/{max} 个名额',
   collab_limit_free: '免费方案每个相册可添加 1 位协作者，Pro 可添加至 10 位。',
   collab_limit_pro: 'Pro 方案每个相册最多可添加 10 位协作者。',
   collab_note_title: '共同相册',

@@ -211,6 +211,7 @@
   collab_need_friends: 'Hãy kết bạn với người này trước.',
   collab_added: 'Đã thêm người cộng tác',
   collab_add_error: 'Không thêm được',
+  collab_slots: 'Còn {left} trong {max} chỗ',
   collab_limit_free: 'Gói miễn phí cho phép một người cộng tác mỗi album. Với Pro, tối đa mười người.',
   collab_limit_pro: 'Gói Pro cho phép tối đa mười người cộng tác mỗi album.',
   collab_note_title: 'Album chung',

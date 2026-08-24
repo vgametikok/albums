@@ -211,6 +211,7 @@
   collab_need_friends: 'Primero añade a esta persona como amigo.',
   collab_added: 'Colaborador añadido',
   collab_add_error: 'No se pudo añadir',
+  collab_slots: 'Quedan {left} de {max} plazas',
   collab_limit_free: 'El plan gratuito permite un colaborador por álbum. Con Pro, hasta diez.',
   collab_limit_pro: 'El plan Pro permite hasta diez colaboradores por álbum.',
   collab_note_title: 'Álbum compartido',

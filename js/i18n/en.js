@@ -243,6 +243,7 @@ export default {
   collab_need_friends: 'Add this person as a friend first.',
   collab_added: 'Collaborator added',
   collab_add_error: 'Could not add',
+  collab_slots: '{left} of {max} slots left',
   collab_limit_free: 'Free plan allows one collaborator per album. Pro raises this to ten.',
   collab_limit_pro: 'Pro plan allows up to ten collaborators per album.',
   collab_note_title: 'Shared album',

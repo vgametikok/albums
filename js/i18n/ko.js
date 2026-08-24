@@ -211,6 +211,7 @@
   collab_need_friends: '먼저 이 사람과 친구가 되세요.',
   collab_added: '공동 작업자를 추가했습니다',
   collab_add_error: '추가하지 못했습니다',
+  collab_slots: '남은 자리 {max}개 중 {left}개',
   collab_limit_free: '무료 플랜에서는 앨범당 공동 작업자를 1명 추가할 수 있습니다. Pro는 10명까지 가능합니다.',
   collab_limit_pro: 'Pro 플랜에서는 앨범당 공동 작업자를 10명까지 추가할 수 있습니다.',
   collab_note_title: '공동 앨범',

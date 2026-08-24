@@ -211,6 +211,7 @@
   collab_need_friends: 'まずこの人と友だちになってください。',
   collab_added: '共同編集者を追加しました',
   collab_add_error: '追加できませんでした',
+  collab_slots: '残り {left}／{max} 枠',
   collab_limit_free: '無料プランで追加できる共同編集者はアルバムごとに1人です。Proなら10人まで。',
   collab_limit_pro: 'Proプランではアルバムごとに共同編集者を10人まで追加できます。',
   collab_note_title: '共同アルバム',

@@ -21,6 +21,7 @@ let excluded = new Set();  // username'ы исключённых
 let saving = false;
 let busy = 0;              // файлов в обработке/загрузке прямо сейчас
 let collaborators = [];    // соавторы альбома
+let collabSlots = null;    // {used, max, left, plan} — сколько мест осталось (RPC 047)
 let isOwner = true;        // владелец или соавтор (у соавтора прав меньше)
 let storyEd = null;        // блочный редактор истории (storyeditor.js)
 let storyBox = null;       // блок «История»: сводка и переключатель источника
@@ -206,6 +207,17 @@ function eventBox() {
 }
 
 /* ---------------------------------------------------------------- соавторы */
+
+/**
+ * Сколько мест осталось. Считает база (миграция 047), а не клиент: правило
+ * про потолок тарифа и неучастие гостей события живёт в одном месте, иначе
+ * вторая копия разойдётся с первой при первой же смене тарифов.
+ */
+async function loadCollabSlots() {
+  const { data } = await sb.rpc('album_collab_slots', { p_album: albumId || null });
+  collabSlots = data || null;
+}
+
 function collaboratorsBox() {
   const box = el('div', { class: 'side-card', style: 'margin-top:18px' },
     el('div', { class: 'label', text: t('collaborators') }));
@@ -228,6 +240,7 @@ function collaboratorsBox() {
             if (r.error) { toast(r.error.message); return; }
             collaborators = collaborators.filter(x => x.username !== c.username);
             draw();
+            await drawFoot();   // место освободилось — счётчик и список друзей обновляем
           },
         }, t('remove')));
       }
@@ -238,37 +251,79 @@ function collaboratorsBox() {
   box.appendChild(list);
 
   if (isOwner) {
-    const pick = el('select', { class: 'select', style: 'height:40px;font-size:14.5px;margin-top:12px' },
-      el('option', { value: '' }, t('add_friend_opt')));
-    friends.forEach(f => {
-      if (collaborators.some(c => c.username === f.username)) return;
-      pick.appendChild(el('option', { value: f.username }, f.name || f.username));
-    });
-    pick.onchange = async (e) => {
-      const u = e.currentTarget.value;
-      e.currentTarget.value = '';
-      if (!u) return;
-      try {
-        await ensureAlbum();
-        const r = await sb.rpc('album_collaborator_add', { p_album: albumId, p_username: u });
-        if (r.error) throw r.error;
-        const f = friends.find(x => x.username === u);
-        collaborators.push({ username: u, display_name: f?.name || u, avatar_url: f?.avatar });
-        draw();
-        toast(t('collab_added'));
-      } catch (err) {
-        // Потолок тарифа приходит с hint 'collab_limit:<план>' (миграция 045):
-        // по нему показываем локализованный текст, остальное — как раньше.
-        const lim = /^collab_limit:(free|pro)$/.exec(err.hint || '');
-        toast(lim ? t(lim[1] === 'pro' ? 'collab_limit_pro' : 'collab_limit_free')
-                  : (err.message || t('collab_add_error')));
-      }
+    // Счётчик мест и подсказка под ним перерисовываются после каждого
+    // добавления и удаления, поэтому живут в отдельном узле.
+    const foot = el('div', { style: 'margin-top:12px' });
+    box.appendChild(foot);
+
+    // Список строится заново при каждой перерисовке: снятый соавтор должен
+    // вернуться в выбор, а добавленный — из него пропасть.
+    const makePicker = () => {
+      const pick = el('select', { class: 'select', style: 'height:40px;font-size:14.5px' },
+        el('option', { value: '' }, t('add_friend_opt')));
+      friends.forEach(f => {
+        if (collaborators.some(c => c.username === f.username)) return;
+        pick.appendChild(el('option', { value: f.username }, f.name || f.username));
+      });
+      pick.onchange = async (e) => {
+        const u = e.currentTarget.value;
+        e.currentTarget.value = '';
+        if (!u) return;
+        try {
+          await ensureAlbum();
+          const r = await sb.rpc('album_collaborator_add', { p_album: albumId, p_username: u });
+          if (r.error) throw r.error;
+          const f = friends.find(x => x.username === u);
+          collaborators.push({ username: u, display_name: f?.name || u, avatar_url: f?.avatar });
+          draw();
+          await drawFoot();
+          toast(t('collab_added'));
+        } catch (err) {
+          // Потолок тарифа приходит с hint 'collab_limit:<план>' (миграция 045):
+          // по нему показываем локализованный текст, остальное — как раньше.
+          const lim = /^collab_limit:(free|pro)$/.exec(err.hint || '');
+          toast(lim ? t(lim[1] === 'pro' ? 'collab_limit_pro' : 'collab_limit_free')
+                    : (err.message || t('collab_add_error')));
+          await drawFoot();   // счётчик мог разойтись с базой — пересчитываем
+        }
+      };
+      return pick;
     };
-    box.append(pick, el('div', {
-      class: 'muted', style: 'font-size:13px;margin-top:8px;line-height:1.4',
-      text: friends.length ? t('collab_only_friend')
-                           : t('collab_need_friends'),
-    }));
+
+    /**
+     * Мест не осталось — выпадающий список убираем совсем: предлагать выбор,
+     * который заведомо кончится ошибкой, хуже, чем не предлагать его вовсе.
+     * На бесплатном тарифе вместо него ссылка на тарифы.
+     */
+    var drawFoot = async () => {
+      await loadCollabSlots();
+      clear(foot);
+      const s = collabSlots;
+      if (s) {
+        foot.appendChild(el('div', {
+          class: 'muted', style: 'font-size:13px;margin-bottom:8px',
+          text: t('collab_slots', { left: s.left, max: s.max }),
+        }));
+      }
+      if (s && s.left <= 0) {
+        foot.appendChild(el('div', {
+          style: 'font-size:13.5px;line-height:1.45',
+          text: t(s.plan === 'pro' ? 'collab_limit_pro' : 'collab_limit_free'),
+        }));
+        if (s.plan !== 'pro') {
+          foot.appendChild(el('a', {
+            class: 'btn btn-ghost btn-sm', style: 'margin-top:10px', href: 'pricing.html',
+          }, t('ev_see_pricing')));
+        }
+        return;
+      }
+      foot.append(makePicker(), el('div', {
+        class: 'muted', style: 'font-size:13px;margin-top:8px;line-height:1.4',
+        text: friends.length ? t('collab_only_friend')
+                             : t('collab_need_friends'),
+      }));
+    };
+    drawFoot();
   }
   return box;
 }
