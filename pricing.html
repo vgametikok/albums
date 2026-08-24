@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://albums.ink/og-cover.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens to my content if I cancel Pro?","acceptedAnswer":{"@type":"Answer","text":"Nothing is deleted. If you are over the free storage limit, you won't be able to upload new media until you free up space, but everything already uploaded stays viewable and shareable."}},{"@type":"Question","name":"Do event guests have to pay?","acceptedAnswer":{"@type":"Answer","text":"No. Only the event organizer pays once. Guests join and upload for free."}},{"@type":"Question","name":"How do I get an invoice or a refund?","acceptedAnswer":{"@type":"Answer","text":"Details are in the Refund Policy. For invoices and refund requests, write to sales@albums.ink."}}]}</script>
 <!-- /seo -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://rizveurkjpcwrmbtoawj.supabase.co; base-uri 'none'; frame-src https://oauth.telegram.org; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://telegram.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://t.me https://*.telesco.pe; connect-src https://rizveurkjpcwrmbtoawj.supabase.co; base-uri 'none'; frame-src https://oauth.telegram.org; frame-ancestors 'none'">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +66,13 @@
   .auth-card{background:#fff;border-radius:18px;padding:28px 26px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.22);}
   .auth-card h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px;}
   .auth-card p{color:var(--soft);font-size:14.5px;margin:0 0 18px;}
+  /* кнопки окна приходят из общего js/checkout.js и просят класс .btn */
+  .auth-card .btn{display:block;width:100%;text-align:center;font-weight:700;font-size:15.5px;
+    padding:12px 16px;border-radius:12px;border:1.5px solid var(--accent);background:var(--accent);
+    color:#fff;cursor:pointer;font-family:inherit;}
+  .auth-card .btn:hover{background:var(--accent-dark);border-color:var(--accent-dark);}
+  .auth-card .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);margin-top:10px;}
+  .auth-card .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
   @media (max-width:860px){ .plans{grid-template-columns:1fr;} h1{font-size:28px;} }
 </style>
 </head>
@@ -123,7 +130,7 @@
         <li data-i18n="pr_event_f5">Your privacy settings apply to the whole event</li>
         <li data-i18n="pr_event_f6">The album stays yours forever</li>
       </ul>
-      <button class="cta" id="event-cta" data-i18n="pr_event_cta">Create an Event Album</button>
+      <a class="cta" href="event-album.html" data-i18n="pr_event_cta">Create an Event Album</a>
     </div>
   </div>
 

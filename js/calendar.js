@@ -4,7 +4,7 @@
 // публикации. calendar_albums отдаёт только видимые зрителю.
 import { sb } from './sb.js';
 import {
-  el, $, clear, mountShell, signUrls, albumCard, emptyState, icon, t, currentLang,
+  el, $, clear, mountShell, signUrls, albumCard, emptyState, icon, t, currentLang, proSet,
 } from './ui.js';
 
 const app = $('#app');
@@ -57,6 +57,7 @@ async function render() {
 
   const paths = list.flatMap(a => [a.cover_path]);
   const urls = await signUrls(paths);
+  const pro = await proSet(list.map(a => a.author_username));
 
   for (const key of keys) {
     const g = groups.get(key);
@@ -64,7 +65,7 @@ async function render() {
       el('div', { class: 'cal-heading' },
         icon('calendar', 18, { sw: 2, stroke: '#9B978F' }),
         el('span', { text: monthLabel(g.d) })),
-      grid(g.items, urls)));
+      grid(g.items, urls, pro)));
   }
 
   function drawYears(ys) {
@@ -80,12 +81,12 @@ async function render() {
   }
 }
 
-function grid(items, urls) {
+function grid(items, urls, pro) {
   const g = el('div', { class: 'grid' });
   items.forEach(a => {
     const card = albumCard({
       ...a, cover_path: a.cover_path, thumb1_path: a.cover_path,
-    }, urls, { hideAuthor: false });
+    }, urls, { hideAuthor: false, pro });
     // подпись даты альбома, если задана
     const label = albumDateLabel(a);
     if (label) card.querySelector('.card-stat')?.before(

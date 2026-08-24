@@ -64,7 +64,7 @@ async function renderList() {
     quota.append(
       el('div', { class: 'label', text: t('ev_none_title') }),
       el('div', { class: 'muted', style: 'font-size:15px;line-height:1.6;margin-top:8px', text: t('ev_none_text') }),
-      el('a', { class: 'btn btn-primary', style: 'margin-top:16px', href: 'pricing.html' }, t('ev_see_pricing')));
+      el('a', { class: 'btn btn-primary', style: 'margin-top:16px', href: 'event-album.html' }, t('ev_see_pricing')));
   }
   app.appendChild(quota);
 

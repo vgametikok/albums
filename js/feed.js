@@ -127,13 +127,14 @@ function renderFeed() {
     rows.forEach(a => paths.push(a.cover_path, a.thumb1_path, a.thumb2_path));
     const urls = await signUrls(paths);
 
+    const pro = await proSet(rows.map(a => a.author_username));
     let rest = rows;
     if (offset === 0 && rows.length >= 1) {
       // во врезку уходят первый и (если есть) второй альбом — в сетке их быть не должно
       rest = rows.slice(rows.length >= 2 ? 2 : 1);
-      featuredHost.appendChild(featured(rows[0], rows[1], urls));
+      featuredHost.appendChild(featured(rows[0], rows[1], urls, pro));
     }
-    rest.forEach(a => grid.appendChild(albumCard(a, urls)));
+    rest.forEach(a => grid.appendChild(albumCard(a, urls, { pro })));
     offset += rows.length;
     observeImpressions(app);   // учёт показов карточек
   }
@@ -148,7 +149,7 @@ function renderFeed() {
   load();
 }
 
-function featured(a, b, urls) {
+function featured(a, b, urls, pro) {
   const wrap = el('div', { class: 'featured' });
   const cover = urls[a.cover_path] || urls[a.thumb1_path];
   const main = el('a', { class: 'featured-main', href: `album.html?id=${a.id}` });
@@ -163,7 +164,7 @@ function featured(a, b, urls) {
 
   if (b) {
     const side = el('div', { class: 'featured-side' });
-    const card = albumCard(b, urls);
+    const card = albumCard(b, urls, { pro });
     side.append(...card.childNodes);
     wrap.appendChild(side);
   }
@@ -207,10 +208,11 @@ async function renderSearch(q) {
   const paths = [];
   albums.forEach(a => paths.push(a.cover_path, a.thumb1, a.thumb2));
   const urls = await signUrls(paths);
+  const proA = await proSet(albums.map(a => a.author_username));
   const g = el('div', { class: 'grid' });
   albums.forEach(a => g.appendChild(albumCard({
     ...a, cover_path: a.cover_path, thumb1_path: a.thumb1, thumb2_path: a.thumb2,
     published_at: a.published_at,
-  }, urls)));
+  }, urls, { pro: proA })));
   app.appendChild(g);
 }

@@ -224,7 +224,7 @@ export function showLogin(reason) {
  * колбэка: колбэк исполнялся бы через eval, а CSP у нас без 'unsafe-eval'.
  * Telegram уводит на свою страницу и возвращает уже на tg-auth/callback.
  */
-function telegramButton() {
+export function telegramButton() {
   const host = el('div', { style: 'display:flex;justify-content:center;margin-top:10px;min-height:48px' });
   const back = location.origin + location.pathname + location.search;
   const s = document.createElement('script');
@@ -441,9 +441,10 @@ export function thumbEl(path, url, kind, alt = '') {
   return v;
 }
 
-// Плашка PRO мельче этого размера не читается и налезает на соседей, поэтому у
-// маленьких аватаров остаётся только золотое кольцо.
-const PRO_TAG_MIN = 40;
+// Ниже этого размера плашку уже физически не разобрать, там остаётся только
+// кольцо. Порог низкий намеренно: подпись нужна везде, где её видно, — мелкая
+// не страшна.
+const PRO_TAG_MIN = 28;
 
 export function avatarImg(url, name, size = 44, pro = false) {
   // Без ссылки — заглушка с инициалом: <img> без src местами рисуется как битая
@@ -552,7 +553,7 @@ export function albumCard(a, urls = {}, opts = {}) {
   const meta = el('div', { class: 'card-meta' });
   if (!opts.hideAuthor && a.author_username) {
     meta.appendChild(el('a', { href: `profile.html?u=${encodeURIComponent(a.author_username)}`, style: 'flex-shrink:0' },
-      avatarImg(a.author_avatar, a.author_name, 44)));
+      avatarImg(a.author_avatar, a.author_name, 44, !!opts.pro?.has(a.author_username))));
   }
   const info = el('div', { style: 'min-width:0' },
     el('a', { class: 'card-title', href, text: a.title }));

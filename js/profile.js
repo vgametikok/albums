@@ -390,10 +390,24 @@ async function mountEventEntry(actions) {
   const has = (mine || []).length > 0;
   if (!n && !has) return;
 
+  // Купленное уже есть, поэтому не гоним ни сразу в покупку, ни сразу в
+  // управление: спрашиваем, что человек хотел — открыть своё или взять ещё.
   const label = n > 0 ? t('ev_cta_create') : t('ev_cta_manage');
-  const btn = el('a', { class: 'btn btn-primary btn-sm', href: 'event.html' }, label);
+  const btn = el('button', { class: 'btn btn-primary btn-sm', onclick: chooseEvent }, label);
   if (n > 0) btn.appendChild(el('span', { class: 'ev-badge', text: String(n) }));
   actions.insertBefore(btn, actions.firstChild);
+}
+
+/** Открыть своё событие или купить ещё. */
+function chooseEvent() {
+  modal((box, close) => {
+    box.append(
+      el('h2', { text: t('ev_choose_t') }),
+      el('p', { text: t('ev_choose_d') }),
+      el('a', { class: 'btn btn-primary', style: 'width:100%', href: 'event.html' }, t('ev_choose_use')),
+      el('a', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', href: 'event-album.html' }, t('ev_choose_buy')),
+      el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
+  });
 }
 
 /* ---------------- редактирование профиля ---------------- */

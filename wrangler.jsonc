@@ -23,6 +23,7 @@
     "run_worker_first": [
       "/", "/album.html", "/profile.html",
       "/pricing", "/pricing.html", "/event",
+      "/event-album", "/event-album.html",
       "/terms", "/terms.html", "/privacy", "/privacy.html",
       "/refunds", "/refunds.html"
     ]

@@ -82,6 +82,27 @@ export const HOME_FAQ = [
    'A curated collection of photos, videos and voice notes organized into chapters and read like a story — a trip, a wedding, a year of your child — rather than scrolled like a feed.'],
 ];
 
+// Дословно повторяет видимый блок «Questions» на event-album.html — правило то
+// же, что и для страницы цен: разметка дублирует текст страницы, а не свой.
+export const EVENT_FAQ = [
+  ['Do guests have to install an app?',
+   'No. The phone camera opens an ordinary web page.'],
+  ['Do they need an Albums account?',
+   'Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later.'],
+  ['How many guests can I invite?',
+   'As many as you like. There is one code and it never changes.'],
+  ['How long does the album live?',
+   'As long as you need. We delete nothing on a timer and charge nothing extra for storage.'],
+  ['How many photos fit?',
+   'There is no cap for the event: every guest’s space counts against their own account, and for photos it goes a long way. Heavy video is the exception — 50 MB per file.'],
+  ['Can I hide the bad shots?',
+   'Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision.'],
+  ['What if the code reaches strangers?',
+   'Issue a new link — the old QR stops working. Everyone who already joined stays.'],
+  ['Need a second album for another event?',
+   'That is another purchase. Nothing expires: buy it in advance and create the album when the date is set.'],
+];
+
 // Дословно повторяет видимый блок «Questions» на pricing.html —
 // разметка обязана дублировать текст страницы, а не выдумывать свой.
 export const PRICING_FAQ = [
@@ -113,6 +134,13 @@ const PAGES = {
     title: 'Pricing: Free, Pro $9.99, Event Album $39.99 — Albums',
     desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album at $39.99 one-time — guests upload by QR code and the album is yours forever.',
     ld: [faq(PRICING_FAQ)],
+    sitemap: { changefreq: 'monthly', priority: '0.9' },
+  },
+  'event-album.html': {
+    path: '/event-album',
+    title: 'Event Album — collect every guest’s photos with one QR code',
+    desc: 'One QR code for the whole event: guests upload photos from the phone browser — no app, no sign-up. $39.99 once, the album stays yours forever.',
+    ld: [faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
   'terms.html': {

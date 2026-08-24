@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- seo -->
+<title>Event Album — collect every guest’s photos with one QR code</title>
+<meta name="description" content="One QR code for the whole event: guests upload photos from the phone browser — no app, no sign-up. $39.99 once, the album stays yours forever.">
+<link rel="canonical" href="https://albums.ink/event-album">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Albums">
+<meta property="og:url" content="https://albums.ink/event-album">
+<meta property="og:title" content="Event Album — collect every guest’s photos with one QR code">
+<meta property="og:description" content="One QR code for the whole event: guests upload photos from the phone browser — no app, no sign-up. $39.99 once, the album stays yours forever.">
+<meta property="og:image" content="https://albums.ink/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Event Album — collect every guest’s photos with one QR code">
+<meta name="twitter:description" content="One QR code for the whole event: guests upload photos from the phone browser — no app, no sign-up. $39.99 once, the album stays yours forever.">
+<meta name="twitter:image" content="https://albums.ink/og-cover.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do guests have to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. The phone camera opens an ordinary web page."}},{"@type":"Question","name":"Do they need an Albums account?","acceptedAnswer":{"@type":"Answer","text":"Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later."}},{"@type":"Question","name":"How many guests can I invite?","acceptedAnswer":{"@type":"Answer","text":"As many as you like. There is one code and it never changes."}},{"@type":"Question","name":"How long does the album live?","acceptedAnswer":{"@type":"Answer","text":"As long as you need. We delete nothing on a timer and charge nothing extra for storage."}},{"@type":"Question","name":"How many photos fit?","acceptedAnswer":{"@type":"Answer","text":"There is no cap for the event: every guest’s space counts against their own account, and for photos it goes a long way. Heavy video is the exception — 50 MB per file."}},{"@type":"Question","name":"Can I hide the bad shots?","acceptedAnswer":{"@type":"Answer","text":"Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision."}},{"@type":"Question","name":"What if the code reaches strangers?","acceptedAnswer":{"@type":"Answer","text":"Issue a new link — the old QR stops working. Everyone who already joined stays."}},{"@type":"Question","name":"Need a second album for another event?","acceptedAnswer":{"@type":"Answer","text":"That is another purchase. Nothing expires: buy it in advance and create the album when the date is set."}}]}</script>
+<!-- /seo -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://telegram.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://t.me https://*.telesco.pe; connect-src https://rizveurkjpcwrmbtoawj.supabase.co; base-uri 'none'; frame-src https://oauth.telegram.org; frame-ancestors 'none'">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#F5F4F0; --ink:#1c1a17; --soft:#6b6862; --faint:#8d8880; --accent:#E8552B; --accent-dark:#cf4a21; --line:#e4dfd6; --tint:#EFEDE7; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:26px 22px 90px;}
+  .back{display:inline-block;color:var(--accent);text-decoration:none;font-weight:600;font-size:15px;margin-bottom:22px;}
+  .back:hover{text-decoration:underline;}
+  h1{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0;}
+  h2{font-size:27px;font-weight:800;letter-spacing:-.025em;margin:0 0 6px;}
+  h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;margin:0;}
+  p{margin:0;color:var(--soft);}
+
+  .sec{padding:44px 0;border-top:1px solid var(--line);}
+  .sec:first-of-type{border-top:0;}
+
+  /* ---- первый экран ---- */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;padding:34px 0 46px;}
+  .hero .sub{font-size:17.5px;margin-top:14px;max-width:470px;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:15.5px;
+       padding:14px 26px;border-radius:12px;text-decoration:none;margin-top:22px;border:0;cursor:pointer;font-family:inherit;}
+  .btn:hover{background:var(--accent-dark);}
+  .btn:disabled{opacity:.6;cursor:default;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .btn.ghost:hover{background:transparent;border-color:var(--accent);color:var(--accent);}
+  .note{font-size:13.5px;color:var(--faint);margin-top:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  .chip{font-size:12.5px;font-weight:600;color:#4A4741;background:var(--tint);border:1px solid #E0DCD2;border-radius:999px;padding:5px 12px;}
+
+  /* печатная табличка с QR */
+  .sign{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;text-align:center;
+        box-shadow:0 14px 34px rgba(0,0,0,.07);transform:rotate(-1.4deg);}
+  .sign .t{font-size:17px;font-weight:800;letter-spacing:-.02em;}
+  .sign .c{font-size:13px;color:var(--soft);margin:4px 0 14px;}
+  .sign canvas{display:block;margin:0 auto;border-radius:6px;}
+  .sign .u{font-size:10.5px;color:#a5a099;margin-top:12px;word-break:break-all;}
+
+  /* ---- уже куплено ---- */
+  .owned{display:none;background:#fff;border:1.5px solid var(--accent);border-radius:16px;padding:20px 22px;
+         margin-bottom:26px;box-shadow:0 10px 30px rgba(232,85,43,.10);}
+  .owned.on{display:block;}
+  .owned .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;}
+  .owned .btn{margin-top:0;}
+
+  /* ---- сетки ---- */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px;}
+  .steps{counter-reset:s;}
+  .steps > div{position:relative;padding-top:38px;}
+  .steps > div::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;
+    width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;}
+  .three p{margin-top:6px;font-size:14.5px;line-height:1.55;}
+
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 26px;margin-top:24px;}
+  .feat > div{padding-left:26px;position:relative;}
+  .feat > div::before{content:'';position:absolute;left:0;top:9px;width:13px;height:7px;
+    border-left:2.4px solid var(--accent);border-bottom:2.4px solid var(--accent);transform:rotate(-45deg);}
+  .feat p{margin-top:3px;font-size:14.5px;line-height:1.5;}
+
+  /* ---- что стоит знать ---- */
+  .know{background:var(--tint);border:1px solid #E0DCD2;border-radius:14px;padding:24px 26px;margin-top:8px;}
+  .know h2{font-size:22px;}
+  .know ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:11px;}
+  .know li{font-size:14.5px;color:#4A4741;padding-left:20px;position:relative;line-height:1.5;}
+  .know li::before{content:'';position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#B7B1A5;}
+  .know b{color:var(--ink);font-weight:600;}
+
+  /* ---- цена ---- */
+  .price{background:#fff;border:1.5px solid var(--accent);border-radius:18px;padding:30px;max-width:440px;
+         box-shadow:0 10px 30px rgba(232,85,43,.12);margin-top:22px;}
+  .price .p{font-size:40px;font-weight:800;letter-spacing:-.02em;}
+  .price .p small{font-size:15px;font-weight:600;color:var(--soft);letter-spacing:0;}
+  .price ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px;}
+  .price li{font-size:14.5px;padding-left:24px;position:relative;}
+  .price li::before{content:'';position:absolute;left:2px;top:8px;width:12px;height:7px;
+    border-left:2.2px solid var(--accent);border-bottom:2.2px solid var(--accent);transform:rotate(-45deg);}
+  .price .btn{display:block;text-align:center;width:100%;}
+
+  .faq{display:grid;gap:16px;margin-top:22px;max-width:760px;}
+  .faq b{display:block;font-size:15px;font-weight:600;color:var(--ink);}
+  .faq p{margin-top:3px;font-size:14.5px;}
+
+  .final{text-align:center;padding:52px 0 8px;}
+  .final p{max-width:520px;margin:10px auto 0;}
+  .foot{margin-top:40px;color:var(--faint);font-size:14px;}
+  .foot a{color:var(--accent);}
+
+  /* окно входа перед покупкой */
+  .auth-wrap{position:fixed;inset:0;background:rgba(20,15,10,.45);display:flex;align-items:center;justify-content:center;padding:22px;z-index:50;}
+  .auth-card{background:#fff;border-radius:18px;padding:28px 26px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.22);}
+  .auth-card h2{font-size:21px;margin:0 0 8px;}
+  .auth-card p{font-size:14.5px;margin:0 0 18px;}
+  .auth-card .btn{width:100%;margin-top:0;}
+  .auth-card .btn.ghost{margin-top:10px;}
+
+  @media (max-width:860px){
+    h1{font-size:31px;} h2{font-size:23px;}
+    .hero{grid-template-columns:1fr;gap:28px;padding-top:16px;}
+    .three,.feat{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){ .sign{transform:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Albums</a>
+
+  <!-- у человека уже есть оплаченный альбом: даём выбор -->
+  <div class="owned" id="owned">
+    <h3 data-i18n="ea_owned_t">You already have an Event Album</h3>
+    <p data-i18n="ea_owned_d" style="font-size:14.5px;margin-top:4px">Set it up and get the QR code — or buy another one for your next event.</p>
+    <div class="row">
+      <a class="btn" href="event.html" data-i18n="ea_owned_use">Use my Event Album</a>
+      <a class="btn ghost" href="#buy" data-i18n="ea_owned_more">Buy another</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h1 data-i18n="ea_h1">Your guests will shoot more than you do. Put it all in one album.</h1>
+      <p class="sub" data-i18n="ea_sub">One QR code for the whole event. Guests scan it and add their own photos straight from the phone browser — no app, no sign-up. You decide what everyone sees.</p>
+      <button class="btn" id="cta-top" data-i18n="ea_cta">Create an Event Album · $39.99</button>
+      <p class="note" data-i18n="ea_cta_note">One-time payment, no subscription. It never expires — start the album when the date is set.</p>
+      <div class="chips">
+        <span class="chip" data-i18n="ea_chip1">No app</span>
+        <span class="chip" data-i18n="ea_chip2">No sign-up for guests</span>
+        <span class="chip" data-i18n="ea_chip3">Any number of guests</span>
+        <span class="chip" data-i18n="ea_chip4">The album stays yours</span>
+      </div>
+    </div>
+    <div class="sign">
+      <div class="t" data-i18n="ea_sign_title">Anna &amp; Mark's wedding</div>
+      <div class="c" data-i18n="ea_sign_call">Scan the code and add your photos</div>
+      <canvas id="qr" width="150" height="150" aria-label="QR code sign example"></canvas>
+      <div class="u">albums.ink/join?t=…</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_prob_h">Sound familiar?</h2>
+    <div class="three">
+      <div>
+        <h3 data-i18n="ea_prob1_t">Everyone was shooting — you got a dozen shots</h3>
+        <p data-i18n="ea_prob1_d">The best photos stayed on other people's phones, and nobody is going to send them over.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_prob2_t">The group chat ate the quality</h3>
+        <p data-i18n="ea_prob2_d">Whatever arrived came compressed and sank between voice notes and stickers.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_prob3_t">A week later it feels awkward to ask</h3>
+        <p data-i18n="ea_prob3_d">There is one moment to collect everything, and it passes in a couple of days.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_how_h">Three steps</h2>
+    <div class="three steps">
+      <div>
+        <h3 data-i18n="ea_s1_t">You create the album</h3>
+        <p data-i18n="ea_s1_d">A name and a few words for your guests. The printable QR sign is ready right away — put it on the tables.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_s2_t">Guests scan it</h3>
+        <p data-i18n="ea_s2_d">They land on a page with your greeting. Photos and videos go into the album straight from the phone browser.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_s3_t">You sort it out and take it home</h3>
+        <p data-i18n="ea_s3_d">Every shot: show to everyone, keep for friends, or hide. The whole album downloads as one archive.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_guest_h">Guests need nothing but a camera</h2>
+    <div class="feat">
+      <div>
+        <h3 data-i18n="ea_g1_t">No app, no account</h3>
+        <p data-i18n="ea_g1_d">Point the camera, open the page, pick the photos. Works on any phone with a browser.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_g2_t">Anonymous by default</h3>
+        <p data-i18n="ea_g2_d">A guest's name is never published without their say-so. They can sign in later and put their name on their shots.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_g3_t">They can claim their photos</h3>
+        <p data-i18n="ea_g3_d">Uploaded without signing in, then created an account? Their files move over. They have a week to do it.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_g4_t">They cannot touch anyone else's</h3>
+        <p data-i18n="ea_g4_d">A guest deletes only their own and cannot edit the album. Everyone who scanned the code can see the shared album.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_ctrl_h">Nobody sees what you don't want them to</h2>
+    <div class="feat">
+      <div>
+        <h3 data-i18n="ea_c1_t">Three states for every shot</h3>
+        <p data-i18n="ea_c1_d">Show to everyone, keep for friends only, or hide completely. One tap, or a whole batch at once.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_c2_t">Approve first, if you like</h3>
+        <p data-i18n="ea_c2_d">Turn on holding and guest photos wait for your approval — until then nobody can see them.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_c3_t">You see who sent what</h3>
+        <p data-i18n="ea_c3_d">A guest list with counts: how many they sent, how many are shown, how many are waiting.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_c4_t">The code can be replaced</h3>
+        <p data-i18n="ea_c4_d">If the link reaches the wrong people, issue a new one. The old QR stops working; guests who joined stay.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_own_h">The album stays yours</h2>
+    <div class="feat">
+      <div>
+        <h3 data-i18n="ea_o1_t">It never expires</h3>
+        <p data-i18n="ea_o1_d">Not after a month, not after a year. The link and the QR never change, and storage costs you nothing extra.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_o2_t">Downloads as one archive</h3>
+        <p data-i18n="ea_o2_d">A ZIP with files by chapter and a text file of captions — readable in ten years, with or without Albums.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_o3_t">It's an album, not a dump</h3>
+        <p data-i18n="ea_o3_d">A cover, chapters and your own voice notes next to the shots — a story you can read again.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ea_o4_t">Guest uploads don't eat your space</h3>
+        <p data-i18n="ea_o4_d">Everyone brings their own. There is no cap on how many photos an event can hold.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="know">
+      <h2 data-i18n="ea_know_h">Worth knowing up front</h2>
+      <p data-i18n="ea_know_lead" style="margin-top:8px;font-size:14.5px">Better read before you buy than be disappointed after.</p>
+      <ul>
+        <li data-i18n="ea_k1"><b>Photos are resized to 2048 px on the long side.</b> Great for screens, 10×15 prints and a photo book. Not for a wall-sized poster.</li>
+        <li data-i18n="ea_k2"><b>Video is capped at 50 MB per file.</b> That is roughly a minute from a phone. Post longer clips separately.</li>
+        <li data-i18n="ea_k3"><b>The venue needs internet.</b> With no signal a guest can scan the code and upload later — the link is permanent.</li>
+        <li data-i18n="ea_k4"><b>An album open to everyone goes through review.</b> A hidden one — visible to your guests only — works right away.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="buy">
+    <h2 data-i18n="ea_price_h">One purchase for the whole event</h2>
+    <div class="price">
+      <div class="p">$39.99 <small data-i18n="ea_price_unit">/ event</small></div>
+      <p data-i18n="ea_price_note" style="margin-top:6px;font-size:14.5px">One-time payment. No subscription.</p>
+      <ul>
+        <li data-i18n="ea_incl1">A permanent QR code and a printable sign</li>
+        <li data-i18n="ea_incl2">Any number of guests, no cap on photos</li>
+        <li data-i18n="ea_incl3">Sorting: show to everyone, friends, or hide</li>
+        <li data-i18n="ea_incl4">Download everything as an archive, any time</li>
+        <li data-i18n="ea_incl5">The album stays yours forever</li>
+        <li data-i18n="ea_incl6">Guests never pay</li>
+      </ul>
+      <button class="btn" id="cta-price" data-i18n="ea_cta_short">Create an Event Album</button>
+      <p class="note" data-i18n="ea_pay_note" style="text-align:center">Paid through PayPal. Access opens right after the payment.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 data-i18n="ea_faq_h">Questions</h2>
+    <div class="faq">
+      <div><b data-i18n="ea_q1">Do guests have to install an app?</b><p data-i18n="ea_a1">No. The phone camera opens an ordinary web page.</p></div>
+      <div><b data-i18n="ea_q2">Do they need an Albums account?</b><p data-i18n="ea_a2">Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later.</p></div>
+      <div><b data-i18n="ea_q3">How many guests can I invite?</b><p data-i18n="ea_a3">As many as you like. There is one code and it never changes.</p></div>
+      <div><b data-i18n="ea_q4">How long does the album live?</b><p data-i18n="ea_a4">As long as you need. We delete nothing on a timer and charge nothing extra for storage.</p></div>
+      <div><b data-i18n="ea_q5">How many photos fit?</b><p data-i18n="ea_a5">There is no cap for the event: every guest's space counts against their own account, and for photos it goes a long way. Heavy video is the exception — 50 MB per file.</p></div>
+      <div><b data-i18n="ea_q6">Can I hide the bad shots?</b><p data-i18n="ea_a6">Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision.</p></div>
+      <div><b data-i18n="ea_q7">What if the code reaches strangers?</b><p data-i18n="ea_a7">Issue a new link — the old QR stops working. Everyone who already joined stays.</p></div>
+      <div><b data-i18n="ea_q8">Need a second album for another event?</b><p data-i18n="ea_a8">That is another purchase. Nothing expires: buy it in advance and create the album when the date is set.</p></div>
+    </div>
+  </div>
+
+  <div class="final">
+    <h2 data-i18n="ea_final_h">Put up the sign — your guests do the rest</h2>
+    <p data-i18n="ea_final_d">The code is ready a minute after payment. From there it just sits on the table and collects your celebration.</p>
+    <button class="btn" id="cta-final" data-i18n="ea_cta">Create an Event Album · $39.99</button>
+    <p class="note" data-i18n="ea_final_note">One-time payment · Guests never pay · The album stays yours</p>
+  </div>
+
+  <div class="foot">
+    <a href="pricing.html" data-i18n="ea_all_plans">All plans</a> ·
+    <a href="refunds.html" data-i18n="foot_refunds">Refund Policy</a> ·
+    <a href="terms.html" data-i18n="foot_terms">Terms of Service</a> ·
+    <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+  </div>
+</div>
+<script type="module" src="js/event-album.js"></script>
+</body>
+</html>

@@ -96,7 +96,7 @@ function page({ title, desc, image, url }) {
 // а дубль без canonical размывает индекс.
 // Приложенческие адреса (album.html?id=, profile.html?u=, editor.html…)
 // не трогаем: они разосланы людям именно в таком виде.
-const CLEAN_PAGES = new Set(['pricing', 'terms', 'privacy', 'refunds']);
+const CLEAN_PAGES = new Set(['pricing', 'event-album', 'terms', 'privacy', 'refunds']);
 
 export default {
   async fetch(request, env) {
