@@ -3,7 +3,7 @@ import { sb, currentProfile, isAuthed, signOut } from './sb.js';
 import { CATEGORIES, SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, albumCard, avatarImg, fmtCount, icon,
-  toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton,
+  toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton, proSet,
 } from './ui.js';
 import { uploadAvatar } from './upload.js';
 import { trackButton } from './stats.js';
@@ -35,6 +35,7 @@ async function render() {
   const p = data.profile;
   document.title = `${p.name || p.username} — Albums`;
   clear(app);
+  const pro = await proSet([p.username]);
 
   /* ---- шапка ---- */
   const actions = el('div', { style: 'display:flex;gap:10px;flex-wrap:wrap' });
@@ -52,7 +53,7 @@ async function render() {
   }
 
   app.appendChild(el('div', { class: 'prof-head' },
-    avatarImg(p.avatar, p.name, 132),
+    avatarImg(p.avatar, p.name, 132, pro.has(p.username)),
     el('div', { style: 'min-width:0;flex:1' },
       el('div', { class: 'prof-row' }, el('h1', { text: p.name || p.username }), actions),
       el('div', { class: 'prof-handle', text: `@${p.username} · ${p.location ? p.location + ' · ' : ''}${t('joined', { year: new Date(p.created_at).getFullYear() })}` }),

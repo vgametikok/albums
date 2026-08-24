@@ -61,7 +61,7 @@ const storyCtx = () => ({
     texts = tx.data || []; galleries = gl.data || [];
     isOwner = album.author_id === currentUser().id;
     const co = await sb.from('album_collaborators')
-      .select('user_id,profiles:user_id(username,display_name,avatar_url)')
+      .select('user_id,profiles:user_id(username,display_name,avatar_url,plan)')
       .eq('album_id', albumId);
     collaborators = (co.data || []).map(r => r.profiles).filter(Boolean);
     const ex = await sb.from('album_exceptions').select('user_id').eq('album_id', albumId);
@@ -231,7 +231,7 @@ function collaboratorsBox() {
     }
     collaborators.forEach(c => {
       const row = el('div', { style: 'display:flex;gap:10px;align-items:center' },
-        avatarImg(c.avatar_url, c.display_name, 32),
+        avatarImg(c.avatar_url, c.display_name, 32, c.plan === 'pro'),
         el('div', { style: 'flex:1;min-width:0;font-size:15px', text: c.display_name || c.username }));
       if (isOwner) {
         row.appendChild(el('button', {

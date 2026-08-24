@@ -473,6 +473,7 @@
   pro_get: 'Pro holen',
   pro_until: 'Pro aktiv bis {date}',
   pro_start_error: 'Bezahlung konnte nicht gestartet werden. Bitte versuche es erneut.',
+  buy_signin: 'Melde dich zuerst an — der Kauf wird deinem Konto zugeordnet.',
   err_upload: 'Hochladen fehlgeschlagen, bitte versuche es erneut',
 
   /* ---- Event-Album (gemeinsames Album für Gäste) ---- */

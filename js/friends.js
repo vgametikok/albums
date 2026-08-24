@@ -1,6 +1,6 @@
 // Друзья: входящие заявки, отправленные, список друзей, поиск людей.
 import { sb, isAuthed } from './sb.js';
-import { el, $, clear, mountShell, avatarImg, toast, showLogin, emptyState, t } from './ui.js';
+import { el, $, clear, mountShell, avatarImg, toast, showLogin, emptyState, t, proSet } from './ui.js';
 
 const app = $('#app');
 
@@ -33,6 +33,7 @@ async function render() {
     const { data } = await sb.rpc('search_all', { p_q: text });
     const people = data?.people || [];
     if (!people.length) { results.appendChild(el('div', { class: 'muted', style: 'font-size:14.5px', text: t('nobody_found') })); return; }
+    const pro = await proSet(people.map(x => x.username));
     people.forEach(p => results.appendChild(personRow(p, [
       el('button', {
         class: 'mini', onclick: async (e) => {
@@ -43,7 +44,7 @@ async function render() {
           load();
         },
       }, t('add_friend')),
-    ])));
+    ], pro)));
   }
 
   const box = el('div', {});
@@ -54,6 +55,9 @@ async function render() {
     const { data, error } = await sb.rpc('my_friends');
     if (error) { clear(box).appendChild(emptyState(t('friends_load_error'), error.message)); return; }
     clear(box);
+    // Один запрос на все три раздела сразу — заявки, отправленные и друзья.
+    const pro = await proSet([...(data.incoming || []), ...(data.sent || []), ...(data.friends || [])]
+      .map(p => p.username));
     section(t('requests_to_you'), data.incoming || [], (p) => [
       el('button', {
         class: 'btn btn-primary btn-sm', onclick: async () => {
@@ -95,15 +99,16 @@ async function render() {
       box.append(el('div', { class: 'section-head', style: 'margin:32px 0 14px' },
         el('h2', { style: 'font-size:20px', text: `${title} · ${list.length}` })));
       const stack = el('div', { class: 'stack', style: 'max-width:620px' });
-      list.forEach(p => stack.appendChild(personRow(p, actions(p))));
+      list.forEach(p => stack.appendChild(personRow(p, actions(p), pro)));
       box.appendChild(stack);
     }
   }
 }
 
-function personRow(p, actions) {
+function personRow(p, actions, pro) {
   return el('div', { class: 'side-card', style: 'display:flex;align-items:center;gap:14px' },
-    el('a', { href: `profile.html?u=${encodeURIComponent(p.username)}` }, avatarImg(p.avatar, p.name, 48)),
+    el('a', { href: `profile.html?u=${encodeURIComponent(p.username)}` },
+      avatarImg(p.avatar, p.name, 48, !!pro?.has(p.username))),
     el('div', { style: 'flex:1;min-width:0' },
       el('a', { href: `profile.html?u=${encodeURIComponent(p.username)}`, style: 'font-size:16.5px;font-weight:700', text: p.name || p.username }),
       el('div', { class: 'card-sub', text: '@' + p.username })),

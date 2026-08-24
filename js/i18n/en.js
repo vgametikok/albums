@@ -144,6 +144,7 @@ export default {
   pro_get: 'Get Pro',
   pro_until: 'Pro active until {date}',
   pro_start_error: 'Could not start checkout. Please try again.',
+  buy_signin: 'Sign in first — the purchase is tied to your account.',
   joined: 'Joined {year}',
   stat_albums: 'Albums',
   stat_friends: 'Friends',

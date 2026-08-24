@@ -3,7 +3,7 @@ import { sb, currentUser } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, attachMediaRefresh, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
-  modal, thumbEl, moreButton,
+  modal, thumbEl, moreButton, proSet,
 } from './ui.js';
 import { mountComments } from './comments.js';
 import { trackAlbumView } from './stats.js';
@@ -35,6 +35,7 @@ const id = new URLSearchParams(location.search).get('id');
 async function render(d) {
   const a = d.album, author = d.author;
   document.title = `${a.title} — Albums`;
+  const pro = await proSet([author?.username]);
 
   // все медиа-пути одним батчем (включая голосовые кадров и галерей)
   const paths = [a.cover_path];
@@ -145,7 +146,7 @@ async function render(d) {
   const side = el('div', { class: 'sticky' });
   side.appendChild(el('div', { class: 'side-card' },
     el('a', { href: `profile.html?u=${encodeURIComponent(author.username)}`, style: 'display:flex;gap:14px;align-items:center' },
-      avatarImg(author.avatar, author.name, 56),
+      avatarImg(author.avatar, author.name, 56, pro.has(author.username)),
       el('div', { style: 'min-width:0' },
         el('div', { style: 'font-size:17px;font-weight:700', text: author.name || author.username }),
         el('div', { class: 'card-sub', text: '@' + author.username }))),

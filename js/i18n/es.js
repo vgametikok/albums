@@ -473,6 +473,7 @@
   pro_get: 'Conseguir Pro',
   pro_until: 'Pro activo hasta el {date}',
   pro_start_error: 'No se pudo abrir el pago. Inténtalo de nuevo.',
+  buy_signin: 'Inicia sesión primero: la compra se vincula a tu cuenta.',
   err_upload: 'Error al subir, inténtalo de nuevo',
 
   /* ---- álbum de evento (compartido con invitados) ---- */

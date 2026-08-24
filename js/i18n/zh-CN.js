@@ -473,6 +473,7 @@
   pro_get: '升级 Pro',
   pro_until: 'Pro 有效期至 {date}',
   pro_start_error: '无法开始结账，请重试。',
+  buy_signin: '请先登录，购买将绑定到你的账号。',
   err_upload: '上传失败，请重试',
 
   /* ---- 活动 · 共享相册（来宾二维码）---- */

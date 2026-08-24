@@ -42,7 +42,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
 
   async function load() {
     const { data, error } = await sb.from('comments')
-      .select('id,body,created_at,parent_id,author_id,author:profiles!comments_author_id_fkey(username,display_name,avatar_url)')
+      .select('id,body,created_at,parent_id,author_id,author:profiles!comments_author_id_fkey(username,display_name,avatar_url,plan)')
       .eq('subject_type', subjectType).eq('subject_id', subjectId)
       .order('created_at', { ascending: true });
     if (error) { clear(list).appendChild(el('div', { class: 'muted', text: t('comments_unavailable') })); return; }
@@ -96,7 +96,7 @@ export function mountComments(host, subjectType, subjectId, opts = {}) {
 
     const node = el('div', { class: 'comment' + (isReply ? ' reply' : '') },
       el('a', { href: `profile.html?u=${encodeURIComponent(a.username || '')}`, style: 'flex-shrink:0' },
-        avatarImg(a.avatar_url, a.display_name, isReply ? 36 : 44)),
+        avatarImg(a.avatar_url, a.display_name, isReply ? 36 : 44, a.plan === 'pro')),
       el('div', { class: 'c-body' },
         el('div', { class: 'c-head' },
           el('a', { class: 'c-name', href: `profile.html?u=${encodeURIComponent(a.username || '')}`, text: a.display_name || a.username || 'Someone' }),

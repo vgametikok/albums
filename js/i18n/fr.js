@@ -471,6 +471,7 @@
   pro_get: 'Passer à Pro',
   pro_until: 'Pro actif jusqu’au {date}',
   pro_start_error: 'Impossible d’ouvrir le paiement. Veuillez réessayer.',
+  buy_signin: 'Connectez-vous d’abord — l’achat est lié à votre compte.',
   err_upload: 'Échec de l’import, veuillez réessayer',
   ev_title: 'Album partagé',
   ev_lede: 'Un seul QR code pour tout l’événement. Les invités le scannent, se connectent et déposent leurs propres photos dans votre album — puis vous décidez ce que tout le monde voit, ce qui reste réservé aux amis, et ce que personne ne voit.',

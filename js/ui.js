@@ -441,23 +441,63 @@ export function thumbEl(path, url, kind, alt = '') {
   return v;
 }
 
-export function avatarImg(url, name, size = 44) {
+// Плашка PRO мельче этого размера не читается и налезает на соседей, поэтому у
+// маленьких аватаров остаётся только золотое кольцо.
+const PRO_TAG_MIN = 40;
+
+export function avatarImg(url, name, size = 44, pro = false) {
   // Без ссылки — заглушка с инициалом: <img> без src местами рисуется как битая
   // картинка, а аватар и правда не всегда есть (гости, старые записи, search_all).
+  let node;
   if (!url) {
-    return el('span', {
+    node = el('span', {
       class: 'avatar avatar-ph', 'aria-label': name || 'avatar',
       style: `width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px`,
       text: ([...String(name || '').trim()][0] || '').toUpperCase(),
     });
+  } else {
+    node = el('img', {
+      class: 'avatar', alt: name || 'avatar',
+      style: `width:${size}px;height:${size}px`,
+      referrerpolicy: 'no-referrer',
+    });
+    node.src = url;
   }
-  const img = el('img', {
-    class: 'avatar', alt: name || 'avatar',
-    style: `width:${size}px;height:${size}px`,
-    referrerpolicy: 'no-referrer',
-  });
-  img.src = url;
-  return img;
+  if (!pro) return node;
+
+  // Обёртка только у Pro: у остальных аватар остаётся тем же узлом, что и был,
+  // и вёрстка полутора десятков мест не меняется.
+  const wrap = el('span', { class: 'ava-pro', style: `width:${size}px;height:${size}px` }, node);
+  if (size >= PRO_TAG_MIN) {
+    wrap.appendChild(el('span', {
+      class: 'pro-tag',
+      style: `font-size:${Math.max(9, Math.min(12, Math.round(size * 0.135)))}px`,
+      text: 'PRO',                       // название тарифа, не переводится
+    }));
+  }
+  return wrap;
+}
+
+/**
+ * У кого из перечисленных логинов тариф Pro.
+ *
+ * Тариф лежит открыто в profiles (политика чтения — using(true)) и уже отдаётся
+ * в get_profile, поэтому спрашиваем таблицу напрямую и не переписываем ради
+ * золотого кольца полтора десятка ядровых выдач. Ответы кэшируем на страницу:
+ * в ленте один и тот же автор встречается по нескольку раз.
+ */
+const proCache = new Map();
+export async function proSet(usernames) {
+  const all = [...new Set((usernames || []).filter(Boolean))];
+  const need = all.filter(u => !proCache.has(u));
+  if (need.length) {
+    // Промах кэша помечаем заранее: иначе профиль без строки (удалённый,
+    // технический) спрашивался бы заново на каждую перерисовку.
+    need.forEach(u => proCache.set(u, false));
+    const { data } = await sb.from('profiles').select('username,plan').in('username', need);
+    (data || []).forEach(r => proCache.set(r.username, r.plan === 'pro'));
+  }
+  return new Set(all.filter(u => proCache.get(u)));
 }
 
 /**

@@ -3,7 +3,7 @@ import { sb, currentUser, isAuthed } from './sb.js';
 import { LIMITS } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, avatarImg, timeAgo, fmtCount, icon,
-  toast, needAuth, emptyState, modal, t, thumbEl,
+  toast, needAuth, emptyState, modal, t, thumbEl, proSet,
 } from './ui.js';
 import { uploadMedia, kindOf } from './upload.js';
 import { mountComments } from './comments.js';
@@ -73,11 +73,12 @@ async function load() {
   const paths = [];
   rows.forEach(p => (p.slides || []).forEach(s => paths.push(s.path, s.thumb)));
   const urls = await signUrls(paths);
-  rows.forEach(p => feed.insertBefore(postCard(p, urls), sentinel));
+  const pro = await proSet(rows.map(p => p.author_username));
+  rows.forEach(p => feed.insertBefore(postCard(p, urls, pro), sentinel));
   offset += rows.length;
 }
 
-function postCard(p, urls) {
+function postCard(p, urls, pro) {
   const slides = p.slides || [];
   let idx = 0;
 
@@ -148,7 +149,7 @@ function postCard(p, urls) {
   const card = el('article', { class: 'post', id: `post-${p.id}` },
     el('div', { class: 'post-head' },
       el('a', { href: `profile.html?u=${encodeURIComponent(p.author_username)}` },
-        avatarImg(p.author_avatar, p.author_name, 38)),
+        avatarImg(p.author_avatar, p.author_name, 38, !!pro?.has(p.author_username))),
       el('div', { style: 'min-width:0' },
         el('a', { class: 'post-name', href: `profile.html?u=${encodeURIComponent(p.author_username)}`, text: p.author_name || p.author_username }),
         el('div', { class: 'post-time', text: timeAgo(p.created_at) }))),

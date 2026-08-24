@@ -3,7 +3,7 @@ import { sb, currentProfile } from './sb.js';
 import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, albumCard, skeletonGrid, signUrls, emptyState,
-  composition, fmtCount, timeAgo, avatarImg, icon, playTriangle, t, catLabel,
+  composition, fmtCount, timeAgo, avatarImg, icon, playTriangle, t, catLabel, proSet,
 } from './ui.js';
 import { observeImpressions } from './stats.js';
 
@@ -185,13 +185,14 @@ async function renderSearch(q) {
   }));
 
   if (people.length) {
+    const pro = await proSet(people.map(p => p.username));
     app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: t('search_people') })));
     const row = el('div', { class: 'grid' });
     people.forEach(p => row.appendChild(el('a', {
       class: 'side-card', href: `profile.html?u=${encodeURIComponent(p.username)}`,
       style: 'display:flex;gap:14px;align-items:center',
     },
-      avatarImg(p.avatar, p.name, 52),
+      avatarImg(p.avatar, p.name, 52, pro.has(p.username)),
       el('div', { style: 'min-width:0' },
         el('div', { style: 'font-size:17px;font-weight:700', text: p.name || p.username }),
         el('div', { class: 'card-sub', text: '@' + p.username })))));

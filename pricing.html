@@ -61,6 +61,11 @@
   .qa p{margin:0 0 14px;max-width:760px;}
   .qa b{font-weight:600;display:block;}
   .qa a{color:var(--accent);}
+  /* окно «войдите, чтобы продолжить покупку» (js/pricing.js) */
+  .auth-wrap{position:fixed;inset:0;background:rgba(20,15,10,.45);display:flex;align-items:center;justify-content:center;padding:22px;z-index:50;}
+  .auth-card{background:#fff;border-radius:18px;padding:28px 26px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.22);}
+  .auth-card h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px;}
+  .auth-card p{color:var(--soft);font-size:14.5px;margin:0 0 18px;}
   @media (max-width:860px){ .plans{grid-template-columns:1fr;} h1{font-size:28px;} }
 </style>
 </head>

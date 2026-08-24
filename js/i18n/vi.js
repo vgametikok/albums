@@ -471,6 +471,7 @@
   pro_get: 'Nâng cấp Pro',
   pro_until: 'Pro hoạt động đến {date}',
   pro_start_error: 'Không mở được trang thanh toán. Vui lòng thử lại.',
+  buy_signin: 'Hãy đăng nhập trước — giao dịch được gắn với tài khoản của bạn.',
   err_upload: 'Tải lên thất bại, vui lòng thử lại',
 
   /* ---- album chung cho sự kiện ---- */

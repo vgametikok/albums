@@ -3,6 +3,7 @@
   --bg:#F5F4F0; --surface:#fff; --ink:#141414; --muted:#6E6A63; --faint:#9B978F;
   --line:#DBD7D0; --chip:#ECEAE5; --tint:#F1EFEA; --ph:#E7E4DE;
   --accent:#E8552B; --accent-dark:#D6491F; --accent-ink:#C64518;
+  --gold:#C9A227; --gold-ink:#8A6A12;
   --shadow:0 1px 3px rgba(30,20,10,.05);
   --shadow-lg:0 24px 60px rgba(30,20,10,.2);
 }
@@ -30,6 +31,19 @@ img,video{max-width:100%}
 /* заглушка без снимка: инициал вместо пустого <img>, который выглядит битым */
 .avatar-ph{display:flex;align-items:center;justify-content:center;color:var(--muted);
   font-weight:700;flex-shrink:0;user-select:none}
+/* ---------- отметка Pro на аватаре ----------
+   Золотое кольцо вокруг снимка и плашка PRO под ним. Кольцо рисуем тенью, а не
+   рамкой: рамка съела бы размер самого аватара, а он задаётся в пикселях в
+   полутора десятках мест. Белая прослойка между снимком и золотом нужна, чтобы
+   кольцо читалось и на тёмной фотографии. Слово PRO не переводится ни на один
+   язык — это название тарифа. */
+.ava-pro{position:relative;display:inline-flex;flex-shrink:0;line-height:0}
+.ava-pro>.avatar{box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--gold)}
+.ava-pro>.pro-tag{position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+  background:var(--surface);color:var(--gold-ink);border:1px solid var(--gold);
+  border-radius:999px;padding:.12em .5em;line-height:1.35;   /* в em — плашка ужимается вместе со шрифтом */
+  font-size:9.5px;font-weight:800;letter-spacing:.09em;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(30,20,10,.12)}
 .nav-link{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
 /* ---------- озвучка ---------- */

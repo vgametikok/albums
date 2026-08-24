@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="Your Albums Pro subscription is active.">
 <meta name="twitter:image" content="https://albums.ink/og-cover.png">
 <!-- /seo -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://rizveurkjpcwrmbtoawj.supabase.co; base-uri 'none'; frame-ancestors 'none'">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,18 +38,52 @@
   .cta{display:inline-block;margin-top:24px;text-decoration:none;font-weight:700;font-size:15.5px;padding:12px 26px;border-radius:12px;background:var(--accent);color:#fff;}
   .cta:hover{background:var(--accent-dark);}
   .small{font-size:13.5px;margin-top:20px;}
+  .cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .cta.ghost:hover{background:transparent;border-color:var(--accent);color:var(--accent);}
+  .spin{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;margin:6px auto 18px;animation:r 1s linear infinite;}
+  @keyframes r{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){ .spin{animation:none} }
 </style>
 </head>
 <body>
   <div class="card">
-    <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    <!-- ждём, пока вебхук PayPal включит тариф -->
+    <div data-state="loading">
+      <div class="spin"></div>
+      <h1>Thank you — activating Pro</h1>
+      <p>Your payment went through. We're switching your account to Albums Pro; this usually takes under a minute.</p>
+      <p class="small">Keep this page open — it updates by itself.</p>
     </div>
-    <h1>Thank you — Pro is on its way</h1>
-    <p>Your payment went through and we're activating Albums Pro on your account.</p>
-    <p>This usually happens within a minute. If you don't see Pro right away, refresh the page.</p>
-    <a class="cta" href="index.html">Back to Albums</a>
-    <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+
+    <!-- тариф уже стоит в профиле -->
+    <div data-state="ok" hidden>
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h1>Albums Pro is active</h1>
+      <p>Everything Pro is unlocked on your account right now.</p>
+      <p hidden>Your subscription is paid until <b id="until"></b>.</p>
+      <a class="cta" href="profile.html">Go to my profile</a>
+      <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+    </div>
+
+    <!-- две минуты прошло, подтверждения всё нет -->
+    <div data-state="pending" hidden>
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.01M12 3l9 17H3z"/></svg></div>
+      <h1>Payment received — activation is running late</h1>
+      <p>PayPal has not confirmed the subscription yet. Nothing is lost: as soon as the confirmation arrives, Pro switches on by itself.</p>
+      <p>Reload this page in a couple of minutes, or write to us and we'll sort it out.</p>
+      <a class="cta" href="pro-thanks.html">Check again</a>
+      <p class="small">Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+    </div>
+
+    <!-- вернулись без сессии: проверить нечего -->
+    <div data-state="manual" hidden>
+      <div class="badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h1>Thank you for your payment</h1>
+      <p>Sign in to Albums to see your Pro status — the subscription is tied to the account you paid with.</p>
+      <a class="cta" href="index.html">Sign in</a>
+      <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+    </div>
   </div>
+  <script type="module" src="js/pro-thanks.js"></script>
 </body>
 </html>
