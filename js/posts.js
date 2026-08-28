@@ -127,7 +127,7 @@ function postCard(p, urls, pro) {
   const likeCount = el('span', { text: fmtCount(likes) });
   const likeIcon = el('span', {});
   const paintLike = () => {
-    clear(likeIcon).appendChild(icon('heart', 20, { fill: liked ? '#E8552B' : 'none', stroke: liked ? '#E8552B' : '#141414' }));
+    clear(likeIcon).appendChild(icon('heart', 20, { fill: liked ? '#C9A227' : 'none', stroke: liked ? '#C9A227' : '#141414' }));
     likeCount.textContent = fmtCount(likes);
   };
   const likeBtn = el('button', {

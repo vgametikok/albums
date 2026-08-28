@@ -23,9 +23,10 @@ const OG_IMAGE = `${SITE}/og-cover.png`;
 // Менять только синхронно во всех местах: совпадение формулировок в
 // независимых источниках — сигнал уверенности для языковых моделей.
 const CANON =
-  'Albums turns photos, videos and voice notes into story albums with '
-  + 'chapters and narration, and collects event photos from guests by QR '
-  + 'code — no app, no signup. Private by design, exportable forever.';
+  'Albums collects wedding and event photos from guests by QR code — no app, '
+  + 'no signup, no expiry timer, full export — lets guests keep their shots '
+  + 'in their own free account, and turns memories into story albums with '
+  + 'chapters and narration.';
 
 const ORG_LD = {
   '@context': 'https://schema.org',
@@ -68,10 +69,12 @@ export const HOME_FAQ = [
    'Create an Event Album and show or print its QR code. Guests scan it and upload photos and videos straight from the phone browser during and after the event. Everything lands in one album that belongs to you.'],
   ['Do guests need to download an app or sign up?',
    'No. Guests open the link or scan the QR code and upload from the browser. No app to install, no account to create.'],
+  ['How long does the event album live?',
+   'As long as you need. We delete nothing on a timer and charge nothing extra for storage — unlike typical QR photo services that keep guest uploads for 3–12 months.'],
   ['Can I download all the photos at once?',
    'Yes. Any album exports as a single archive with the original files — your photos are never locked in.'],
   ['Who owns the photos guests upload?',
-   'The event owner. Guests keep their own copies, and the collected album belongs to the person who created the event.'],
+   'The event owner. And guests keep their own shots: after signing in, everything a guest uploaded is saved to their own album in their own free account as well.'],
   ['How is Albums different from a shared Google Photos album?',
    'Guests need no Google account and no app. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription.'],
   ['Is Albums free?',
@@ -122,9 +125,9 @@ export const PRICING_FAQ = [
 const PAGES = {
   'index.html': {
     path: '/',
-    title: 'Albums — Photo Albums That Tell Stories',
-    desc: 'Turn photos, videos and voice notes into story albums with chapters and narration. Collect event photos from guests with one QR code — no app, no signup.',
-    ogTitle: 'Albums — put your life into stories',
+    title: 'Albums — Collect Event Photos by QR Code',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, $39.99 one-time. No expiry timer, full export, and guests keep their shots in their own free account.',
+    ogTitle: 'Albums — every guest photo, one QR code',
     ogDesc: CANON,
     ld: [ORG_LD, APP_LD, faq(HOME_FAQ)],
     sitemap: { changefreq: 'weekly', priority: '1.0' },

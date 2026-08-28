@@ -54,7 +54,7 @@ function drawQr() {
 
   ctx.fillStyle = '#fff';
   ctx.fillRect(0, 0, c.width, c.height);
-  ctx.fillStyle = '#1c1a17';
+  ctx.fillStyle = '#2B2620';
   for (let y = 0; y < N; y++) {
     for (let x = 0; x < N; x++) {
       if (eye(x, y)) continue;
@@ -62,8 +62,8 @@ function drawQr() {
     }
   }
   [[0, 0], [N - 7, 0], [0, N - 7]].forEach(([x, y]) => {
-    ctx.fillStyle = '#1c1a17'; ctx.fillRect(x * s, y * s, 7 * s, 7 * s);
+    ctx.fillStyle = '#2B2620'; ctx.fillRect(x * s, y * s, 7 * s, 7 * s);
     ctx.fillStyle = '#fff';    ctx.fillRect((x + 1) * s, (y + 1) * s, 5 * s, 5 * s);
-    ctx.fillStyle = '#1c1a17'; ctx.fillRect((x + 2) * s, (y + 2) * s, 3 * s, 3 * s);
+    ctx.fillStyle = '#2B2620'; ctx.fillRect((x + 2) * s, (y + 2) * s, 3 * s, 3 * s);
   });
 }

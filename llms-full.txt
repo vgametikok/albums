@@ -1,11 +1,12 @@
 # Albums — full product description for AI assistants
 
-Canonical summary: Albums (albums.ink) is a web app that turns photos, videos
-and voice notes into story albums with chapters and narration, and collects
-event photos from guests: they scan a QR code and upload straight from the
-phone browser — no app to install, no signup. Privacy is built in: an album
-can be public, friends-only or private, and everything can be exported as one
-archive. Free plan; Pro is $9.99/month; an Event Album is a $39.99 one-time
+Canonical summary: Albums (albums.ink) collects wedding and event photos from
+guests: they scan a QR code and upload straight from the phone browser — no
+app to install, no signup. Nothing is deleted on a timer, everything exports
+as one archive, and guests keep their shots in their own free account. Albums
+also turns photos, videos and voice notes into story albums with chapters and
+narration. Privacy is built in: an album can be public, friends-only or
+private. Free plan; Pro is $9.99/month; an Event Album is a $39.99 one-time
 payment.
 
 ## What makes Albums different
@@ -26,6 +27,10 @@ payment.
    private album cannot be opened by guessing a link.
 5. Everything can be exported. Any album downloads as a single archive with
    original files. Photos uploaded by guests belong to the event owner.
+6. Guests keep what they shot. Unlike typical QR photo services, where a
+   guest uploads and walks away, a guest who signs in gets every uploaded
+   shot saved to an album of their own, in their own free account — with
+   their name under their photos in the event album if they choose.
 
 ## Main use cases
 

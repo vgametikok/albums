@@ -85,7 +85,7 @@ async function renderList() {
     box.appendChild(el('div', { class: 'badge' },
       icon('users', 12, { stroke: '#fff', sw: 2 }), t('ev_guests_n', { count: a.guests || 0 })));
     if (a.items_hidden > 0) {
-      box.appendChild(el('div', { class: 'badge badge-lock', style: 'bottom:auto;top:12px;background:rgba(232,85,43,.92)',
+      box.appendChild(el('div', { class: 'badge badge-lock', style: 'bottom:auto;top:12px;background:rgba(201,162,39,.92)',
         text: t('ev_to_review_n', { count: a.items_hidden }) }));
     }
     card.appendChild(box);
@@ -336,7 +336,7 @@ function printQr(title, url) {
   .card{text-align:center;padding:48px}
   h1{font-size:40px;font-weight:800;letter-spacing:-.025em;margin:0 0 10px}
   p{font-size:20px;color:#4A4741;margin:0 0 28px}
-  .u{font-size:14px;color:#9B978F;margin-top:22px;word-break:break-all}
+  .u{font-size:14px;color:#A69D8E;margin-top:22px;word-break:break-all}
   @media print{ .card{padding:0} }
 </style>
 <div class="card"><h1>${esc(title)}</h1><p>${esc(t('ev_print_call'))}</p>${svg}<div class="u">${esc(url)}</div></div>`);

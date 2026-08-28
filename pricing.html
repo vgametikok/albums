@@ -25,9 +25,9 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --bg:#F5F4F0; --ink:#1c1a17; --soft:#6b6862; --accent:#E8552B; --accent-dark:#cf4a21; --line:#e4dfd6; }
+  :root{ --bg:#F3EEE6; --ink:#2B2620; --soft:#7A7265; --accent:#C9A227; --accent-dark:#A8871E; --line:#E4DCCE; }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:1020px;margin:0 auto;padding:30px 22px 90px;}
@@ -37,7 +37,7 @@
   .lead{color:var(--soft);margin:0 0 34px;font-size:17px;max-width:640px;}
   .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px 24px;display:flex;flex-direction:column;}
-  .plan.hot{border-color:var(--accent);box-shadow:0 10px 30px rgba(232,85,43,.12);}
+  .plan.hot{border-color:var(--accent);box-shadow:0 10px 30px rgba(201,162,39,.12);}
   .plan .tag{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;min-height:15px;}
   .plan h2{font-size:21px;font-weight:700;margin:0 0 6px;}
   .price{font-size:34px;font-weight:800;letter-spacing:-.02em;margin:2px 0 0;}
@@ -52,7 +52,7 @@
   .cta.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff;}
   button.cta{width:100%;cursor:pointer;font-family:inherit;}
   button.cta:disabled{opacity:.6;cursor:default;}
-  .status{display:block;text-align:center;font-weight:700;font-size:15.5px;padding:12px 16px;border-radius:12px;color:var(--accent);background:rgba(232,85,43,.09);cursor:default;}
+  .status{display:block;text-align:center;font-weight:700;font-size:15.5px;padding:12px 16px;border-radius:12px;color:var(--accent);background:rgba(201,162,39,.09);cursor:default;}
   .status::before{content:'✓ ';font-weight:800;}
   .fine{margin-top:36px;color:var(--soft);font-size:14px;max-width:760px;}
   .fine p{margin:0 0 10px;}
@@ -74,6 +74,9 @@
   .auth-card .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);margin-top:10px;}
   .auth-card .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
   @media (max-width:860px){ .plans{grid-template-columns:1fr;} h1{font-size:28px;} }
+
+  /* редизайн: дисплейные заголовки серифом */
+  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:0}
 </style>
 </head>
 <body>

@@ -9,7 +9,7 @@
 // файлы можно забрать себе (guest_claim_start/finish) и, по желанию, подписать.
 // Зарегистрированный участник сам выбирает, как подписывать: своим именем или
 // анонимно (album_media.anon).
-import { sb, isAuthed, isGuest, currentUser, signInAnonymously } from './sb.js';
+import { sb, isAuthed, isGuest, currentUser, signInAnonymously, signIn } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur, avatarImg,
   modal,
@@ -19,12 +19,14 @@ import { uploadMedia } from './upload.js';
 const app = $('#app');
 const token = new URLSearchParams(location.search).get('t');
 
-const CLAIM_KEY = 'albumsClaim';        // {code, pub, ts} — переезд гостевых файлов после входа
+const CLAIM_KEY = 'albumsClaim';        // {code, pub, ts, album} — переезд гостевых файлов после входа
 const AS_ANON_KEY = 'joinAsAnon';       // выбор подписи зарегистрированного участника
+const SAT_HIDE_KEY = 'albumsSatHide';   // sessionStorage: гость закрыл карточку «сохраните себе»
 
 let info = null;      // ответ album_invite_peek
 let mine = [];        // мои файлы в этом альбоме
 let busy = 0;
+let satAlbumId = null; // альбом-спутник вызывающего (ответ event_satellite_sync)
 
 (async function main() {
   await mountShell('home');
@@ -62,7 +64,19 @@ async function finishClaimIfAny() {
     p_code: saved.code, p_public: !!saved.pub,
   });
   if (error) { toast(t('claim_failed')); return; }
-  if (data?.moved > 0) toast(t('claim_done'));
+  if (data?.moved > 0) {
+    // Файлы теперь его — выполняем обещание карточки: тот же кадр появляется
+    // и в СОБСТВЕННОМ альбоме человека (спека internal/GUEST-LOOP-PLAN.md).
+    await syncSatellite(saved.album);
+    toast(satAlbumId ? t('sat_claim_done') : t('claim_done'));
+  }
+}
+
+/** Доносит мои файлы события в мой альбом-спутник. Молча: это фон, не действие. */
+async function syncSatellite(albumId) {
+  if (!albumId) return;
+  const { data, error } = await sb.rpc('event_satellite_sync', { p_event: albumId });
+  if (!error && data?.album_id) satAlbumId = data.album_id;
 }
 
 async function render() {
@@ -127,7 +141,7 @@ async function render() {
       el('div', { style: 'font-size:15px;line-height:1.55', text: t('join_guest_banner') }),
       el('button', {
         class: 'btn btn-ghost btn-sm', style: 'margin-top:10px',
-        onclick: () => openClaimModal(false),
+        onclick: () => openClaimModal(),
       }, t('sign_in'))));
   } else {
     const wrap = el('div', { class: 'vis-opts', style: 'margin-bottom:18px' });
@@ -176,7 +190,11 @@ async function render() {
       onclick: () => { done.classList.add('hide'); drop.classList.remove('hide'); },
     }, t('join_add_more')));
 
-  panel.append(fileInput, drop, done, status, listHost);
+  // Сюда после загрузки встаёт либо карточка «сохраните и себе» (гостю),
+  // либо ссылка на собственный альбом-спутник (вошедшему).
+  const saveHost = el('div');
+
+  panel.append(fileInput, drop, done, saveHost, status, listHost);
   loadMine();
 
   async function loadMine() {
@@ -211,7 +229,7 @@ async function render() {
       // остальным. Загрузившему честно говорим, что кадр пока ждёт одобрения.
       if (r.is_private) {
         cell.appendChild(el('div', {
-          class: 'tag', style: 'bottom:auto;top:5px;background:rgba(232,85,43,.92)',
+          class: 'tag', style: 'bottom:auto;top:5px;background:rgba(201,162,39,.92)',
           text: t('join_on_review'),
         }));
       }
@@ -263,37 +281,106 @@ async function render() {
     if (ok > 0 && busy === 0) {
       drop.classList.add('hide');
       done.classList.remove('hide');
-      // Гость только что положил файлы — самое время предложить забрать их себе.
-      if (isGuest()) openClaimModal(true);
+      if (isGuest()) {
+        // Ненавязчиво, карточкой, а не модалкой: загрузка уже удалась, вход —
+        // предложение выгоды («сохраните и себе»), а не условие.
+        if (!sessionStorage.getItem(SAT_HIDE_KEY)) showSaveCard();
+      } else {
+        // Вошедший участник: фото сразу доносятся в его альбом-спутник.
+        syncSatellite(info.album_id).then(showSatLink);
+      }
     }
   }
 
+  /** Ссылка на собственный альбом с этого события — доказательство обещания. */
+  function showSatLink() {
+    if (!satAlbumId) return;
+    clear(saveHost);
+    saveHost.appendChild(el('div', { class: 'side-card', style: 'margin-top:14px;text-align:center' },
+      el('div', { class: 'muted', style: 'font-size:14.5px', text: t('sat_saved') }),
+      el('a', {
+        class: 'btn btn-ghost btn-sm', style: 'margin-top:8px',
+        href: `album.html?id=${satAlbumId}`,
+      }, t('sat_open'))));
+  }
+
   /**
-   * Предложение входа гостю. justUploaded меняет только заголовок и текст:
-   * из баннера — «войдите», после загрузки — «фото загружены, подпишите их».
-   * Код переноса просим ДО входа: после редиректа гостевой сессии уже не будет.
+   * Карточка гостю после загрузки: «войдите — эти фото сохранятся и у вас».
+   * Подпись именем — по умолчанию; «остаться анонимным» — галочка. Код
+   * переноса просим ДО входа: после редиректа гостевой сессии уже не будет.
    */
-  function openClaimModal(justUploaded) {
+  function showSaveCard() {
+    clear(saveHost);
+    const anonCb = el('input', { type: 'checkbox' });
+    const googleBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' },
+      t('continue_google'));
+    const otherBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:8px' },
+      t('sat_banner_other'));
+    const start = async (btn, go) => {
+      btn.disabled = true;
+      const { data, error } = await sb.rpc('guest_claim_start');
+      if (error || !data?.code) { toast(error?.message || t('claim_failed')); btn.disabled = false; return; }
+      localStorage.setItem(CLAIM_KEY, JSON.stringify({
+        code: data.code, pub: !anonCb.checked, ts: Date.now(), album: info.album_id,
+      }));
+      go();
+    };
+    googleBtn.onclick = () => start(googleBtn, () =>
+      signIn().catch(err => { toast(err.message || t('signin_failed')); googleBtn.disabled = false; }));
+    otherBtn.onclick = () => start(otherBtn, () => showLogin(t('claim_signin_reason')));
+
+    const card = el('div', { class: 'side-card', style: 'margin-top:14px;position:relative' },
+      el('button', {
+        class: 'btn-icon', 'aria-label': t('not_now'),
+        style: 'position:absolute;top:10px;right:10px',
+        onclick: () => { sessionStorage.setItem(SAT_HIDE_KEY, '1'); card.remove(); },
+      }, '×'),
+      el('div', { style: 'font-size:17px;font-weight:700', text: t('sat_banner_title') }),
+      el('div', { class: 'muted', style: 'font-size:14.5px;line-height:1.55;margin:6px 0 14px', text: t('sat_banner_text') }),
+      googleBtn, otherBtn,
+      el('label', { style: 'display:flex;gap:8px;align-items:center;font-size:14px;margin-top:12px;cursor:pointer' },
+        anonCb, el('span', { class: 'muted', text: t('sat_banner_anon') })));
+    saveHost.appendChild(card);
+  }
+
+  /**
+   * Предложение входа гостю из верхнего баннера (уже загружал раньше).
+   * Та же семантика, что в карточке после загрузки: подпись именем — по
+   * умолчанию, «остаться анонимным» — галочка. Код переноса просим ДО входа:
+   * после редиректа гостевой сессии уже не будет.
+   */
+  function openClaimModal() {
     modal((box, close) => {
-      const startClaim = async (pub, btn) => {
+      const anonCb = el('input', { type: 'checkbox' });
+      const start = async (btn, go) => {
         btn.disabled = true;
         const { data, error } = await sb.rpc('guest_claim_start');
         if (error || !data?.code) { toast(error?.message || t('claim_failed')); btn.disabled = false; return; }
-        localStorage.setItem(CLAIM_KEY, JSON.stringify({ code: data.code, pub, ts: Date.now() }));
+        localStorage.setItem(CLAIM_KEY, JSON.stringify({
+          code: data.code, pub: !anonCb.checked, ts: Date.now(), album: info.album_id,
+        }));
         close();
-        showLogin(t('claim_signin_reason'));
+        go();
       };
-      const pubBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' }, t('claim_signin_public'));
-      pubBtn.onclick = () => startClaim(true, pubBtn);
-      const anonBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' }, t('claim_signin_anon'));
-      anonBtn.onclick = () => startClaim(false, anonBtn);
+      const googleBtn = el('button', { class: 'btn btn-primary', style: 'width:100%' },
+        t('continue_google'));
+      googleBtn.onclick = () => start(googleBtn, () =>
+        signIn().catch(err => toast(err.message || t('signin_failed'))));
+      const otherBtn = el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px' },
+        t('sat_banner_other'));
+      otherBtn.onclick = () => start(otherBtn, () => showLogin(t('claim_signin_reason')));
 
       box.append(
-        el('h2', { text: justUploaded ? t('claim_title') : t('claim_title_idle') }),
-        el('p', { text: t('claim_text') }),
-        pubBtn, anonBtn,
+        el('h2', { text: t('claim_title_idle') }),
+        el('p', { text: t('sat_banner_text') }),
+        googleBtn, otherBtn,
+        el('label', { style: 'display:flex;gap:8px;align-items:center;font-size:14px;margin-top:12px;cursor:pointer' },
+          anonCb, el('span', { class: 'muted', text: t('sat_banner_anon') })),
+        // Именно «не сейчас», а не «остаться анонимом»: рядом стоит галочка
+        // про анонимность В АЛЬБОМЕ, и два почти одинаковых слова про разное
+        // читались бы как одно и то же.
         el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close },
-          t('claim_stay_anon')));
+          t('not_now')));
     });
   }
 }

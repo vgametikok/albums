@@ -25,9 +25,9 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --bg:#F5F4F0; --ink:#1c1a17; --soft:#6b6862; --faint:#8d8880; --accent:#E8552B; --accent-dark:#cf4a21; --line:#e4dfd6; --tint:#EFEDE7; }
+  :root{ --bg:#F3EEE6; --ink:#2B2620; --soft:#7A7265; --faint:#A69D8E; --accent:#C9A227; --accent-dark:#A8871E; --line:#E4DCCE; --tint:#EFEDE7; }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:980px;margin:0 auto;padding:26px 22px 90px;}
@@ -64,7 +64,7 @@
 
   /* ---- уже куплено ---- */
   .owned{display:none;background:#fff;border:1.5px solid var(--accent);border-radius:16px;padding:20px 22px;
-         margin-bottom:26px;box-shadow:0 10px 30px rgba(232,85,43,.10);}
+         margin-bottom:26px;box-shadow:0 10px 30px rgba(201,162,39,.10);}
   .owned.on{display:block;}
   .owned .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;}
   .owned .btn{margin-top:0;}
@@ -94,7 +94,7 @@
 
   /* ---- цена ---- */
   .price{background:#fff;border:1.5px solid var(--accent);border-radius:18px;padding:30px;max-width:440px;
-         box-shadow:0 10px 30px rgba(232,85,43,.12);margin-top:22px;}
+         box-shadow:0 10px 30px rgba(201,162,39,.12);margin-top:22px;}
   .price .p{font-size:40px;font-weight:800;letter-spacing:-.02em;}
   .price .p small{font-size:15px;font-weight:600;color:var(--soft);letter-spacing:0;}
   .price ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px;}
@@ -126,6 +126,9 @@
     .three,.feat{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion:reduce){ .sign{transform:none;} }
+
+  /* редизайн: дисплейные заголовки серифом */
+  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:0}
 </style>
 </head>
 <body>

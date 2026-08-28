@@ -25,13 +25,13 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --bg:#F5F4F0; --ink:#1c1a17; --soft:#6b6862; --accent:#E8552B; --accent-dark:#cf4a21; --line:#e4dfd6; }
+  :root{ --bg:#F3EEE6; --ink:#2B2620; --soft:#7A7265; --accent:#C9A227; --accent-dark:#A8871E; --line:#E4DCCE; }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
   .card{background:#fff;border:1px solid var(--line);border-radius:20px;max-width:520px;width:100%;padding:44px 36px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.06);}
-  .badge{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:rgba(232,85,43,.1);display:flex;align-items:center;justify-content:center;}
+  .badge{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:rgba(201,162,39,.1);display:flex;align-items:center;justify-content:center;}
   .badge svg{width:32px;height:32px;stroke:var(--accent);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
   h1{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 12px;}
   p{color:var(--soft);font-size:16px;margin:0 0 10px;}
@@ -40,6 +40,9 @@
   .small{font-size:13.5px;margin-top:20px;}
   .spin{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;margin:6px auto 18px;animation:r 1s linear infinite;}
   @keyframes r{to{transform:rotate(360deg)}}
+
+  /* редизайн: дисплейные заголовки серифом */
+  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:0}
 </style>
 </head>
 <body>

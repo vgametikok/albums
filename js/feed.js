@@ -29,10 +29,16 @@ let trendPeriod = 'week';
   // Статическая витрина из index.html: краулерам и гостям — остаётся (гостю
   // её переводим на его язык), залогиненным и в режиме поиска — лишняя.
   const intro = document.getElementById('home-intro');
+  const landingOnly = !!intro && !q && !currentProfile();
   if (intro) {
-    if (q || currentProfile()) intro.remove();
+    if (!landingOnly) intro.remove();
     else intro.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
   }
+
+  // Лендинг — торговая страница QR-альбомов, и ленты на ней нет: чужие альбомы
+  // под ценой и FAQ уводят внимание с покупки. Лента остаётся главной для
+  // вошедших и включается в режиме поиска.
+  if (landingOnly) return;
 
   if (q) return renderSearch(q);
   renderFeed();

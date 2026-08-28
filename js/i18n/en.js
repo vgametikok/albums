@@ -453,6 +453,8 @@ export default {
   ev_guest_stat: '{total} uploaded · {shown} shown · {held} waiting',
 
   ev_cta_create: 'Shared album',
+  ev_cta_start: "Event by QR",
+  sat_chip: "My photos from an event",
   ev_cta_manage: 'Shared albums',
   ev_editor_hint: 'A guest upload link comes with the paid shared album for events: a permanent QR code, unlimited guests, and control over what becomes public.',
   ev_editor_learn: 'What is a shared album',
@@ -495,6 +497,14 @@ export default {
   claim_signin_reason: 'Sign in to claim your uploads',
   claim_done: 'Your uploads are now attached to your account',
   claim_failed: 'Could not attach the uploads to your account',
+  sat_banner_title: "Save these photos for yourself too",
+  sat_banner_text: "Sign in — these shots will also appear in your profile, in your own album of this event. Forever, free.",
+  sat_banner_anon: "Stay anonymous in the event album",
+  sat_banner_other: "Other ways to sign in",
+  sat_claim_done: "Done! Your photos are saved to your own album — it is already in your profile",
+  sat_saved: "Also saved to your own album",
+  sat_open: "Open my album",
+
   ev_rel_noauth: 'no sign-in',
   join_done_title: 'Your files are uploaded!',
   join_done_text: 'You can close this page — or add more.',
@@ -548,9 +558,10 @@ export default {
   nav_albums: 'Albums',
 
   /* ---- guest hero / footer legal links ---- */
-  hero_title: 'Turn your memories into stories',
-  hero_text: 'Albums is where photos, videos and voice notes become stories — with chapters, narration and privacy you control. Share with everyone, with friends only, or keep it just for you. And an Event Album collects photos from every guest at your wedding, trip or party.',
-  hero_start: 'Start free',
+  hero_title: "Every guest photo from your event — with one QR code",
+  hero_event: "Create an Event Album",
+  hero_text: "Guests scan the code and upload from the phone browser — no app, no signup. $39.99 one-time per event: no expiry timer, no upload window, full export whenever you want. And unlike anywhere else, your guests keep their shots too — in their own free account.",
+  hero_start: "Start a free story album",
   hero_pricing: 'See pricing',
   foot_pricing: 'Pricing',
   foot_terms: 'Terms of Service',

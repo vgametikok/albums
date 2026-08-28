@@ -34,7 +34,7 @@ function renderLogin() {
   clear(app);
   const login = el('input', { class: 'input', placeholder: 'login', autocomplete: 'off' });
   const pass = el('input', { class: 'input', type: 'password', placeholder: 'password', style: 'margin-top:10px' });
-  const err = el('div', { class: 'muted', style: 'color:#c0392b;margin-top:10px;min-height:20px' });
+  const err = el('div', { class: 'muted', style: 'color:#B3452F;margin-top:10px;min-height:20px' });
   const btn = el('button', { class: 'btn btn-primary', style: 'width:100%;margin-top:14px' }, 'Enter');
 
   btn.onclick = async () => {
@@ -617,12 +617,12 @@ function drawUsersList(host, d) {
     const name = el('span', {},
       el('b', { text: '@' + u.username }),
       u.display_name ? el('span', { class: 'muted', style: 'font-size:12.5px;display:block', text: u.display_name }) : null,
-      u.banned_at ? el('span', { style: 'font-size:12px;color:#c0392b;display:block', text: 'banned' }) : null,
+      u.banned_at ? el('span', { style: 'font-size:12px;color:#B3452F;display:block', text: 'banned' }) : null,
       u.deleted_at ? el('span', { class: 'muted', style: 'font-size:12px;display:block', text: 'deleted' }) : null);
 
     const plan = el('span', {
       style: 'font-weight:700;font-size:13px;padding:2px 9px;border-radius:999px;'
-        + (u.plan === 'pro' ? 'background:rgba(232,85,43,.12);color:#E8552B' : 'background:#EFEDE8;color:#6b6862'),
+        + (u.plan === 'pro' ? 'background:rgba(201,162,39,.12);color:#C9A227' : 'background:#EFEDE8;color:#7A7265'),
       text: PLAN_LABEL[u.plan] || u.plan,
     });
 
@@ -744,7 +744,7 @@ function barList(rows) {
     el('div', { style: 'display:flex;justify-content:space-between;font-size:14px' },
       el('span', { text: label }), el('span', { class: 'muted', text: String(n) })),
     el('div', { style: 'height:7px;border-radius:99px;background:#EFEDE8;margin-top:3px' },
-      el('i', { style: `display:block;height:100%;border-radius:99px;background:#E8552B;width:${Math.max(3, (n / max) * 100)}%` })))));
+      el('i', { style: `display:block;height:100%;border-radius:99px;background:#C9A227;width:${Math.max(3, (n / max) * 100)}%` })))));
   return box;
 }
 

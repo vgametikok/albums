@@ -28,6 +28,7 @@ const SKIP = new Set([
   'supabase',       // схема БД, RLS-политики, edge-функции
   'tools',          // деплой-скрипты
   'internal',       // приватные документы (лежат в отдельном репозитории)
+  'Design',         // макеты редизайна (зипы Claude Design) — не для сайта
   'node_modules',
   'vendor',
   'serve.js',       // локальный дев-сервер

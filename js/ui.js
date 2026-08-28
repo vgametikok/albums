@@ -353,9 +353,9 @@ export async function mountShell(active) {
   }
 
   clear(host).append(el('header', { class: 'hdr' },
-    el('a', { class: 'logo', href: 'index.html' }, 'Albums'),
+    el('a', { class: 'logo', href: 'index.html' }, 'albums.ink'),
     el('div', { class: 'search-wrap' },
-      el('div', { class: 'search' }, icon('search', 20, { stroke: '#8F8B84', sw: 2 }), searchInput)),
+      el('div', { class: 'search' }, icon('search', 20, { stroke: '#A69D8E', sw: 2 }), searchInput)),
     right,
   ));
 
@@ -369,21 +369,23 @@ function mountFooter() {
   document.querySelector('.site-foot')?.remove();
   document.body.appendChild(el('footer', {
     class: 'site-foot',
-    style: 'text-align:center;padding:28px 16px 96px;color:#8F8B84;font-size:12.5px;line-height:1.7',
+    style: 'text-align:center;padding:28px 16px 96px;color:#A69D8E;font-size:12.5px;line-height:1.7',
   },
-    el('div', { style: 'margin-bottom:8px' },
+    // flex с переносом: el() кладёт ссылки без пробельных узлов, и nowrap-цепочка
+    // иначе слипается в одну строку шире телефона — страницу распирало вбок.
+    el('div', { style: 'margin-bottom:8px;display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:2px' },
       // Ссылка на блог (BLOG_URL, ключ foot_blog) вернётся, когда появится
       // /blog/ — старый поддомен blog.albums.ink не существует в DNS.
       [`pricing.html|foot_pricing`,
         'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {
-          href, style: 'color:#8F8B84;text-decoration:underline;margin:0 8px;white-space:nowrap',
+          href, style: 'color:#A69D8E;text-decoration:underline;white-space:nowrap',
         }, t(key)))),
     el('div', {}, t('foot_support') + ': ',
-      el('a', { href: 'mailto:support@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'support@albums.ink')),
+      el('a', { href: 'mailto:support@albums.ink', style: 'color:#A69D8E;text-decoration:underline' }, 'support@albums.ink')),
     el('div', {}, t('foot_partnership') + ': ',
-      el('a', { href: 'mailto:partnership@albums.ink', style: 'color:#8F8B84;text-decoration:underline' }, 'partnership@albums.ink')),
+      el('a', { href: 'mailto:partnership@albums.ink', style: 'color:#A69D8E;text-decoration:underline' }, 'partnership@albums.ink')),
   ));
 }
 

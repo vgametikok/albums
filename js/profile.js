@@ -87,7 +87,7 @@ async function render() {
     app.append(
       el('div', { style: 'margin-top:32px' },
         el('div', { class: 'kicker kicker-muted', style: 'display:flex;align-items:center;gap:8px;margin-bottom:14px' },
-          icon('pin', 14, { stroke: '#9B978F', sw: 2 }), t('pinned_album')),
+          icon('pin', 14, { stroke: '#A69D8E', sw: 2 }), t('pinned_album')),
         hero));
   }
 
@@ -95,9 +95,16 @@ async function render() {
   // Статусы проверки нужны только на своём профиле: чужие альбомы, не прошедшие
   // модерацию, сюда и не приходят.
   let status = {};
+  // Спутники событий (альбомы «мои фото с события», миграция 049): на своём
+  // профиле помечаем их отдельным чипом вместо безликого «черновика».
+  let sats = new Set();
   if (data.is_me) {
-    const { data: st } = await sb.rpc('my_album_status');
+    const [{ data: st }, { data: sa }] = await Promise.all([
+      sb.rpc('my_album_status'),
+      sb.from('albums').select('id').eq('author_id', p.id).not('event_source_id', 'is', null),
+    ]);
     status = st || {};
+    sats = new Set((sa || []).map(r => r.id));
   }
   const statusOf = (a) => status[a.id]?.status || 'approved';
   const isLive = (a) => !!a.published_at && statusOf(a) === 'approved';
@@ -116,9 +123,10 @@ async function render() {
     if (!data.is_me) return card;
 
     const s = statusOf(a);
-    const mark = !a.published_at ? [t('draft'), '#8F8B84']
-      : s === 'pending' ? [t('review_pending'), '#E8552B']
-      : s === 'rejected' ? [t('review_rejected'), '#c0392b'] : null;
+    const mark = sats.has(a.id) && !a.published_at ? [t('sat_chip'), '#C9A227']
+      : !a.published_at ? [t('draft'), '#A69D8E']
+      : s === 'pending' ? [t('review_pending'), '#C9A227']
+      : s === 'rejected' ? [t('review_rejected'), '#B3452F'] : null;
     if (mark) {
       card.insertBefore(el('div', {
         style: `display:inline-block;margin-bottom:6px;padding:3px 10px;border-radius:99px;font-size:12.5px;
@@ -388,7 +396,13 @@ async function mountEventEntry(actions) {
   ]);
   const n = Number(credits) || 0;
   const has = (mine || []).length > 0;
-  if (!n && !has) return;
+  // Продукт первым: у кого события ещё нет, кабинет ведёт на его витрину.
+  if (!n && !has) {
+    actions.insertBefore(el('a', {
+      class: 'btn btn-ghost btn-sm', href: 'event-album.html',
+    }, t('ev_cta_start')), actions.firstChild);
+    return;
+  }
 
   // Купленное уже есть, поэтому не гоним ни сразу в покупку, ни сразу в
   // управление: спрашиваем, что человек хотел — открыть своё или взять ещё.

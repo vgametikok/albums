@@ -91,7 +91,7 @@ async function render(d) {
       // Неодобренный альбом видят только участники — им честно говорим, почему
       // его нет в ленте. Отклонённый помечаем автору.
       (a.published_at && a.moderation_status === 'pending')
-        ? el('div', { class: 'pill', style: 'background:#E8552B;color:#fff;margin-left:8px', text: t('album_on_review') })
+        ? el('div', { class: 'pill', style: 'background:#C9A227;color:#fff;margin-left:8px', text: t('album_on_review') })
         : null,
       (d.is_author && a.moderation_status === 'rejected')
         ? el('div', { class: 'pill', style: 'background:#8A2B14;color:#fff;margin-left:8px', text: t('album_rejected') })
@@ -329,7 +329,7 @@ function renderGrid(host, all, urls, canEdit) {
     const by = byBadge(m);
     if (by) cell.appendChild(by);
     if (m.mine && m.is_private && !canEdit) {
-      cell.appendChild(el('div', { class: 'vbadge', style: 'right:auto;left:10px;background:rgba(232,85,43,.92)', text: t('join_on_review') }));
+      cell.appendChild(el('div', { class: 'vbadge', style: 'right:auto;left:10px;background:rgba(201,162,39,.92)', text: t('join_on_review') }));
     }
     cells.push({ el: cell, ratio });
     wrap.appendChild(cell);
@@ -450,7 +450,7 @@ function likeBtn(a, liked) {
   const paint = () => {
     clear(b);
     b.className = 'btn-round' + (on ? ' on' : '');
-    b.appendChild(icon('heart', 20, { fill: on ? '#E8552B' : 'none', stroke: on ? '#E8552B' : '#141414' }));
+    b.appendChild(icon('heart', 20, { fill: on ? '#C9A227' : 'none', stroke: on ? '#C9A227' : '#141414' }));
   };
   b.onclick = async () => {
     if (!needAuth(t('signin_to_like'))) return;
@@ -472,7 +472,7 @@ function saveBtn(a, saved) {
   const paint = () => {
     clear(b);
     b.className = 'btn-round' + (on ? ' on' : '');
-    b.appendChild(icon('bookmark', 19, { fill: on ? '#E8552B' : 'none', stroke: on ? '#E8552B' : '#141414' }));
+    b.appendChild(icon('bookmark', 19, { fill: on ? '#C9A227' : 'none', stroke: on ? '#C9A227' : '#141414' }));
   };
   b.onclick = async () => {
     if (!needAuth(t('signin_to_save'))) return;

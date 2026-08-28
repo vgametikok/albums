@@ -63,7 +63,7 @@ async function render() {
     const g = groups.get(key);
     body.appendChild(el('div', { class: 'cal-group' },
       el('div', { class: 'cal-heading' },
-        icon('calendar', 18, { sw: 2, stroke: '#9B978F' }),
+        icon('calendar', 18, { sw: 2, stroke: '#A69D8E' }),
         el('span', { text: monthLabel(g.d) })),
       grid(g.items, urls, pro)));
   }

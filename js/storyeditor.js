@@ -395,7 +395,7 @@ export function createStoryEditor(host, ctx) {
 
     const th = el('div', { class: 'mthumb', style: 'display:flex;align-items:center;justify-content:center;overflow:hidden' });
     if (m.kind === 'audio') {
-      th.appendChild(el('div', { style: 'font-size:12px;font-weight:700;color:#8F8B84', text: dur(m.duration_seconds) || 'AUDIO' }));
+      th.appendChild(el('div', { style: 'font-size:12px;font-weight:700;color:#A69D8E', text: dur(m.duration_seconds) || 'AUDIO' }));
     } else {
       const src = urls[m.thumb_path] || urls[m.storage_path];
       const node = thumbEl(m.thumb_path || m.storage_path, src, m.thumb_path ? null : m.kind);
@@ -537,7 +537,7 @@ export function createStoryEditor(host, ctx) {
       }, t('delete')));
 
     return card(idx, el('div', { class: 'mitem text-item' },
-      el('div', { class: 'mthumb', style: 'display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#8F8B84', text: 'TEXT' }),
+      el('div', { class: 'mthumb', style: 'display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#A69D8E', text: 'TEXT' }),
       el('div', { class: 'grow' }, ta, row)));
   }
 

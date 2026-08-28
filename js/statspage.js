@@ -142,8 +142,8 @@ function dayChart(rows) {
       rect.appendChild(ttl);
       svg.appendChild(rect);
     };
-    add(r.impressions || 0, '#E2DED6', bw - pad, pad / 2);
-    add(r.views || 0, '#E8552B', (bw - pad) * 0.55, pad / 2 + (bw - pad) * 0.225);
+    add(r.impressions || 0, '#E4DCCE', bw - pad, pad / 2);
+    add(r.views || 0, '#C9A227', (bw - pad) * 0.55, pad / 2 + (bw - pad) * 0.225);
   });
 
   const label = (i, txt) => {
@@ -152,7 +152,7 @@ function dayChart(rows) {
     tx.setAttribute('y', String(H + 16));
     tx.setAttribute('text-anchor', 'middle');
     tx.setAttribute('font-size', '11');
-    tx.setAttribute('fill', '#8F8B84');
+    tx.setAttribute('fill', '#A69D8E');
     tx.textContent = txt;
     svg.appendChild(tx);
   };
@@ -162,7 +162,7 @@ function dayChart(rows) {
 
   return el('div', {},
     el('div', { class: 'rowx', style: 'gap:16px;margin-bottom:8px;font-size:13px' },
-      legend('#E8552B', t('st_views')), legend('#E2DED6', t('st_impressions'))),
+      legend('#C9A227', t('st_views')), legend('#E4DCCE', t('st_impressions'))),
     svg);
 }
 
@@ -185,7 +185,7 @@ function bars(rows) {
         el('span', { text: label }),
         el('span', { class: 'muted', text: `${fmtCount(n)} · ${Math.round((n / total) * 100)}%` })),
       el('div', { style: 'height:8px;border-radius:99px;background:#EFEDE8;overflow:hidden' },
-        el('i', { style: `display:block;height:100%;border-radius:99px;background:#E8552B;width:${Math.max(3, (n / max) * 100)}%` }))));
+        el('i', { style: `display:block;height:100%;border-radius:99px;background:#C9A227;width:${Math.max(3, (n / max) * 100)}%` }))));
   });
   return box;
 }
