@@ -32,9 +32,12 @@ img,video{max-width:100%}
   border-bottom:1px solid var(--line)}
 .logo{font-family:var(--font-display);font-size:27px;font-weight:600;letter-spacing:0;flex-shrink:0}
 .logo:hover{color:var(--ink)}
-.search-wrap{flex:1;display:flex;justify-content:center;min-width:0}
+/* min-width, а не 0: иначе на средних ширинах поле сжималось до 36px —
+   формально помещалось, но искать в нём было нельзя. Теперь шапка скорее
+   перенесётся, чем раздавит поиск. */
+.search-wrap{flex:1;display:flex;justify-content:center;min-width:200px}
 .search{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:999px;
-  padding:0 18px;height:44px;width:100%;max-width:520px}
+  padding:0 18px;height:44px;width:100%;max-width:260px}
 .search input{border:none;background:transparent;outline:none;font-size:15px;color:var(--ink);flex:1;min-width:0;padding:0}
 .hdr-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
@@ -56,6 +59,17 @@ img,video{max-width:100%}
   box-shadow:0 1px 2px rgba(30,20,10,.12)}
 .nav-link{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav-link.active{color:var(--ink)}
+/* Подпись золотой кнопки: полная, пока есть место, иначе короткая. */
+.qr-short{display:none}
+@media (max-width:1180px){ .qr-long{display:none} .qr-short{display:inline} }
+/* Между 720 и 1080 ссылки шапки ещё не спрятаны (нижняя панель включается
+   только ниже 720, и Календаря со Статистикой в ней нет — прятать их отсюда
+   значило бы оставить разделы без входа), а правая группа не сжималась и
+   выезжала за экран. Разрешаем ей переноситься внутри себя. */
+@media (max-width:1080px){
+  .hdr{flex-wrap:wrap;row-gap:10px}
+  .hdr-right{flex-wrap:wrap;justify-content:flex-end;flex-shrink:1;min-width:0}
+}
 /* ---------- озвучка ---------- */
 .narr-player{display:flex;align-items:center;gap:14px;background:var(--surface);border-radius:16px;
   padding:14px 18px;box-shadow:var(--shadow)}

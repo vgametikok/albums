@@ -60,6 +60,9 @@ const I = {
   stop: '<rect x="5.5" y="5.5" width="13" height="13" rx="2"/>',
   grid: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 16 0v1"/>',
+  // Три «глаза» QR-кода и пара модулей: узнаётся с 18px, в отличие от
+  // попытки нарисовать настоящий узор.
+  qr: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M14 20h6"/>',
 };
 export function icon(name, size = 20, opts = {}) {
   const s = el('span', { class: 'ic' });
@@ -336,7 +339,16 @@ export async function mountShell(active) {
     // Раскрываем массивом, а не через null: append() у DOM превращает null
     // в текст «null» и пишет его прямо в шапку (el() ниже такое фильтрует, а append — нет).
     ...(me ? [el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title'))] : []),
-    el('a', { class: 'btn btn-primary', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
+    // Порядок и цвет читаются как приоритет продукта: золотой QR-альбом —
+    // то, что продаётся, серый «Альбом» — бесплатная соцсеть рядом.
+    // Две отдельные подписи, а не «QR-альбом» + приписка: в японском и
+    // корейском «для событий» стоит ПЕРЕД словом «альбом», склейка из двух
+    // кусков там развалилась бы. CSS показывает ровно одну по ширине экрана.
+    el('a', { class: 'btn btn-primary', href: 'event-album.html', title: t('qr_album_full') },
+      icon('qr', 18, { sw: 2 }),
+      el('span', { class: 'qr-long', text: t('qr_album_full') }),
+      el('span', { class: 'qr-short', text: t('qr_album') })),
+    el('a', { class: 'btn btn-ghost', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
     langPicker(),
   );
 
@@ -403,7 +415,9 @@ function mountMobileNav(active, me) {
   document.body.appendChild(el('nav', { class: 'mobnav' },
     item('home', 'index.html', 'home', t('nav_albums')),
     item('posts', 'posts.html', 'grid', t('nav_posts')),
-    el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album') },
+    // Скринридеру нужна полная формулировка: у кнопки только «+», и короткое
+    // «Альбом» из шапки здесь не объясняло бы, что она делает.
+    el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album_title') },
       icon('plus', 24, { sw: 2.6, stroke: '#fff' })),
     item('friends', 'friends.html', 'users', t('nav_friends')),
     me
