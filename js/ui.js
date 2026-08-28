@@ -334,11 +334,18 @@ export async function mountShell(active) {
   const right = el('div', { class: 'hdr-right' });
   right.append(
     el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, t('nav_posts')),
-    el('a', { class: 'nav-link hide-sm' + (active === 'calendar' ? ' active' : ''), href: 'calendar.html' }, t('calendar_title')),
-    el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
+    // Цены — единственная ссылка, нужная и вошедшему, и случайному посетителю:
+    // это торговая страница. Ключ общий с подвалом — слово буквально то же,
+    // второй ключ пришлось бы держать синхронным без всякой пользы.
+    el('a', { class: 'nav-link hide-sm' + (active === 'pricing' ? ' active' : ''), href: 'pricing.html' }, t('foot_pricing')),
+    // Друзья и Статистика — только вошедшим: гостю дружить не с кем, а
+    // календарь вообще уехал в личный кабинет (он теперь про свои альбомы).
     // Раскрываем массивом, а не через null: append() у DOM превращает null
     // в текст «null» и пишет его прямо в шапку (el() ниже такое фильтрует, а append — нет).
-    ...(me ? [el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title'))] : []),
+    ...(me ? [
+      el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
+      el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title')),
+    ] : []),
     // Порядок и цвет читаются как приоритет продукта: золотой QR-альбом —
     // то, что продаётся, серый «Альбом» — бесплатная соцсеть рядом.
     // Две отдельные подписи, а не «QR-альбом» + приписка: в японском и
@@ -419,7 +426,11 @@ function mountMobileNav(active, me) {
     // «Альбом» из шапки здесь не объясняло бы, что она делает.
     el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album_title') },
       icon('plus', 24, { sw: 2.6, stroke: '#fff' })),
-    item('friends', 'friends.html', 'users', t('nav_friends')),
+    // Гостю вместо «Друзей» — «Цены»: дружить ему не с кем, а торговая
+    // страница нужна. Тот же обмен, что и в шапке.
+    me
+      ? item('friends', 'friends.html', 'users', t('nav_friends'))
+      : item('pricing', 'pricing.html', 'qr', t('foot_pricing')),
     me
       ? item('profile', `profile.html?u=${encodeURIComponent(me.username)}`, 'user', t('nav_profile'))
       : el('button', { class: 'mobnav-item', onclick: () => showLogin(t('signin_to_create')) },

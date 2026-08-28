@@ -1,10 +1,12 @@
-// Календарь: альбомы, разложенные по времени. Группируем по году и месяцу.
+// Календарь: МОИ альбомы, разложенные по времени. Группируем по году и месяцу.
 //
-// Дата берётся из date_from альбома (если владелец её задал), иначе из даты
-// публикации. calendar_albums отдаёт только видимые зрителю.
-import { sb } from './sb.js';
+// Экран личный и живёт в кабинете (ссылка — в профиле): calendar_albums после
+// миграции 050 отдаёт только альбомы вызывающего. Дата берётся из date_from
+// альбома (если владелец её задал), иначе из даты публикации.
+import { sb, currentProfile } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, albumCard, emptyState, icon, t, currentLang, proSet,
+  showLogin,
 } from './ui.js';
 
 const app = $('#app');
@@ -13,6 +15,16 @@ let year = null;   // null = все годы
 (async function main() {
   await mountShell('home');
   document.title = t('calendar_title') + ' — Albums';
+  // Экран личный: без входа календарь пуст по определению, и вместо пустой
+  // сетки честнее предложить войти.
+  if (!currentProfile()) {
+    app.appendChild(emptyState(t('cal_signin_title'), t('cal_signin_text'),
+      el('button', {
+        class: 'btn btn-primary',
+        onclick: () => showLogin(t('cal_signin_title')),
+      }, t('sign_in'))));
+    return;
+  }
   render();
 })();
 

@@ -363,6 +363,8 @@
   album_rejected: 'モデレーションで却下',
   join_remove_confirm: 'このファイルをアルバムから外しますか？',
   calendar_title: 'カレンダー',
+  cal_signin_title: "あなたのカレンダー",
+  cal_signin_text: "ログインすると、自分のアルバムを日付順に見られます。",
   calendar_empty_title: 'カレンダーにはまだ何もありません',
   calendar_empty_text: '日付のあるアルバムが時系列で並びます。',
   album_dates: 'いつのこと',

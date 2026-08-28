@@ -363,6 +363,8 @@
   album_rejected: 'Bị kiểm duyệt từ chối',
   join_remove_confirm: 'Bỏ tệp này khỏi album?',
   calendar_title: 'Lịch',
+  cal_signin_title: "Lịch của bạn",
+  cal_signin_text: "Đăng nhập để xem các album của riêng bạn sắp theo ngày.",
   calendar_empty_title: 'Lịch chưa có gì',
   calendar_empty_text: 'Các album có ngày sẽ hiện ở đây, sắp theo thời gian.',
   album_dates: 'Diễn ra khi nào',

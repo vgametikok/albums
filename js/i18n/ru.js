@@ -502,6 +502,8 @@
   album_rejected: 'Отклонён модерацией',
   join_remove_confirm: 'Убрать этот файл из альбома?',
   calendar_title: 'Календарь',
+  cal_signin_title: "Ваш календарь",
+  cal_signin_text: "Войдите, чтобы увидеть свои альбомы, разложенные по датам.",
   calendar_empty_title: 'В календаре пока пусто',
   calendar_empty_text: 'Альбомы с датой появляются здесь, разложенные по времени.',
   album_dates: 'Когда это было',

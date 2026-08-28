@@ -363,6 +363,8 @@
   album_rejected: '被审核驳回',
   join_remove_confirm: '把这个文件移出相册？',
   calendar_title: '日历',
+  cal_signin_title: "你的日历",
+  cal_signin_text: "登录后即可按日期查看你自己的相册。",
   calendar_empty_title: '日历里还没有内容',
   calendar_empty_text: '带日期的相册会按时间排列显示在这里。',
   album_dates: '发生的时间',

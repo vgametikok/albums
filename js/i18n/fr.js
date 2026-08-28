@@ -363,6 +363,8 @@
   album_rejected: 'Rejeté par la modération',
   join_remove_confirm: 'Retirer ce fichier de l’album ?',
   calendar_title: 'Calendrier',
+  cal_signin_title: "Votre calendrier",
+  cal_signin_text: "Connectez-vous pour voir vos propres albums classés par date.",
   calendar_empty_title: 'Rien dans le calendrier',
   calendar_empty_text: 'Les albums datés apparaissent ici, disposés dans le temps.',
   album_dates: 'Quand c’était',

@@ -43,6 +43,9 @@ async function render() {
     actions.append(
       el('button', { class: 'btn btn-ghost btn-sm', onclick: editProfile }, t('edit_profile')),
       el('a', { class: 'btn btn-ghost btn-sm', href: 'stats.html' }, t('st_title')),
+      // Календарь живёт только здесь: он про СВОИ альбомы по времени
+      // (миграция 050), и на общем экране ему делать нечего.
+      el('a', { class: 'btn btn-ghost btn-sm', href: 'calendar.html' }, t('calendar_title')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: editButtons }, t('pb_title')),
       el('a', { class: 'btn btn-ghost btn-sm', href: 'friends.html' }, t('nav_friends')),
       el('button', { class: 'btn btn-ghost btn-sm', onclick: () => signOut() }, t('sign_out')));

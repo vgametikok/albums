@@ -517,6 +517,8 @@ export default {
   album_rejected: 'Rejected by moderation',
   join_remove_confirm: 'Remove this file from the album?',
   calendar_title: 'Calendar',
+  cal_signin_title: "Your calendar",
+  cal_signin_text: "Sign in to see your own albums laid out by date.",
   calendar_empty_title: 'Nothing on the calendar yet',
   calendar_empty_text: 'Albums with a date appear here, laid out in time.',
   album_dates: 'When it happened',

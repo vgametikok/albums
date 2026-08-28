@@ -363,6 +363,8 @@
   album_rejected: 'Von der Moderation abgelehnt',
   join_remove_confirm: 'Diese Datei aus dem Album entfernen?',
   calendar_title: 'Kalender',
+  cal_signin_title: "Dein Kalender",
+  cal_signin_text: "Melde dich an, um deine eigenen Alben nach Datum geordnet zu sehen.",
   calendar_empty_title: 'Noch nichts im Kalender',
   calendar_empty_text: 'Alben mit Datum erscheinen hier, zeitlich angeordnet.',
   album_dates: 'Wann es war',

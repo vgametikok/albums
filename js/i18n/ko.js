@@ -363,6 +363,8 @@
   album_rejected: '검토에서 거부됨',
   join_remove_confirm: '이 파일을 앨범에서 뺄까요?',
   calendar_title: '캘린더',
+  cal_signin_title: "내 캘린더",
+  cal_signin_text: "로그인하면 내 앨범을 날짜순으로 볼 수 있습니다.",
   calendar_empty_title: '캘린더에 아직 없습니다',
   calendar_empty_text: '날짜가 있는 앨범이 시간순으로 여기에 표시됩니다.',
   album_dates: '언제 있었나요',
