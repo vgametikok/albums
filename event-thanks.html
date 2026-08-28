@@ -50,33 +50,33 @@
     <!-- пока идёт захват платежа -->
     <div data-state="loading">
       <div class="spin"></div>
-      <h1>Finishing up…</h1>
-      <p>We're confirming your payment. This takes a few seconds.</p>
+      <h1 data-i18n="et_wait_t">Finishing up…</h1>
+      <p data-i18n="et_wait_d">We're confirming your payment. This takes a few seconds.</p>
     </div>
 
     <!-- успех -->
     <div data-state="ok" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <h1>Your Event Album is ready</h1>
-      <p>Payment received. You now have one Event Album credit — create your shared event and share the link or QR code with your guests.</p>
-      <a class="cta" href="event.html">Create the event</a>
+      <h1 data-i18n="et_ok_t">Your Event Album is ready</h1>
+      <p data-i18n="et_ok_d">Payment received. You now have one Event Album credit — create your shared event and share the link or QR code with your guests.</p>
+      <a class="cta" href="event.html" data-i18n="et_ok_cta">Create the event</a>
     </div>
 
     <!-- оплата прошла, но подтверждение задерживается -->
     <div data-state="pending" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
-      <h1>Payment received — almost there</h1>
-      <p>Your payment went through and your Event Album credit is being added. If it isn't there in a minute, refresh this page.</p>
-      <a class="cta" href="event.html">Go to my events</a>
+      <h1 data-i18n="et_slow_t">Payment received — almost there</h1>
+      <p data-i18n="et_slow_d">Your payment went through and your Event Album credit is being added. If it isn't there in a minute, refresh this page.</p>
+      <a class="cta" href="event.html" data-i18n="et_slow_cta">Go to my events</a>
     </div>
 
     <!-- нет данных заказа/сессии -->
     <div data-state="manual" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
-      <h1>Couldn't confirm automatically</h1>
-      <p>If you completed the payment, sign in and open your events — your credit should be there. Otherwise write to us and we'll sort it out.</p>
-      <a class="cta" href="index.html">Back to Albums</a>
-      <p class="small">Need help? <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+      <h1 data-i18n="et_err_t">Couldn't confirm automatically</h1>
+      <p data-i18n="et_err_d">If you completed the payment, sign in and open your events — your credit should be there. Otherwise write to us and we'll sort it out.</p>
+      <a class="cta" href="index.html" data-i18n="et_err_cta">Back to Albums</a>
+      <p class="small"><span data-i18n="et_help">Need help?</span> <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
     </div>
   </div>
   <script type="module" src="js/event-thanks.js"></script>

@@ -53,38 +53,38 @@
     <!-- ждём, пока вебхук PayPal включит тариф -->
     <div data-state="loading">
       <div class="spin"></div>
-      <h1>Thank you — activating Pro</h1>
-      <p>Your payment went through. We're switching your account to Albums Pro; this usually takes under a minute.</p>
-      <p class="small">Keep this page open — it updates by itself.</p>
+      <h1 data-i18n="pt_wait_t">Thank you — activating Pro</h1>
+      <p data-i18n="pt_wait_d">Your payment went through. We're switching your account to Albums Pro; this usually takes under a minute.</p>
+      <p class="small" data-i18n="pt_wait_small">Keep this page open — it updates by itself.</p>
     </div>
 
     <!-- тариф уже стоит в профиле -->
     <div data-state="ok" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <h1>Albums Pro is active</h1>
-      <p>Everything Pro is unlocked on your account right now.</p>
-      <p hidden>Your subscription is paid until <b id="until"></b>.</p>
-      <a class="cta" href="profile.html">Go to my profile</a>
-      <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+      <h1 data-i18n="pt_ok_t">Albums Pro is active</h1>
+      <p data-i18n="pt_ok_d">Everything Pro is unlocked on your account right now.</p>
+      <p hidden><span data-i18n="pt_paid_until">Your subscription is paid until</span> <b id="until"></b>.</p>
+      <a class="cta" href="profile.html" data-i18n="pt_ok_cta">Go to my profile</a>
+      <p class="small"><span data-i18n="pt_q">Questions about your subscription?</span> <br><span data-i18n="pt_write">Write to</span> <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
     </div>
 
     <!-- две минуты прошло, подтверждения всё нет -->
     <div data-state="pending" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.01M12 3l9 17H3z"/></svg></div>
-      <h1>Payment received — activation is running late</h1>
-      <p>PayPal has not confirmed the subscription yet. Nothing is lost: as soon as the confirmation arrives, Pro switches on by itself.</p>
-      <p>Reload this page in a couple of minutes, or write to us and we'll sort it out.</p>
-      <a class="cta" href="pro-thanks.html">Check again</a>
-      <p class="small">Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+      <h1 data-i18n="pt_late_t">Payment received — activation is running late</h1>
+      <p data-i18n="pt_late_d">PayPal has not confirmed the subscription yet. Nothing is lost: as soon as the confirmation arrives, Pro switches on by itself.</p>
+      <p data-i18n="pt_late_d2">Reload this page in a couple of minutes, or write to us and we'll sort it out.</p>
+      <a class="cta" href="pro-thanks.html" data-i18n="pt_late_cta">Check again</a>
+      <p class="small"><span data-i18n="pt_write">Write to</span> <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
     </div>
 
     <!-- вернулись без сессии: проверить нечего -->
     <div data-state="manual" hidden>
       <div class="badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <h1>Thank you for your payment</h1>
-      <p>Sign in to Albums to see your Pro status — the subscription is tied to the account you paid with.</p>
+      <h1 data-i18n="pt_anon_t">Thank you for your payment</h1>
+      <p data-i18n="pt_anon_d">Sign in to Albums to see your Pro status — the subscription is tied to the account you paid with.</p>
       <a class="cta" href="index.html">Sign in</a>
-      <p class="small">Questions about your subscription? <br>Write to <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
+      <p class="small"><span data-i18n="pt_q">Questions about your subscription?</span> <br><span data-i18n="pt_write">Write to</span> <a href="mailto:sales@albums.ink" style="color:var(--accent)">sales@albums.ink</a></p>
     </div>
   </div>
   <script type="module" src="js/pro-thanks.js"></script>

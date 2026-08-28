@@ -19,6 +19,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://albums.ink';
 const OG_IMAGE = `${SITE}/og-cover.png`;
 
+// Те же значения, что в js/config.js и src/index.js. Ключ публикуемый —
+// он и так уходит в браузер каждому посетителю, секрета тут нет.
+const SUPABASE_URL = 'https://rizveurkjpcwrmbtoawj.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
+
 // Канонический абзац о продукте — он же в llms.txt и внешних карточках.
 // Менять только синхронно во всех местах: совпадение формулировок в
 // независимых источниках — сигнал уверенности для языковых моделей.
@@ -168,11 +173,13 @@ const PAGES = {
   /* -------- приложение: индексируемые поверхности без sitemap (пока SPA) -------- */
   'album.html': {
     path: '/album.html',
+    selfCanonical: true,   // адрес различается параметром — canonical свой у каждого
     title: 'Album — Albums',
     desc: 'A story album on Albums: photos, videos and voice notes organized into chapters, with captions and the author’s narration.',
   },
   'profile.html': {
     path: '/profile.html',
+    selfCanonical: true,   // адрес различается параметром — canonical свой у каждого
     title: 'Profile — Albums',
     desc: 'A creator profile on Albums: their story albums, posts and friends.',
   },
@@ -246,8 +253,12 @@ function seoBlock(p) {
     '<!-- seo -->',
     `<title>${esc(p.title)}</title>`,
     `<meta name="description" content="${esc(p.desc)}">`,
-    `<link rel="canonical" href="${url}">`,
   ];
+  // Страницы-приложения различаются параметром (album.html?id=, profile.html?u=):
+  // один жёсткий canonical на все адреса склеивал бы их в индексе в одну
+  // страницу, и ни один альбом не проиндексировался бы. Без тега каждый адрес
+  // канонизирует сам себя — это то, что нужно.
+  if (!p.selfCanonical) lines.push(`<link rel="canonical" href="${url}">`);
   if (p.robots) lines.push(`<meta name="robots" content="${p.robots}">`);
   lines.push(
     '<meta property="og:type" content="website">',
@@ -296,6 +307,50 @@ async function processPage(file, p) {
   await writeFile(path, html);
 }
 
+const xmlEsc = (s) => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+
+// Предел протокола sitemap — 50 000 адресов на файл. До него далеко, но молча
+// обрезать нельзя: перевалим — будет видно в логе сборки, и придётся разбивать
+// на sitemap-index.
+const SITEMAP_MAX = 50000;
+
+/**
+ * Публичные альбомы для карты сайта.
+ *
+ * Читаем обычным PostgREST под публикуемым ключом, то есть ровно тем, что видит
+ * аноним: политика albums_read опирается на can_view_album, и она сама отсекает
+ * неопубликованные, скрытые, не прошедшие проверку и авторов в бане. Фильтры
+ * ниже дублируют это явно — чтобы намерение читалось из кода, а не только из RLS.
+ */
+async function fetchPublicAlbums() {
+  const out = [];
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const url = `${SUPABASE_URL}/rest/v1/albums`
+      + '?select=id,updated_at&visibility=eq.public'
+      + '&published_at=not.is.null&moderation_status=eq.approved'
+      + `&order=updated_at.desc&offset=${from}&limit=${PAGE}`;
+    const resp = await fetch(url, {
+      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
+    });
+    if (!resp.ok) throw new Error(`albums ${resp.status} ${await resp.text()}`);
+    const batch = await resp.json();
+    out.push(...batch);
+    if (batch.length < PAGE || out.length >= SITEMAP_MAX) break;
+  }
+  return out;
+}
+
+/** Адреса альбомов из уже лежащего в репозитории sitemap.xml. */
+async function previousAlbumRows() {
+  try {
+    const xml = await readFile(join(ROOT, 'sitemap.xml'), 'utf8');
+    return xml.split('\n').filter(l => l.includes('/album.html?id='));
+  } catch (_) { return []; }
+}
+
 async function writeSitemap() {
   const rows = [];
   for (const [file, p] of Object.entries(PAGES)) {
@@ -306,10 +361,37 @@ async function writeSitemap() {
       + `<changefreq>${p.sitemap.changefreq}</changefreq>`
       + `<priority>${p.sitemap.priority}</priority></url>`);
   }
+
+  // Сборку это уронить не должно: недоступность Supabase в момент деплоя —
+  // не повод не выкатить исправление в коде. Но и молча потерять все альбомы
+  // из карты сайта нельзя, поэтому берём адреса из прошлой версии файла
+  // (он лежит в репозитории) и громко жалуемся в лог.
+  let albums = [];
+  try {
+    albums = await fetchPublicAlbums();
+    for (const a of albums) {
+      const loc = xmlEsc(`${SITE}/album.html?id=${a.id}`);
+      const lastmod = String(a.updated_at || '').slice(0, 10);
+      rows.push(`  <url><loc>${loc}</loc>`
+        + (lastmod ? `<lastmod>${lastmod}</lastmod>` : '')
+        + '<changefreq>monthly</changefreq><priority>0.6</priority></url>');
+    }
+    if (albums.length >= SITEMAP_MAX) {
+      console.warn(`build-head: ВНИМАНИЕ — альбомов ${albums.length}, упёрлись в предел `
+        + `${SITEMAP_MAX}; часть в карту не попала, пора делать sitemap-index`);
+    }
+  } catch (err) {
+    const kept = await previousAlbumRows();
+    rows.push(...kept);
+    console.error(`build-head: ОШИБКА — не удалось получить альбомы (${err.message}); `
+      + `в карте сайта оставлено ${kept.length} адресов из прошлой сборки`);
+  }
+
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + rows.join('\n') + '\n</urlset>\n';
   await writeFile(join(ROOT, 'sitemap.xml'), xml);
+  return albums.length;
 }
 
 for (const [file, p] of Object.entries(PAGES)) await processPage(file, p);

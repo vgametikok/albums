@@ -4,8 +4,15 @@
 // сбой здесь не теряет оплату.
 import { sb } from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
+import { initI18n, t } from './i18n.js';
 
 const show = (s) => document.querySelectorAll('[data-state]').forEach(n => { n.hidden = n.dataset.state !== s; });
+
+
+// Надписи на своём языке: сюда человек попадает сразу после оплаты, и
+// английский экран в этот момент читается как сбой.
+await initI18n();
+document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
 
 (async function () {
   const orderId = new URLSearchParams(location.search).get('token');

@@ -9,11 +9,18 @@
 // Опрашиваем свою же строку профиля: plan виден владельцу по обычной политике
 // чтения, отдельная RPC не нужна.
 import { sb } from './sb.js';
+import { initI18n, t } from './i18n.js';
 
 const DEADLINE = 120000;   // столько ждём активации, дальше показываем «ещё идёт»
 const STEP = 2500;
 
 const show = (s) => document.querySelectorAll('[data-state]').forEach(n => { n.hidden = n.dataset.state !== s; });
+
+
+// Надписи на своём языке: сюда человек попадает сразу после оплаты, и
+// английский экран в этот момент читается как сбой.
+await initI18n();
+document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
 
 (async function () {
   const { data: { session } } = await sb.auth.getSession();
