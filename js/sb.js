@@ -2,9 +2,47 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 
+/**
+ * Запрос, который не висит вечно.
+ *
+ * Без этого зависший (а не отклонённый) запрос к API оставлял страницу
+ * бесконечно пустой: шапка и подвал рисуются локально, а всё, что ждёт
+ * данных, просто не наступало — и человек видел пустой экран без единого
+ * объяснения. Так это выглядело у пользователей, чей провайдер не пропускал
+ * запросы к домену API.
+ *
+ * Загрузку файлов в хранилище не трогаем: большое видео честно заливается
+ * дольше любого разумного таймаута.
+ */
+const REQUEST_TIMEOUT_MS = 20000;
+
+function timedFetch(input, init = {}) {
+  const url = typeof input === 'string' ? input : input?.url || '';
+  const isUpload = /\/storage\/v1\/object\//.test(url)
+    && ['POST', 'PUT'].includes(String(init.method || 'GET').toUpperCase());
+  if (isUpload || init.signal) return fetch(input, init);
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
+  return fetch(input, { ...init, signal: ctrl.signal })
+    .finally(() => clearTimeout(timer));
+}
+
 export const sb = createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: { flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+  global: { fetch: timedFetch },
 });
+
+/**
+ * Похоже ли на «до сервера не достучались», а не «сервер ответил отказом».
+ * Нужно, чтобы не врать человеку про испорченную ссылку, когда на деле
+ * не открывается соединение.
+ */
+export function isNetworkError(err) {
+  const m = String(err?.message || err || '').toLowerCase();
+  return !err?.code && (m.includes('failed to fetch') || m.includes('networkerror')
+    || m.includes('load failed') || m.includes('aborted') || m.includes('abort'));
+}
 
 let _session = null;
 let _me = null;

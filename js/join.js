@@ -9,7 +9,7 @@
 // файлы можно забрать себе (guest_claim_start/finish) и, по желанию, подписать.
 // Зарегистрированный участник сам выбирает, как подписывать: своим именем или
 // анонимно (album_media.anon).
-import { sb, isAuthed, isGuest, currentUser, signInAnonymously, signIn } from './sb.js';
+import { sb, isAuthed, isGuest, currentUser, signInAnonymously, signIn, isNetworkError } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur, avatarImg,
   modal,
@@ -37,6 +37,15 @@ let satAlbumId = null; // альбом-спутник вызывающего (о
   await finishClaimIfAny();
 
   const { data, error } = await sb.rpc('album_invite_peek', { p_token: token });
+  // Сеть и «плохая ссылка» — разные беды, и раньше обе показывались как
+  // «ссылка недействительна». Человек шёл выяснять у хозяина события, что
+  // тот прислал, хотя на деле до сервера просто не дошёл запрос.
+  if (error && isNetworkError(error)) {
+    app.appendChild(emptyState(t('net_error_title'), t('net_error_text'),
+      el('button', { class: 'btn btn-primary', onclick: () => location.reload() },
+        t('net_error_retry'))));
+    return;
+  }
   if (error || !data?.ok) {
     const reason = {
       revoked: t('join_revoked'), expired: t('join_expired'),
