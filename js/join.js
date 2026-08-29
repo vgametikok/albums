@@ -29,7 +29,9 @@ let busy = 0;
 let satAlbumId = null; // альбом-спутник вызывающего (ответ event_satellite_sync)
 
 (async function main() {
-  await mountShell('home');
+  // focused: гость пришёл по QR за одним делом — загрузить фото. Нижняя
+  // панель ему только мешает (см. mountShell).
+  await mountShell('home', { focused: true });
   document.title = t('join_title') + ' — Albums';
 
   if (!token) { app.appendChild(emptyState(t('join_bad_link'), t('join_bad_link_text'))); return; }

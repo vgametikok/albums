@@ -1,6 +1,6 @@
 // Общие UI-помощники: безопасный DOM, шапка, подписанные URL, карточки, модалки.
 import {
-  sb, ready, currentUser, currentProfile, isAuthed, signIn, signOut,
+  sb, ready, currentUser, currentProfile, isAuthed, isGuest, signIn, signOut,
   takeAuthError, TG_CALLBACK,
 } from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT, BLOG_URL } from './config.js';
@@ -308,7 +308,15 @@ export function needAuth(reason) {
 }
 
 /* ---------------- шапка ---------------- */
-export async function mountShell(active) {
+/**
+ * Шапка, подвал и нижняя панель.
+ *
+ * opts.focused — страница с одной задачей (гость пришёл по QR загрузить фото).
+ * Гостю на такой странице нижняя панель не показывается: пять кнопок рядом с
+ * «добавить фото» сбивают с того единственного, зачем он сюда пришёл. У кого
+ * есть настоящий аккаунт, панель остаётся — ему она навигация, а не помеха.
+ */
+export async function mountShell(active, opts = {}) {
   await Promise.all([ready(), initI18n()]);
 
   // Внешний вход (Telegram/Яндекс) возвращает человека на ту же страницу; если
@@ -355,7 +363,9 @@ export async function mountShell(active) {
       icon('qr', 18, { sw: 2 }),
       el('span', { class: 'qr-long', text: t('qr_album_full') }),
       el('span', { class: 'qr-short', text: t('qr_album') })),
-    el('a', { class: 'btn btn-ghost', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
+    // hide-sm: на телефоне ту же страницу открывает золотой «+» в нижней
+    // панели, и вторая кнопка рядом только занимала строку.
+    el('a', { class: 'btn btn-ghost hide-sm', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
     langPicker(),
   );
 
@@ -378,7 +388,15 @@ export async function mountShell(active) {
     right,
   ));
 
-  mountMobileNav(active, me);
+  // Анонимная сессия — это тоже «без регистрации»: человек нажал «продолжить
+  // без входа», аккаунта у него нет.
+  const realAccount = isAuthed() && !isGuest();
+  if (opts.focused && !realAccount) {
+    document.querySelector('.mobnav')?.remove();
+    document.body.classList.remove('has-mobnav');
+  } else {
+    mountMobileNav(active, me);
+  }
   mountFooter();
 }
 

@@ -579,14 +579,29 @@ img,video{max-width:100%}
   .album-hero .hero-title{font-size:30px}
 }
 @media (max-width:720px){
-  /* Боковой отступ обязан остаться: у .hdr отрицательные поля во всю ширину,
-     и без него шапка уезжала за левый край — логотип упирался в кромку
-     экрана и обрезался. */
-  .hdr{gap:12px;padding:14px clamp(20px,3.1vw,44px) 12px;flex-wrap:wrap}
-  .logo{font-size:22px}
-  .search{height:42px}
-  .search-wrap{order:3;flex-basis:100%}
-  .btn{height:42px;padding:0 16px;font-size:14px}
+  /* Две ровные строки вместо рваных четырёх: сверху логотип и то, ради чего
+     сюда пришли (QR-альбом + вход), снизу поиск и язык.
+     .hdr-right раскрывается в display:contents — её дети становятся прямыми
+     элементами шапки, и порядком можно управлять поштучно, не трогая DOM
+     и не ломая десктоп.
+     Боковой отступ обязан остаться: у .hdr отрицательные поля во всю ширину,
+     без него шапка уезжает за левый край и логотип упирается в кромку. */
+  .hdr{gap:6px;row-gap:10px;padding:12px clamp(20px,3.1vw,44px) 10px;flex-wrap:wrap}
+  .hdr-right{display:contents}
+  .logo{font-size:20px;order:1;margin-right:auto}
+  .hdr .btn-primary{order:2}
+  .hdr .notif-btn{order:3}
+  .hdr-right > .btn-ghost,
+  .hdr-right > a[href^="profile"]{order:4}
+  /* Пустой элемент во всю ширину: гарантирует, что поиск начинает новую
+     строку, а язык остаётся с ним в паре. Без него у вошедшего (лишние
+     колокольчик и аватар) язык срывался на третью строку один. */
+  .hdr::before{content:'';order:5;flex-basis:100%;height:0;margin:0}
+  .search-wrap{order:6;flex:1 1 160px;min-width:0}
+  .lang-select{order:7;flex:0 0 auto}
+  .search{height:42px;max-width:none}
+  .btn{height:42px;padding:0 14px;font-size:14px}
+  .btn-icon{width:40px;height:40px}
   .btn-sm{height:38px;font-size:13.5px}
   .hide-sm{display:none}
   .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px 12px}
