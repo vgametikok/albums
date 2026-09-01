@@ -189,6 +189,25 @@ img,video{max-width:100%}
 .lang-select:hover{border-color:var(--ink)}
 @media (max-width:720px){ .lang-select{height:40px;font-size:14px;max-width:104px} }
 
+/* ---------- окно заявки (js/checkout.js) ----------
+   Форма покупки открывается с трёх мест: страница цен, лендинг события и
+   кнопка Pro в профиле. Первые две живут без base.css и держат эти стили у
+   себя; профиль — наоборот, только на base.css, и без этого блока форма
+   приезжала туда голой. Разметка одна, поэтому и правила одинаковые. */
+.auth-wrap{position:fixed;inset:0;background:rgba(20,15,10,.45);display:flex;
+  align-items:center;justify-content:center;padding:22px;z-index:150}
+.auth-card{background:var(--surface);border-radius:18px;padding:28px 26px;max-width:380px;
+  width:100%;text-align:center;box-shadow:var(--shadow-lg);max-height:90vh;overflow:auto}
+.auth-card h2{font-family:var(--font-display);font-size:26px;font-weight:600;margin:0 0 8px}
+.auth-card p{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+.auth-card label{color:var(--ink)}
+.auth-card .btn{display:block;width:100%;text-align:center;font-weight:700;font-size:15.5px;
+  height:46px;line-height:46px;padding:0;margin-top:10px;border-radius:999px;
+  background:var(--accent);color:#fff;border:1.5px solid var(--accent);cursor:pointer}
+.auth-card .btn:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.auth-card .btn.ghost{background:transparent;color:var(--muted);border-color:var(--line)}
+.auth-card .btn.ghost:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;
   border-radius:999px;border:1.5px solid transparent;font-size:15px;font-weight:600;cursor:pointer;

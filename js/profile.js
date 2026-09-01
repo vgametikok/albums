@@ -1,6 +1,6 @@
 // Профиль: шапка, дружба, редактирование своего профиля, сетка альбомов.
 import { sb, currentProfile, isAuthed, signOut } from './sb.js';
-import { CATEGORIES, SUPABASE_URL, SUPABASE_KEY } from './config.js';
+import { CATEGORIES } from './config.js';
 import {
   el, $, clear, mountShell, signUrls, albumCard, avatarImg, fmtCount, icon,
   toast, needAuth, emptyState, modal, skeletonGrid, composition, t, catLabel, moreButton, proSet,
@@ -367,19 +367,15 @@ async function mountProEntry(actions) {
   actions.insertBefore(btn, actions.firstChild);
 }
 
+// ВРЕМЕННО: PayPal у владельца не работает, поэтому вместо перехода на оплату
+// открывается та же форма заявки, что на страницах цен и события
+// (js/checkout.js). Когда оплата починится — вернуть вызов
+// paypal-webhook/create-subscription.
 async function startProCheckout(btn) {
   btn.disabled = true;
   try {
-    const token = (await sb.auth.getSession()).data.session?.access_token;
-    if (!token) { needAuth(t('signin_to_create')); btn.disabled = false; return; }
-    const resp = await fetch(`${SUPABASE_URL}/functions/v1/paypal-webhook/create-subscription`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + token },
-      body: '{}',
-    });
-    const out = await resp.json().catch(() => ({}));
-    if (resp.ok && out.url) { location.href = out.url; return; }   // на страницу оплаты PayPal
-    toast(t('pro_start_error'));
+    const { openRequestForm } = await import('./checkout.js');
+    await openRequestForm('pro');
   } catch (_) {
     toast(t('pro_start_error'));
   }
