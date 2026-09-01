@@ -1,4 +1,9 @@
-# Конфиг сборки GitHub Pages (Jekyll).
+# Конфиг сборки Jekyll — и это НАСТОЯЩИЙ список исключений боевого сайта.
+#
+# Проверено 2026-09-01 запросами к albums.ink: закрыто ровно то, что
+# перечислено здесь, а не то, что перечислено в SKIP внутри build.mjs.
+# То есть albums.ink собирается Jekyll по этому файлу; `node build.mjs`
+# в облаке не выполняется вовсе (подробности — в README).
 #
 # `exclude` — что остаётся в репозитории, но НЕ публикуется на albums.ink.
 # Нужно, чтобы схема БД, RLS-политики, деплой-скрипты и README не отдавались
@@ -10,7 +15,10 @@ exclude:
   - supabase
   - tools
   - internal
+  - Design            # макеты редизайна
+  - dist              # результат локальной сборки
   - serve.js
+  - build.mjs         # сам скрипт сборки отдавался наружу до 2026-09-01
   - README.md
   - _config.yml
   - .gitignore
@@ -18,3 +26,5 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  - package.json
+  - package-lock.json
