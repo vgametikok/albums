@@ -552,7 +552,8 @@ function drawUsersFilters(host, d) {
     el('span', { class: 'muted', style: 'font-size:13px;min-width:64px', text: 'Plan' }));
   [[null, `All (${(plans.free || 0) + (plans.pro || 0)})`],
    ['free', `Free (${plans.free || 0})`],
-   ['pro', `Pro (${plans.pro || 0})`]].forEach(([value, label]) => {
+   ['pro', `Pro (${plans.pro || 0})`],
+   ['events', `Events (${plans.events || 0})`]].forEach(([value, label]) => {
     planRow.appendChild(el('button', {
       class: 'chip btn-sm' + (usersFilter.plan === value ? ' on' : ''),
       onclick: () => applyUsersFilter({ plan: value }),
@@ -615,7 +616,13 @@ function drawUsersList(host, d) {
 
   rows.forEach(u => {
     const name = el('span', {},
-      el('b', { text: '@' + u.username }),
+      el('a', {
+        href: 'profile.html?u=' + encodeURIComponent(u.username),
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        style: 'color:inherit;font-weight:700;text-decoration:underline',
+        text: '@' + u.username,
+      }),
       u.display_name ? el('span', { class: 'muted', style: 'font-size:12.5px;display:block', text: u.display_name }) : null,
       u.banned_at ? el('span', { style: 'font-size:12px;color:#B3452F;display:block', text: 'banned' }) : null,
       u.deleted_at ? el('span', { class: 'muted', style: 'font-size:12px;display:block', text: 'deleted' }) : null);
