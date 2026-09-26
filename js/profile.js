@@ -402,7 +402,7 @@ async function mountEventEntry(actions) {
   // Продукт первым: у кого события ещё нет, кабинет ведёт на его витрину.
   if (!n && !has) {
     actions.insertBefore(el('a', {
-      class: 'btn btn-ghost btn-sm', href: 'event-album.html',
+      class: 'btn btn-ghost btn-sm', href: '/events/',
     }, t('ev_cta_start')), actions.firstChild);
     return;
   }
@@ -422,7 +422,7 @@ function chooseEvent() {
       el('h2', { text: t('ev_choose_t') }),
       el('p', { text: t('ev_choose_d') }),
       el('a', { class: 'btn btn-primary', style: 'width:100%', href: 'event.html' }, t('ev_choose_use')),
-      el('a', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', href: 'event-album.html' }, t('ev_choose_buy')),
+      el('a', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', href: '/events/' }, t('ev_choose_buy')),
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
   });
 }

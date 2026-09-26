@@ -359,7 +359,7 @@ export async function mountShell(active, opts = {}) {
     // Две отдельные подписи, а не «QR-альбом» + приписка: в японском и
     // корейском «для событий» стоит ПЕРЕД словом «альбом», склейка из двух
     // кусков там развалилась бы. CSS показывает ровно одну по ширине экрана.
-    el('a', { class: 'btn btn-primary', href: 'event-album.html', title: t('qr_album_full') },
+    el('a', { class: 'btn btn-primary', href: '/events/', title: t('qr_album_full') },
       icon('qr', 18, { sw: 2 }),
       el('span', { class: 'qr-long', text: t('qr_album_full') }),
       el('span', { class: 'qr-short', text: t('qr_album') })),
@@ -413,7 +413,8 @@ function mountFooter() {
     el('div', { style: 'margin-bottom:8px;display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:2px' },
       // Ссылка на блог (BLOG_URL, ключ foot_blog) вернётся, когда появится
       // /blog/ — старый поддомен blog.albums.ink не существует в DNS.
-      [`pricing.html|foot_pricing`,
+      // Лендинг QR-альбомов живёт на /events/ (раньше event-album.html).
+      ['/events/|foot_events', `pricing.html|foot_pricing`,
         'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {

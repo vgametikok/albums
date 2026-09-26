@@ -906,4 +906,11 @@
   ev_choose_d: 'Vous en avez un payé et prêt. Ouvrez-le — ou prenez-en un autre pour la prochaine fête.',
   ev_choose_use: 'Ouvrir mes événements',
   ev_choose_buy: 'En prendre un autre',
+
+  // главная: карточка QR-альбома событий (цены на главной нет — она на /events/)
+  home_ev_more: "En savoir plus sur les albums d'événement",
+  home_ev_text: "Les invités scannent le code et envoient photos et vidéos depuis le navigateur du téléphone — sans appli, sans inscription. Aucune date d'expiration, export complet à tout moment, et les invités gardent aussi leurs clichés.",
+  home_ev_tile_title: "Un album QR pour votre événement",
+  home_ev_tile_sub: "Les invités scannent un seul code et ajoutent leurs photos",
+  foot_events: "Albums d'événement",
 };

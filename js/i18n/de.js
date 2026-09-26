@@ -916,4 +916,11 @@
   ev_choose_d: 'Eines ist bezahlt und bereit. Öffne es — oder hol dir eines für den nächsten Anlass.',
   ev_choose_use: 'Meine Events öffnen',
   ev_choose_buy: 'Noch eines holen',
+
+  // главная: карточка QR-альбома событий (цены на главной нет — она на /events/)
+  home_ev_more: "Mehr über Event-Alben",
+  home_ev_text: "Gäste scannen den Code und laden Fotos und Videos direkt im Handy-Browser hoch — ohne App, ohne Registrierung. Kein Ablaufdatum, voller Export jederzeit, und deine Gäste behalten ihre Aufnahmen auch selbst.",
+  home_ev_tile_title: "Ein QR-Album für dein Event",
+  home_ev_tile_sub: "Gäste scannen einen Code und fügen ihre Fotos hinzu",
+  foot_events: "Event-Alben",
 };

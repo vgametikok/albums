@@ -914,4 +914,11 @@
   ev_choose_d: 'Bạn đã trả tiền cho một album và nó đang sẵn sàng. Mở nó — hoặc lấy thêm cho dịp sau.',
   ev_choose_use: 'Mở sự kiện của tôi',
   ev_choose_buy: 'Lấy thêm một album',
+
+  // главная: карточка QR-альбома событий (цены на главной нет — она на /events/)
+  home_ev_more: "Tìm hiểu thêm về album sự kiện",
+  home_ev_text: "Khách quét mã và tải ảnh, video lên ngay từ trình duyệt điện thoại — không cần ứng dụng, không cần đăng ký. Không giới hạn thời gian lưu trữ, xuất toàn bộ bất cứ lúc nào, và khách cũng giữ lại ảnh của mình.",
+  home_ev_tile_title: "Album QR cho sự kiện của bạn",
+  home_ev_tile_sub: "Khách quét một mã và thêm ảnh của họ",
+  foot_events: "Album sự kiện",
 };

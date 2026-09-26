@@ -936,4 +936,11 @@ export default {
   ev_choose_d: 'You have one paid and ready. Open it — or get another one for your next event.',
   ev_choose_use: 'Open my events',
   ev_choose_buy: 'Get another one',
+
+  // главная: карточка QR-альбома событий (цены на главной нет — она на /events/)
+  home_ev_more: "More about event albums",
+  home_ev_text: "Guests scan the code and upload photos and videos from the phone browser — no app, no signup. No expiry timer, full export anytime, and guests keep their shots too.",
+  home_ev_tile_title: "A QR album for your event",
+  home_ev_tile_sub: "Guests scan one code and add their photos",
+  foot_events: "Event Albums",
 };

@@ -58,6 +58,10 @@ const APP_LD = {
   ],
 };
 
+// Главная — лента для всех, цены на ней нет намеренно (они на /events/ и
+// /pricing), поэтому и в разметке главной офферов с ценами нет.
+const { offers: _offers, ...APP_LD_HOME } = APP_LD;
+
 // FAQ дублирует видимый текст на странице (требование Google: разметка
 // без текста на странице — повод для ручных санкций, а не для сниппета).
 const faq = (pairs) => ({
@@ -69,6 +73,8 @@ const faq = (pairs) => ({
   })),
 });
 
+// Вопросы с бывшей гостевой витрины главной. Сама витрина переехала на
+// /events/, и эти вопросы (кроме повторов) теперь часть EVENT_FAQ ниже.
 export const HOME_FAQ = [
   ['How do I collect photos from wedding or event guests?',
    'Create an Event Album and show or print its QR code. Guests scan it and upload photos and videos straight from the phone browser during and after the event. Everything lands in one album that belongs to you.'],
@@ -90,9 +96,10 @@ export const HOME_FAQ = [
    'A curated collection of photos, videos and voice notes organized into chapters and read like a story — a trip, a wedding, a year of your child — rather than scrolled like a feed.'],
 ];
 
-// Дословно повторяет видимый блок «Questions» на event-album.html — правило то
-// же, что и для страницы цен: разметка дублирует текст страницы, а не свой.
-export const EVENT_FAQ = [
+// Дословно повторяет видимый блок «Questions» на /events/ (events/index.html):
+// вопросы лендинга плюс неповторяющиеся вопросы с бывшей витрины главной, в
+// том же порядке, что на странице. Разметка дублирует текст страницы, а не свой.
+const EA_FAQ = [
   ['Do guests have to install an app?',
    'No. The phone camera opens an ordinary web page.'],
   ['Do they need an Albums account?',
@@ -109,6 +116,10 @@ export const EVENT_FAQ = [
    'Issue a new link — the old QR stops working. Everyone who already joined stays.'],
   ['Need a second album for another event?',
    'That is another purchase. Nothing expires: buy it in advance and create the album when the date is set.'],
+];
+export const EVENT_FAQ = [
+  HOME_FAQ[0], ...EA_FAQ.slice(0, 4), HOME_FAQ[3], HOME_FAQ[4],
+  ...EA_FAQ.slice(4), HOME_FAQ[5], HOME_FAQ[6],
 ];
 
 // Дословно повторяет видимый блок «Questions» на pricing.html —
@@ -130,11 +141,11 @@ export const PRICING_FAQ = [
 const PAGES = {
   'index.html': {
     path: '/',
-    title: 'Albums — Collect Event Photos by QR Code',
-    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, $39.99 one-time. No expiry timer, full export, and guests keep their shots in their own free account.',
-    ogTitle: 'Albums — every guest photo, one QR code',
+    title: 'Albums — Story Albums and QR Photo Albums for Events',
+    desc: 'Story albums from the Albums community — photos, videos and voice notes organized into chapters. Planning a wedding or a party? Collect every guest photo with one QR code: no app, no signup.',
+    ogTitle: 'Albums — story albums, and every guest photo with one QR code',
     ogDesc: CANON,
-    ld: [ORG_LD, APP_LD, faq(HOME_FAQ)],
+    ld: [ORG_LD, APP_LD_HOME],
     sitemap: { changefreq: 'weekly', priority: '1.0' },
   },
   'pricing.html': {
@@ -144,11 +155,13 @@ const PAGES = {
     ld: [faq(PRICING_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
-  'event-album.html': {
-    path: '/event-album',
-    title: 'Event Album — collect every guest’s photos with one QR code',
-    desc: 'One QR code for the whole event: guests upload photos from the phone browser — no app, no sign-up. $39.99 once, the album stays yours forever.',
-    ld: [faq(EVENT_FAQ)],
+  // Лендинг QR-альбомов. Раньше жил в event-album.html — теперь там только
+  // переадресация сюда (noindex + canonical), поэтому в карте её нет.
+  'events/index.html': {
+    path: '/events/',
+    title: 'Event Albums — Every Guest Photo with One QR Code | Albums',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, $39.99 one-time per event. No expiry timer, full export anytime, and guests keep their shots too.',
+    ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
   'terms.html': {
@@ -188,10 +201,12 @@ const PAGES = {
     title: 'Posts — Albums',
     desc: 'The posts feed on Albums: photos, videos and carousels from creators.',
   },
+  // Кабинет событий (приложение). Маркетинговая страница — /events/; кабинет
+  // с тем же заголовком спорил бы с ней в поиске, поэтому он вне индекса.
   'event.html': {
-    path: '/event.html',
-    title: 'Event Albums — Collect Guest Photos by QR | Albums',
-    desc: 'Create an Event Album: guests scan one QR code and upload photos and videos from the phone browser — no app, no signup. $39.99 one-time, yours forever.',
+    path: '/event.html', robots: 'noindex,follow',
+    title: 'My events — Albums',
+    desc: 'Manage your Event Albums: the QR code, the greeting for guests and everything they uploaded.',
   },
 
   /* -------- служебные экраны: noindex,follow -------- */

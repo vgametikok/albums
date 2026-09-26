@@ -39,6 +39,7 @@ like a story.
 ## Key pages
 
 - [Home](https://albums.ink/): what Albums is, live feed of public albums
+- [Event Albums](https://albums.ink/events/): collect every guest photo from a wedding or event with one QR code
 - [Pricing](https://albums.ink/pricing): plans and what's included
 - [Terms of Service](https://albums.ink/terms)
 - [Privacy Policy](https://albums.ink/privacy)

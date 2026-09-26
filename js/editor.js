@@ -201,7 +201,7 @@ function eventBox() {
 
   box.appendChild(el('a', {
     class: 'btn btn-ghost btn-sm', style: 'width:100%;margin-top:12px',
-    href: isEvent && albumId ? `event.html?id=${albumId}` : 'event-album.html',
+    href: isEvent && albumId ? `event.html?id=${albumId}` : '/events/',
   }, icon('link', 16, { sw: 2 }), isEvent ? t('ev_editor_open') : t('ev_editor_learn')));
   return box;
 }

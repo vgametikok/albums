@@ -26,28 +26,56 @@ let trendPeriod = 'week';
   await mountShell('home');
   const q = new URLSearchParams(location.search).get('q');
 
-  // Статическая витрина из index.html: краулерам и гостям — остаётся (гостю
-  // её переводим на его язык), залогиненным и в режиме поиска — лишняя.
-  const intro = document.getElementById('home-intro');
-  const landingOnly = !!intro && !q && !currentProfile();
-  if (intro) {
-    if (!landingOnly) intro.remove();
-    else intro.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
+  // Карточка QR-альбома событий лежит в index.html настоящим HTML — её видят
+  // краулеры, которые скрипты не исполняют. Здесь она переезжает в ленту:
+  // гостю — большой врезкой на месте featured, вошедшему — первой обычной
+  // плиткой сетки. Главная у всех одна и та же: шапка, вкладки, чипы, сетка.
+  // Цены на главной нет намеренно — она живёт на /events/ и /pricing.
+  const ev = document.getElementById('home-event');
+  if (ev) {
+    ev.remove();
+    ev.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
+    eventSign = ev.querySelector('.hi-sign');
+    if (!q) eventCard = ev;
   }
-
-  // Лендинг — торговая страница QR-альбомов, и ленты на ней нет: чужие альбомы
-  // под ценой и FAQ уводят внимание с покупки. Лента остаётся главной для
-  // вошедших и включается в режиме поиска.
-  if (landingOnly) return;
 
   if (q) return renderSearch(q);
   renderFeed();
 })();
 
+// Узлы карточки события из index.html (см. main).
+let eventCard = null, eventSign = null;
+
+/** Врезка для гостя: занимает большое место featured. */
+function eventFeatured() {
+  if (!eventCard) return null;
+  eventCard.hidden = false;
+  return eventCard;
+}
+
+/** Плитка для вошедшего: того же размера и устройства, что albumCard. */
+function eventTile() {
+  if (!eventSign) return null;
+  const href = '/events/';
+  return el('div', { class: 'ev-tile' },
+    el('a', { class: 'card-cover', href, 'aria-label': t('home_ev_more') },
+      eventSign.cloneNode(true),
+      el('div', { class: 'badge' }, t('qr_album_full'))),
+    el('div', { class: 'card-meta' },
+      el('a', { class: 'ev-tile-ico', href, 'aria-hidden': 'true', tabindex: '-1' }, icon('qr', 22, { sw: 2, stroke: '#fff' })),
+      el('div', { style: 'min-width:0' },
+        el('a', { class: 'card-title', href, text: t('home_ev_tile_title') }),
+        el('div', { class: 'card-sub', text: t('home_ev_tile_sub') }),
+        el('a', { class: 'card-stat ev-tile-more', href, text: t('home_ev_more') + ' →' }))));
+}
+
 /* ---------------- лента ---------------- */
 
-// Гостю над лентой показываем, что это за сервис: описание + вход + цены.
+// Пустое состояние внутри сетки — на всю её ширину, а не в одну ячейку.
+const wide = (n) => { n.style.gridColumn = '1 / -1'; return n; };
+
 function renderFeed() {
+  const guest = !currentProfile();
   const tabs = el('div', { class: 'view-toggle', style: 'margin:8px 0 20px' });
   const chips = el('div', { class: 'chips' });
   const featuredHost = el('div', {});
@@ -90,9 +118,28 @@ function renderFeed() {
   app.append(tabs, chips, featuredHost, grid, sentinel);
   app.appendChild(skeletonGrid(6));
 
+  // Гость видит карточку события сразу, ещё до ответа ленты — и при ошибке
+  // или пустой ленте она остаётся на месте.
+  const drawFeatured = (a, b, urls, pro) => {
+    clear(featuredHost);
+    if (guest && eventCard) {
+      const wrap = el('div', { class: 'featured featured-event' }, eventFeatured());
+      if (a) {
+        const side = el('div', { class: 'featured-side' });
+        side.append(...albumCard(a, urls, { pro }).childNodes);
+        wrap.appendChild(side);
+      }
+      featuredHost.appendChild(wrap);
+    } else if (a) {
+      featuredHost.appendChild(featured(a, b, urls, pro));
+    }
+  };
+  drawFeatured();
+
   function reset() {
     offset = 0; done = false;
-    clear(featuredHost); clear(grid);
+    clear(grid);
+    drawFeatured();
     drawTabs(); drawChips();
     load();
   }
@@ -117,17 +164,18 @@ function renderFeed() {
     loading = false;
 
     if (error) {
-      if (!offset) clear(app).appendChild(emptyState(t('feed_error'), error.message || ''));
+      if (!offset) { clear(grid); grid.appendChild(wide(emptyState(t('feed_error'), error.message || ''))); }
       return;
     }
     const rows = data || [];
     if (rows.length < PAGE) done = true;
     if (!rows.length && !offset) {
-      clear(featuredHost);
-      grid.replaceWith(emptyState(
+      clear(grid);
+      if (!guest && eventTile()) grid.appendChild(eventTile());
+      grid.appendChild(wide(emptyState(
         t('feed_empty_title'),
         t('feed_empty_text'),
-        el('a', { class: 'btn btn-primary', href: 'editor.html' }, t('create_first_album'))));
+        el('a', { class: 'btn btn-primary', href: 'editor.html' }, t('create_first_album')))));
       return;
     }
 
@@ -138,9 +186,14 @@ function renderFeed() {
     const pro = await proSet(rows.map(a => a.author_username));
     let rest = rows;
     if (offset === 0 && rows.length >= 1) {
-      // во врезку уходят первый и (если есть) второй альбом — в сетке их быть не должно
-      rest = rows.slice(rows.length >= 2 ? 2 : 1);
-      featuredHost.appendChild(featured(rows[0], rows[1], urls, pro));
+      // Во врезку уходят первый и (если есть) второй альбом — в сетке их быть
+      // не должно. У гостя большое место занято карточкой события, поэтому
+      // альбом во врезке один — справа от неё.
+      const take = guest && eventCard ? 1 : (rows.length >= 2 ? 2 : 1);
+      rest = rows.slice(take);
+      drawFeatured(rows[0], take === 2 ? rows[1] : null, urls, pro);
+      // Вошедшему событие — первая обычная плитка сетки.
+      if (!guest) { const tile = eventTile(); if (tile) grid.appendChild(tile); }
     }
     rest.forEach(a => grid.appendChild(albumCard(a, urls, { pro })));
     offset += rows.length;

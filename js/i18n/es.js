@@ -918,4 +918,11 @@
   ev_choose_d: 'Ya tienes uno pagado y listo. Ábrelo, o consigue otro para la próxima celebración.',
   ev_choose_use: 'Abrir mis eventos',
   ev_choose_buy: 'Conseguir otro',
+
+  // главная: карточка QR-альбома событий (цены на главной нет — она на /events/)
+  home_ev_more: "Más sobre los álbumes de eventos",
+  home_ev_text: "Los invitados escanean el código y suben fotos y vídeos desde el navegador del móvil — sin app ni registro. Sin fecha de caducidad, exportación completa cuando quieras, y los invitados también conservan sus fotos.",
+  home_ev_tile_title: "Un álbum QR para tu evento",
+  home_ev_tile_sub: "Los invitados escanean un código y añaden sus fotos",
+  foot_events: "Álbumes de eventos",
 };
