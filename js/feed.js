@@ -48,6 +48,7 @@ let trendPeriod = 'week';
     ev.remove();
     ev.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
     eventSign = ev.querySelector('.hi-sign');
+    eventCouple = ev.querySelector('.ev-couple');
     if (!q) eventCard = ev;
   }
 
@@ -56,7 +57,7 @@ let trendPeriod = 'week';
 })();
 
 // Узлы карточки события из index.html (см. main).
-let eventCard = null, eventSign = null;
+let eventCard = null, eventSign = null, eventCouple = null;
 
 /** Врезка для гостя: занимает большое место featured. */
 function eventFeatured() {
@@ -71,6 +72,7 @@ function eventTile() {
   const href = '/events/';
   return el('div', { class: 'ev-tile' },
     el('a', { class: 'card-cover', href, 'aria-label': t('home_ev_more') },
+      ...(eventCouple ? [eventCouple.cloneNode(true)] : []),
       eventSign.cloneNode(true),
       el('div', { class: 'badge' }, t('qr_album_full'))),
     el('div', { class: 'card-meta' },
