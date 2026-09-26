@@ -56,8 +56,6 @@
   .chip{font-size:12.5px;font-weight:600;color:#4A4741;background:var(--tint);border:1px solid #E0DCD2;border-radius:999px;padding:5px 12px;}
 
   /* табличка с QR — та же «Emma & James», что и на главной */
-  .stand{background:linear-gradient(135deg,#F6EFDD,#EAE3D5);border-radius:24px;display:flex;
-         align-items:center;justify-content:center;padding:36px 20px;}
   .hi-sign{background:#FCFAF6;border-radius:18px;padding:24px 28px 18px;text-align:center;
            transform:rotate(-2deg);box-shadow:0 14px 34px rgba(60,45,20,.16);max-width:250px;}
   .hi-sign-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600;line-height:1.1;}
@@ -65,6 +63,21 @@
   .hi-qr{width:150px;height:150px;display:block;margin:0 auto;}
   .hi-sign-cap{font-size:12px;color:var(--soft);margin-top:12px;}
 
+  /* иллюстрация первого экрана: наша табличка стоит на месте нарисованной */
+  .stand{position:relative;background:none;padding:0;display:block;border-radius:0}
+  .stand-img{display:block;width:100%;height:auto}
+  .stand .hi-sign{position:absolute;left:10%;top:43%;width:32%;max-width:none;padding:10px 8px 8px;transform:rotate(-3deg);
+    box-shadow:0 10px 24px rgba(60,45,20,.18)}
+  .stand .hi-sign-title{font-size:15px}
+  .stand .hi-sign-sub{font-size:8.5px;margin:2px 0 6px;letter-spacing:.1em}
+  .stand .hi-qr{width:72%;height:auto}
+  .stand .hi-sign-cap{font-size:9px;line-height:1.3;margin-top:5px}
+  /* картинки шагов и полоса поводов */
+  .step-img img{display:block;width:100%;height:auto;margin-bottom:8px}
+  .uses{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .uses figure{margin:0}
+  .uses img{display:block;width:100%;height:auto}
+  .uses figcaption{text-align:center;font-weight:600;font-size:15px;color:var(--ink);margin-top:4px}
   /* сравнение с типичными QR-сервисами */
   .cmp{overflow-x:auto;margin-top:22px;}
   .cmp table{width:100%;min-width:520px;border-collapse:separate;border-spacing:0;background:#fff;
@@ -85,8 +98,8 @@
   /* ---- сетки ---- */
   .three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px;}
   .steps{counter-reset:s;}
-  .steps > div{position:relative;padding-top:38px;}
-  .steps > div::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;
+  .steps > div{position:relative;}
+  .steps > div::before{counter-increment:s;content:counter(s);position:absolute;top:6px;left:6px;z-index:1;
     width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:800;
     display:flex;align-items:center;justify-content:center;}
   .three p{margin-top:6px;font-size:14.5px;line-height:1.55;}
@@ -136,8 +149,15 @@
   @media (max-width:860px){
     h1{font-size:31px;} h2{font-size:23px;}
     .hero{grid-template-columns:1fr;gap:28px;padding-top:16px;}
-    .stand{padding:24px 16px;} .hi-qr{width:120px;height:120px;}
     .three,.feat{grid-template-columns:1fr;}
+    /* шаги в колонку: картинка слева небольшой миниатюрой, текст справа */
+    .steps{gap:18px;}
+    .steps > div{display:grid;grid-template-columns:128px 1fr;column-gap:14px;align-items:start;}
+    .steps .step-img{grid-row:1 / span 2;}
+    .steps .step-img img{margin-bottom:0;}
+    .steps > div::before{width:24px;height:24px;font-size:12.5px;top:2px;left:2px;}
+    .uses{grid-template-columns:1fr 1fr;gap:12px;}
+    .uses figure:first-child{grid-column:1 / -1;}
   }
   @media (prefers-reduced-motion:reduce){ .hi-sign{transform:none;} }
 
@@ -172,9 +192,12 @@
         <span class="chip" data-i18n="ea_chip4">The album stays yours</span>
       </div>
     </div>
-    <!-- Узор декоративный: настоящий код вёл бы в чей-то альбом. -->
-    <div class="stand" aria-hidden="true">
-      <div class="hi-sign">
+    <!-- Иллюстрация «продукт в деле»; поверх — наша HTML-табличка (чёткая и
+         переводимая) на месте нарисованной. Узор QR декоративный: настоящий
+         код вёл бы в чей-то альбом. -->
+    <div class="stand">
+      <picture><source srcset="/img/events-hero.webp" type="image/webp"><img class="stand-img" src="/img/events-hero.png" width="860" height="700" alt="Illustration: a guest at a wedding table points a phone at the QR sign" data-i18n-alt="ea_img_hero" loading="eager" fetchpriority="high" decoding="async"></picture>
+      <div class="hi-sign" aria-hidden="true">
         <div class="hi-sign-title" data-i18n="hi_sign_names">Emma &amp; James</div>
         <div class="hi-sign-sub" data-i18n="hi_sign_date">July 12, 2026</div>
         <svg class="hi-qr" viewBox="0 0 25 25" aria-hidden="true" shape-rendering="crispEdges">
@@ -207,17 +230,29 @@
   </div>
 
   <div class="sec">
+    <h2 data-i18n="ea_use_h">For any event where guests take photos</h2>
+    <div class="uses">
+      <figure><picture><source srcset="/img/events-use-wedding.webp" type="image/webp"><img src="/img/events-use-wedding.png" width="720" height="480" alt="Illustration: a couple raising a toast at their wedding while a guest takes a photo" data-i18n-alt="ea_img_wedding" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_wedding">Weddings</figcaption></figure>
+      <figure><picture><source srcset="/img/events-use-birthday.webp" type="image/webp"><img src="/img/events-use-birthday.png" width="720" height="480" alt="Illustration: friends taking phone photos around a birthday cake" data-i18n-alt="ea_img_birthday" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_birthday">Birthdays</figcaption></figure>
+      <figure><picture><source srcset="/img/events-use-corporate.webp" type="image/webp"><img src="/img/events-use-corporate.png" width="720" height="480" alt="Illustration: colleagues taking photos at a company party" data-i18n-alt="ea_img_corporate" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_corporate">Company parties</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="sec">
     <h2 data-i18n="ea_how_h">Three steps</h2>
     <div class="three steps">
       <div>
+        <div class="step-img"><picture><source srcset="/img/events-step1.webp" type="image/webp"><img src="/img/events-step1.png" width="640" height="480" alt="Illustration: a printed QR sign on a table" data-i18n-alt="ea_img_s1" loading="lazy" decoding="async"></picture></div>
         <h3 data-i18n="ea_s1_t">You create the album</h3>
         <p data-i18n="ea_s1_d">A name and a few words for your guests. The printable QR sign is ready right away — put it on the tables.</p>
       </div>
       <div>
+        <div class="step-img"><picture><source srcset="/img/events-step2.webp" type="image/webp"><img src="/img/events-step2.png" width="640" height="480" alt="Illustration: a phone camera scanning the QR sign" data-i18n-alt="ea_img_s2" loading="lazy" decoding="async"></picture></div>
         <h3 data-i18n="ea_s2_t">Guests scan it</h3>
         <p data-i18n="ea_s2_d">They land on a page with your greeting. Photos and videos go into the album straight from the phone browser.</p>
       </div>
       <div>
+        <div class="step-img"><picture><source srcset="/img/events-step3.webp" type="image/webp"><img src="/img/events-step3.png" width="640" height="480" alt="Illustration: the shared event album on a phone, next to a bouquet" data-i18n-alt="ea_img_s3" loading="lazy" decoding="async"></picture></div>
         <h3 data-i18n="ea_s3_t">You sort it out and take it home</h3>
         <p data-i18n="ea_s3_d">Every shot: show to everyone, keep for friends, or hide. The whole album downloads as one archive.</p>
       </div>

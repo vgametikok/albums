@@ -23,6 +23,9 @@ import { wireCheckout } from './checkout.js';
     else n.textContent = v;
   });
 
+  // alt у иллюстраций — тоже из словаря
+  document.querySelectorAll('[data-i18n-alt]').forEach(n => { n.alt = t(n.dataset.i18nAlt); });
+
   wireCheckout(['cta-top', 'cta-price', 'cta-final'], 'create-order', 'event_after_login');
   showOwned();
 })();
