@@ -10,6 +10,18 @@ import { observeImpressions } from './stats.js';
 const app = $('#app');
 const PAGE = 24;
 
+// Альбомы, скрытые ТОЛЬКО из ленты главной (все вкладки: «Для вас», «В тренде»,
+// «Свежее» и категории). В профиле автора, по прямой ссылке и в поиске они
+// остаются. Флага «не в ленту» в базе нет (hidden_at — модерация, прячет
+// альбом везде), поэтому список ведётся здесь. Добавить — вписать id альбома
+// (из адреса album.html?id=…) с комментарием, чей и какой.
+const FEED_HIDE = new Set([
+  '0bc7d74c-cc94-4409-acf4-5b0c1bbf6631', // «Chole Bhature» — Mohd Kaif (@kaifkhanlte)
+  '1ff670a7-bb3b-44dd-90c7-fc8a8ec01b28', // «Cat» — Mohd Kaif (@kaifkhanlte)
+]);
+// Берём с запасом на размер списка, чтобы после фильтра страница была полной.
+const LIMIT = PAGE + FEED_HIDE.size;
+
 // Сид живёт ровно одну загрузку страницы: внутри неё hash(id||seed) стабилен,
 // поэтому пагинация не дублирует альбомы, — а каждый новый заход перемешивает
 // ленту заново. Раньше сид лежал в sessionStorage, вкладка держала его между
@@ -151,13 +163,13 @@ function renderFeed() {
     if (mode === 'trending') {
       // тренды не бесконечны — грузим один раз
       if (offset > 0) { loading = false; done = true; return; }
-      ({ data, error } = await sb.rpc('trending_albums', { p_period: trendPeriod, p_limit: 48 }));
+      ({ data, error } = await sb.rpc('trending_albums', { p_period: trendPeriod, p_limit: 48 + FEED_HIDE.size }));
       done = true;
     } else if (mode === 'for-you') {
-      ({ data, error } = await sb.rpc('feed_recommended', { p_seed: seed, p_limit: PAGE, p_offset: offset }));
+      ({ data, error } = await sb.rpc('feed_recommended', { p_seed: seed, p_limit: LIMIT, p_offset: offset }));
     } else {
       ({ data, error } = await sb.rpc('feed_albums', {
-        p_seed: seed, p_category: category, p_limit: PAGE, p_offset: offset,
+        p_seed: seed, p_category: category, p_limit: LIMIT, p_offset: offset,
       }));
     }
     app.querySelectorAll('.skel').forEach(n => n.closest('.grid')?.remove());
@@ -167,8 +179,11 @@ function renderFeed() {
       if (!offset) { clear(grid); grid.appendChild(wide(emptyState(t('feed_error'), error.message || ''))); }
       return;
     }
-    const rows = data || [];
-    if (rows.length < PAGE) done = true;
+    // offset и признак конца считаются по сырому ответу, фильтр — после
+    const raw = data || [];
+    if (raw.length < LIMIT) done = true;
+    const rows = raw.filter(a => !FEED_HIDE.has(a.id));
+    if (!rows.length && !done) { offset += raw.length; return load(); }
     if (!rows.length && !offset) {
       clear(grid);
       if (!guest && eventTile()) grid.appendChild(eventTile());
@@ -196,7 +211,7 @@ function renderFeed() {
       if (!guest) { const tile = eventTile(); if (tile) grid.appendChild(tile); }
     }
     rest.forEach(a => grid.appendChild(albumCard(a, urls, { pro })));
-    offset += rows.length;
+    offset += raw.length;
     observeImpressions(app);   // учёт показов карточек
   }
 
