@@ -24,30 +24,57 @@ import { telegramButton } from './ui.js';
 export function wireCheckout(ids, route, flag, opts = {}) {
   const btns = ids.map(id => document.getElementById(id)).filter(Boolean);
   if (!btns.length) return;
-  btns.forEach(btn => btn.addEventListener('click', () => start(btns, btn, route, flag, false, opts)));
+  // Состояние одной покупки: busy — идёт запрос к edge-функции; timer —
+  // страховка на случай, если переход на PayPal так и не случился.
+  const st = { btns, busy: false, timer: 0 };
+  btns.forEach(btn => btn.addEventListener('click', () => start(st, btn, route, flag, false, opts)));
+
+  // Кнопки блокируются на время запроса и НЕ разблокируются перед уходом на
+  // PayPal. Кнопка «Назад» браузера достаёт страницу из bfcache целиком, вместе
+  // с disabled — и кнопки оставались бледными и мёртвыми до перезагрузки.
+  // Поэтому: при любом показе страницы (pageshow, особенно persisted) и при
+  // возвращении во вкладку — сброс, если прямо сейчас нет запроса.
+  addEventListener('pageshow', (e) => { if (e.persisted || !st.busy) unlock(st); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && !st.busy) unlock(st);
+  });
+  unlock(st);   // в том числе возврат с PayPal по «Отмене» (?token=…) — всегда с живыми кнопками
 
   // Вернулись со страницы входа именно ради этой покупки — продолжаем.
   const saved = localStorage.getItem(flag);
   if (saved) {
     localStorage.removeItem(flag);
     const btn = opts.fromFlag ? opts.fromFlag(saved) : (saved === '1' ? btns[0] : null);
-    if (btn) start(btns, btn, route, flag, true, opts);
+    if (btn) start(st, btn, route, flag, true, opts);
   }
 }
 
-async function start(btns, btn, route, flag, fromLogin, opts) {
+function lock(st) {
+  st.btns.forEach(b => { b.disabled = true; b.setAttribute('aria-busy', 'true'); });
+}
+
+function unlock(st) {
+  clearTimeout(st.timer);
+  st.timer = 0;
+  st.busy = false;
+  st.btns.forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); b.classList.remove('busy'); });
+}
+
+async function start(st, btn, route, flag, fromLogin, opts) {
+  if (st.busy) return;              // двойной клик — второй заказ не создаём
   const payload = opts.payload ? opts.payload(btn) : {};
-  btns.forEach(b => { b.disabled = true; });
+  st.busy = true;
+  lock(st);
   try {
     const { data: { session } } = await sb.auth.getSession();
     if (!session) {
-      if (fromLogin) { btns.forEach(b => { b.disabled = false; }); return; }
+      if (fromLogin) { unlock(st); return; }
       // Флаг ставим ДО показа окна: кнопка Telegram — чужой iframe, её нажатие
       // нам не видно, и человек уедет со страницы без нашего ведома. Отказ и
       // сбой флаг убирают, поэтому случайной оплаты потом не будет.
       localStorage.setItem(flag, opts.flagValue ? opts.flagValue(payload) : '1');
       const choice = await askSignIn();
-      btns.forEach(b => { b.disabled = false; });
+      unlock(st);
       if (choice !== 'google') { localStorage.removeItem(flag); return; }
       try { await signIn(); } catch (_) { localStorage.removeItem(flag); alert(t('signin_failed')); }
       return;
@@ -67,6 +94,12 @@ async function start(btns, btn, route, flag, fromLogin, opts) {
       if (opts.verify && !opts.verify(out, payload)) {
         alert(t(opts.unavailable || 'pro_start_error'));
       } else {
+        // Уходим на PayPal. Кнопки остаются заблокированными, пока грузится
+        // чужая страница, но запрос уже не «в полёте»: busy снимаем, чтобы
+        // pageshow/visibilitychange могли их вернуть. Если переход не случился
+        // (заблокирован, оборвался) — через 8 с разблокируем сами.
+        st.busy = false;
+        st.timer = setTimeout(() => unlock(st), 8000);
         location.href = out.url;   // страница оплаты PayPal
         return;
       }
@@ -76,7 +109,7 @@ async function start(btns, btn, route, flag, fromLogin, opts) {
   } catch (_) {
     alert(t('pro_start_error'));
   }
-  btns.forEach(b => { b.disabled = false; });
+  unlock(st);
 }
 
 /**
