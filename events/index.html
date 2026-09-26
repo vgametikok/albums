@@ -74,10 +74,16 @@
   .stand .hi-sign-cap{font-size:9px;line-height:1.3;margin-top:5px}
   /* картинки шагов и полоса поводов */
   .step-img img{display:block;width:100%;height:auto;margin-bottom:8px}
-  .uses{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .uses{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
   .uses figure{margin:0}
   .uses img{display:block;width:100%;height:auto}
   .uses figcaption{text-align:center;font-weight:600;font-size:15px;color:var(--ink);margin-top:4px}
+  /* вертикальная картинка рядом со списком темы; у средней темы — справа */
+  .topic{display:grid;grid-template-columns:210px 1fr;gap:34px;align-items:center;margin-top:24px}
+  .topic.flip{grid-template-columns:1fr 210px}
+  .topic.flip .topic-img{order:2}
+  .topic .feat{margin-top:0}
+  .topic-img img{display:block;width:100%;height:auto}
   /* сравнение с типичными QR-сервисами */
   .cmp{overflow-x:auto;margin-top:22px;}
   .cmp table{width:100%;min-width:520px;border-collapse:separate;border-spacing:0;background:#fff;
@@ -157,7 +163,10 @@
     .steps .step-img img{margin-bottom:0;}
     .steps > div::before{width:24px;height:24px;font-size:12.5px;top:2px;left:2px;}
     .uses{grid-template-columns:1fr 1fr;gap:12px;}
-    .uses figure:first-child{grid-column:1 / -1;}
+    /* темы в колонку: картинка сверху, скромного размера */
+    .topic,.topic.flip{grid-template-columns:1fr;gap:14px;}
+    .topic.flip .topic-img{order:0}
+    .topic-img{max-width:180px;margin:0 auto;}
   }
   @media (prefers-reduced-motion:reduce){ .hi-sign{transform:none;} }
 
@@ -234,7 +243,8 @@
     <div class="uses">
       <figure><picture><source srcset="/img/events-use-wedding.webp" type="image/webp"><img src="/img/events-use-wedding.png" width="720" height="480" alt="Illustration: a couple raising a toast at their wedding while a guest takes a photo" data-i18n-alt="ea_img_wedding" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_wedding">Weddings</figcaption></figure>
       <figure><picture><source srcset="/img/events-use-birthday.webp" type="image/webp"><img src="/img/events-use-birthday.png" width="720" height="480" alt="Illustration: friends taking phone photos around a birthday cake" data-i18n-alt="ea_img_birthday" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_birthday">Birthdays</figcaption></figure>
-      <figure><picture><source srcset="/img/events-use-corporate.webp" type="image/webp"><img src="/img/events-use-corporate.png" width="720" height="480" alt="Illustration: colleagues taking photos at a company party" data-i18n-alt="ea_img_corporate" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_corporate">Company parties</figcaption></figure>
+      <figure><picture><source srcset="/img/events-use-concert.webp" type="image/webp"><img src="/img/events-use-concert.png" width="720" height="480" alt="Illustration: a band on stage and a crowd raising their phones" data-i18n-alt="ea_img_concert" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_concert">Concerts</figcaption></figure>
+      <figure><picture><source srcset="/img/events-use-corporate.webp" type="image/webp"><img src="/img/events-use-corporate.png" width="720" height="480" alt="Illustration: colleagues taking photos at a company party" data-i18n-alt="ea_img_corporate" loading="lazy" decoding="async"></picture><figcaption data-i18n="ea_use_corporate">Corporate events</figcaption></figure>
     </div>
   </div>
 
@@ -261,66 +271,75 @@
 
   <div class="sec">
     <h2 data-i18n="ea_guest_h">Guests need nothing but a camera</h2>
-    <div class="feat">
-      <div>
-        <h3 data-i18n="ea_g1_t">No app, no account</h3>
-        <p data-i18n="ea_g1_d">Point the camera, open the page, pick the photos. Works on any phone with a browser.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_g2_t">Anonymous by default</h3>
-        <p data-i18n="ea_g2_d">A guest's name is never published without their say-so. They can sign in later and put their name on their shots.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_g3_t">They can claim their photos</h3>
-        <p data-i18n="ea_g3_d">Uploaded without signing in, then created an account? Their files move over. They have a week to do it.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_g4_t">They cannot touch anyone else's</h3>
-        <p data-i18n="ea_g4_d">A guest deletes only their own and cannot edit the album. Everyone who scanned the code can see the shared album.</p>
+    <div class="topic">
+      <div class="topic-img"><picture><source srcset="/img/events-topic-guests.webp" type="image/webp"><img src="/img/events-topic-guests.png" width="500" height="600" alt="Illustration: a guest photographs the celebration with her phone" data-i18n-alt="ea_img_guests" loading="lazy" decoding="async"></picture></div>
+      <div class="feat">
+        <div>
+          <h3 data-i18n="ea_g1_t">No app, no account</h3>
+          <p data-i18n="ea_g1_d">Point the camera, open the page, pick the photos. Works on any phone with a browser.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_g2_t">Anonymous by default</h3>
+          <p data-i18n="ea_g2_d">A guest's name is never published without their say-so. They can sign in later and put their name on their shots.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_g3_t">They can claim their photos</h3>
+          <p data-i18n="ea_g3_d">Uploaded without signing in, then created an account? Their files move over. They have a week to do it.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_g4_t">They cannot touch anyone else's</h3>
+          <p data-i18n="ea_g4_d">A guest deletes only their own and cannot edit the album. Everyone who scanned the code can see the shared album.</p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="sec">
     <h2 data-i18n="ea_ctrl_h">Nobody sees what you don't want them to</h2>
-    <div class="feat">
-      <div>
-        <h3 data-i18n="ea_c1_t">Three states for every shot</h3>
-        <p data-i18n="ea_c1_d">Show to everyone, keep for friends only, or hide completely. One tap, or a whole batch at once.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_c2_t">Approve first, if you like</h3>
-        <p data-i18n="ea_c2_d">Turn on holding and guest photos wait for your approval — until then nobody can see them.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_c3_t">You see who sent what</h3>
-        <p data-i18n="ea_c3_d">A guest list with counts: how many they sent, how many are shown, how many are waiting.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_c4_t">The code can be replaced</h3>
-        <p data-i18n="ea_c4_d">If the link reaches the wrong people, issue a new one. The old QR stops working; guests who joined stay.</p>
+    <div class="topic flip">
+      <div class="topic-img"><picture><source srcset="/img/events-topic-privacy.webp" type="image/webp"><img src="/img/events-topic-privacy.png" width="500" height="600" alt="Illustration: a bride looks through the photos on her phone on her own" data-i18n-alt="ea_img_privacy" loading="lazy" decoding="async"></picture></div>
+      <div class="feat">
+        <div>
+          <h3 data-i18n="ea_c1_t">Three states for every shot</h3>
+          <p data-i18n="ea_c1_d">Show to everyone, keep for friends only, or hide completely. One tap, or a whole batch at once.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_c2_t">Approve first, if you like</h3>
+          <p data-i18n="ea_c2_d">Turn on holding and guest photos wait for your approval — until then nobody can see them.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_c3_t">You see who sent what</h3>
+          <p data-i18n="ea_c3_d">A guest list with counts: how many they sent, how many are shown, how many are waiting.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_c4_t">The code can be replaced</h3>
+          <p data-i18n="ea_c4_d">If the link reaches the wrong people, issue a new one. The old QR stops working; guests who joined stay.</p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="sec">
     <h2 data-i18n="ea_own_h">The album stays yours</h2>
-    <div class="feat">
-      <div>
-        <h3 data-i18n="ea_o1_t">It never expires</h3>
-        <p data-i18n="ea_o1_d">Not after a month, not after a year. The link and the QR never change, and storage costs you nothing extra.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_o2_t">Downloads as one archive</h3>
-        <p data-i18n="ea_o2_d">A ZIP with files by chapter and a text file of captions — readable in ten years, with or without Albums.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_o3_t">It's an album, not a dump</h3>
-        <p data-i18n="ea_o3_d">A cover, chapters and your own voice notes next to the shots — a story you can read again.</p>
-      </div>
-      <div>
-        <h3 data-i18n="ea_o4_t">Guest uploads don't eat your space</h3>
-        <p data-i18n="ea_o4_d">Everyone brings their own. There is no cap on how many photos an event can hold.</p>
+    <div class="topic">
+      <div class="topic-img"><picture><source srcset="/img/events-topic-keep.webp" type="image/webp"><img src="/img/events-topic-keep.png" width="500" height="600" alt="Illustration: an older couple looks at their wedding photo on a tablet" data-i18n-alt="ea_img_keep" loading="lazy" decoding="async"></picture></div>
+      <div class="feat">
+        <div>
+          <h3 data-i18n="ea_o1_t">It never expires</h3>
+          <p data-i18n="ea_o1_d">Not after a month, not after a year. The link and the QR never change, and storage costs you nothing extra.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_o2_t">Downloads as one archive</h3>
+          <p data-i18n="ea_o2_d">A ZIP with files by chapter and a text file of captions — readable in ten years, with or without Albums.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_o3_t">It's an album, not a dump</h3>
+          <p data-i18n="ea_o3_d">A cover, chapters and your own voice notes next to the shots — a story you can read again.</p>
+        </div>
+        <div>
+          <h3 data-i18n="ea_o4_t">Guest uploads don't eat your space</h3>
+          <p data-i18n="ea_o4_d">Everyone brings their own. There is no cap on how many photos an event can hold.</p>
+        </div>
       </div>
     </div>
   </div>
