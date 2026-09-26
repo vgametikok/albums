@@ -91,7 +91,7 @@
   .cmp th,.cmp td{padding:13px 18px;text-align:left;border-top:1px solid var(--line);}
   .cmp tr:first-child th{border-top:0;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:700;}
   .cmp td:first-child{font-weight:600;}
-  .cmp td:nth-child(2){color:var(--soft);}
+  .cmp td:nth-child(3){color:var(--soft);} /* колонка «типичный сервис» — после нашей */
   .cmp .us{background:#F6EFDD;color:#8A6A12;font-weight:600;}
 
   /* ---- уже куплено ---- */
@@ -167,6 +167,12 @@
     .topic,.topic.flip{grid-template-columns:1fr;gap:14px;}
     .topic.flip .topic-img{order:0}
     .topic-img{max-width:180px;margin:0 auto;}
+  }
+  /* сравнение на узком экране — без внутренней прокрутки, три колонки влезают */
+  @media (max-width:560px){
+    .cmp table{min-width:0;font-size:13.5px;}
+    .cmp th,.cmp td{padding:10px 10px;overflow-wrap:break-word;}
+    .cmp tr:first-child th{font-size:11px;letter-spacing:.03em;}
   }
   @media (prefers-reduced-motion:reduce){ .hi-sign{transform:none;} }
 
@@ -348,11 +354,11 @@
     <h2 data-i18n="hi_cmp_title">Albums vs. typical QR photo services</h2>
     <div class="cmp">
       <table>
-        <tr><th></th><th data-i18n="hi_cmp_them">Typical QR service</th><th class="us">albums.ink</th></tr>
-        <tr><td data-i18n="hi_cmp_r1">Album lifetime</td><td data-i18n="hi_cmp_r1_them">Deleted after 3–12 months</td><td class="us" data-i18n="hi_cmp_r1_us">No expiry timer</td></tr>
-        <tr><td data-i18n="hi_cmp_r2">Upload window</td><td data-i18n="hi_cmp_r2_them">Closes after 24 hours – 3 months</td><td class="us" data-i18n="hi_cmp_r2_us">Never closes</td></tr>
-        <tr><td data-i18n="hi_cmp_r3">Guests' own shots</td><td data-i18n="hi_cmp_r3_them">Given away and lost</td><td class="us" data-i18n="hi_cmp_r3_us">Saved to their own free account</td></tr>
-        <tr><td data-i18n="hi_cmp_r4">After the event</td><td data-i18n="hi_cmp_r4_them">A zip file</td><td class="us" data-i18n="hi_cmp_r4_us">A living story album</td></tr>
+        <tr><th></th><th class="us">albums.ink</th><th data-i18n="hi_cmp_them">Typical QR service</th></tr>
+        <tr><td data-i18n="hi_cmp_r1">Album lifetime</td><td class="us" data-i18n="hi_cmp_r1_us">No expiry timer</td><td data-i18n="hi_cmp_r1_them">Deleted after 3–12 months</td></tr>
+        <tr><td data-i18n="hi_cmp_r2">Upload window</td><td class="us" data-i18n="hi_cmp_r2_us">Never closes</td><td data-i18n="hi_cmp_r2_them">Closes after 24 hours – 3 months</td></tr>
+        <tr><td data-i18n="hi_cmp_r3">Guests' own shots</td><td class="us" data-i18n="hi_cmp_r3_us">Saved to their own free account</td><td data-i18n="hi_cmp_r3_them">Given away and lost</td></tr>
+        <tr><td data-i18n="hi_cmp_r4">After the event</td><td class="us" data-i18n="hi_cmp_r4_us">A living story album</td><td data-i18n="hi_cmp_r4_them">A zip file</td></tr>
       </table>
     </div>
   </div>
