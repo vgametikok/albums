@@ -163,10 +163,11 @@
     .steps .step-img img{margin-bottom:0;}
     .steps > div::before{width:24px;height:24px;font-size:12.5px;top:2px;left:2px;}
     .uses{grid-template-columns:1fr 1fr;gap:12px;}
-    /* темы в колонку: картинка сверху, скромного размера */
+    /* темы в колонку: сверху горизонтальная версия картинки (<source> в
+       <picture> на том же брейкпоинте), сцена целиком, на всю ширину */
     .topic,.topic.flip{grid-template-columns:1fr;gap:14px;}
     .topic.flip .topic-img{order:0}
-    .topic-img{max-width:180px;margin:0 auto;}
+    .topic-img{max-width:560px;width:100%;margin:0 auto;}
   }
   /* сравнение на узком экране — без внутренней прокрутки, три колонки влезают */
   @media (max-width:560px){
@@ -278,7 +279,7 @@
   <div class="sec">
     <h2 data-i18n="ea_guest_h">Guests need nothing but a camera</h2>
     <div class="topic">
-      <div class="topic-img"><picture><source srcset="/img/events-topic-guests.webp" type="image/webp"><img src="/img/events-topic-guests.png" width="533" height="600" alt="Illustration: a guest photographs the wedding ceremony with her phone" data-i18n-alt="ea_img_guests" loading="lazy" decoding="async"></picture></div>
+      <div class="topic-img"><picture><source media="(max-width:860px)" srcset="/img/events-topic-guests-wide.webp" type="image/webp" width="800" height="450"><source media="(max-width:860px)" srcset="/img/events-topic-guests-wide.png" width="800" height="450"><source srcset="/img/events-topic-guests.webp" type="image/webp"><img src="/img/events-topic-guests.png" width="533" height="600" alt="Illustration: a guest photographs the wedding ceremony with her phone" data-i18n-alt="ea_img_guests" loading="lazy" decoding="async"></picture></div>
       <div class="feat">
         <div>
           <h3 data-i18n="ea_g1_t">No app, no account</h3>
@@ -303,7 +304,7 @@
   <div class="sec">
     <h2 data-i18n="ea_ctrl_h">Nobody sees what you don't want them to</h2>
     <div class="topic flip">
-      <div class="topic-img"><picture><source srcset="/img/events-topic-privacy.webp" type="image/webp"><img src="/img/events-topic-privacy.png" width="500" height="600" alt="Illustration: a bride looks through the photos on her phone on her own" data-i18n-alt="ea_img_privacy" loading="lazy" decoding="async"></picture></div>
+      <div class="topic-img"><picture><source media="(max-width:860px)" srcset="/img/events-topic-privacy-wide.webp" type="image/webp" width="800" height="450"><source media="(max-width:860px)" srcset="/img/events-topic-privacy-wide.png" width="800" height="450"><source srcset="/img/events-topic-privacy.webp" type="image/webp"><img src="/img/events-topic-privacy.png" width="500" height="600" alt="Illustration: a bride looks through the photos on her phone on her own" data-i18n-alt="ea_img_privacy" loading="lazy" decoding="async"></picture></div>
       <div class="feat">
         <div>
           <h3 data-i18n="ea_c1_t">Three states for every shot</h3>
@@ -328,7 +329,7 @@
   <div class="sec">
     <h2 data-i18n="ea_own_h">The album stays yours</h2>
     <div class="topic">
-      <div class="topic-img"><picture><source srcset="/img/events-topic-keep.webp" type="image/webp"><img src="/img/events-topic-keep.png" width="500" height="600" alt="Illustration: an older couple looks through their album on a tablet" data-i18n-alt="ea_img_keep" loading="lazy" decoding="async"></picture></div>
+      <div class="topic-img"><picture><source media="(max-width:860px)" srcset="/img/events-topic-keep-wide.webp" type="image/webp" width="800" height="450"><source media="(max-width:860px)" srcset="/img/events-topic-keep-wide.png" width="800" height="450"><source srcset="/img/events-topic-keep.webp" type="image/webp"><img src="/img/events-topic-keep.png" width="500" height="600" alt="Illustration: an older couple looks through their album on a tablet" data-i18n-alt="ea_img_keep" loading="lazy" decoding="async"></picture></div>
       <div class="feat">
         <div>
           <h3 data-i18n="ea_o1_t">It never expires</h3>
