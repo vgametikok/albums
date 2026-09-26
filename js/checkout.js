@@ -10,22 +10,33 @@ import { t } from './i18n.js';
 import { telegramButton } from './ui.js';
 
 /**
- * Навесить покупку на кнопки. ids — все кнопки одной покупки на странице
- * (у лендинга их три), route — маршрут edge-функции, flag — ключ намерения.
+ * Навесить покупку на кнопки. ids — все кнопки одной покупки на странице,
+ * route — маршрут edge-функции, flag — ключ намерения.
+ *
+ * opts (для покупки с выбором тарифа):
+ *   payload(btn)  — тело запроса для этой кнопки, например { tier: 'medium' };
+ *   flagValue(p)  — что положить во флаг (по умолчанию '1'), чтобы после входа
+ *                   продолжить именно ту покупку;
+ *   fromFlag(v)   — по значению флага найти кнопку; null — не продолжать;
+ *   verify(out,p) — сверка ответа сервера перед уходом на PayPal: false —
+ *                   не уводим, показываем opts.unavailable (ключ словаря).
  */
-export function wireCheckout(ids, route, flag) {
+export function wireCheckout(ids, route, flag, opts = {}) {
   const btns = ids.map(id => document.getElementById(id)).filter(Boolean);
   if (!btns.length) return;
-  btns.forEach(btn => btn.addEventListener('click', () => start(btns, btn, route, flag, false)));
+  btns.forEach(btn => btn.addEventListener('click', () => start(btns, btn, route, flag, false, opts)));
 
   // Вернулись со страницы входа именно ради этой покупки — продолжаем.
-  if (localStorage.getItem(flag) === '1') {
+  const saved = localStorage.getItem(flag);
+  if (saved) {
     localStorage.removeItem(flag);
-    start(btns, btns[0], route, flag, true);
+    const btn = opts.fromFlag ? opts.fromFlag(saved) : (saved === '1' ? btns[0] : null);
+    if (btn) start(btns, btn, route, flag, true, opts);
   }
 }
 
-async function start(btns, btn, route, flag, fromLogin) {
+async function start(btns, btn, route, flag, fromLogin, opts) {
+  const payload = opts.payload ? opts.payload(btn) : {};
   btns.forEach(b => { b.disabled = true; });
   try {
     const { data: { session } } = await sb.auth.getSession();
@@ -34,7 +45,7 @@ async function start(btns, btn, route, flag, fromLogin) {
       // Флаг ставим ДО показа окна: кнопка Telegram — чужой iframe, её нажатие
       // нам не видно, и человек уедет со страницы без нашего ведома. Отказ и
       // сбой флаг убирают, поэтому случайной оплаты потом не будет.
-      localStorage.setItem(flag, '1');
+      localStorage.setItem(flag, opts.flagValue ? opts.flagValue(payload) : '1');
       const choice = await askSignIn();
       btns.forEach(b => { b.disabled = false; });
       if (choice !== 'google') { localStorage.removeItem(flag); return; }
@@ -49,11 +60,19 @@ async function start(btns, btn, route, flag, fromLogin) {
         apikey: SUPABASE_KEY,
         Authorization: 'Bearer ' + session.access_token,
       },
-      body: '{}',
+      body: JSON.stringify(payload || {}),
     });
     const out = await resp.json().catch(() => ({}));
-    if (resp.ok && out.url) { location.href = out.url; return; }   // страница оплаты PayPal
-    alert(t('pro_start_error'));
+    if (resp.ok && out.url) {
+      if (opts.verify && !opts.verify(out, payload)) {
+        alert(t(opts.unavailable || 'pro_start_error'));
+      } else {
+        location.href = out.url;   // страница оплаты PayPal
+        return;
+      }
+    } else {
+      alert(t('pro_start_error'));
+    }
   } catch (_) {
     alert(t('pro_start_error'));
   }

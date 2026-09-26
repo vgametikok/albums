@@ -54,7 +54,9 @@ const APP_LD = {
   offers: [
     { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Pro', price: '9.99', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Event Album', price: '39.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Small (up to 100 guests, 100 GB)', price: '39.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Medium (up to 250 guests, 200 GB)', price: '69.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Large (up to 500 guests, 400 GB)', price: '129.99', priceCurrency: 'USD' },
   ],
 };
 
@@ -89,7 +91,7 @@ export const HOME_FAQ = [
   ['How is Albums different from a shared Google Photos album?',
    'Guests need no Google account and no app. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription.'],
   ['Is Albums free?',
-   'Story albums are free. Pro is $9.99/month for more capacity. An Event Album is a $39.99 one-time purchase per event — guests never pay.'],
+   'Story albums are free. Pro is $9.99/month for more capacity. An Event Album is a one-time purchase per event, from $39.99 — guests never pay.'],
   ['Can I keep an album private or share it only with friends?',
    'Yes. Each album is public, private, friends-only, or friends-except-selected. Media are stored in a private bucket and served via signed URLs, so a private album cannot be opened by guessing a link.'],
   ['What is a story album?',
@@ -105,11 +107,11 @@ const EA_FAQ = [
   ['Do they need an Albums account?',
    'Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later.'],
   ['How many guests can I invite?',
-   'As many as you like. There is one code and it never changes.'],
+   'Up to 100, 250 or 500, depending on the plan. There is one code and it never changes.'],
   ['How long does the album live?',
    'As long as you need. We delete nothing on a timer and charge nothing extra for storage.'],
   ['How many photos fit?',
-   'There is no cap for the event: every guest’s space counts against their own account, and for photos it goes a long way. Heavy video is the exception — 50 MB per file.'],
+   'Small holds 100 GB, Medium 200 GB and Large 400 GB — tens of thousands of photos. If you run out of space, you can buy more. Video is capped at 50 MB per file.'],
   ['Can I hide the bad shots?',
    'Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision.'],
   ['What if the code reaches strangers?',
@@ -150,8 +152,8 @@ const PAGES = {
   },
   'pricing.html': {
     path: '/pricing',
-    title: 'Pricing: Free, Pro $9.99, Event Album $39.99 — Albums',
-    desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album at $39.99 one-time — guests upload by QR code and the album is yours forever.',
+    title: 'Pricing: Free, Pro $9.99, Event Album from $39.99 — Albums',
+    desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album from $39.99 one-time — Small, Medium or Large, up to 500 guests who upload by QR code.',
     ld: [faq(PRICING_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
@@ -160,7 +162,7 @@ const PAGES = {
   'events/index.html': {
     path: '/events/',
     title: 'Event Albums — Every Guest Photo with One QR Code | Albums',
-    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, $39.99 one-time per event. No expiry timer, full export anytime, and guests keep their shots too.',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. No expiry timer, full export anytime, and guests keep their shots too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },

@@ -15,6 +15,9 @@
 //   2. Смену plan делает RPC paypal_apply_sub под сервисным ключом — единственный,
 //      кроме ручной выдачи, путь (триггер trg_profile_guard из 021).
 //   3. /webhook обрабатывается лишь после verify-webhook-signature = SUCCESS.
+//   4. Цена события — ТОЛЬКО из EVENT_TIERS на сервере. Клиент присылает лишь
+//      название тарифа; сумму заказа, а после оплаты и захваченную сумму, мы
+//      сверяем с таблицей тарифов. Не совпало — кредит не выдаём.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
@@ -47,6 +50,66 @@ const json = (status: number, obj: unknown, h: Record<string, string>) =>
   new Response(JSON.stringify(obj), { status, headers: h });
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// ── Тарифы событийного альбома ──────────────────────────────────────────────
+// Единственный источник цены. Витрина (/events/) показывает те же числа, но
+// её цифрам сервер не верит: клиент шлёт только { tier }.
+type Tier = 'small' | 'medium' | 'large';
+const EVENT_TIERS: Record<Tier, { price: string; guests: number; gb: number; name: string }> = {
+  small:  { price: '39.99',  guests: 100, gb: 100, name: 'Small' },
+  medium: { price: '69.99',  guests: 250, gb: 200, name: 'Medium' },
+  large:  { price: '129.99', guests: 500, gb: 400, name: 'Large' },
+};
+const isTier = (v: unknown): v is Tier => typeof v === 'string' && Object.hasOwn(EVENT_TIERS, v);
+const REF_PREFIX = 'event_';   // reference_id заказа: event_small / event_medium / event_large
+
+/** Тариф по сумме (USD). Для старых заказов без нашего reference_id и для вебхука. */
+function tierByAmount(value: unknown, currency: unknown): Tier | null {
+  if (currency !== 'USD') return null;
+  const v = Number(value);
+  for (const k of Object.keys(EVENT_TIERS) as Tier[]) {
+    if (Number(EVENT_TIERS[k].price) === v) return k;
+  }
+  return null;
+}
+
+/**
+ * Тариф заказа по данным самого PayPal: reference_id, который мы проставили
+ * при создании, обязан совпасть с суммой. Старые заказы (до тарифов) шли без
+ * reference_id — для них тариф определяется суммой ($39.99 = small).
+ */
+function tierOfUnit(pu: any): Tier | null {
+  const amt = pu?.amount ?? {};
+  const byAmount = tierByAmount(amt.value, amt.currency_code);
+  const ref = String(pu?.reference_id ?? '');
+  if (ref.startsWith(REF_PREFIX)) {
+    const t = ref.slice(REF_PREFIX.length);
+    return isTier(t) && byAmount === t ? t : null;
+  }
+  return byAmount;
+}
+
+/**
+ * Выдать кредит события и записать тариф в paypal_orders. Идемпотентно по
+ * order_id (paypal_grant_event из 040). Тариф пишем отдельным UPDATE под
+ * сервисным ключом: колонки tier/guest_cap/storage_gb/amount появляются в
+ * миграции 053; пока её нет — тариф ложится в существующую колонку kind
+ * (event_small / event_medium / event_large), и 053 потом разберёт её.
+ */
+async function grantEvent(orderId: string, uid: string, tier: Tier) {
+  const g = await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
+  if (g.error) throw new Error('grant: ' + g.error.message);
+  const T = EVENT_TIERS[tier];
+  const kind = REF_PREFIX + tier;
+  const full = await sb.from('paypal_orders')
+    .update({ kind, tier, guest_cap: T.guests, storage_gb: T.gb, amount: Number(T.price) })
+    .eq('order_id', orderId);
+  if (full.error) {
+    // 053 ещё не применена — колонок нет; сохраняем хотя бы kind
+    const k = await sb.from('paypal_orders').update({ kind }).eq('order_id', orderId);
+    if (k.error) console.error('tier kind', orderId, k.error.message);
+  }
+}
 
 // ── PayPal REST helpers ─────────────────────────────────────────────────────
 async function ppToken(): Promise<string> {
@@ -169,10 +232,13 @@ Deno.serve(async (req) => {
       } else if (type === 'PAYMENT.CAPTURE.COMPLETED') {
         // Разовая оплата события (страховка к пути возврата capture-order):
         // custom_id эхом возвращается в capture-ресурсе, order_id — в related_ids.
+        // Тариф — по захваченной сумме из проверенного события PayPal.
         const uid = evt.resource?.custom_id;
         const orderId = evt.resource?.supplementary_data?.related_ids?.order_id ?? evt.resource?.id;
+        const tier = tierByAmount(evt.resource?.amount?.value, evt.resource?.amount?.currency_code);
         if (uid && UUID_RE.test(uid) && orderId) {
-          await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
+          if (tier) await grantEvent(orderId, uid, tier);
+          else console.error('capture amount matches no tier', orderId, evt.resource?.amount);
         }
       }
     } catch (e) {
@@ -224,29 +290,35 @@ Deno.serve(async (req) => {
     }
   }
 
-  // Разовая оплата события: создаём заказ на $39.99 с custom_id = uid.
+  // Разовая оплата события: заказ на сумму выбранного тарифа, custom_id = uid.
+  // Тело: { tier: 'small' | 'medium' | 'large' }; без tier — small (старый фронт).
+  // В ответе эхо tier и amount: фронт сверяет их, прежде чем уводить на PayPal.
   if (route === 'create-order') {
     if (!viewer) return json(401, { error: 'auth_required' }, h);
+    const tier = body?.tier ?? 'small';
+    if (!isTier(tier)) return json(400, { error: 'bad_tier' }, h);
+    const T = EVENT_TIERS[tier];
     try {
       const token = await ppToken();
       const order = await pp(token, '/v2/checkout/orders', 'POST', {
         intent: 'CAPTURE',
         purchase_units: [{
+          reference_id: REF_PREFIX + tier,
           custom_id: viewer,
-          description: 'Albums Event Album',
-          amount: { currency_code: 'USD', value: '39.99' },
+          description: `Albums Event Album — ${T.name} (up to ${T.guests} guests, ${T.gb} GB)`,
+          amount: { currency_code: 'USD', value: T.price },
         }],
         application_context: {
           brand_name: 'Albums',
           user_action: 'PAY_NOW',
           shipping_preference: 'NO_SHIPPING',
           return_url: `${SITE}/event-thanks.html`,
-          cancel_url: `${SITE}/pricing.html`,
+          cancel_url: `${SITE}/events/#buy`,
         },
       });
       const approve = (order.links ?? []).find((l: any) => l.rel === 'approve')?.href;
       if (!approve) return json(502, { error: 'no_approve_link' }, h);
-      return json(200, { url: approve }, h);
+      return json(200, { url: approve, tier, amount: T.price, currency: 'USD' }, h);
     } catch (e) {
       console.error('create-order', e);
       return json(502, { error: 'paypal_error' }, h);
@@ -261,18 +333,32 @@ Deno.serve(async (req) => {
     if (!orderId) return json(400, { error: 'no_order' }, h);
     try {
       const token = await ppToken();
-      const order = await pp(token, `/v2/checkout/orders/${orderId}`);
-      if (order.purchase_units?.[0]?.custom_id !== viewer) {
+      const order = await pp(token, `/v2/checkout/orders/${encodeURIComponent(orderId)}`);
+      const pu = order.purchase_units?.[0];
+      if (pu?.custom_id !== viewer) {
         return json(403, { error: 'not_your_order' }, h);
       }
+      // сумма заказа обязана совпасть с ценой тарифа — иначе не захватываем
+      const tier = tierOfUnit(pu);
+      if (!tier) {
+        console.error('capture-order: amount/tier mismatch', orderId, pu?.reference_id, pu?.amount);
+        return json(409, { error: 'amount_mismatch' }, h);
+      }
       let status = order.status;
+      let captured = (pu?.payments?.captures ?? [])[0]?.amount;
       if (status === 'APPROVED') {
-        const cap = await pp(token, `/v2/checkout/orders/${orderId}/capture`, 'POST', {});
+        const cap = await pp(token, `/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, 'POST', {});
         status = cap.status;
+        captured = cap.purchase_units?.[0]?.payments?.captures?.[0]?.amount ?? captured;
       }
       if (status === 'COMPLETED') {
-        await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: viewer });
-        return json(200, { ok: true }, h);
+        // и захваченная сумма — тоже (если PayPal её вернул)
+        if (captured && tierByAmount(captured.value, captured.currency_code) !== tier) {
+          console.error('capture-order: captured amount mismatch', orderId, captured);
+          return json(409, { error: 'amount_mismatch' }, h);
+        }
+        await grantEvent(orderId, viewer, tier);
+        return json(200, { ok: true, tier }, h);
       }
       return json(409, { error: 'not_completed', status }, h);
     } catch (e) {

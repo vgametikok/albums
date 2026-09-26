@@ -6,8 +6,8 @@
 > one archive, and guests keep their shots in their own free account. Albums
 > also turns photos, videos and voice notes into story albums with chapters
 > and narration. Privacy is built in: an album can be public, friends-only
-> or private. Free plan; Pro is $9.99/month; an Event Album is a $39.99
-> one-time payment.
+> or private. Free plan; Pro is $9.99/month; an Event Album is a one-time
+> payment from $39.99.
 
 Albums is not a photo host and not a feed. The unit of content is the album:
 a curated collection with chapters, captions and the author's voice, read
@@ -33,8 +33,10 @@ like a story.
 
 - Free — story albums with core features.
 - Pro — $9.99/month.
-- Event Album — $39.99 one-time per event, no subscription. The album stays
-  with the owner forever.
+- Event Album — three sizes, one-time per event. Small — up to 100
+  guests, 100 GB, $39.99; Medium — up to 250 guests, 200 GB, $69.99; Large —
+  up to 500 guests, 400 GB, $129.99. Guests never pay. The event album stays with the owner
+  for at least a year; more space can be bought if it runs out.
 
 ## Key pages
 
