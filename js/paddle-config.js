@@ -9,7 +9,7 @@
 // карту цен и доверяет ТОЛЬКО ей — поменяли id здесь, поменяйте и там.
 //
 // Пустой token у выбранной среды = Paddle выключен: кнопки идут в PayPal, как
-// раньше.
+// раньше. В sandbox Paddle видят только тестировщики (см. PADDLE_ENABLED).
 export const PADDLE_ENV = 'sandbox';   // 'sandbox' | 'live'
 
 const ENVS = {
@@ -29,4 +29,29 @@ const ENVS = {
 };
 
 export const PADDLE = { env: PADDLE_ENV, ...ENVS[PADDLE_ENV] };
-export const PADDLE_ENABLED = !!PADDLE.token;
+
+/**
+ * Кому показывать Paddle.
+ *   live    — всем (если есть token).
+ *   sandbox — НЕ обычным посетителям: тестовой картой 4242… любой получил бы
+ *             альбом/Pro бесплатно. Только на localhost или по ссылке
+ *             ?paddle=sandbox — метка держится в sessionStorage до закрытия
+ *             вкладки (переживает вход через Google); ?paddle=off снимает.
+ *             Остальным — прежний поток PayPal, будто Paddle нет.
+ * (Сервер в sandbox дополнительно выдаёт покупку только почтам из
+ * PADDLE_SANDBOX_ALLOW_EMAILS.)
+ */
+function sandboxOptIn() {
+  try {
+    const h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || h === '[::1]') return true;
+    const q = new URLSearchParams(location.search).get('paddle');
+    if (q === 'sandbox') sessionStorage.setItem('paddle_sandbox', '1');
+    else if (q === 'off') sessionStorage.removeItem('paddle_sandbox');
+    return sessionStorage.getItem('paddle_sandbox') === '1';
+  } catch (_) {
+    return false;
+  }
+}
+
+export const PADDLE_ENABLED = !!PADDLE.token && (PADDLE_ENV === 'live' || sandboxOptIn());

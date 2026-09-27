@@ -13,6 +13,7 @@
 import { initI18n, t } from './i18n.js';
 import { sb } from './sb.js';
 import { wireCheckout } from './checkout.js';
+import { PADDLE_ENABLED } from './paddle.js';
 
 (async function main() {
   await initI18n();
@@ -32,6 +33,11 @@ import { wireCheckout } from './checkout.js';
   document.querySelectorAll('[data-i18n-n]').forEach(n => {
     n.textContent = t(n.dataset.i18nN, { n: n.dataset.n });
   });
+
+  // Подпись под тарифами: «через PayPal» — пока Paddle этому посетителю не показан.
+  if (PADDLE_ENABLED) {
+    document.querySelectorAll('[data-i18n="ea_pay_note"]').forEach(n => { n.textContent = t('ea_pay_note_paddle'); });
+  }
 
   wireTiers();
   showOwned();

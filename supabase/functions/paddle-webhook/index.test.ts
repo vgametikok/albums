@@ -20,6 +20,8 @@ function fakeDeps(over: Partial<any> = {}) {
   const owned = new Map<string, string>();
   const d = {
     env: 'sandbox' as const, secret: SECRET, now: () => NOW,
+    sandboxAllow: ['qa@albums.ink'],
+    userEmail: async (u: string) => (u === UID ? 'QA@albums.ink' : 'stranger@example.com'),
     seen: async (id: string) => seenSet.has(id),
     markSeen: async (id: string) => { seenSet.add(id); calls.marked.push(id); },
     grantEvent: async (o: string, u: string, t: string) => { calls.grants.push([o, u, t]); },
@@ -209,6 +211,49 @@ Deno.test('live env with empty price table grants nothing for sandbox ids', asyn
   const { d, calls } = fakeDeps({ env: 'live' });
   await m.handle(await signed(txn()), d);
   assertEquals(calls.grants.length, 0);
+});
+
+Deno.test('sandbox: non-allowlisted buyer gets nothing (event not marked, 2xx)', async () => {
+  const { d, calls } = fakeDeps({ userEmail: async () => 'stranger@example.com' });
+  const r = await m.handle(await signed(txn()), d);
+  assertEquals(r.status, 200);
+  assertEquals((await r.json()).skipped, 'sandbox_not_allowed');
+  assertEquals(calls.grants.length, 0);
+  assertEquals(calls.marked.length, 0);
+  const r2 = await m.handle(await signed(sub('active', {}, 'subscription.created')), d);
+  assertEquals(r2.status, 200);
+  assertEquals(calls.subs.length, 0);
+});
+
+Deno.test('sandbox: empty allowlist grants to nobody; user without email gets nothing', async () => {
+  let { d, calls } = fakeDeps({ sandboxAllow: [] });
+  await m.handle(await signed(txn()), d);
+  assertEquals(calls.grants.length, 0);
+  ({ d, calls } = fakeDeps({ userEmail: async () => null }));
+  await m.handle(await signed(txn()), d);
+  assertEquals(calls.grants.length, 0);
+});
+
+Deno.test('sandbox: allowlist match is case-insensitive (QA@ vs qa@)', async () => {
+  const { d, calls } = fakeDeps();
+  await m.handle(await signed(txn()), d);
+  assertEquals(calls.grants.length, 1);
+});
+
+Deno.test('live: allowlist is not consulted', async () => {
+  const LIVE_PRICE = 'pri_live_medium';
+  (m.PRICES.live as any)[LIVE_PRICE] = { kind: 'event', tier: 'medium', amount: '6999' };
+  let asked = false;
+  const { d, calls } = fakeDeps({ env: 'live', sandboxAllow: [], userEmail: async () => { asked = true; return 'x@y.z'; } });
+  await m.handle(await signed(txn({ items: [{ quantity: 1, price: { id: LIVE_PRICE, unit_price: { amount: '6999', currency_code: 'USD' } } }] })), d);
+  delete (m.PRICES.live as any)[LIVE_PRICE];
+  assertEquals(calls.grants, [['txn_01abc', UID, 'medium']]);
+  assertEquals(asked, false);
+});
+
+Deno.test('parseAllow trims, lowercases, drops empties', () => {
+  assertEquals(m.parseAllow(' A@b.c, ,d@E.f ,'), ['a@b.c', 'd@e.f']);
+  assertEquals(m.parseAllow(undefined), []);
 });
 
 Deno.test('unhandled event types are acknowledged', async () => {

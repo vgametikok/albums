@@ -17,7 +17,12 @@
 //      обработки; кредит события — paypal_grant_event по id транзакции (txn_…),
 //      повтор — no-op. transaction.paid и transaction.completed одной покупки
 //      дают ОДИН кредит.
-//   5. Подписка — та же paypal_apply_sub, что у PayPal (статусы приводим к её
+//   5. SANDBOX НЕ ДАЁТ НАСТОЯЩИХ ПОКУПОК ЧУЖИМ: при PADDLE_ENV=sandbox выдача
+//      (кредит события и Pro) — только пользователям, чья почта в
+//      PADDLE_SANDBOX_ALLOW_EMAILS (через запятую). Пустой список — никому.
+//      Иначе тестовой картой 4242… любой получил бы альбом/Pro бесплатно.
+//      Ролей админа в базе нет (админка — логин/пароль mod-api), поэтому только список.
+//   6. Подписка — та же paypal_apply_sub, что у PayPal (статусы приводим к её
 //      словарю: ACTIVE / CANCELLED / SUSPENDED / PAST_DUE). Новая миграция не нужна.
 //
 // Ответы: 2xx — событие принято (или сознательно пропущено); любой не-2xx
@@ -86,6 +91,8 @@ export async function verifySignature(header: string, raw: string, secret: strin
 export interface Deps {
   env: 'sandbox' | 'live';
   secret: string;
+  sandboxAllow: string[];                                     // почты в нижнем регистре
+  userEmail(uid: string): Promise<string | null>;
   now(): number;                                              // секунды
   seen(eventId: string): Promise<boolean>;
   markSeen(eventId: string, type: string): Promise<void>;
@@ -108,6 +115,19 @@ export function subStatus(s: string): string {
     case 'canceled': return 'CANCELLED';   // профиль не трогаем: дослуживает оплаченный срок, снимет expire_plans()
     default:         return s.toUpperCase();
   }
+}
+
+export function parseAllow(v: string | undefined | null): string[] {
+  return String(v ?? '').split(',').map(x => x.trim().toLowerCase()).filter(Boolean);
+}
+
+/** В sandbox — только для почт из списка. В live — всем. */
+async function sandboxAllowed(d: Deps, uid: string, ref: string): Promise<boolean> {
+  if (d.env !== 'sandbox') return true;
+  const email = (await d.userEmail(uid))?.trim().toLowerCase() ?? '';
+  if (email && d.sandboxAllow.includes(email)) return true;
+  d.log('paddle: SANDBOX purchase by non-allowlisted user — skipped', ref, uid);
+  return false;
 }
 
 async function onTransaction(d: Deps, data: any) {
@@ -140,6 +160,7 @@ async function onTransaction(d: Deps, data: any) {
     d.log('paddle: UNMATCHED paid transaction (no user_id)', txn, data?.customer_id);
     return { unmatched: true, noMark: true };
   }
+  if (!(await sandboxAllowed(d, uid, txn))) return { skipped: 'sandbox_not_allowed', noMark: true };
   if (cd.tier && cd.tier !== grants[0]) d.log('paddle: custom_data.tier differs from price', txn, cd.tier, grants[0]);
 
   for (let i = 0; i < grants.length; i++) {
@@ -161,6 +182,7 @@ async function onSubscription(d: Deps, data: any) {
     d.log('paddle: UNMATCHED subscription (no user_id)', subId, data?.customer_id);
     return { unmatched: true, noMark: true };
   }
+  if (!(await sandboxAllowed(d, uid, subId))) return { skipped: 'sandbox_not_allowed', noMark: true };
   const status = subStatus(String(data?.status ?? ''));
   const periodEnd = data?.current_billing_period?.ends_at ?? data?.next_billed_at ?? null;
   await d.applySub(subId, uid, status, periodEnd);
@@ -201,6 +223,12 @@ function liveDeps(): Deps {
   return {
     env,
     secret: Deno.env.get('PADDLE_WEBHOOK_SECRET') ?? '',
+    sandboxAllow: parseAllow(Deno.env.get('PADDLE_SANDBOX_ALLOW_EMAILS')),
+    async userEmail(uid) {
+      const r = await sb.auth.admin.getUserById(uid);
+      if (r.error) throw new Error('userEmail: ' + r.error.message);
+      return r.data.user?.email ?? null;
+    },
     now: () => Math.floor(Date.now() / 1000),
     async seen(id) {
       const r = await sb.from('paypal_events').select('event_id').eq('event_id', id).maybeSingle();
