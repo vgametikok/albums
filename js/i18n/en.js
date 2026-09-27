@@ -963,7 +963,7 @@ export default {
   ea_tier_medium: "Medium",
   ea_tier_large: "Large",
   ea_tier_guests: "Recommended for up to {n} guests",
-  ea_tiers_note: "The guest number only helps you pick a plan: we don't count or limit guests or uploads, and each guest can upload as many times as they like during the event. Only the storage size is a real limit.",
+  ea_tiers_note: "The guest number only helps you pick a plan: we don't count or limit guests or uploads, and each guest can upload as many times as they like. Only the storage size is a real limit.",
   ea_tax_note: "Taxes included",
   ea_tier_storage: "{n} GB of storage",
   ea_tf1: "A permanent QR code and a printable sign",

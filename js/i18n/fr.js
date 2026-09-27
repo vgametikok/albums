@@ -933,7 +933,7 @@
   ea_tier_medium: "Moyen",
   ea_tier_large: "Grand",
   ea_tier_guests: "Conseillé jusqu’à {n} invités",
-  ea_tiers_note: "Le nombre d’invités sert seulement à choisir une offre : nous ne comptons ni ne limitons les invités ou les envois, et chaque invité peut envoyer autant de fois qu’il veut pendant l’événement. Seul l’espace de stockage est une vraie limite.",
+  ea_tiers_note: "Le nombre d’invités sert seulement à choisir une offre : nous ne comptons ni ne limitons les invités ou les envois, et chaque invité peut envoyer autant de fois qu’il veut. Seul l’espace de stockage est une vraie limite.",
   ea_tax_note: "Taxes incluses",
   ea_tier_storage: "{n} Go de stockage",
   ea_tf1: "Un QR code permanent et un panneau prêt à imprimer",

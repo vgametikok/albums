@@ -943,7 +943,7 @@
   ea_tier_medium: "Mittel",
   ea_tier_large: "Groß",
   ea_tier_guests: "Empfohlen für bis zu {n} Gäste",
-  ea_tiers_note: "Die Gästezahl hilft nur bei der Wahl des Tarifs: Wir zählen und begrenzen weder Gäste noch Uploads, und jeder Gast kann während des Events beliebig oft hochladen. Die einzige echte Grenze ist der Speicherplatz.",
+  ea_tiers_note: "Die Gästezahl hilft nur bei der Wahl des Tarifs: Wir zählen und begrenzen weder Gäste noch Uploads, und jeder Gast kann beliebig oft hochladen. Die einzige echte Grenze ist der Speicherplatz.",
   ea_tax_note: "Inkl. Steuern",
   ea_tier_storage: "{n} GB Speicherplatz",
   ea_tf1: "Dauerhafter QR-Code und ein druckfertiges Schild",

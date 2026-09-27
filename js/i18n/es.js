@@ -945,7 +945,7 @@
   ea_tier_medium: "Mediano",
   ea_tier_large: "Grande",
   ea_tier_guests: "Recomendado hasta {n} invitados",
-  ea_tiers_note: "El número de invitados solo sirve para elegir plan: no contamos ni limitamos invitados ni subidas, y cada invitado puede subir tantas veces como quiera durante el evento. El único límite real es el tamaño del almacenamiento.",
+  ea_tiers_note: "El número de invitados solo sirve para elegir plan: no contamos ni limitamos invitados ni subidas, y cada invitado puede subir tantas veces como quiera. El único límite real es el tamaño del almacenamiento.",
   ea_tax_note: "Impuestos incluidos",
   ea_tier_storage: "{n} GB de almacenamiento",
   ea_tf1: "Código QR permanente y cartel listo para imprimir",

@@ -670,7 +670,7 @@ function drawUsersList(host, d) {
 
 const TIER_KEYS = ['small', 'medium', 'large'];
 const TIER_LABEL = { small: 'Small', medium: 'Medium', large: 'Large' };
-const TIER_CAP = { small: '100 guests · 100 GB', medium: '250 guests · 200 GB', large: '500 guests · 400 GB' };
+const TIER_CAP = { small: '100 GB · ~100 guests', medium: '200 GB · ~250 guests', large: '400 GB · ~500 guests' };
 const TIER_COLOR = { small: '#7A7265', medium: '#A8871E', large: '#8A4B2F' };
 
 /**

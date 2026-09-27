@@ -941,7 +941,7 @@
   ea_tier_medium: "Vừa",
   ea_tier_large: "Lớn",
   ea_tier_guests: "Khuyên dùng cho tối đa {n} khách",
-  ea_tiers_note: "Số khách chỉ giúp bạn chọn gói: chúng tôi không đếm hay giới hạn số khách và số lượt tải lên, mỗi khách có thể tải lên bao nhiêu lần tùy thích trong sự kiện. Giới hạn thực sự duy nhất là dung lượng lưu trữ.",
+  ea_tiers_note: "Số khách chỉ giúp bạn chọn gói: chúng tôi không đếm hay giới hạn số khách và số lượt tải lên, mỗi khách có thể tải lên bao nhiêu lần tùy thích. Giới hạn thực sự duy nhất là dung lượng lưu trữ.",
   ea_tax_note: "Đã gồm thuế",
   ea_tier_storage: "{n} GB dung lượng",
   ea_tf1: "Mã QR vĩnh viễn và bảng in sẵn",
