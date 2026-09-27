@@ -1,6 +1,7 @@
 // Supabase-клиент, авторизация (Google и почта) и профиль текущего пользователя.
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
+import { detectLang } from './i18n.js';
 
 /**
  * Запрос, который не висит вечно.
@@ -60,7 +61,14 @@ async function init() {
   _session = data.session || null;
   if (_session) {
     try {
-      const { data: prof, error } = await sb.rpc('ensure_profile');
+      // Язык сайта уходит в базу: на нём приходят служебные письма (055).
+      // До миграции 055 функция без аргумента — тогда зовём по-старому.
+      let lang = 'en';
+      try { lang = detectLang(); } catch (_) { /* en */ }
+      let { data: prof, error } = await sb.rpc('ensure_profile', { p_locale: lang });
+      if (error && (error.code === 'PGRST202' || /could not find the function/i.test(error.message || ''))) {
+        ({ data: prof, error } = await sb.rpc('ensure_profile'));
+      }
       if (!error) _me = prof;
     } catch (_) { /* профиль подтянется при следующем входе */ }
   }

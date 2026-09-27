@@ -28,6 +28,7 @@ let dict = EN;
 let pr = new Intl.PluralRules('en');
 
 /** Выбор пользователя, иначе язык браузера, иначе английский. */
+export function detectLang() { return detect(); }
 function detect() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved && LANGS[saved]) return saved;
