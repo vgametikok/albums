@@ -1,17 +1,24 @@
-// Покупка через PayPal: одна логика на страницу цен и на лендинг события.
+// Покупка: одна логика на страницу цен и на лендинг события.
 //
-// Порядок: залогинен — сразу создаём заказ/подписку и уходим на оплату; гость —
-// сначала окно с объяснением, зачем нужен аккаунт, и только по согласию вход.
-// Флаг намерения в localStorage переживает уход на страницу входа: по
-// возвращении оплата продолжается сама, повторно нажимать кнопку не нужно.
+// Два способа оплаты. Основной — Paddle (overlay поверх страницы, js/paddle.js),
+// если он включён в js/paddle-config.js и покупка его поддерживает
+// (opts.paddle). Запасной — PayPal (как раньше: edge-функция paypal-webhook
+// создаёт заказ/подписку и уводит на PayPal); под каждой кнопкой — скромная
+// ссылка «или оплатить через PayPal». Paddle выключен — кнопки ведут в PayPal.
+//
+// Порядок: залогинен — сразу в оплату; гость — сначала окно с объяснением,
+// зачем нужен аккаунт, и только по согласию вход. Флаг намерения в
+// localStorage переживает уход на страницу входа: по возвращении оплата
+// продолжается сама (тем же способом), повторно нажимать кнопку не нужно.
 import { sb, signIn } from './sb.js';
 import { SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT } from './config.js';
 import { t } from './i18n.js';
 import { telegramButton } from './ui.js';
+import { PADDLE_ENABLED, paddlePrice, openPaddle, closePaddle } from './paddle.js';
 
 /**
  * Навесить покупку на кнопки. ids — все кнопки одной покупки на странице,
- * route — маршрут edge-функции, flag — ключ намерения.
+ * route — маршрут edge-функции PayPal, flag — ключ намерения.
  *
  * opts (для покупки с выбором тарифа):
  *   payload(btn)  — тело запроса для этой кнопки, например { tier: 'medium' };
@@ -20,37 +27,66 @@ import { telegramButton } from './ui.js';
  *   fromFlag(v)   — по значению флага найти кнопку; null — не продолжать;
  *   verify(out,p) — сверка ответа сервера перед уходом на PayPal: false —
  *                   не уводим, показываем opts.unavailable (ключ словаря).
+ * opts для Paddle:
+ *   paddle(btn)        — { price: ключ цены из paddle-config, customData } или null;
+ *   paddleSuccess(btn, data) — куда уйти после checkout.completed;
+ *   beforePaddle(session)    — (async) запомнить состояние до оплаты.
  */
 export function wireCheckout(ids, route, flag, opts = {}) {
   const btns = ids.map(id => document.getElementById(id)).filter(Boolean);
   if (!btns.length) return;
-  // Состояние одной покупки: busy — идёт запрос к edge-функции; timer —
-  // страховка на случай, если переход на PayPal так и не случился.
-  const st = { btns, busy: false, timer: 0 };
-  btns.forEach(btn => btn.addEventListener('click', () => start(st, btn, route, flag, false, opts)));
+  const paddleOn = PADDLE_ENABLED && typeof opts.paddle === 'function';
+  // Состояние одной покупки: busy — идёт запрос / грузится оплата; timer —
+  // страховка на случай, если переход (или окно Paddle) так и не случился.
+  const st = { btns, alts: [], busy: false, timer: 0, paddleOn };
+  const primary = paddleOn ? 'paddle' : 'paypal';
+  btns.forEach(btn => btn.addEventListener('click', () => start(st, btn, route, flag, false, opts, primary)));
+
+  // Paddle основной — PayPal остаётся маленькой ссылкой под кнопкой.
+  if (paddleOn) {
+    btns.forEach(btn => {
+      const alt = document.createElement('button');
+      alt.type = 'button';
+      alt.className = 'pay-alt';
+      alt.textContent = t('pay_with_paypal');
+      alt.addEventListener('click', () => start(st, btn, route, flag, false, opts, 'paypal'));
+      btn.insertAdjacentElement('afterend', alt);
+      st.alts.push(alt);
+    });
+  }
 
   // Кнопки блокируются на время запроса и НЕ разблокируются перед уходом на
   // PayPal. Кнопка «Назад» браузера достаёт страницу из bfcache целиком, вместе
   // с disabled — и кнопки оставались бледными и мёртвыми до перезагрузки.
   // Поэтому: при любом показе страницы (pageshow, особенно persisted) и при
-  // возвращении во вкладку — сброс, если прямо сейчас нет запроса.
-  addEventListener('pageshow', (e) => { if (e.persisted || !st.busy) unlock(st); });
+  // возвращении во вкладку — сброс, если прямо сейчас нет запроса. Окно
+  // Paddle, если страница вернулась из bfcache с ним, закрываем.
+  addEventListener('pageshow', (e) => {
+    if (e.persisted) { closePaddle(); unlock(st); }
+    else if (!st.busy) unlock(st);
+  });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible' && !st.busy) unlock(st);
   });
   unlock(st);   // в том числе возврат с PayPal по «Отмене» (?token=…) — всегда с живыми кнопками
 
-  // Вернулись со страницы входа именно ради этой покупки — продолжаем.
+  // Вернулись со страницы входа именно ради этой покупки — продолжаем тем же
+  // способом. Флаг: "paddle:<v>" / "paypal:<v>"; старый формат без префикса —
+  // основной способ.
   const saved = localStorage.getItem(flag);
   if (saved) {
     localStorage.removeItem(flag);
-    const btn = opts.fromFlag ? opts.fromFlag(saved) : (saved === '1' ? btns[0] : null);
-    if (btn) start(st, btn, route, flag, true, opts);
+    const m = /^(paddle|paypal):(.*)$/.exec(saved);
+    const method = m ? (m[1] === 'paddle' && !paddleOn ? 'paypal' : m[1]) : primary;
+    const v = m ? m[2] : saved;
+    const btn = opts.fromFlag ? opts.fromFlag(v) : (v === '1' ? btns[0] : null);
+    if (btn) start(st, btn, route, flag, true, opts, method);
   }
 }
 
 function lock(st) {
   st.btns.forEach(b => { b.disabled = true; b.setAttribute('aria-busy', 'true'); });
+  st.alts.forEach(b => { b.disabled = true; });
 }
 
 function unlock(st) {
@@ -58,9 +94,10 @@ function unlock(st) {
   st.timer = 0;
   st.busy = false;
   st.btns.forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); b.classList.remove('busy'); });
+  st.alts.forEach(b => { b.disabled = false; });
 }
 
-async function start(st, btn, route, flag, fromLogin, opts) {
+async function start(st, btn, route, flag, fromLogin, opts, method) {
   if (st.busy) return;              // двойной клик — второй заказ не создаём
   const payload = opts.payload ? opts.payload(btn) : {};
   st.busy = true;
@@ -72,13 +109,15 @@ async function start(st, btn, route, flag, fromLogin, opts) {
       // Флаг ставим ДО показа окна: кнопка Telegram — чужой iframe, её нажатие
       // нам не видно, и человек уедет со страницы без нашего ведома. Отказ и
       // сбой флаг убирают, поэтому случайной оплаты потом не будет.
-      localStorage.setItem(flag, opts.flagValue ? opts.flagValue(payload) : '1');
+      localStorage.setItem(flag, method + ':' + (opts.flagValue ? opts.flagValue(payload) : '1'));
       const choice = await askSignIn();
       unlock(st);
       if (choice !== 'google') { localStorage.removeItem(flag); return; }
       try { await signIn(); } catch (_) { localStorage.removeItem(flag); alert(t('signin_failed')); }
       return;
     }
+
+    if (method === 'paddle') { await startPaddle(st, btn, session, opts); return; }
 
     const resp = await fetch(`${SUPABASE_URL}/functions/v1/paypal-webhook/${route}`, {
       method: 'POST',
@@ -110,6 +149,42 @@ async function start(st, btn, route, flag, fromLogin, opts) {
     alert(t('pro_start_error'));
   }
   unlock(st);
+}
+
+/**
+ * Оплата через Paddle: overlay поверх страницы. Кнопки заблокированы, пока
+ * окно грузится; как только оно показалось — busy снимаем (pageshow и возврат
+ * во вкладку снова могут их оживить), а закрытие окна разблокирует сразу.
+ * Не показалось за 20 с (сеть, блокировщик) — разблокируем сами.
+ * После checkout.completed — на страницу «спасибо», она ждёт вебхук.
+ */
+async function startPaddle(st, btn, session, opts) {
+  const spec = opts.paddle(btn);
+  const priceId = spec && paddlePrice(spec.price);
+  if (!priceId) { alert(t(opts.unavailable || 'pro_start_error')); unlock(st); return; }
+  try { await opts.beforePaddle?.(session); } catch (_) { /* только для UX страницы «спасибо» */ }
+  let done = false;
+  st.timer = setTimeout(() => { if (st.busy) unlock(st); }, 20000);
+  try {
+    await openPaddle({
+      priceId,
+      email: session.user?.email || undefined,
+      customData: { user_id: session.user.id, ...(spec.customData || {}) },
+      onLoaded: () => { st.busy = false; clearTimeout(st.timer); st.timer = 0; },
+      onClosed: () => { if (!done) unlock(st); },
+      // Ошибку Paddle показывает само окно; нам — только вернуть кнопки.
+      onError: (e) => { console.warn('paddle checkout.error', e); if (!done) unlock(st); },
+      onCompleted: (data) => {
+        done = true;
+        const url = opts.paddleSuccess ? opts.paddleSuccess(btn, data) : null;
+        // Даём Paddle на секунду показать своё «оплачено», потом уходим.
+        setTimeout(() => { closePaddle(); if (url) location.href = url; else unlock(st); }, 1200);
+      },
+    });
+  } catch (_) {
+    unlock(st);
+    alert(t('pro_start_error'));
+  }
 }
 
 /**

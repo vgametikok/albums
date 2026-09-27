@@ -939,4 +939,6 @@
   ea_tf7: "Plus de place ? Vous pouvez en acheter davantage",
   ea_tier_unavailable: "Cette offre ne peut pas encore être payée en ligne. Écrivez à sales@albums.ink et nous nous en occupons.",
   pr_event_price: "dès $39.99",
+  pay_with_paypal: "ou payer avec PayPal",
+  pt_late_d_paddle: "Notre partenaire de paiement n'a pas encore confirmé l'abonnement. Rien n'est perdu : dès que la confirmation arrive, Pro s'active tout seul.",
 };

@@ -949,4 +949,6 @@
   ea_tf7: "Wird der Platz knapp, kannst du mehr dazukaufen",
   ea_tier_unavailable: "Dieser Tarif lässt sich noch nicht online bezahlen. Schreib an sales@albums.ink – wir richten ihn für dich ein.",
   pr_event_price: "ab $39.99",
+  pay_with_paypal: "oder mit PayPal bezahlen",
+  pt_late_d_paddle: "Unser Zahlungspartner hat das Abo noch nicht bestätigt. Nichts ist verloren: sobald die Bestätigung kommt, schaltet sich Pro von selbst ein.",
 };

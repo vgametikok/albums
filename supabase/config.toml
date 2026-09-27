@@ -1,0 +1,26 @@
+# Минимальный конфиг Supabase CLI — только настройки edge-функций.
+# Все функции проекта работают с verify_jwt = false (каждая проверяет доступ
+# сама: apikey-гейт, подпись вебхука и т.п.). Записаны все, чтобы деплой через
+# `npx.cmd supabase functions deploy <имя>` не включил проверку JWT по умолчанию.
+project_id = "rizveurkjpcwrmbtoawj"
+
+[functions.paddle-webhook]
+verify_jwt = false
+
+[functions.paypal-webhook]
+verify_jwt = false
+
+[functions.r2-sign]
+verify_jwt = false
+
+[functions.tg-auth]
+verify_jwt = false
+
+[functions.yandex-auth]
+verify_jwt = false
+
+[functions.mod-api]
+verify_jwt = false
+
+[functions.og]
+verify_jwt = false

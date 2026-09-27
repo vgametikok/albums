@@ -949,4 +949,6 @@
   ea_tf7: "空间不够时，可以加购",
   ea_tier_unavailable: "该方案暂时无法在线支付。请写信至 sales@albums.ink，我们会为你开通。",
   pr_event_price: "$39.99 起",
+  pay_with_paypal: "或使用 PayPal 支付",
+  pt_late_d_paddle: "支付合作方尚未确认这笔订阅。没有任何损失：确认一到，Pro 就会自动开通。",
 };

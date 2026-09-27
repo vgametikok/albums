@@ -969,4 +969,6 @@ export default {
   ea_tf7: "If you run out of space, you can buy more",
   ea_tier_unavailable: "This plan can't be paid online just yet. Write to sales@albums.ink and we'll set it up for you.",
   pr_event_price: "from $39.99",
+  pay_with_paypal: "or pay with PayPal",
+  pt_late_d_paddle: "Our payment partner has not confirmed the subscription yet. Nothing is lost: as soon as the confirmation arrives, Pro switches on by itself.",
 };

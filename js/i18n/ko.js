@@ -938,4 +938,6 @@
   ea_tf7: "공간이 부족하면 추가 구매 가능",
   ea_tier_unavailable: "이 요금제는 아직 온라인으로 결제할 수 없습니다. sales@albums.ink로 연락 주시면 설정해 드리겠습니다.",
   pr_event_price: "$39.99부터",
+  pay_with_paypal: "또는 PayPal로 결제",
+  pt_late_d_paddle: "결제 파트너가 아직 구독을 확인해 주지 않았습니다. 잃어버린 것은 없습니다. 확인이 도착하는 대로 Pro는 저절로 켜집니다.",
 };

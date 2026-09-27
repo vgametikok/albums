@@ -2,8 +2,9 @@
 // продукт и ведёт в оплату. Страница лежит в подпапке, поэтому все адреса в
 // её HTML — от корня сайта (/js/…, /pricing), а импорты здесь — относительные.
 //
-// Логика покупки та же, что на странице цен (create-order в paypal-webhook,
-// вход перед оплатой, продолжение по флагу после возврата) — вынесена в общий
+// Логика покупки та же, что на странице цен (Paddle overlay основным способом,
+// PayPal — create-order в paypal-webhook — запасным; вход перед оплатой,
+// продолжение по флагу после возврата) — вынесена в общий
 // js/checkout.js, чтобы обе страницы не расходились. Тарифов три (small /
 // medium / large); верхняя и нижняя кнопки ведут к их выбору (#buy).
 //
@@ -56,6 +57,18 @@ function wireTiers() {
       return out.tier === p.tier && String(out.amount) === TIERS[p.tier];
     },
     unavailable: 'ea_tier_unavailable',
+    // Paddle (основной способ): цена — по ключу тарифа из js/paddle-config.js;
+    // сервер всё равно определяет тариф по id цены, а не по customData.
+    paddle: (btn) => (TIERS[btn.dataset.tier]
+      ? { price: btn.dataset.tier, customData: { kind: 'event', tier: btn.dataset.tier } }
+      : null),
+    // Сколько кредитов было до оплаты: страница «спасибо» ждёт, когда станет больше.
+    beforePaddle: async () => {
+      const { data } = await sb.rpc('my_event_credits');
+      sessionStorage.setItem('paddle_credits_before', String(Number(data) || 0));
+    },
+    paddleSuccess: (btn, data) => '/event-thanks.html?paddle=' +
+      encodeURIComponent(data?.transaction_id || '1') + '&tier=' + encodeURIComponent(btn.dataset.tier),
   });
 }
 

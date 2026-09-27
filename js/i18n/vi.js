@@ -947,4 +947,6 @@
   ea_tf7: "Hết dung lượng thì có thể mua thêm",
   ea_tier_unavailable: "Gói này tạm thời chưa thể thanh toán trực tuyến. Hãy viết cho sales@albums.ink, chúng tôi sẽ thiết lập giúp bạn.",
   pr_event_price: "từ $39.99",
+  pay_with_paypal: "hoặc thanh toán bằng PayPal",
+  pt_late_d_paddle: "Đối tác thanh toán chưa xác nhận gói đăng ký. Không có gì bị mất: ngay khi xác nhận đến, Pro sẽ tự bật.",
 };

@@ -21,6 +21,11 @@ const show = (s) => document.querySelectorAll('[data-state]').forEach(n => { n.h
 // английский экран в этот момент читается как сбой.
 await initI18n();
 document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
+// После Paddle (?via=paddle) текст «PayPal ещё не подтвердил» неверен.
+if (new URLSearchParams(location.search).get('via') === 'paddle') {
+  document.querySelectorAll('[data-i18n="pt_late_d"]').forEach(n => { n.textContent = t('pt_late_d_paddle'); });
+  document.querySelectorAll('a[href="pro-thanks.html"]').forEach(a => { a.href = 'pro-thanks.html?via=paddle'; });
+}
 
 (async function () {
   const { data: { session } } = await sb.auth.getSession();
