@@ -603,7 +603,7 @@ function drawUsersList(host, d) {
     return;
   }
 
-  const COLS = '1.4fr 1.8fr .7fr .9fr .9fr .5fr .7fr';
+  const COLS = '1.4fr 1.8fr .7fr .9fr .9fr .5fr 1.5fr';
   const line = (cells, head) => el('div', {
     class: head ? 'muted' : '',
     style: `display:grid;grid-template-columns:${COLS};gap:10px;padding:9px 0;font-size:14px;align-items:baseline;`
@@ -611,8 +611,8 @@ function drawUsersList(host, d) {
   }, ...cells.map(c => (typeof c === 'string' ? el('span', { text: c }) : c)));
 
   const box = el('div', { style: 'overflow-x:auto' });
-  const table = el('div', { style: 'min-width:820px' },
-    line(['User', 'Email', 'Plan', 'Plan since', 'Plan until', 'Country', 'Events'], true));
+  const table = el('div', { style: 'min-width:940px' },
+    line(['User', 'Email', 'Plan', 'Plan since', 'Plan until', 'Country', 'Event albums (created · unused)'], true));
 
   rows.forEach(u => {
     const name = el('span', {},
@@ -633,13 +633,7 @@ function drawUsersList(host, d) {
       text: PLAN_LABEL[u.plan] || u.plan,
     });
 
-    // Событийные альбомы: сколько создано и сколько оплачено, но ещё не
-    // потрачено. Ноль показываем прочерком, чтобы столбец не рябил нулями.
-    const events = u.event_albums || u.event_bought
-      ? el('span', {},
-        el('b', { text: String(u.event_albums || 0) }),
-        u.event_left ? el('span', { class: 'muted', style: 'font-size:12.5px', text: ` +${u.event_left} unused` }) : null)
-      : el('span', { class: 'muted', text: '—' });
+    const events = eventTiersCell(u);
 
     table.appendChild(line([
       name,
@@ -670,6 +664,80 @@ function drawUsersList(host, d) {
     };
     host.appendChild(more);
   }
+}
+
+/* ---------------- событийные альбомы по тарифам ---------------- */
+
+const TIER_KEYS = ['small', 'medium', 'large'];
+const TIER_LABEL = { small: 'Small', medium: 'Medium', large: 'Large' };
+const TIER_CAP = { small: '100 guests · 100 GB', medium: '250 guests · 200 GB', large: '500 guests · 400 GB' };
+const TIER_COLOR = { small: '#7A7265', medium: '#A8871E', large: '#8A4B2F' };
+
+/**
+ * Разбивка пользователя по тарифам: {small:{albums,unused}, …}. Без миграции
+ * 054 полей ev_* нет — тогда всё считаем Small (до тарифов альбом стоил $39.99).
+ */
+function userTiers(u) {
+  const out = {};
+  TIER_KEYS.forEach(k => {
+    out[k] = u.ev_albums || u.ev_unused
+      ? { albums: Number(u.ev_albums?.[k]) || 0, unused: Number(u.ev_unused?.[k]) || 0 }
+      : { albums: k === 'small' ? Number(u.event_albums) || 0 : 0, unused: k === 'small' ? Number(u.event_left) || 0 : 0 };
+  });
+  return out;
+}
+
+function tierChip(k, text) {
+  return el('span', {
+    title: TIER_CAP[k],
+    style: `display:inline-flex;gap:6px;align-items:baseline;font-size:12.5px;padding:2px 8px;border-radius:999px;`
+      + `border:1px solid #E4DCCE;white-space:nowrap`,
+  },
+  el('b', { style: `color:${TIER_COLOR[k]};font-size:11.5px;letter-spacing:.04em;text-transform:uppercase`, text: TIER_LABEL[k] }),
+  el('span', { text }));
+}
+
+/** Ячейка «Event albums»: по чипу на тариф, где что-то есть: «2 · +1». */
+function eventTiersCell(u) {
+  const t = userTiers(u);
+  const chips = TIER_KEYS.filter(k => t[k].albums || t[k].unused)
+    .map(k => tierChip(k, `${t[k].albums} · ${t[k].unused ? '+' + t[k].unused : '0'}`));
+  if (!chips.length) return el('span', { class: 'muted', text: '—' });
+  return el('span', { style: 'display:flex;flex-wrap:wrap;gap:4px' }, ...chips);
+}
+
+/** Сводка по тарифам для «Статистики» (блок events из admin_stats, 054). */
+function eventTiersPanel(ev) {
+  if (!ev) {
+    return panel('Event albums by tier', el('div', { class: 'muted', style: 'font-size:13.5px',
+      text: 'Per-tier totals appear after migration 054 is applied. Until then all event credits count as Small (see Users → Events).' }));
+  }
+  const line = (cells, head) => el('div', {
+    class: head ? 'muted' : '',
+    style: 'display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:8px;padding:7px 0;font-size:14px;align-items:baseline'
+      + (head ? ';border-bottom:1px solid #EFEDE8;font-size:12.5px' : ';border-bottom:1px solid #F5F3EF'),
+  }, ...cells.map(x => (typeof x === 'string' || typeof x === 'number' ? el('span', { text: String(x) }) : x)));
+  const box = el('div', { style: 'overflow-x:auto' });
+  const table = el('div', { style: 'min-width:330px' }, line(['Tier', 'Paid', 'Granted', 'Created', 'Unused'], true));
+  const sum = { paid: 0, granted: 0, albums: 0, unused: 0 };
+  TIER_KEYS.forEach(k => {
+    const row = {
+      paid: Number(ev.paid?.[k]) || 0, granted: Number(ev.granted?.[k]) || 0,
+      albums: Number(ev.albums?.[k]) || 0, unused: Number(ev.unused?.[k]) || 0,
+    };
+    Object.keys(sum).forEach(x => { sum[x] += row[x]; });
+    table.appendChild(line([
+      el('span', {}, el('b', { style: `color:${TIER_COLOR[k]}`, text: TIER_LABEL[k] }),
+        el('span', { class: 'muted', style: 'font-size:12px;display:block', text: TIER_CAP[k] })),
+      row.paid, row.granted, row.albums, row.unused]));
+  });
+  table.appendChild(line([el('b', { text: 'Total' }), el('b', { text: String(sum.paid) }), el('b', { text: String(sum.granted) }),
+    el('b', { text: String(sum.albums) }), el('b', { text: String(sum.unused) })]));
+  box.appendChild(table);
+  return panel('Event albums by tier', el('div', {}, box,
+    el('div', { class: 'muted', style: 'font-size:12.5px;margin-top:8px',
+      text: `Paid = purchases (PayPal/Paddle), list price total $${(Number(ev.paid?.usd) || 0).toFixed(2)}. `
+        + 'Granted = given manually with a tier. Credits and albums from before tiers ($39.99) count as Small.' })));
 }
 
 /* ---------------- продуктовая статистика ---------------- */
@@ -705,13 +773,16 @@ async function renderStats() {
     ['Time on album', secs(a.avg_dwell_ms), 'average'],
     ['Button clicks', a.clicks, 'Pro profiles'],
     ['Open reports', a.reports_open, 'awaiting review'],
+    ...(d.events ? [['Event albums', TIER_KEYS.reduce((n, k) => n + (Number(d.events.albums?.[k]) || 0), 0),
+      TIER_KEYS.map(k => `${TIER_LABEL[k][0]} ${Number(d.events.albums?.[k]) || 0}`).join(' · ') + ' created']] : []),
   ]));
 
+  body.appendChild(eventTiersPanel(d.events));
   body.appendChild(panel('By day', dayTable(d.by_day || [])));
   body.appendChild(panel('Countries', barList((d.geo || []).map(g => [g.code || '??', g.n]))));
   body.appendChild(panel('Top albums', topList(d.top_albums || [])));
   body.appendChild(planForm());
-  body.appendChild(eventForm());
+  body.appendChild(eventForm(!!d.events));
 }
 
 function tiles(items) {
@@ -793,28 +864,41 @@ function planForm() {
  * штуками: одна оплата Event Album = одна единица квоты. Отрицательное число
  * забирает обратно (например, при возврате платежа).
  */
-function eventForm() {
+function eventForm(tiersLive) {
   const user = el('input', { class: 'input', placeholder: 'username', autocomplete: 'off' });
   const count = el('input', { class: 'input', type: 'number', value: '1', min: '-20', max: '20' });
+  const tier = el('select', { class: 'select' },
+    ...TIER_KEYS.map(k => el('option', { value: k, disabled: k !== 'small' && !tiersLive ? 'disabled' : null },
+      `${TIER_LABEL[k]} — ${TIER_CAP[k]}` + (k !== 'small' && !tiersLive ? ' (needs migration 054)' : ''))));
   const out = el('div', { class: 'muted', style: 'font-size:13.5px;min-height:20px' });
   const go = el('button', { class: 'btn btn-primary btn-sm' }, 'Grant');
   go.onclick = async () => {
     go.disabled = true;
     try {
+      // Small уходит прежним вызовом без тарифа (кредит без тарифа = Small),
+      // Medium/Large — с tier: это понимает только база с миграцией 054.
       const r = await call('grant_event', {
         username: user.value.trim(), count: parseInt(count.value, 10) || 0,
+        ...(tier.value !== 'small' ? { tier: tier.value } : {}),
       });
-      out.textContent = r.data?.error
-        ? 'User not found'
-        : `${r.data.username}: ${r.data.credits} left · ${r.data.events} created`;
+      const tt = r.data?.tiers;
+      const want = tier.value;
+      out.textContent = !r.data ? 'No answer from the database (migration 054 applied?)'
+        : r.data.error === 'not_found' ? 'User not found'
+        : r.data?.error ? r.data.error
+        : `${r.data.username}: ${r.data.credits} left`
+          + (tt ? ` (${TIER_KEYS.map(k => `${TIER_LABEL[k]} ${tt[k] || 0}`).join(', ')})` : '')
+          + ` · ${r.data.events} created`
+          // старая mod-api не передаёт tier — база выдала Small
+          + (r.data.username && r.data.tier && r.data.tier !== want ? ` — WARNING: granted as ${r.data.tier}; redeploy mod-api` : '');
       toast('Done');
     } catch (e) { out.textContent = e.message; }
     go.disabled = false;
   };
   return panel('Event albums', el('div', { class: 'stack' },
     el('div', { class: 'muted', style: 'font-size:13.5px',
-      text: 'One paid Event Album = one credit. The user then sees "Shared album" in their profile, creates it and gets a permanent QR for guests. Negative number takes credits back.' }),
-    user, count, go, out));
+      text: 'One paid Event Album = one credit of its tier. The user then sees "Shared album" in their profile, picks which credit to use, creates it and gets a permanent QR for guests. Negative number takes credits of that tier back. Medium/Large need migration 054 and the updated mod-api.' }),
+    user, tier, count, go, out));
 }
 
 function gb(bytes) {

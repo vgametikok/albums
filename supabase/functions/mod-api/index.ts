@@ -217,8 +217,11 @@ Deno.serve(async (req) => {
         break;
       case 'grant_event':
         // общие альбомы события выдаются штуками; отрицательное число — забрать
+        // tier ('medium' | 'large') — только с миграцией 054; без tier вызов
+        // прежний, двухаргументный, и работает на любой версии базы.
         out = (await sb.rpc('admin_grant_event', {
           p_username: body.username, p_count: Number(body.count ?? 1),
+          ...(body.tier ? { p_tier: String(body.tier) } : {}),
         })).data;
         break;
       case 'resolve':

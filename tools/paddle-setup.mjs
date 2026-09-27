@@ -7,7 +7,7 @@
  *
  * API key: env PADDLE_API_KEY, else ~/.config/paddle/<env>_key. Never printed.
  * Re-running is safe: products are matched by custom_data.albums_key, prices by
- * custom_data.albums_key, the client token by name, the destination by URL.
+ * custom_data.albums_key (tax_mode forced to 'internal' = tax included), the client token by name, the destination by URL.
  * The destination secret is written to ~/.config/paddle/<env>_webhook_secret
  * (mode 600) when the destination is first created — it is never printed.
  * Output: the ids to paste into js/paddle-config.js and the edge function.
@@ -22,6 +22,7 @@ const DIR = join(homedir(), '.config', 'paddle');
 const KEY = process.env.PADDLE_API_KEY || readFileSync(join(DIR, `${ENV}_key`), 'utf8').trim();
 const WEBHOOK_URL = 'https://rizveurkjpcwrmbtoawj.supabase.co/functions/v1/paddle-webhook';
 const SECRET_FILE = join(DIR, `${ENV}_webhook_secret`);
+const TAX_MODE = 'internal';   // tax included in the listed price (never added on top)
 
 const CATALOG = [
   { key: 'event_small',  name: 'Event Album — Small',  desc: 'Shared event album: up to 100 guests, 100 GB. One-time payment.',
@@ -81,6 +82,12 @@ for (const c of CATALOG) {
              || !!pr.billing_cycle !== !!c.monthly)) {
     throw new Error(`price ${pr.id} for ${c.key} exists with different terms — archive it by hand first`);
   }
+  // VAT/sales tax is INCLUDED in the listed price ($39.99 is what the buyer pays):
+  // tax_mode 'internal'. An older price created with another mode is patched in place.
+  if (pr && pr.tax_mode !== TAX_MODE) {
+    pr = (await api(`/prices/${pr.id}`, 'PATCH', { tax_mode: TAX_MODE })).data;
+    console.error(`updated price ${c.key} ${pr.id}: tax_mode -> ${pr.tax_mode}`);
+  }
   if (!pr) {
     pr = (await api('/prices', 'POST', {
       product_id: p.id,
@@ -89,7 +96,7 @@ for (const c of CATALOG) {
       unit_price: { amount: c.amount, currency_code: 'USD' },
       ...(c.monthly ? { billing_cycle: { interval: 'month', frequency: 1 } } : {}),
       quantity: { minimum: 1, maximum: 1 },
-      tax_mode: 'account_setting',
+      tax_mode: TAX_MODE,
       custom_data: { albums_key: c.key, kind: c.kind, ...(c.tier ? { tier: c.tier } : {}) },
     })).data;
     console.error(`created price ${c.key} ${pr.id}`);

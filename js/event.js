@@ -41,11 +41,13 @@ let repaintCover = () => {};
 
 async function renderList() {
   clear(app);
-  const [{ data: cr }, { data: list }] = await Promise.all([
+  const [{ data: cr }, { data: list }, tiers] = await Promise.all([
     sb.rpc('my_event_credits'),
     sb.rpc('my_event_albums'),
+    loadTierSplit(),
   ]);
-  const credits = Number(cr) || 0;
+  const split = tiers || { small: Number(cr) || 0, medium: 0, large: 0, live: false };
+  const credits = split.live ? split.small + split.medium + split.large : (Number(cr) || 0);
   const albums = list || [];
 
   app.appendChild(el('div', { class: 'section-head', style: 'margin:0 0 6px' },
@@ -58,7 +60,8 @@ async function renderList() {
       el('div', { class: 'label', text: t('ev_available') }),
       el('div', { style: 'font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px', text: String(credits) }),
       el('div', { class: 'muted', style: 'font-size:14.5px;margin-top:4px', text: t('ev_available_hint') }),
-      el('button', { class: 'btn btn-primary', style: 'margin-top:16px', onclick: openCreate },
+      tierTiles(split),
+      el('button', { class: 'btn btn-primary', style: 'margin-top:16px', onclick: () => openCreate(split) },
         icon('plus', 16, { sw: 2.4 }), t('ev_create')));
   } else {
     quota.append(
@@ -92,11 +95,66 @@ async function renderList() {
     card.appendChild(el('div', { class: 'card-meta' },
       el('div', { style: 'min-width:0' },
         el('span', { class: 'card-title', text: a.title }),
+        tierPill(a.tier),
         el('span', { class: 'card-sub', text: statusText(a) }),
         el('div', { class: 'card-stat', text: t('ev_items_n', { count: a.items_total || 0 }) }))));
     grid.appendChild(card);
   });
   app.appendChild(grid);
+}
+
+/* ---------------------------------------------------------------- тарифы */
+
+// Тарифы событийного альбома: гости и объём — те же цифры, что на /events/.
+const TIERS = ['small', 'medium', 'large'];
+const TIER_CAPS = { small: [100, 100], medium: [250, 200], large: [500, 400] };
+const tierOf = (v) => (TIER_CAPS[v] ? v : 'small');
+
+/**
+ * Непотраченные кредиты по тарифам (миграция 054). Кредит без тарифа —
+ * Small: до тарифов альбом стоил столько же. Пока 054 не применена, функции
+ * нет — возвращаем null, и страница считает все кредиты Small.
+ */
+async function loadTierSplit() {
+  try {
+    const { data, error } = await sb.rpc('my_event_credit_tiers');
+    if (error || !data || typeof data !== 'object') return null;
+    return { small: Number(data.small) || 0, medium: Number(data.medium) || 0, large: Number(data.large) || 0, live: true };
+  } catch (_) {
+    return null;
+  }
+}
+
+function tierCaps(k) {
+  const [g, gb] = TIER_CAPS[k];
+  return [t('ea_tier_guests', { n: g }), t('ea_tier_storage', { n: gb })];
+}
+
+/** Плитки Small / Medium / Large: сколько кредитов каждого тарифа осталось. */
+function tierTiles(split) {
+  const wrap = el('div', { class: 'ev-tiers' });
+  TIERS.forEach(k => {
+    const n = split[k] || 0;
+    const name = t('ea_tier_' + k);
+    const [guests, storage] = tierCaps(k);
+    wrap.appendChild(el('div', {
+      class: 'ev-tier' + (n ? '' : ' off'), role: 'group',
+      'aria-label': t('ev_tier_aria', { tier: name, count: n }),
+    },
+      el('div', { class: 'ev-tier-top' },
+        el('span', { class: 'ev-tier-name', text: name }),
+        el('span', { class: 'ev-tier-n', 'aria-hidden': 'true', text: '×' + n })),
+      el('div', { class: 'ev-tier-cap', text: guests }),
+      el('div', { class: 'ev-tier-cap', text: storage }),
+      n ? null : el('a', { class: 'ev-tier-buy', href: '/events/#tier-' + k }, t('ev_tier_buy'))));
+  });
+  return wrap;
+}
+
+/** Метка тарифа на карточке созданного события (без тарифа — Small). */
+function tierPill(v) {
+  const k = tierOf(v);
+  return el('span', { class: 'ev-tier-pill', title: tierCaps(k).join(' · '), text: t('ea_tier_' + k) });
 }
 
 function featureCard(titleKey, textKey) {
@@ -113,7 +171,11 @@ function statusText(a) {
   return a.visibility === 'friends' ? t('ev_st_friends') : t('ev_st_public');
 }
 
-function openCreate() {
+function openCreate(split) {
+  // Кредиты каких тарифов есть. Если больше одного — человек выбирает сам;
+  // по умолчанию самый маленький, чтобы крупный не ушёл случайно.
+  const avail = TIERS.filter(k => (split?.[k] || 0) > 0);
+  let tier = avail[0] || 'small';
   modal((box, close) => {
     box.appendChild(el('h2', { text: t('ev_create') }));
     box.appendChild(el('p', { class: 'muted', style: 'margin:0 0 14px;font-size:14.5px', text: t('ev_create_hint') }));
@@ -129,17 +191,39 @@ function openCreate() {
     go.onclick = async () => {
       if (!title.value.trim()) { toast(t('ev_need_title')); return; }
       go.disabled = true;
-      const { data, error } = await sb.rpc('event_album_create', {
-        p_title: title.value.trim(), p_visibility: vis, p_description: desc.value.trim() || null,
-      });
+      const args = { p_title: title.value.trim(), p_visibility: vis, p_description: desc.value.trim() || null };
+      // p_tier понимает только функция из 054; до неё — прежний вызов
+      if (split?.live) args.p_tier = tier;
+      const { data, error } = await sb.rpc('event_album_create', args);
       if (error) { go.disabled = false; toast(error.message); return; }
       close();
       location.href = `event.html?id=${data.album_id}`;
     };
 
-    box.append(title, desc, wrap, go,
+    const picker = avail.length > 1 ? tierPicker(avail, split, tier, (k) => { tier = k; }) : null;
+    box.append(title, desc, picker, wrap, go,
       el('button', { class: 'btn btn-ghost', style: 'width:100%;margin-top:10px', onclick: close }, t('cancel')));
   });
+}
+
+/** Выбор тарифа кредита при создании: те же карточки-радио, что у видимости. */
+function tierPicker(avail, split, initial, onPick) {
+  const wrap = el('div', { class: 'vis-opts', role: 'radiogroup', 'aria-label': t('ev_pick_tier'), style: 'margin-top:4px' });
+  avail.forEach(k => {
+    const input = el('input', {
+      type: 'radio', name: 'evtier', value: k, checked: k === initial ? 'checked' : null,
+      onchange: () => {
+        onPick(k);
+        wrap.querySelectorAll('.vis-opt').forEach(n => n.classList.toggle('on', n.contains(input) && input.checked));
+      },
+    });
+    wrap.appendChild(el('label', { class: 'vis-opt' + (k === initial ? ' on' : '') },
+      input,
+      el('div', { style: 'flex:1;min-width:0' }, el('b', { text: t('ea_tier_' + k) }), el('span', { text: tierCaps(k).join(' · ') })),
+      el('span', { class: 'ev-tier-n', style: 'margin-left:auto', 'aria-label': t('ev_tier_aria', { tier: t('ea_tier_' + k), count: split[k] }), text: '×' + split[k] })));
+  });
+  return el('div', { style: 'margin-top:14px' },
+    el('div', { class: 'label', style: 'margin-bottom:8px', text: t('ev_pick_tier') }), wrap);
 }
 
 function visPicker(name, initial, onPick) {

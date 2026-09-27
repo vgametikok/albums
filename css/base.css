@@ -310,6 +310,30 @@ img,video{max-width:100%}
 .ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
   padding:0 6px;margin-left:8px;border-radius:999px;background:rgba(255,255,255,.28);
   font-size:12.5px;font-weight:700;line-height:1}
+/* кредиты по тарифам (Small / Medium / Large) в кабинете события */
+.ev-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.ev-tier{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff;min-width:0}
+.ev-tier-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.ev-tier-name{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-dark);
+  min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.ev-tier-n{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink);white-space:nowrap}
+.ev-tier-cap{font-size:13px;color:var(--muted);line-height:1.4;margin-top:4px;overflow-wrap:anywhere;hyphens:auto}
+.ev-tier-cap + .ev-tier-cap{margin-top:0}
+.ev-tier.off{background:transparent;border-style:dashed}
+.ev-tier.off .ev-tier-name,.ev-tier.off .ev-tier-n,.ev-tier.off .ev-tier-cap{color:var(--faint)}
+.ev-tier-buy{display:inline-block;margin-top:6px;font-size:13px;font-weight:700;color:var(--accent-ink);text-decoration:underline}
+.vis-opt .ev-tier-n{display:block;margin-top:0;font-size:18px;color:var(--ink);align-self:center}
+.ev-tier-pill{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:999px;background:var(--tint);
+  color:var(--accent-dark);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:520px){
+  .ev-tiers{grid-template-columns:1fr;gap:8px}
+  .ev-tier{display:grid;grid-template-columns:1fr auto;column-gap:10px;padding:10px 12px}
+  .ev-tier-top{display:contents}
+  .ev-tier-name{grid-column:1}
+  .ev-tier-n{grid-column:2;grid-row:1 / span 3;align-self:center}
+  .ev-tier-cap{grid-column:1;margin-top:0}
+  .ev-tier-buy{grid-column:1;margin-top:4px}
+}
 .ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
 .ev-cell{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--ph);
   cursor:pointer;border:2px solid transparent;transition:border-color .15s,opacity .15s}

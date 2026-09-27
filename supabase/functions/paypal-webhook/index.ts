@@ -54,8 +54,8 @@ const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 // ── Тарифы событийного альбома ──────────────────────────────────────────────
 // Единственный источник цены. Витрина (/events/) показывает те же числа, но
 // её цифрам сервер не верит: клиент шлёт только { tier }.
-type Tier = 'small' | 'medium' | 'large';
-const EVENT_TIERS: Record<Tier, { price: string; guests: number; gb: number; name: string }> = {
+export type Tier = 'small' | 'medium' | 'large';
+export const EVENT_TIERS: Record<Tier, { price: string; guests: number; gb: number; name: string }> = {
   small:  { price: '39.99',  guests: 100, gb: 100, name: 'Small' },
   medium: { price: '69.99',  guests: 250, gb: 200, name: 'Medium' },
   large:  { price: '129.99', guests: 500, gb: 400, name: 'Large' },
@@ -64,7 +64,7 @@ const isTier = (v: unknown): v is Tier => typeof v === 'string' && Object.hasOwn
 const REF_PREFIX = 'event_';   // reference_id заказа: event_small / event_medium / event_large
 
 /** Тариф по сумме (USD). Для старых заказов без нашего reference_id и для вебхука. */
-function tierByAmount(value: unknown, currency: unknown): Tier | null {
+export function tierByAmount(value: unknown, currency: unknown): Tier | null {
   if (currency !== 'USD') return null;
   const v = Number(value);
   for (const k of Object.keys(EVENT_TIERS) as Tier[]) {
@@ -78,7 +78,7 @@ function tierByAmount(value: unknown, currency: unknown): Tier | null {
  * при создании, обязан совпасть с суммой. Старые заказы (до тарифов) шли без
  * reference_id — для них тариф определяется суммой ($39.99 = small).
  */
-function tierOfUnit(pu: any): Tier | null {
+export function tierOfUnit(pu: any): Tier | null {
   const amt = pu?.amount ?? {};
   const byAmount = tierByAmount(amt.value, amt.currency_code);
   const ref = String(pu?.reference_id ?? '');
@@ -89,27 +89,52 @@ function tierOfUnit(pu: any): Tier | null {
   return byAmount;
 }
 
+// ── Запись кредита с тарифом ───────────────────────────────────────────────
+// Такая же функция живёт в paddle-webhook (у каждой функции один файл).
+/** Минимум клиента supabase-js, который нужен выдаче (в тестах — подделка). */
+export interface GrantClient {
+  rpc(fn: string, args: Record<string, unknown>): PromiseLike<{ error: { code?: string; message: string } | null }>;
+  from(table: string): {
+    update(v: Record<string, unknown>): { eq(col: string, val: string): PromiseLike<{ error: { message: string } | null }> };
+  };
+}
+
+/** Функции нет в схеме (миграция 054 ещё не применена). */
+export function isMissingFn(e: { code?: string; message?: string } | null): boolean {
+  if (!e) return false;
+  return e.code === 'PGRST202' || e.code === '42883' || /could not find the function/i.test(e.message ?? '');
+}
+
 /**
- * Выдать кредит события и записать тариф в paypal_orders. Идемпотентно по
- * order_id (paypal_grant_event из 040). Тариф пишем отдельным UPDATE под
- * сервисным ключом: колонки tier/guest_cap/storage_gb/amount появляются в
- * миграции 053; пока её нет — тариф ложится в существующую колонку kind
- * (event_small / event_medium / event_large), и 053 потом разберёт её.
+ * Выдать кредит события и записать тариф. Идемпотентно по order_id.
+ * С миграцией 054 — одной транзакцией в paypal_grant_event_tier (строка заказа
+ * сразу с tier; повтор — no-op). Без неё — прежний путь: paypal_grant_event
+ * из 040 и отдельный UPDATE тарифа (колонки tier… из 053, а без 053 — хотя бы
+ * kind = event_<tier>). Возвращает, каким путём записано: 'tier' | 'legacy'.
  */
-async function grantEvent(orderId: string, uid: string, tier: Tier) {
-  const g = await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
+export async function recordEventGrant(db: GrantClient, orderId: string, uid: string, tier: Tier,
+  log: (...a: unknown[]) => void = console.error): Promise<'tier' | 'legacy'> {
+  const r = await db.rpc('paypal_grant_event_tier', { p_order_id: orderId, p_user_id: uid, p_tier: tier });
+  if (!r.error) return 'tier';
+  if (!isMissingFn(r.error)) throw new Error('grant: ' + r.error.message);
+
+  const g = await db.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
   if (g.error) throw new Error('grant: ' + g.error.message);
   const T = EVENT_TIERS[tier];
   const kind = REF_PREFIX + tier;
-  const full = await sb.from('paypal_orders')
+  const full = await db.from('paypal_orders')
     .update({ kind, tier, guest_cap: T.guests, storage_gb: T.gb, amount: Number(T.price) })
     .eq('order_id', orderId);
   if (full.error) {
     // 053 ещё не применена — колонок нет; сохраняем хотя бы kind
-    const k = await sb.from('paypal_orders').update({ kind }).eq('order_id', orderId);
-    if (k.error) console.error('tier kind', orderId, k.error.message);
+    const k = await db.from('paypal_orders').update({ kind }).eq('order_id', orderId);
+    if (k.error) log('tier kind', orderId, k.error.message);
   }
+  return 'legacy';
 }
+
+const grantEvent = (orderId: string, uid: string, tier: Tier) =>
+  recordEventGrant(sb as unknown as GrantClient, orderId, uid, tier);
 
 // ── PayPal REST helpers ─────────────────────────────────────────────────────
 async function ppToken(): Promise<string> {
@@ -186,7 +211,7 @@ async function verifyWebhook(token: string, headers: Headers, rawBody: string): 
   return res.verification_status === 'SUCCESS';
 }
 
-Deno.serve(async (req) => {
+async function serve(req: Request): Promise<Response> {
   const origin = req.headers.get('origin');
   const h = cors(origin);
   if (req.method === 'OPTIONS') return new Response('ok', { headers: h });
@@ -368,4 +393,7 @@ Deno.serve(async (req) => {
   }
 
   return json(404, { error: 'not_found' }, h);
-});
+}
+
+// В тестах (PAYPAL_WEBHOOK_TEST=1) сервер не поднимаем — только экспорт функций.
+if (Deno.env.get('PAYPAL_WEBHOOK_TEST') !== '1') Deno.serve(serve);

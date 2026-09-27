@@ -261,3 +261,83 @@ Deno.test('unhandled event types are acknowledged', async () => {
   const r = await m.handle(await signed({ event_id: 'evt_c', event_type: 'customer.created', data: { id: 'ctm_1' } }), d);
   assertEquals(r.status, 200);
 });
+
+// ── запись тарифа: recordEventGrant ─────────────────────────────────────────
+function fakeDb(opts: { tierFn?: 'ok' | 'missing' | 'fail'; fullUpdate?: 'ok' | 'fail' } = {}) {
+  const calls: any[] = [];
+  const db = {
+    rpc(fn: string, args: Record<string, unknown>) {
+      calls.push(['rpc', fn, args]);
+      if (fn === 'paypal_grant_event_tier') {
+        if (opts.tierFn === 'missing') {
+          return Promise.resolve({ error: { code: 'PGRST202', message: 'Could not find the function public.paypal_grant_event_tier' } });
+        }
+        if (opts.tierFn === 'fail') return Promise.resolve({ error: { code: '57014', message: 'timeout' } });
+      }
+      return Promise.resolve({ error: null });
+    },
+    from(table: string) {
+      return {
+        update(v: Record<string, unknown>) {
+          return {
+            eq(col: string, val: string) {
+              calls.push(['update', table, v, col, val]);
+              const fail = opts.fullUpdate === 'fail' && 'tier' in v;
+              return Promise.resolve({ error: fail ? { message: 'column "tier" does not exist' } : null });
+            },
+          };
+        },
+      };
+    },
+  };
+  return { db, calls };
+}
+
+Deno.test('recordEventGrant: with 054 the tier is written by one RPC, nothing else', async () => {
+  for (const tier of ['small', 'medium', 'large'] as const) {
+    const { db, calls } = fakeDb();
+    assertEquals(await m.recordEventGrant(db, 'txn_1', UID, tier), 'tier');
+    assertEquals(calls, [['rpc', 'paypal_grant_event_tier', { p_order_id: 'txn_1', p_user_id: UID, p_tier: tier }]]);
+  }
+});
+
+Deno.test('recordEventGrant: before 054 falls back to paypal_grant_event + tier columns', async () => {
+  const { db, calls } = fakeDb({ tierFn: 'missing' });
+  assertEquals(await m.recordEventGrant(db, 'txn_2', UID, 'large'), 'legacy');
+  assertEquals(calls[1], ['rpc', 'paypal_grant_event', { p_order_id: 'txn_2', p_user_id: UID }]);
+  assertEquals(calls[2], ['update', 'paypal_orders',
+    { kind: 'event_large', tier: 'large', guest_cap: 500, storage_gb: 400, amount: 129.99 }, 'order_id', 'txn_2']);
+  assertEquals(calls.length, 3);
+});
+
+Deno.test('recordEventGrant: before 053 keeps at least kind=event_<tier>', async () => {
+  const { db, calls } = fakeDb({ tierFn: 'missing', fullUpdate: 'fail' });
+  const logs: unknown[] = [];
+  assertEquals(await m.recordEventGrant(db, 'txn_3', UID, 'medium', (...a) => logs.push(a)), 'legacy');
+  assertEquals(calls[3], ['update', 'paypal_orders', { kind: 'event_medium' }, 'order_id', 'txn_3']);
+  assertEquals(logs.length, 0);
+});
+
+Deno.test('recordEventGrant: a real DB error is thrown (Paddle retries), no fallback grant', async () => {
+  const { db, calls } = fakeDb({ tierFn: 'fail' });
+  let threw = false;
+  try { await m.recordEventGrant(db, 'txn_4', UID, 'small'); } catch { threw = true; }
+  assert(threw);
+  assertEquals(calls.length, 1);
+});
+
+Deno.test('isMissingFn recognises PostgREST and Postgres "no such function"', () => {
+  assert(m.isMissingFn({ code: 'PGRST202', message: '' }));
+  assert(m.isMissingFn({ code: '42883', message: 'function does not exist' }));
+  assert(m.isMissingFn({ message: 'Could not find the function public.x in the schema cache' }));
+  assert(!m.isMissingFn({ code: '23505', message: 'duplicate key' }));
+  assert(!m.isMissingFn(null));
+});
+
+Deno.test('quantity > 1 grants each unit with the price tier under distinct order ids', async () => {
+  const { d, calls } = fakeDeps();
+  const body = txn({ items: [{ quantity: 2, price: { id: LARGE, unit_price: { amount: '12999', currency_code: 'USD' } } }] });
+  const r = await m.handle(await signed(body), d);
+  assertEquals(r.status, 200);
+  assertEquals(calls.grants, [['txn_01abc', UID, 'large'], ['txn_01abc#2', UID, 'large']]);
+});

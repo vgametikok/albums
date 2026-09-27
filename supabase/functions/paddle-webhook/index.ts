@@ -14,7 +14,8 @@
 //   3. Кому — custom_data.user_id (его кладёт наш фронт в Checkout.open);
 //      для событий подписки запасной путь — владелец из paypal_subscriptions.
 //   4. Идемпотентность: event_id (evt_…) пишется в paypal_events после успешной
-//      обработки; кредит события — paypal_grant_event по id транзакции (txn_…),
+//      обработки; кредит события — paypal_grant_event_tier (миграция 054: кредит
+//      и тариф одной транзакцией; до неё — paypal_grant_event) по id транзакции (txn_…),
 //      повтор — no-op. transaction.paid и transaction.completed одной покупки
 //      дают ОДИН кредит.
 //   5. SANDBOX НЕ ДАЁТ НАСТОЯЩИХ ПОКУПОК ЧУЖИМ: при PADDLE_ENV=sandbox выдача
@@ -215,6 +216,49 @@ export async function handle(req: Request, d: Deps): Promise<Response> {
   }
 }
 
+// ── Запись кредита с тарифом ───────────────────────────────────────────────
+// Такая же функция живёт в paypal-webhook (у каждой функции один файл).
+/** Минимум клиента supabase-js, который нужен выдаче (в тестах — подделка). */
+export interface GrantClient {
+  rpc(fn: string, args: Record<string, unknown>): PromiseLike<{ error: { code?: string; message: string } | null }>;
+  from(table: string): {
+    update(v: Record<string, unknown>): { eq(col: string, val: string): PromiseLike<{ error: { message: string } | null }> };
+  };
+}
+
+/** Функции нет в схеме (миграция 054 ещё не применена). */
+export function isMissingFn(e: { code?: string; message?: string } | null): boolean {
+  if (!e) return false;
+  return e.code === 'PGRST202' || e.code === '42883' || /could not find the function/i.test(e.message ?? '');
+}
+
+/**
+ * Кредит события + тариф. С миграцией 054 — одной транзакцией в
+ * paypal_grant_event_tier (строка заказа сразу с tier; повтор — no-op).
+ * Без неё — прежний путь: paypal_grant_event из 040 и UPDATE тарифа
+ * (колонки tier… из 053, а без 053 — хотя бы kind = event_<tier>).
+ * Возвращает, каким путём записано: 'tier' | 'legacy'.
+ */
+export async function recordEventGrant(sb: GrantClient, orderId: string, uid: string, tier: Tier,
+  log: (...a: unknown[]) => void = console.error): Promise<'tier' | 'legacy'> {
+  const r = await sb.rpc('paypal_grant_event_tier', { p_order_id: orderId, p_user_id: uid, p_tier: tier });
+  if (!r.error) return 'tier';
+  if (!isMissingFn(r.error)) throw new Error('grant: ' + r.error.message);
+
+  const g = await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
+  if (g.error) throw new Error('grant: ' + g.error.message);
+  const T = EVENT_TIERS[tier];
+  const kind = 'event_' + tier;
+  const full = await sb.from('paypal_orders')
+    .update({ kind, tier, guest_cap: T.guests, storage_gb: T.gb, amount: T.price })
+    .eq('order_id', orderId);
+  if (full.error) {   // 053 ещё не применена — пишем хотя бы kind
+    const k = await sb.from('paypal_orders').update({ kind }).eq('order_id', orderId);
+    if (k.error) log('tier kind', orderId, k.error.message);
+  }
+  return 'legacy';
+}
+
 // ── Боевые зависимости: Supabase под сервисным ключом ──────────────────────
 function liveDeps(): Deps {
   const sb = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
@@ -239,20 +283,8 @@ function liveDeps(): Deps {
       const r = await sb.from('paypal_events').insert({ event_id: id, event_type: type });
       if (r.error && r.error.code !== '23505') console.error('markSeen', id, r.error.message);
     },
-    // Как grantEvent в paypal-webhook: кредит (идемпотентно по order_id) + тариф в paypal_orders.
-    async grantEvent(orderId, uid, tier) {
-      const g = await sb.rpc('paypal_grant_event', { p_order_id: orderId, p_user_id: uid });
-      if (g.error) throw new Error('grant: ' + g.error.message);
-      const T = EVENT_TIERS[tier];
-      const kind = 'event_' + tier;
-      const full = await sb.from('paypal_orders')
-        .update({ kind, tier, guest_cap: T.guests, storage_gb: T.gb, amount: T.price })
-        .eq('order_id', orderId);
-      if (full.error) {   // 053 ещё не применена — пишем хотя бы kind
-        const k = await sb.from('paypal_orders').update({ kind }).eq('order_id', orderId);
-        if (k.error) console.error('tier kind', orderId, k.error.message);
-      }
-    },
+    // Как grantEvent в paypal-webhook: кредит + тариф (идемпотентно по order_id).
+    grantEvent: (orderId, uid, tier) => recordEventGrant(sb as unknown as GrantClient, orderId, uid, tier).then(() => {}),
     async applySub(subId, uid, status, periodEnd) {
       const r = await sb.rpc('paypal_apply_sub', {
         p_subscription_id: subId, p_user_id: uid, p_status: status, p_period_end: periodEnd,
