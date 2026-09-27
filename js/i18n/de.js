@@ -900,7 +900,7 @@
   ea_k4: '<b>Ein für alle offenes Album geht durch die Prüfung.</b> Ein verborgenes — nur für deine Gäste sichtbar — funktioniert sofort.',
   ea_price_h: 'Ein Kauf für das ganze Event',
   ea_price_unit: '/ Event',
-  ea_pay_note: 'Zahlung über PayPal. Der Zugang öffnet sich direkt nach der Zahlung.',
+  ea_pay_note: "Sichere Bezahlung — per Karte oder PayPal. Der Zugang wird direkt nach der Zahlung freigeschaltet.",
   ea_faq_h: 'Fragen',
   ea_q1: 'Müssen Gäste eine App installieren?',
   ea_a1: 'Nein. Die Handy-Kamera öffnet eine ganz normale Webseite.',

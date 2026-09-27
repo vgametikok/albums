@@ -890,7 +890,7 @@
   ea_k4: '<b>Un album ouvert à tous passe par une vérification.</b> Un album masqué — visible seulement de vos invités — fonctionne tout de suite.',
   ea_price_h: 'Un seul achat pour tout l’événement',
   ea_price_unit: '/ événement',
-  ea_pay_note: 'Paiement via PayPal. L’accès s’ouvre juste après le paiement.',
+  ea_pay_note: "Paiement sécurisé — par carte ou PayPal. L'accès s'ouvre dès le paiement effectué.",
   ea_faq_h: 'Questions',
   ea_q1: 'Les invités doivent-ils installer une application ?',
   ea_a1: 'Non. L’appareil photo du téléphone ouvre une page web ordinaire.',

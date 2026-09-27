@@ -902,7 +902,7 @@
   ea_k4: '<b>Un álbum abierto a todos pasa revisión.</b> Uno oculto —visible solo para tus invitados— funciona al momento.',
   ea_price_h: 'Una compra para todo el evento',
   ea_price_unit: '/ evento',
-  ea_pay_note: 'Pago con PayPal. El acceso se abre justo después del pago.',
+  ea_pay_note: "Pago seguro — con tarjeta o PayPal. El acceso se abre justo después del pago.",
   ea_faq_h: 'Preguntas',
   ea_q1: '¿Los invitados tienen que instalar una app?',
   ea_a1: 'No. La cámara del móvil abre una página web normal.',
