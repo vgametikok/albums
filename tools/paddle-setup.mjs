@@ -25,11 +25,11 @@ const SECRET_FILE = join(DIR, `${ENV}_webhook_secret`);
 const TAX_MODE = 'internal';   // tax included in the listed price (never added on top)
 
 const CATALOG = [
-  { key: 'event_small',  name: 'Event Album — Small',  desc: 'Shared event album: up to 100 guests, 100 GB. One-time payment.',
+  { key: 'event_small',  name: 'Event Album — Small',  desc: 'Shared event album: 100 GB, recommended for about 100 guests. One-time payment, taxes included.',
     kind: 'event', tier: 'small',  amount: '3999',  priceName: 'Event Album Small' },
-  { key: 'event_medium', name: 'Event Album — Medium', desc: 'Shared event album: up to 250 guests, 200 GB. One-time payment.',
+  { key: 'event_medium', name: 'Event Album — Medium', desc: 'Shared event album: 200 GB, recommended for about 250 guests. One-time payment, taxes included.',
     kind: 'event', tier: 'medium', amount: '6999',  priceName: 'Event Album Medium' },
-  { key: 'event_large',  name: 'Event Album — Large',  desc: 'Shared event album: up to 500 guests, 400 GB. One-time payment.',
+  { key: 'event_large',  name: 'Event Album — Large',  desc: 'Shared event album: 400 GB, recommended for about 500 guests. One-time payment, taxes included.',
     kind: 'event', tier: 'large',  amount: '12999', priceName: 'Event Album Large' },
   { key: 'pro_monthly',  name: 'Albums Pro',           desc: 'Albums Pro: photos up to 4K, videos up to 500 MB, 10 collaborators per album, analytics.',
     kind: 'pro', tier: null, amount: '999', priceName: 'Monthly', monthly: true },

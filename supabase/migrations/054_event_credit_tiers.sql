@@ -27,6 +27,11 @@
 --     тарифа потратить; без p_tier — самый крупный (как в 053).
 --  5. admin_grant_event(+ p_tier) — ручная выдача/отзыв с тарифом.
 --  6. admin_users / admin_stats — разбивка по тарифам для панели модерации.
+--  7. Срок хранения: 6 месяцев с ПЕРВОЙ загрузки в альбом (не с оплаты и не
+--     с создания). albums.event_first_upload_at и event_storage_until ставит
+--     триггер на album_media при первой загрузке; продление (+6 месяцев) —
+--     будущая оплата сдвинет event_storage_until. Здесь только учёт срока:
+--     ни удаления, ни оплаты продления нет. Непотраченный кредит не сгорает.
 --
 -- Повторный запуск безопасен.
 -- =====================================================================
@@ -418,11 +423,116 @@ returns jsonb language sql stable security definer set search_path = public as $
   );
 $$;
 
+-- ---------------------------------------------------------------- 7. срок хранения
+
+alter table public.albums add column if not exists event_first_upload_at timestamptz;
+alter table public.albums add column if not exists event_storage_until   timestamptz;
+
+/**
+ * Тело из 053 + две колонки срока. Их, как и тариф, нельзя выставить себе
+ * руками: пишет только event_album_create / сервисный ключ либо триггер
+ * первой загрузки (локальная настройка app.event_clock).
+ */
+create or replace function public.trg_album_event_guard()
+returns trigger language plpgsql security definer set search_path = public as $$
+declare r text; allowed boolean; clock boolean;
+begin
+  begin
+    r := nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'role';
+  exception when others then r := null;
+  end;
+  allowed := coalesce(r, 'service_role') = 'service_role'
+          or coalesce(current_setting('app.event_create', true), '') = '1';
+  clock := allowed or coalesce(current_setting('app.event_clock', true), '') = '1';
+  if not allowed then
+    if tg_op = 'INSERT' then
+      new.is_event         := false;
+      new.event_tier       := null;
+      new.event_guest_cap  := null;
+      new.event_storage_gb := null;
+    else
+      new.is_event         := old.is_event;
+      new.event_tier       := old.event_tier;
+      new.event_guest_cap  := old.event_guest_cap;
+      new.event_storage_gb := old.event_storage_gb;
+    end if;
+  end if;
+  if not clock then
+    if tg_op = 'INSERT' then
+      new.event_first_upload_at := null;
+      new.event_storage_until   := null;
+    else
+      new.event_first_upload_at := old.event_first_upload_at;
+      new.event_storage_until   := old.event_storage_until;
+    end if;
+  end if;
+  return new;
+end $$;
+
+/**
+ * Первая загрузка в событийный альбом запускает срок хранения: 6 месяцев.
+ * Кто загрузил — автор или гость — не важно. Повторные загрузки срок не
+ * трогают (where event_first_upload_at is null).
+ */
+create or replace function public.trg_event_first_upload()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  perform set_config('app.event_clock', '1', true);
+  update albums
+     set event_first_upload_at = now(),
+         event_storage_until   = now() + interval '6 months'
+   where id = new.album_id and is_event and event_first_upload_at is null;
+  perform set_config('app.event_clock', '', true);
+  return null;
+end $$;
+
+drop trigger if exists album_media_event_clock_t on public.album_media;
+create trigger album_media_event_clock_t after insert on public.album_media
+  for each row execute function public.trg_event_first_upload();
+
+-- уже идущие события: срок — от самого раннего файла альбома
+alter table public.albums disable trigger albums_touch_t;
+update public.albums a
+   set event_first_upload_at = f.first_at,
+       event_storage_until   = f.first_at + interval '6 months'
+  from (select am.album_id, min(m.created_at) as first_at
+          from public.album_media am join public.media m on m.id = am.media_id
+         group by am.album_id) f
+ where f.album_id = a.id and a.is_event and a.event_first_upload_at is null;
+alter table public.albums enable trigger albums_touch_t;
+
+/** Тело из 053 + срок хранения (null — загрузок ещё не было, срок не идёт). */
+create or replace function public.my_event_albums()
+returns jsonb language sql stable security definer set search_path = public as $$
+  select coalesce((
+    select jsonb_agg(jsonb_build_object(
+      'id', a.id, 'title', a.title, 'visibility', a.visibility, 'published_at', a.published_at,
+      'moderation_status', a.moderation_status, 'created_at', a.created_at,
+      'hold', a.event_hold_guest,
+      'tier', coalesce(a.event_tier, 'small'),
+      'guest_cap', coalesce(a.event_guest_cap, 100), 'storage_gb', coalesce(a.event_storage_gb, 100),
+      'first_upload_at', a.event_first_upload_at, 'storage_until', a.event_storage_until,
+      'photos_count', a.photos_count, 'videos_count', a.videos_count,
+      'items_total', (select count(*) from album_media am where am.album_id = a.id),
+      'items_hidden', (select count(*) from album_media am
+                       where am.album_id = a.id and am.visibility = 'private'),
+      'guests', (select count(*) from album_collaborators c where c.album_id = a.id),
+      'cover_path', (select coalesce(m.thumb_path, m.storage_path) from media m where m.id = a.cover_media_id),
+      'thumb1', (select coalesce(m.thumb_path, m.storage_path)
+                 from album_media am join media m on m.id = am.media_id
+                 where am.album_id = a.id and m.kind <> 'audio'
+                 order by am.position limit 1)
+    ) order by a.created_at desc)
+    from albums a
+    where a.author_id = auth.uid() and a.is_event), '[]'::jsonb);
+$$;
+
 -- ---------------------------------------------------------------- гранты
 -- Supabase раздаёт execute новым функциям через default privileges, поэтому
 -- служебным отзываем явно (гоча миграции 020).
 
 revoke execute on function public.event_credits_split(uuid)                   from public, anon, authenticated;
+revoke execute on function public.trg_event_first_upload()                     from public, anon, authenticated;
 revoke execute on function public.paypal_grant_event_tier(text, uuid, text)   from public, anon, authenticated;
 revoke execute on function public.admin_grant_event(text, int, text)          from public, anon, authenticated;
 revoke execute on function public.admin_users(text, text, text, int, int)     from public, anon, authenticated;
@@ -432,5 +542,6 @@ revoke execute on function public.my_event_credit_tiers()                     fr
 revoke execute on function public.event_album_create(text, text, text, text)  from public, anon;
 grant execute on function
   public.my_event_credit_tiers(),
+  public.my_event_albums(),
   public.event_album_create(text, text, text, text)
 to authenticated;

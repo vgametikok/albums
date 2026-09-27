@@ -29,7 +29,7 @@ const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
 // независимых источниках — сигнал уверенности для языковых моделей.
 const CANON =
   'Albums collects wedding and event photos from guests by QR code — no app, '
-  + 'no signup, no expiry timer, full export — lets guests keep their shots '
+  + 'no signup, no per-guest limits, full export — lets guests keep their shots '
   + 'in their own free account, and turns memories into story albums with '
   + 'chapters and narration.';
 
@@ -54,9 +54,9 @@ const APP_LD = {
   offers: [
     { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Pro', price: '9.99', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Event Album — Small (up to 100 guests, 100 GB)', price: '39.99', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Event Album — Medium (up to 250 guests, 200 GB)', price: '69.99', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Event Album — Large (up to 500 guests, 400 GB)', price: '129.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Small (100 GB, for about 100 guests)', price: '39.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Medium (200 GB, for about 250 guests)', price: '69.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Event Album — Large (400 GB, for about 500 guests)', price: '129.99', priceCurrency: 'USD' },
   ],
 };
 
@@ -83,7 +83,7 @@ export const HOME_FAQ = [
   ['Do guests need to download an app or sign up?',
    'No. Guests open the link or scan the QR code and upload from the browser. No app to install, no account to create.'],
   ['How long does the event album live?',
-   'As long as you need. We delete nothing on a timer and charge nothing extra for storage — unlike typical QR photo services that keep guest uploads for 3–12 months.'],
+   'Files are stored for 6 months from the first upload into the album — not from the payment or from creating it — and you can extend storage by another 6 months. You can download everything as one archive at any time.'],
   ['Can I download all the photos at once?',
    'Yes. Any album exports as a single archive with the original files — your photos are never locked in.'],
   ['Who owns the photos guests upload?',
@@ -107,17 +107,17 @@ const EA_FAQ = [
   ['Do they need an Albums account?',
    'Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later.'],
   ['How many guests can I invite?',
-   'Up to 100, 250 or 500, depending on the plan. There is one code and it never changes.'],
+   "As many as you like. The 100, 250 or 500 on the plans is only a guide for choosing one: we don't count or limit guests or uploads, and each guest can upload as many times as they like. The only real limit is storage. There is one code and it never changes."],
   ['How long does the album live?',
-   'As long as you need. We delete nothing on a timer and charge nothing extra for storage.'],
+   'Files are stored for 6 months from the first upload into the album — not from the payment or from creating it. Before the period ends you can extend storage by another 6 months or download everything as one archive.'],
   ['How many photos fit?',
-   'Small holds 100 GB, Medium 200 GB and Large 400 GB — tens of thousands of photos. If you run out of space, you can buy more. Video is capped at 50 MB per file.'],
+   'Small holds 100 GB, Medium 200 GB and Large 400 GB — tens of thousands of photos. Ran out of space? No problem — you can add more. Video is capped at 50 MB per file.'],
   ['Can I hide the bad shots?',
    'Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision.'],
   ['What if the code reaches strangers?',
    'Issue a new link — the old QR stops working. Everyone who already joined stays.'],
   ['Need a second album for another event?',
-   'That is another purchase. Nothing expires: buy it in advance and create the album when the date is set.'],
+   "That is another purchase. It doesn't expire: buy it in advance and create the album when the date is set — storage starts with the first upload."],
 ];
 export const EVENT_FAQ = [
   HOME_FAQ[0], ...EA_FAQ.slice(0, 4), HOME_FAQ[3], HOME_FAQ[4],
@@ -153,7 +153,7 @@ const PAGES = {
   'pricing.html': {
     path: '/pricing',
     title: 'Pricing: Free, Pro $9.99, Event Album from $39.99 — Albums',
-    desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album from $39.99 one-time — Small, Medium or Large, up to 500 guests who upload by QR code.',
+    desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album from $39.99 one-time — Small, Medium or Large (100–400 GB) for events of about 100 to 500 guests who upload by QR code. Taxes included.',
     ld: [faq(PRICING_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
@@ -162,7 +162,7 @@ const PAGES = {
   'events/index.html': {
     path: '/events/',
     title: 'Event Albums — Every Guest Photo with One QR Code | Albums',
-    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. No expiry timer, full export anytime, and guests keep their shots too.',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their shots too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
