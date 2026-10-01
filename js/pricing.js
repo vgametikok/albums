@@ -9,7 +9,7 @@
 // общем js/checkout.js — одна логика на обе страницы.
 import { initI18n, t } from './i18n.js';
 import { wireCheckout } from './checkout.js';
-import { loadPaddle } from './paddle.js';
+import { loadPaddle, initRetain } from './paddle.js';
 
 (async function main() {
   await initI18n();
@@ -21,6 +21,8 @@ import { loadPaddle } from './paddle.js';
   // Эта страница — «Default payment link» в кабинете Paddle: ссылки на оплату
   // из писем Paddle ведут сюда с ?_ptxn=txn_…, и Paddle.js сам открывает окно.
   if (new URLSearchParams(location.search).has('_ptxn')) loadPaddle().catch(() => {});
+  // Paddle Retain для уже плативших (только live и только при известном ctm_…).
+  else initRetain();
 
   // Paddle — основной способ (overlay), PayPal — ссылка под кнопкой.
   wireCheckout(['pro-cta'], 'create-subscription', 'pro_after_login', {

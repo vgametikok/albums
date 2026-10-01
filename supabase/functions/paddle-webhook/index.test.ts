@@ -18,7 +18,7 @@ function fakeDeps(over: Partial<any> = {}) {
   const calls = { grants: [] as any[], subs: [] as any[], marked: [] as string[], logs: [] as any[] };
   const seenSet = new Set<string>();
   const owned = new Map<string, string>();
-  const d = {
+  const d: any = {
     env: 'sandbox' as const, secret: SECRET, now: () => NOW,
     sandboxAllow: ['qa@albums.ink'],
     userEmail: async (u: string) => (u === UID ? 'QA@albums.ink' : 'stranger@example.com'),
@@ -30,6 +30,8 @@ function fakeDeps(over: Partial<any> = {}) {
     log: (...a: unknown[]) => { calls.logs.push(a); },
     ...over,
   };
+  // Среду теперь задаёт подпись: env/secret из теста превращаем в secrets.
+  if (!(over as any).secrets) (d as any).secrets = { [d.env]: d.secret };
   return { d, calls, owned };
 }
 
@@ -207,7 +209,7 @@ Deno.test('subscription for a non-Pro price is ignored', async () => {
   assertEquals(calls.subs.length, 0);
 });
 
-Deno.test('live env with empty price table grants nothing for sandbox ids', async () => {
+Deno.test('live-signed event with sandbox price ids grants nothing', async () => {
   const { d, calls } = fakeDeps({ env: 'live' });
   await m.handle(await signed(txn()), d);
   assertEquals(calls.grants.length, 0);
@@ -340,4 +342,204 @@ Deno.test('quantity > 1 grants each unit with the price tier under distinct orde
   const r = await m.handle(await signed(body), d);
   assertEquals(r.status, 200);
   assertEquals(calls.grants, [['txn_01abc', UID, 'large'], ['txn_01abc#2', UID, 'large']]);
+});
+
+// ── IP-фильтр ───────────────────────────────────────────────────────────────
+const LIVE_IPS = ['34.237.3.244/32', '34.195.105.136/32', '34.232.58.13/32', '35.155.119.135/32', '34.212.5.7/32', '52.11.166.252/32'];
+
+function withIp(req: Request, headers: Record<string, string>) {
+  const h = new Headers(req.headers);
+  for (const [k, v] of Object.entries(headers)) h.set(k, v);
+  return new Request(req, { headers: h });
+}
+
+Deno.test('ipInCidrs: exact /32, ranges, mapped IPv6, garbage', () => {
+  assert(m.ipInCidrs('34.237.3.244', LIVE_IPS));
+  assert(!m.ipInCidrs('34.237.3.245', LIVE_IPS));
+  assert(m.ipInCidrs('10.1.2.3', ['10.0.0.0/8']));
+  assert(!m.ipInCidrs('11.1.2.3', ['10.0.0.0/8']));
+  assert(m.ipInCidrs('192.168.5.200', ['192.168.5.128/25']));
+  assert(!m.ipInCidrs('192.168.5.10', ['192.168.5.128/25']));
+  assert(m.ipInCidrs('::ffff:52.11.166.252', LIVE_IPS));
+  assert(!m.ipInCidrs('2001:db8::1', LIVE_IPS));
+  assert(!m.ipInCidrs('not-an-ip', LIVE_IPS));
+  assert(!m.ipInCidrs('999.1.1.1', ['0.0.0.0/0']));
+  assert(m.ipInCidrs('34.212.5.7', ['34.212.5.7']));        // голый адрес = /32
+});
+
+Deno.test('clientIp: first X-Forwarded-For hop, then CF-Connecting-IP, then X-Real-IP', () => {
+  assertEquals(m.clientIp(new Headers({ 'x-forwarded-for': '34.237.3.244, 172.70.1.1, 10.0.0.1' })), { ip: '34.237.3.244', via: 'x-forwarded-for' });
+  assertEquals(m.clientIp(new Headers({ 'cf-connecting-ip': '34.212.5.7' })), { ip: '34.212.5.7', via: 'cf-connecting-ip' });
+  assertEquals(m.clientIp(new Headers({ 'x-real-ip': '1.2.3.4' })), { ip: '1.2.3.4', via: 'x-real-ip' });
+  assertEquals(m.clientIp(new Headers({})), null);
+});
+
+Deno.test('IP allowlist: Paddle IP passes, foreign IP gets 403 before any processing', async () => {
+  const { d, calls } = fakeDeps({ ipAllow: async () => LIVE_IPS });
+  const ok = await m.handle(withIp(await signed(txn()), { 'x-forwarded-for': '34.232.58.13, 172.70.0.1' }), d as any);
+  assertEquals(ok.status, 200);
+  assertEquals(calls.grants.length, 1);
+
+  const { d: d2, calls: c2 } = fakeDeps({ ipAllow: async () => LIVE_IPS });
+  const bad = await m.handle(withIp(await signed(txn({ id: 'txn_02' })), { 'x-forwarded-for': '203.0.113.9' }), d2 as any);
+  assertEquals(bad.status, 403);
+  assertEquals(c2.grants.length, 0);
+  assertEquals(c2.marked.length, 0);
+});
+
+Deno.test('IP allowlist never replaces the signature: Paddle IP + bad signature = 401', async () => {
+  const { d, calls } = fakeDeps({ ipAllow: async () => LIVE_IPS });
+  const r = await m.handle(withIp(await signed(txn(), { secret: 'wrong' }), { 'x-forwarded-for': '34.237.3.244' }), d as any);
+  assertEquals(r.status, 401);
+  assertEquals(calls.grants.length, 0);
+});
+
+Deno.test('IP list unavailable or no client IP header -> signature-only, logged', async () => {
+  const { d, calls } = fakeDeps({ ipAllow: async () => null });
+  const r = await m.handle(withIp(await signed(txn()), { 'x-forwarded-for': '203.0.113.9' }), d as any);
+  assertEquals(r.status, 200);
+  assertEquals(calls.grants.length, 1);
+  assert(calls.logs.some(l => String(l[0]).includes('IP list unavailable')));
+
+  const { d: d2, calls: c2 } = fakeDeps({ ipAllow: async () => { throw new Error('boom'); } });
+  assertEquals((await m.handle(withIp(await signed(txn()), { 'x-forwarded-for': '203.0.113.9' }), d2 as any)).status, 200);
+  assertEquals(c2.grants.length, 1);
+
+  const { d: d3, calls: c3 } = fakeDeps({ ipAllow: async () => LIVE_IPS });
+  assertEquals((await m.handle(await signed(txn()), d3 as any)).status, 200);   // без заголовков адреса
+  assert(c3.logs.some(l => String(l[0]).includes('no client IP header')));
+});
+
+Deno.test('PADDLE_IP_CHECK=log lets a foreign IP through (logged), off skips the check', async () => {
+  const { d, calls } = fakeDeps({ ipAllow: async () => LIVE_IPS, ipCheck: 'log' });
+  assertEquals((await m.handle(withIp(await signed(txn()), { 'x-forwarded-for': '203.0.113.9' }), d as any)).status, 200);
+  assert(calls.logs.some(l => String(l[0]).includes('non-Paddle IP')));
+  let asked = false;
+  const { d: d2 } = fakeDeps({ ipAllow: async () => { asked = true; return LIVE_IPS; }, ipCheck: 'off' });
+  assertEquals((await m.handle(withIp(await signed(txn()), { 'x-forwarded-for': '203.0.113.9' }), d2 as any)).status, 200);
+  assert(!asked);
+});
+
+Deno.test('makeIpList: parses data.ipv4_cidrs, caches 1h, retries failures after 1 min, keeps last good list', async () => {
+  let t = 0, n = 0, fail = false;
+  const f = (async (url: string) => {
+    n++;
+    assertEquals(url, 'https://api.paddle.com/ips');
+    if (fail) return new Response('x', { status: 503 });
+    return Response.json({ data: { ipv4_cidrs: LIVE_IPS } });
+  }) as unknown as typeof fetch;
+  const get = m.makeIpList(m.ipsUrl('live'), f, () => t);
+  assertEquals(await get(), LIVE_IPS);
+  t = 59 * 60 * 1000; await get(); assertEquals(n, 1);          // из кэша
+  t = 61 * 60 * 1000; fail = true;
+  assertEquals(await get(), LIVE_IPS); assertEquals(n, 2);      // сбой — прежний список
+  t += 30 * 1000; await get(); assertEquals(n, 2);              // повтор не раньше минуты
+  t += 31 * 1000; fail = false; await get(); assertEquals(n, 3);
+
+  const bad = m.makeIpList(m.ipsUrl('live'), (async () => new Response('x', { status: 500 })) as unknown as typeof fetch, () => 0);
+  assertEquals(await bad(), null);                              // никогда не было — null
+  assertEquals(m.ipsUrl('sandbox'), 'https://sandbox-api.paddle.com/ips');
+});
+
+// ── Paddle ID покупателя для Retain ─────────────────────────────────────────
+const CTM = 'ctm_01m3gnx0aaaaaaaaaaaaaaaaaa';
+
+Deno.test('customer id: stored after an allowed event grant and a Pro subscription; never blocks', async () => {
+  const saved: any[] = [];
+  const { d } = fakeDeps({ setCustomer: async (...a: any[]) => { saved.push(a); } });
+  assertEquals((await m.handle(await signed(txn({ customer_id: CTM })), d as any)).status, 200);
+  assertEquals(saved, [[UID, 'sandbox', CTM]]);
+  assertEquals((await m.handle(await signed(sub('active', { customer_id: CTM })), d as any)).status, 200);
+  assertEquals(saved.length, 2);
+
+  // не ctm_… — не пишем
+  const { d: d2 } = fakeDeps({ setCustomer: async (...a: any[]) => { saved.push(a); } });
+  await m.handle(await signed(txn({ id: 'txn_09', customer_id: 'ctm_01x' })), d2 as any);
+  assertEquals(saved.length, 2);
+
+  // песочница, чужая почта — ни выдачи, ни записи
+  const { d: d3 } = fakeDeps({ setCustomer: async (...a: any[]) => { saved.push(a); }, userEmail: async () => 'stranger@example.com' });
+  await m.handle(await signed(txn({ id: 'txn_10', customer_id: CTM })), d3 as any);
+  assertEquals(saved.length, 2);
+
+  // сбой записи не ломает выдачу
+  const { d: d4, calls: c4 } = fakeDeps({ setCustomer: async () => { throw new Error('no fn'); } });
+  const r = await m.handle(await signed(txn({ id: 'txn_11', customer_id: CTM })), d4 as any);
+  assertEquals(r.status, 200);
+  assertEquals(c4.grants.length, 1);
+  assert(c4.logs.some(l => String(l[0]).includes('setCustomer failed')));
+});
+
+Deno.test('API base per env (live = api.paddle.com)', () => {
+  assertEquals(m.API_BASE.live, 'https://api.paddle.com');
+  assertEquals(m.API_BASE.sandbox, 'https://sandbox-api.paddle.com');
+});
+
+// ── Обе среды в одной функции ───────────────────────────────────────────────
+const LIVE_SECRET = 'pdl_ntfset_live_test_secret';
+const LSMALL = 'pri_01m3tf9j4sanm5rcxx38h4dvj7';
+const LPRO = 'pri_01m3tf9jtgj1ne0rzqm3bgxbp3';
+const SANDBOX_IPS = ['3.208.120.145/32', '54.234.237.108/32'];
+
+Deno.test('dual env: live secret -> live prices, no email gate; sandbox secret -> sandbox prices + allowlist', async () => {
+  let asked = false;
+  const { d, calls } = fakeDeps({
+    secrets: { live: LIVE_SECRET, sandbox: SECRET }, sandboxAllow: [],
+    userEmail: async () => { asked = true; return 'stranger@example.com'; },
+  });
+  const liveTxn = txn({ id: 'txn_live1', items: [{ quantity: 1, price: { id: LSMALL, unit_price: { amount: '3999', currency_code: 'USD' } } }] });
+  const r = await m.handle(await signed(liveTxn, { secret: LIVE_SECRET }), d as any);
+  assertEquals(r.status, 200);
+  assertEquals((await r.json()).env, 'live');
+  assertEquals(calls.grants, [['txn_live1', UID, 'small']]);
+  assertEquals(asked, false);
+
+  // та же песочная покупка, подписанная sandbox-секретом: allowlist пуст — ничего
+  const r2 = await m.handle(await signed({ ...txn(), event_id: 'evt_sb2' }), d as any);
+  assertEquals((await r2.json()).skipped, 'sandbox_not_allowed');
+  assertEquals(calls.grants.length, 1);
+
+  // live Pro-подписка
+  const ls = sub('active', { items: [{ quantity: 1, price: { id: LPRO, unit_price: { amount: '999', currency_code: 'USD' } } }] }, 'subscription.activated');
+  assertEquals((await m.handle(await signed(ls, { secret: LIVE_SECRET }), d as any)).status, 200);
+  assertEquals(calls.subs.length, 1);
+});
+
+Deno.test('dual env: cross-env price ids never grant', async () => {
+  const { d, calls } = fakeDeps({ secrets: { live: LIVE_SECRET, sandbox: SECRET } });
+  // live-подпись + sandbox-цена
+  await m.handle(await signed(txn(), { secret: LIVE_SECRET }), d as any);
+  // sandbox-подпись + live-цена
+  await m.handle(await signed({ ...txn({ items: [{ quantity: 1, price: { id: LSMALL, unit_price: { amount: '3999', currency_code: 'USD' } } }] }), event_id: 'evt_x2' }), d as any);
+  assertEquals(calls.grants.length, 0);
+});
+
+Deno.test('dual env: missing live secret rejects live deliveries; unknown secret 401', async () => {
+  const { d } = fakeDeps({ secrets: { sandbox: SECRET } });
+  assertEquals((await m.handle(await signed(txn(), { secret: LIVE_SECRET }), d as any)).status, 401);
+  const { d: d2 } = fakeDeps({ secrets: { live: '', sandbox: '' } });
+  assertEquals((await m.handle(await signed(txn()), d2 as any)).status, 401);
+});
+
+Deno.test('dual env: IP list follows the env that signed; customer id stored per env', async () => {
+  const askedFor: string[] = [];
+  const saved: any[] = [];
+  const { d, calls } = fakeDeps({
+    secrets: { live: LIVE_SECRET, sandbox: SECRET },
+    ipAllow: async (e: string) => { askedFor.push(e); return e === 'live' ? LIVE_IPS : SANDBOX_IPS; },
+    setCustomer: async (...a: any[]) => { saved.push(a); },
+  });
+  const liveTxn = txn({ id: 'txn_l2', customer_id: CTM, items: [{ quantity: 1, price: { id: LSMALL, unit_price: { amount: '3999', currency_code: 'USD' } } }] });
+  // live-событие с sandbox-адреса — 403
+  const bad = await m.handle(withIp(await signed(liveTxn, { secret: LIVE_SECRET }), { 'x-forwarded-for': '3.208.120.145' }), d as any);
+  assertEquals(bad.status, 403);
+  // live-событие с live-адреса — ок
+  const ok = await m.handle(withIp(await signed(liveTxn, { secret: LIVE_SECRET }), { 'x-forwarded-for': '52.11.166.252' }), d as any);
+  assertEquals(ok.status, 200);
+  // sandbox-событие с sandbox-адреса — ок
+  const sb = await m.handle(withIp(await signed({ ...txn({ customer_id: CTM }), event_id: 'evt_sb9' }), { 'x-forwarded-for': '54.234.237.108' }), d as any);
+  assertEquals(sb.status, 200);
+  assertEquals(askedFor, ['live', 'live', 'sandbox']);
+  assertEquals(calls.grants.length, 2);
+  assertEquals(saved, [[UID, 'live', CTM], [UID, 'sandbox', CTM]]);
 });

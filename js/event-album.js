@@ -13,7 +13,7 @@
 import { initI18n, t } from './i18n.js';
 import { sb } from './sb.js';
 import { wireCheckout } from './checkout.js';
-import { PADDLE_ENABLED } from './paddle.js';
+import { PADDLE_ENABLED, initRetain } from './paddle.js';
 
 (async function main() {
   await initI18n();
@@ -41,6 +41,7 @@ import { PADDLE_ENABLED } from './paddle.js';
 
   wireTiers();
   showOwned();
+  initRetain();   // Paddle Retain для уже плативших (только live, только при известном ctm_…)
 })();
 
 /**
