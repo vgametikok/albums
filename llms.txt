@@ -40,7 +40,7 @@ like a story.
   upload any number of times; storage is the only limit, and more space can
   be added if it runs out. Files are stored for 6 months from the first
   upload (not from the payment), and the owner can extend storage by another
-  6 months. An unused purchase does not expire. Guests never pay.
+  6 months. A purchased album can be started whenever you like. Guests never pay.
 
 ## Key pages
 

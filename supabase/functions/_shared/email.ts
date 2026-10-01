@@ -106,7 +106,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} are paid and already available in your account, in the “{cabinet}” section.',
     row_plan: 'Plan', row_storage: 'Storage', row_period: 'Storage period', row_price: 'Price',
     pe_period: '6 months from the first upload into the album, can be extended',
-    pe_p2: 'The purchase doesn’t expire: create the album whenever you are ready — the 6 months start with the first photo.',
+    pe_p2: 'Start the album whenever you are ready — there is no deadline, and the 6 months begin with the first photo.',
     receipt: 'The payment receipt comes separately from our payment provider.',
 
     pp_subject: 'Albums Pro is active',
@@ -179,7 +179,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} оплачены и уже доступны в вашем личном кабинете, в разделе «{cabinet}».',
     row_plan: 'Тариф', row_storage: 'Хранилище', row_period: 'Срок хранения', row_price: 'Цена',
     pe_period: '6 месяцев с первой загрузки в альбом, можно продлить',
-    pe_p2: 'Покупка не сгорает: создайте альбом, когда будете готовы, — 6 месяцев отсчитываются с первого фото.',
+    pe_p2: 'Начните альбом, когда будете готовы, — срока нет, 6 месяцев отсчитываются с первого фото.',
     receipt: 'Чек об оплате придёт отдельно от платёжного партнёра.',
 
     pp_subject: 'Albums Pro подключён',
@@ -252,7 +252,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} đã được thanh toán và có sẵn trong tài khoản của bạn, ở mục “{cabinet}”.',
     row_plan: 'Gói', row_storage: 'Dung lượng', row_period: 'Thời hạn lưu trữ', row_price: 'Giá',
     pe_period: '6 tháng kể từ lần tải lên đầu tiên vào album, có thể gia hạn',
-    pe_p2: 'Gói đã mua không hết hạn: hãy tạo album khi bạn sẵn sàng — 6 tháng bắt đầu từ bức ảnh đầu tiên.',
+    pe_p2: 'Hãy bắt đầu album khi bạn sẵn sàng — không có thời hạn, và 6 tháng bắt đầu từ bức ảnh đầu tiên.',
     receipt: 'Biên lai thanh toán sẽ được đối tác thanh toán gửi riêng.',
 
     pp_subject: 'Albums Pro đã được kích hoạt',
@@ -325,7 +325,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} sont payés et déjà disponibles dans votre compte, rubrique « {cabinet} ».',
     row_plan: 'Offre', row_storage: 'Stockage', row_period: 'Durée de stockage', row_price: 'Prix',
     pe_period: '6 mois à partir du premier envoi dans l’album, prolongeable',
-    pe_p2: 'L’achat n’expire pas : créez l’album quand vous êtes prêt — les 6 mois commencent avec la première photo.',
+    pe_p2: 'Lancez l’album quand vous êtes prêt — aucune date limite, et les 6 mois commencent avec la première photo.',
     receipt: 'Le reçu de paiement vous est envoyé séparément par notre prestataire de paiement.',
 
     pp_subject: 'Albums Pro est activé',
@@ -398,7 +398,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} están pagados y ya disponibles en tu cuenta, en la sección «{cabinet}».',
     row_plan: 'Plan', row_storage: 'Almacenamiento', row_period: 'Plazo de almacenamiento', row_price: 'Precio',
     pe_period: '6 meses desde la primera subida al álbum, ampliable',
-    pe_p2: 'La compra no caduca: crea el álbum cuando quieras — los 6 meses empiezan con la primera foto.',
+    pe_p2: 'Empieza el álbum cuando quieras: no hay fecha límite y los 6 meses empiezan con la primera foto.',
     receipt: 'El recibo de pago te llegará por separado de nuestro proveedor de pagos.',
 
     pp_subject: 'Albums Pro está activo',
@@ -471,7 +471,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product} — {tier} sind bezahlt und bereits in deinem Konto verfügbar, im Bereich „{cabinet}“.',
     row_plan: 'Tarif', row_storage: 'Speicher', row_period: 'Speicherdauer', row_price: 'Preis',
     pe_period: '6 Monate ab dem ersten Upload ins Album, verlängerbar',
-    pe_p2: 'Der Kauf verfällt nicht: Erstelle das Album, wann du willst — die 6 Monate beginnen mit dem ersten Foto.',
+    pe_p2: 'Starte das Album, wann du bereit bist – es gibt keine Frist, und die 6 Monate beginnen mit dem ersten Foto.',
     receipt: 'Den Zahlungsbeleg erhältst du separat von unserem Zahlungsanbieter.',
 
     pp_subject: 'Albums Pro ist aktiv',
@@ -544,7 +544,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{n} × {product}——{tier}已付款，现已在你的账户“{cabinet}”栏目中可用。',
     row_plan: '方案', row_storage: '存储空间', row_period: '存储期限', row_price: '价格',
     pe_period: '自首次上传到相册起 6 个月，可续期',
-    pe_p2: '购买不会过期：准备好后再创建相册——6 个月从第一张照片开始计算。',
+    pe_p2: '准备好后随时开始相册——没有期限，6 个月从第一张照片开始计算。',
     receipt: '付款收据将由我们的支付服务商另行发送。',
 
     pp_subject: 'Albums Pro 已开通',
@@ -617,7 +617,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{product} — {tier} {n}개 결제가 완료되어 계정의 “{cabinet}” 메뉴에서 바로 사용할 수 있습니다.',
     row_plan: '요금제', row_storage: '저장 공간', row_period: '보관 기간', row_price: '가격',
     pe_period: '앨범에 처음 업로드한 날부터 6개월, 연장 가능',
-    pe_p2: '구매한 이용권은 만료되지 않습니다. 준비되면 앨범을 만드세요. 6개월은 첫 사진부터 시작됩니다.',
+    pe_p2: '준비되면 언제든 앨범을 시작하세요. 기한은 없으며 6개월은 첫 사진부터 시작됩니다.',
     receipt: '결제 영수증은 결제 대행사에서 별도로 보내 드립니다.',
 
     pp_subject: 'Albums Pro가 활성화되었습니다',
@@ -690,7 +690,7 @@ export const STR: Record<Locale, Dict> = {
     pe_p1_many: '{product}（{tier}）×{n} のお支払いが完了し、マイアカウントの「{cabinet}」ですでにご利用いただけます。',
     row_plan: 'プラン', row_storage: 'ストレージ', row_period: '保存期間', row_price: '価格',
     pe_period: 'アルバムへの最初のアップロードから6か月（延長可能）',
-    pe_p2: '購入分に有効期限はありません。準備ができたらアルバムを作成してください。6か月は最初の写真から始まります。',
+    pe_p2: '準備ができたらいつでもアルバムを開始してください。期限はなく、6か月は最初の写真から始まります。',
     receipt: 'お支払いの領収書は、決済パートナーから別途お送りします。',
 
     pp_subject: 'Albums Pro が有効になりました',

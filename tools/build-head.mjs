@@ -117,7 +117,7 @@ const EA_FAQ = [
   ['What if the code reaches strangers?',
    'Issue a new link — the old QR stops working. Everyone who already joined stays.'],
   ['Need a second album for another event?',
-   "That is another purchase. It doesn't expire: buy it in advance and create the album when the date is set — storage starts with the first upload."],
+   "That is another purchase. Buy it in advance and start the album once the date is set — there's no deadline to start, and storage begins with the first upload."],
 ];
 export const EVENT_FAQ = [
   HOME_FAQ[0], ...EA_FAQ.slice(0, 4), HOME_FAQ[3], HOME_FAQ[4],
