@@ -905,6 +905,7 @@
   ea_price_unit: '/ Event',
   ea_pay_note: 'Zahlung über PayPal. Der Zugang öffnet sich direkt nach der Zahlung.',
   ea_pay_note_paddle: "Sichere Bezahlung — per Karte oder PayPal. Der Zugang wird direkt nach der Zahlung freigeschaltet.",
+  ea_refund_note: "Erstattung: volle Erstattung innerhalb von 14 Tagen nach dem Kauf, solange noch nichts ins Album hochgeladen wurde. Mit dem Kauf stimmst du zu, dass das Album sofort bereitsteht und der Kauf ab dem ersten hochgeladenen Foto oder Video nicht mehr erstattet wird (Fehler auf unserer Seite erstatten wir immer).",
   ea_faq_h: 'Fragen',
   ea_q1: 'Müssen Gäste eine App installieren?',
   ea_a1: 'Nein. Die Handy-Kamera öffnet eine ganz normale Webseite.',

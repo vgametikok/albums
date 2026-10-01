@@ -925,6 +925,7 @@ export default {
   ea_price_unit: '/ event',
   ea_pay_note: 'Paid through PayPal. Access opens right after the payment.',
   ea_pay_note_paddle: "Secure checkout — pay by card or PayPal. Access opens right after the payment.",
+  ea_refund_note: "Refunds: you can get a full refund within 14 days of purchase while nothing has been uploaded to the album. By buying, you agree that the album is available immediately and that once the first photo or video is uploaded, the purchase is non-refundable (faults on our side are always refunded).",
   ea_faq_h: 'Questions',
   ea_q1: 'Do guests have to install an app?',
   ea_a1: 'No. The phone camera opens an ordinary web page.',

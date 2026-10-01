@@ -895,6 +895,7 @@
   ea_price_unit: '/ événement',
   ea_pay_note: 'Paiement via PayPal. L’accès s’ouvre juste après le paiement.',
   ea_pay_note_paddle: "Paiement sécurisé — par carte ou PayPal. L'accès s'ouvre dès le paiement effectué.",
+  ea_refund_note: "Remboursement : remboursement intégral dans les 14 jours suivant l'achat tant que rien n'a été ajouté à l'album. En achetant, vous acceptez que l'album soit disponible immédiatement et qu'après l'ajout de la première photo ou vidéo, l'achat ne soit plus remboursable (les pannes de notre fait sont toujours remboursées).",
   ea_faq_h: 'Questions',
   ea_q1: 'Les invités doivent-ils installer une application ?',
   ea_a1: 'Non. L’appareil photo du téléphone ouvre une page web ordinaire.',

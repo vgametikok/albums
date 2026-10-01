@@ -903,6 +903,7 @@
   ea_price_unit: '/ sự kiện',
   ea_pay_note: 'Thanh toán qua PayPal. Mở quyền dùng ngay sau khi trả tiền.',
   ea_pay_note_paddle: "Thanh toán an toàn — bằng thẻ hoặc PayPal. Quyền truy cập mở ngay sau khi thanh toán.",
+  ea_refund_note: "Hoàn tiền: bạn được hoàn tiền đầy đủ trong vòng 14 ngày kể từ khi mua, miễn là chưa có gì được tải lên album. Khi mua, bạn đồng ý rằng album được cung cấp ngay lập tức và sau khi ảnh hoặc video đầu tiên được tải lên, giao dịch không còn được hoàn tiền (lỗi từ phía chúng tôi luôn được hoàn tiền).",
   ea_faq_h: 'Câu hỏi',
   ea_q1: 'Khách có phải cài ứng dụng không?',
   ea_a1: 'Không. Camera điện thoại mở một trang web bình thường.',

@@ -907,6 +907,7 @@
   ea_price_unit: '/ evento',
   ea_pay_note: 'Pago con PayPal. El acceso se abre justo después del pago.',
   ea_pay_note_paddle: "Pago seguro — con tarjeta o PayPal. El acceso se abre justo después del pago.",
+  ea_refund_note: "Reembolsos: reembolso completo en los 14 días posteriores a la compra mientras no se haya subido nada al álbum. Al comprar, aceptas que el álbum está disponible de inmediato y que, una vez subida la primera foto o vídeo, la compra deja de ser reembolsable (los fallos por nuestra parte siempre se reembolsan).",
   ea_faq_h: 'Preguntas',
   ea_q1: '¿Los invitados tienen que instalar una app?',
   ea_a1: 'No. La cámara del móvil abre una página web normal.',
