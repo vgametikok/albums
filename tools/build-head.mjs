@@ -75,6 +75,19 @@ const faq = (pairs) => ({
   })),
 });
 
+// Статья-гайд: заголовок совпадает с <h1> на странице.
+const article = (headline, path) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  mainEntityOfPage: SITE + path,
+  image: OG_IMAGE,
+  datePublished: '2026-10-03',
+  dateModified: '2026-10-03',
+  author: { '@type': 'Organization', name: 'Albums', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'Albums', url: SITE + '/' },
+});
+
 // Вопросы с бывшей гостевой витрины главной. Сама витрина переехала на
 // /events/, и эти вопросы (кроме повторов) теперь часть EVENT_FAQ ниже.
 export const HOME_FAQ = [
@@ -165,6 +178,34 @@ const PAGES = {
     desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their photos too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
+  },
+  // Гайды (SEO): английские статьи, FAQ-разметка совпадает с видимым текстом.
+  'guides/index.html': {
+    path: '/guides/',
+    title: 'Guides: Collecting Wedding and Event Photos from Guests | Albums',
+    desc: 'Practical guides for couples and hosts: how to collect wedding photos from guests without an app, QR code table sign ideas, and a shared cloud album vs a QR guest album.',
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  'guides/collect-wedding-photos-from-guests/index.html': {
+    path: '/guides/collect-wedding-photos-from-guests/',
+    title: "How to Collect Wedding Photos from Guests (No App Needed) | Albums",
+    desc: "A practical guide to gathering every guest photo and video from your wedding: why group chats and apps fail, how a QR code album works, what to set up before the day, and how to keep it all afterwards.",
+    ld: [faq([["How do I collect photos from wedding guests without an app?", "Put a QR code on every table. Guests scan it with the phone camera and upload photos and videos from the browser — no app and no account. With an Event Album on Albums everything lands in one album that belongs to you."], ["Do guests need to sign up to upload photos?", "No. Guests can upload without signing in, and their photos stay anonymous. If they want their name on them, or want the files in their own free account, they can sign in later."], ["How long can guests keep uploading?", "The upload window never closes. Storage runs 6 months from the first upload and can be extended by another 6 months."], ["How much does a wedding guest photo album cost?", "An Event Album is a one-time purchase per event: from $39.99 (Small), $69.99 (Medium) or $129.99 (Large), taxes included. Guests never pay."], ["Can I download all the wedding photos at once?", "Yes. The whole album downloads as one archive, with files by chapter and a text file of captions."]]), article("How to collect wedding photos from guests — without an app", '/guides/collect-wedding-photos-from-guests/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  'guides/wedding-qr-code-table-signs/index.html': {
+    path: '/guides/wedding-qr-code-table-signs/',
+    title: "Wedding QR Code Table Signs: Wording and Placement Ideas | Albums",
+    desc: "Practical ideas for wedding QR code signs: what to write, where to place them, sizes, and the small details that make guests scan and upload their photos.",
+    ld: [faq([["What should a wedding QR code sign say?", "Keep it short: your names, the date, the QR code and one instruction such as “Scan to add your photos”. Adding “no app, no sign-up” removes the main reason guests hesitate."], ["Where should I put QR codes at a wedding?", "One sign per table works best, plus the bar, the dessert table, the guest book and the photo corner. Showing the code on the venue screen next to a live photo wall also helps."], ["How big should a QR code be on a table sign?", "At least about 3–4 cm (1.5 in) across, dark on a light background, on matte paper. Test a printed sign with two phones in the venue light before printing them all."], ["What if the QR code gets shared with strangers?", "With an Event Album on Albums you can issue a new link: the old QR stops working and guests who already joined stay."]]), article("Wedding QR code photo sharing: table sign ideas that guests actually scan", '/guides/wedding-qr-code-table-signs/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  'guides/google-photos-vs-qr-guest-album/index.html': {
+    path: '/guides/google-photos-vs-qr-guest-album/',
+    title: "Google Photos Shared Album vs a QR Guest Album for Weddings | Albums",
+    desc: "Comparing a Google Photos shared album with a QR code guest album for collecting wedding photos: guest experience, privacy, organization, storage and cost.",
+    ld: [faq([["How is Albums different from a shared Google Photos album?", "Guests need no Google account and no app — they scan a QR code and upload from the browser. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription."], ["Can wedding guests upload without a Google account?", "Yes. With an Event Album on Albums, guests upload photos and videos from the phone browser without any account."], ["Is a QR guest album free?", "Story albums on Albums are free. An Event Album with the QR code is a one-time purchase per event, from $39.99; guests never pay."], ["Can I control which guest photos are visible?", "Yes. Every photo can be shown to everyone, kept for friends, or hidden, and you can turn on approval so guest photos wait for your decision."]]), article("Google Photos shared album vs a QR guest album for your wedding", '/guides/google-photos-vs-qr-guest-album/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'terms.html': {
     path: '/terms',

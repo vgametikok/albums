@@ -441,7 +441,7 @@ function mountFooter() {
       // Ссылка на блог (BLOG_URL, ключ foot_blog) вернётся, когда появится
       // /blog/ — старый поддомен blog.albums.ink не существует в DNS.
       // Лендинг QR-альбомов живёт на /events/ (раньше event-album.html).
-      ['/events/|foot_events', `/pricing.html|foot_pricing`,
+      ['/events/|foot_events', '/guides/|foot_guides', `/pricing.html|foot_pricing`,
         '/terms.html|foot_terms', '/privacy.html|foot_privacy', '/refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {

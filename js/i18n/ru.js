@@ -1,4 +1,5 @@
 ﻿export default {
+  foot_guides: 'Гайды',
   foot_support: 'Поддержка и предложения',
   foot_partnership: 'Партнёрство',
   foot_blog: 'Блог',
