@@ -19,6 +19,8 @@ const MM = 96 / 25.4;
 const SIZE = { v: [794, 1123], h: [1123, 794] };
 /** Пропорция банера = обложка альбома на странице события (css/base.css .ev-cover{aspect-ratio:3/1}). */
 export const BANNER_RATIO = 3;
+/** Отступ банера от края листа: внутри рамки дизайна (золотая — линия на 36px, неон — на 29px), одинаковый во всех дизайнах. */
+const BANNER_INSET = 50;
 const LS_KEY = (id) => `qrSign:${id}`;
 
 /** Дизайны: свои цвета по умолчанию, шрифт заголовка и украшения. */
@@ -484,7 +486,7 @@ export function renderSign(cfgIn, info) {
   const brand = el('div', { class: 'qs-brand', text: 'albums.ink' });
 
   const inner = el('div', { class: 'qs-inner' });
-  // Банер один: широкая полоса во всю ширину листа у верхнего края (в край, без скруглений)
+  // Банер один: широкая полоса 3:1 вверху, внутри рамки дизайна
   if (ph) root.appendChild(ph);
   if (cfg.orient === 'v') inner.append(...[text, code, brand].filter(Boolean));
   else inner.append(el('div', { class: 'qs-left' }, ...[text, brand].filter(Boolean)), code);
@@ -520,16 +522,17 @@ function fit(root, cfg, L) {
   };
   let { ph, qr } = L, k = 1;
   // Банер — ровно 3:1, как обложка альбома на странице события (.ev-cover), чтобы
-  // обложка вставала без перекадрирования. Книжная: во всю ширину листа.
-  // Альбомная: во всю ширину вышло бы слишком высоко — та же пропорция,
-  // но уже, по центру у верхнего края.
+  // обложка вставала без перекадрирования. Стоит внутри рамки дизайна с
+  // одинаковым отступом BANNER_INSET. Книжная: во всю внутреннюю ширину.
+  // Альбомная: так вышло бы слишком высоко — та же пропорция, но уже, по центру.
   const [W] = SIZE[cfg.orient];
   const minPh = v ? 200 : 170;
-  ph = cfg.photo && L.ph ? (v ? W / BANNER_RATIO : 230) : 0;
+  const BW = W - 2 * BANNER_INSET;   // ширина внутри рамки
+  ph = cfg.photo && L.ph ? (v ? BW / BANNER_RATIO : 220) : 0;
   qr = v ? (ph ? 360 : 460) : qr;
   const apply = () => {
     root.style.setProperty('--ph', ph + 'px');
-    root.style.setProperty('--pw', Math.min(W, ph * BANNER_RATIO) + 'px');
+    root.style.setProperty('--pw', Math.min(BW, ph * BANNER_RATIO) + 'px');
     root.style.setProperty('--tsize', Math.round(L.ts0 * k) + 'px');
     root.style.setProperty('--k', String(L.k0 * k));
     svg.setAttribute('width', String(qr)); svg.setAttribute('height', String(qr));
@@ -1099,7 +1102,7 @@ const CSS = `
 .qs-h .qs-brand{margin-top:34px}
 .qs-v .qs-inner{justify-content:center;padding-bottom:96px}
 .qs-v .qs-brand{position:absolute;left:0;right:0;bottom:44px;margin:0;padding:0}
-.qs-photo{position:absolute;left:calc((100% - var(--pw,100%)) / 2);top:0;width:var(--pw,100%);height:var(--ph);overflow:hidden;z-index:1;background:var(--bg);margin:0;border-radius:0}
+.qs-photo{position:absolute;left:calc((100% - var(--pw,100%)) / 2);top:50px;width:var(--pw,100%);height:var(--ph);overflow:hidden;z-index:1;background:var(--bg);margin:0;border-radius:0}
 .qs-photo img{display:block}
 
 .qs-v.qs-has-photo .qs-rule{margin:16px auto 12px}
@@ -1111,6 +1114,7 @@ const CSS = `
 .qs-fl{position:absolute;width:250px;height:233px}
 .qs-fl-a{left:-30px;top:-28px}
 .qs-fl-b{right:-30px;bottom:-28px;left:auto;top:auto;transform:rotate(180deg)}
+.qs-has-photo .qs-fl-a{z-index:2;width:160px;height:149px;left:-18px;top:-16px}
 .qs-h .qs-fl{width:220px;height:205px}
 .qs-flowers .qs-card{box-shadow:0 10px 30px rgba(120,60,70,.12)}
 .qs-v.qs-flowers .qs-inner{padding-top:180px}
@@ -1132,7 +1136,7 @@ const CSS = `
 /* gold */
 .qs-frame1{position:absolute;inset:26px;border:2px solid var(--acc)}
 .qs-frame2{position:absolute;inset:36px;border:.8px solid var(--acc)}
-.qs-corner{position:absolute;width:86px;height:86px;color:var(--acc)}
+.qs-corner{position:absolute;width:86px;height:86px;color:var(--acc);z-index:2}
 .qs-corner.qs-tl{left:16px;top:16px}
 .qs-corner.qs-tr{right:16px;top:16px;left:auto;transform:scaleX(-1)}
 .qs-corner.qs-br{right:16px;bottom:16px;left:auto;top:auto;transform:scale(-1,-1)}
@@ -1149,8 +1153,8 @@ const CSS = `
 .qs-dark .qs-title{letter-spacing:-.03em}
 
 /* банер: полоса в край у верхнего края — рабочая область начинается под ним (во всех дизайнах) */
-.qs.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 46px)!important}
-.qs-h.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 34px)!important;padding-bottom:44px!important}
+.qs.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 50px + 40px)!important}
+.qs-h.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 50px + 30px)!important;padding-bottom:44px!important}
 
 /* печать */
 #qs-print{display:none}
