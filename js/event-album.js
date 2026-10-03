@@ -14,10 +14,15 @@ import { initI18n, t } from './i18n.js';
 import { sb } from './sb.js';
 import { wireCheckout } from './checkout.js';
 import { PADDLE_ENABLED, initRetain } from './paddle.js';
+import { mountShell } from './ui.js';
 
 (async function main() {
   await initI18n();
   document.title = t('ea_title');
+  // Шапка и нижняя панель — те же, что на главной (js/ui.js). Подвал у
+  // лендинга свой, общий не добавляем. Не ждём: шапке нужна сессия Supabase,
+  // а тексты страницы от неё не зависят.
+  mountShell('events', { footer: false }).catch((e) => console.error('shell', e));
   document.querySelectorAll('[data-i18n]').forEach(n => {
     // В строках «что стоит знать» первое предложение выделено жирным, поэтому
     // ключ приходит с разметкой <b>…</b> — только эти четыре, и они наши.
@@ -28,6 +33,7 @@ import { PADDLE_ENABLED, initRetain } from './paddle.js';
 
   // alt у иллюстраций — тоже из словаря
   document.querySelectorAll('[data-i18n-alt]').forEach(n => { n.alt = t(n.dataset.i18nAlt); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(n => { n.setAttribute('aria-label', t(n.dataset.i18nAria)); });
 
   // Подписи тарифов: «до {n} гостей», «{n} GB» — числа из разметки.
   document.querySelectorAll('[data-i18n-n]').forEach(n => {

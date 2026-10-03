@@ -635,7 +635,8 @@ img,video{max-width:100%}
   .hdr .btn-primary{order:2}
   .hdr .notif-btn{order:3}
   .hdr-right > .btn-ghost,
-  .hdr-right > a[href^="profile"]{order:4}
+  .hdr-right > a[href^="profile"],
+  .hdr-right > a[href^="/profile"]{order:4}
   /* Пустой элемент во всю ширину: гарантирует, что поиск начинает новую
      строку, а язык остаётся с ним в паре. Без него у вошедшего (лишние
      колокольчик и аватар) язык срывался на третью строку один. */
