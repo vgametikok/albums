@@ -1,0 +1,156 @@
+/* Шапка сайта, нижняя панель и окно входа — для страниц, которые живут БЕЗ
+   base.css (лендинг /events/). Сама разметка общая: её строит mountShell() из
+   js/ui.js, ровно как на главной.
+
+   base.css целиком сюда не подключить: у него свои .btn, .hero, .hi-sign,
+   .wrap и т.д., и они ломают вёрстку лендинга. Поэтому здесь — копия только
+   нужных разделов base.css («header», «уведомления», «нижняя навигация»,
+   .lang-select, «buttons», «modal / toast», мобильный блок шапки), а
+   кнопки заперты внутри .hdr / .modal / .mobnav. Меняете шапку в base.css —
+   поменяйте и здесь. */
+:root{
+  --surface:#FCFAF6; --muted:#7A7265; --chip:#EFE9DD; --ph:#EAE3D5;
+  --accent-ink:#A8871E; --gold:#C9A227; --gold-ink:#8A6A12;
+  --font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --shadow:0 1px 3px rgba(60,45,20,.06);
+  --shadow-lg:0 24px 60px rgba(60,45,20,.18);
+}
+/* Контейнер шапки — тот же, что .wrap в base.css: шапка тянется во всю ширину
+   отрицательными полями на величину этого отступа. */
+/* Липкой делаем саму обёртку: у .hdr position:sticky работает только в
+   пределах родителя, а здесь родитель ровно с шапку (на главной им служит
+   вся .wrap), и шапка уезжала бы вместе со страницей. */
+.site-shell{position:sticky;top:0;z-index:60;max-width:1440px;margin:0 auto;padding:0 clamp(20px,3.1vw,44px)}
+.hdr a,.mobnav a,.modal a{color:var(--ink);text-decoration:none}
+.hdr a:hover,.modal a:hover{color:var(--accent-ink)}
+.hdr input,.hdr button,.hdr select,.mobnav button,.modal button{font-family:inherit}
+.hdr ::placeholder{color:#A69D8E;opacity:1}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:22px;
+  margin:0 calc(-1 * clamp(20px,3.1vw,44px));padding:13px clamp(20px,3.1vw,44px) 12px;
+  background:rgba(252,250,246,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.hdr .logo{font-family:var(--font-display);font-size:27px;font-weight:600;letter-spacing:0;flex-shrink:0}
+.hdr .logo:hover{color:var(--ink)}
+.search-wrap{flex:1;display:flex;justify-content:center;min-width:200px}
+.search{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:999px;
+  padding:0 18px;height:44px;width:100%;max-width:260px}
+.search input{border:none;background:transparent;outline:none;font-size:15px;color:var(--ink);flex:1;min-width:0;padding:0}
+.hdr-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.hdr .avatar{border-radius:999px;object-fit:cover;display:block;background:var(--ph)}
+.hdr .avatar-ph{display:flex;align-items:center;justify-content:center;color:var(--muted);
+  font-weight:700;flex-shrink:0;user-select:none}
+.hdr .ava-pro{position:relative;display:inline-flex;flex-shrink:0;line-height:0}
+.hdr .ava-pro>.avatar{box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--gold)}
+.hdr .ava-pro>.pro-tag{position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+  background:var(--surface);color:var(--gold-ink);border:1px solid var(--gold);
+  border-radius:999px;padding:.12em .5em;line-height:1.35;
+  font-size:9.5px;font-weight:800;letter-spacing:.09em;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(30,20,10,.12)}
+.nav-link{font-size:15px;font-weight:600;color:var(--muted);white-space:nowrap}
+.hdr a.nav-link{color:var(--muted)}
+.hdr a.nav-link.active,.hdr a.nav-link:hover{color:var(--ink)}
+.qr-short{display:none}
+@media (max-width:1180px){ .qr-long{display:none} .qr-short{display:inline} }
+@media (max-width:1080px){
+  .hdr{flex-wrap:wrap;row-gap:10px}
+  .hdr-right{flex-wrap:wrap;justify-content:flex-end;flex-shrink:1;min-width:0}
+}
+
+/* ---------- уведомления (вошедшему) ---------- */
+.notif-btn{position:relative}
+.notif-badge{position:absolute;top:2px;right:2px;min-width:18px;height:18px;padding:0 5px;
+  border-radius:999px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;line-height:1}
+.notif-panel{position:fixed;z-index:120;width:min(380px,calc(100vw - 32px));max-height:70vh;
+  background:var(--surface);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;
+  display:flex;flex-direction:column}
+.notif-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 18px;border-bottom:1px solid var(--line);font-size:17px}
+.notif-list{overflow:auto;flex:1}
+.notif-item{display:flex;gap:12px;align-items:flex-start;padding:12px 18px;
+  border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);cursor:pointer}
+.notif-item:last-child{border-bottom:none}
+.notif-item:hover{background:var(--tint)}
+.notif-item.unread{background:rgba(201,162,39,.06)}
+.notif-who{font-size:15px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.notif-text{font-size:14.5px;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+.notif-time{font-size:13px;color:var(--faint);margin-top:3px}
+.notif-dot{width:8px;height:8px;border-radius:999px;background:var(--accent);flex-shrink:0;margin-top:7px}
+@media (max-width:720px){
+  .notif-panel{left:8px;right:8px;bottom:calc(84px + env(safe-area-inset-bottom));
+    top:auto;width:auto;max-height:64vh}
+}
+
+/* ---------- нижняя навигация (телефон) ---------- */
+.mobnav{display:none}
+@media (max-width:720px){
+  .mobnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;
+    background:rgba(245,244,240,.94);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+    justify-content:space-around;align-items:center}
+  .mobnav-item{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;
+    padding:6px 2px;border:none;background:none;cursor:pointer;color:var(--faint);
+    font-size:11px;font-weight:600;text-decoration:none;min-width:0}
+  .mobnav a.mobnav-item{color:var(--faint)}
+  .mobnav-item span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .mobnav .mobnav-item.on{color:var(--ink)}
+  .mobnav-item.on svg{stroke:var(--ink)}
+  .mobnav-add{flex:0 0 auto;background:var(--accent);width:48px;height:48px;border-radius:999px;
+    justify-content:center;box-shadow:0 6px 18px rgba(201,162,39,.35);margin:0 4px}
+  .mobnav-add svg{stroke:#fff}
+  body.has-mobnav .wrap{padding-bottom:96px}
+  body.has-mobnav .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+  body.has-mobnav .modal-bg{align-items:flex-start;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  body.has-mobnav .modal{margin-top:auto;margin-bottom:auto}
+}
+
+.lang-select{height:44px;border-radius:999px;border:1.5px solid var(--line);background:transparent;
+  color:var(--ink);font-size:15px;font-weight:600;padding:0 10px;cursor:pointer;max-width:130px}
+.lang-select:hover{border-color:var(--ink)}
+@media (max-width:720px){ .lang-select{height:40px;font-size:14px;max-width:104px} }
+
+/* ---------- buttons (только в шапке и окне входа) ---------- */
+:is(.hdr,.modal) .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;
+  margin:0;border-radius:999px;border:1.5px solid transparent;font-size:15px;font-weight:600;cursor:pointer;
+  background:transparent;color:var(--ink);text-decoration:none;transition:background .15s,border-color .15s}
+:is(.hdr,.modal) .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);
+  box-shadow:0 2px 8px rgba(201,162,39,.35)}
+:is(.hdr,.modal) .btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+:is(.hdr,.modal) .btn-ghost{border-color:var(--line);background:var(--surface)}
+:is(.hdr,.modal) .btn-ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+.hdr .btn-icon{width:48px;height:48px;padding:0;border-radius:999px;display:inline-flex;align-items:center;
+  justify-content:center;border:none;background:transparent;cursor:pointer}
+.hdr .btn-icon:hover{background:var(--chip)}
+:is(.hdr,.modal) .btn[disabled]{opacity:.5;cursor:default}
+
+/* ---------- modal / toast ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(20,15,10,.45);display:flex;align-items:center;
+  justify-content:center;padding:20px;z-index:100}
+.modal{background:var(--surface);border-radius:20px;padding:34px;max-width:460px;width:100%;box-shadow:var(--shadow-lg);
+  max-height:90vh;overflow:auto}
+.modal.wide{max-width:640px}
+.modal h2{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px}
+.modal p{font-size:16px;color:var(--muted);line-height:1.6;margin:0 0 22px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:14px 22px;border-radius:999px;font-size:15px;font-weight:500;z-index:200;box-shadow:var(--shadow-lg)}
+
+/* ---------- шапка на телефоне (как в base.css) ---------- */
+@media (max-width:720px){
+  .hdr{gap:6px;row-gap:10px;padding:12px clamp(20px,3.1vw,44px) 10px;flex-wrap:wrap}
+  .hdr-right{display:contents}
+  .hdr .logo{font-size:20px;order:1;margin-right:auto}
+  .hdr .btn-primary{order:2}
+  .hdr .notif-btn{order:3}
+  .hdr-right > .btn-ghost,
+  .hdr-right > a[href^="profile"],
+  .hdr-right > a[href^="/profile"]{order:4}
+  .hdr::before{content:'';order:5;flex-basis:100%;height:0;margin:0}
+  .search-wrap{order:6;flex:1 1 160px;min-width:0}
+  .lang-select{order:7;flex:0 0 auto}
+  .search{height:42px;max-width:none}
+  :is(.hdr,.modal) .btn{height:42px;padding:0 14px;font-size:14px}
+  .hdr .btn-icon{width:40px;height:40px}
+  .hdr .hide-sm{display:none}
+}

@@ -315,6 +315,10 @@ export function needAuth(reason) {
  * Гостю на такой странице нижняя панель не показывается: пять кнопок рядом с
  * «добавить фото» сбивают с того единственного, зачем он сюда пришёл. У кого
  * есть настоящий аккаунт, панель остаётся — ему она навигация, а не помеха.
+ *
+ * opts.footer === false — не добавлять общий подвал (у лендинга /events/ свой).
+ * Ссылки шапки и панели — от корня сайта: шапка стоит и на /events/ (подпапка),
+ * где относительное «posts.html» вело бы на /events/posts.html.
  */
 export async function mountShell(active, opts = {}) {
   await Promise.all([ready(), initI18n()]);
@@ -334,38 +338,41 @@ export async function mountShell(active, opts = {}) {
     onkeydown: (e) => {
       if (e.key === 'Enter') {
         const q = e.currentTarget.value.trim();
-        location.href = q ? `index.html?q=${encodeURIComponent(q)}` : 'index.html';
+        location.href = q ? `/index.html?q=${encodeURIComponent(q)}` : '/index.html';
       }
     },
   });
 
   const right = el('div', { class: 'hdr-right' });
   right.append(
-    el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: 'posts.html' }, t('nav_posts')),
+    el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: '/posts.html' }, t('nav_posts')),
     // Цены — единственная ссылка, нужная и вошедшему, и случайному посетителю:
     // это торговая страница. Ключ общий с подвалом — слово буквально то же,
     // второй ключ пришлось бы держать синхронным без всякой пользы.
-    el('a', { class: 'nav-link hide-sm' + (active === 'pricing' ? ' active' : ''), href: 'pricing.html' }, t('foot_pricing')),
+    el('a', { class: 'nav-link hide-sm' + (active === 'pricing' ? ' active' : ''), href: '/pricing.html' }, t('foot_pricing')),
     // Друзья и Статистика — только вошедшим: гостю дружить не с кем, а
     // календарь вообще уехал в личный кабинет (он теперь про свои альбомы).
     // Раскрываем массивом, а не через null: append() у DOM превращает null
     // в текст «null» и пишет его прямо в шапку (el() ниже такое фильтрует, а append — нет).
     ...(me ? [
-      el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: 'friends.html' }, t('nav_friends')),
-      el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: 'stats.html' }, t('st_title')),
+      el('a', { class: 'nav-link hide-sm' + (active === 'friends' ? ' active' : ''), href: '/friends.html' }, t('nav_friends')),
+      el('a', { class: 'nav-link hide-sm' + (active === 'stats' ? ' active' : ''), href: '/stats.html' }, t('st_title')),
     ] : []),
     // Порядок и цвет читаются как приоритет продукта: золотой QR-альбом —
     // то, что продаётся, серый «Альбом» — бесплатная соцсеть рядом.
     // Две отдельные подписи, а не «QR-альбом» + приписка: в японском и
     // корейском «для событий» стоит ПЕРЕД словом «альбом», склейка из двух
     // кусков там развалилась бы. CSS показывает ровно одну по ширине экрана.
-    el('a', { class: 'btn btn-primary', href: '/events/', title: t('qr_album_full') },
+    el('a', {
+      class: 'btn btn-primary' + (active === 'events' ? ' active' : ''), href: '/events/', title: t('qr_album_full'),
+      'aria-current': active === 'events' ? 'page' : null,
+    },
       icon('qr', 18, { sw: 2 }),
       el('span', { class: 'qr-long', text: t('qr_album_full') }),
       el('span', { class: 'qr-short', text: t('qr_album') })),
     // hide-sm: на телефоне ту же страницу открывает золотой «+» в нижней
     // панели, и вторая кнопка рядом только занимала строку.
-    el('a', { class: 'btn btn-ghost hide-sm', href: 'editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
+    el('a', { class: 'btn btn-ghost hide-sm', href: '/editor.html' }, icon('plus', 18, { sw: 2.4 }), t('new_album')),
     langPicker(),
   );
 
@@ -373,7 +380,7 @@ export async function mountShell(active, opts = {}) {
     const { notifButton } = await import('./notifications.js');
     right.append(
       notifButton(),
-      el('a', { href: `profile.html?u=${encodeURIComponent(me.username)}`, style: 'flex-shrink:0' },
+      el('a', { href: `/profile.html?u=${encodeURIComponent(me.username)}`, style: 'flex-shrink:0' },
         avatarImg(me.avatar_url, me.display_name, 38)));
   } else {
     right.append(el('button', {
@@ -382,7 +389,7 @@ export async function mountShell(active, opts = {}) {
   }
 
   clear(host).append(el('header', { class: 'hdr' },
-    el('a', { class: 'logo', href: 'index.html' }, 'albums.ink'),
+    el('a', { class: 'logo', href: '/index.html' }, 'albums.ink'),
     el('div', { class: 'search-wrap' },
       el('div', { class: 'search' }, icon('search', 20, { stroke: '#A69D8E', sw: 2 }), searchInput)),
     right,
@@ -397,7 +404,7 @@ export async function mountShell(active, opts = {}) {
   } else {
     mountMobileNav(active, me);
   }
-  mountFooter();
+  if (opts.footer !== false) mountFooter();
 }
 
 // Подвал: правовые страницы и контакты. Реквизиты продавца (имя и ИНН) отсюда
@@ -414,8 +421,8 @@ function mountFooter() {
       // Ссылка на блог (BLOG_URL, ключ foot_blog) вернётся, когда появится
       // /blog/ — старый поддомен blog.albums.ink не существует в DNS.
       // Лендинг QR-альбомов живёт на /events/ (раньше event-album.html).
-      ['/events/|foot_events', `pricing.html|foot_pricing`,
-        'terms.html|foot_terms', 'privacy.html|foot_privacy', 'refunds.html|foot_refunds']
+      ['/events/|foot_events', `/pricing.html|foot_pricing`,
+        '/terms.html|foot_terms', '/privacy.html|foot_privacy', '/refunds.html|foot_refunds']
         .map(s => s.split('|'))
         .map(([href, key]) => el('a', {
           href, style: 'color:#A69D8E;text-decoration:underline;white-space:nowrap',
@@ -439,19 +446,19 @@ function mountMobileNav(active, me) {
   }, icon(iconName, 22, { sw: active === key ? 2.2 : 1.8 }), el('span', { text: label }));
 
   document.body.appendChild(el('nav', { class: 'mobnav' },
-    item('home', 'index.html', 'home', t('nav_albums')),
-    item('posts', 'posts.html', 'grid', t('nav_posts')),
+    item('home', '/index.html', 'home', t('nav_albums')),
+    item('posts', '/posts.html', 'grid', t('nav_posts')),
     // Скринридеру нужна полная формулировка: у кнопки только «+», и короткое
     // «Альбом» из шапки здесь не объясняло бы, что она делает.
-    el('a', { class: 'mobnav-item mobnav-add', href: 'editor.html', 'aria-label': t('new_album_title') },
+    el('a', { class: 'mobnav-item mobnav-add', href: '/editor.html', 'aria-label': t('new_album_title') },
       icon('plus', 24, { sw: 2.6, stroke: '#fff' })),
     // Гостю вместо «Друзей» — «Цены»: дружить ему не с кем, а торговая
     // страница нужна. Тот же обмен, что и в шапке.
     me
-      ? item('friends', 'friends.html', 'users', t('nav_friends'))
-      : item('pricing', 'pricing.html', 'qr', t('foot_pricing')),
+      ? item('friends', '/friends.html', 'users', t('nav_friends'))
+      : item('pricing', '/pricing.html', 'qr', t('foot_pricing')),
     me
-      ? item('profile', `profile.html?u=${encodeURIComponent(me.username)}`, 'user', t('nav_profile'))
+      ? item('profile', `/profile.html?u=${encodeURIComponent(me.username)}`, 'user', t('nav_profile'))
       : el('button', { class: 'mobnav-item', onclick: () => showLogin(t('signin_to_create')) },
           icon('user', 22), el('span', { text: t('sign_in') })),
   ));

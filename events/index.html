@@ -22,19 +22,19 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Albums","applicationCategory":"PhotoApplication","operatingSystem":"Web","url":"https://albums.ink/","description":"Albums collects wedding and event photos from guests by QR code — no app, no signup, no per-guest limits, full export — lets guests keep their shots in their own free account, and turns memories into story albums with chapters and narration.","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"9.99","priceCurrency":"USD"},{"@type":"Offer","name":"Event Album — Small (100 GB, for about 100 guests)","price":"39.99","priceCurrency":"USD"},{"@type":"Offer","name":"Event Album — Medium (200 GB, for about 250 guests)","price":"69.99","priceCurrency":"USD"},{"@type":"Offer","name":"Event Album — Large (400 GB, for about 500 guests)","price":"129.99","priceCurrency":"USD"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I collect photos from wedding or event guests?","acceptedAnswer":{"@type":"Answer","text":"Create an Event Album and show or print its QR code. Guests scan it and upload photos and videos straight from the phone browser during and after the event. Everything lands in one album that belongs to you."}},{"@type":"Question","name":"Do guests have to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. The phone camera opens an ordinary web page."}},{"@type":"Question","name":"Do they need an Albums account?","acceptedAnswer":{"@type":"Answer","text":"Also no. They can upload without signing in — those photos stay anonymous. If they want their name on them, or want the files in their own account, they can sign in later."}},{"@type":"Question","name":"How many guests can I invite?","acceptedAnswer":{"@type":"Answer","text":"As many as you like. The 100, 250 or 500 on the plans is only a guide for choosing one: we don't count or limit guests or uploads, and each guest can upload as many times as they like. The only real limit is storage. There is one code and it never changes."}},{"@type":"Question","name":"How long does the album live?","acceptedAnswer":{"@type":"Answer","text":"Files are stored for 6 months from the first upload into the album — not from the payment or from creating it. Before the period ends you can extend storage by another 6 months or download everything as one archive."}},{"@type":"Question","name":"Can I download all the photos at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any album exports as a single archive with the original files — your photos are never locked in."}},{"@type":"Question","name":"Who owns the photos guests upload?","acceptedAnswer":{"@type":"Answer","text":"The event owner. And guests keep their own shots: after signing in, everything a guest uploaded is saved to their own album in their own free account as well."}},{"@type":"Question","name":"How many photos fit?","acceptedAnswer":{"@type":"Answer","text":"Small holds 100 GB, Medium 200 GB and Large 400 GB — tens of thousands of photos. Ran out of space? No problem — you can add more. Video is capped at 50 MB per file."}},{"@type":"Question","name":"Can I hide the bad shots?","acceptedAnswer":{"@type":"Answer","text":"Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision."}},{"@type":"Question","name":"What if the code reaches strangers?","acceptedAnswer":{"@type":"Answer","text":"Issue a new link — the old QR stops working. Everyone who already joined stays."}},{"@type":"Question","name":"Need a second album for another event?","acceptedAnswer":{"@type":"Answer","text":"That is another purchase. Buy it in advance and start the album once the date is set — there's no deadline to start, and storage begins with the first upload."}},{"@type":"Question","name":"How is Albums different from a shared Google Photos album?","acceptedAnswer":{"@type":"Answer","text":"Guests need no Google account and no app. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription."}},{"@type":"Question","name":"Is Albums free?","acceptedAnswer":{"@type":"Answer","text":"Story albums are free. Pro is $9.99/month for more capacity. An Event Album is a one-time purchase per event, from $39.99 — guests never pay."}}]}</script>
 <!-- /seo -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://telegram.org https://*.paddle.com https://*.profitwell.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com https://*.profitwell.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://t.me https://*.telesco.pe https://*.paddle.com https://*.profitwell.com; connect-src https://rizveurkjpcwrmbtoawj.supabase.co https://*.paddle.com https://*.profitwell.com; base-uri 'none'; frame-src https://oauth.telegram.org https://*.paddle.com https://*.profitwell.com; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://telegram.org https://*.paddle.com https://*.profitwell.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com https://*.profitwell.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://t.me https://*.telesco.pe https://rizveurkjpcwrmbtoawj.supabase.co https://lh3.googleusercontent.com https://avatars.yandex.net https://*.paddle.com https://*.profitwell.com; media-src 'self'; connect-src https://rizveurkjpcwrmbtoawj.supabase.co https://*.paddle.com https://*.profitwell.com; base-uri 'none'; frame-src https://oauth.telegram.org https://*.paddle.com https://*.profitwell.com; frame-ancestors 'none'">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<!-- шапка сайта (та же, что на главной): разметку строит mountShell() из js/ui.js -->
+<link href="/css/shell.css" rel="stylesheet">
 <style>
   :root{ --bg:#F3EEE6; --ink:#2B2620; --soft:#7A7265; --faint:#A69D8E; --accent:#C9A227; --accent-dark:#A8871E; --line:#E4DCCE; --tint:#EFEDE7; }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:980px;margin:0 auto;padding:26px 22px 90px;}
-  .back{display:inline-block;color:var(--accent);text-decoration:none;font-weight:600;font-size:15px;margin-bottom:22px;}
-  .back:hover{text-decoration:underline;}
   h1{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0;}
   h2{font-size:27px;font-weight:800;letter-spacing:-.025em;margin:0 0 6px;}
   h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;margin:0;}
@@ -78,6 +78,13 @@
   .uses{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
   .uses figure{margin:0}
   .uses img{display:block;width:100%;height:auto}
+
+  /* ---- видео «как это работает» ---- */
+  .video-sec{padding-top:40px;}
+  .video-sec .lead{margin-top:6px;font-size:15.5px;max-width:620px;}
+  .video-frame{position:relative;margin-top:22px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+    background:#E9E1D2;box-shadow:0 24px 60px rgba(60,45,20,.18);}
+  .video-frame video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#E9E1D2;}
   .uses figcaption{text-align:center;font-weight:600;font-size:15px;color:var(--ink);margin-top:4px}
   /* вертикальная картинка рядом со списком темы; у средней темы — справа */
   .topic{display:grid;grid-template-columns:210px 1fr;gap:34px;align-items:center;margin-top:24px}
@@ -195,8 +202,8 @@
 </style>
 </head>
 <body>
+<div class="site-shell"><div id="shell"></div></div>
 <div class="wrap">
-  <a class="back" href="/">← Albums</a>
 
   <!-- у человека уже есть оплаченный альбом: даём выбор -->
   <div class="owned" id="owned">
@@ -237,6 +244,18 @@
           </svg>
         <div class="hi-sign-cap" data-i18n="hi_sign_cap">Scan to add your photos</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Видео-объяснение (58 с, озвучка на английском) — сразу после первого экрана. -->
+  <div class="sec video-sec" id="video">
+    <h2 data-i18n="ea_video_h">See how it works in 1 minute</h2>
+    <p class="lead" data-i18n="ea_video_d">Create the album, put the QR sign on the tables, and every guest's photos land in one place.</p>
+    <div class="video-frame">
+      <video controls playsinline preload="metadata" poster="/assets/video/albums-ink-explainer-poster.jpg"
+             width="1920" height="1080" aria-label="Video: how an Event Album works" data-i18n-aria="ea_video_label">
+        <source src="/assets/video/albums-ink-explainer.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 

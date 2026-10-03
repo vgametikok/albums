@@ -97,9 +97,10 @@ async function stampVersion() {
     // шаблонный импорт словаря: import(`./i18n/${lang}.js`)
     .replace(/(import\(\s*`\.\/i18n\/\$\{lang\}\.js)(`)/g, `$1?v=${v}$2`);
 
+  // Адреса и относительные (index.html), и от корня (/events/index.html: /js/…, /css/…).
   const stampHtml = (s) => s
-    .replace(/(<script[^>]+src=")((?:js|src)\/[^"]+?\.js)(")/g, `$1$2?v=${v}$3`)
-    .replace(/(<link[^>]+href=")(css\/[^"]+?\.css)(")/g, `$1$2?v=${v}$3`);
+    .replace(/(<script[^>]+src=")(\/?(?:js|src)\/[^"]+?\.js)(")/g, `$1$2?v=${v}$3`)
+    .replace(/(<link[^>]+href=")(\/?css\/[^"]+?\.css)(")/g, `$1$2?v=${v}$3`);
 
   let touched = 0;
   for (const p of files) {
