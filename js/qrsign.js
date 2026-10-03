@@ -679,10 +679,44 @@ async function signFontCss(sign) {
     getComputedStyle(n).fontFamily.split(',').forEach((x) => { const name = x.trim().replace(/^["']|["']$/g, ''); if (params.has(name)) used.add(name); });
   });
   if (!used.size) return '';
-  const text = Array.from(new Set(Array.from(sign.textContent + 'albums.ink ALBUMS.INK'))).join('');
+  const raw = sign.textContent + 'albums.ink';
+  const text = Array.from(new Set(Array.from(raw + raw.toUpperCase() + raw.toLowerCase()))).filter(ch => ch.trim()).join('') + ' ';
   const qs = [...used].map((n) => 'family=' + params.get(n).replace(/ /g, '+')).join('&');
   const r = await fetch(`https://fonts.googleapis.com/css2?${qs}&text=${encodeURIComponent(text)}&display=block`);
-  return r.ok ? r.text() : '';
+  if (!r.ok) throw new Error('fonts css ' + r.status);
+  let css = await r.text();
+  // Шрифты — внутрь CSS как data: URL. SVG-картинка, в которой рисуется снимок,
+  // внешние файлы не грузит; modern-screenshot с готовым cssText их не встраивает
+  // сам — без этого PNG/PDF уходили в системный шрифт (Comic Sans у «cursive» на Windows).
+  const urls = [...new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map(m => m[1]))];
+  const data = await Promise.all(urls.map(async (u) => {
+    for (let i = 0; i < 2; i++) {
+      try {
+        const fr = await fetch(u, { mode: 'cors', cache: 'no-store', credentials: 'omit' });
+        if (!fr.ok) throw new Error('HTTP ' + fr.status);
+        const b = await fr.arrayBuffer();
+        let bin = ''; const a = new Uint8Array(b);
+        for (let j = 0; j < a.length; j += 0x8000) bin += String.fromCharCode.apply(null, a.subarray(j, j + 0x8000));
+        return 'data:font/woff2;base64,' + btoa(bin);
+      } catch (e) { if (i) throw e; }
+    }
+  }));
+  urls.forEach((u, i) => { css = css.split(u).join(data[i]); });
+  // и в самом документе: раскладка и проверка document.fonts — тем же начертанием
+  await Promise.all([...used].map((fam) => document.fonts.load(`400 40px "${fam}"`, text).catch(() => null)));
+  return css;
+}
+
+/**
+ * В клоне для снимка у текстовых блоков не должно остаться высоты/ширины,
+ * снятой с живого DOM: если шрифт хоть немного другой, строка переносится и
+ * налезает на линию и подпись. Поток вместо фиксированных размеров.
+ */
+function freeTextBoxes(node) {
+  if (!(node instanceof HTMLElement)) return;
+  if (node.matches('.qs-text,.qs-title,.qs-rule,.qs-sub,.qs-custom,.qs-left,.qs-brand')) {
+    for (const prop of ['height', 'min-height', 'max-height', 'block-size', 'min-block-size', 'max-block-size']) node.style.removeProperty(prop);
+  }
 }
 
 /**
@@ -736,14 +770,15 @@ export async function exportSign(cfgIn, info, fmt) {
       if (!img) throw Object.assign(new Error('banner'), { banner: true });
       try { await inlineImg(img, cfg.photo); } catch (e) { throw Object.assign(e, { banner: true }); }
     }
-    let cssText = '';
-    try { cssText = await signFontCss(sign); } catch (_) { /* системные шрифты */ }
+    // Шрифты обязательны: без них файл вышел бы другим шрифтом и с другой раскладкой
+    const cssText = await signFontCss(sign);
     const { domToCanvas } = await import('./vendor/modern-screenshot.js');
     const px = cfg.orient === 'v' ? 2480 : 3508;
     const canvas = await domToCanvas(sign, {
       width: W, height: H, scale: px / W, backgroundColor: (cfg.colors || DESIGNS[cfg.design]).bg,
       font: cssText ? { cssText } : false, timeout: 20000,
       style: { transform: 'none' },
+      onCloneEachNode: freeTextBoxes,
     });
     const name = (info.title || 'albums-ink').replace(/[\\/:*?"<>|]+/g, '').trim().slice(0, 60) || 'albums-ink';
     if (fmt === 'png') {
