@@ -4,6 +4,7 @@ export default {
   foot_support: 'Support & suggestions',
   foot_partnership: 'Partnerships',
   foot_blog: 'Blog',
+  foot_guides: 'Guides',
   /* ---- shell / nav ---- */
   search_ph: 'Search albums and creators',
   nav_home: 'Home',
