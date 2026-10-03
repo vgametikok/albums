@@ -13,6 +13,7 @@ import {
   dur, modal, avatarImg,
 } from './ui.js';
 import { qrSvg, qrDownload } from './qr.js';
+import { loadSign, openSignEditor, printSign } from './qrsign.js';
 import { downloadAlbumArchive } from './export.js';
 import { uploadMedia } from './upload.js';
 
@@ -273,7 +274,7 @@ async function renderOne() {
   app.appendChild(cols);
 
   await coverBox(left, a);
-  right.append(await linkBox(a), settingsBox(a), await guestsBox(a));
+  right.append(await linkBox(a, data), settingsBox(a), await guestsBox(a));
   await mediaBox(left, data);
 }
 
@@ -347,7 +348,10 @@ async function coverBox(host, a) {
 
 /* ---------------------------------------------------------------- QR и ссылка */
 
-async function linkBox(a) {
+async function linkBox(a, albumData) {
+  // сохранённая табличка (или дизайн по умолчанию) — её и печатает «Печать таблички»
+  let sign = (await loadSign(a.id)).cfg;
+  const media = [...(albumData?.chapters || []).flatMap(c => c.media || []), ...(albumData?.loose || [])];
   const box = el('div', { class: 'side-card' },
     el('div', { class: 'label', text: t('ev_link_title') }),
     el('div', { class: 'muted', style: 'font-size:14px;line-height:1.5;margin-top:6px', text: t('ev_link_hint') }));
@@ -375,7 +379,12 @@ async function linkBox(a) {
         },
       }, t('copy_link')),
       el('button', { class: 'mini', onclick: () => qrDownload(url, `${safeName(a.title)}-qr.svg`) }, t('ev_qr_download')),
-      el('button', { class: 'mini', onclick: () => printQr(a.title, url) }, t('ev_qr_print'))));
+      el('button', {
+        class: 'mini', 'data-act': 'qs-edit', onclick: () => openSignEditor({
+          album: a, url, media, current: sign, onSaved: (c) => { sign = c; },
+        }),
+      }, t('qs_edit')),
+      el('button', { class: 'mini', 'data-act': 'qs-print', onclick: () => printSign(sign, { title: a.title, url }) }, t('ev_qr_print'))));
 
     body.appendChild(el('button', {
       class: 'mini', style: 'margin-top:14px;color:var(--muted)',
@@ -405,28 +414,6 @@ function exportButton(data) {
     try { await downloadAlbumArchive(data); } finally { btn.disabled = false; }
   };
   return btn;
-}
-
-/** Печатная табличка «сканируйте и добавьте свои фото» — то, что ставят на стол. */
-function printQr(title, url) {
-  const w = window.open('', '_blank');
-  if (!w) { toast(t('ev_popup_blocked')); return; }
-  const svg = new XMLSerializer().serializeToString(qrSvg(url, 460));
-  const esc = (s) => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
-  w.document.write(`<!DOCTYPE html><meta charset="utf-8"><title>${esc(title)}</title>
-<style>
-  body{margin:0;font-family:Inter,system-ui,sans-serif;color:#141414;background:#fff;
-       display:flex;align-items:center;justify-content:center;min-height:100vh}
-  .card{text-align:center;padding:48px}
-  h1{font-size:40px;font-weight:800;letter-spacing:-.025em;margin:0 0 10px}
-  p{font-size:20px;color:#4A4741;margin:0 0 28px}
-  .u{font-size:14px;color:#A69D8E;margin-top:22px;word-break:break-all}
-  @media print{ .card{padding:0} }
-</style>
-<div class="card"><h1>${esc(title)}</h1><p>${esc(t('ev_print_call'))}</p>${svg}<div class="u">${esc(url)}</div></div>`);
-  w.document.close();
-  w.focus();
-  setTimeout(() => w.print(), 300);
 }
 
 /* ---------------------------------------------------------------- настройки */
