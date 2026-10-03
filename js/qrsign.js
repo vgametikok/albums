@@ -17,6 +17,8 @@ const MM = 96 / 25.4;
 // Табличка — ровно лист A4 в CSS-пикселях: фон дизайна печатается в край
 // (@page margin:0), текст и код держатся внутри безопасных полей .qs-inner.
 const SIZE = { v: [794, 1123], h: [1123, 794] };
+/** Пропорция банера = обложка альбома на странице события (css/base.css .ev-cover{aspect-ratio:3/1}). */
+export const BANNER_RATIO = 3;
 const LS_KEY = (id) => `qrSign:${id}`;
 
 /** Дизайны: свои цвета по умолчанию, шрифт заголовка и украшения. */
@@ -482,8 +484,10 @@ export function renderSign(cfgIn, info) {
   const brand = el('div', { class: 'qs-brand', text: 'albums.ink' });
 
   const inner = el('div', { class: 'qs-inner' });
-  if (cfg.orient === 'v') inner.append(...[ph, text, code, brand].filter(Boolean));
-  else inner.append(el('div', { class: 'qs-left' }, ...[ph, text, brand].filter(Boolean)), code);
+  // Банер один: широкая полоса во всю ширину листа у верхнего края (в край, без скруглений)
+  if (ph) root.appendChild(ph);
+  if (cfg.orient === 'v') inner.append(...[text, code, brand].filter(Boolean));
+  else inner.append(el('div', { class: 'qs-left' }, ...[text, brand].filter(Boolean)), code);
   root.appendChild(inner);
   fit(root, cfg, L);
   return root;
@@ -502,22 +506,30 @@ function fit(root, cfg, L) {
   const svg = root.querySelector('.qs-card svg');
   const R = () => root.getBoundingClientRect();
   const q = (sel) => root.querySelector(sel)?.getBoundingClientRect();
+  // верх рабочей области: низ банера (или край листа)
+  const top = () => { const b = q('.qs-photo'); return b ? b.bottom : R().top; };
   const over = () => {
     const r = R();
     if (v) {
       const code = q('.qs-card'), brand = q('.qs-brand'), first = root.querySelector('.qs-inner').firstElementChild.getBoundingClientRect();
-      return first.top < r.top + 24 || code.bottom > brand.top - 14;
+      return first.top < top() + 24 || code.bottom > brand.top - 14;
     }
     const left = root.querySelector('.qs-left'), last = left.lastElementChild.getBoundingClientRect(), first = left.firstElementChild.getBoundingClientRect();
-    return last.bottom > r.bottom - 40 || first.top < r.top + 30;
+    const code = q('.qs-card');
+    return last.bottom > r.bottom - 40 || first.top < top() + 30 || code.top < top() + 22 || code.bottom > r.bottom - 30;
   };
   let { ph, qr } = L, k = 1;
-  const minPh = v ? 140 : 110;
-  // сначала пробуем вернуть то, что оценка зря отняла
-  ph = cfg.photo && L.ph ? (v ? 300 : 240) : 0;
+  // Банер — ровно 3:1, как обложка альбома на странице события (.ev-cover), чтобы
+  // обложка вставала без перекадрирования. Книжная: во всю ширину листа.
+  // Альбомная: во всю ширину вышло бы слишком высоко — та же пропорция,
+  // но уже, по центру у верхнего края.
+  const [W] = SIZE[cfg.orient];
+  const minPh = v ? 200 : 170;
+  ph = cfg.photo && L.ph ? (v ? W / BANNER_RATIO : 230) : 0;
   qr = v ? (ph ? 360 : 460) : qr;
   const apply = () => {
     root.style.setProperty('--ph', ph + 'px');
+    root.style.setProperty('--pw', Math.min(W, ph * BANNER_RATIO) + 'px');
     root.style.setProperty('--tsize', Math.round(L.ts0 * k) + 'px');
     root.style.setProperty('--k', String(L.k0 * k));
     svg.setAttribute('width', String(qr)); svg.setAttribute('height', String(qr));
@@ -537,9 +549,11 @@ function fit(root, cfg, L) {
   });
   root.classList.remove('qs-measure');
   for (let i = 0; i < 80 && over(); i++) {
-    if (ph > minPh) ph -= 10;
-    else if (v && qr > 310) qr -= 10;
+    // книжная: банер держим во всю ширину до последнего, сначала QR и текст
+    if (!v && ph > minPh) ph -= 10;
+    else if (qr > (v ? 310 : 270)) qr -= 10;
     else if (k > 0.55) k -= 0.04;
+    else if (v && ph > minPh) ph -= 10;
     else break;
     apply();
   }
@@ -589,10 +603,10 @@ export async function printPlainQr(url, title) {
   injectCss();
   document.getElementById('qs-print')?.remove();
   const host = el('div', { id: 'qs-print', class: 'qs-print-plain' },
-    el('div', { class: 'qs-plain' },
+    el('div', { class: 'qs-pq' },
       title ? el('h1', { text: title }) : null,
       qrSvg(url, 430),
-      el('div', { class: 'qs-plain-brand', text: 'albums.ink' })));
+      el('div', { class: 'qs-pq-brand', text: 'albums.ink' })));
   const page = el('style', { id: 'qs-page', text: '@page{size:A4 portrait;margin:0}' });
   document.getElementById('qs-page')?.remove();
   document.head.appendChild(page);
@@ -1085,10 +1099,9 @@ const CSS = `
 .qs-h .qs-brand{margin-top:34px}
 .qs-v .qs-inner{justify-content:center;padding-bottom:96px}
 .qs-v .qs-brand{position:absolute;left:0;right:0;bottom:44px;margin:0;padding:0}
-.qs-photo{position:relative;width:100%;height:var(--ph);border-radius:22px;overflow:hidden;margin:-18px 0 36px;box-shadow:0 8px 26px rgba(0,0,0,.12);flex:none}
-.qs-h .qs-photo{margin:0 0 30px}
+.qs-photo{position:absolute;left:calc((100% - var(--pw,100%)) / 2);top:0;width:var(--pw,100%);height:var(--ph);overflow:hidden;z-index:1;background:var(--bg);margin:0;border-radius:0}
 .qs-photo img{display:block}
-.qs-v.qs-has-photo .qs-inner{padding-top:62px}
+
 .qs-v.qs-has-photo .qs-rule{margin:16px auto 12px}
 .qs-v.qs-has-photo .qs-code{margin-top:26px}
 
@@ -1101,7 +1114,6 @@ const CSS = `
 .qs-h .qs-fl{width:220px;height:205px}
 .qs-flowers .qs-card{box-shadow:0 10px 30px rgba(120,60,70,.12)}
 .qs-v.qs-flowers .qs-inner{padding-top:180px}
-.qs-v.qs-flowers.qs-has-photo .qs-inner{padding-top:120px}
 .qs-h.qs-flowers .qs-inner{padding:64px 96px}
 /* moon */
 .qs-moon{background:radial-gradient(120% 80% at 70% 0%, color-mix(in srgb,var(--bg) 78%,#fff) 0%, var(--bg) 55%, color-mix(in srgb,var(--bg) 70%,#000) 100%)}
@@ -1136,6 +1148,10 @@ const CSS = `
 .qs-dark .qs-brand{font-family:Inter,system-ui,sans-serif;font-weight:700;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
 .qs-dark .qs-title{letter-spacing:-.03em}
 
+/* банер: полоса в край у верхнего края — рабочая область начинается под ним (во всех дизайнах) */
+.qs.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 46px)!important}
+.qs-h.qs-has-photo .qs-inner{padding-top:calc(var(--ph) + 34px)!important;padding-bottom:44px!important}
+
 /* печать */
 #qs-print{display:none}
 @media print{
@@ -1145,9 +1161,9 @@ const CSS = `
   #qs-print .qs{transform:none!important;position:absolute;left:0;top:0}
 }
 
-.qs-plain{width:100%;height:100%;box-sizing:border-box;padding:24mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12mm;background:#fff;color:#141414;font-family:Inter,system-ui,sans-serif;text-align:center}
-.qs-plain h1{margin:0;font-size:34px;line-height:1.2;font-weight:700;max-width:100%;overflow-wrap:anywhere}
-.qs-plain-brand{font-size:14px;letter-spacing:.08em;color:#8A8578}
+.qs-pq{width:100%;height:100%;box-sizing:border-box;padding:24mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12mm;background:#fff;color:#141414;font-family:Inter,system-ui,sans-serif;text-align:center}
+.qs-pq h1{margin:0;font-size:34px;line-height:1.2;font-weight:700;max-width:100%;overflow-wrap:anywhere}
+.qs-pq-brand{font-size:14px;letter-spacing:.08em;color:#8A8578}
 @media print{#qs-print.qs-print-plain{background:#fff}}
 
 /* превью и скачивание */
