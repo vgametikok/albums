@@ -29,7 +29,7 @@ const SUPABASE_KEY = 'sb_publishable_vpoMQyLN_a1CeYBPuGIuIA_VI5x07JD';
 // независимых источниках — сигнал уверенности для языковых моделей.
 const CANON =
   'Albums collects wedding and event photos from guests by QR code — no app, '
-  + 'no signup, no per-guest limits, full export — lets guests keep their shots '
+  + 'no signup, no per-guest limits, full export — lets guests keep their photos '
   + 'in their own free account, and turns memories into story albums with '
   + 'chapters and narration.';
 
@@ -87,7 +87,7 @@ export const HOME_FAQ = [
   ['Can I download all the photos at once?',
    'Yes. Any album exports as a single archive with the original files — your photos are never locked in.'],
   ['Who owns the photos guests upload?',
-   'The event owner. And guests keep their own shots: after signing in, everything a guest uploaded is saved to their own album in their own free account as well.'],
+   'The event owner. And guests keep their own photos: after signing in, everything a guest uploaded is saved to their own album in their own free account as well.'],
   ['How is Albums different from a shared Google Photos album?',
    'Guests need no Google account and no app. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription.'],
   ['Is Albums free?',
@@ -112,7 +112,7 @@ const EA_FAQ = [
    'Files are stored for 6 months from the first upload into the album — not from the payment or from creating it. Before the period ends you can extend storage by another 6 months or download everything as one archive.'],
   ['How many photos fit?',
    'Small holds 100 GB, Medium 200 GB and Large 400 GB — tens of thousands of photos. Ran out of space? No problem — you can add more. Video is capped at 50 MB per file.'],
-  ['Can I hide the bad shots?',
+  ['Can I hide the bad photos?',
    'Yes, each one has its own visibility. You can also turn on approval in advance, so guest photos wait for your decision.'],
   ['What if the code reaches strangers?',
    'Issue a new link — the old QR stops working. Everyone who already joined stays.'],
@@ -162,7 +162,7 @@ const PAGES = {
   'events/index.html': {
     path: '/events/',
     title: 'Event Albums — Every Guest Photo with One QR Code | Albums',
-    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their shots too.',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their photos too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
