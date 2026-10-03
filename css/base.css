@@ -265,10 +265,16 @@ img,video{max-width:100%}
 .featured-side{flex:1 1 0;min-width:280px;display:flex;flex-direction:column}
 .featured-side .card-cover{flex:1;min-height:210px;aspect-ratio:auto}
 .hero-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px}
-.hero-inner{background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-radius:16px;padding:16px 24px;text-align:center;box-shadow:var(--shadow-lg);max-width:420px}
-.hero-title{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0}
-.hero-sub{font-size:14px;color:var(--muted);margin-top:4px}
+.hero-inner{background:rgba(255,255,255,.34);backdrop-filter:blur(4px) saturate(1.15);-webkit-backdrop-filter:blur(4px) saturate(1.15);
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:16px;padding:16px 24px;text-align:center;box-shadow:0 10px 34px rgba(0,0,0,.14);max-width:420px}
+/* Карточка почти прозрачная — обложка видна. Читаемость на любой обложке
+   (светлой и тёмной) держит светлый ореол вокруг тёмного текста. */
+.hero-title{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0;color:#141210;
+  text-shadow:0 0 2px rgba(255,255,255,.95),0 0 10px rgba(255,255,255,.85),0 0 22px rgba(255,255,255,.6)}
+.hero-sub{font-size:14px;color:#3A3631;font-weight:500;margin-top:4px;
+  text-shadow:0 0 2px rgba(255,255,255,.95),0 0 8px rgba(255,255,255,.9),0 0 16px rgba(255,255,255,.7)}
+.hero-inner .kicker{text-shadow:0 0 2px rgba(255,255,255,.95),0 0 8px rgba(255,255,255,.85)}
 .pill{display:inline-block;background:var(--tint);border-radius:999px;padding:7px 14px;
   font-size:13px;color:#43403B;margin-top:11px}
 .kicker{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
