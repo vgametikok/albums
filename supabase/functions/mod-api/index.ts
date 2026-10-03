@@ -74,6 +74,19 @@ function safeEqual(a: string, b: string): boolean {
   return r === 0;
 }
 
+function clampInt(v: unknown, min: number, max: number, def: number): number {
+  const n = Math.floor(Number(v));
+  return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : def;
+}
+// Окно дат: from/to — ISO-строки (to — не включительно); по умолчанию 30 дней.
+function range(body: Record<string, unknown>): { from: string; to: string } {
+  const ok = (v: unknown) => typeof v === 'string' && !Number.isNaN(Date.parse(v));
+  const to = ok(body.to) ? new Date(body.to as string) : new Date(Date.now() + 60_000);
+  const days = clampInt(body.days, 1, 365, 30);
+  const from = ok(body.from) ? new Date(body.from as string) : new Date(to.getTime() - days * 86400_000);
+  return { from: from.toISOString(), to: to.toISOString() };
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get('origin');
   const headers = cors(origin);
@@ -210,6 +223,101 @@ Deno.serve(async (req) => {
           p_offset: body.offset ?? 0,
         })).data;
         break;
+      case 'recent_signups': {
+        // Последние регистрации (новые сверху) за окно [from, to). Почта и способ
+        // входа — из auth.users через admin API: наружу их не отдаёт ни одна RPC.
+        // Гостевые (анонимные) сессии помечаются guest=true, клиент их скрывает.
+        const { from, to } = range(body);
+        const limit = clampInt(body.limit, 1, 50, 25);
+        const offset = clampInt(body.offset, 0, 100000, 0);
+        const q = await sb.from('profiles')
+          .select('id,username,display_name,avatar_url,country,plan,created_at,banned_at,deleted_at', { count: 'exact' })
+          .gte('created_at', from).lt('created_at', to)
+          .order('created_at', { ascending: false })
+          .range(offset, offset + limit - 1);
+        if (q.error) throw q.error;
+        const rows = await Promise.all((q.data ?? []).map(async (p) => {
+          let email: string | null = null, provider: string | null = null, guest = false, last: string | null = null;
+          try {
+            const { data } = await sb.auth.admin.getUserById(p.id);
+            const u = data?.user;
+            if (u) {
+              email = u.email ?? null;
+              guest = !!(u as { is_anonymous?: boolean }).is_anonymous;
+              const am = (u.app_metadata ?? {}) as { provider?: string; providers?: string[] };
+              provider = guest ? 'anonymous' : (am.providers?.length ? am.providers.join(', ') : am.provider ?? null);
+              last = u.last_sign_in_at ?? null;
+            }
+          } catch { /* пользователь мог быть удалён — оставляем пустым */ }
+          return { ...p, email, provider, guest, last_sign_in_at: last };
+        }));
+        // сколько альбомов у каждого (одним запросом на страницу)
+        const cnt = new Map<string, number>();
+        if (rows.length) {
+          const r = await sb.from('albums').select('author_id').in('author_id', rows.map((x) => x.id));
+          for (const a of r.data ?? []) cnt.set(a.author_id, (cnt.get(a.author_id) ?? 0) + 1);
+        }
+        rows.forEach((x) => { (x as Record<string, unknown>).albums_count = cnt.get(x.id) ?? 0; });
+        out = { rows, total: q.count ?? rows.length, offset, limit };
+        break;
+      }
+      case 'recent_albums': {
+        // Альбомы, куда загружали файлы за окно [from, to): последние загрузки
+        // (media.created_at) → album_media → альбомы. Без SQL, через service key.
+        const { from, to } = range(body);
+        const MAX = 3000;
+        const media: { id: string; created_at: string }[] = [];
+        for (let off = 0; off < MAX; off += 1000) {
+          const r = await sb.from('media').select('id,created_at')
+            .gte('created_at', from).lt('created_at', to)
+            .order('created_at', { ascending: false }).range(off, off + 999);
+          if (r.error) throw r.error;
+          media.push(...(r.data ?? []));
+          if ((r.data ?? []).length < 1000) break;
+        }
+        const when = new Map(media.map((m) => [m.id, m.created_at]));
+        const agg = new Map<string, { n: number; last: string }>();
+        for (let i = 0; i < media.length; i += 150) {
+          const ids = media.slice(i, i + 150).map((m) => m.id);
+          const r = await sb.from('album_media').select('album_id,media_id').in('media_id', ids);
+          if (r.error) throw r.error;
+          for (const am of r.data ?? []) {
+            const t = when.get(am.media_id) ?? '';
+            const a = agg.get(am.album_id) ?? { n: 0, last: '' };
+            a.n++; if (t > a.last) a.last = t;
+            agg.set(am.album_id, a);
+          }
+        }
+        const ids = [...agg.keys()];
+        const albums: Record<string, unknown>[] = [];
+        for (let i = 0; i < ids.length; i += 150) {
+          const r = await sb.from('albums')
+            .select('id,title,author_id,is_event,event_tier,visibility,published_at,created_at,photos_count,videos_count,audio_count')
+            .in('id', ids.slice(i, i + 150));
+          if (r.error) throw r.error;
+          albums.push(...(r.data ?? []));
+        }
+        const authors = [...new Set(albums.map((a) => a.author_id as string))];
+        const prof = new Map<string, { username: string; display_name: string | null }>();
+        for (let i = 0; i < authors.length; i += 150) {
+          const r = await sb.from('profiles').select('id,username,display_name').in('id', authors.slice(i, i + 150));
+          if (r.error) throw r.error;
+          for (const p of r.data ?? []) prof.set(p.id, p);
+        }
+        const all = albums.map((a) => {
+          const g = agg.get(a.id as string)!;
+          const o = prof.get(a.author_id as string);
+          return {
+            ...a, uploads: g.n, last_upload_at: g.last,
+            files: Number(a.photos_count ?? 0) + Number(a.videos_count ?? 0) + Number(a.audio_count ?? 0),
+            owner: o?.username ?? null, owner_name: o?.display_name ?? null,
+          };
+        }).sort((x, y) => (x.last_upload_at < y.last_upload_at ? 1 : -1));
+        const limit = clampInt(body.limit, 1, 100, 25);
+        const offset = clampInt(body.offset, 0, 100000, 0);
+        out = { rows: all.slice(offset, offset + limit), total: all.length, offset, limit, truncated: media.length >= MAX };
+        break;
+      }
       case 'set_plan':
         out = (await sb.rpc('admin_set_plan', {
           p_username: body.username, p_plan: body.plan, p_days: body.plan_days ?? 30,

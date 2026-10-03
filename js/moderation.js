@@ -750,7 +750,7 @@ async function renderStats() {
   const bar = el('div', { class: 'rowx', style: 'margin-bottom:18px' });
   [7, 30, 90].forEach(n => bar.appendChild(el('button', {
     class: 'chip' + (statDays === n ? ' on' : ''),
-    onclick: () => { statDays = n; renderStats(); },
+    onclick: () => { statDays = n; statPick = null; renderStats(); },
   }, `${n} days`)));
   app.appendChild(bar);
 
@@ -778,7 +778,7 @@ async function renderStats() {
   ]));
 
   body.appendChild(eventTiersPanel(d.events));
-  body.appendChild(panel('By day', dayTable(d.by_day || [])));
+  body.appendChild(statsByDay(d.by_day || []));
   body.appendChild(panel('Countries', barList((d.geo || []).map(g => [g.code || '??', g.n]))));
   body.appendChild(panel('Top albums', topList(d.top_albums || [])));
   body.appendChild(planForm());
@@ -801,7 +801,7 @@ function panel(title, node) {
 }
 
 function dayTable(rows) {
-  const live = rows.filter(r => r.views || r.actives || r.signups || r.albums);
+  const live = rows;
   if (!live.length) return el('div', { class: 'muted', text: 'Nothing happened in this period.' });
   const line = (cells, muted) => el('div', {
     class: muted ? 'muted' : '',
@@ -809,7 +809,11 @@ function dayTable(rows) {
       + (muted ? ';border-bottom:1px solid #EFEDE8;font-size:12.5px' : ';border-bottom:1px solid #F5F3EF'),
   }, ...cells.map(x => el('span', { text: String(x) })));
   const box = el('div', {}, line(['Day', 'Visits', 'Active', 'Signups', 'Albums'], true));
-  live.forEach(r => box.appendChild(line([r.day, r.views, r.actives, r.signups, r.albums])));
+  live.forEach(r => {
+    const n = line([r.day, r.views, r.actives, r.signups, r.albums]);
+    if (!(r.views || r.actives || r.signups || r.albums)) n.style.color = '#B5AC9E';
+    box.appendChild(n);
+  });
   return box;
 }
 
@@ -900,6 +904,329 @@ function eventForm(tiersLive) {
       text: 'One paid Event Album = one credit of its tier. The user then sees "Shared album" in their profile, picks which credit to use, creates it and gets a permanent QR for guests. Negative number takes credits of that tier back. Medium/Large need migration 054 and the updated mod-api.' }),
     user, tier, count, go, out));
 }
+
+/* ---------------- графики «по дням» + списки регистраций и загрузок ---------------- */
+
+// Дни считаются в UTC — так же, как admin_stats (current_date базы в UTC).
+const DAY_MS = 86400000;
+const isoDay = (t) => new Date(t).toISOString().slice(0, 10);
+let statPick = null;        // выбранный кликом день 'YYYY-MM-DD' или null (весь период)
+
+/** Ровно N дней до сегодняшнего (UTC) включительно; пустые дни — нулями. */
+function fillDays(rows, n) {
+  const by = new Map(rows.map(r => [String(r.day).slice(0, 10), r]));
+  const today = Date.parse(isoDay(Date.now()));
+  const out = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const day = isoDay(today - i * DAY_MS);
+    const r = by.get(day) || {};
+    out.push({ day, views: +r.views || 0, actives: +r.actives || 0, signups: +r.signups || 0, albums: +r.albums || 0 });
+  }
+  return out;
+}
+
+/** Окно для списков: выбранный день или весь период. to — не включительно. */
+function statWindow() {
+  if (statPick) return { from: `${statPick}T00:00:00Z`, to: new Date(Date.parse(statPick) + DAY_MS).toISOString() };
+  const today = Date.parse(isoDay(Date.now()));
+  return { from: new Date(today - (statDays - 1) * DAY_MS).toISOString(), to: new Date(today + DAY_MS).toISOString() };
+}
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+function svg(tag, attrs = {}, ...kids) {
+  const n = document.createElementNS(SVGNS, tag);
+  for (const [k, v] of Object.entries(attrs)) if (v !== null && v !== undefined) n.setAttribute(k, v);
+  kids.flat().forEach(k => k && n.appendChild(k));
+  return n;
+}
+
+const fmtDay = (day, long) => new Date(`${day}T00:00:00Z`).toLocaleDateString('en-US',
+  long ? { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }
+    : { month: 'short', day: 'numeric', timeZone: 'UTC' });
+
+/** «Красивый» верх оси: 1, 2, 5 × 10^k. */
+function niceMax(v) {
+  if (v <= 4) return 4;
+  const p = 10 ** Math.floor(Math.log10(v));
+  for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= v) return m * p;
+  return 10 * p;
+}
+
+/**
+ * Один график на SVG: kind 'area' (линии с заливкой) или 'bars' (группы столбиков).
+ * series: [{key, label, color}]. onPick(day) — клик по дню.
+ */
+function dayChart(days, series, kind, onPick) {
+  // на телефоне рисуем в узкой системе координат, чтобы подписи не мельчали
+  const narrow = window.innerWidth < 720;
+  const W = narrow ? 400 : 720, H = narrow ? 250 : 230, L = 34, R = 10, T = 14, B = 28;
+  const iw = W - L - R, ih = H - T - B, n = days.length;
+  const max = niceMax(Math.max(1, ...days.flatMap(d => series.map(s => d[s.key]))));
+  const step = iw / n;
+  const x = (i) => (kind === 'bars' ? L + step * (i + 0.5) : L + (n === 1 ? iw / 2 : (iw * i) / (n - 1)));
+  const y = (v) => T + ih - (v / max) * ih;
+
+  const root = svg('svg', { viewBox: `0 0 ${W} ${H}`, width: '100%', role: 'img', style: 'display:block;overflow:visible' });
+  const defs = svg('defs');
+  series.forEach((s, k) => defs.appendChild(svg('linearGradient', { id: `g-${kind}-${k}`, x1: 0, y1: 0, x2: 0, y2: 1 },
+    svg('stop', { offset: '0%', 'stop-color': s.color, 'stop-opacity': kind === 'area' ? 0.32 : 1 }),
+    svg('stop', { offset: '100%', 'stop-color': s.color, 'stop-opacity': kind === 'area' ? 0.02 : 0.75 }))));
+  root.appendChild(defs);
+
+  // сетка и подписи оси Y
+  for (let i = 0; i <= 4; i++) {
+    const v = (max / 4) * i, yy = y(v);
+    root.appendChild(svg('line', { x1: L, x2: W - R, y1: yy, y2: yy, stroke: i ? '#F0ECE4' : '#E4DCCE', 'stroke-width': 1 }));
+    const t = svg('text', { x: L - 8, y: yy + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#9A9184' });
+    t.textContent = Number.isInteger(v) ? String(v) : v.toFixed(1);
+    root.appendChild(t);
+  }
+  // подписи оси X: не больше ~8, последний день всегда
+  const every = Math.max(1, Math.ceil(n / (narrow ? 5 : 8)));
+  days.forEach((d, i) => {
+    if ((n - 1 - i) % every) return;
+    const t = svg('text', { x: x(i), y: H - 8, 'text-anchor': 'middle', 'font-size': 11, fill: '#9A9184' });
+    t.textContent = fmtDay(d.day);
+    root.appendChild(t);
+  });
+
+  const picked = statPick ? days.findIndex(d => d.day === statPick) : -1;
+  if (picked >= 0) {
+    root.appendChild(svg('rect', { x: kind === 'bars' ? L + step * picked : x(picked) - step / 2, y: T, width: step, height: ih,
+      fill: '#C9A227', 'fill-opacity': 0.14, rx: 4 }));
+  }
+
+  if (kind === 'area') {
+    series.forEach((s, k) => {
+      const pts = days.map((d, i) => `${x(i).toFixed(1)},${y(d[s.key]).toFixed(1)}`);
+      if (s.fill !== false) {
+        root.appendChild(svg('path', { d: `M${x(0)},${y(0)} L${pts.join(' L')} L${x(n - 1)},${y(0)} Z`, fill: `url(#g-area-${k})` }));
+      }
+      root.appendChild(svg('polyline', { points: pts.join(' '), fill: 'none', stroke: s.color, 'stroke-width': 2.4,
+        'stroke-linejoin': 'round', 'stroke-linecap': 'round', 'stroke-dasharray': s.dash || null }));
+      if (n <= (narrow ? 14 : 31)) days.forEach((d, i) => root.appendChild(svg('circle', { cx: x(i), cy: y(d[s.key]), r: 2.6, fill: '#fff', stroke: s.color, 'stroke-width': 1.6 })));
+    });
+  } else {
+    const gw = Math.min(step * 0.78, 34), bw = gw / series.length;
+    days.forEach((d, i) => series.forEach((s, k) => {
+      const v = d[s.key]; if (!v) return;
+      const h = Math.max(2, (v / max) * ih);
+      root.appendChild(svg('rect', { x: x(i) - gw / 2 + bw * k + 0.5, y: T + ih - h, width: Math.max(1.5, bw - 1), height: h,
+        rx: Math.min(3, bw / 3), fill: `url(#g-bars-${k})` }));
+    }));
+  }
+
+  // наведение: вертикальная направляющая + подсказка; клик — фильтр по дню
+  const guide = svg('line', { y1: T, y2: T + ih, stroke: '#C9A227', 'stroke-width': 1, 'stroke-dasharray': '3 3', visibility: 'hidden' });
+  root.appendChild(guide);
+  const wrap = el('div', { style: 'position:relative' });
+  const tip = el('div', { style: 'position:absolute;top:0;left:0;pointer-events:none;opacity:0;transition:opacity .12s;'
+    + 'background:#FFFDF8;border:1px solid #E4DCCE;border-radius:10px;box-shadow:0 6px 18px rgba(60,45,20,.12);'
+    + 'padding:8px 10px;font-size:12.5px;min-width:130px;z-index:5' });
+  days.forEach((d, i) => {
+    const hit = svg('rect', { x: kind === 'bars' ? L + step * i : x(i) - step / 2, y: T, width: step, height: ih,
+      fill: 'transparent', style: 'cursor:pointer' });
+    hit.addEventListener('mouseenter', () => {
+      guide.setAttribute('x1', x(i)); guide.setAttribute('x2', x(i)); guide.setAttribute('visibility', 'visible');
+      clear(tip).append(
+        el('div', { style: 'font-weight:700;margin-bottom:4px', text: fmtDay(d.day, true) }),
+        ...series.map(s => el('div', { style: 'display:flex;align-items:center;gap:6px;justify-content:space-between' },
+          el('span', { style: 'display:flex;align-items:center;gap:6px' },
+            el('i', { style: `width:9px;height:9px;border-radius:3px;background:${s.color};display:inline-block` }), s.label),
+          el('b', { text: String(d[s.key]) }))),
+        el('div', { class: 'muted', style: 'font-size:11px;margin-top:4px', text: statPick === d.day ? 'Click to show the whole period' : 'Click to filter lists below' }));
+      const box = wrap.getBoundingClientRect(), px = (x(i) / W) * box.width;
+      tip.style.opacity = '1';
+      const tw = tip.offsetWidth;
+      // сбоку от направляющей, внутри области графика: не закрывает заголовок
+      tip.style.left = `${px + 12 + tw <= box.width ? px + 12 : Math.max(0, px - 12 - tw)}px`;
+      tip.style.top = `${(T / H) * box.height}px`;
+    });
+    hit.addEventListener('mouseleave', () => { tip.style.opacity = '0'; guide.setAttribute('visibility', 'hidden'); });
+    hit.addEventListener('click', () => onPick(d.day));
+    root.appendChild(hit);
+  });
+  wrap.append(root, tip);
+  return wrap;
+}
+
+function chartPanel(title, days, series, kind, onPick) {
+  const legend = el('div', { style: 'display:flex;gap:14px;flex-wrap:wrap;font-size:13px' },
+    ...series.map(s => el('span', { style: 'display:flex;align-items:center;gap:6px' },
+      el('i', { style: `width:12px;height:${kind === 'bars' ? 12 : 3}px;border-radius:3px;background:${s.color};display:inline-block` }),
+      el('span', { class: 'muted', text: s.label }),
+      el('b', { text: String(days.reduce((n, d) => n + d[s.key], 0)) }))));
+  return el('div', { class: 'side-card', style: 'margin-top:18px;min-width:0' },
+    el('div', { style: 'display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px' },
+      el('div', { style: 'font-size:17px;font-weight:700', text: title }), legend),
+    dayChart(days, series, kind, onPick));
+}
+
+/** Блок «по дням»: два графика, таблица под спойлером, оба списка. */
+function statsByDay(rows) {
+  const host = el('div', {});
+  const days = fillDays(rows, statDays);
+  const draw = () => {
+    clear(host);
+    const pick = (day) => { statPick = statPick === day ? null : day; draw(); };
+    host.appendChild(el('div', { class: 'stat-charts' },
+      chartPanel('Visits & active users', days, [
+        { key: 'views', label: 'Visits', color: '#C9A227' },
+        { key: 'actives', label: 'Active', color: '#8A4B2F', fill: false },
+      ], 'area', pick),
+      chartPanel('Signups & new albums', days, [
+        { key: 'signups', label: 'Signups', color: '#C9A227' },
+        { key: 'albums', label: 'Albums', color: '#8A4B2F' },
+      ], 'bars', pick)));
+
+    const table = el('details', { class: 'side-card', style: 'margin-top:18px' },
+      el('summary', { style: 'cursor:pointer;font-size:15px;font-weight:700', text: `By day — table (${days.length} days, UTC)` }),
+      el('div', { style: 'margin-top:10px' }, dayTable([...days].reverse())));
+    host.appendChild(table);
+
+    const w = statWindow();
+    host.appendChild(el('div', { class: 'stat-filter' },
+      el('span', { class: 'muted', text: 'Lists below: ' }),
+      el('b', { text: statPick ? `${fmtDay(statPick, true)} (UTC day)` : `last ${statDays} days` }),
+      statPick ? el('button', { class: 'chip', style: 'margin-left:8px', onclick: () => { statPick = null; draw(); } }, '× Whole period') : null,
+      el('span', { class: 'muted', style: 'margin-left:auto;font-size:12px', text: `Times in your local time (${localTz()})` })));
+    host.appendChild(signupsPanel(w));
+    host.appendChild(uploadsPanel(w));
+  };
+  draw();
+  return host;
+}
+
+const localTz = () => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'local'; } catch { return 'local'; } };
+function dt(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleString('en-GB',
+    { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+const profileHref = (u) => `profile.html?u=${encodeURIComponent(u)}`;
+const linkStyle = 'color:inherit;font-weight:700;text-decoration:underline';
+const PROVIDER = { google: 'Google', email: 'Email', telegram: 'Telegram', yandex: 'Yandex', apple: 'Apple', github: 'GitHub', anonymous: 'Guest' };
+const providerLabel = (p) => (p ? p.split(/,\s*/).map(x => PROVIDER[x] || x).join(' + ') : '—');
+
+/** Общая обвязка списка: заголовок, счётчик, «Show more». load(offset) → {rows,total}. */
+function lazyList(title, hint, load, drawRow, opts = {}) {
+  const list = el('div', { class: 'stat-list' }, el('div', { class: 'muted', text: 'Loading…' }));
+  const count = el('span', { class: 'muted', style: 'font-size:13px' });
+  const extra = el('div', {});
+  const foot = el('div', {});
+  const box = el('div', { class: 'side-card', style: 'margin-top:18px' },
+    el('div', { style: 'display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px' },
+      el('div', { style: 'font-size:17px;font-weight:700', text: title }), count),
+    el('div', { class: 'muted', style: 'font-size:12.5px;margin-bottom:8px', text: hint }), extra, list, foot);
+  let shown = [], total = 0, offset = 0;
+  const render = () => {
+    clear(list);
+    const vis = opts.filter ? shown.filter(opts.filter) : shown;
+    if (!vis.length) list.appendChild(el('div', { class: 'muted', style: 'padding:10px 0', text: opts.empty || 'Nothing in this period.' }));
+    vis.forEach(r => list.appendChild(drawRow(r)));
+    count.textContent = `${total} total${opts.countNote ? opts.countNote(shown) : ''}`;
+    clear(foot);
+    if (offset < total) {
+      const more = el('button', { class: 'btn btn-ghost btn-sm', style: 'margin-top:12px' }, `Show more (${total - offset} left)`);
+      more.onclick = () => { more.disabled = true; next(); };
+      foot.appendChild(more);
+    }
+  };
+  const next = async () => {
+    let d;
+    try { d = (await load(offset)).data || {}; }
+    catch (e) { clear(foot).appendChild(el('div', { class: 'muted', text: e.message })); if (!shown.length) clear(list); return; }
+    shown = shown.concat(d.rows || []); total = Number(d.total) || 0; offset += (d.rows || []).length;
+    if (!(d.rows || []).length) offset = total;
+    render();
+  };
+  if (opts.controls) extra.appendChild(opts.controls(render));
+  next();
+  return box;
+}
+
+let showGuests = false;
+function signupsPanel(w) {
+  return lazyList('Recent signups', 'Newest first. Email and sign-in method come from auth (admin only).',
+    (offset) => call('recent_signups', { ...w, offset, limit: 25 }),
+    (u) => {
+      const name = u.display_name || u.username || '—';
+      return el('div', { class: 'stat-row su-row' + (u.guest ? ' is-guest' : '') },
+        el('div', { class: 'muted su-time', text: dt(u.created_at) }),
+        el('div', { class: 'su-who' },
+          u.username && !u.deleted_at
+            ? el('a', { href: profileHref(u.username), target: '_blank', rel: 'noopener', style: linkStyle, text: name })
+            : el('b', { text: name }),
+          el('span', { class: 'muted', style: 'font-size:12.5px', text: ` @${u.username || '—'}${u.country ? ' · ' + flag(u.country) + ' ' + u.country : ''}` }),
+          u.banned_at ? el('span', { class: 'pill', style: 'margin-left:6px;font-size:11px', text: 'banned' }) : null,
+          el('div', { style: 'font-size:13px;word-break:break-all', text: u.email || (u.guest ? 'guest session (no account yet)' : '—') })),
+        el('div', {}, el('span', { class: 'prov', text: providerLabel(u.provider) })),
+        el('div', { class: 'su-links' },
+          u.username ? el('a', { class: 'btn btn-ghost btn-sm', href: profileHref(u.username), target: '_blank', rel: 'noopener' }, 'Profile') : null,
+          u.username ? el('a', { class: 'btn btn-ghost btn-sm', href: profileHref(u.username), target: '_blank', rel: 'noopener',
+            title: 'Public albums on the profile page' }, `Albums (${u.albums_count ?? 0})`) : null));
+    },
+    {
+      filter: (u) => showGuests || !u.guest,
+      empty: 'No signups in this period.',
+      countNote: (rows) => { const g = rows.filter(r => r.guest).length; return g ? ` · ${g} guest${g > 1 ? 's' : ''} loaded` : ''; },
+      controls: (render) => {
+        const cb = el('input', { type: 'checkbox' }); cb.checked = showGuests;
+        cb.onchange = () => { showGuests = cb.checked; render(); };
+        return el('label', { style: 'display:inline-flex;gap:6px;align-items:center;font-size:13px;margin-bottom:6px;cursor:pointer' },
+          cb, 'Show guest sessions (anonymous uploaders)');
+      },
+    });
+}
+
+function uploadsPanel(w) {
+  return lazyList('Albums with uploads', 'Albums where files were uploaded in this period, by last upload. Files = total in album now.',
+    (offset) => call('recent_albums', { ...w, offset, limit: 25 }),
+    (a) => {
+      const tier = a.is_event ? (a.event_tier || 'small') : null;
+      const type = tier
+        ? tierChip(tier, 'event')
+        : el('span', { class: 'prov', text: 'Personal' });
+      return el('div', { class: 'stat-row up-row' },
+        el('div', { class: 'up-title' },
+          el('a', { href: `album.html?id=${a.id}`, target: '_blank', rel: 'noopener', style: linkStyle, text: a.title || 'Untitled' }),
+          el('div', { class: 'muted', style: 'font-size:12.5px' }, 'by ',
+            a.owner ? el('a', { href: profileHref(a.owner), target: '_blank', rel: 'noopener', style: 'color:inherit;text-decoration:underline', text: `@${a.owner}` }) : '—',
+            ` · ${a.visibility || ''}${a.published_at ? '' : ' · draft'}`)),
+        el('div', {}, type),
+        el('div', { class: 'up-num' }, el('b', { text: String(a.files ?? 0) }), el('span', { class: 'muted', text: ' files' }),
+          el('div', { class: 'muted', style: 'font-size:12px', text: `+${a.uploads || 0} in period` })),
+        el('div', { class: 'up-time' }, el('div', { style: 'font-size:13.5px', text: dt(a.last_upload_at) }),
+          el('div', { class: 'muted', style: 'font-size:12px', text: a.last_upload_at ? timeAgo(a.last_upload_at) : '' })),
+        el('div', { class: 'su-links' },
+          el('a', { class: 'btn btn-ghost btn-sm', href: `album.html?id=${a.id}`, target: '_blank', rel: 'noopener' }, 'Open'),
+          el('a', { class: 'btn btn-ghost btn-sm', href: `moderation.html?album=${a.id}`, target: '_blank', rel: 'noopener' }, 'Moderate')));
+    },
+    { empty: 'No uploads in this period.', countNote: () => '' });
+}
+
+// стили блока: одна вставка на страницу
+document.head.appendChild(el('style', { text: `
+.stat-charts{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media (max-width:980px){.stat-charts{grid-template-columns:1fr}}
+.stat-filter{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-top:22px;font-size:14px}
+.stat-row{display:grid;gap:10px 14px;align-items:center;padding:10px 0;border-bottom:1px solid #F5F3EF;font-size:14px}
+.stat-row:last-child{border-bottom:0}
+.su-row{grid-template-columns:150px minmax(0,1fr) 110px auto}
+.up-row{grid-template-columns:minmax(0,1.6fr) 110px 100px 150px auto}
+.su-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.prov{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:#F5F1E8;border:1px solid #E4DCCE;white-space:nowrap}
+.is-guest{opacity:.6}
+@media (max-width:720px){
+  .su-row{grid-template-columns:1fr auto}
+  .su-row .su-time{grid-column:1/-1;font-size:12.5px}
+  .su-row .su-who{grid-column:1/-1}
+  .up-row{grid-template-columns:1fr auto}
+  .up-row .up-title{grid-column:1/-1}
+  .su-links{justify-content:flex-start}
+}
+` }));
 
 function gb(bytes) {
   const n = Number(bytes || 0);
