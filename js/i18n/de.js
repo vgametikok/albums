@@ -679,6 +679,7 @@
   qs_dl_pdf_hint: "A4-Seite, druckfertig",
   qs_dl_busy: "Datei wird erstellt…",
   qs_dl_failed: "Die Datei konnte nicht erstellt werden. Bitte versuche es erneut.",
+  qs_dl_banner_failed: "Das Bannerfoto konnte nicht geladen werden, daher wurde keine Datei erstellt. Prüfe deine Verbindung und versuche es erneut.",
   copy_short: "Kopieren",
   ev_qr_print_plain: "QR drucken",
   qs_print_design: "Design drucken",

@@ -451,6 +451,7 @@ export default {
   qs_dl_pdf_hint: "A4 page, ready to print",
   qs_dl_busy: "Preparing the file…",
   qs_dl_failed: "Couldn't create the file. Please try again.",
+  qs_dl_banner_failed: "Couldn't load the banner photo, so the file wasn't created. Check your connection and try again.",
   copy_short: "Copy",
   ev_qr_print_plain: "Print QR",
   qs_print_design: "Print design",

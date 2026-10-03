@@ -679,6 +679,7 @@
   qs_dl_pdf_hint: "A4 1枚、そのまま印刷できます",
   qs_dl_busy: "ファイルを作成中…",
   qs_dl_failed: "ファイルを作成できませんでした。もう一度お試しください。",
+  qs_dl_banner_failed: "バナー写真を読み込めなかったため、ファイルは作成されませんでした。接続を確認してもう一度お試しください。",
   copy_short: "コピー",
   ev_qr_print_plain: "QRを印刷",
   qs_print_design: "デザインを印刷",

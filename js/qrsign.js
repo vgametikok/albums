@@ -9,7 +9,7 @@
 // QR всегда тёмный на белой карточке с полем 4 модуля и коррекцией H — какие
 // бы цвета ни выбрал хозяин, код остаётся контрастным и читается.
 import { sb } from './sb.js';
-import { el, clear, toast, t, modal, signUrls } from './ui.js';
+import { el, clear, toast, t, modal, signUrls, freshSignedUrl } from './ui.js';
 import { qrSvg } from './qr.js';
 import { uploadMedia } from './upload.js';
 
@@ -685,12 +685,38 @@ async function signFontCss(sign) {
   return r.ok ? r.text() : '';
 }
 
-/** Картинка → data: URL (банер встраиваем сами — и для Safari, и чтобы знать об ошибке). */
-async function inlineImg(img) {
+/**
+ * Банер → data: URL, чтобы он точно попал в PNG/PDF.
+ * Почему не просто fetch: превью уже загрузило эту же ссылку через <img> без
+ * Origin, R2 ответил без Access-Control-Allow-Origin и без Vary: Origin
+ * (Cache-Control: private, max-age=900), и Chrome отдаёт CORS-запросу эту
+ * копию из кэша — запрос падает, банер в файле пустой. Поэтому:
+ * 1) та же ссылка, но cache:'no-store' — мимо HTTP-кэша, R2 отвечает с CORS;
+ * 2) не вышло — свежая подпись (новый URL) и снова no-store.
+ * Не получилось ни так, ни так — ошибка: файл без банера молча не отдаём.
+ */
+async function inlineImg(img, photo) {
   if (!img || img.src.startsWith('data:')) return;
-  const b = await (await fetch(img.src, { mode: 'cors' })).blob();
-  img.src = await new Promise((res) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(b); });
-  await img.decode().catch(() => null);
+  const tryUrl = async (u) => {
+    if (!u) throw new Error('no url');
+    const r = await fetch(u, { mode: 'cors', cache: 'no-store', credentials: 'omit' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const b = await r.blob();
+    if (!b.size) throw new Error('empty');
+    return b;
+  };
+  let blob;
+  try { blob = await tryUrl(img.src); }
+  catch (e1) {
+    console.warn('banner fetch failed, re-signing:', e1);
+    blob = null;
+    for (const p of [photo?.path, photo?.thumb]) {
+      try { blob = await tryUrl(await freshSignedUrl(p)); break; } catch (e2) { console.warn('banner fallback failed:', p, e2); }
+    }
+    if (!blob) throw new Error('banner');
+  }
+  img.src = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.onerror = rej; fr.readAsDataURL(blob); });
+  await img.decode();
 }
 
 /**
@@ -705,7 +731,11 @@ export async function exportSign(cfgIn, info, fmt) {
   document.body.appendChild(host);
   try {
     await signSettled(host);
-    try { await inlineImg(sign.querySelector('.qs-photo img')); } catch (_) { /* без банера, но файл всё равно будет */ }
+    if (cfg.photo) {
+      const img = sign.querySelector('.qs-photo img');
+      if (!img) throw Object.assign(new Error('banner'), { banner: true });
+      try { await inlineImg(img, cfg.photo); } catch (e) { throw Object.assign(e, { banner: true }); }
+    }
     let cssText = '';
     try { cssText = await signFontCss(sign); } catch (_) { /* системные шрифты */ }
     const { domToCanvas } = await import('./vendor/modern-screenshot.js');
@@ -783,7 +813,7 @@ export function openDownloadDesign(cfg, info) {
         box.querySelectorAll('.qs-dl-opt').forEach(b => { b.disabled = true; });
         status.textContent = t('qs_dl_busy');
         try { await exportSign(cfg, info, fmt); close(); }
-        catch (err) { console.error(err); status.textContent = t('qs_dl_failed'); box.querySelectorAll('.qs-dl-opt').forEach(b => { b.disabled = false; }); }
+        catch (err) { console.error(err); status.textContent = t(err?.banner ? 'qs_dl_banner_failed' : 'qs_dl_failed'); box.querySelectorAll('.qs-dl-opt').forEach(b => { b.disabled = false; }); }
       },
     }, el('b', { text: title }), el('span', { text: hint }));
     box.append(
@@ -1080,19 +1110,19 @@ const CSS = `
 .qs-left{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;height:100%}
 .qs-text{width:100%}
 .qs{font-synthesis:none}
-.qs-title{margin:0;font-family:var(--ff);font-size:calc(var(--tsize) * var(--wf,1));line-height:1.12;font-weight:var(--fw);overflow-wrap:anywhere;color:var(--ink)}
+.qs-title{margin:0;font-family:var(--ff);font-size:max(24px, calc(var(--tsize) * var(--wf,1)));line-height:1.12;font-weight:var(--fw);overflow-wrap:anywhere;color:var(--ink)}
 .qs-f-sans .qs-title{letter-spacing:-.02em}
 .qs-title,.qs-sub,.qs-custom{text-wrap:balance}
 .qs-g-ko .qs-title,.qs-g-ko .qs-sub,.qs-g-ko .qs-custom{word-break:keep-all;overflow-wrap:break-word}
 .qs-g-ja .qs-title,.qs-g-sc .qs-title{line-break:strict;letter-spacing:.02em}
 .qs-f-script .qs-title{line-height:1.2}
-.qs-custom{margin:12px 0 0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(21px * var(--k) * var(--wf,1));line-height:1.4;color:var(--ink);opacity:.72;white-space:pre-line;overflow-wrap:anywhere}
+.qs-custom{margin:12px 0 0;font-family:var(--ff);font-weight:var(--fw2);font-size:max(14px, calc(21px * var(--k) * var(--wf,1)));line-height:1.4;color:var(--ink);opacity:.72;white-space:pre-line;overflow-wrap:anywhere}
 .qs-rule{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px auto 18px;width:220px}
 .qs-h .qs-rule{margin:22px 0 18px;justify-content:flex-start}
 .qs-rule i{flex:1;height:1.5px;background:var(--acc)}
 .qs-rule b{width:9px;height:9px;transform:rotate(45deg);background:var(--acc)}
-.qs-sub{margin:0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(26px * var(--k) * var(--wf,1));line-height:1.35;color:var(--ink);opacity:.85;overflow-wrap:anywhere}
-.qs-h .qs-sub{font-size:calc(25px * var(--k) * var(--wf,1))}
+.qs-sub{margin:0;font-family:var(--ff);font-weight:var(--fw2);font-size:max(15px, calc(26px * var(--k) * var(--wf,1)));line-height:1.35;color:var(--ink);opacity:.85;overflow-wrap:anywhere}
+.qs-h .qs-sub{font-size:max(15px, calc(25px * var(--k) * var(--wf,1)))}
 .qs-measure .qs-title,.qs-measure .qs-sub,.qs-measure .qs-custom{overflow-wrap:normal!important;word-break:normal!important}
 .qs-code{display:flex;flex-direction:column;align-items:center;margin-top:auto;margin-bottom:auto}
 .qs-v .qs-code{margin-top:34px;margin-bottom:0}

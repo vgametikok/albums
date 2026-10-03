@@ -679,6 +679,7 @@
   qs_dl_pdf_hint: "Página A4, lista para imprimir",
   qs_dl_busy: "Preparando el archivo…",
   qs_dl_failed: "No se pudo crear el archivo. Inténtalo de nuevo.",
+  qs_dl_banner_failed: "No se pudo cargar la foto del banner, así que no se creó el archivo. Revisa tu conexión e inténtalo de nuevo.",
   copy_short: "Copiar",
   ev_qr_print_plain: "Imprimir QR",
   qs_print_design: "Imprimir diseño",

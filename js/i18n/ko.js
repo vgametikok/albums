@@ -674,6 +674,7 @@
   qs_dl_pdf_hint: "A4 한 장, 바로 인쇄 가능",
   qs_dl_busy: "파일을 만드는 중…",
   qs_dl_failed: "파일을 만들지 못했습니다. 다시 시도해 주세요.",
+  qs_dl_banner_failed: "배너 사진을 불러오지 못해 파일을 만들지 않았습니다. 연결을 확인하고 다시 시도해 주세요.",
   copy_short: "복사",
   ev_qr_print_plain: "QR 인쇄",
   qs_print_design: "디자인 인쇄",

@@ -93,6 +93,26 @@ const urlCache = new Map();
 const isR2 = p => typeof p === 'string' && p.startsWith('r2/');
 const R2_SIGN_VIEW = SUPABASE_URL + '/functions/v1/r2-sign/sign-view';
 
+/**
+ * Свежая подписанная ссылка мимо кэша urlCache: новая подпись = новый URL,
+ * которого заведомо нет в HTTP-кэше браузера (см. qrsign.js, банер в файле).
+ */
+export async function freshSignedUrl(path) {
+  if (!path) return null;
+  if (!isR2(path)) {
+    const { data } = await sb.storage.from('media').createSignedUrl(path, 3600);
+    return data?.signedUrl || null;
+  }
+  const token = (await sb.auth.getSession()).data.session?.access_token || SUPABASE_KEY;
+  const resp = await fetch(R2_SIGN_VIEW, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + token },
+    body: JSON.stringify({ paths: [path] }),
+  });
+  if (!resp.ok) return null;
+  return (await resp.json()).urls?.[path] || null;
+}
+
 export async function signUrls(paths) {
   const now = Date.now();
   const need = [...new Set(paths.filter(p => p && !(urlCache.get(p)?.exp > now)))];

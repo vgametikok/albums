@@ -675,6 +675,7 @@
   qs_dl_pdf_hint: "Page A4, prête à imprimer",
   qs_dl_busy: "Préparation du fichier…",
   qs_dl_failed: "Impossible de créer le fichier. Réessayez.",
+  qs_dl_banner_failed: "Impossible de charger la photo de la bannière : le fichier n'a pas été créé. Vérifiez votre connexion et réessayez.",
   copy_short: "Copier",
   ev_qr_print_plain: "Imprimer le QR",
   qs_print_design: "Imprimer le design",

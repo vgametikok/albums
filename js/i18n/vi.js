@@ -677,6 +677,7 @@
   qs_dl_pdf_hint: "Trang A4, sẵn sàng để in",
   qs_dl_busy: "Đang chuẩn bị tệp…",
   qs_dl_failed: "Không tạo được tệp. Vui lòng thử lại.",
+  qs_dl_banner_failed: "Không tải được ảnh banner nên chưa tạo tệp. Hãy kiểm tra kết nối và thử lại.",
   copy_short: "Sao chép",
   ev_qr_print_plain: "In mã QR",
   qs_print_design: "In thiết kế",

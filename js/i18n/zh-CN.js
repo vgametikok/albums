@@ -679,6 +679,7 @@
   qs_dl_pdf_hint: "A4 页面，可直接打印",
   qs_dl_busy: "正在生成文件…",
   qs_dl_failed: "无法生成文件，请重试。",
+  qs_dl_banner_failed: "横幅照片加载失败，未生成文件。请检查网络后重试。",
   copy_short: "复制",
   ev_qr_print_plain: "打印二维码",
   qs_print_design: "打印设计",
