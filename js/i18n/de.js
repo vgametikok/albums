@@ -838,7 +838,7 @@
   ea_sign_title: "Hochzeit von Marie & Lukas",
   ea_sign_call: 'Code scannen und Fotos hinzufügen',
   ea_video_h: "So funktioniert es – in 1 Minute",
-  ea_video_d: "Album anlegen, QR-Aufsteller auf die Tische stellen – und die Fotos aller Gäste landen an einem Ort. Video auf Englisch.",
+  ea_video_d: "Album anlegen, QR-Aufsteller auf die Tische stellen – und die Fotos aller Gäste landen an einem Ort.",
   ea_video_label: "Video: So funktioniert ein Event-Album",
   ea_prob_h: 'Kommt dir bekannt vor?',
   ea_prob1_t: 'Alle haben fotografiert — du hast ein Dutzend Bilder',

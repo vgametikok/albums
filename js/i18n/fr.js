@@ -828,7 +828,7 @@
   ea_sign_title: "Mariage de Léa et Hugo",
   ea_sign_call: 'Scannez le code et ajoutez vos photos',
   ea_video_h: "Découvrez le fonctionnement en 1 minute",
-  ea_video_d: "Créez l’album, posez le QR code sur les tables, et les photos de tous les invités arrivent au même endroit. Vidéo en anglais.",
+  ea_video_d: "Créez l’album, posez le QR code sur les tables, et les photos de tous les invités arrivent au même endroit.",
   ea_video_label: "Vidéo : comment fonctionne un album d’événement",
   ea_prob_h: 'Ça vous parle ?',
   ea_prob1_t: 'Tout le monde photographiait — vous avez une dizaine de clichés',

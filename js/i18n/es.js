@@ -840,7 +840,7 @@
   ea_sign_title: "Boda de Laura y Javier",
   ea_sign_call: 'Escanea el código y añade tus fotos',
   ea_video_h: "Mira cómo funciona en 1 minuto",
-  ea_video_d: "Creas el álbum, pones el cartel con el código QR en las mesas y las fotos de todos los invitados llegan a un solo lugar. Vídeo en inglés.",
+  ea_video_d: "Creas el álbum, pones el cartel con el código QR en las mesas y las fotos de todos los invitados llegan a un solo lugar.",
   ea_video_label: "Vídeo: cómo funciona un álbum del evento",
   ea_prob_h: '¿Te suena?',
   ea_prob1_t: 'Todos hacían fotos y tú te quedaste con diez',
