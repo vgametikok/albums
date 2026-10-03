@@ -11,6 +11,7 @@
 import { sb } from './sb.js';
 import { el, clear, toast, t, modal, signUrls } from './ui.js';
 import { qrSvg } from './qr.js';
+import { uploadMedia } from './upload.js';
 
 const MM = 96 / 25.4;
 const SIZE = { v: [Math.round(194 * MM), Math.round(262 * MM)], h: [Math.round(262 * MM), Math.round(190 * MM)] };
@@ -183,8 +184,7 @@ function normalize(cfg) {
     design: DESIGN_KEYS.includes(cfg.design) ? cfg.design : d.design,
     orient: cfg.orient === 'h' ? 'h' : 'v',
     colors: c && c.acc && c.bg && c.ink ? c : null,
-    photo: cfg.photo && typeof cfg.photo.path === 'string'
-      ? { id: String(cfg.photo.id || ''), path: cfg.photo.path, thumb: cfg.photo.thumb || cfg.photo.path } : null,
+    photo: normPhoto(cfg.photo),
     font: FONT_KEYS.includes(cfg.font) ? cfg.font : null,
     lines: { name: ln.name !== false, share: !!ln.share, custom: !!ln.custom },
     title: typeof cfg.title === 'string' && cfg.title.trim() ? cfg.title.trim().slice(0, 120) : null,
@@ -193,6 +193,57 @@ function normalize(cfg) {
 }
 
 const groupOf = (cfg, info) => scriptGroup(signText(cfg, info));
+/** Фото баннера: путь, размеры оригинала, кадрирование {cx,cy,z} и источник (cover|album|own). */
+function normPhoto(p) {
+  if (!p || typeof p.path !== 'string') return null;
+  const num = (x, lo, hi, d) => (Number.isFinite(+x) ? Math.min(hi, Math.max(lo, +x)) : d);
+  const c = p.crop && typeof p.crop === 'object' ? p.crop : {};
+  return {
+    id: String(p.id || ''), path: p.path, thumb: typeof p.thumb === 'string' ? p.thumb : p.path,
+    w: num(p.w, 0, 20000, 0) || null, h: num(p.h, 0, 20000, 0) || null,
+    src: ['cover', 'album', 'own'].includes(p.src) ? p.src : 'album',
+    crop: { cx: num(c.cx, 0, 1, 0.5), cy: num(c.cy, 0, 1, 0.5), z: num(c.z, 1, 4, 1) },
+  };
+}
+
+/**
+ * Где стоит картинка в рамке fw×fh: «cover» × zoom, центр кадра — (cx,cy) в
+ * долях картинки, с упором в края (пустых полей не бывает). Одна формула для
+ * окна кадрирования, предпросмотра и печати — поэтому печать совпадает.
+ */
+export function cropBox(fw, fh, iw, ih, crop) {
+  const s = Math.max(fw / iw, fh / ih) * (crop?.z || 1);
+  const dw = iw * s, dh = ih * s;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  const cx = clamp(crop?.cx ?? 0.5, fw / (2 * dw), 1 - fw / (2 * dw));
+  const cy = clamp(crop?.cy ?? 0.5, fh / (2 * dh), 1 - fh / (2 * dh));
+  return { w: dw, h: dh, left: fw / 2 - cx * dw, top: fh / 2 - cy * dh, cx, cy };
+}
+function placeImg(img, fw, fh, photo, dims) {
+  const iw = photo.w || dims?.w, ih = photo.h || dims?.h;
+  if (!img || !iw || !ih || !fw || !fh) {
+    if (img) img.style.cssText = `width:100%;height:100%;object-fit:cover;object-position:${photo.crop.cx * 100}% ${photo.crop.cy * 100}%`;
+    return;
+  }
+  const b = cropBox(fw, fh, iw, ih, photo.crop);
+  img.style.cssText = `position:absolute;max-width:none;width:${b.w}px;height:${b.h}px;left:${b.left}px;top:${b.top}px`;
+}
+
+const dimCache = new Map();
+/** Размеры картинки по ссылке (для кадрирования, когда в media их нет). */
+export function imgDims(url) {
+  if (!url) return Promise.resolve(null);
+  if (!dimCache.has(url)) {
+    dimCache.set(url, new Promise((res) => {
+      const im = new Image();
+      im.onload = () => res({ w: im.naturalWidth, h: im.naturalHeight });
+      im.onerror = () => res(null);
+      im.src = url;
+    }));
+  }
+  return dimCache.get(url);
+}
+
 const fontOf = (cfg, info) => resolveFont(cfg.font, cfg.design, groupOf(cfg, info));
 /** Весь текст таблички — для подбора CJK-шрифта и подгрузки нужных глифов. */
 function signText(cfg, info) {
@@ -379,7 +430,7 @@ function layout(cfg, F, title, photo, W, H) {
   };
   let k = 1;
   const need = () => (v
-    ? (photo ? 62 : 78) + 96 + (ph ? ph + 18 : 0) + textH(k) + (qr + 32) + 34 + 34
+    ? (photo ? 62 : 78) + 96 + (ph ? ph + 18 : 0) + textH(k) + (qr + 32) + 34
     : 128 + (ph ? ph + 30 : 0) + textH(k) + 70);
   const room = H - 10;
   while (need() > room && ph > (v ? 150 : 120)) ph -= 10;
@@ -422,8 +473,10 @@ export function renderSign(cfgIn, info) {
   if (cfg.lines.share) lines.push(el('p', { class: 'qs-sub', text: t('qs_line_share') }));
   if (cfg.lines.custom && cfg.custom.trim()) lines.push(el('p', { class: 'qs-custom', text: cfg.custom.trim() }));
   const text = lines.length ? el('div', { class: 'qs-text' }, ...lines) : null;
-  const code = el('div', { class: 'qs-code' }, card, el('div', { class: 'qs-url', text: info.url.replace(/^https?:\/\//, '') }));
+  // ссылку под кодом не печатаем: QR и так ведёт по ней, а длинная строка с токеном только шумит
+  const code = el('div', { class: 'qs-code' }, card);
   const ph = photo ? el('div', { class: 'qs-photo' }, el('img', { src: info.photoUrl, alt: '' })) : null;
+  root._photoDims = info.photoDims || null;
   const brand = el('div', { class: 'qs-brand', text: 'albums.ink' });
 
   const inner = el('div', { class: 'qs-inner' });
@@ -450,7 +503,7 @@ function fit(root, cfg, L) {
   const over = () => {
     const r = R();
     if (v) {
-      const code = q('.qs-url') || q('.qs-card'), brand = q('.qs-brand'), first = root.querySelector('.qs-inner').firstElementChild.getBoundingClientRect();
+      const code = q('.qs-card'), brand = q('.qs-brand'), first = root.querySelector('.qs-inner').firstElementChild.getBoundingClientRect();
       return first.top < r.top + 24 || code.bottom > brand.top - 14;
     }
     const left = root.querySelector('.qs-left'), last = left.lastElementChild.getBoundingClientRect(), first = left.firstElementChild.getBoundingClientRect();
@@ -467,6 +520,10 @@ function fit(root, cfg, L) {
     root.style.setProperty('--k', String(L.k0 * k));
     svg.setAttribute('width', String(qr)); svg.setAttribute('height', String(qr));
   };
+  const placePhoto = () => {
+    const box = root.querySelector('.qs-photo');
+    if (box) placeImg(box.querySelector('img'), box.clientWidth, box.clientHeight, cfg.photo, root._photoDims);
+  };
   apply();
   for (let i = 0; i < 80 && over(); i++) {
     if (ph > minPh) ph -= 10;
@@ -475,6 +532,7 @@ function fit(root, cfg, L) {
     else break;
     apply();
   }
+  placePhoto();
   off.remove();
   root.remove();
 }
@@ -506,7 +564,8 @@ export async function printSign(cfgIn, info) {
   const url = await photoUrl(cfg);
   // шрифты — ДО раскладки: подгонка меряет текст уже нужным шрифтом
   try { await loadSignFont(fontOf(cfg, info), signText(cfg, info)); await document.fonts.ready; } catch (_) { /* чем есть */ }
-  const sign = renderSign(cfg, { ...info, photoUrl: url });
+  const dims = url ? await imgDims(url) : null;
+  const sign = renderSign(cfg, { ...info, photoUrl: url, photoDims: dims });
   document.getElementById('qs-print')?.remove();
   const host = el('div', { id: 'qs-print' }, sign);
   const page = el('style', { id: 'qs-page', text: `@page{size:${cfg.orient === 'h' ? 'landscape' : 'portrait'};margin:0}` });
@@ -557,8 +616,9 @@ export function openSignEditor({ album, url, media, current, onSaved }) {
       const seq = ++drawSeq;
       if (cfg.photo && (!photoSrc || photoSrc.key !== cfg.photo.path)) {
         const u = await photoUrl(cfg);
+        const dm = await imgDims(u);
         if (seq !== drawSeq) return;
-        photoSrc = { key: cfg.photo.path, url: u };
+        photoSrc = { key: cfg.photo.path, url: u, dims: dm };
       }
       const fk = fontOf(cfg, { title: album.title }), txt = signText(cfg, { title: album.title });
       const fkey = fk + '|' + txt;
@@ -568,7 +628,7 @@ export function openSignEditor({ album, url, media, current, onSaved }) {
         loadSignFont(fk, txt).then(() => { if (seq === drawSeq) draw(); });
       }
       paintFonts();   // глифы подтянутся сами, без перерисовки
-      clear(stage).appendChild(renderSign(cfg, { title: album.title, url, photoUrl: cfg.photo ? photoSrc?.url : null }));
+      clear(stage).appendChild(renderSign(cfg, { title: album.title, url, photoUrl: cfg.photo ? photoSrc?.url : null, photoDims: cfg.photo ? photoSrc?.dims : null }));
       fit();
     };
     const ro = new ResizeObserver(fit); ro.observe(view);
@@ -624,25 +684,112 @@ export function openSignEditor({ album, url, media, current, onSaved }) {
     paintSw();
     ctrls.appendChild(section(t('qs_colors'), sw, colorRow));
 
-    // фото
+    // фото: без баннера · обложка альбома · своё загруженное · фото альбома · «+ Загрузить»
     const pgrid = el('div', { class: 'qs-photos' });
-    const paintPh = () => pgrid.querySelectorAll('button').forEach(b => b.classList.toggle('on', (b.dataset.v || '') === (cfg.photo?.path || '')));
-    pgrid.appendChild(el('button', { type: 'button', class: 'qs-ph qs-ph-none', 'data-v': '', onclick: () => { cfg.photo = null; paintPh(); draw(); } }, t('qs_photo_none')));
-    if (photos.length) {
-      signUrls(photos.map(m => m.thumb_path || m.storage_path)).then(u => {
-        photos.forEach(m => {
-          const th = m.thumb_path || m.storage_path;
-          pgrid.appendChild(el('button', {
-            type: 'button', class: 'qs-ph', 'data-v': m.storage_path || th,
-            onclick: () => { cfg.photo = { id: m.id, path: m.storage_path || th, thumb: th }; paintPh(); draw(); },
-          }, el('img', { src: u[th] || '', alt: '', loading: 'lazy' })));
+    const coverPath = album.cover_path || album.cover_thumb;
+    const cover = coverPath ? { id: album.cover_media_id || '', path: coverPath, thumb: album.cover_thumb || coverPath, src: 'cover' } : null;
+    let own = cfg.photo?.src === 'own' ? { ...cfg.photo } : null;
+    const adjBtn = el('button', { type: 'button', class: 'mini qs-adjust', onclick: () => openCrop() }, t('qs_crop_title'));
+    const paintPh = () => {
+      pgrid.querySelectorAll('button[data-v]').forEach(b => b.classList.toggle('on', (b.dataset.v || '') === (cfg.photo?.path || '')));
+      adjBtn.hidden = !cfg.photo;
+    };
+    const choose = (p) => {
+      cfg.photo = normPhoto({ ...p, crop: null });
+      if (p.src === 'own') own = cfg.photo;
+      paintPh(); draw().then(() => openCrop());
+    };
+    const tile = (p, src, badge) => el('button', { type: 'button', class: 'qs-ph', 'data-v': p.path, onclick: () => choose(p) },
+      el('img', { src: src || '', alt: '', loading: 'lazy' }), badge ? el('span', { class: 'qs-badge', text: badge }) : null);
+    const fileIn = el('input', { type: 'file', accept: 'image/*,.heic,.heif', hidden: true });
+    const upTile = el('button', { type: 'button', class: 'qs-ph qs-ph-up', onclick: () => fileIn.click() }, t('qs_photo_upload'));
+    fileIn.onchange = async () => {
+      const f = fileIn.files[0]; fileIn.value = '';
+      if (!f) return;
+      upTile.disabled = true; upTile.textContent = t('qs_photo_uploading');
+      try {
+        // В album_media не кладём: фото только для таблички — не в альбоме, не в ленте
+        const m = await uploadMedia(f);
+        if (m.kind !== 'photo') throw new Error(t('err_unsupported', { name: f.name }));
+        choose({ id: m.id, path: m.storage_path, thumb: m.thumb_path || m.storage_path, w: m.width, h: m.height, src: 'own' });
+        paintTiles();
+      } catch (e) { toast(e.message || String(e)); }
+      upTile.disabled = false; upTile.textContent = t('qs_photo_upload');
+    };
+    const paintTiles = async () => {
+      const list = [cover, own].filter(Boolean);
+      const seen = new Set(list.map(p => p.path));
+      const alb = photos.filter(m => !seen.has(m.storage_path || m.thumb_path))
+        .map(m => ({ id: m.id, path: m.storage_path || m.thumb_path, thumb: m.thumb_path || m.storage_path, w: m.width, h: m.height, src: 'album' }));
+      let u = {};
+      try { u = await signUrls([...list, ...alb].map(p => p.thumb)); } catch (_) { /* без превью */ }
+      clear(pgrid).appendChild(el('button', { type: 'button', class: 'qs-ph qs-ph-none', 'data-v': '', onclick: () => { cfg.photo = null; paintPh(); draw(); } }, t('qs_photo_none')));
+      if (cover) pgrid.appendChild(tile(cover, u[cover.thumb], t('qs_photo_cover')));
+      if (own) pgrid.appendChild(tile(own, u[own.thumb], t('qs_photo_own')));
+      alb.forEach(p => pgrid.appendChild(tile(p, u[p.thumb])));
+      pgrid.appendChild(upTile);
+      paintPh();
+    };
+    paintTiles();
+    ctrls.appendChild(section(t('qs_photo'), pgrid, fileIn,
+      el('div', { class: 'qs-photo-foot' }, el('span', { class: 'muted', text: t('qs_photo_hint') }), adjBtn)));
+
+    // кадрирование: рамка — ровно слот баннера на текущей табличке
+    async function openCrop() {
+      if (!cfg.photo) return;
+      let slot = stage.querySelector('.qs-photo');
+      if (!slot) { await draw(); slot = stage.querySelector('.qs-photo'); }
+      const url = photoSrc?.key === cfg.photo.path ? photoSrc.url : await photoUrl(cfg);
+      if (!slot || !url) return;
+      const dims = (cfg.photo.w && cfg.photo.h) ? { w: cfg.photo.w, h: cfg.photo.h } : await imgDims(url);
+      if (!dims) return;
+      const fw = slot.offsetWidth, fh = slot.offsetHeight;
+      const st = { ...cfg.photo.crop };
+      modal((box, close) => {
+        box.classList.add('qs-crop-modal');
+        const maxW = Math.min(520, innerWidth - 110), maxH = Math.min(360, innerHeight * 0.45);
+        const d = Math.min(maxW / fw, maxH / fh);
+        const img = el('img', { src: url, alt: '', draggable: 'false' });
+        const frame = el('div', { class: 'qs-crop', style: `width:${fw * d}px;height:${fh * d}px` }, img);
+        const zoom = el('input', { type: 'range', min: '1', max: '4', step: '0.01', value: String(st.z), 'aria-label': t('qs_crop_zoom') });
+        const paint = () => {
+          const b = cropBox(fw, fh, dims.w, dims.h, st);
+          st.cx = b.cx; st.cy = b.cy;
+          img.style.cssText = `width:${b.w * d}px;height:${b.h * d}px;left:${b.left * d}px;top:${b.top * d}px`;
+          zoom.value = String(st.z);
+        };
+        let drag = null;
+        frame.addEventListener('pointerdown', (e) => { frame.setPointerCapture(e.pointerId); drag = { x: e.clientX, y: e.clientY }; e.preventDefault(); });
+        frame.addEventListener('pointermove', (e) => {
+          if (!drag) return;
+          const b = cropBox(fw, fh, dims.w, dims.h, st);
+          st.cx -= (e.clientX - drag.x) / (b.w * d); st.cy -= (e.clientY - drag.y) / (b.h * d);
+          drag = { x: e.clientX, y: e.clientY }; paint();
         });
-        paintPh();
+        const end = () => { drag = null; };
+        frame.addEventListener('pointerup', end); frame.addEventListener('pointercancel', end);
+        frame.addEventListener('wheel', (e) => { e.preventDefault(); st.z = Math.min(4, Math.max(1, st.z * (e.deltaY < 0 ? 1.08 : 1 / 1.08))); paint(); }, { passive: false });
+        zoom.oninput = () => { st.z = +zoom.value; paint(); };
+        box.append(
+          el('div', { class: 'qs-head' }, el('h2', { text: t('qs_crop_title') }),
+            el('button', { class: 'btn-icon', 'aria-label': t('cancel'), onclick: close }, '×')),
+          el('p', { class: 'muted', style: 'margin:0 0 12px;font-size:14px', text: t('qs_crop_hint') }),
+          frame,
+          el('label', { class: 'qs-zoom' }, el('span', { text: t('qs_crop_zoom') }), zoom),
+          el('div', { class: 'qs-crop-btns' },
+            el('button', { type: 'button', class: 'btn', onclick: () => { st.cx = 0.5; st.cy = 0.5; st.z = 1; paint(); } }, t('qs_crop_reset')),
+            el('button', {
+              type: 'button', class: 'btn btn-primary', onclick: () => {
+                if (!cfg.photo) { close(); return; }
+                cfg.photo.crop = { cx: +st.cx.toFixed(4), cy: +st.cy.toFixed(4), z: +st.z.toFixed(3) };
+                if (!cfg.photo.w) { cfg.photo.w = dims.w; cfg.photo.h = dims.h; }
+                if (cfg.photo.src === 'own') own = cfg.photo;
+                close(); draw();
+              },
+            }, t('qs_crop_done'))));
+        paint();
       });
     }
-    paintPh();
-    ctrls.appendChild(section(t('qs_photo'), pgrid,
-      photos.length ? null : el('div', { class: 'muted', style: 'font-size:13.5px;margin-top:6px', text: t('qs_photo_empty') })));
 
     // шрифт: плитки с образцом; набор — под письменность текста таблички
     const fgrid = el('div', { class: 'qs-fonts' });
@@ -735,14 +882,13 @@ const CSS = `
 .qs-v .qs-code{margin-top:34px;margin-bottom:0}
 .qs-card{background:#fff;border-radius:26px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.10);line-height:0}
 .qs-card svg{display:block}
-.qs-url{margin-top:14px;font-size:12px;letter-spacing:.01em;color:var(--ink);opacity:.55;max-width:460px;word-break:break-all;text-align:center}
 .qs-brand{margin-top:auto;padding-top:18px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:24px;color:var(--acc);letter-spacing:.02em}
 .qs-h .qs-brand{margin-top:34px}
 .qs-v .qs-inner{justify-content:center;padding-bottom:96px}
 .qs-v .qs-brand{position:absolute;left:0;right:0;bottom:44px;margin:0;padding:0}
-.qs-photo{width:100%;height:var(--ph);border-radius:22px;overflow:hidden;margin:-18px 0 36px;box-shadow:0 8px 26px rgba(0,0,0,.12);flex:none}
+.qs-photo{position:relative;width:100%;height:var(--ph);border-radius:22px;overflow:hidden;margin:-18px 0 36px;box-shadow:0 8px 26px rgba(0,0,0,.12);flex:none}
 .qs-h .qs-photo{margin:0 0 30px}
-.qs-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.qs-photo img{display:block}
 .qs-v.qs-has-photo .qs-inner{padding-top:62px}
 .qs-v.qs-has-photo .qs-rule{margin:16px auto 12px}
 .qs-v.qs-has-photo .qs-code{margin-top:26px}
@@ -761,7 +907,6 @@ const CSS = `
 /* moon */
 .qs-moon{background:radial-gradient(120% 80% at 70% 0%, color-mix(in srgb,var(--bg) 78%,#fff) 0%, var(--bg) 55%, color-mix(in srgb,var(--bg) 70%,#000) 100%)}
 .qs-moon .qs-card{box-shadow:0 0 0 6px color-mix(in srgb,var(--acc) 35%,transparent),0 18px 50px rgba(0,0,0,.45)}
-.qs-moon .qs-url{opacity:.6}
 /* splash */
 .qs-splash .qs-title{color:var(--ink)}
 .qs-splash .qs-card{box-shadow:0 14px 40px color-mix(in srgb,var(--acc) 25%,transparent)}
@@ -843,6 +988,18 @@ const CSS = `
 .qs-colors{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
 .qs-color{display:flex;align-items:center;gap:6px;font-size:13.5px;cursor:pointer}
 .qs-color input{width:34px;height:30px;border:1px solid #E0DACD;border-radius:8px;padding:2px;background:#fff;cursor:pointer}
+.qs-ph{position:relative}
+.qs-badge{position:absolute;left:3px;bottom:3px;background:rgba(0,0,0,.62);color:#fff;font-size:10.5px;line-height:1;padding:3px 5px;border-radius:5px;font-weight:600;pointer-events:none}
+.qs-ph-up{border:1.5px dashed var(--line,#ccc)!important;font-size:12.5px;font-weight:600;color:var(--ink,#222)}
+.qs-photo-foot{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-top:8px;font-size:13px;line-height:1.35}
+.qs-adjust{flex:none}
+.qs-crop-modal{max-width:600px}
+.qs-crop{position:relative;overflow:hidden;margin:0 auto;border-radius:14px;cursor:grab;touch-action:none;background:#222;user-select:none}
+.qs-crop:active{cursor:grabbing}
+.qs-crop img{position:absolute;max-width:none;pointer-events:none}
+.qs-zoom{display:flex;align-items:center;gap:12px;margin:14px 0 4px;font-size:14px}
+.qs-zoom input{flex:1}
+.qs-crop-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
 .qs-photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;max-height:160px;overflow:auto}
 .qs-ph{aspect-ratio:1;border-radius:10px;border:1.5px solid #E6E1D6;overflow:hidden;padding:0;background:#F2EEE6;cursor:pointer;font:inherit;font-size:12px;font-weight:600;color:var(--muted)}
 .qs-ph img{width:100%;height:100%;object-fit:cover;display:block}
