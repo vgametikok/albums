@@ -13,7 +13,7 @@ import {
   dur, modal, avatarImg,
 } from './ui.js';
 import { qrSvg, qrDownload } from './qr.js';
-import { loadSign, openSignEditor, printSign, signPreview, openDownloadDesign } from './qrsign.js';
+import { loadSign, openSignEditor, printSign, printPlainQr, signPreview, openDownloadDesign } from './qrsign.js';
 import { downloadAlbumArchive } from './export.js';
 import { uploadMedia } from './upload.js';
 
@@ -371,37 +371,32 @@ async function linkBox(a, albumData) {
       : el('div', { style: 'background:#fff;border-radius:16px;padding:14px;display:flex;justify-content:center' }, qrSvg(url, 220));
     body.appendChild(qrWrap);
 
-    body.appendChild(el('input', {
-      class: 'input', style: 'font-size:12.5px;height:38px;margin-top:12px', readonly: 'readonly', value: url,
-      onclick: (e) => e.currentTarget.select(),
-    }));
+    // ссылка + компактная «Копировать» справа в той же строке
+    const copyBtn = el('button', {
+      class: 'mini ev-copy', 'data-act': 'copy-link', title: t('copy_link'), 'aria-label': t('copy_link'),
+      onclick: async () => {
+        try { await navigator.clipboard.writeText(url); toast(t('link_copied')); }
+        catch (_) { toast(url); }
+      },
+      html: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+    });
+    copyBtn.appendChild(el('span', { text: t('copy_short') }));
+    body.appendChild(el('div', { class: 'ev-link-row' },
+      el('input', { class: 'input', readonly: 'readonly', value: url, onclick: (e) => e.currentTarget.select() }),
+      copyBtn));
 
-    body.appendChild(el('div', { class: 'rowx', style: 'margin-top:10px;flex-wrap:wrap' },
+    // Кнопки: «Изменить табличку» во всю ширину, ниже пары «скачать» и «печать».
+    // «Заменить ссылку» из интерфейса убрана (функция event_link_reset на сервере осталась).
+    body.appendChild(el('div', { class: 'ev-qr-actions' },
       el('button', {
-        class: 'mini', onclick: async () => {
-          try { await navigator.clipboard.writeText(url); toast(t('link_copied')); }
-          catch (_) { toast(url); }
-        },
-      }, t('copy_link')),
-      el('button', { class: 'mini', onclick: () => qrDownload(url, `${safeName(a.title)}-qr.svg`) }, t('ev_qr_download')),
-      el('button', { class: 'mini', 'data-act': 'qs-download', onclick: () => openDownloadDesign(sign, { title: a.title, url }) }, t('qs_download')),
-      el('button', {
-        class: 'mini', 'data-act': 'qs-edit', onclick: () => openSignEditor({
+        class: 'mini ev-wide', 'data-act': 'qs-edit', onclick: () => openSignEditor({
           album: a, url, media, current: sign, onSaved: (c) => { sign = c; saved = true; draw(token); },
         }),
       }, t('qs_edit')),
-      el('button', { class: 'mini', 'data-act': 'qs-print', onclick: () => printSign(sign, { title: a.title, url }) }, t('ev_qr_print'))));
-
-    body.appendChild(el('button', {
-      class: 'mini', style: 'margin-top:14px;color:var(--muted)',
-      onclick: async () => {
-        if (!confirm(t('ev_link_reset_confirm'))) return;
-        const { data, error } = await sb.rpc('event_link_reset', { p_album: a.id });
-        if (error) { toast(error.message); return; }
-        draw(data.token);
-        toast(t('ev_link_reset_done'));
-      },
-    }, t('ev_link_reset')));
+      el('button', { class: 'mini', 'data-act': 'qr-download', onclick: () => qrDownload(url, `${safeName(a.title)}-qr.svg`) }, t('ev_qr_download')),
+      el('button', { class: 'mini', 'data-act': 'qs-download', onclick: () => openDownloadDesign(sign, { title: a.title, url }) }, t('qs_download')),
+      el('button', { class: 'mini', 'data-act': 'qr-print', onclick: () => printPlainQr(url, a.title) }, t('ev_qr_print_plain')),
+      el('button', { class: 'mini', 'data-act': 'qs-print', onclick: () => printSign(sign, { title: a.title, url }) }, t('qs_print_design'))));
   };
 
   const { data, error } = await sb.rpc('event_link', { p_album: a.id });

@@ -584,6 +584,26 @@ export async function printSign(cfgIn, info) {
   setTimeout(() => { if (document.getElementById('qs-print') === host && !matchMedia('print').matches) done(); }, 60000);
 }
 
+/** «Печать QR»: просто код по центру чистого листа A4, над ним — название альбома. */
+export async function printPlainQr(url, title) {
+  injectCss();
+  document.getElementById('qs-print')?.remove();
+  const host = el('div', { id: 'qs-print', class: 'qs-print-plain' },
+    el('div', { class: 'qs-plain' },
+      title ? el('h1', { text: title }) : null,
+      qrSvg(url, 430),
+      el('div', { class: 'qs-plain-brand', text: 'albums.ink' })));
+  const page = el('style', { id: 'qs-page', text: '@page{size:A4 portrait;margin:0}' });
+  document.getElementById('qs-page')?.remove();
+  document.head.appendChild(page);
+  document.body.appendChild(host);
+  try { await document.fonts.ready; } catch (_) { /* ок */ }
+  const done = () => { host.remove(); page.remove(); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  window.print();
+  setTimeout(() => { if (document.getElementById('qs-print') === host && !matchMedia('print').matches) done(); }, 60000);
+}
+
 /** Табличка, готовая к выводу: фото подписано и измерено, шрифты загружены ДО раскладки. */
 async function prepareSign(cfgIn, info) {
   injectCss();
@@ -1124,6 +1144,11 @@ const CSS = `
   #qs-print{display:block!important;position:fixed;inset:0;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #qs-print .qs{transform:none!important;position:absolute;left:0;top:0}
 }
+
+.qs-plain{width:100%;height:100%;box-sizing:border-box;padding:24mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12mm;background:#fff;color:#141414;font-family:Inter,system-ui,sans-serif;text-align:center}
+.qs-plain h1{margin:0;font-size:34px;line-height:1.2;font-weight:700;max-width:100%;overflow-wrap:anywhere}
+.qs-plain-brand{font-size:14px;letter-spacing:.08em;color:#8A8578}
+@media print{#qs-print.qs-print-plain{background:#fff}}
 
 /* превью и скачивание */
 .qs-preview{position:relative;width:100%;overflow:hidden;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.14);background:#F2EEE6}

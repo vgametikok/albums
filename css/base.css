@@ -787,3 +787,11 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
   .ev-tile .badge{display:none}
   .ev-tile-ico{display:none}
 }
+
+/* панель «QR для гостей» на странице события */
+.ev-link-row{display:flex;gap:8px;margin-top:12px;align-items:center}
+.ev-link-row .input{flex:1;min-width:0;font-size:12.5px;height:38px}
+.ev-copy{flex:none;height:38px;display:inline-flex;align-items:center;gap:6px;padding:0 11px;font-size:13.5px}
+.ev-qr-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ev-qr-actions .mini{width:100%;min-width:0;height:auto;min-height:36px;padding:7px 8px;line-height:1.2;white-space:normal;overflow-wrap:anywhere;text-align:center;font-size:13.5px}
+.ev-qr-actions .ev-wide{grid-column:1/-1}
