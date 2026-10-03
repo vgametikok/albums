@@ -1164,8 +1164,8 @@ function signupsPanel(w) {
         el('div', {}, el('span', { class: 'prov', text: providerLabel(u.provider) })),
         el('div', { class: 'su-links' },
           u.username ? el('a', { class: 'btn btn-ghost btn-sm', href: profileHref(u.username), target: '_blank', rel: 'noopener' }, 'Profile') : null,
-          u.username ? el('a', { class: 'btn btn-ghost btn-sm', href: profileHref(u.username), target: '_blank', rel: 'noopener',
-            title: 'Public albums on the profile page' }, `Albums (${u.albums_count ?? 0})`) : null));
+          u.username ? el('button', { class: 'btn btn-ghost btn-sm', title: 'All albums incl. private and drafts (admin view)',
+            onclick: () => renderUserAlbums(u.username, renderStats) }, `Albums (${u.albums_count ?? 0})`) : null));
     },
     {
       filter: (u) => showGuests || !u.guest,
@@ -1206,6 +1206,72 @@ function uploadsPanel(w) {
     { empty: 'No uploads in this period.', countNote: () => '' });
 }
 
+/* ---------------- все альбомы пользователя (вид админа) ---------------- */
+
+const VIS_LABEL = { public: 'Public', friends: 'Friends', private: 'Private' };
+const MOD_LABEL = { pending: 'Awaiting review', approved: 'Approved', rejected: 'Rejected' };
+
+/** Почему альбом не виден в публичном профиле — коротко, для модератора. */
+function whyHidden(a) {
+  const r = [];
+  if (!a.published_at) r.push('draft (not published)');
+  if (a.visibility && a.visibility !== 'public') r.push(`${(VIS_LABEL[a.visibility] || a.visibility).toLowerCase()} visibility`);
+  if (a.moderation_status && a.moderation_status !== 'approved') r.push((MOD_LABEL[a.moderation_status] || a.moderation_status).toLowerCase());
+  if (a.hidden_at) r.push('hidden by moderator');
+  if (!a.files) r.push('no files');
+  return r;
+}
+
+async function renderUserAlbums(username, back) {
+  clear(app);
+  app.appendChild(head(`Albums of @${username}`, 'stats'));
+  app.appendChild(el('button', { class: 'btn btn-ghost btn-sm', style: 'margin-bottom:14px', onclick: () => (back || renderStats)() }, '← Back'));
+  const body = el('div', {}, el('div', { class: 'muted', text: 'Loading…' }));
+  app.appendChild(body);
+  let d;
+  try { d = (await call('user_albums', { username })).data || {}; }
+  catch (e) { clear(body).appendChild(el('div', { class: 'muted', text: e.message === 'unknown_action' ? 'mod-api needs redeploying for this view (action user_albums).' : e.message })); return; }
+  clear(body);
+  const p = d.profile;
+  if (!p) { body.appendChild(el('div', { class: 'muted', text: 'User not found.' })); return; }
+  const rows = d.rows || [];
+  body.appendChild(el('div', { class: 'side-card', style: 'display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center' },
+    el('div', {},
+      el('div', { style: 'font-size:18px;font-weight:800', text: p.display_name || p.username }),
+      el('div', { class: 'muted', style: 'font-size:13px', text: `@${p.username} · joined ${dt(p.created_at)}${p.country ? ' · ' + flag(p.country) + ' ' + p.country : ''}${p.banned_at ? ' · banned' : ''}` })),
+    el('div', { style: 'display:flex;gap:8px;align-items:center;flex-wrap:wrap' },
+      el('span', { class: 'muted', style: 'font-size:13px', text: `${rows.length} album${rows.length === 1 ? '' : 's'} · ${rows.filter(a => !whyHidden(a).length).length} visible on profile` }),
+      el('a', { class: 'btn btn-ghost btn-sm', href: profileHref(p.username), target: '_blank', rel: 'noopener' }, 'Public profile'))));
+  const list = el('div', { class: 'side-card', style: 'margin-top:18px' },
+    el('div', { class: 'muted', style: 'font-size:12.5px;margin-bottom:6px', text: `All albums including private, drafts and hidden. Times in your local time (${localTz()}).` }));
+  if (!rows.length) list.appendChild(el('div', { class: 'muted', style: 'padding:10px 0', text: 'This user has no albums.' }));
+  rows.forEach(a => {
+    const tier = a.is_event ? (a.event_tier || 'small') : null;
+    const why = whyHidden(a);
+    const chip = (text, warn) => el('span', { class: 'prov', style: warn ? 'background:#FBEFE6;border-color:#EBCDB6;color:#8A4B2F' : '', text });
+    list.appendChild(el('div', { class: 'stat-row ua-row' },
+      el('div', { class: 'up-title' },
+        el('a', { href: `album.html?id=${a.id}`, target: '_blank', rel: 'noopener', style: linkStyle, text: a.title || 'Untitled' }),
+        el('div', { style: 'display:flex;gap:4px;flex-wrap:wrap;margin-top:4px' },
+          chip(VIS_LABEL[a.visibility] || a.visibility || '—', a.visibility !== 'public'),
+          a.published_at ? chip('Published') : chip('Draft', true),
+          chip(MOD_LABEL[a.moderation_status] || a.moderation_status || '—', a.moderation_status !== 'approved'),
+          a.hidden_at ? chip('Hidden', true) : null),
+        el('div', { class: 'muted', style: 'font-size:12px;margin-top:3px',
+          text: why.length ? `Not on public profile: ${why.join(', ')}` : 'Visible on public profile' })),
+      el('div', {}, tier ? tierChip(tier, 'event') : el('span', { class: 'prov', text: 'Personal' })),
+      el('div', { class: 'up-num' }, el('b', { text: String(a.files ?? 0) }), el('span', { class: 'muted', text: ' files' }),
+        el('div', { class: 'muted', style: 'font-size:12px', text: `${a.photos_count || 0} ph · ${a.videos_count || 0} vid · ${a.audio_count || 0} aud` })),
+      el('div', { class: 'up-time' },
+        el('div', { style: 'font-size:13px', text: `Created ${dt(a.created_at)}` }),
+        el('div', { class: 'muted', style: 'font-size:12px', text: a.last_upload_at ? `Last upload ${dt(a.last_upload_at)}` : 'No uploads' })),
+      el('div', { class: 'su-links' },
+        el('a', { class: 'btn btn-ghost btn-sm', href: `album.html?id=${a.id}`, target: '_blank', rel: 'noopener' }, 'Open'),
+        el('a', { class: 'btn btn-ghost btn-sm', href: `moderation.html?album=${a.id}`, target: '_blank', rel: 'noopener' }, 'Moderate'))));
+  });
+  body.appendChild(list);
+}
+
 // стили блока: одна вставка на страницу
 document.head.appendChild(el('style', { text: `
 .stat-charts{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
@@ -1215,6 +1281,7 @@ document.head.appendChild(el('style', { text: `
 .stat-row:last-child{border-bottom:0}
 .su-row{grid-template-columns:150px minmax(0,1fr) 110px auto}
 .up-row{grid-template-columns:minmax(0,1.6fr) 110px 100px 150px auto}
+.ua-row{grid-template-columns:minmax(0,1.6fr) 110px 110px 190px auto}
 .su-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .prov{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:#F5F1E8;border:1px solid #E4DCCE;white-space:nowrap}
 .is-guest{opacity:.6}
@@ -1224,6 +1291,8 @@ document.head.appendChild(el('style', { text: `
   .su-row .su-who{grid-column:1/-1}
   .up-row{grid-template-columns:1fr auto}
   .up-row .up-title{grid-column:1/-1}
+  .ua-row{grid-template-columns:1fr auto}
+  .ua-row .up-title{grid-column:1/-1}
   .su-links{justify-content:flex-start}
 }
 ` }));

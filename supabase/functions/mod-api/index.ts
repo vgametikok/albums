@@ -318,6 +318,49 @@ Deno.serve(async (req) => {
         out = { rows: all.slice(offset, offset + limit), total: all.length, offset, limit, truncated: media.length >= MAX };
         break;
       }
+      case 'user_albums': {
+        // Все альбомы одного человека, включая приватные, черновики и скрытые:
+        // в публичном профиле видны только опубликованные и одобренные.
+        const uname = String(body.username ?? '').trim().replace(/^@/, '');
+        const uid = typeof body.user_id === 'string' ? body.user_id : null;
+        let pq = sb.from('profiles').select('id,username,display_name,created_at,banned_at,deleted_at,country,plan');
+        pq = uid ? pq.eq('id', uid) : pq.eq('username', uname);
+        const pr = await pq.maybeSingle();
+        if (pr.error) throw pr.error;
+        if (!pr.data) { out = { profile: null, rows: [] }; break; }
+        const ar = await sb.from('albums')
+          .select('id,title,visibility,published_at,moderation_status,hidden_at,is_event,event_tier,created_at,updated_at,photos_count,videos_count,audio_count')
+          .eq('author_id', pr.data.id).order('created_at', { ascending: false }).limit(500);
+        if (ar.error) throw ar.error;
+        const albums = ar.data ?? [];
+        // последняя загрузка и число файлов по album_media (счётчики альбома — для сверки)
+        const last = new Map<string, string>(), linked = new Map<string, number>();
+        for (let i = 0; i < albums.length; i += 100) {
+          const ids = albums.slice(i, i + 100).map((a) => a.id);
+          for (let off = 0; ; off += 1000) {
+            const r = await sb.from('album_media').select('album_id, media:media_id(created_at)')
+              .in('album_id', ids).range(off, off + 999);
+            if (r.error) throw r.error;
+            for (const am of (r.data ?? []) as { album_id: string; media: { created_at: string } | { created_at: string }[] | null }[]) {
+              linked.set(am.album_id, (linked.get(am.album_id) ?? 0) + 1);
+              const m = Array.isArray(am.media) ? am.media[0] : am.media;
+              const t = m?.created_at ?? '';
+              if (t > (last.get(am.album_id) ?? '')) last.set(am.album_id, t);
+            }
+            if ((r.data ?? []).length < 1000) break;
+          }
+        }
+        out = {
+          profile: pr.data,
+          rows: albums.map((a) => ({
+            ...a,
+            files: Number(a.photos_count ?? 0) + Number(a.videos_count ?? 0) + Number(a.audio_count ?? 0),
+            linked_files: linked.get(a.id) ?? 0,
+            last_upload_at: last.get(a.id) ?? null,
+          })),
+        };
+        break;
+      }
       case 'set_plan':
         out = (await sb.rpc('admin_set_plan', {
           p_username: body.username, p_plan: body.plan, p_days: body.plan_days ?? 30,
