@@ -13,7 +13,7 @@ import {
   dur, modal, avatarImg,
 } from './ui.js';
 import { qrSvg, qrDownload } from './qr.js';
-import { loadSign, openSignEditor, printSign } from './qrsign.js';
+import { loadSign, openSignEditor, printSign, signPreview, openDownloadDesign } from './qrsign.js';
 import { downloadAlbumArchive } from './export.js';
 import { uploadMedia } from './upload.js';
 
@@ -350,7 +350,8 @@ async function coverBox(host, a) {
 
 async function linkBox(a, albumData) {
   // сохранённая табличка (или дизайн по умолчанию) — её и печатает «Печать таблички»
-  let sign = (await loadSign(a.id)).cfg;
+  let { cfg: sign, saved } = await loadSign(a.id);
+  let token = null;
   const media = [...(albumData?.chapters || []).flatMap(c => c.media || []), ...(albumData?.loose || [])];
   const box = el('div', { class: 'side-card' },
     el('div', { class: 'label', text: t('ev_link_title') }),
@@ -358,12 +359,16 @@ async function linkBox(a, albumData) {
   const body = el('div', { style: 'margin-top:14px' });
   box.appendChild(body);
 
-  const draw = (token) => {
+  const draw = (tok) => {
+    token = tok;
     clear(body);
     const url = `${location.origin}${location.pathname.replace(/[^/]*$/, '')}join.html?t=${token}`;
 
-    const qrWrap = el('div', { style: 'background:#fff;border-radius:16px;padding:14px;display:flex;justify-content:center' });
-    qrWrap.appendChild(qrSvg(url, 220));
+    // сохранённая табличка — показываем её дизайн; не сохраняли — просто код
+    const qrWrap = saved
+      ? el('div', { class: 'ev-sign-prev', 'data-act': 'qs-preview', style: 'background:#F2EEE6;border-radius:16px;padding:14px;display:flex;justify-content:center' },
+        el('div', { style: `width:${sign.orient === 'h' ? '100%' : '78%'}` }, signPreview(sign, { title: a.title, url })))
+      : el('div', { style: 'background:#fff;border-radius:16px;padding:14px;display:flex;justify-content:center' }, qrSvg(url, 220));
     body.appendChild(qrWrap);
 
     body.appendChild(el('input', {
@@ -379,9 +384,10 @@ async function linkBox(a, albumData) {
         },
       }, t('copy_link')),
       el('button', { class: 'mini', onclick: () => qrDownload(url, `${safeName(a.title)}-qr.svg`) }, t('ev_qr_download')),
+      el('button', { class: 'mini', 'data-act': 'qs-download', onclick: () => openDownloadDesign(sign, { title: a.title, url }) }, t('qs_download')),
       el('button', {
         class: 'mini', 'data-act': 'qs-edit', onclick: () => openSignEditor({
-          album: a, url, media, current: sign, onSaved: (c) => { sign = c; },
+          album: a, url, media, current: sign, onSaved: (c) => { sign = c; saved = true; draw(token); },
         }),
       }, t('qs_edit')),
       el('button', { class: 'mini', 'data-act': 'qs-print', onclick: () => printSign(sign, { title: a.title, url }) }, t('ev_qr_print'))));

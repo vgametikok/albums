@@ -14,7 +14,9 @@ import { qrSvg } from './qr.js';
 import { uploadMedia } from './upload.js';
 
 const MM = 96 / 25.4;
-const SIZE = { v: [Math.round(194 * MM), Math.round(262 * MM)], h: [Math.round(262 * MM), Math.round(190 * MM)] };
+// Табличка — ровно лист A4 в CSS-пикселях: фон дизайна печатается в край
+// (@page margin:0), текст и код держатся внутри безопасных полей .qs-inner.
+const SIZE = { v: [794, 1123], h: [1123, 794] };
 const LS_KEY = (id) => `qrSign:${id}`;
 
 /** Дизайны: свои цвета по умолчанию, шрифт заголовка и украшения. */
@@ -512,8 +514,8 @@ function fit(root, cfg, L) {
   let { ph, qr } = L, k = 1;
   const minPh = v ? 140 : 110;
   // сначала пробуем вернуть то, что оценка зря отняла
-  ph = cfg.photo && L.ph ? (v ? 270 : 230) : 0;
-  qr = v ? (ph ? 330 : 420) : qr;
+  ph = cfg.photo && L.ph ? (v ? 300 : 240) : 0;
+  qr = v ? (ph ? 360 : 460) : qr;
   const apply = () => {
     root.style.setProperty('--ph', ph + 'px');
     root.style.setProperty('--tsize', Math.round(L.ts0 * k) + 'px');
@@ -525,6 +527,15 @@ function fit(root, cfg, L) {
     if (box) placeImg(box.querySelector('img'), box.clientWidth, box.clientHeight, cfg.photo, root._photoDims);
   };
   apply();
+  // Длинное слово («Let's gooooo…») не рвём посреди строки: сначала уменьшаем
+  // кегль именно этой строки, пока самое длинное слово не встанет целиком
+  // (до 45%). Не хватило — тогда уже перенос где угодно (overflow-wrap:anywhere).
+  root.classList.add('qs-measure');
+  root.querySelectorAll('.qs-title,.qs-sub,.qs-custom').forEach((n) => {
+    let f = 1;
+    while (n.scrollWidth > n.clientWidth + 1 && f > 0.45) { f -= 0.05; n.style.setProperty('--wf', f.toFixed(2)); }
+  });
+  root.classList.remove('qs-measure');
   for (let i = 0; i < 80 && over(); i++) {
     if (ph > minPh) ph -= 10;
     else if (v && qr > 310) qr -= 10;
@@ -559,26 +570,193 @@ export async function signFontsReady(cfgIn, info) {
  * их режут браузеры, а шрифты и фото уже загружены здесь.
  */
 export async function printSign(cfgIn, info) {
-  injectCss();
-  const cfg = normalize(cfgIn);
-  const url = await photoUrl(cfg);
-  // шрифты — ДО раскладки: подгонка меряет текст уже нужным шрифтом
-  try { await loadSignFont(fontOf(cfg, info), signText(cfg, info)); await document.fonts.ready; } catch (_) { /* чем есть */ }
-  const dims = url ? await imgDims(url) : null;
-  const sign = renderSign(cfg, { ...info, photoUrl: url, photoDims: dims });
+  const { cfg, sign } = await prepareSign(cfgIn, info);
   document.getElementById('qs-print')?.remove();
-  const host = el('div', { id: 'qs-print' }, sign);
-  const page = el('style', { id: 'qs-page', text: `@page{size:${cfg.orient === 'h' ? 'landscape' : 'portrait'};margin:0}` });
+  const host = el('div', { id: 'qs-print', style: `background:${(cfg.colors || DESIGNS[cfg.design]).bg}` }, sign);
+  const page = el('style', { id: 'qs-page', text: `@page{size:A4 ${cfg.orient === 'h' ? 'landscape' : 'portrait'};margin:0}` });
   document.getElementById('qs-page')?.remove();
   document.head.appendChild(page);
   document.body.appendChild(host);
-  const img = host.querySelector('img');
-  try { if (img) await Promise.race([img.decode(), new Promise(r => setTimeout(r, 4000))]); } catch (_) { /* без фото */ }
-  try { await loadSignFont(fontOf(cfg, info), signText(cfg, info)); await document.fonts.ready; } catch (_) { /* печатаем чем есть */ }
+  await signSettled(host);
   const done = () => { host.remove(); page.remove(); window.removeEventListener('afterprint', done); };
   window.addEventListener('afterprint', done);
   window.print();
   setTimeout(() => { if (document.getElementById('qs-print') === host && !matchMedia('print').matches) done(); }, 60000);
+}
+
+/** Табличка, готовая к выводу: фото подписано и измерено, шрифты загружены ДО раскладки. */
+async function prepareSign(cfgIn, info) {
+  injectCss();
+  const cfg = normalize(cfgIn);
+  const url = await photoUrl(cfg);
+  try { await loadSignFont(fontOf(cfg, info), signText(cfg, info)); await document.fonts.ready; } catch (_) { /* чем есть */ }
+  const dims = url ? await imgDims(url) : null;
+  return { cfg, sign: renderSign(cfg, { ...info, photoUrl: url, photoDims: dims }) };
+}
+async function signSettled(host) {
+  const img = host.querySelector('.qs-photo img');
+  try { if (img) await Promise.race([img.decode(), new Promise(r => setTimeout(r, 4000))]); } catch (_) { /* без фото */ }
+  try { await document.fonts.ready; } catch (_) { /* ок */ }
+}
+
+/* ------------------------------------------------------------ превью на странице события */
+
+/**
+ * Уменьшенная сохранённая табличка для панели «QR для гостей». Возвращает
+ * узел сразу (с местом под пропорции), сама табличка дорисовывается следом.
+ */
+export function signPreview(cfgIn, info) {
+  injectCss();
+  const cfg = normalize(cfgIn);
+  const [W, H] = SIZE[cfg.orient];
+  const box = el('div', { class: 'qs-preview', style: `aspect-ratio:${W}/${H}` });
+  prepareSign(cfg, info).then(({ sign }) => {
+    const paint = () => { const k = box.clientWidth / W; if (k) sign.style.transform = `scale(${k})`; };
+    clear(box).appendChild(sign); paint();
+    new ResizeObserver(paint).observe(box);
+  });
+  return box;
+}
+
+/* ------------------------------------------------------------ скачивание дизайна */
+
+const A4 = { v: [210, 297], h: [297, 210] };
+const loadScript = (src) => new Promise((res, rej) => {
+  const s = el('script', { src }); s.onload = res; s.onerror = () => rej(new Error('script ' + src));
+  document.head.appendChild(s);
+});
+
+/**
+ * CSS @font-face только под текст таблички: Google Fonts с &text= отдаёт по
+ * одному маленькому файлу на начертание — даже для китайского или японского.
+ * Семейства берём из шрифтов дизайна и ссылок Google Fonts на странице.
+ */
+async function signFontCss(sign) {
+  const params = new Map();
+  for (const f of Object.values(FONTS)) params.set(f.fam, f.q);
+  document.querySelectorAll('link[href*="fonts.googleapis.com/css"]').forEach((l) => {
+    try { new URL(l.href).searchParams.getAll('family').forEach((q) => params.set(q.split(':')[0].replace(/\+/g, ' '), q)); } catch (_) { /* мимо */ }
+  });
+  const used = new Set();
+  [sign, ...sign.querySelectorAll('*')].forEach((n) => {
+    getComputedStyle(n).fontFamily.split(',').forEach((x) => { const name = x.trim().replace(/^["']|["']$/g, ''); if (params.has(name)) used.add(name); });
+  });
+  if (!used.size) return '';
+  const text = Array.from(new Set(Array.from(sign.textContent + 'albums.ink ALBUMS.INK'))).join('');
+  const qs = [...used].map((n) => 'family=' + params.get(n).replace(/ /g, '+')).join('&');
+  const r = await fetch(`https://fonts.googleapis.com/css2?${qs}&text=${encodeURIComponent(text)}&display=block`);
+  return r.ok ? r.text() : '';
+}
+
+/** Картинка → data: URL (банер встраиваем сами — и для Safari, и чтобы знать об ошибке). */
+async function inlineImg(img) {
+  if (!img || img.src.startsWith('data:')) return;
+  const b = await (await fetch(img.src, { mode: 'cors' })).blob();
+  img.src = await new Promise((res) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(b); });
+  await img.decode().catch(() => null);
+}
+
+/**
+ * Готовый файл дизайна. PNG — A4 при 300 dpi (2480×3508 или 3508×2480).
+ * PDF — один лист A4 в край: фон и текст картинкой 300 dpi, QR поверх —
+ * вектором из тех же модулей, что в SVG таблички (печатается идеально чётко).
+ */
+export async function exportSign(cfgIn, info, fmt) {
+  const { cfg, sign } = await prepareSign(cfgIn, info);
+  const [W, H] = SIZE[cfg.orient];
+  const host = el('div', { class: 'qs-export', style: `position:fixed;left:-30000px;top:0;width:${W}px;height:${H}px` }, sign);
+  document.body.appendChild(host);
+  try {
+    await signSettled(host);
+    try { await inlineImg(sign.querySelector('.qs-photo img')); } catch (_) { /* без банера, но файл всё равно будет */ }
+    let cssText = '';
+    try { cssText = await signFontCss(sign); } catch (_) { /* системные шрифты */ }
+    const { domToCanvas } = await import('./vendor/modern-screenshot.js');
+    const px = cfg.orient === 'v' ? 2480 : 3508;
+    const canvas = await domToCanvas(sign, {
+      width: W, height: H, scale: px / W, backgroundColor: (cfg.colors || DESIGNS[cfg.design]).bg,
+      font: cssText ? { cssText } : false, timeout: 20000,
+      style: { transform: 'none' },
+    });
+    const name = (info.title || 'albums-ink').replace(/[\\/:*?"<>|]+/g, '').trim().slice(0, 60) || 'albums-ink';
+    if (fmt === 'png') {
+      const blob = await new Promise((res) => canvas.toBlob(res, 'image/png'));
+      saveBlob(blob, `${name} - QR sign.png`);
+      return;
+    }
+    if (!window.jspdf) await loadScript(new URL('./vendor/jspdf.umd.min.js', import.meta.url).href);
+    const [pw, ph] = A4[cfg.orient];
+    const pdf = new window.jspdf.jsPDF({ orientation: cfg.orient === 'h' ? 'landscape' : 'portrait', unit: 'mm', format: 'a4', compress: true });
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, pw, ph, undefined, 'FAST');
+    vectorQr(pdf, sign, pw / W);
+    pdf.setProperties({ title: info.title || 'QR sign', creator: 'albums.ink' });
+    saveBlob(pdf.output('blob'), `${name} - QR sign.pdf`);
+  } finally { host.remove(); }
+}
+
+/** QR из SVG таблички — в PDF прямоугольниками (k: мм на CSS-пиксель). */
+function vectorQr(pdf, sign, k) {
+  const svg = sign.querySelector('.qs-card svg');
+  if (!svg) return;
+  const R = sign.getBoundingClientRect(), r = svg.getBoundingClientRect();
+  const total = svg.viewBox.baseVal.width, m = (r.width / total) * k;
+  const x0 = (r.left - R.left) * k, y0 = (r.top - R.top) * k;
+  pdf.setFillColor(255, 255, 255); pdf.rect(x0, y0, total * m, total * m, 'F');
+  pdf.setFillColor(20, 20, 20);
+  // модули склеиваем в горизонтальные полоски: меньше объектов, нет швов
+  const cells = new Set();
+  for (const mt of svg.querySelector('path').getAttribute('d').matchAll(/M(\d+) (\d+)/g)) cells.add(mt[1] + ',' + mt[2]);
+  for (let y = 0; y < total; y++) {
+    for (let x = 0; x < total; x++) {
+      if (!cells.has(x + ',' + y)) continue;
+      let w = 1; while (cells.has((x + w) + ',' + y)) w++;
+      pdf.rect(x0 + x * m, y0 + y * m, w * m + 0.002, m + 0.002, 'F');
+      x += w - 1;
+    }
+  }
+  const plate = svg.querySelector('rect[rx]'), txt = svg.querySelector('text');
+  if (plate && txt) {
+    const a = (n, at) => +n.getAttribute(at);
+    pdf.setDrawColor(20, 20, 20); pdf.setLineWidth(a(plate, 'stroke-width') * m); pdf.setFillColor(255, 255, 255);
+    const rr = a(plate, 'rx') * m;
+    pdf.roundedRect(x0 + a(plate, 'x') * m, y0 + a(plate, 'y') * m, a(plate, 'width') * m, a(plate, 'height') * m, rr, rr, 'FD');
+    pdf.setFont('helvetica', 'bold'); pdf.setTextColor(20, 20, 20);
+    const want = a(txt, 'textLength') * m, fs = a(txt, 'font-size') * m / 0.3528;
+    pdf.setFontSize(fs);
+    const w0 = pdf.getTextWidth(txt.textContent);
+    pdf.setFontSize(fs * Math.min(1.25, want / w0));
+    pdf.text(txt.textContent, x0 + a(txt, 'x') * m, y0 + a(txt, 'y') * m, { align: 'center', baseline: 'middle' });
+  }
+}
+
+function saveBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = el('a', { href: url, download: filename });
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+}
+
+/** Маленькое окно выбора: PNG или PDF. */
+export function openDownloadDesign(cfg, info) {
+  modal((box, close) => {
+    box.classList.add('qs-dl-modal');
+    const status = el('div', { class: 'muted qs-dl-status' });
+    const opt = (fmt, title, hint) => el('button', {
+      type: 'button', class: 'qs-dl-opt', 'data-fmt': fmt, onclick: async (e) => {
+        box.querySelectorAll('.qs-dl-opt').forEach(b => { b.disabled = true; });
+        status.textContent = t('qs_dl_busy');
+        try { await exportSign(cfg, info, fmt); close(); }
+        catch (err) { console.error(err); status.textContent = t('qs_dl_failed'); box.querySelectorAll('.qs-dl-opt').forEach(b => { b.disabled = false; }); }
+      },
+    }, el('b', { text: title }), el('span', { text: hint }));
+    box.append(
+      el('div', { class: 'qs-head' }, el('h2', { text: t('qs_dl_title') }),
+        el('button', { class: 'btn-icon', 'aria-label': t('cancel'), onclick: close }, '×')),
+      el('div', { class: 'qs-dl-opts' },
+        opt('png', 'PNG', t('qs_dl_png_hint')),
+        opt('pdf', 'PDF', t('qs_dl_pdf_hint'))),
+      status);
+  });
 }
 
 /* ------------------------------------------------------------ редактор */
@@ -865,19 +1043,20 @@ const CSS = `
 .qs-left{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;height:100%}
 .qs-text{width:100%}
 .qs{font-synthesis:none}
-.qs-title{margin:0;font-family:var(--ff);font-size:var(--tsize);line-height:1.12;font-weight:var(--fw);overflow-wrap:anywhere;color:var(--ink)}
+.qs-title{margin:0;font-family:var(--ff);font-size:calc(var(--tsize) * var(--wf,1));line-height:1.12;font-weight:var(--fw);overflow-wrap:anywhere;color:var(--ink)}
 .qs-f-sans .qs-title{letter-spacing:-.02em}
 .qs-title,.qs-sub,.qs-custom{text-wrap:balance}
 .qs-g-ko .qs-title,.qs-g-ko .qs-sub,.qs-g-ko .qs-custom{word-break:keep-all;overflow-wrap:break-word}
 .qs-g-ja .qs-title,.qs-g-sc .qs-title{line-break:strict;letter-spacing:.02em}
 .qs-f-script .qs-title{line-height:1.2}
-.qs-custom{margin:12px 0 0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(21px * var(--k));line-height:1.4;color:var(--ink);opacity:.72;white-space:pre-line;overflow-wrap:anywhere}
+.qs-custom{margin:12px 0 0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(21px * var(--k) * var(--wf,1));line-height:1.4;color:var(--ink);opacity:.72;white-space:pre-line;overflow-wrap:anywhere}
 .qs-rule{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px auto 18px;width:220px}
 .qs-h .qs-rule{margin:22px 0 18px;justify-content:flex-start}
 .qs-rule i{flex:1;height:1.5px;background:var(--acc)}
 .qs-rule b{width:9px;height:9px;transform:rotate(45deg);background:var(--acc)}
-.qs-sub{margin:0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(26px * var(--k));line-height:1.35;color:var(--ink);opacity:.85;overflow-wrap:anywhere}
-.qs-h .qs-sub{font-size:calc(25px * var(--k))}
+.qs-sub{margin:0;font-family:var(--ff);font-weight:var(--fw2);font-size:calc(26px * var(--k) * var(--wf,1));line-height:1.35;color:var(--ink);opacity:.85;overflow-wrap:anywhere}
+.qs-h .qs-sub{font-size:calc(25px * var(--k) * var(--wf,1))}
+.qs-measure .qs-title,.qs-measure .qs-sub,.qs-measure .qs-custom{overflow-wrap:normal!important;word-break:normal!important}
 .qs-code{display:flex;flex-direction:column;align-items:center;margin-top:auto;margin-bottom:auto}
 .qs-v .qs-code{margin-top:34px;margin-bottom:0}
 .qs-card{background:#fff;border-radius:26px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.10);line-height:0}
@@ -940,11 +1119,22 @@ const CSS = `
 /* печать */
 #qs-print{display:none}
 @media print{
-  html,body{margin:0!important;padding:0!important;background:#fff!important}
+  html,body{margin:0!important;padding:0!important;height:100%!important;overflow:hidden!important;background:none!important}
   body>*:not(#qs-print){display:none!important}
-  #qs-print{display:flex!important;align-items:center;justify-content:center;width:100vw;height:100vh;overflow:hidden}
-  #qs-print .qs{transform:none!important}
+  #qs-print{display:block!important;position:fixed;inset:0;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #qs-print .qs{transform:none!important;position:absolute;left:0;top:0}
 }
+
+/* превью и скачивание */
+.qs-preview{position:relative;width:100%;overflow:hidden;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.14);background:#F2EEE6}
+.qs-preview>.qs{position:absolute;left:0;top:0;transform-origin:0 0}
+.qs-dl-modal{max-width:420px}
+.qs-dl-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.qs-dl-opt{display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;padding:14px;border-radius:14px;border:1.5px solid #E6E1D6;background:#FBF9F5;cursor:pointer;font:inherit;color:var(--ink,#222)}
+.qs-dl-opt:hover:not(:disabled){border-color:#C9A227}
+.qs-dl-opt:disabled{opacity:.55;cursor:default}
+.qs-dl-opt b{font-size:17px}.qs-dl-opt span{font-size:13px;color:var(--muted);line-height:1.35}
+.qs-dl-status{min-height:20px;margin-top:12px;font-size:14px}
 
 /* окно редактора */
 .modal.qs-modal{max-width:1120px;padding:22px 24px 20px;max-height:94vh;display:flex;flex-direction:column;overflow:hidden}
