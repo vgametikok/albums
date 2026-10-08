@@ -244,8 +244,9 @@ async function renderPending() {
   clear(list);
   if (!items.length) {
     list.appendChild(el('div', { class: 'empty' },
-      el('h3', { text: 'Nothing to review' }),
-      el('div', { text: 'Every published album has been reviewed.' })));
+      el('h3', { text: 'Albums are not reviewed any more' }),
+      el('div', { text: 'Since migration 058 a published album is approved automatically (you still get the Telegram message). Only files are reviewed — see New media.' }),
+      el('div', { style: 'margin-top:12px' }, el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderMedia() }, 'Open New media'))));
     return;
   }
   items.forEach(a => list.appendChild(pendingCard(a)));
@@ -282,14 +283,19 @@ function pendingCard(a) {
   return card;
 }
 
-/* ---------------- новые медиа в чужих альбомах ---------------- */
-// Гость общего альбома или соавтор долил файлы после проверки альбома — они
-// проходят здесь. Approve — проверено; Hide — файл становится private (публика
-// не видит, загрузивший видит своё).
+/* ---------------- новые медиа: единственная очередь проверки ---------------- */
+// 058: альбомы одобряются при публикации сами, проверяются только файлы.
+// Сюда попадает КАЖДЫЙ новый кадр (автор, соавтор, гость события) и обложки,
+// загруженные отдельно от кадров. Пока файл ждёт решения, посторонние его не
+// видят. Approve — показать; Hide — оставить скрытым (загрузивший видит своё).
+// Лента приходит уже упорядоченной по альбомам — здесь только раскладываем
+// её по группам, чтобы было видно, чей это альбом и где он лежит.
 let mediaCount = null;
 const mediaLabel = () => (mediaCount ? `New media (${mediaCount})` : 'New media');
+const albumHref = (id) => `album.html?id=${encodeURIComponent(id)}`;
+const albumModHref = (id) => `moderation.html?album=${encodeURIComponent(id)}`;
 
-async function renderMedia() {
+async function renderMedia(focusAlbum = null) {
   clear(app);
   app.appendChild(head('New media', 'media'));
 
@@ -298,7 +304,7 @@ async function renderMedia() {
   list.appendChild(el('div', { class: 'muted', text: 'Loading…' }));
 
   let d;
-  try { d = (await call('media_pending')).data; }
+  try { d = (await call('media_pending', { limit: 200 })).data; }
   catch (e) { clear(list).appendChild(el('div', { class: 'muted', text: e.message })); return; }
 
   mediaCount = d?.count ?? 0;
@@ -314,31 +320,111 @@ async function renderMedia() {
     return;
   }
 
+  // порядок групп — как пришёл (альбом с самым старым ожидающим файлом первым)
+  const groups = new Map();
+  items.forEach(m => {
+    if (!groups.has(m.album_id)) groups.set(m.album_id, []);
+    groups.get(m.album_id).push(m);
+  });
+
+  list.appendChild(el('div', { class: 'muted', style: 'font-size:13.5px;margin:-6px 0 14px',
+    text: `${mediaCount} file${mediaCount === 1 ? '' : 's'} waiting in ${groups.size} album${groups.size === 1 ? '' : 's'}`
+      + (mediaCount > items.length ? ` · showing the first ${items.length}` : '')
+      + ' · hidden from the public until approved' }));
+
   const urls = await signPaths(items.flatMap(m => [m.thumb, m.path]));
-  const grid = el('div', { style: 'display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px' });
-  list.appendChild(grid);
-  items.forEach(m => grid.appendChild(mediaCard(m, urls)));
+  let focusNode = null;
+  for (const [albumId, ms] of groups) {
+    const g = albumGroup(ms, urls, focusAlbum);
+    if (albumId === focusAlbum) focusNode = g;
+    list.appendChild(g);
+  }
+  if (focusNode) focusNode.scrollIntoView({ block: 'start' });
+}
+
+/** Шапка группы: какой альбом, чей, где открыть; ниже — его файлы. */
+function albumGroup(ms, urls, focusAlbum) {
+  const a = ms[0];
+  const owner = a.album_owner;
+  const chip = (text, warn) => el('span', { class: 'prov' + (warn ? ' warn' : ''), text });
+  const waiting = a.album_open ?? ms.length;
+
+  const approveAll = el('button', { class: 'mini', title: 'Approve every file of this album shown below' },
+    `Approve all ${ms.length}`);
+  approveAll.onclick = async () => {
+    if (!confirm(`Approve ${ms.length} file(s) in “${a.album_title || 'album'}”?`)) return;
+    approveAll.disabled = true;
+    let done = 0;
+    for (const m of ms) {
+      try { await call('media_review', { am_id: m.am_id, approve: true }); done++; }
+      catch (e) { toast(e.message); break; }
+    }
+    toast(`Approved ${done}`);
+    renderMedia(a.album_id);
+  };
+
+  const box = el('section', {
+    class: 'side-card mq-group' + (a.album_id === focusAlbum ? ' mq-focus' : ''),
+    id: `mq-${a.album_id}`, 'data-album': a.album_id,
+  });
+  box.appendChild(el('div', { class: 'mq-head' },
+    el('div', { class: 'mq-info' },
+      el('div', { class: 'mq-kicker', text: 'ALBUM' }),
+      el('a', { class: 'mq-title', href: albumHref(a.album_id), target: '_blank', rel: 'noopener',
+        text: a.album_title || '(untitled album)' }),
+      el('div', { class: 'mq-meta' },
+        el('span', { class: 'muted', text: 'by ' }),
+        owner
+          ? el('a', { href: profileHref(owner), target: '_blank', rel: 'noopener', style: linkStyle, text: `@${owner}` })
+          : el('span', { text: '—' }),
+        a.album_owner_name && a.album_owner_name !== owner ? el('span', { class: 'muted', text: ` (${a.album_owner_name})` }) : null,
+        el('span', { class: 'muted', text: ` · ${waiting} waiting${a.album_files != null ? ` of ${a.album_files} file${a.album_files === 1 ? '' : 's'}` : ''}` })),
+      el('div', { style: 'display:flex;gap:4px;flex-wrap:wrap;margin-top:6px' },
+        a.is_event ? chip('Event') : null,
+        a.album_published === false ? chip('Draft', true) : (a.album_published ? chip('Published') : null),
+        a.album_visibility && a.album_visibility !== 'public' ? chip(VIS_LABEL[a.album_visibility] || a.album_visibility) : null,
+        a.album_status === 'rejected' ? chip('Album rejected', true) : null,
+        a.reports ? chip(`${a.reports} report${a.reports === 1 ? '' : 's'}`, true) : null),
+      a.album_description
+        ? el('div', { class: 'mq-desc', title: 'Album text is not reviewed — shown here for a quick glance' },
+          el('span', { class: 'muted', text: 'Album text: ' }), a.album_description)
+        : null),
+    el('div', { class: 'mq-links' },
+      el('a', { class: 'btn btn-ghost btn-sm', href: albumHref(a.album_id), target: '_blank', rel: 'noopener' }, 'Public page ↗'),
+      el('a', { class: 'btn btn-ghost btn-sm', href: albumModHref(a.album_id), target: '_blank', rel: 'noopener' }, 'Moderate ↗'),
+      owner ? el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderUserAlbums(owner, () => renderMedia(a.album_id)) }, `@${owner}’s albums`) : null,
+      approveAll)));
+
+  const grid = el('div', { class: 'mq-grid' });
+  ms.forEach(m => grid.appendChild(mediaCard(m, urls)));
+  box.appendChild(grid);
+  return box;
 }
 
 function mediaCard(m, urls) {
-  const card = el('div', { class: 'side-card', style: 'padding:12px;display:flex;flex-direction:column;gap:10px' });
+  const card = el('div', { class: 'mq-card' });
 
-  const stage = el('div', { style: 'border-radius:12px;overflow:hidden;background:#EFEDE8;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;cursor:zoom-in' });
+  const stage = el('div', { style: 'position:relative;border-radius:12px;overflow:hidden;background:#EFEDE8;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;cursor:zoom-in' });
   const src = urls[m.thumb] || urls[m.path];
   if (src) {
     if (m.kind === 'video') stage.appendChild(el('video', { src: (urls[m.path] || src) + '#t=0.1', muted: 'muted', playsinline: 'playsinline', controls: 'controls', style: 'width:100%;height:100%;object-fit:contain' }));
+    else if (m.kind === 'audio') stage.appendChild(el('audio', { src: urls[m.path] || src, controls: 'controls', style: 'width:92%' }));
     else stage.appendChild(el('img', { src, alt: '', style: 'width:100%;height:100%;object-fit:cover' }));
   } else stage.appendChild(el('div', { class: 'muted', text: 'no preview' }));
-  if (m.kind !== 'video') {
+  if (m.kind === 'photo') {
     stage.onclick = () => { const u = urls[m.path] || urls[m.thumb]; if (u) window.open(u, '_blank', 'noopener'); };
   }
+  if (m.item === 'cover') stage.appendChild(el('span', { class: 'mq-badge', text: 'ALBUM COVER' }));
   card.appendChild(stage);
 
-  const who = m.uploader_guest ? `guest (no sign-in)` : `@${m.uploader || '?'}`;
+  const who = m.uploader_guest ? 'guest (no sign-in)' : `@${m.uploader || '?'}`;
+  const role = m.item === 'cover' ? 'album cover' : (m.uploader_is_author ? 'author' : (m.uploader_guest ? null : 'not the author'));
   card.appendChild(el('div', {},
-    el('b', { style: 'font-size:14.5px', text: m.album_title || '(album)' }),
+    // альбом — и на самой карточке: её содержимое понятно без шапки группы
+    el('a', { class: 'mq-card-album', href: albumHref(m.album_id), target: '_blank', rel: 'noopener',
+      title: `Open “${m.album_title || 'album'}” in a new tab`, text: `📁 ${m.album_title || '(album)'}` }),
     el('div', { class: 'muted', style: 'font-size:13px',
-      text: `by ${who}${m.anon ? ' · anon' : ''}${m.is_private ? ' · held by owner' : ''} · ${timeAgo(m.added_at)}` }),
+      text: `by ${who}${role ? ` (${role})` : ''}${m.anon ? ' · anon' : ''}${m.is_private ? ' · owner keeps it private' : ''} · ${timeAgo(m.added_at)}` }),
     m.caption ? el('div', { style: 'font-size:13.5px;margin-top:4px', text: `“${m.caption}”` }) : null));
 
   const decide = async (approve) => {
@@ -346,12 +432,11 @@ function mediaCard(m, urls) {
       await call('media_review', { am_id: m.am_id, approve });
       toast(approve ? 'Approved' : 'Hidden');
       card.style.opacity = '0.35';
-      setTimeout(renderMedia, 350);
+      setTimeout(() => renderMedia(m.album_id), 350);
     } catch (e) { toast(e.message); }
   };
 
   card.appendChild(el('div', { class: 'rowx' },
-    el('button', { class: 'mini', onclick: () => openAlbum(m.album_id) }, 'Album'),
     el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
     el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Hide')));
   return card;
@@ -380,7 +465,7 @@ async function openAlbum(albumId) {
       el('h3', { text: 'Album is gone' }),
       el('div', { text: 'The author deleted it after publishing — the media stays in their own library.' })));
     app.appendChild(el('div', { style: 'display:flex;justify-content:center;margin-top:16px' },
-      el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderPending() }, '← Back to queue')));
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderMedia() }, '← Back to queue')));
     return;
   }
 
@@ -392,7 +477,7 @@ async function openAlbum(albumId) {
 
   clear(app);
   app.appendChild(el('div', { style: 'display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap' },
-    el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderPending() }, '← Back to queue'),
+    el('button', { class: 'btn btn-ghost btn-sm', onclick: () => renderMedia(albumId) }, '← Back to queue'),
     el('div', { class: 'rowx' },
       el('span', { class: 'muted', style: 'font-size:13.5px', text: `status: ${a.moderation_status}` }),
       el('button', { class: 'mini', onclick: () => reviewFromViewer(albumId, true) }, 'Approve'),
@@ -464,7 +549,7 @@ async function reviewFromViewer(albumId, approve) {
   try {
     await call('review', { album_id: albumId, approve, note });
     toast(approve ? 'Approved' : 'Rejected');
-    renderPending();
+    renderMedia();
   } catch (e) { toast(e.message); }
 }
 
@@ -1284,6 +1369,22 @@ document.head.appendChild(el('style', { text: `
 .ua-row{grid-template-columns:minmax(0,1.6fr) 110px 110px 190px auto}
 .su-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .prov{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:#F5F1E8;border:1px solid #E4DCCE;white-space:nowrap}
+.prov.warn{background:#FBEFE6;border-color:#EBCDB6;color:#8A4B2F}
+.mq-group{margin-bottom:18px;display:flex;flex-direction:column;gap:14px}
+.mq-focus{box-shadow:0 0 0 2px var(--accent)}
+.mq-head{display:flex;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;align-items:flex-start}
+.mq-info{min-width:0;flex:1 1 320px}
+.mq-kicker{font-size:11px;letter-spacing:.08em;font-weight:700;color:var(--muted,#8a8378)}
+.mq-title{display:inline-block;font-size:19px;font-weight:800;color:inherit;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+.mq-meta{font-size:13.5px;margin-top:2px}
+.mq-desc{font-size:13.5px;margin-top:8px;max-width:640px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mq-links{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+.mq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.mq-card{border:1px solid #F0ECE4;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px;background:#fff}
+.mq-card-album{display:block;font-size:13.5px;font-weight:700;color:inherit;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mq-card-album:hover{text-decoration:underline}
+.mq-badge{position:absolute;top:8px;left:8px;background:rgba(20,18,15,.72);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px}
+@media (max-width:720px){.mq-links{justify-content:flex-start}}
 .is-guest{opacity:.6}
 @media (max-width:720px){
   .su-row{grid-template-columns:1fr auto}
@@ -1311,10 +1412,14 @@ function secs(ms) {
 }
 
 /* ---------------- старт ---------------- */
-// Ссылка из телеграм-уведомления ведёт сразу к альбому: moderation.html?album=<id>.
-// Без неё — очередь новых альбомов, это ежедневная работа модератора.
-const deepLink = new URLSearchParams(location.search).get('album');
-const start = () => (deepLink ? openAlbum(deepLink) : renderPending());
+// Ссылки из Telegram: moderation.html?album=<id> — альбом целиком;
+// moderation.html?tab=media&album=<id> — очередь New media на группе этого альбома.
+// Без них — New media: с 058 это единственная ежедневная очередь модератора.
+const qs = new URLSearchParams(location.search);
+const deepLink = qs.get('album');
+const start = () => (qs.get('tab') === 'media' ? renderMedia(deepLink)
+  : qs.get('tab') === 'albums' ? renderPending()
+  : deepLink ? openAlbum(deepLink) : renderMedia());
 
 if (token) start().catch(renderLogin);
 else renderLogin();
