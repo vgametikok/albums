@@ -194,6 +194,8 @@
   make_private: 'Rendre privé',
   is_private: '🔒 Privé',
   private_hint: 'Un fichier privé n’est visible que par vous et les collaborateurs, même si l’album est publié.',
+  on_review: '⏳ En vérification',
+  on_review_hint: 'Un modérateur vérifie les nouveaux fichiers avant que d’autres les voient. Vous et les collaborateurs les voyez tout de suite.',
   private_on: 'Fichier masqué aux visiteurs',
   private_off: 'Fichier de nouveau visible',
   vis_public: 'Public',

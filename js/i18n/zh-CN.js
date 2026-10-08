@@ -194,6 +194,8 @@
   make_private: '设为私密',
   is_private: '🔒 私密',
   private_hint: '私密文件只有你和协作者能看到，即使相册已发布。',
+  on_review: '⏳ 审核中',
+  on_review_hint: '新文件经版主审核后其他人才能看到。你和协作者可以立即看到。',
   private_on: '该文件已对访客隐藏',
   private_off: '该文件重新可见',
   vis_public: '公开',

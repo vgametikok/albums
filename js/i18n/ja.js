@@ -194,6 +194,8 @@
   make_private: '非公開にする',
   is_private: '🔒 非公開',
   private_hint: '非公開のファイルは、アルバムを公開しても本人と共同編集者だけに表示されます。',
+  on_review: '⏳ 確認中',
+  on_review_hint: '新しいファイルはモデレーターの確認後に他の人へ表示されます。あなたと共同編集者にはすぐ表示されます。',
   private_on: '閲覧者から隠しました',
   private_off: 'ふたたび表示されます',
   vis_public: '公開',

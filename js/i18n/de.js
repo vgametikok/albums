@@ -194,6 +194,8 @@
   make_private: 'Privat machen',
   is_private: '🔒 Privat',
   private_hint: 'Eine private Datei sehen nur du und Mitwirkende – auch wenn das Album veröffentlicht ist.',
+  on_review: '⏳ In Prüfung',
+  on_review_hint: 'Neue Dateien prüft ein Moderator, bevor andere sie sehen. Du und Mitwirkende seht sie sofort.',
   private_on: 'Datei vor Betrachtern verborgen',
   private_off: 'Datei ist wieder sichtbar',
   vis_public: 'Öffentlich',

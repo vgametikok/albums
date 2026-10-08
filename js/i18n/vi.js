@@ -194,6 +194,8 @@
   make_private: 'Đặt riêng tư',
   is_private: '🔒 Riêng tư',
   private_hint: 'Tệp riêng tư chỉ bạn và người cộng tác xem được, kể cả khi album đã đăng.',
+  on_review: '⏳ Đang duyệt',
+  on_review_hint: 'Tệp mới được người kiểm duyệt xem trước khi người khác thấy. Bạn và người cộng tác thấy ngay.',
   private_on: 'Đã ẩn tệp khỏi người xem',
   private_off: 'Tệp lại hiển thị',
   vis_public: 'Công khai',

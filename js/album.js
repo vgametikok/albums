@@ -51,7 +51,11 @@ async function render(d) {
 
   /* ---- hero ---- */
   const hero = el('div', { class: 'album-hero' });
-  if (urls[a.cover_path]) hero.appendChild(el('img', { src: urls[a.cover_path], alt: a.title }));
+  // Обложка ещё на модерации (058) — посторонним её не подпишут: берём первое
+  // видимое фото альбома, а если и его нет — остаётся фон-заглушка.
+  const firstPhoto = all.find(m => m.kind === 'photo' && urls[m.thumb || m.path]);
+  const heroSrc = urls[a.cover_path] || (firstPhoto && (urls[firstPhoto.path] || urls[firstPhoto.thumb]));
+  if (heroSrc) hero.appendChild(el('img', { src: heroSrc, alt: a.title }));
 
   const actions = el('div', { style: 'display:flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap' });
   const watchBtn = el('button', { class: 'btn btn-primary', style: 'height:50px', onclick: watch },

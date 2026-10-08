@@ -431,7 +431,12 @@ export function createStoryEditor(host, ctx) {
           toast(t('changes_saved'));
         },
       }, album?.cover_media_id === m.id ? t('cover_set') : t('set_cover')) : null,
-      el('button', {
+      // 058: кадр ждёт модератора — переключатель приватности не поможет
+      // (придержку снимает только модерация), поэтому вместо него — пометка.
+      it.mod_hold ? el('span', {
+        class: 'mini', title: t('on_review_hint'),
+        style: 'cursor:help;border-style:dashed;opacity:.85',
+      }, t('on_review')) : el('button', {
         class: 'mini',
         style: it.is_private ? 'border-color:var(--accent);color:var(--accent)' : null,
         title: t('private_hint'),

@@ -241,6 +241,8 @@ export default {
   make_private: 'Make private',
   is_private: '🔒 Private',
   private_hint: 'A private file is visible only to you and collaborators, even if the album is published.',
+  on_review: '⏳ On review',
+  on_review_hint: 'New files are checked by a moderator before other people see them. You and collaborators see them right away.',
   private_on: 'File hidden from viewers',
   private_off: 'File is visible again',
   vis_public: 'Public',

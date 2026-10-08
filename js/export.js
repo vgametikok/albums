@@ -36,9 +36,11 @@ const pad = (n, w = 4) => String(n).padStart(w, '0');
 export function planArchive(d) {
   const a = d.album || {};
   const files = [];
-  const add = (path, name) => { if (path) files.push({ path, name }); };
+  const add = (path, name, optional = false) => { if (path) files.push({ path, name, optional }); };
 
-  if (a.cover_path) add(a.cover_path, `cover.${extOf(a.cover_path, 'photo')}`);
+  // Обложка может быть ещё не проверена модератором (058) — тогда ссылку
+  // посторонним не подпишут. Это не сбой архива: без обложки и без строки в «не скачалось».
+  if (a.cover_path) add(a.cover_path, `cover.${extOf(a.cover_path, 'photo')}`, true);
 
   let n = 0;
   const section = (media, folder) => {
@@ -194,9 +196,9 @@ export async function downloadAlbumArchive(d) {
       const urls = await signUrls(chunk.map(f => f.path));
       for (const f of chunk) {
         if (cancelled) break;
-        const blob = await grab(f.path, urls);
+        const blob = (f.optional && !urls[f.path]) ? null : await grab(f.path, urls);
         if (blob) await zip.add(f.name, blob);
-        else failed.push(f.name);
+        else if (!f.optional) failed.push(f.name);
         done++;
         paint();
       }

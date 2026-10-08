@@ -194,6 +194,8 @@
   make_private: '비공개로 전환',
   is_private: '🔒 비공개',
   private_hint: '비공개 파일은 앨범을 게시해도 본인과 공동 작업자에게만 보입니다.',
+  on_review: '⏳ 검토 중',
+  on_review_hint: '새 파일은 모더레이터가 확인한 뒤 다른 사람에게 보입니다. 본인과 공동 작업자에게는 바로 보입니다.',
   private_on: '방문자에게 숨겼습니다',
   private_off: '다시 보이게 했습니다',
   vis_public: '전체 공개',

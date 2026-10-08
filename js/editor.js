@@ -6,8 +6,9 @@ import { uploadMedia, backfillPoster } from './upload.js';
 import { createStoryEditor, storySettingsBox } from './storyeditor.js';
 
 // Колонки album_media: media — сам файл, voice — голосовая заметка кадра.
-const AM_COLS = 'id,chapter_id,position,caption,is_private,gallery_id,voice_media_id,'
-  + 'media:media_id(*),voice:voice_media_id(storage_path,duration_seconds)';
+// Сами поля строки — звёздочкой: так приходит и mod_hold (058: кадр ждёт
+// модератора), а до применения миграции запрос не падает на неизвестной колонке.
+const AM_COLS = '*,media:media_id(*),voice:voice_media_id(storage_path,duration_seconds)';
 
 const app = $('#app');
 let albumId = new URLSearchParams(location.search).get('id');
@@ -356,7 +357,7 @@ async function addFiles(files) {
       const pos = Math.max(-1, ...items.map(i => i.position), ...texts.map(x => x.position)) + 1;
       const { data, error } = await sb.from('album_media')
         .insert({ album_id: albumId, media_id: media.id, position: pos })
-        .select('id,chapter_id,position,caption,is_private,gallery_id,voice_media_id').single();
+        .select('*').single();
       if (error) throw error;
       items.push({ ...data, media, voice: null });
       if (!album.cover_media_id && media.kind === 'photo') {
@@ -717,8 +718,10 @@ async function save(publish, btn) {
       if (rows.length) await sb.from('album_exceptions').insert(rows);
     }
 
+    // Альбом одобряется при публикации сам (058) — «на проверку» уходят только
+    // новые файлы. Отклонённый модератором альбом так и остаётся отклонённым.
     toast(publish
-      ? (album.moderation_status === 'approved' ? t('album_published') : t('album_sent_review'))
+      ? (album.moderation_status === 'rejected' ? t('album_sent_review') : t('album_published'))
       : t('draft_saved'));
     if (publish) { location.href = `album.html?id=${albumId}`; return; }
   } catch (err) {
