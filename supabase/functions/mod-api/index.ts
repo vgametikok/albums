@@ -209,6 +209,32 @@ Deno.serve(async (req) => {
           p_am_id: body.am_id, p_approve: !!body.approve, p_login: login,
         })).data;
         break;
+      case 'media_set':
+        // решение по файлу в любой момент (ленты «Recent media»): approve / hide (059)
+        out = (await sb.rpc('mod_media_set', {
+          p_am_id: body.am_id, p_approve: !!body.approve, p_login: login,
+        })).data;
+        break;
+      case 'mod_recent_albums': {
+        // последние созданные альбомы в любом статусе, новые сверху (059)
+        const r = await sb.rpc('mod_recent_albums', {
+          p_status: String(body.status ?? 'all'),
+          p_limit: clampInt(body.limit, 1, 100, 30), p_offset: clampInt(body.offset, 0, 1000000, 0),
+        });
+        if (r.error) throw r.error;
+        out = r.data;
+        break;
+      }
+      case 'mod_recent_media': {
+        // последние загруженные файлы в любом статусе, новые сверху (059)
+        const r = await sb.rpc('mod_recent_media', {
+          p_status: String(body.status ?? 'all'),
+          p_limit: clampInt(body.limit, 1, 120, 48), p_offset: clampInt(body.offset, 0, 1000000, 0),
+        });
+        if (r.error) throw r.error;
+        out = r.data;
+        break;
+      }
       case 'stats':
         out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
         break;
