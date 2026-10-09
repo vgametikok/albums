@@ -77,6 +77,14 @@ function head(title, active) {
         onclick: () => renderMedia(),
       }, mediaLabel()),
       el('button', {
+        class: 'chip btn-sm' + (active ==='ralbums' ? ' on' : ''),
+        onclick: () => renderRecentAlbums(),
+      }, 'Recent albums'),
+      el('button', {
+        class: 'chip btn-sm' + (active ==='rmedia' ? ' on' : ''),
+        onclick: () => renderRecentMedia(),
+      }, 'Recent media'),
+      el('button', {
         class: 'chip btn-sm' + (active ==='users' ? ' on' : ''),
         onclick: () => renderUsers(),
       }, 'Users'),
@@ -439,6 +447,211 @@ function mediaCard(m, urls) {
   card.appendChild(el('div', { class: 'rowx' },
     el('button', { class: 'mini', onclick: () => decide(true) }, 'Approve'),
     el('button', { class: 'mini danger', onclick: () => decide(false) }, 'Hide')));
+  return card;
+}
+
+/* ---------------- свежее: альбомы и файлы в любом статусе (059) ---------------- */
+// Ленты «что появилось на сайте» независимо от модерации: автоодобренное,
+// одобренное, ждущее, скрытое/отклонённое. Решение можно поменять в любой
+// момент — те же действия mod-api (review, hide, ban) плюс media_set для файлов.
+// Время — по Сайгону: модератор работает оттуда, а ленты сверяют с Telegram.
+const SG_FMT = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Saigon', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+const sgTime = (iso) => { if (!iso) return '—'; const d = new Date(iso); return Number.isNaN(d.getTime()) ? '—' : `${SG_FMT.format(d)} ICT`; };
+const STATUS_TONE = { auto: 'auto', approved: 'ok', pending: 'wait', rejected: 'bad', hidden: 'bad', draft: 'wait' };
+const STATUS_TEXT = { auto: 'Auto-approved', approved: 'Approved', pending: 'Pending', rejected: 'Rejected', hidden: 'Hidden', draft: 'Draft' };
+const statusChip = (s) => el('span', { class: `rs-chip rs-${STATUS_TONE[s] || 'wait'}`, text: STATUS_TEXT[s] || s });
+const recentState = { albums: { status: 'all' }, media: { status: 'all' } };
+
+function redeployNote(host, action) {
+  clear(host).appendChild(el('div', { class: 'empty' },
+    el('h3', { text: 'mod-api needs redeploying' }),
+    el('div', { text: `This view uses the action “${action}” (migration 059 + the new mod-api). Deploy mod-api and reload.` })));
+}
+
+function filterBar(kind, options, onPick) {
+  const bar = el('div', { class: 'rs-filters' }, el('span', { class: 'muted', text: 'Status:' }));
+  options.forEach(([v, label]) => bar.appendChild(el('button', {
+    class: 'chip btn-sm' + (recentState[kind].status === v ? ' on' : ''),
+    onclick: () => { recentState[kind].status = v; onPick(); },
+  }, label)));
+  return bar;
+}
+
+async function banToggle(userId, handle, banned, after) {
+  if (!userId) return;
+  const reason = banned ? null : prompt(`Ban @${handle}? Reason (optional):`, '');
+  if (!banned && reason === null) return;
+  try {
+    await call('ban', { user_id: userId, ban: !banned, reason: reason || null });
+    toast(banned ? `@${handle} unbanned` : `@${handle} banned`);
+    after(!banned);
+  } catch (e) { toast(e.message); }
+}
+
+/* ---- альбомы ---- */
+async function renderRecentAlbums() {
+  clear(app);
+  app.appendChild(head('Recent albums', 'ralbums'));
+  app.appendChild(filterBar('albums', [['all', 'All'], ['auto', 'Auto-approved'], ['approved', 'Approved'],
+    ['pending', 'Pending'], ['rejected', 'Rejected'], ['hidden', 'Hidden'], ['draft', 'Drafts']], renderRecentAlbums));
+  const info = el('div', { class: 'muted', style: 'font-size:13px;margin:10px 0 12px', text: 'Loading…' });
+  const list = el('div', { class: 'side-card', style: 'padding:6px 18px' });
+  const more = el('div', { style: 'display:flex;justify-content:center;margin:16px 0' });
+  app.append(info, list, more);
+  const st = recentState.albums;
+  let offset = 0;
+
+  const page = async () => {
+    let d;
+    try { d = (await call('mod_recent_albums', { status: st.status, limit: 30, offset })).data || {}; }
+    catch (e) { if (e.message === 'unknown_action') { clear(list); clear(more); return redeployNote(info, 'mod_recent_albums'); } info.textContent = e.message; return; }
+    const rows = d.rows || [];
+    const urls = await signPaths(rows.map(a => a.cover_path));
+    rows.forEach(a => list.appendChild(albumRow(a, urls)));
+    offset += rows.length;
+    info.textContent = `${d.total ?? offset} album${d.total === 1 ? '' : 's'} · newest first · times in Asia/Saigon (ICT)`;
+    if (!offset) list.appendChild(el('div', { class: 'muted', style: 'padding:14px 0', text: 'No albums with this status.' }));
+    clear(more);
+    if (offset < (d.total ?? 0)) more.appendChild(el('button', { class: 'btn btn-ghost btn-sm', onclick: (e) => { e.currentTarget.disabled = true; page(); } }, `Load more (${d.total - offset} left)`));
+  };
+  page();
+}
+
+function albumRow(a, urls) {
+  const node = el('div', { class: 'rs-row' });
+  const draw = () => {
+    clear(node);
+    const thumb = el('div', { class: 'rs-thumb' });
+    if (urls[a.cover_path]) thumb.appendChild(el('img', { src: urls[a.cover_path], alt: '' }));
+    const status = a.status === 'pending' && !a.published_at ? 'draft' : a.status;
+    const decided = a.decided_by ? `${a.decided_action || 'decided'} by ${a.decided_by === 'system' ? 'system (auto)' : a.decided_by} · ${sgTime(a.decided_at)}` : 'no decision logged';
+    node.append(
+      thumb,
+      el('div', { class: 'rs-main' },
+        el('div', { class: 'rs-line' },
+          statusChip(status),
+          a.hidden_at && a.status !== 'hidden' ? statusChip('hidden') : null,
+          a.is_event ? el('span', { class: 'prov', text: 'Event' }) : null,
+          a.visibility && a.visibility !== 'public' ? el('span', { class: 'prov', text: VIS_LABEL[a.visibility] || a.visibility }) : null,
+          a.reports ? el('span', { class: 'prov warn', text: `${a.reports} report${a.reports === 1 ? '' : 's'}` }) : null),
+        el('a', { class: 'rs-title', href: albumHref(a.id), target: '_blank', rel: 'noopener', text: a.title || '(untitled)' }),
+        el('div', { class: 'muted rs-sub' },
+          'by ', a.author ? el('a', { href: profileHref(a.author), target: '_blank', rel: 'noopener', style: linkStyle, text: `@${a.author}` }) : '—',
+          a.author_banned ? el('span', { class: 'rs-banned', text: ' BANNED' }) : null,
+          ` · created ${sgTime(a.created_at)}`,
+          a.published_at ? ` · published ${sgTime(a.published_at)}` : ' · not published',
+          ` · ${a.files ?? 0} file${a.files === 1 ? '' : 's'}${a.held ? `, ${a.held} waiting` : ''}`),
+        el('div', { class: 'muted rs-sub', text: decided + (a.review_note ? ` · note: ${a.review_note}` : '') })),
+      el('div', { class: 'rs-acts' },
+        el('button', { class: 'mini', disabled: a.status === 'approved' || a.status === 'auto' ? 'disabled' : null, onclick: () => review(true) }, 'Approve'),
+        el('button', { class: 'mini danger', disabled: a.status === 'rejected' ? 'disabled' : null, onclick: () => review(false) }, 'Reject'),
+        el('button', { class: 'mini' + (a.hidden_at ? '' : ' danger'), onclick: hide }, a.hidden_at ? 'Unhide' : 'Hide'),
+        el('button', { class: 'mini' + (a.author_banned ? '' : ' danger'), onclick: () => banToggle(a.author_id, a.author, a.author_banned, (b) => { a.author_banned = b; draw(); }) },
+          a.author_banned ? 'Unban author' : 'Ban author'),
+        el('a', { class: 'mini', href: albumModHref(a.id), target: '_blank', rel: 'noopener' }, 'Moderate ↗'),
+        a.author ? el('button', { class: 'mini', onclick: () => renderUserAlbums(a.author, renderRecentAlbums) }, 'Author’s albums') : null));
+  };
+  const review = async (approve) => {
+    const note = approve ? null : prompt('Reason (sent to the author):', '');
+    if (!approve && note === null) return;
+    try {
+      await call('review', { album_id: a.id, approve, note: note || null });
+      Object.assign(a, { moderation_status: approve ? 'approved' : 'rejected', status: a.hidden_at ? 'hidden' : (approve ? 'approved' : 'rejected'),
+        decided_by: 'you', decided_action: approve ? 'approve' : 'reject', decided_at: new Date().toISOString(), review_note: note || null });
+      toast(approve ? 'Album approved' : 'Album rejected');
+      draw();
+    } catch (e) { toast(e.message); }
+  };
+  const hide = async () => {
+    const hideIt = !a.hidden_at;
+    const reason = hideIt ? prompt('Hide album. Reason (optional):', '') : null;
+    if (hideIt && reason === null) return;
+    try {
+      await call('hide', { subject_type: 'album', subject_id: a.id, hide: hideIt, reason: reason || null });
+      a.hidden_at = hideIt ? new Date().toISOString() : null;
+      a.status = hideIt ? 'hidden' : (a.moderation_status === 'rejected' ? 'rejected' : a.moderation_status === 'pending' ? 'pending' : 'approved');
+      Object.assign(a, { decided_by: 'you', decided_action: hideIt ? 'hide' : 'unhide', decided_at: new Date().toISOString() });
+      toast(hideIt ? 'Album hidden' : 'Album visible again');
+      draw();
+    } catch (e) { toast(e.message); }
+  };
+  draw();
+  return node;
+}
+
+/* ---- файлы ---- */
+async function renderRecentMedia() {
+  clear(app);
+  app.appendChild(head('Recent media', 'rmedia'));
+  app.appendChild(filterBar('media', [['all', 'All'], ['pending', 'Pending'], ['approved', 'Approved'],
+    ['auto', 'Auto-approved'], ['hidden', 'Hidden']], renderRecentMedia));
+  const info = el('div', { class: 'muted', style: 'font-size:13px;margin:10px 0 12px', text: 'Loading…' });
+  const grid = el('div', { class: 'mq-grid' });
+  const more = el('div', { style: 'display:flex;justify-content:center;margin:16px 0' });
+  app.append(info, grid, more);
+  const st = recentState.media;
+  let offset = 0;
+
+  const page = async () => {
+    let d;
+    try { d = (await call('mod_recent_media', { status: st.status, limit: 48, offset })).data || {}; }
+    catch (e) { if (e.message === 'unknown_action') { clear(grid); clear(more); return redeployNote(info, 'mod_recent_media'); } info.textContent = e.message; return; }
+    const rows = d.rows || [];
+    const urls = await signPaths(rows.flatMap(m => [m.thumb, m.path]));
+    rows.forEach(m => grid.appendChild(recentMediaCard(m, urls)));
+    offset += rows.length;
+    info.textContent = `${d.total ?? offset} file${d.total === 1 ? '' : 's'} · newest upload first · times in Asia/Saigon (ICT) · “Auto-approved” = uploaded before media moderation or an already-approved file`;
+    if (!offset) grid.appendChild(el('div', { class: 'muted', text: 'No files with this status.' }));
+    clear(more);
+    if (offset < (d.total ?? 0)) more.appendChild(el('button', { class: 'btn btn-ghost btn-sm', onclick: (e) => { e.currentTarget.disabled = true; page(); } }, `Load more (${d.total - offset} left)`));
+  };
+  page();
+}
+
+function recentMediaCard(m, urls) {
+  const card = el('div', { class: 'mq-card' });
+  const draw = () => {
+    clear(card);
+    const stage = el('div', { style: 'position:relative;border-radius:12px;overflow:hidden;background:#EFEDE8;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;cursor:zoom-in' });
+    const src = urls[m.thumb] || urls[m.path];
+    if (src && m.kind === 'video') stage.appendChild(el('video', { src: (urls[m.path] || src) + '#t=0.1', muted: 'muted', playsinline: 'playsinline', controls: 'controls', style: 'width:100%;height:100%;object-fit:contain' }));
+    else if (src && m.kind === 'audio') stage.appendChild(el('audio', { src: urls[m.path] || src, controls: 'controls', style: 'width:92%' }));
+    else if (src) stage.appendChild(el('img', { src, alt: '', style: 'width:100%;height:100%;object-fit:cover' }));
+    else stage.appendChild(el('div', { class: 'muted', text: 'no preview' }));
+    if (m.kind === 'photo') stage.onclick = () => { const u = urls[m.path] || urls[m.thumb]; if (u) window.open(u, '_blank', 'noopener'); };
+    stage.appendChild(el('span', { class: 'rs-onimg' }, statusChip(m.status)));
+    const who = m.uploader_guest ? 'guest (no sign-in)' : `@${m.uploader || '?'}`;
+    card.append(stage,
+      el('div', {},
+        el('a', { class: 'mq-card-album', href: albumHref(m.album_id), target: '_blank', rel: 'noopener', text: `📁 ${m.album_title || '(album)'}` }),
+        el('div', { class: 'muted', style: 'font-size:12.5px' },
+          'album by ', m.author ? el('a', { href: profileHref(m.author), target: '_blank', rel: 'noopener', style: 'color:inherit;text-decoration:underline', text: `@${m.author}` }) : '—',
+          m.is_event ? ' · event' : '', m.album_published ? '' : ' · draft'),
+        el('div', { class: 'muted', style: 'font-size:12.5px' },
+          `uploaded by ${who}${m.uploader_is_author ? ' (author)' : ''}`,
+          m.uploader_banned ? el('span', { class: 'rs-banned', text: ' BANNED' }) : null,
+          ` · ${sgTime(m.created_at)}`),
+        m.decided_by ? el('div', { class: 'muted', style: 'font-size:12px', text: `${m.status === 'hidden' ? 'hidden' : 'approved'} by ${m.decided_by} · ${sgTime(m.decided_at)}` }) : null,
+        m.owner_private ? el('div', { class: 'muted', style: 'font-size:12px', text: 'owner keeps it private' }) : null,
+        m.caption ? el('div', { style: 'font-size:13px;margin-top:3px', text: `“${m.caption}”` }) : null),
+      el('div', { class: 'rowx' },
+        el('button', { class: 'mini', disabled: m.status === 'approved' ? 'disabled' : null, onclick: () => decide(true) }, 'Approve'),
+        el('button', { class: 'mini danger', disabled: m.status === 'hidden' ? 'disabled' : null, onclick: () => decide(false) }, 'Hide'),
+        m.uploader_id ? el('button', { class: 'mini' + (m.uploader_banned ? '' : ' danger'), title: 'Ban the person who uploaded this file',
+          onclick: () => banToggle(m.uploader_id, m.uploader || 'guest', m.uploader_banned, (b) => { m.uploader_banned = b; draw(); }) },
+          m.uploader_banned ? 'Unban uploader' : 'Ban uploader') : null,
+        el('a', { class: 'mini', href: albumModHref(m.album_id), target: '_blank', rel: 'noopener' }, 'Album ↗')));
+  };
+  const decide = async (approve) => {
+    try {
+      const r = (await call('media_set', { am_id: m.am_id, approve })).data || {};
+      if (r.error) { toast(r.error); return; }
+      Object.assign(m, { status: approve ? 'approved' : 'hidden', decided_by: 'you', decided_at: new Date().toISOString(), held: false });
+      toast(approve ? 'Approved' : 'Hidden');
+      draw();
+    } catch (e) { toast(e.message === 'unknown_action' ? 'mod-api needs redeploying (media_set)' : e.message); }
+  };
+  draw();
   return card;
 }
 
@@ -1383,6 +1596,25 @@ document.head.appendChild(el('style', { text: `
 .mq-card{border:1px solid #F0ECE4;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px;background:#fff}
 .mq-card-album{display:block;font-size:13.5px;font-weight:700;color:inherit;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mq-card-album:hover{text-decoration:underline}
+.rs-filters{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:14px;margin:-6px 0 0}
+.rs-chip{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:2px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.rs-ok{background:#EAF5EC;border-color:#BFDCC5;color:#2F6B3B}
+.rs-auto{background:#EAF0F8;border-color:#C3D3EA;color:#33557F}
+.rs-wait{background:#FBF4E2;border-color:#EBD9A8;color:#7A5B12}
+.rs-bad{background:#FBEAE6;border-color:#EDC2B8;color:#9A3B26}
+.rs-row{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(220px,auto);gap:12px 16px;align-items:center;padding:12px 0;border-bottom:1px solid #F5F3EF}
+.rs-row:last-child{border-bottom:0}
+.rs-thumb{width:76px;height:57px;border-radius:10px;overflow:hidden;background:#EFEDE8}
+.rs-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.rs-line{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.rs-title{display:inline-block;margin-top:3px;font-size:16px;font-weight:800;color:inherit;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+.rs-sub{font-size:12.5px;margin-top:2px}
+.rs-banned{color:#B3452F;font-weight:700}
+.rs-acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.rs-acts .mini,.mq-card .rowx .mini{text-decoration:none}
+.rs-acts .mini:disabled,.mq-card .rowx .mini:disabled{opacity:.38;cursor:default;border-color:var(--line)}
+.rs-onimg{position:absolute;top:8px;left:8px}
+@media (max-width:720px){.rs-row{grid-template-columns:64px minmax(0,1fr)}.rs-thumb{width:64px;height:48px}.rs-acts{grid-column:1/-1;justify-content:flex-start}}
 .mq-badge{position:absolute;top:8px;left:8px;background:rgba(20,18,15,.72);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px}
 @media (max-width:720px){.mq-links{justify-content:flex-start}}
 .is-guest{opacity:.6}
@@ -1419,6 +1651,8 @@ const qs = new URLSearchParams(location.search);
 const deepLink = qs.get('album');
 const start = () => (qs.get('tab') === 'media' ? renderMedia(deepLink)
   : qs.get('tab') === 'albums' ? renderPending()
+  : qs.get('tab') === 'recent-albums' ? renderRecentAlbums()
+  : qs.get('tab') === 'recent-media' ? renderRecentMedia()
   : deepLink ? openAlbum(deepLink) : renderMedia());
 
 if (token) start().catch(renderLogin);
