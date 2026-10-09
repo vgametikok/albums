@@ -180,7 +180,7 @@ function openComments(p) {
     box.appendChild(el('h2', { text: t('comments_title') }));
     const host = el('div', {});
     box.appendChild(host);
-    mountComments(host, 'post', p.id, { isOwner: p.is_author });
+    mountComments(host, 'post', p.id, { isOwner: p.is_author, creator: { name: p.author_name || p.author_username, avatar: p.author_avatar } });
   }, { wide: true });
 }
 

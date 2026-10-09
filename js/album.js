@@ -166,7 +166,7 @@ async function render(d) {
   /* ---- комментарии ---- */
   const cHost = el('div', {});
   left.appendChild(cHost);
-  mountComments(cHost, 'album', a.id, { isOwner: d.is_author });
+  mountComments(cHost, 'album', a.id, { isOwner: d.is_author, creator: { name: author?.name || author?.username, avatar: author?.avatar } });
 
   function watch() {
     const first = all.find(m => m.kind !== 'audio');
