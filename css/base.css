@@ -810,3 +810,14 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
 .ev-qr-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .ev-qr-actions .mini{width:100%;min-width:0;height:auto;min-height:36px;padding:7px 8px;line-height:1.2;white-space:normal;overflow-wrap:anywhere;text-align:center;font-size:13.5px}
 .ev-qr-actions .ev-wide{grid-column:1/-1}
+/* 060: отклонённый модератором кадр события */
+.rej-badge{position:absolute;bottom:6px;left:6px;z-index:3;border:0;border-radius:8px;padding:3px 7px;white-space:nowrap;
+  font:600 11.5px/1.2 inherit;color:#fff;background:rgba(190,40,40,.92);cursor:help;max-width:calc(100% - 12px)}
+/* iPhone SE и подобные: кнопка «без входа» — на первом экране */
+@media (max-width:420px) and (max-height:700px){
+  .join-hero{aspect-ratio:auto;min-height:112px}
+  .join-hero-body{padding:14px}
+  .join-title{font-size:21px}
+  .join-greet{margin-top:12px;font-size:14.5px;line-height:1.5}
+  .join-greet-by{margin-bottom:4px}
+}

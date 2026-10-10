@@ -12,7 +12,7 @@
 import { sb, isAuthed, isGuest, currentUser, signInAnonymously, signIn, isNetworkError } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, toast, showLogin, emptyState, icon, t, thumbEl, dur, avatarImg,
-  modal,
+  modal, rejectedBadge,
 } from './ui.js';
 import { uploadMedia } from './upload.js';
 
@@ -210,7 +210,8 @@ async function render() {
 
   async function loadMine() {
     const { data } = await sb.from('album_media')
-      .select('id,position,is_private,visibility,media:media_id(id,kind,storage_path,thumb_path,duration_seconds,owner_id)')
+      // звёздочка: mod_rejected (060) приходит, а до миграции запрос не падает
+      .select('*,media:media_id(id,kind,storage_path,thumb_path,duration_seconds,owner_id)')
       .eq('album_id', info.album_id)
       .order('position');
     mine = (data || []).filter(r => r.media?.owner_id === currentUser().id);
@@ -238,6 +239,7 @@ async function render() {
       if (m.kind === 'video') cell.appendChild(el('div', { class: 'tag', text: dur(m.duration_seconds) || t('video_tag') }));
       // Придержанный файл: автор альбома (или модератор) ещё не показал его
       // остальным. Загрузившему честно говорим, что кадр пока ждёт одобрения.
+      if (r.mod_rejected) cell.appendChild(rejectedBadge());
       if (r.is_private) {
         cell.appendChild(el('div', {
           class: 'tag', style: 'bottom:auto;top:5px;background:rgba(201,162,39,.92)',
@@ -258,9 +260,44 @@ async function render() {
     listHost.appendChild(grid);
   }
 
+  // Незалитые файлы: на «Повторить» и для продолжения после перезагрузки.
+  let failedFiles = [];
+  const retryMsg = el('div', { style: 'font-size:17px;font-weight:700' });
+  const retryCard = el('div', { class: 'side-card hide', style: 'text-align:center;margin-top:14px' },
+    retryMsg,
+    el('button', {
+      class: 'btn btn-primary', style: 'margin-top:12px',
+      onclick: () => { const f = failedFiles; failedFiles = []; retryCard.classList.add('hide'); addFiles(f); },
+    }, t('join_retry')));
+  panel.insertBefore(retryCard, saveHost);
+
+  // Предупреждаем об уходе со страницы, пока идёт загрузка.
+  addEventListener('beforeunload', (e) => { if (busy > 0) { e.preventDefault(); e.returnValue = ''; } });
+
+  // Продолжить после перезагрузки: незалитое лежит в IndexedDB этого браузера.
+  pendingAll(token).then((rows) => {
+    if (!rows.length) return;
+    const card = el('div', { class: 'side-card', style: 'text-align:center;margin-bottom:14px' },
+      el('div', { style: 'font-size:16px;font-weight:600', text: t('join_resume', { count: rows.length }) }));
+    card.append(
+      el('button', {
+        class: 'btn btn-primary', style: 'margin-top:12px',
+        onclick: () => { card.remove(); addFiles(rows.map(r => r.file)); },
+      }, t('join_resume_btn')),
+      el('button', {
+        class: 'btn btn-ghost', style: 'margin-top:12px;margin-left:8px',
+        onclick: () => { card.remove(); pendingClear(token); },
+      }, t('join_resume_discard')));
+    panel.insertBefore(card, drop);
+  });
+
   async function addFiles(files) {
     if (!files.length) return;
     let ok = 0;
+    const total = files.length;
+    // Кладём пачку в IndexedDB до начала: перезагрузка не теряет файлы.
+    if (busy === 0) await pendingClear(token);
+    const keys = await pendingPut(token, files);
     // Хвост общей последовательности альбома: редактор держит позиции плотными
     // (0..n), гостевые файлы продолжают их. Один запрос до пачки, дальше
     // локальный инкремент. Если политика чтения не отдала чужих строк —
@@ -269,26 +306,36 @@ async function render() {
       .select('position').eq('album_id', info.album_id)
       .order('position', { ascending: false }).limit(1);
     let pos = (tail?.[0]?.position ?? Math.max(-1, ...mine.map(r => r.position))) + 1;
-    for (const f of files) {
+    for (const [i, f] of files.entries()) {
       busy++;
       status.classList.remove('hide');
-      status.textContent = t('join_uploading', { name: f.name });
+      status.textContent = `${i + 1}/${total} · ` + t('join_uploading', { name: f.name });
       try {
         const media = await uploadMedia(f, (stage, p) => {
           const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
-          status.textContent = `${f.name} — ${t('stage_' + (stage === 'converting' ? 'heic' : stage === 'transcoding' ? 'video' : stage))}${pct}`;
+          status.textContent = `${i + 1}/${total} · ${f.name} — ${t('stage_' + (stage === 'converting' ? 'heic' : stage === 'transcoding' ? 'video' : stage))}${pct}`;
         });
         const { error } = await sb.from('album_media')
           .insert({ album_id: info.album_id, media_id: media.id, position: pos++, anon: asAnon });
         if (error) throw error;
         ok++;
+        pendingDel(keys[i]);
       } catch (err) {
+        failedFiles.push(f);
         toast(err.message || t('upload_failed'));
       }
       busy--;
     }
     status.classList.add('hide');
     loadMine();
+    if (failedFiles.length && busy === 0) {
+      // Частичный сбой — не «всё готово», а «X из N» и повтор только упавших.
+      retryMsg.textContent = t('join_partial', { ok, total });
+      retryCard.classList.remove('hide');
+      drop.classList.remove('hide');
+      done.classList.add('hide');
+      return;
+    }
     if (ok > 0 && busy === 0) {
       drop.classList.add('hide');
       done.classList.remove('hide');
@@ -394,4 +441,35 @@ async function render() {
           t('not_now')));
     });
   }
+}
+
+/* ---------- IndexedDB: незалитые файлы гостя (переживают перезагрузку) ---------- */
+function idb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open('albums-join', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('pending', { keyPath: 'k', autoIncrement: true });
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  });
+}
+async function tx(mode, fn) {
+  try {
+    const db = await idb();
+    return await new Promise((res, rej) => {
+      const x = db.transaction('pending', mode); const st = x.objectStore('pending');
+      const out = fn(st); x.oncomplete = () => res(out?.result ?? out); x.onerror = () => rej(x.error);
+    });
+  } catch (_) { return null; }   // приватный режим / нет места — просто без кеша
+}
+async function pendingPut(tok, files) {
+  const reqs = await tx('readwrite', st => files.map(f => st.add({ tok, file: f })));
+  return (reqs || []).map(r => r.result);
+}
+function pendingDel(k) { if (k != null) tx('readwrite', st => st.delete(k)); }
+async function pendingAll(tok) {
+  const all = await tx('readonly', st => st.getAll());
+  return (all || []).filter(r => r.tok === tok);
+}
+async function pendingClear(tok) {
+  const rows = await pendingAll(tok);
+  if (rows.length) await tx('readwrite', st => rows.forEach(r => st.delete(r.k)));
 }

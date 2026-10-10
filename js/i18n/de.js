@@ -1020,4 +1020,12 @@
   pr_event_price: "ab $39.99",
   pay_with_paypal: "oder mit PayPal bezahlen",
   pt_late_d_paddle: "Unser Zahlungspartner hat das Abo noch nicht bestätigt. Nichts ist verloren: sobald die Bestätigung kommt, schaltet sich Pro von selbst ein.",
+  // 060: отклонённое в событии, повтор и продолжение загрузки
+  media_rejected: "Abgelehnt",
+  media_rejected_hint: "Dieses Medium verstößt gegen die Nutzungsbedingungen des Dienstes und kann nicht öffentlich veröffentlicht werden. Du kannst selbst entscheiden, ob du es löschst oder in diesem Album behältst.",
+  join_retry: "Upload wiederholen",
+  join_partial: "{ok} von {total} hochgeladen. Der Rest ist fehlgeschlagen — bitte versuche es erneut.",
+  join_resume: "Einige Dateien vom letzten Mal wurden nicht hochgeladen: {count}.",
+  join_resume_btn: "Upload fortsetzen",
+  join_resume_discard: "Verwerfen",
 };

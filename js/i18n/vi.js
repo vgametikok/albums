@@ -1018,4 +1018,12 @@
   pr_event_price: "từ $39.99",
   pay_with_paypal: "hoặc thanh toán bằng PayPal",
   pt_late_d_paddle: "Đối tác thanh toán chưa xác nhận gói đăng ký. Không có gì bị mất: ngay khi xác nhận đến, Pro sẽ tự bật.",
+  // 060: отклонённое в событии, повтор и продолжение загрузки
+  media_rejected: "Bị từ chối",
+  media_rejected_hint: "Tệp này vi phạm điều khoản sử dụng dịch vụ và không thể công khai. Bạn có thể tự quyết định xóa hay giữ lại trong album này.",
+  join_retry: "Thử tải lại",
+  join_partial: "Đã tải lên {ok}/{total}. Số còn lại bị lỗi — hãy thử lại.",
+  join_resume: "Còn tệp chưa tải lên từ lần trước: {count}.",
+  join_resume_btn: "Tiếp tục tải lên",
+  join_resume_discard: "Bỏ qua",
 };

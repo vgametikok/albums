@@ -1009,4 +1009,12 @@
   pr_event_price: "$39.99부터",
   pay_with_paypal: "또는 PayPal로 결제",
   pt_late_d_paddle: "결제 파트너가 아직 구독을 확인해 주지 않았습니다. 잃어버린 것은 없습니다. 확인이 도착하는 대로 Pro는 저절로 켜집니다.",
+  // 060: отклонённое в событии, повтор и продолжение загрузки
+  media_rejected: "거부됨",
+  media_rejected_hint: "이 미디어는 서비스 이용약관을 위반하여 공개할 수 없습니다. 삭제할지 이 앨범에 남겨둘지는 직접 결정할 수 있습니다.",
+  join_retry: "업로드 다시 시도",
+  join_partial: "{total}개 중 {ok}개 업로드됨. 나머지는 실패했습니다. 다시 시도해 주세요.",
+  join_resume: "지난번에 업로드되지 않은 파일이 있습니다: {count}개",
+  join_resume_btn: "업로드 계속",
+  join_resume_discard: "닫기",
 };

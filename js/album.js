@@ -3,8 +3,11 @@ import { sb, currentUser } from './sb.js';
 import {
   el, $, clear, mountShell, signUrls, attachMediaRefresh, icon, playTriangle, toast, needAuth,
   composition, fmtCount, timeAgo, dur, avatarImg, emptyState, albumCard, t,
-  modal, thumbEl, moreButton, proSet,
+  modal, thumbEl, moreButton, proSet, rejectedBadge,
 } from './ui.js';
+
+// am_id кадров события, отклонённых модератором (060)
+const REJECTED = new Set();
 import { mountComments } from './comments.js';
 import { trackAlbumView } from './stats.js';
 import { renderStory, audioRow, videoEl, ratioOf, byBadge } from './albumview.js';
@@ -45,6 +48,11 @@ async function render(d) {
   all.forEach(m => { paths.push(m.path, m.thumb); if (m.voice_path) paths.push(m.voice_path); });
   (d.galleries || []).forEach(g => { if (g.voice_path) paths.push(g.voice_path); });
   const urls = await signUrls(paths);
+  // 060: отклонённые модератором кадры события — с пометкой (колонки до миграции нет — тихо пусто)
+  if (a.is_event) {
+    const { data: rj } = await sb.from('album_media').select('id').eq('album_id', a.id).eq('mod_rejected', true);
+    (rj || []).forEach(r => REJECTED.add(r.id));
+  }
 
   clear(app);
   app.appendChild(el('a', { class: 'back', href: 'index.html' }, icon('back', 16, { sw: 2 }), t('back_to_feed')));
@@ -131,7 +139,7 @@ async function render(d) {
     };
     // Свой придержанный кадр в сторис-режиме: загрузившему говорим, что кадр
     // ждёт одобрения. Владельцу не показываем — он сам его и скрыл.
-    VIEW.mark = (m) => (m.mine && m.is_private && !d.can_edit
+    VIEW.mark = (m) => REJECTED.has(m.am_id) ? Object.assign(rejectedBadge(), { style: 'position:relative;top:0;left:0;margin-top:6px' }) : (m.mine && m.is_private && !d.can_edit
       ? el('div', { class: 'muted', style: 'font-size:13px;margin-top:4px', text: t('media_on_review') })
       : null);
     [['story', t('view_story')], ['grid', t('view_grid')]].forEach(([m, label]) => {
@@ -332,6 +340,7 @@ function renderGrid(host, all, urls, canEdit) {
     }
     const by = byBadge(m);
     if (by) cell.appendChild(by);
+    if (REJECTED.has(m.am_id)) cell.appendChild(rejectedBadge());
     if (m.mine && m.is_private && !canEdit) {
       cell.appendChild(el('div', { class: 'vbadge', style: 'right:auto;left:10px;background:rgba(201,162,39,.92)', text: t('join_on_review') }));
     }

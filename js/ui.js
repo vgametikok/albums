@@ -664,3 +664,20 @@ export function emptyState(title, text, action) {
 }
 
 export { signOut };
+
+/**
+ * 060: пометка «отклонено модератором» у кадра альбома события. Кадр остаётся
+ * в альбоме; подсказка — по наведению (title + CSS) и по тапу на телефоне.
+ */
+export function rejectedBadge() {
+  return el('button', {
+    type: 'button', class: 'rej-badge', title: t('media_rejected_hint'),
+    'aria-label': t('media_rejected_hint'),
+    onclick: (e) => {
+      e.stopPropagation(); e.preventDefault();
+      modal((box, close) => box.append(
+        el('p', { style: 'margin:0 0 16px;font-size:15.5px;line-height:1.55', text: t('media_rejected_hint') }),
+        el('button', { class: 'btn btn-primary', onclick: close }, 'OK')));
+    },
+  }, '⚠ ' + t('media_rejected'));
+}
