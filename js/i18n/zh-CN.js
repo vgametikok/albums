@@ -1020,4 +1020,12 @@
   pr_event_price: "$39.99 起",
   pay_with_paypal: "或使用 PayPal 支付",
   pt_late_d_paddle: "支付合作方尚未确认这笔订阅。没有任何损失：确认一到，Pro 就会自动开通。",
+  // 060: отклонённое в событии, повтор и продолжение загрузки
+  media_rejected: "已拒绝",
+  media_rejected_hint: "该媒体违反了服务使用条款，无法公开发布。你可以自行决定删除它，还是保留在这个相册中。",
+  join_retry: "重新上传",
+  join_partial: "已上传 {ok}/{total}。其余失败——请重试。",
+  join_resume: "上次有未上传的文件：{count} 个。",
+  join_resume_btn: "继续上传",
+  join_resume_discard: "忽略",
 };

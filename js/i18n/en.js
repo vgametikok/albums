@@ -1041,4 +1041,12 @@ export default {
   pr_event_price: "from $39.99",
   pay_with_paypal: "or pay with PayPal",
   pt_late_d_paddle: "Our payment partner has not confirmed the subscription yet. Nothing is lost: as soon as the confirmation arrives, Pro switches on by itself.",
+  // 060: отклонённое в событии, повтор и продолжение загрузки
+  media_rejected: "Rejected",
+  media_rejected_hint: "This media violates the service's terms of use and cannot be published publicly. You can decide yourself whether to delete it or keep it in this album.",
+  join_retry: "Retry upload",
+  join_partial: "{ok} of {total} uploaded. The rest failed — please try again.",
+  join_resume: "Some files from last time were not uploaded: {count}.",
+  join_resume_btn: "Resume upload",
+  join_resume_discard: "Dismiss",
 };
