@@ -17,7 +17,15 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://albums.ink';
-const OG_IMAGE = `${SITE}/og-cover.png`;
+// Картинки превью 1200×630 (img/og/, JPG < 100 КБ). Краулеры мессенджеров JS
+// не выполняют, поэтому всё, что они видят, — этот статический блок.
+const OG = {
+  home: { src: `${SITE}/img/og/og-home.jpg`, alt: 'Albums.ink — your memories, told as stories: story albums and QR photo albums for weddings and events' },
+  events: { src: `${SITE}/img/og/og-events.jpg`, alt: 'A QR code sign on a wedding table and a phone full of guest photos — every guest photo with one QR code on Albums.ink' },
+  album: { src: `${SITE}/img/og/og-album.jpg`, alt: 'Albums.ink — a photo album worth opening: photos, videos and voice notes told chapter by chapter' },
+};
+const OG_IMAGE = OG.events.src;   // картинка статей-гайдов (JSON-LD Article)
+const BRAND = 'Albums.ink';
 
 // Те же значения, что в js/config.js и src/index.js. Ключ публикуемый —
 // он и так уходит в браузер каждому посетителю, секрета тут нет.
@@ -156,16 +164,18 @@ export const PRICING_FAQ = [
 const PAGES = {
   'index.html': {
     path: '/',
-    title: 'Albums — Story Albums and QR Photo Albums for Events',
-    desc: 'Story albums from the Albums community — photos, videos and voice notes organized into chapters. Planning a wedding or a party? Collect every guest photo with one QR code: no app, no signup.',
-    ogTitle: 'Albums — story albums, and every guest photo with one QR code',
+    title: 'Albums.ink — QR Photo Albums for Weddings & Events, and Story Albums',
+    og: 'home',
+    desc: 'Collect every guest photo from your wedding or event with one QR code — no app, no signup, full export. And turn memories into story albums with chapters, videos and voice notes.',
+    ogTitle: 'Albums.ink — every guest photo with one QR code, and albums told as stories',
     ogDesc: CANON,
     ld: [ORG_LD, APP_LD_HOME],
     sitemap: { changefreq: 'weekly', priority: '1.0' },
   },
   'pricing.html': {
     path: '/pricing',
-    title: 'Pricing: Free, Pro $9.99, Event Album from $39.99 — Albums',
+    title: 'Pricing: Free, Pro $9.99, Event Album from $39.99 — Albums.ink',
+    og: 'events',
     desc: 'Albums pricing. Free story albums; Pro at $9.99/month for more space; Event Album from $39.99 one-time — Small, Medium or Large (100–400 GB) for events of about 100 to 500 guests who upload by QR code. Taxes included.',
     ld: [faq(PRICING_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
@@ -174,7 +184,10 @@ const PAGES = {
   // переадресация сюда (noindex + canonical), поэтому в карте её нет.
   'events/index.html': {
     path: '/events/',
-    title: 'Event Albums — Every Guest Photo with One QR Code | Albums',
+    title: 'Event QR Photo Albums — Every Guest Photo with One QR Code | Albums.ink',
+    og: 'events',
+    ogTitle: 'Every guest photo. One QR code.',
+    ogDesc: 'A QR photo album for your wedding or event: guests scan the code on the table and upload photos and videos from their phones — no app, no signup. From $39.99 one-time.',
     desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their photos too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
     sitemap: { changefreq: 'monthly', priority: '0.9' },
@@ -182,46 +195,50 @@ const PAGES = {
   // Гайды (SEO): английские статьи, FAQ-разметка совпадает с видимым текстом.
   'guides/index.html': {
     path: '/guides/',
-    title: 'Guides: Collecting Wedding and Event Photos from Guests | Albums',
+    title: 'Guides: Collecting Wedding and Event Photos from Guests | Albums.ink',
+    og: 'events',
     desc: 'Practical guides for couples and hosts: how to collect wedding photos from guests without an app, QR code table sign ideas, and a shared cloud album vs a QR guest album.',
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'guides/collect-wedding-photos-from-guests/index.html': {
+    og: 'events',
     path: '/guides/collect-wedding-photos-from-guests/',
-    title: "How to Collect Wedding Photos from Guests (No App Needed) | Albums",
+    title: "How to Collect Wedding Photos from Guests (No App Needed) | Albums.ink",
     desc: "A practical guide to gathering every guest photo and video from your wedding: why group chats and apps fail, how a QR code album works, what to set up before the day, and how to keep it all afterwards.",
     ld: [faq([["How do I collect photos from wedding guests without an app?", "Put a QR code on every table. Guests scan it with the phone camera and upload photos and videos from the browser — no app and no account. With an Event Album on Albums everything lands in one album that belongs to you."], ["Do guests need to sign up to upload photos?", "No. Guests can upload without signing in, and their photos stay anonymous. If they want their name on them, or want the files in their own free account, they can sign in later."], ["How long can guests keep uploading?", "The upload window never closes. Storage runs 6 months from the first upload and can be extended by another 6 months."], ["How much does a wedding guest photo album cost?", "An Event Album is a one-time purchase per event: from $39.99 (Small), $69.99 (Medium) or $129.99 (Large), taxes included. Guests never pay."], ["Can I download all the wedding photos at once?", "Yes. The whole album downloads as one archive, with files by chapter and a text file of captions."]]), article("How to collect wedding photos from guests — without an app", '/guides/collect-wedding-photos-from-guests/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'guides/wedding-qr-code-table-signs/index.html': {
+    og: 'events',
     path: '/guides/wedding-qr-code-table-signs/',
-    title: "Wedding QR Code Table Signs: Wording and Placement Ideas | Albums",
+    title: "Wedding QR Code Table Signs: Wording and Placement Ideas | Albums.ink",
     desc: "Practical ideas for wedding QR code signs: what to write, where to place them, sizes, and the small details that make guests scan and upload their photos.",
     ld: [faq([["What should a wedding QR code sign say?", "Keep it short: your names, the date, the QR code and one instruction such as “Scan to add your photos”. Adding “no app, no sign-up” removes the main reason guests hesitate."], ["Where should I put QR codes at a wedding?", "One sign per table works best, plus the bar, the dessert table, the guest book and the photo corner. Showing the code on the venue screen next to a live photo wall also helps."], ["How big should a QR code be on a table sign?", "At least about 3–4 cm (1.5 in) across, dark on a light background, on matte paper. Test a printed sign with two phones in the venue light before printing them all."], ["What if the QR code gets shared with strangers?", "With an Event Album on Albums you can issue a new link: the old QR stops working and guests who already joined stay."]]), article("Wedding QR code photo sharing: table sign ideas that guests actually scan", '/guides/wedding-qr-code-table-signs/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'guides/google-photos-vs-qr-guest-album/index.html': {
+    og: 'events',
     path: '/guides/google-photos-vs-qr-guest-album/',
-    title: "Google Photos Shared Album vs a QR Guest Album for Weddings | Albums",
+    title: "Google Photos Shared Album vs a QR Guest Album for Weddings | Albums.ink",
     desc: "Comparing a Google Photos shared album with a QR code guest album for collecting wedding photos: guest experience, privacy, organization, storage and cost.",
     ld: [faq([["How is Albums different from a shared Google Photos album?", "Guests need no Google account and no app — they scan a QR code and upload from the browser. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription."], ["Can wedding guests upload without a Google account?", "Yes. With an Event Album on Albums, guests upload photos and videos from the phone browser without any account."], ["Is a QR guest album free?", "Story albums on Albums are free. An Event Album with the QR code is a one-time purchase per event, from $39.99; guests never pay."], ["Can I control which guest photos are visible?", "Yes. Every photo can be shown to everyone, kept for friends, or hidden, and you can turn on approval so guest photos wait for your decision."]]), article("Google Photos shared album vs a QR guest album for your wedding", '/guides/google-photos-vs-qr-guest-album/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'terms.html': {
     path: '/terms',
-    title: 'Terms of Service — Albums',
+    title: 'Terms of Service — Albums.ink',
     desc: 'The terms that govern your use of Albums: accounts, ownership of your content, Pro subscriptions, one-time Event Albums, acceptable use and liability.',
     sitemap: { changefreq: 'yearly', priority: '0.3' },
   },
   'privacy.html': {
     path: '/privacy',
-    title: 'Privacy Policy — Albums',
+    title: 'Privacy Policy — Albums.ink',
     desc: 'How Albums handles your data: what we store, private media buckets with signed URLs, album visibility controls, cookies, analytics and your rights.',
     sitemap: { changefreq: 'yearly', priority: '0.3' },
   },
   'refunds.html': {
     path: '/refunds',
-    title: 'Refund Policy — Albums',
+    title: 'Refund Policy — Albums.ink',
     desc: 'When and how Albums refunds Pro subscriptions and one-time Event Album purchases, how long processing takes, and how to request a refund by email.',
     sitemap: { changefreq: 'yearly', priority: '0.3' },
   },
@@ -230,72 +247,83 @@ const PAGES = {
   'album.html': {
     path: '/album.html',
     selfCanonical: true,   // адрес различается параметром — canonical свой у каждого
-    title: 'Album — Albums',
+    title: 'Album — Albums.ink',
+    og: 'album',
+    ogTitle: 'A photo album on Albums.ink',
+    ogDesc: 'Photos, videos and voice notes, told chapter by chapter. Open the album on Albums.ink.',
     desc: 'A story album on Albums: photos, videos and voice notes organized into chapters, with captions and the author’s narration.',
   },
   'profile.html': {
     path: '/profile.html',
     selfCanonical: true,   // адрес различается параметром — canonical свой у каждого
-    title: 'Profile — Albums',
+    title: 'Profile — Albums.ink',
+    og: 'album',
     desc: 'A creator profile on Albums: their story albums, posts and friends.',
   },
   'posts.html': {
     path: '/posts.html',
-    title: 'Posts — Albums',
+    title: 'Posts — Albums.ink',
+    og: 'album',
     desc: 'The posts feed on Albums: photos, videos and carousels from creators.',
   },
   // Кабинет событий (приложение). Маркетинговая страница — /events/; кабинет
   // с тем же заголовком спорил бы с ней в поиске, поэтому он вне индекса.
   'event.html': {
     path: '/event.html', robots: 'noindex,follow',
-    title: 'My events — Albums',
+    title: 'My events — Albums.ink',
+    og: 'events',
+    ogTitle: 'Event QR photo albums on Albums.ink',
+    ogDesc: 'Every guest photo with one QR code — guests upload from their phones, no app, no signup.',
     desc: 'Manage your Event Albums: the QR code, the greeting for guests and everything they uploaded.',
   },
 
   /* -------- служебные экраны: noindex,follow -------- */
   'join.html': {
     path: '/join.html', robots: 'noindex,follow',
-    title: 'Add your photos — Albums',
+    title: 'Add your photos — Albums.ink',
+    og: 'album',
+    ogTitle: 'Add your photos to the event album',
+    ogDesc: 'You’re invited to a shared event album on Albums.ink. Upload your photos and videos straight from your phone — no app, no signup.',
     desc: 'Upload your photos and videos to a shared event album — straight from your phone, no app needed.',
   },
   'editor.html': {
     path: '/editor.html', robots: 'noindex,follow',
-    title: 'Album editor — Albums',
+    title: 'Album editor — Albums.ink',
     desc: 'Create and edit story albums: chapters, media, captions and voice notes.',
   },
   'calendar.html': {
     path: '/calendar.html', robots: 'noindex,follow',
-    title: 'Calendar — Albums',
+    title: 'Calendar — Albums.ink',
     desc: 'Your albums and memories laid out on a calendar.',
   },
   'friends.html': {
     path: '/friends.html', robots: 'noindex,follow',
-    title: 'Friends — Albums',
+    title: 'Friends — Albums.ink',
     desc: 'Friend requests, your friends and people search on Albums.',
   },
   'stats.html': {
     path: '/stats.html', robots: 'noindex,follow',
-    title: 'Statistics — Albums',
+    title: 'Statistics — Albums.ink',
     desc: 'Views, reactions and audience statistics for your albums.',
   },
   'moderation.html': {
     path: '/moderation.html', robots: 'noindex,follow',
-    title: 'Moderation — Albums',
+    title: 'Moderation — Albums.ink',
     desc: 'Review guest uploads before they appear in the event album.',
   },
   'pro-thanks.html': {
     path: '/pro-thanks.html', robots: 'noindex,follow',
-    title: 'Payment received — Albums',
+    title: 'Payment received — Albums.ink',
     desc: 'Your Albums Pro subscription is active.',
   },
   'event-thanks.html': {
     path: '/event-thanks.html', robots: 'noindex,follow',
-    title: 'Event Album ready — Albums',
+    title: 'Event Album ready — Albums.ink',
     desc: 'Your Event Album is paid and ready — invite guests with the QR code.',
   },
   '404.html': {
     path: '/404.html', robots: 'noindex,follow',
-    title: 'Page not found — Albums',
+    title: 'Page not found — Albums.ink',
     desc: 'This page doesn’t exist. Albums is where photos, videos and voices become stories worth coming back to.',
   },
 };
@@ -318,19 +346,24 @@ function seoBlock(p) {
   // канонизирует сам себя — это то, что нужно.
   if (!p.selfCanonical) lines.push(`<link rel="canonical" href="${url}">`);
   if (p.robots) lines.push(`<meta name="robots" content="${p.robots}">`);
+  const img = OG[p.og || 'home'];
   lines.push(
     '<meta property="og:type" content="website">',
-    '<meta property="og:site_name" content="Albums">',
+    `<meta property="og:site_name" content="${BRAND}">`,
     `<meta property="og:url" content="${url}">`,
     `<meta property="og:title" content="${esc(ogTitle)}">`,
     `<meta property="og:description" content="${esc(ogDesc)}">`,
-    `<meta property="og:image" content="${OG_IMAGE}">`,
+    `<meta property="og:image" content="${img.src}">`,
+    `<meta property="og:image:secure_url" content="${img.src}">`,
+    '<meta property="og:image:type" content="image/jpeg">',
     '<meta property="og:image:width" content="1200">',
     '<meta property="og:image:height" content="630">',
+    `<meta property="og:image:alt" content="${esc(img.alt)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
     `<meta name="twitter:title" content="${esc(ogTitle)}">`,
     `<meta name="twitter:description" content="${esc(ogDesc)}">`,
-    `<meta name="twitter:image" content="${OG_IMAGE}">`,
+    `<meta name="twitter:image" content="${img.src}">`,
+    `<meta name="twitter:image:alt" content="${esc(img.alt)}">`,
   );
   for (const ld of p.ld || []) {
     lines.push(`<script type="application/ld+json">${JSON.stringify(ld)}</script>`);
