@@ -350,7 +350,9 @@ function seoBlock(p) {
   lines.push(
     '<meta property="og:type" content="website">',
     `<meta property="og:site_name" content="${BRAND}">`,
-    `<meta property="og:url" content="${url}">`,
+    // У страниц с параметром (album.html?id=…) общий og:url заставил бы Facebook
+    // склеить все альбомы в одну ссылку — там краулер берёт адрес, по которому пришёл.
+    ...(p.selfCanonical || ['/join.html', '/event.html', '/posts.html'].includes(p.path) ? [] : [`<meta property="og:url" content="${url}">`]),
     `<meta property="og:title" content="${esc(ogTitle)}">`,
     `<meta property="og:description" content="${esc(ogDesc)}">`,
     `<meta property="og:image" content="${img.src}">`,
