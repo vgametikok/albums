@@ -99,4 +99,4 @@ and Simplified Chinese.
 - Privacy: https://albums.ink/privacy
 - Refunds: https://albums.ink/refunds
 - Support: support@albums.ink
-- Partnerships: partnership@albums.ink
+- Partnerships: partners@albums.ink

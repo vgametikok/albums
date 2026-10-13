@@ -162,6 +162,7 @@
   .final p{max-width:520px;margin:10px auto 0;}
   .foot{margin-top:40px;color:var(--faint);font-size:14px;}
   .foot a{color:var(--accent);}
+  .foot-mail{margin-top:10px;display:flex;flex-wrap:wrap;column-gap:18px;row-gap:4px;font-size:13.5px}
 
   /* окно входа перед покупкой */
   .auth-wrap{position:fixed;inset:0;background:rgba(20,15,10,.45);display:flex;align-items:center;justify-content:center;padding:22px;z-index:50;}
@@ -511,6 +512,10 @@
     <a href="/refunds" data-i18n="foot_refunds">Refund Policy</a> ·
     <a href="/terms" data-i18n="foot_terms">Terms of Service</a> ·
     <a href="/privacy" data-i18n="foot_privacy">Privacy Policy</a>
+    <div class="foot-mail">
+      <span><span data-i18n="foot_support">Support &amp; suggestions</span>: <a href="mailto:support@albums.ink">support@albums.ink</a></span>
+      <span><span data-i18n="foot_partnership">Partnerships</span>: <a href="mailto:partners@albums.ink">partners@albums.ink</a></span>
+    </div>
   </div>
 </div>
 <script type="module" src="/js/event-album.js"></script>
