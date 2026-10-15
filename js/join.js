@@ -314,7 +314,7 @@ async function render() {
         const media = await uploadMedia(f, (stage, p) => {
           const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
           status.textContent = `${i + 1}/${total} · ${f.name} — ${t('stage_' + (stage === 'converting' ? 'heic' : stage === 'transcoding' ? 'video' : stage))}${pct}`;
-        });
+        }, { event: true });
         const { error } = await sb.from('album_media')
           .insert({ album_id: info.album_id, media_id: media.id, position: pos++, anon: asAnon });
         if (error) throw error;

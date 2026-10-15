@@ -18,6 +18,11 @@ const MAX_EDGE_PRO = 3840;      // 4K по длинной стороне — в�
 const THUMB_EDGE = 640;
 const Q_FULL = 0.80;
 const Q_THUMB = 0.75;
+// Альбомы событий (QR): гостевые кадры — главное, что покупают, поэтому не
+// пережимаем: только вписываем в 4K (меньшие не увеличиваем) и кодируем почти
+// без потерь. Оригинал как есть не кладём: в нём EXIF с GPS гостя.
+const MAX_EDGE_EVENT = 3840;
+const Q_EVENT = 0.92;
 
 const EXT = {
   'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif',
@@ -215,8 +220,9 @@ async function audioDuration(file) {
 /**
  * Загружает один файл и возвращает строку media.
  * onStage('converting'|'processing'|'uploading') — для индикатора «в обработке».
+ * opts.event — кадр для альбома события: 4K и качество 0.92 вместо 2K/0.80.
  */
-export async function uploadMedia(file, onStage) {
+export async function uploadMedia(file, onStage, opts = {}) {
   const user = currentUser();
   if (!user) throw new Error(t('err_signin_first'));
   const kind = kindOf(file);
@@ -246,7 +252,9 @@ export async function uploadMedia(file, onStage) {
       if (animated) {
         body = file; width = bmp.width; height = bmp.height;   // анимацию не трогаем
       } else {
-        const full = await encodeFrom(bmp, myPlan === 'pro' ? MAX_EDGE_PRO : MAX_EDGE, Q_FULL);
+        const full = opts.event
+          ? await encodeFrom(bmp, MAX_EDGE_EVENT, Q_EVENT)
+          : await encodeFrom(bmp, myPlan === 'pro' ? MAX_EDGE_PRO : MAX_EDGE, Q_FULL);
         body = full.blob; width = full.width; height = full.height;
       }
     } finally { bmp.close?.(); }

@@ -322,7 +322,7 @@ async function coverBox(host, a) {
       const old = up.textContent;
       up.textContent = t('ev_cover_uploading');
       try {
-        const media = await uploadMedia(f);
+        const media = await uploadMedia(f, null, { event: true });
         const { error } = await sb.rpc('album_set_cover_media', { p_album: a.id, p_media: media.id });
         if (error) throw error;
         a.cover_path = media.storage_path;

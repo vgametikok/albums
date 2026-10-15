@@ -352,7 +352,7 @@ async function addFiles(files) {
       const media = await uploadMedia(f, (stage, p) => {
         const pct = (stage === 'transcoding' && p) ? ` ${Math.round(p * 100)}%` : '';
         status.textContent = `${f.name} — ${STAGE_TEXT[stage] || stage}${pct}`;
-      });
+      }, { event: !!album?.is_event });
       // позиция — хвост ОБЩЕЙ последовательности истории (кадры + тексты)
       const pos = Math.max(-1, ...items.map(i => i.position), ...texts.map(x => x.position)) + 1;
       const { data, error } = await sb.from('album_media')
