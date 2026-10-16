@@ -240,6 +240,14 @@ const PAGES = {
     ld: [faq([["What is a disposable camera app?", "An app or web album that turns guests' phones into a shared event camera. With a QR code album guests scan and upload from the browser, with no download."], ["Is a disposable camera app cheaper than real disposable cameras?", "Usually yes: film cameras cost money per table plus developing, while a QR album is one price for the whole event, from $39.99."], ["Do guests need to download an app?", "Not with a QR album. Guests scan the code with the phone camera and upload in the browser."], ["Can I still keep a film look and a reveal?", "Yes. Hide the live photo wall until a set moment and reveal all photos at once."], ["Can guests upload videos?", "Yes, guests can upload both photos and videos."], ["How good is the photo quality compared with film?", "Modern phones handle dark reception halls far better than cheap disposable cameras, and Albums keeps guest photos in up to 4K (3840 px on the long side)."]]), article("Disposable camera app for weddings and events: the QR code alternative to film cameras", '/guides/disposable-camera-app/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/digital-guest-book/index.html': {
+    og: 'events',
+    path: '/guides/digital-guest-book/',
+    title: "Digital Guest Book for Weddings & Funerals: QR Code, Free Options | Albums.ink",
+    desc: "What a digital guest book is, how a QR code guest book works for weddings, funerals and parties, free vs paid options, and wording ideas for the sign.",
+    ld: [faq([["What is a digital guest book?", "An online page where guests leave wishes, photos, videos and memories, usually reached by scanning a QR code at the event."], ["How does a QR code guest book work?", "Guests scan the code with their phone camera, an upload page opens in the browser, and they add photos, videos and a wish — no app or account."], ["Is there a free digital guest book?", "Shared documents, forms or cloud folders are free, but guests may need accounts and photos and wishes end up in different places."], ["Can I use a digital guest book at a funeral?", "Yes. Keep the album hidden, turn on approval, and share the link with the funeral notice so distant friends can add memories."], ["Can guests who didn't attend sign it?", "Yes. Send them the link and they can add photos and wishes from anywhere."], ["How long are entries stored?", "On Albums, storage runs for 6 months; download everything as a ZIP before then."]]), article("Digital guest book: how to collect wishes, photos and memories with a QR code", '/guides/digital-guest-book/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
