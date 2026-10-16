@@ -19,7 +19,7 @@ like a story.
   playback with narration.
 - Event albums (weddings, trips, birthdays, corporate events): one QR code
   for all guests, uploads from the phone browser without registration,
-  a live photo wall for the venue screen, full export as a single archive.
+  a QR code for the venue screen, full export as a single archive.
   A guest who signs in keeps every uploaded photo in an album of their own,
   in their own free account — uploading is keeping, not giving away.
 - Posts feed: a second surface with photo/video posts and carousels.

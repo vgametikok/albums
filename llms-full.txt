@@ -35,7 +35,7 @@ from $39.99.
 ## Main use cases
 
 - Wedding: collect photos and videos from every guest with one QR code on
-  the tables; show a live photo wall on the venue screen; keep everything.
+  the tables; show the QR code on the venue screen; keep everything.
 - Trip or vacation: one shared album for the whole group; each person adds
   photos from their own phone.
 - Birthday, baby shower, reunion, graduation: same one-code flow.
@@ -79,7 +79,7 @@ to the person who created the event.
 
 Q: How is Albums different from a shared Google Photos album?
 A: Guests need no Google account and no app; the owner gets chapters, voice
-notes, a live photo wall, moderation, and a one-time price per event instead
+notes, moderation, and a one-time price per event instead
 of a storage subscription. Albums is built around the story format, not a
 camera roll.
 
