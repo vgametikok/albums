@@ -345,14 +345,6 @@ const PAGES = {
     ld: [faq([["What is the best free Flickr alternative?", "For unlimited free albums with privacy and a social feed, Albums.ink. For full-resolution archives and photography groups, Flickr Pro is still strong."], ["How many photos can I upload to Flickr for free?", "Flickr's help center says free accounts can upload up to 1,000 items, with up to 50 non-public."], ["Is Albums.ink free without limits?", "Albums and posts are unlimited and yours as long as you want on the free plan. Free photos are saved at up to 2048 px."], ["Can I keep many albums private on Albums.ink?", "Yes. There is no cap on private or friends-only albums."], ["Does Albums.ink have groups like Flickr?", "No. It has friends, follows, a feed, likes, comments and bookmarks."]]), article("Free Flickr Alternatives: Where to Share Photos Without Limits", '/guides/flickr-alternatives/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
-  'guides/free-photo-storage/index.html': {
-    og: 'home',
-    path: '/guides/free-photo-storage/',
-    title: "Free Photo Storage Online: Best Free Places to Keep Photos | Albums.ink",
-    desc: "Free photo storage online compared: Google Photos, iCloud, Flickr and Albums.ink. What is really free, what gets compressed and how long photos stay.",
-    ld: [faq([["What is the best free photo storage online?", "It depends on the job. For automatic backup, your phone's cloud within its free quota. For albums you keep and share, a service with unlimited free albums like Albums.ink."], ["Is there unlimited free photo storage?", "Some services offer unlimited uploads with compression. Albums.ink lets you create unlimited albums and posts for free, with photos saved at up to 2048 px."], ["How long are my photos kept?", "Policies differ, so read them. On Albums.ink your albums stay as long as you want them."], ["Can I download my photos later?", "Yes. On Albums.ink you can download a whole album at any time."], ["Does Albums.ink back up my phone automatically?", "No. There is no app and no automatic sync; you upload the photos you choose from the browser."]]), article("Free Photo Storage Online: Where to Keep and Share Your Best Photos", '/guides/free-photo-storage/')],
-    sitemap: { changefreq: 'monthly', priority: '0.7' },
-  },
   'guides/google-photos-alternative/index.html': {
     og: 'home',
     path: '/guides/google-photos-alternative/',
@@ -455,6 +447,14 @@ const PAGES = {
     title: "Travel Photo Album Online: Free Trip Albums With Stories | Albums.ink",
     desc: "Make a travel photo album online for free: chapters by day, voice notes from the road, privacy for friends and family, and a link that shows a cover.",
     ld: [faq([["How do I make a travel photo album online for free?", "Create an album on Albums.ink, upload your best photos and videos, split them into chapters, add captions and voice notes, then share it by link."], ["Can I keep my travel album private?", "Yes. Make it private or friends only, add exceptions for specific people and hide individual photos."], ["Can my travel partner add photos?", "Yes. Each free album can have one co-author from your friends. Pro allows up to 10."], ["Can I print a travel photo book from it?", "Albums.ink has no printing service, but you can download the whole album and use any print service."], ["How long is my travel album stored?", "Your albums stay as long as you want them."]]), article("Travel Photo Album Online: Turn Every Trip Into a Story Worth Sharing", '/guides/travel-photo-album-online/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  'guides/free-photo-storage/index.html': {
+    og: 'home',
+    path: '/guides/free-photo-storage/',
+    title: "Free Photo Storage Online: Best Free Places to Keep Photos | Albums.ink",
+    desc: "Free photo storage online compared: Google Photos, iCloud, Flickr and Albums.ink. What is really free, what gets compressed and how long photos stay.",
+    ld: [faq([["What is the best free photo storage online?", "It depends on the job. For automatic backup, your phone's cloud within its free quota. For albums you keep and share, a service with unlimited free albums like Albums.ink."], ["Is there unlimited free photo storage?", "Some services offer unlimited uploads with compression. Albums.ink lets you create unlimited albums and posts for free, with photos saved at up to 2048 px."], ["How long are my photos kept?", "Policies differ, so read them. On Albums.ink your albums stay as long as you want them."], ["Can I download my photos later?", "Yes. On Albums.ink you can download a whole album at any time."], ["Does Albums.ink back up my phone automatically?", "No. There is no app and no automatic sync; you upload the photos you choose from the browser."]]), article("Free Photo Storage Online: Where to Keep and Share Your Best Photos", '/guides/free-photo-storage/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   'guides/qr-code-for-photos-at-party/index.html': {
