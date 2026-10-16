@@ -15,6 +15,16 @@ routes = [
   { pattern = "albums.ink/sitemap.xml", zone_name = "albums.ink" },
   { pattern = "albums.ink/a/*", zone_name = "albums.ink" },
   { pattern = "albums.ink/u/*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/birthday-party-photo-sharing-qr-code*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/how-to-make-qr-code-for-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/corporate-event-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/baby-shower-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/family-reunion-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/graduation-party-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/memorial-service-photo-collection*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/bachelorette-party-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/anniversary-party-photo-sharing*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/class-reunion-photo-sharing*", zone_name = "albums.ink" },
 ]
 [observability]
 enabled = true

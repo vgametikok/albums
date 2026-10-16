@@ -184,10 +184,28 @@ async function sitemap(req) {
   return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=3600' } });
 }
 
+// Старые адреса гайдов (PR #6 переименовал статьи) → 301 на новые. На GitHub
+// Pages файл _redirects не исполняется, поэтому редиректы здесь; маршруты в
+// wrangler.toml — только на эти пути, чтобы не тратить лимит.
+const OLD_GUIDES = {
+  'birthday-party-photo-sharing-qr-code': '/guides/qr-code-for-photos-at-party/',
+  'how-to-make-qr-code-for-photo-sharing': '/guides/qr-code-for-photo-sharing/',
+  'corporate-event-photo-sharing': '/guides/how-to-collect-photos-from-event-guests/',
+  'baby-shower-photo-sharing': '/guides/baby-shower-photo-album/',
+  'family-reunion-photo-sharing': '/guides/family-reunion-photo-ideas/',
+  'graduation-party-photo-sharing': '/guides/graduation-party-photo-display-ideas/',
+  'memorial-service-photo-collection': '/guides/memorial-photo-album/',
+  'bachelorette-party-photo-sharing': '/guides/bachelorette-party-photo-scavenger-hunt/',
+  'anniversary-party-photo-sharing': '/guides/voice-guest-book/',
+  'class-reunion-photo-sharing': '/guides/shared-photo-album-iphone-android/',
+};
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (req.method !== 'GET' && req.method !== 'HEAD') return fetch(req);
+    const old = url.pathname.match(/^\/guides\/([a-z0-9-]+)(?:\/.*)?$/);
+    if (old && OLD_GUIDES[old[1]]) return Response.redirect(`${SITE}${OLD_GUIDES[old[1]]}`, 301);
     try {
       const p = url.pathname;
       if (p === '/album.html') return await albumPage(req, url, ctx);
