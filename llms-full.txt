@@ -58,6 +58,8 @@ from $39.99.
   be added if it runs out. Files are stored for 6 months from the first
   upload (not from the payment), and the owner can extend storage by another
   6 months. A purchased album can be started whenever you like. Guests never pay.
+  This limit applies only to event (QR) albums; regular albums are stored
+  with no time limit.
 
 ## Frequently asked questions
 
