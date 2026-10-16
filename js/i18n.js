@@ -30,8 +30,16 @@ let pr = new Intl.PluralRules('en');
 /** Выбор пользователя, иначе язык браузера, иначе английский. */
 export function detectLang() { return detect(); }
 function detect() {
+  // ?lang=de в ссылке (переводы гайдов ведут на /events/?lang=…) — выбор и запоминаем.
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (q && LANGS[q]) { localStorage.setItem(STORAGE_KEY, q); return q; }
+  } catch (_) { /* без location — дальше по порядку */ }
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved && LANGS[saved]) return saved;
+  // Страница на конкретном языке (/de/guides/…): шапка и подвал на нём же.
+  const page = document.documentElement.getAttribute('data-lang');
+  if (page && LANGS[page]) return page;
   for (const raw of (navigator.languages || [navigator.language || 'en'])) {
     const l = String(raw);
     if (LANGS[l]) return l;

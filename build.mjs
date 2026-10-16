@@ -21,6 +21,8 @@ const OUT = join(ROOT, 'dist');
 // Перед раскладкой — прошивка SEO-блоков и генерация sitemap.xml.
 // Скрипт идемпотентен: правит только блок между <!-- seo --> … <!-- /seo -->.
 await import('./tools/build-head.mjs');
+// Переводы гайдов /<lang>/guides/… + hreflang + их адреса в sitemap.xml — после build-head.
+await import('./tools/build-guides-i18n.mjs');
 
 // Не публикуем. Всё, что начинается с точки, отсекается отдельно ниже.
 const SKIP = new Set([
