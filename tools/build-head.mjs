@@ -256,6 +256,14 @@ const PAGES = {
     ld: [faq([["What is the best photo sharing app for events?", "The one guests actually use: no download, no account, works on iPhone and Android, with moderation for the host. A QR code event album meets all of these."], ["Is there a free photo sharing app for events?", "Google Photos, iCloud and shared folders are free, but they often need accounts or exclude Android or iPhone users. Free tiers of event apps are usually limited."], ["Do guests need to download an app?", "Not with a QR album: guests scan the code and upload from the phone browser."], ["Can I approve photos before guests see them?", "Yes, on Albums you can turn on approval and hide any photo."], ["How long are event photos stored?", "On Albums, 6 months; download everything as a ZIP at any time."]]), article("Best photo sharing app for events: free and paid options compared", '/guides/best-photo-sharing-app-for-events/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/wedding-slideshow/index.html': {
+    og: 'events',
+    path: '/guides/wedding-slideshow/',
+    title: "Photo Slideshow for a Wedding Reception: Ideas, Length & Music | Albums.ink",
+    desc: "How to make a photo slideshow for a wedding reception: how many photos, ideal length, music, structure, free tools and a live slideshow of guest photos.",
+    ld: [faq([["How long should a wedding slideshow be?", "About 6–8 minutes, or one to two songs. More than ten minutes usually loses the room."], ["How many photos should a wedding slideshow have?", "Allow 5–7 seconds per photo: around 30–35 photos for 3 minutes and 60–80 for 6–8 minutes."], ["When should the slideshow be played at the reception?", "After dinner or just before the first dance works best. A live slideshow of guest photos can run all evening."], ["How do I show guest photos live on a screen?", "Use an event album with a live photo wall. Guests scan a QR code, upload from the browser, and photos appear on the TV or projector."], ["What is the best free way to make a wedding slideshow?", "Google Photos, iMovie, Canva or PowerPoint all work. Export as MP4 and test it at the venue."]]), article("Photo Slideshow for a Wedding Reception: Ideas, Length and Music", '/guides/wedding-slideshow/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
