@@ -288,6 +288,14 @@ const PAGES = {
     ld: [faq([["How do I create a wedding hashtag?", "Combine your names or surname with a word like \"weds\", \"ever after\" or the year. Keep it short, capitalise each word and check that it is not already used."], ["Should a wedding hashtag include the year?", "Adding the year is the easiest way to make a common hashtag unique, for example #AnnaAndTom2027."], ["Where should I put the wedding hashtag?", "On the invitations, the wedding website, a sign at the entrance, table cards and the reception screen."], ["Will a hashtag collect all our wedding photos?", "No. Photos from private accounts and guests who do not post will be missing. A QR album collects photos from everyone."], ["How long does Albums keep the photos?", "Albums stores them for 6 months from the first upload, with an option to extend, and you can download everything as a ZIP at any time."]]), article("Wedding Hashtag Ideas: Examples, Formulas and How to Make Your Own", '/guides/wedding-hashtag-ideas/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/retirement-party-photo-ideas/index.html': {
+    og: 'events',
+    path: '/guides/retirement-party-photo-ideas/',
+    title: "Retirement Party Photo Ideas: Memory Wall, Props & Gifts | Albums.ink",
+    desc: "Retirement party photo ideas: a career memory wall, then-and-now photos, props, group photos, a photo book gift and how to collect colleagues' photos.",
+    ld: [faq([["What photos should I collect for a retirement party?", "Early career photos, team trips, office celebrations, funny moments and a few family photos. Start collecting two to three weeks before the party."], ["How do I collect photos from colleagues in other offices?", "Send one album link. Colleagues upload from the phone or computer browser without an app or account, wherever they are."], ["What is a good photo gift for a retiree?", "A photo book with chapters for each period of the career, a framed team collage or a slideshow made from the album."], ["Can I keep some photos private?", "Yes. With Albums you can hide any photo and choose who sees each one."], ["How long are the photos stored?", "Albums stores them for 6 months from the first upload, with an option to extend, and you can download everything as a ZIP at any time."]]), article("Retirement Party Photo Ideas: Memory Wall, Props and Gifts", '/guides/retirement-party-photo-ideas/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
