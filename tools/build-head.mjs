@@ -272,6 +272,14 @@ const PAGES = {
     ld: [faq([["What is the easiest way to share photos with a group?", "A single album with one link that anyone can open in the browser and upload to without an app or account. It works for iPhone and Android and keeps everything in one place."], ["How do I share photos with a group of iPhone and Android users?", "Use a browser-based link or QR album, or a cloud album that everyone can access. iCloud Shared Albums do not let Android users add photos."], ["Do group chats reduce photo quality?", "Usually yes. Most messaging apps compress photos, so for prints and keepsakes an album that stores full-size images is better."], ["Can I control who sees the group photos?", "Yes. With Albums you can keep the album private, approve photos before they appear, and hide any photo."], ["How long are the photos stored?", "Albums stores them for 6 months, and you can download everything as a ZIP at any time."]]), article("Easy Way to Share Photos With a Group: Trips, Teams and Parties", '/guides/group-photo-sharing/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/christmas-party-photo-booth-ideas/index.html': {
+    og: 'events',
+    path: '/guides/christmas-party-photo-booth-ideas/',
+    title: "Christmas Party Photo Booth Ideas: Backdrops, Props & Sharing | Albums.ink",
+    desc: "Christmas party photo booth ideas: DIY backdrops, props, lighting, office and family setups, plus an easy way to collect every guest's photos in one album.",
+    ld: [faq([["How do I make a cheap Christmas photo booth?", "Use fairy lights behind a white curtain or wrapping paper on a wall, add homemade props and a phone on a stand. Good front light matters more than expensive decorations."], ["What props do I need for a Christmas photo booth?", "Santa hats, antlers, elf ears, speech bubbles and a sign with the party name and date. Ten to fifteen props are enough for about fifty guests."], ["How do guests share photos from the booth?", "Put a QR code at the booth that opens an event album. Guests upload from the phone browser without an app or account."], ["Can I show photo booth pictures on a screen at the party?", "Yes. With a live photo wall, new photos appear on a TV or projector, and you can approve them first."], ["How long are the party photos stored?", "Albums stores them for 6 months, and you can download everything as a ZIP at any time."]]), article("Christmas Party Photo Booth Ideas: Backdrops, Props and Sharing", '/guides/christmas-party-photo-booth-ideas/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
