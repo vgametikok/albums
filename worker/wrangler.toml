@@ -6,8 +6,15 @@ main = "edge.js"
 compatibility_date = "2026-10-01"
 account_id = "96b91534a2f6087bc76e5a279febc1a8"
 workers_dev = false
+# Только нужные пути: остальная статика идёт в Pages мимо Worker'а и не
+# тратит лимит бесплатного тарифа (100 000 запросов в сутки).
 routes = [
-  { pattern = "albums.ink/*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/album.html*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/profile.html*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/og/*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/sitemap.xml", zone_name = "albums.ink" },
+  { pattern = "albums.ink/a/*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/u/*", zone_name = "albums.ink" },
 ]
 [observability]
 enabled = true

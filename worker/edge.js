@@ -1,5 +1,5 @@
 /**
- * Cloudflare Worker перед GitHub Pages (маршрут albums.ink/*).
+ * Cloudflare Worker перед GitHub Pages (маршруты — в wrangler.toml).
  *
  * Сайт по-прежнему живёт на GitHub Pages; Worker стоит на проксированном
  * домене и для большинства запросов просто отдаёт ответ Pages (fetch(request)
