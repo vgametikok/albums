@@ -264,6 +264,14 @@ const PAGES = {
     ld: [faq([["How long should a wedding slideshow be?", "About 6–8 minutes, or one to two songs. More than ten minutes usually loses the room."], ["How many photos should a wedding slideshow have?", "Allow 5–7 seconds per photo: around 30–35 photos for 3 minutes and 60–80 for 6–8 minutes."], ["When should the slideshow be played at the reception?", "After dinner or just before the first dance works best. A live slideshow of guest photos can run all evening."], ["How do I show guest photos live on a screen?", "Use an event album with a live photo wall. Guests scan a QR code, upload from the browser, and photos appear on the TV or projector."], ["What is the best free way to make a wedding slideshow?", "Google Photos, iMovie, Canva or PowerPoint all work. Export as MP4 and test it at the venue."]]), article("Photo Slideshow for a Wedding Reception: Ideas, Length and Music", '/guides/wedding-slideshow/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/group-photo-sharing/index.html': {
+    og: 'events',
+    path: '/guides/group-photo-sharing/',
+    title: "Easy Way to Share Photos With a Group (Trips, Teams, Parties) | Albums.ink",
+    desc: "The easiest ways to share photos with a group: group chats, cloud albums, shared folders and QR albums compared, with everyone's photos in one place.",
+    ld: [faq([["What is the easiest way to share photos with a group?", "A single album with one link that anyone can open in the browser and upload to without an app or account. It works for iPhone and Android and keeps everything in one place."], ["How do I share photos with a group of iPhone and Android users?", "Use a browser-based link or QR album, or a cloud album that everyone can access. iCloud Shared Albums do not let Android users add photos."], ["Do group chats reduce photo quality?", "Usually yes. Most messaging apps compress photos, so for prints and keepsakes an album that stores full-size images is better."], ["Can I control who sees the group photos?", "Yes. With Albums you can keep the album private, approve photos before they appear, and hide any photo."], ["How long are the photos stored?", "Albums stores them for 6 months, and you can download everything as a ZIP at any time."]]), article("Easy Way to Share Photos With a Group: Trips, Teams and Parties", '/guides/group-photo-sharing/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
