@@ -280,6 +280,14 @@ const PAGES = {
     ld: [faq([["How do I make a cheap Christmas photo booth?", "Use fairy lights behind a white curtain or wrapping paper on a wall, add homemade props and a phone on a stand. Good front light matters more than expensive decorations."], ["What props do I need for a Christmas photo booth?", "Santa hats, antlers, elf ears, speech bubbles and a sign with the party name and date. Ten to fifteen props are enough for about fifty guests."], ["How do guests share photos from the booth?", "Put a QR code at the booth that opens an event album. Guests upload from the phone browser without an app or account."], ["Can I show photo booth pictures on a screen at the party?", "Yes. With a live photo wall, new photos appear on a TV or projector, and you can approve them first."], ["How long are the party photos stored?", "Albums stores them for 6 months, and you can download everything as a ZIP at any time."]]), article("Christmas Party Photo Booth Ideas: Backdrops, Props and Sharing", '/guides/christmas-party-photo-booth-ideas/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/wedding-hashtag-ideas/index.html': {
+    og: 'events',
+    path: '/guides/wedding-hashtag-ideas/',
+    title: "Wedding Hashtag Ideas: 40+ Examples & How to Make Your Own | Albums.ink",
+    desc: "Wedding hashtag ideas with formulas and examples, how to check one is unique, where to display it, and why a hashtag alone won't collect all your photos.",
+    ld: [faq([["How do I create a wedding hashtag?", "Combine your names or surname with a word like \"weds\", \"ever after\" or the year. Keep it short, capitalise each word and check that it is not already used."], ["Should a wedding hashtag include the year?", "Adding the year is the easiest way to make a common hashtag unique, for example #AnnaAndTom2027."], ["Where should I put the wedding hashtag?", "On the invitations, the wedding website, a sign at the entrance, table cards and the reception screen."], ["Will a hashtag collect all our wedding photos?", "No. Photos from private accounts and guests who do not post will be missing. A QR album collects photos from everyone."], ["How long does Albums keep the photos?", "Albums stores them for 6 months, and you can download everything as a ZIP at any time."]]), article("Wedding Hashtag Ideas: Examples, Formulas and How to Make Your Own", '/guides/wedding-hashtag-ideas/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
