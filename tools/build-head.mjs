@@ -224,6 +224,14 @@ const PAGES = {
     ld: [faq([["How is Albums different from a shared Google Photos album?", "Guests need no Google account and no app — they scan a QR code and upload from the browser. The owner gets chapters, voice notes, a live photo wall, moderation, and a one-time price per event instead of a storage subscription."], ["Can wedding guests upload without a Google account?", "Yes. With an Event Album on Albums, guests upload photos and videos from the phone browser without any account."], ["Is a QR guest album free?", "Story albums on Albums are free. An Event Album with the QR code is a one-time purchase per event, from $39.99; guests never pay."], ["Can I control which guest photos are visible?", "Yes. Every photo can be shown to everyone, kept for friends, or hidden, and you can turn on approval so guest photos wait for your decision."]]), article("Google Photos shared album vs a QR guest album for your wedding", '/guides/google-photos-vs-qr-guest-album/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/wedding-photo-sharing-app/index.html': {
+    og: 'events',
+    path: '/guides/wedding-photo-sharing-app/',
+    title: "Wedding Photo Sharing App: Free vs QR Code Options Compared | Albums.ink",
+    desc: "Choosing a wedding photo sharing app: free options, QR code apps with no download, what guests need, privacy, photo quality and price. Compared honestly.",
+    ld: [faq([["What is the best wedding photo sharing app?", "The best one is the one guests actually use: no download, no account, works on iPhone and Android. A QR code album that opens in the browser meets all three."], ["Is there a free wedding photo sharing app?", "Google Photos and iCloud are free, but Google needs guest accounts and iCloud doesn't let Android guests upload. Free tiers of wedding apps are usually limited."], ["Do guests need to download an app?", "Not with a QR album: guests scan the code and upload from the phone browser."], ["Can guests upload videos?", "Yes, guests can upload both photos and videos."], ["How long are wedding photos stored?", "On Albums, storage runs for 6 months; you can download everything as a ZIP at any time."]]), article("Wedding photo sharing app: how to choose one guests will actually use", '/guides/wedding-photo-sharing-app/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
