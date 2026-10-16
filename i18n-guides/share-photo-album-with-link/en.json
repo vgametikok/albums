@@ -25,7 +25,7 @@
   "Copy the link and send it.",
   "Who can open the link?",
   "This is the most important question, and it depends on privacy settings:",
-  "<b>Public album:</b> intended for anyone, so anyone with the link can view it.",
+  "<b>Public album:</b> anyone with the link can view it, no sign-in needed. To like, comment or save it, people sign in with Google.",
   "<b>Friends-only album:</b> only your friends on Albums.ink, plus any people you added as exceptions.",
   "<b>Private album:</b> only you and the specific people you add as exceptions.",
   "<b>Per-file visibility:</b> inside any album, individual photos or videos can be hidden from viewers.",
