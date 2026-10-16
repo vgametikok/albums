@@ -296,6 +296,14 @@ const PAGES = {
     ld: [faq([["What photos should I collect for a retirement party?", "Early career photos, team trips, office celebrations, funny moments and a few family photos. Start collecting two to three weeks before the party."], ["How do I collect photos from colleagues in other offices?", "Send one album link. Colleagues upload from the phone or computer browser without an app or account, wherever they are."], ["What is a good photo gift for a retiree?", "A photo book with chapters for each period of the career, a framed team collage or a slideshow made from the album."], ["Can I keep some photos private?", "Yes. With Albums you can hide any photo and choose who sees each one."], ["How long are the photos stored?", "Albums stores them for 6 months from the first upload, with an option to extend, and you can download everything as a ZIP at any time."]]), article("Retirement Party Photo Ideas: Memory Wall, Props and Gifts", '/guides/retirement-party-photo-ideas/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/first-birthday-photo-ideas/index.html': {
+    og: 'events',
+    path: '/guides/first-birthday-photo-ideas/',
+    title: "First Birthday Photo Ideas: Cake Smash, Monthly Collage & More | Albums.ink",
+    desc: "First birthday photo ideas: cake smash, a 12-month collage, milestone boards, family photos, decorations and how to collect every guest's photos.",
+    ld: [faq([["What photos should I take at a first birthday party?", "The cake smash, the candles, a whole-family photo, photos with grandparents and siblings, a milestone board and details like decorations and the cake."], ["What is a cake smash?", "A small cake just for the baby to explore with their hands. It makes funny, colorful photos; keep it short and have a bath ready after."], ["How do I make a first year photo collage?", "Pick one photo from each of the 12 months, ideally in the same spot or with the same toy, and print them together as a collage or a photo line."], ["How do I get photos from all the guests?", "Share one album link or QR code. Guests upload from the phone browser without an app or account, and you download everything as a ZIP."], ["How long are the photos kept?", "Albums keeps them for 6 months from first upload, with the option to extend, and you can download everything as a ZIP at any time."]]), article("First Birthday Photo Ideas: Cake Smash, Monthly Collage and Family Photos", '/guides/first-birthday-photo-ideas/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
