@@ -232,6 +232,14 @@ const PAGES = {
     ld: [faq([["What is the best wedding photo sharing app?", "The best one is the one guests actually use: no download, no account, works on iPhone and Android. A QR code album that opens in the browser meets all three."], ["Is there a free wedding photo sharing app?", "Google Photos and iCloud are free, but Google needs guest accounts and iCloud doesn't let Android guests upload. Free tiers of wedding apps are usually limited."], ["Do guests need to download an app?", "Not with a QR album: guests scan the code and upload from the phone browser."], ["Can guests upload videos?", "Yes, guests can upload both photos and videos."], ["How long are wedding photos stored?", "On Albums, storage runs for 6 months; you can download everything as a ZIP at any time."]]), article("Wedding photo sharing app: how to choose one guests will actually use", '/guides/wedding-photo-sharing-app/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/disposable-camera-app/index.html': {
+    og: 'events',
+    path: '/guides/disposable-camera-app/',
+    title: "Disposable Camera App for Weddings & Events: QR Code, No Download | Albums.ink",
+    desc: "Disposable camera app vs real disposable cameras for weddings and parties: cost, photo quality, QR code setup with no download, and how guests use it.",
+    ld: [faq([["What is a disposable camera app?", "An app or web album that turns guests' phones into a shared event camera. With a QR code album guests scan and upload from the browser, with no download."], ["Is a disposable camera app cheaper than real disposable cameras?", "Usually yes: film cameras cost money per table plus developing, while a QR album is one price for the whole event, from $39.99."], ["Do guests need to download an app?", "Not with a QR album. Guests scan the code with the phone camera and upload in the browser."], ["Can I still keep a film look and a reveal?", "Yes. Hide the live photo wall until a set moment and reveal all photos at once."], ["Can guests upload videos?", "Yes, guests can upload both photos and videos."], ["How good is the photo quality compared with film?", "Modern phones handle dark reception halls far better than cheap disposable cameras, and Albums keeps guest photos in up to 4K (3840 px on the long side)."]]), article("Disposable camera app for weddings and events: the QR code alternative to film cameras", '/guides/disposable-camera-app/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
