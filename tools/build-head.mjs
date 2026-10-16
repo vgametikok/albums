@@ -248,6 +248,14 @@ const PAGES = {
     ld: [faq([["What is a digital guest book?", "An online page where guests leave wishes, photos, videos and memories, usually reached by scanning a QR code at the event."], ["How does a QR code guest book work?", "Guests scan the code with their phone camera, an upload page opens in the browser, and they add photos, videos and a wish — no app or account."], ["Is there a free digital guest book?", "Shared documents, forms or cloud folders are free, but guests may need accounts and photos and wishes end up in different places."], ["Can I use a digital guest book at a funeral?", "Yes. Keep the album hidden, turn on approval, and share the link with the funeral notice so distant friends can add memories."], ["Can guests who didn't attend sign it?", "Yes. Send them the link and they can add photos and wishes from anywhere."], ["How long are entries stored?", "On Albums, storage runs for 6 months; download everything as a ZIP before then."]]), article("Digital guest book: how to collect wishes, photos and memories with a QR code", '/guides/digital-guest-book/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/best-photo-sharing-app-for-events/index.html': {
+    og: 'events',
+    path: '/guides/best-photo-sharing-app-for-events/',
+    title: "Best Photo Sharing App for Events (Free & Paid): How to Choose | Albums.ink",
+    desc: "The best photo sharing app for events: free vs paid options, apps vs QR code albums, what guests need, live wall, privacy and price. A practical guide.",
+    ld: [faq([["What is the best photo sharing app for events?", "The one guests actually use: no download, no account, works on iPhone and Android, with moderation for the host. A QR code event album meets all of these."], ["Is there a free photo sharing app for events?", "Google Photos, iCloud and shared folders are free, but they often need accounts or exclude Android or iPhone users. Free tiers of event apps are usually limited."], ["Do guests need to download an app?", "Not with a QR album: guests scan the code and upload from the phone browser."], ["Can I approve photos before guests see them?", "Yes, on Albums you can turn on approval and hide any photo."], ["How long are event photos stored?", "On Albums, 6 months; download everything as a ZIP at any time."]]), article("Best photo sharing app for events: free and paid options compared", '/guides/best-photo-sharing-app-for-events/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
