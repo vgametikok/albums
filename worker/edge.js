@@ -200,6 +200,60 @@ const OLD_GUIDES = {
   'class-reunion-photo-sharing': '/guides/shared-photo-album-iphone-android/',
 };
 
+// Главная: первые карточки ленты рендерятся на краю, чтобы до JS было что
+// смотреть. Тот же RPC feed_albums, что у клиента, под публикуемым ключом —
+// только публичные альбомы. Любая ошибка/таймаут → страница как есть (заглушки).
+const FEED_HIDE = new Set(['0bc7d74c-cc94-4409-acf4-5b0c1bbf6631', '1ff670a7-bb3b-44dd-90c7-fc8a8ec01b28']);
+function feedComp(a) {
+  const p = [];
+  if (+a.photos_count > 0) p.push(plural(+a.photos_count, 'photo', 'photos'));
+  if (+a.videos_count > 0) p.push(plural(+a.videos_count, 'video', 'videos'));
+  if (+a.audio_count > 0) p.push(plural(+a.audio_count, 'audio', 'audio'));
+  return p.join(' · ');
+}
+function feedCard(a) {
+  const id = UUID.test(a.id) ? a.id : '';
+  const href = `album.html?id=${id}`;
+  const u = USERNAME.test(a.author_username || '') ? a.author_username : '';
+  return `<div data-album-id="${id}"><a class="card-cover" href="${href}"><div class="mosaic"><div class="big">`
+    + `<img src="/og/a/${id}.jpg" alt="${esc(a.title)}" loading="lazy" decoding="async"></div><div></div><div></div></div>`
+    + `<div class="badge">${esc(feedComp(a))}</div></a><div class="card-meta"><div style="min-width:0">`
+    + `<a class="card-title" href="${href}">${esc(a.title)}</a>`
+    + (u ? `<a class="card-sub" href="profile.html?u=${encodeURIComponent(u)}">${esc(a.author_name || u)}</a>` : '')
+    + `</div></div></div>`;
+}
+async function homePage(req, url, ctx) {
+  if (url.searchParams.has('q')) return fetch(req);
+  const cache = caches.default;
+  const cacheKey = new Request(`${SITE}/__home${url.pathname}`);
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+  const [origin, rows] = await Promise.all([fetch(req), (async () => {
+    try {
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/feed_albums`, {
+        method: 'POST', signal: AbortSignal.timeout(800),
+        headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_seed: 'edge', p_category: null, p_limit: 14, p_offset: 0 }),
+      });
+      if (!r.ok) return null;
+      const d = await r.json();
+      return Array.isArray(d) ? d.filter(a => a && UUID.test(a.id) && !FEED_HIDE.has(a.id)).slice(0, 12) : null;
+    } catch { return null; }
+  })()]);
+  if (!origin.ok || !rows || !rows.length) return origin;
+  let html = await origin.text();
+  const grid = `<!-- feed --><div class="grid" id="feed-ssr" data-ssr="1">${rows.map(feedCard).join('')}</div><!-- /feed -->`;
+  if (!html.includes('<!-- feed -->')) return new Response(html, origin);
+  html = html.replace(/<!-- feed -->[\s\S]*?<!-- \/feed -->/, () => grid);
+  const h = new Headers(origin.headers);
+  h.set('Content-Type', 'text/html; charset=utf-8');
+  h.delete('Content-Length'); h.delete('ETag');
+  h.set('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
+  const out = new Response(html, { status: 200, headers: h });
+  ctx.waitUntil(cache.put(cacheKey, out.clone()));
+  return out;
+}
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
@@ -208,6 +262,7 @@ export default {
     if (old && OLD_GUIDES[old[1]]) return Response.redirect(`${SITE}${OLD_GUIDES[old[1]]}`, 301);
     try {
       const p = url.pathname;
+      if (p === '/' || p === '/index.html') return await homePage(req, url, ctx);
       if (p === '/album.html') return await albumPage(req, url, ctx);
       if (p === '/profile.html') return await profilePage(req, url, ctx);
       let m = p.match(/^\/og\/a\/([0-9a-f-]{36})\.jpg$/i);

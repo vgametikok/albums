@@ -128,9 +128,12 @@ function renderFeed() {
   drawTabs();
   drawChips();
 
+  // Заглушки (или карточки, отрисованные Worker'ом) из index.html остаются на
+  // экране до ответа ленты — без мигания пустотой; потом их заменяет сетка.
+  const pre = document.getElementById('feed-ssr');
   clear(app);
   app.append(tabs, chips, featuredHost, grid, sentinel);
-  app.appendChild(skeletonGrid(6));
+  if (pre) app.insertBefore(pre, sentinel); else app.appendChild(skeletonGrid(6));
 
   // Гость видит карточку события сразу, ещё до ответа ленты — и при ошибке
   // или пустой ленте она остаётся на месте.
@@ -175,6 +178,7 @@ function renderFeed() {
       }));
     }
     app.querySelectorAll('.skel').forEach(n => n.closest('.grid')?.remove());
+    document.getElementById('feed-ssr')?.remove();
     loading = false;
 
     if (error) {

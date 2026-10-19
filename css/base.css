@@ -618,6 +618,7 @@ img,video{max-width:100%}
 .empty h3{font-size:22px;font-weight:800;color:var(--ink);margin:0 0 8px}
 .skel{background:linear-gradient(90deg,#EAE7E1 25%,#F2F0EC 50%,#EAE7E1 75%);background-size:400% 100%;
   animation:sk 1.4s ease infinite;border-radius:18px}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
 @keyframes sk{0%{background-position:100% 0}100%{background-position:0 0}}
 .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;
   border-radius:999px;animation:spin .7s linear infinite;display:inline-block}

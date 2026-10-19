@@ -9,6 +9,8 @@ workers_dev = false
 # Только нужные пути: остальная статика идёт в Pages мимо Worker'а и не
 # тратит лимит бесплатного тарифа (100 000 запросов в сутки).
 routes = [
+  { pattern = "albums.ink/", zone_name = "albums.ink" },
+  { pattern = "albums.ink/index.html", zone_name = "albums.ink" },
   { pattern = "albums.ink/album.html*", zone_name = "albums.ink" },
   { pattern = "albums.ink/profile.html*", zone_name = "albums.ink" },
   { pattern = "albums.ink/og/*", zone_name = "albums.ink" },
