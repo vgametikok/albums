@@ -222,36 +222,47 @@ function feedCard(a) {
     + (u ? `<a class="card-sub" href="profile.html?u=${encodeURIComponent(u)}">${esc(a.author_name || u)}</a>` : '')
     + `</div></div></div>`;
 }
+const HOME_LIMIT = 24 + FEED_HIDE.size;   // как LIMIT в js/feed.js — тот же ответ RPC
+const HOME_CC = 'public, max-age=60, stale-while-revalidate=300';
+// Ответ из Cache API Cloudflare считает «кэшированным» и навешивает ему
+// Browser Cache TTL зоны (4 ч) — поэтому заголовок ставим заново на копии.
+const withCC = (r) => { const h = new Headers(r.headers); h.set('Cache-Control', HOME_CC); h.delete('Age'); return new Response(r.body, { status: r.status, headers: h }); };
 async function homePage(req, url, ctx) {
   if (url.searchParams.has('q')) return fetch(req);
   const cache = caches.default;
-  const cacheKey = new Request(`${SITE}/__home${url.pathname}`);
+  const cacheKey = new Request(`${SITE}/__home2${url.pathname}`);
   const hit = await cache.match(cacheKey);
-  if (hit) return hit;
+  if (hit) return withCC(hit);
+  // Сид — один на окно кэша: клиент читает его из data-seed и запрашивает ту же ленту.
+  const seed = crypto.randomUUID().replace(/-/g, '').slice(0, 8);
   const [origin, rows] = await Promise.all([fetch(req), (async () => {
     try {
-      const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/feed_albums`, {
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/feed_recommended`, {
         method: 'POST', signal: AbortSignal.timeout(800),
         headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ p_seed: 'edge', p_category: null, p_limit: 14, p_offset: 0 }),
+        body: JSON.stringify({ p_seed: seed, p_limit: HOME_LIMIT, p_offset: 0 }),
       });
       if (!r.ok) return null;
       const d = await r.json();
-      return Array.isArray(d) ? d.filter(a => a && UUID.test(a.id) && !FEED_HIDE.has(a.id)).slice(0, 12) : null;
+      return Array.isArray(d) ? d.filter(a => a && UUID.test(a.id) && !FEED_HIDE.has(a.id)).slice(0, 13) : null;
     } catch { return null; }
   })()]);
   if (!origin.ok || !rows || !rows.length) return origin;
   let html = await origin.text();
-  const grid = `<!-- feed --><div class="grid" id="feed-ssr" data-ssr="1">${rows.map(feedCard).join('')}</div><!-- /feed -->`;
-  if (!html.includes('<!-- feed -->')) return new Response(html, origin);
-  html = html.replace(/<!-- feed -->[\s\S]*?<!-- \/feed -->/, () => grid);
+  if (!html.includes('<!-- feed -->') || !html.includes('<section id="home-event"')) return new Response(html, origin);
+  // Как у гостя в feed.js: первый альбом — справа от врезки события, остальные — в сетке.
+  const [first, ...rest] = rows;
+  html = html.replace(/<section id="home-event"[\s\S]*?<\/section>/, (s) =>
+    `<div class="featured featured-event" id="feed-ssr-feat">${s}<div class="featured-side">${feedCard(first).replace(/^<div[^>]*>|<\/div>$/g, '')}</div></div>`);
+  html = html.replace(/<!-- feed -->[\s\S]*?<!-- \/feed -->/, () =>
+    `<!-- feed --><div class="grid" id="feed-ssr" data-ssr="1" data-seed="${seed}" data-mode="for-you">${rest.map(feedCard).join('')}</div><!-- /feed -->`);
   const h = new Headers(origin.headers);
   h.set('Content-Type', 'text/html; charset=utf-8');
   h.delete('Content-Length'); h.delete('ETag');
-  h.set('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
+  h.set('Cache-Control', HOME_CC);
   const out = new Response(html, { status: 200, headers: h });
   ctx.waitUntil(cache.put(cacheKey, out.clone()));
-  return out;
+  return withCC(out);
 }
 
 export default {

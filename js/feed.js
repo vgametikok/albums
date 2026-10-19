@@ -26,7 +26,10 @@ const LIMIT = PAGE + FEED_HIDE.size;
 // поэтому пагинация не дублирует альбомы, — а каждый новый заход перемешивает
 // ленту заново. Раньше сид лежал в sessionStorage, вкладка держала его между
 // перезагрузками, и порядок казался приколоченным навсегда.
-const seed = Math.random().toString(36).slice(2, 10);
+// Если Worker уже отрисовал «Для вас» с этим сидом — берём его, чтобы первые
+// карточки совпали с серверными и не перемешались при гидрации.
+const ssrSeed = document.getElementById('feed-ssr')?.dataset.seed;
+const seed = /^[a-z0-9]{1,16}$/.test(ssrSeed || '') ? ssrSeed : Math.random().toString(36).slice(2, 10);
 
 let category = null, offset = 0, loading = false, done = false, grid = null;
 
@@ -44,8 +47,10 @@ let trendPeriod = 'week';
   // плиткой сетки. Главная у всех одна и та же: шапка, вкладки, чипы, сетка.
   // Цены на главной нет намеренно — она живёт на /events/ и /pricing.
   const ev = document.getElementById('home-event');
+  const ssrFeat = document.getElementById('feed-ssr-feat');
   if (ev) {
-    ev.remove();
+    // Внутри серверной врезки карточка остаётся на месте до первой отрисовки.
+    if (!ssrFeat || q) { ev.remove(); ssrFeat?.remove(); }
     ev.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
     eventSign = ev.querySelector('.hi-sign');
     eventCouple = ev.querySelector('.ev-couple');
@@ -151,7 +156,10 @@ function renderFeed() {
       featuredHost.appendChild(featured(a, b, urls, pro));
     }
   };
-  drawFeatured();
+  // Серверная врезка (гость, «Для вас») стоит до ответа ленты; иначе — убрать.
+  const preFeat = document.getElementById('feed-ssr-feat');
+  if (preFeat && guest && mode === 'for-you') featuredHost.appendChild(preFeat);
+  else { preFeat?.remove(); drawFeatured(); }
 
   function reset() {
     offset = 0; done = false;
