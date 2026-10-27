@@ -9,6 +9,8 @@
 // сами дают «3 дня назад», «3 days ago», «3日前» и 24K / 2.4万.
 
 import EN from './i18n/en.js';
+import { captureFirstTouch } from './first-touch.js'; // сам вызывает capture при загрузке; импорт — чтобы запускалось на всех страницах
+void captureFirstTouch;
 
 export const LANGS = {
   en: 'English',

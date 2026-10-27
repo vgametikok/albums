@@ -2,6 +2,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import { detectLang } from './i18n.js';
+import { sendFirstTouch } from './first-touch.js';
 
 /**
  * Запрос, который не висит вечно.
@@ -69,7 +70,10 @@ async function init() {
       if (error && (error.code === 'PGRST202' || /could not find the function/i.test(error.message || ''))) {
         ({ data: prof, error } = await sb.rpc('ensure_profile'));
       }
-      if (!error) _me = prof;
+      if (!error) {
+        _me = prof;
+        sendFirstTouch(sb); // без await: источник регистрации, ошибки глотаем
+      }
     } catch (_) { /* профиль подтянется при следующем входе */ }
   }
   sb.auth.onAuthStateChange((_evt, s) => { _session = s; });
