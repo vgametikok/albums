@@ -473,6 +473,14 @@ const PAGES = {
     ld: [faq([["What is a photo essay?", "A photo essay is a sequence of photos, usually with short captions, that tells a story or explores a topic."], ["How many photos should a photo essay have?", "Most short photo essays use 8 to 15 photos. Longer ones can use up to about 25, grouped into chapters."], ["Can I make a photo essay online for free?", "Yes. On Albums.ink you can create a free story album with chapters, captions and voice notes, and share it by link."], ["Can I add narration to my photo essay?", "Yes. Record voice notes in your browser and play the album as a slideshow with narration."], ["Who can see my photo essay?", "You choose: public, friends only or private. A public album can be opened by link without signing in."]]), article("How to Make a Photo Essay: Steps, Structure and Examples", '/guides/how-to-make-a-photo-essay/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/year-in-review-photo-album/index.html': {
+    og: 'home',
+    path: '/guides/year-in-review-photo-album/',
+    title: "Year in Review Photos: How to Make a Photo Album of Your Year | Albums.ink",
+    desc: "Make a year in review photo album: pick the best photos of 12 months, group them in chapters, add captions and voice, and share it free with a link.",
+    ld: [faq([["How do I make a year in review photo album?", "Gather your photos, shortlist five to ten per month, group them into chapters, add captions and share the album by link."], ["Is there a free way to make a year in review?", "Yes. A free Albums.ink story album supports chapters, captions, voice notes and sharing by link."], ["How many photos should a year in review have?", "Around 60 to 120 photos works well, or just 12 if you make a top-12 version with one photo per month."], ["Can my family add their photos?", "Yes. Free albums allow one co-author, and Pro allows up to 10."], ["Can I keep my year in review private?", "Yes. Set the album to private or friends only, or share a public link with whoever you choose."]]), article("Year in Review Photos: How to Make a Photo Album of Your Year", '/guides/year-in-review-photo-album/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
