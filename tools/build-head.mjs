@@ -457,6 +457,14 @@ const PAGES = {
     ld: [faq([["What is the best free photo storage online?", "It depends on the job. For automatic backup, your phone's cloud within its free quota. For albums you keep and share, a service with unlimited free albums like Albums.ink."], ["Is there unlimited free photo storage?", "Some services offer unlimited uploads with compression. Albums.ink lets you create unlimited albums and posts for free, with photos saved at up to 2048 px."], ["How long are my photos kept?", "Policies differ, so read them. On Albums.ink your albums stay as long as you want them."], ["Can I download my photos later?", "Yes. On Albums.ink you can download a whole album at any time."], ["Does Albums.ink back up my phone automatically?", "No. There is no app and no automatic sync; you upload the photos you choose from the browser."]]), article("Free Photo Storage Online: Where to Keep and Share Your Best Photos", '/guides/free-photo-storage/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/photo-dump-ideas/index.html': {
+    og: 'home',
+    path: '/guides/photo-dump-ideas/',
+    title: "Photo Dump Ideas: What It Means and How to Make One | Albums.ink",
+    desc: "What a photo dump is, ideas for a good one, how many photos to use, how to order them and where to keep the full set in a free album you can share by link.",
+    ld: [faq([["What does photo dump mean?", "A photo dump is a casual set of photos from the same period, such as a weekend or a trip, posted together as a carousel or album."], ["How many photos should a photo dump have?", "Eight to ten photos is a good range. More is fine if every photo adds something different."], ["Can I keep a photo dump private?", "Yes. On Albums.ink an album can be public, friends only or private, with exceptions for specific people."], ["Do I need an app to make a photo dump album?", "No. Albums.ink runs in your browser. Sign in with Google, upload photos and share a link."], ["Can I add sound to a photo dump?", "Yes. You can record voice notes in the browser and attach them to photos, then play the album as a slideshow with narration."]]), article("Photo Dump Ideas: What It Means and How to Make One", '/guides/photo-dump-ideas/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
