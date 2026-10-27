@@ -497,6 +497,14 @@ const PAGES = {
     ld: [faq([["What is a wedding photo scavenger hunt?", "A game where guests complete a list of photo prompts during the wedding and upload their photos to a shared album."], ["How many prompts should I include?", "Ten to fifteen is a good number. More feels like a task, and fewer gives guests too little to do."], ["How do guests submit their photos?", "They scan a QR code on the table cards and upload from their phone browser. No app and no account are needed."], ["Can I approve photos before others see them?", "Yes. Turn on holding for guest photos and each one waits for your approval before anyone else can see it."], ["How long are the photos stored?", "Event albums are stored for 6 months from the first upload, and you can extend the storage. You can also download everything as a ZIP."]]), article("Wedding Photo Scavenger Hunt: 30 Ideas and a QR Code Album", '/guides/wedding-photo-scavenger-hunt/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/birthday-party-photo-sharing/index.html': {
+    og: 'events',
+    path: '/guides/birthday-party-photo-sharing/',
+    title: "Birthday Party Photo Sharing: QR Code Album for Guests | Albums.ink",
+    desc: "Share birthday party photos easily: a QR code album where guests upload photos and videos from their phone, no app. How it works, tips, prices, mistakes.",
+    ld: [faq([["How do I share photos from a birthday party?", "Create an event album with a QR code. Guests scan it and upload photos and videos from their phone browser, and you download everything as a ZIP."], ["Do guests need to install an app?", "No. They scan the QR code and upload from the browser, with no app and no account."], ["Can I approve photos before other guests see them?", "Yes. With Hold guest photos, each photo waits for your approval before anyone else can see it."], ["How long are the photos stored?", "Event albums are stored for 6 months from the first upload, and you can extend them. You can download everything as a ZIP at any time."], ["How much does it cost?", "From $39.99 one time for the Small album. Guests never pay."]]), article("Birthday Party Photo Sharing: A QR Code Album for Your Guests", '/guides/birthday-party-photo-sharing/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
