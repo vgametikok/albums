@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://albums.ink';
-export const LANGS = ['en', 'de', 'es', 'fr', 'ja', 'ko', 'ru', 'vi', 'zh-CN'];
+export const LANGS = ['en', 'de', 'es', 'fr', 'ja', 'ko', 'ru', 'vi', 'zh-CN', 'pt-BR', 'it', 'id'];
 const SRC = join(ROOT, 'i18n-guides');
 
 // Блоки для перевода, строго по порядку появления в <body>.

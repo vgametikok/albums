@@ -15,9 +15,9 @@ export { PADDLE_ENABLED };
 export const paddlePrice = (key) => PADDLE.prices?.[key] || '';
 
 const SRC = 'https://cdn.paddle.com/paddle/v2/paddle.js';
-// Языки сайта -> языки Paddle Checkout. Вьетнамского у Paddle нет — тогда
+// Языки сайта -> языки Paddle Checkout. Вьетнамского и индонезийского у Paddle нет — тогда
 // locale не передаём, и checkout берёт язык браузера.
-const LOCALES = { en: 'en', ru: 'ru', fr: 'fr', es: 'es', de: 'de', ja: 'ja', ko: 'ko', 'zh-CN': 'zh-Hans' };
+const LOCALES = { en: 'en', ru: 'ru', fr: 'fr', es: 'es', de: 'de', ja: 'ja', ko: 'ko', 'zh-CN': 'zh-Hans', 'pt-BR': 'pt-BR', it: 'it' };
 
 let loading = null;
 let current = null;   // колбэки открытого сейчас checkout

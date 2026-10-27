@@ -26,8 +26,9 @@ like a story.
 - Privacy: each album is public, private, friends-only, or friends-except-
   selected. Media live in a private bucket and are served via signed URLs —
   a private album cannot be opened by guessing a link.
-- Interface in 9 languages: English, German, Spanish, French, Japanese,
-  Korean, Russian, Vietnamese, Simplified Chinese.
+- Interface in 12 languages: English, German, Spanish, French, Italian,
+  Brazilian Portuguese, Indonesian, Japanese, Korean, Russian, Vietnamese,
+  Simplified Chinese.
 
 ## Pricing
 

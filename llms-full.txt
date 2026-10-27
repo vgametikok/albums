@@ -90,8 +90,8 @@ A: Story albums are free. Pro ($9.99/month) adds capacity and author
 features. Event Albums are a one-time purchase per event, from $39.99.
 
 Q: What languages does Albums support?
-A: English, German, Spanish, French, Japanese, Korean, Russian, Vietnamese
-and Simplified Chinese.
+A: English, German, Spanish, French, Italian, Brazilian Portuguese, Indonesian,
+Japanese, Korean, Russian, Vietnamese and Simplified Chinese.
 
 ## Links
 

@@ -55,11 +55,31 @@ Deno.test('russian plurals', () => {
   assertEquals(tr('en', 'files', { n: 2 }), '2 files');
 });
 
+Deno.test('pt-BR / it / id: every key present, renders', () => {
+  const keys = Object.keys(STR.en);
+  for (const l of ['pt-BR', 'it', 'id'] as const) {
+    for (const k of keys) assert(k in STR[l], `${l} missing ${k}`);
+    for (const k of Object.keys(STR[l])) assert(k in STR.en, `${l} extra ${k}`);
+    for (const kind of ['welcome', 'signin', 'mod_pending', 'mod_approved', 'purchase_event', 'purchase_pro', 'storage80'] as const) {
+      const r = render(job(kind, { locale: l }));
+      assert(r, `${l}/${kind}`);
+      assertEquals(r!.locale, l);
+    }
+  }
+  assertEquals(tr('pt-BR', 'files', { n: 2 }), '2 arquivos');
+  assertEquals(tr('it', 'files', { n: 1 }), '1 file');
+  assertEquals(tr('id', 'files', { n: 5 }), '5 file');
+});
+
 Deno.test('locale fallback', () => {
   assertEquals(pickLocale(null), 'en');
   assertEquals(pickLocale('zh'), 'zh-CN');
   assertEquals(pickLocale('de-AT'), 'de');
-  assertEquals(pickLocale('pt'), 'en');
+  assertEquals(pickLocale('pt'), 'pt-BR');
+  assertEquals(pickLocale('pt-PT'), 'pt-BR');
+  assertEquals(pickLocale('it-IT'), 'it');
+  assertEquals(pickLocale('id'), 'id');
+  assertEquals(pickLocale('in'), 'en');
   const r = render(job('welcome', { locale: 'xx' }))!;
   assertEquals(r.locale, 'en');
 });

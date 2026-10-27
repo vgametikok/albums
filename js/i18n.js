@@ -22,6 +22,9 @@ export const LANGS = {
   'zh-CN': '简体中文',
   ko: '한국어',
   ja: '日本語',
+  'pt-BR': 'Português (Brasil)',
+  it: 'Italiano',
+  id: 'Bahasa Indonesia',
 };
 
 const STORAGE_KEY = 'albums.lang';
