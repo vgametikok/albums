@@ -100,5 +100,31 @@
   "Ideias de fotos para a reunião de família, uma gincana fotográfica e um álbum compartilhado para todos: como fazer avós e adolescentes enviarem fotos, fotos antigas e um arquivo da família.",
   "QR code no casamento: ideias de plaquinhas para as mesas que os convidados realmente escaneiam",
   "Mais dicas práticas para reunir fotos dos convidados com um QR code."
+ ],
+ "tables": [
+  "Método",
+  "Esforço do convidado",
+  "Controle do organizador",
+  "Reúne mais fotos?",
+  "Pedidos por e-mail ou chat",
+  "Alto, depende da memória",
+  "Baixo",
+  "Não",
+  "Hashtag",
+  "Precisa postar publicamente",
+  "Nenhum",
+  "Não",
+  "Pasta compartilhada na nuvem",
+  "Muitas vezes exige conta",
+  "Baixo",
+  "Às vezes",
+  "App do evento",
+  "Download do app",
+  "Médio",
+  "Raramente",
+  "Álbum com QR code",
+  "Escanear e enviar",
+  "Alto",
+  "Sim"
  ]
 }
