@@ -481,6 +481,14 @@ const PAGES = {
     ld: [faq([["How do I make a year in review photo album?", "Gather your photos, shortlist five to ten per month, group them into chapters, add captions and share the album by link."], ["Is there a free way to make a year in review?", "Yes. A free Albums.ink story album supports chapters, captions, voice notes and sharing by link."], ["How many photos should a year in review have?", "Around 60 to 120 photos works well, or just 12 if you make a top-12 version with one photo per month."], ["Can my family add their photos?", "Yes. Free albums allow one co-author, and Pro allows up to 10."], ["Can I keep my year in review private?", "Yes. Set the album to private or friends only, or share a public link with whoever you choose."]]), article("Year in Review Photos: How to Make a Photo Album of Your Year", '/guides/year-in-review-photo-album/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/pet-photo-album-online/index.html': {
+    og: 'home',
+    path: '/guides/pet-photo-album-online/',
+    title: "Pet Photo Album Online: A Free Album for Your Dog or Cat | Albums.ink",
+    desc: "Create a pet photo album online for free: organise your dog or cat photos by year, add captions, voice notes and videos, and share it with family by link.",
+    ld: [faq([["How do I make a pet photo album online?", "Create an album, add chapters by year or theme, upload photos and videos, write captions and share the link."], ["Is a pet photo album free?", "Yes. Albums.ink has a free plan with albums, chapters, captions and voice notes. Pro costs $9.99 per month for 4K and more co-authors."], ["Can I add videos of my pet?", "Yes. Free videos can be up to 50 MB per file; Pro allows up to 500 MB."], ["Can my family add their photos?", "Yes. Free albums allow one co-author, and Pro allows up to 10."], ["Can I keep the album private?", "Yes. Choose private or friends only, or share a public link that opens without signing in."]]), article("Pet Photo Album Online: A Free Album for Your Dog or Cat", '/guides/pet-photo-album-online/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
