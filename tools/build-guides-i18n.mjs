@@ -27,6 +27,10 @@ const SRC = join(ROOT, 'i18n-guides');
 // Блоки для перевода, строго по порядку появления в <body>.
 const BLOCK = /(<nav class="crumbs">)([\s\S]*?)(<\/nav>)|(<(h1|h2|h3|p|li)(?: [^>]*)?>)([\s\S]*?)(<\/\5>)|(<div><b>)([\s\S]*?)(<\/b>)|(<a class="btn[^"]*" href="[^"]*">)([\s\S]*?)(<\/a>)/g;
 
+// Ячейки таблиц (<th>/<td>) — отдельный необязательный массив "tables" в <lang>.json.
+const CELL = /(<(?:th|td)>)([\s\S]*?)(<\/(?:th|td)>)/g;
+const cellsOf = (body) => { const o = []; body.replace(CELL, (...m) => { o.push(m[2]); return ''; }); return o; };
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const unesc = (s) => String(s).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const urlFor = (lang, slug) => `${SITE}${lang === 'en' ? '' : '/' + lang}/guides/${slug}/`;
@@ -73,6 +77,9 @@ async function render(slug, lang, langs) {
   if (tr.segments.length !== segs.length) throw new Error(`${slug}/${lang}: ${tr.segments.length} segments, expected ${segs.length}`);
   for (const s of tr.segments) if (/\b(shots?|shooting)\b/i.test(s)) throw new Error(`${slug}/${lang}: banned word in "${s.slice(0, 60)}"`);
 
+  const cells = cellsOf(body0);
+  if (cells.length && tr.tables && tr.tables.length !== cells.length) throw new Error(`${slug}/${lang}: ${tr.tables.length} table cells, expected ${cells.length}`);
+  if (cells.length && !tr.tables) console.warn(`warn: ${slug}/${lang}: table cells not translated`);
   let k = 0;
   let body = body0.replace(BLOCK, (...m) => {
     const t = tr.segments[k++];
@@ -81,6 +88,7 @@ async function render(slug, lang, langs) {
     if (m[8]) return m[8] + t + m[10];
     return m[11] + t + m[13];
   });
+  if (cells.length && tr.tables) { let c = 0; body = body.replace(CELL, (all, a, t, b) => a + tr.tables[c++] + b); }
   // Ссылки: гайды — на эту же языковую версию, если она есть; /events/ — с ?lang.
   body = body.replace(/href="(?:https:\/\/albums\.ink)?\/guides\/([a-z0-9-]+)\/"/g, (all, s) =>
     existsSync(join(SRC, s, `${lang}.json`)) ? `href="/${lang}/guides/${s}/"` : all);
