@@ -505,6 +505,14 @@ const PAGES = {
     ld: [faq([["How do I share photos from a birthday party?", "Create an event album with a QR code. Guests scan it and upload photos and videos from their phone browser, and you download everything as a ZIP."], ["Do guests need to install an app?", "No. They scan the QR code and upload from the browser, with no app and no account."], ["Can I approve photos before other guests see them?", "Yes. With Hold guest photos, each photo waits for your approval before anyone else can see it."], ["How long are the photos stored?", "Event albums are stored for 6 months from the first upload, and you can extend them. You can download everything as a ZIP at any time."], ["How much does it cost?", "From $39.99 one time for the Small album. Guests never pay."]]), article("Birthday Party Photo Sharing: A QR Code Album for Your Guests", '/guides/birthday-party-photo-sharing/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/company-party-photo-sharing/index.html': {
+    og: 'events',
+    path: '/guides/company-party-photo-sharing/',
+    title: "Company Party Photo Sharing: Collect Photos from Your Team | Albums.ink",
+    desc: "How to share photos from a company party or team event: QR code album, no app or sign-up, owner approval before photos are visible, ZIP download, prices.",
+    ld: [faq([["How do I share photos from a company party?", "Create an event album with a QR code. Colleagues scan it and upload from their phone browser; you download everything as a ZIP."], ["Do colleagues need an account or app?", "No. They scan the code and upload from the browser without registering."], ["Can I check photos before the team sees them?", "Yes. With Hold guest photos, each photo waits for your approval before anyone else can see it."], ["How long are the photos stored?", "Event albums are stored for 6 months from the first upload, and the storage can be extended. You can download everything as a ZIP."], ["How much does it cost?", "Event albums are a one-time purchase from $39.99. Guests never pay."]]), article("Company Party Photo Sharing: Collect Photos from Your Team in One Album", '/guides/company-party-photo-sharing/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
