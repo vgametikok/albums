@@ -465,6 +465,14 @@ const PAGES = {
     ld: [faq([["What does photo dump mean?", "A photo dump is a casual set of photos from the same period, such as a weekend or a trip, posted together as a carousel or album."], ["How many photos should a photo dump have?", "Eight to ten photos is a good range. More is fine if every photo adds something different."], ["Can I keep a photo dump private?", "Yes. On Albums.ink an album can be public, friends only or private, with exceptions for specific people."], ["Do I need an app to make a photo dump album?", "No. Albums.ink runs in your browser. Sign in with Google, upload photos and share a link."], ["Can I add sound to a photo dump?", "Yes. You can record voice notes in the browser and attach them to photos, then play the album as a slideshow with narration."]]), article("Photo Dump Ideas: What It Means and How to Make One", '/guides/photo-dump-ideas/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/how-to-make-a-photo-essay/index.html': {
+    og: 'home',
+    path: '/guides/how-to-make-a-photo-essay/',
+    title: "How to Make a Photo Essay: Steps, Structure and Examples | Albums.ink",
+    desc: "How to make a photo essay: pick a topic, plan the story, choose 8–15 photos, write captions, add voice and publish it online free with a link to share.",
+    ld: [faq([["What is a photo essay?", "A photo essay is a sequence of photos, usually with short captions, that tells a story or explores a topic."], ["How many photos should a photo essay have?", "Most short photo essays use 8 to 15 photos. Longer ones can use up to about 25, grouped into chapters."], ["Can I make a photo essay online for free?", "Yes. On Albums.ink you can create a free story album with chapters, captions and voice notes, and share it by link."], ["Can I add narration to my photo essay?", "Yes. Record voice notes in your browser and play the album as a slideshow with narration."], ["Who can see my photo essay?", "You choose: public, friends only or private. A public album can be opened by link without signing in."]]), article("How to Make a Photo Essay: Steps, Structure and Examples", '/guides/how-to-make-a-photo-essay/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
