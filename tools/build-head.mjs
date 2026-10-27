@@ -489,6 +489,14 @@ const PAGES = {
     ld: [faq([["How do I make a pet photo album online?", "Create an album, add chapters by year or theme, upload photos and videos, write captions and share the link."], ["Is a pet photo album free?", "Yes. Albums.ink has a free plan with albums, chapters, captions and voice notes. Pro costs $9.99 per month for 4K and more co-authors."], ["Can I add videos of my pet?", "Yes. Free videos can be up to 50 MB per file; Pro allows up to 500 MB."], ["Can my family add their photos?", "Yes. Free albums allow one co-author, and Pro allows up to 10."], ["Can I keep the album private?", "Yes. Choose private or friends only, or share a public link that opens without signing in."]]), article("Pet Photo Album Online: A Free Album for Your Dog or Cat", '/guides/pet-photo-album-online/')],
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
+  'guides/wedding-photo-scavenger-hunt/index.html': {
+    og: 'events',
+    path: '/guides/wedding-photo-scavenger-hunt/',
+    title: "Wedding Photo Scavenger Hunt: 30 Ideas + QR Code Album | Albums.ink",
+    desc: "A wedding photo scavenger hunt (photo challenge) for guests: 30 prompts, how to run it with table cards and a QR code, and how to collect every photo.",
+    ld: [faq([["What is a wedding photo scavenger hunt?", "A game where guests complete a list of photo prompts during the wedding and upload their photos to a shared album."], ["How many prompts should I include?", "Ten to fifteen is a good number. More feels like a task, and fewer gives guests too little to do."], ["How do guests submit their photos?", "They scan a QR code on the table cards and upload from their phone browser. No app and no account are needed."], ["Can I approve photos before others see them?", "Yes. Turn on holding for guest photos and each one waits for your approval before anyone else can see it."], ["How long are the photos stored?", "Event albums are stored for 6 months from the first upload, and you can extend the storage. You can also download everything as a ZIP."]]), article("Wedding Photo Scavenger Hunt: 30 Ideas and a QR Code Album", '/guides/wedding-photo-scavenger-hunt/')],
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
   'guides/qr-code-for-photos-at-party/index.html': {
     og: 'events',
     path: '/guides/qr-code-for-photos-at-party/',
