@@ -15,6 +15,7 @@ import { sb } from './sb.js';
 import { wireCheckout } from './checkout.js';
 import { PADDLE_ENABLED, initRetain } from './paddle.js';
 import { mountShell } from './ui.js';
+import { trackLandingVisit, wireBuyClickTracking } from './landing-funnel.js';
 
 (async function main() {
   await initI18n();
@@ -46,6 +47,8 @@ import { mountShell } from './ui.js';
   }
 
   wireTiers();
+  wireBuyClickTracking(document);
+  trackLandingVisit();
   showOwned();
   initRetain();   // Paddle Retain для уже плативших (только live, только при известном ctm_…)
 })();

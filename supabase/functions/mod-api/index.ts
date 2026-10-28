@@ -238,6 +238,13 @@ Deno.serve(async (req) => {
       case 'stats':
         out = (await sb.rpc('admin_stats', { p_days: body.days ?? 30 })).data;
         break;
+      case 'landing_funnel': {
+        // Воронка /events (063). Нет миграции — клиент покажет пустой блок.
+        const r = await sb.rpc('admin_landing_funnel', { p_days: body.days ?? 30 });
+        if (r.error) throw r.error;
+        out = r.data;
+        break;
+      }
       case 'users':
         // Список людей с фильтрами. Почта уходит только сюда: наружу её не
         // отдаёт ни одна пользовательская RPC.

@@ -4,6 +4,7 @@
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
 import { el, clear, icon, toast, composition, avatarImg, timeAgo } from './ui.js';
 import { renderStory, audioRow } from './albumview.js';
+import { initI18n, t } from './i18n.js';
 
 const API = `${SUPABASE_URL}/functions/v1/mod-api`;
 const app = document.getElementById('app');
@@ -1076,6 +1077,7 @@ async function renderStats() {
   ]));
 
   body.appendChild(eventTiersPanel(d.events));
+  body.appendChild(landingFunnelPanel(statDays));
   body.appendChild(statsByDay(d.by_day || []));
   body.appendChild(panel('Countries', barList((d.geo || []).map(g => [g.code || '??', g.n]))));
   body.appendChild(panel('Top albums', topList(d.top_albums || [])));
@@ -1222,6 +1224,148 @@ function fillDays(rows, n) {
   }
   return out;
 }
+
+
+/* ---------------- воронка лендинга /events (063) ---------------- */
+
+function landingFunnelPanel(days) {
+  const host = el('div', { class: 'side-card', style: 'margin-top:18px' },
+    el('div', { style: 'font-size:17px;font-weight:700;margin-bottom:6px', text: t('mod_lf_title') }),
+    el('div', { class: 'muted', style: 'font-size:12.5px;margin-bottom:12px', text: t('mod_lf_hint') }),
+    el('div', { class: 'muted', text: t('mod_lf_loading') }));
+
+  (async () => {
+    let d;
+    try {
+      const r = await call('landing_funnel', { days });
+      d = r.data;
+    } catch (e) {
+      const msg = String(e.message || e);
+      // Миграция / redeploy ещё не сделаны — мягкая подсказка, не ошибка панели.
+      const pending = /PGRST202|Could not find|landing_funnel|admin_landing|404|function/i.test(msg);
+      clear(host);
+      host.append(
+        el('div', { style: 'font-size:17px;font-weight:700;margin-bottom:6px', text: t('mod_lf_title') }),
+        el('div', { class: 'muted', style: 'font-size:13.5px',
+          text: pending ? t('mod_lf_pending') : msg }));
+      return;
+    }
+    if (!d) {
+      clear(host);
+      host.append(
+        el('div', { style: 'font-size:17px;font-weight:700;margin-bottom:6px', text: t('mod_lf_title') }),
+        el('div', { class: 'muted', text: t('mod_lf_empty') }));
+      return;
+    }
+    const tot = d.totals || {};
+    const rows = Array.isArray(d.by_day) ? d.by_day : [];
+    const filled = fillLandingDays(rows, days);
+    const hasPro = filled.some(r => r.buy_pro) || Number(tot.buy_pro) > 0;
+
+    clear(host);
+    host.append(
+      el('div', { style: 'font-size:17px;font-weight:700;margin-bottom:6px', text: t('mod_lf_title') }),
+      el('div', { class: 'muted', style: 'font-size:12.5px;margin-bottom:12px', text: t('mod_lf_hint') }),
+      landingFunnelTiles(tot, hasPro),
+      el('div', { class: 'stat-charts', style: 'margin-top:14px' },
+        chartPanel(t('mod_lf_chart_visits'), filled, [
+          { key: 'visits', label: t('mod_lf_visits'), color: '#C9A227' },
+          { key: 'buys', label: t('mod_lf_buys'), color: '#8A4B2F', fill: false },
+          { key: 'paid', label: t('mod_lf_paid'), color: '#2F6B4F', fill: false },
+        ], 'area', () => {}),
+        chartPanel(t('mod_lf_chart_tiers'), filled, [
+          { key: 'buy_small', label: t('mod_lf_buy_small'), color: '#C9A227' },
+          { key: 'buy_medium', label: t('mod_lf_buy_medium'), color: '#8A4B2F' },
+          { key: 'buy_large', label: t('mod_lf_buy_large'), color: '#4A6FA5' },
+          ...(hasPro ? [{ key: 'buy_pro', label: t('mod_lf_buy_pro'), color: '#6B4F8A' }] : []),
+        ], 'bars', () => {})),
+      el('details', { style: 'margin-top:14px' },
+        el('summary', { style: 'cursor:pointer;font-size:14px;font-weight:700',
+          text: t('mod_lf_table_title', { n: filled.length }) }),
+        el('div', { style: 'margin-top:10px;overflow-x:auto' }, landingFunnelTable(filled, hasPro))));
+  })();
+
+  return host;
+}
+
+function fillLandingDays(rows, n) {
+  const by = new Map((rows || []).map(r => [String(r.day).slice(0, 10), r]));
+  const today = Date.parse(isoDay(Date.now()));
+  const out = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const day = isoDay(today - i * DAY_MS);
+    const r = by.get(day) || {};
+    const buy_small = +r.buy_small || 0;
+    const buy_medium = +r.buy_medium || 0;
+    const buy_large = +r.buy_large || 0;
+    const buy_pro = +r.buy_pro || 0;
+    const paid = +r.paid || 0;
+    out.push({
+      day,
+      visits: +r.visits || 0,
+      buy_small, buy_medium, buy_large, buy_pro,
+      buys: buy_small + buy_medium + buy_large + buy_pro,
+      paid_small: +r.paid_small || 0,
+      paid_medium: +r.paid_medium || 0,
+      paid_large: +r.paid_large || 0,
+      paid,
+    });
+  }
+  return out;
+}
+
+function landingFunnelTiles(tot, hasPro) {
+  const items = [
+    [t('mod_lf_visits'), tot.visits, t('mod_lf_visits_hint')],
+    [t('mod_lf_buys'), (Number(tot.buy_small) || 0) + (Number(tot.buy_medium) || 0)
+      + (Number(tot.buy_large) || 0) + (Number(tot.buy_pro) || 0),
+      `${t('mod_lf_buy_small')} ${tot.buy_small || 0} · ${t('mod_lf_buy_medium')} ${tot.buy_medium || 0} · ${t('mod_lf_buy_large')} ${tot.buy_large || 0}`
+        + (hasPro ? ` · ${t('mod_lf_buy_pro')} ${tot.buy_pro || 0}` : '')],
+    [t('mod_lf_paid'), tot.paid_total, t('mod_lf_paid_hint', {
+      s: tot.paid_small || 0, m: tot.paid_medium || 0, l: tot.paid_large || 0,
+    })],
+  ];
+  const wrap = el('div', { style: 'display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px' });
+  items.forEach(([label, value, hint]) => wrap.appendChild(
+    el('div', { style: 'padding:12px;border:1px solid #EFEDE8;border-radius:12px;background:#FFFDF8' },
+      el('div', { class: 'muted', style: 'font-size:13px', text: label }),
+      el('div', { style: 'font-size:22px;font-weight:800;margin-top:2px', text: String(value ?? 0) }),
+      el('div', { class: 'muted', style: 'font-size:12px', text: hint || '' }))));
+  return wrap;
+}
+
+function landingFunnelTable(rows, hasPro) {
+  const cols = hasPro
+    ? ['Day', 'Visits', 'S', 'M', 'L', 'Pro', 'Paid S', 'Paid M', 'Paid L', 'Paid']
+    : ['Day', 'Visits', 'Buy S', 'Buy M', 'Buy L', 'Paid S', 'Paid M', 'Paid L', 'Paid'];
+  // localized header
+  const head = hasPro
+    ? [t('mod_lf_col_day'), t('mod_lf_visits'), t('mod_lf_buy_small'), t('mod_lf_buy_medium'),
+       t('mod_lf_buy_large'), t('mod_lf_buy_pro'), t('mod_lf_paid_small'), t('mod_lf_paid_medium'),
+       t('mod_lf_paid_large'), t('mod_lf_paid')]
+    : [t('mod_lf_col_day'), t('mod_lf_visits'), t('mod_lf_buy_small'), t('mod_lf_buy_medium'),
+       t('mod_lf_buy_large'), t('mod_lf_paid_small'), t('mod_lf_paid_medium'),
+       t('mod_lf_paid_large'), t('mod_lf_paid')];
+  const nCols = head.length;
+  const line = (cells, muted) => el('div', {
+    class: muted ? 'muted' : '',
+    style: `display:grid;grid-template-columns:1.4fr repeat(${nCols - 1},minmax(44px,1fr));gap:6px;padding:6px 0;font-size:13px`
+      + (muted ? ';border-bottom:1px solid #EFEDE8;font-size:12px' : ';border-bottom:1px solid #F5F3EF'),
+  }, ...cells.map(x => el('span', { text: String(x) })));
+  const box = el('div', { style: 'min-width:560px' }, line(head, true));
+  [...rows].reverse().forEach(r => {
+    const cells = hasPro
+      ? [r.day, r.visits, r.buy_small, r.buy_medium, r.buy_large, r.buy_pro,
+         r.paid_small, r.paid_medium, r.paid_large, r.paid]
+      : [r.day, r.visits, r.buy_small, r.buy_medium, r.buy_large,
+         r.paid_small, r.paid_medium, r.paid_large, r.paid];
+    const n = line(cells);
+    if (!(r.visits || r.buys || r.paid)) n.style.color = '#B5AC9E';
+    box.appendChild(n);
+  });
+  return box;
+}
+
 
 /** Окно для списков: выбранный день или весь период. to — не включительно. */
 function statWindow() {
@@ -1655,5 +1799,7 @@ const start = () => (qs.get('tab') === 'media' ? renderMedia(deepLink)
   : qs.get('tab') === 'recent-media' ? renderRecentMedia()
   : deepLink ? openAlbum(deepLink) : renderMedia());
 
-if (token) start().catch(renderLogin);
-else renderLogin();
+initI18n().finally(() => {
+  if (token) start().catch(renderLogin);
+  else renderLogin();
+});
