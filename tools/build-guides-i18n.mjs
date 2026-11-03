@@ -11,6 +11,13 @@
  * версия получает self-canonical и hreflang на все языки. Ссылки на другие
  * гайды ведут на ту же языковую версию, если она есть; CTA на /events/
  * получают ?lang=<код>, чтобы лендинг открылся на нужном языке.
+ * Самостоятельные гайды (без английского оригинала): <lang>.json с "standalone": true —
+ * пишутся под спрос конкретной страны/языка и есть только на этом языке
+ * (en → /guides/<slug>/, остальные → /<lang>/guides/<slug>/). Поля: title, desc,
+ * h1, lead, body (мини-разметка: "## " h2, "### " h3, "- " ul, "1. " ol, "!cta" —
+ * CTA-блок из cta, остальное — <p>), cta {h2,p,btn}, cta2 (финальный, необяз.),
+ * faq [[q,a]…], type ("event" → CTA /events/, "social" → https://albums.ink/),
+ * country/query (целевой рынок и запрос — служебные), date, related [slug…].
  * build.mjs вызывает этот скрипт после build-head.mjs (тот переписывает
  * <!-- seo --> и sitemap.xml, а блоки <!-- hreflang --> не трогает).
  */
@@ -122,10 +129,109 @@ async function render(slug, lang, langs) {
   return url;
 }
 
+// ---------- самостоятельные гайды ----------
+const UI_REF = 'voice-guest-book'; // откуда берём локализованные «Гайды / Частые вопросы / Ещё гайды»
+async function uiStrings(lang) {
+  const en = JSON.parse(await readFile(join(SRC, UI_REF, 'en.json'), 'utf8')).segments;
+  const tr = lang === 'en' ? en : JSON.parse(await readFile(join(SRC, UI_REF, `${lang}.json`), 'utf8')).segments;
+  return { crumbs: tr[0], faq: tr[en.indexOf('Frequently asked questions')], more: tr[en.indexOf('More guides')] };
+}
+function miniMarkup(lines, ctaHtml) {
+  const out = []; let list = null;
+  const close = () => { if (list) { out.push(`</${list}>`); list = null; } };
+  for (const raw of lines) {
+    const l = raw.trim();
+    let m;
+    if (l === '!cta') { close(); out.push(ctaHtml); continue; }
+    if ((m = l.match(/^- (.*)$/))) { if (list !== 'ul') { close(); out.push('<ul>'); list = 'ul'; } out.push(`<li>${m[1]}</li>`); continue; }
+    if ((m = l.match(/^\d+\. (.*)$/))) { if (list !== 'ol') { close(); out.push('<ol>'); list = 'ol'; } out.push(`<li>${m[1]}</li>`); continue; }
+    close();
+    if ((m = l.match(/^### (.*)$/))) out.push(`<h3>${m[1]}</h3>`);
+    else if ((m = l.match(/^## (.*)$/))) out.push(`<h2>${m[1]}</h2>`);
+    else out.push(`<p>${l}</p>`);
+  }
+  close();
+  return out.join('\n');
+}
+const ctaBlock = (c, href) => `<div class="cta cta-big">\n  <h2>${c.h2}</h2>\n  <p>${c.p}</p>\n  <a class="btn btn-big" href="${href}">${c.btn}</a>\n</div>`;
+const DEFAULT_RELATED = {
+  event: ['collect-wedding-photos-from-guests', 'qr-code-for-photos-at-party', 'how-to-collect-photos-from-event-guests'],
+  social: ['how-to-make-a-photo-story', 'private-photo-sharing-for-family', 'add-voice-to-photos'],
+};
+async function renderStandalone(slug, lang, tr) {
+  for (const k of ['title', 'desc', 'h1', 'lead', 'body', 'cta', 'faq', 'type']) if (!tr[k]) throw new Error(`${slug}/${lang}: standalone guide needs "${k}"`);
+  const all = [tr.title, tr.desc, tr.h1, tr.lead, ...tr.body, JSON.stringify(tr.cta), JSON.stringify(tr.cta2 || {}), JSON.stringify(tr.faq)].join('\n');
+  if (/\b(shots?|shooting)\b/i.test(all)) throw new Error(`${slug}/${lang}: banned word (shot/shooting)`);
+  if (/forever|indefinite|\bapps?\b/i.test(all)) throw new Error(`${slug}/${lang}: banned word (forever/indefinite/app)`);
+  const ui = await uiStrings(lang);
+  const pre = lang === 'en' ? '' : `/${lang}`;
+  const href = tr.type === 'event' ? (lang === 'en' ? 'https://albums.ink/events/' : `/events/?lang=${lang}`) : 'https://albums.ink/';
+  const url = urlFor(lang, slug);
+  const tpl = await readFile(join(ROOT, 'guides', UI_REF, 'index.html'), 'utf8');
+  const [head0] = splitBody(tpl);
+  const title = esc(tr.title), desc = esc(tr.desc);
+  const img = `https://albums.ink/img/og/${tr.type === 'event' ? 'og-events' : 'og-home'}.jpg`;
+  const date = tr.date || new Date().toISOString().slice(0, 10);
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: tr.faq.map(([q, a]) => ({ '@type': 'Question', name: unesc(q), acceptedAnswer: { '@type': 'Answer', text: unesc(a) } })) },
+    { '@context': 'https://schema.org', '@type': 'Article', headline: unesc(tr.h1), mainEntityOfPage: url, inLanguage: lang, image: img, datePublished: date, dateModified: tr.modified || date,
+      author: { '@type': 'Organization', name: 'Albums', url: 'https://albums.ink/' }, publisher: { '@type': 'Organization', name: 'Albums', url: 'https://albums.ink/' } },
+  ];
+  const seo = ['<!-- seo -->', `<title>${title}</title>`, `<meta name="description" content="${desc}">`, `<link rel="canonical" href="${url}">`,
+    `<meta property="og:locale" content="${lang.replace('-', '_')}">`, '<meta property="og:type" content="article">', '<meta property="og:site_name" content="Albums.ink">',
+    `<meta property="og:url" content="${url}">`, `<meta property="og:title" content="${title}">`, `<meta property="og:description" content="${desc}">`,
+    `<meta property="og:image" content="${img}">`, '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+    '<meta name="twitter:card" content="summary_large_image">', `<meta name="twitter:title" content="${title}">`, `<meta name="twitter:description" content="${desc}">`, `<meta name="twitter:image" content="${img}">`,
+    ...ld.map(d => `<script type="application/ld+json">${JSON.stringify(d)}</script>`), '<!-- /seo -->'].join('\n');
+  const head = head0.replace('<html lang="en">', `<html lang="${lang}" data-lang="${lang}">`)
+    .replace(/<!-- seo -->[\s\S]*?<!-- \/seo -->/, seo)
+    .replace(/\n?<!-- hreflang -->[\s\S]*?<!-- \/hreflang -->/, '')
+    .replace('<!-- /seo -->', `<!-- /seo -->\n${hreflangBlock(slug, [lang]).replace(/\n<link rel="alternate" hreflang="x-default"[^\n]*/, '')}`);
+  const cards = [];
+  for (const r of tr.related || DEFAULT_RELATED[tr.type] || []) {
+    const f = join(SRC, r, `${lang}.json`); if (!existsSync(f)) continue;
+    const d = JSON.parse(await readFile(f, 'utf8'));
+    const t = esc(String(d.h1 || d.title).replace(/\s*\|\s*Albums\.ink\s*$/, ''));
+    cards.push(`  <a class="card" href="${pre}/guides/${r}/"><h2>${t}</h2><p>${esc(d.desc)}</p></a>`);
+  }
+  const body = `<body>
+<div class="site-shell"><div id="shell"></div></div>
+<div class="wrap">
+<nav class="crumbs">${ui.crumbs}</nav>
+<article>
+<h1>${tr.h1}</h1>
+<p class="lead">${tr.lead}</p>
+${miniMarkup(tr.body, ctaBlock(tr.cta, href))}
+${ctaBlock(tr.cta2 || tr.cta, href)}
+<section class="faq">
+<h2>${ui.faq}</h2>
+${tr.faq.map(([q, a]) => `  <div><b>${q}</b><p>${a}</p></div>`).join('\n')}
+</section>
+</article>
+${cards.length ? `<section class="related">\n<h2>${ui.more}</h2>\n<div class="cards">\n${cards.join('\n')}\n</div>\n</section>\n` : ''}</div>
+<script type="module" src="/js/guide.js"></script>
+</body>
+</html>
+`;
+  const out = lang === 'en' ? join(ROOT, 'guides', slug, 'index.html') : join(ROOT, lang, 'guides', slug, 'index.html');
+  await mkdir(dirname(out), { recursive: true });
+  await writeFile(out, head + body);
+  return url;
+}
+
 async function build() {
   if (!existsSync(SRC)) return;
   const urls = [];
   for (const slug of await readdir(SRC)) {
+    // Самостоятельные гайды — только на своих языках, без английского шаблона.
+    let standalone = false;
+    for (const l of LANGS) {
+      const f = join(SRC, slug, `${l}.json`);
+      if (!existsSync(f)) continue;
+      const tr = JSON.parse(await readFile(f, 'utf8'));
+      if (tr.standalone) { standalone = true; urls.push(await renderStandalone(slug, l, tr)); }
+    }
+    if (standalone) continue;
     const langs = LANGS.filter(l => l === 'en' || existsSync(join(SRC, slug, `${l}.json`)));
     if (langs.length < 2) continue;
     const enPath = join(ROOT, 'guides', slug, 'index.html');
