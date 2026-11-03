@@ -11,7 +11,8 @@
  * Запуск: node tools/build-head.mjs  (build.mjs вызывает его сам).
  */
 
-import { readFile, writeFile, stat } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
+import { loadBaselineLastmods, pickLastmod } from './sitemap-lastmod.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -814,12 +815,13 @@ async function previousAlbumRows() {
 }
 
 async function writeSitemap() {
+  const prev = await loadBaselineLastmods(ROOT);
   const rows = [];
   for (const [file, p] of Object.entries(PAGES)) {
     if (!p.sitemap) continue;
-    const { mtime } = await stat(join(ROOT, file));
-    const lastmod = mtime.toISOString().slice(0, 10);
-    rows.push(`  <url><loc>${SITE + p.path}</loc><lastmod>${lastmod}</lastmod>`
+    const loc = SITE + p.path;
+    const lastmod = pickLastmod(ROOT, file, prev, loc);
+    rows.push(`  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod>`
       + `<changefreq>${p.sitemap.changefreq}</changefreq>`
       + `<priority>${p.sitemap.priority}</priority></url>`);
   }

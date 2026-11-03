@@ -25,6 +25,7 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadBaselineLastmods, pickLastmod } from './sitemap-lastmod.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://albums.ink';
@@ -229,21 +230,26 @@ async function build() {
       const f = join(SRC, slug, `${l}.json`);
       if (!existsSync(f)) continue;
       const tr = JSON.parse(await readFile(f, 'utf8'));
-      if (tr.standalone) { standalone = true; urls.push(await renderStandalone(slug, l, tr)); }
+      if (tr.standalone) { standalone = true; urls.push({ url: await renderStandalone(slug, l, tr), file: join('i18n-guides', slug, `${l}.json`) }); }
     }
     if (standalone) continue;
     const langs = LANGS.filter(l => l === 'en' || existsSync(join(SRC, slug, `${l}.json`)));
     if (langs.length < 2) continue;
     const enPath = join(ROOT, 'guides', slug, 'index.html');
     await writeFile(enPath, putHreflang(await readFile(enPath, 'utf8'), hreflangBlock(slug, langs)));
-    for (const l of langs) if (l !== 'en') urls.push(await render(slug, l, langs));
+    for (const l of langs) if (l !== 'en') urls.push({ url: await render(slug, l, langs), file: join('i18n-guides', slug, `${l}.json`) });
   }
   // В sitemap.xml (его только что переписал build-head) — переводы гайдов.
+  // lastmod — дата git-коммита JSON-исходника (не «сегодня»), иначе каждый
+  // build бампил бы сотни неизменённых URL.
   const smPath = join(ROOT, 'sitemap.xml');
   let sm = await readFile(smPath, 'utf8');
   sm = sm.replace(/\n?  <!-- guides-i18n -->[\s\S]*?<!-- \/guides-i18n -->/, '');
-  const day = new Date().toISOString().slice(0, 10);
-  const block = ['  <!-- guides-i18n -->', ...urls.map(u => `  <url><loc>${u}</loc><lastmod>${day}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`), '  <!-- /guides-i18n -->'].join('\n');
+  const prev = await loadBaselineLastmods(ROOT);
+  const block = ['  <!-- guides-i18n -->', ...urls.map(({ url, file }) => {
+    const lastmod = pickLastmod(ROOT, file, prev, url);
+    return `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`;
+  }), '  <!-- /guides-i18n -->'].join('\n');
   sm = sm.replace('</urlset>', `${block}\n</urlset>`);
   await writeFile(smPath, sm);
   console.log(`guides-i18n: ${urls.length} pages`);
