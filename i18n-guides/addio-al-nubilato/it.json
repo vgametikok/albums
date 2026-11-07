@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "addio al nubilato idee",
+  "date": "2026-11-07",
+  "title": "Addio al nubilato: idee e foto delle amiche | Albums.ink",
+  "desc": "Idee per l’addio al nubilato in Italia e un album QR per raccogliere tutte le foto del weekend tra amiche.",
+  "h1": "Addio al nubilato: idee e un album per tutte le foto",
+  "lead": "L’addio al nubilato in Italia è spesso un weekend tra amiche — spa, cena, pista da ballo. Ognuna scatta, poi tutto sparisce in WhatsApp. Ecco idee concrete e un modo semplice per tenere le foto in un solo album.",
+  "body": [
+    "## Idee che funzionano senza stress",
+    "- <b>Weekend corto</b>: una notte in città o in agriturismo, non un tour di tre giorni.",
+    "- <b>Aperitivo o laboratorio</b>: momenti facili da fotografare.",
+    "- <b>Bingo foto</b>: istanti da catturare (primo brindisi, vestito bianco, selfie di gruppo) e caricare nell’album.",
+    "- <b>Messaggi brevi</b>: una nota da ogni amica, letta la mattina dopo.",
+    "## Raccogli le foto con un QR",
+    "Un <b>album evento</b> su Albums sostituisce il “mandami le foto” del lunedì:",
+    "1. Crea l’album, es. “Addio al nubilato Giulia 2026”.",
+    "2. Stampa il QR sull’invito e vicino ai giochi.",
+    "3. Le amiche inquadrano con la fotocamera e caricano dal browser — niente da installare.",
+    "4. Attiva <b>Hold guest photos</b> (approva le foto) se serve.",
+    "5. Poi scarica tutto l’album in un unico ZIP.",
+    "Si può caricare senza account. Chi accede tiene anche una copia privata solo dei propri file.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/qr-code-for-photos-at-party/\">QR per foto di festa</a> e <a href=\"/it/guides/bachelorette-party-photo-scavenger-hunt/\">caccia fotografica</a>.",
+    "## Costo",
+    "Album evento con pagamento unico: Small $39.99, Medium $69.99 o Large $129.99 (USD). Le ospiti non pagano. Foto fino a 4K; album disponibile 6 mesi dal primo caricamento, prolungabile."
+  ],
+  "cta": {
+    "h2": "Un QR per tutto l’addio al nubilato",
+    "p": "Le amiche caricano dal browser. Tu approvi cosa compare.",
+    "btn": "Crea album evento →"
+  },
+  "cta2": {
+    "h2": "Non perdere le foto del weekend",
+    "p": "Da $39.99 una volta. Fino a 4K, 6 mesi dal primo upload.",
+    "btn": "Crea il mio album →"
+  },
+  "faq": [
+    [
+      "Quali idee per un addio al nubilato?",
+      "Weekend corto, aperitivo, bingo foto, messaggi brevi e un album QR condiviso."
+    ],
+    [
+      "Come raccogliere le foto?",
+      "QR su invito e tavoli: si inquadra e si carica dal browser."
+    ],
+    [
+      "Serve un account?",
+      "No per caricare. Con account c’è anche una copia privata dei propri file."
+    ],
+    [
+      "Quanto costa?",
+      "Small $39.99, Medium $69.99 o Large $129.99 (USD), una sola volta."
+    ]
+  ],
+  "related": [
+    "bachelorette-party-photo-scavenger-hunt",
+    "qr-code-for-photos-at-party",
+    "festa-18-anni"
+  ]
+}

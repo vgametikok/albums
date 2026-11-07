@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "album foto untuk ayah",
+  "date": "2026-11-07",
+  "title": "Album foto untuk ayah: hadiah bersuara | Albums.ink",
+  "desc": "Cara membuat album foto untuk ayah: bab cerita, pesan suara anak, dan tautan privat. Gratis, tanpa iklan.",
+  "h1": "Album foto untuk ayah: hadiah yang dibuka di HP",
+  "lead": "Album foto untuk ayah lebih berarti daripada gadget lain — terutama jika anak tinggal di kota berbeda dan foto terbaik tersebar. Berikut cara membuat album cerita dengan bab dan pesan suara singkat.",
+  "body": [
+    "## Apa yang dimasukkan",
+    "- <b>Dulu dan sekarang</b>: beberapa foto lama yang discan, lalu liburan atau makan bersama terbaru.",
+    "- <b>Satu bab per anak</b>: masing-masing menambah foto dan pesan suara 20 detik.",
+    "- <b>Tempat kesukaannya</b>: garasi, kebun, warung kopi langganan.",
+    "- <b>Sehari-hari</b>: kopi pagi, hewan peliharaan — bagian yang sering dibuka lagi.",
+    "## Album cerita gratis",
+    "Di Albums Anda membuat <b>album cerita</b> dengan bab, foto, video, dan catatan suara. Privasi: privat atau hanya keluarga. Tanpa iklan. Album tetap ada selama Anda menginginkannya.",
+    "1. Buat album gratis, misalnya “Untuk ayah 2026”.",
+    "2. Tambah bab (Masa kecil, Keluarga, Perjalanan, Tahun ini).",
+    "3. Unggah foto (maks. 30 MB) dan video singkat (maks. 50 MB).",
+    "4. Rekam suara di browser atau unggah audio (maks. 20 MB).",
+    "5. Bila perlu, undang satu co-author (sudah berteman di Albums).",
+    "6. Kirim tautan dengan pratinjau sampul — dibuka di browser, tanpa aplikasi.",
+    "!cta",
+    "Serupa: <a href=\"/id/guides/album-foto-untuk-mama/\">album untuk mama</a> dan <a href=\"/id/guides/add-voice-to-photos/\">suara pada foto</a>.",
+    "## Mengapa tautan membantu",
+    "Ayah bisa menonton di TV ruang tamu atau di perjalanan. Nanti Anda menambah foto ulang tahun. Seluruh album bisa diunduh sebagai satu ZIP."
+  ],
+  "cta": {
+    "h2": "Album untuk ayah dengan suara Anda",
+    "p": "Album cerita gratis dengan bab dan catatan suara. Tanpa iklan.",
+    "btn": "Mulai album →"
+  },
+  "cta2": {
+    "h2": "Hadiah yang bisa dibuka malam ini",
+    "p": "Album gratis selama Anda menginginkannya. Bisa privat.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    [
+      "Apa isi album foto untuk ayah?",
+      "Foto lama dan baru, bab per anak, dan pesan suara singkat."
+    ],
+    [
+      "Apakah gratis?",
+      "Ya. Album cerita di Albums gratis dan tanpa iklan."
+    ],
+    [
+      "Perlu aplikasi?",
+      "Tidak. Hanya web: buka tautan di browser."
+    ],
+    [
+      "Berapa lama tersimpan?",
+      "Selama Anda menginginkannya."
+    ]
+  ],
+  "related": [
+    "album-foto-untuk-mama",
+    "add-voice-to-photos",
+    "album-foto-keluarga"
+  ]
+}

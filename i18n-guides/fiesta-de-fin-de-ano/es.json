@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "MX",
+  "query": "fiesta de fin de año ideas",
+  "date": "2026-11-07",
+  "title": "Fiesta de fin de año: ideas y fotos de invitados | Albums.ink",
+  "desc": "Ideas para fiesta de fin de año en México: dinámica, brindis y un álbum QR para juntar las fotos de todos los invitados.",
+  "h1": "Fiesta de fin de año: ideas y un álbum para todas las fotos",
+  "lead": "La fiesta de fin de año en México —en casa, salón o la oficina— llena el chat de fotos del brindis y de la pista… y al día siguiente nadie las encuentra. Aquí van ideas prácticas y una forma sencilla de reunir las fotos de todos en un solo álbum.",
+  "body": [
+    "## Ideas que funcionan en casa o en salón",
+    "- <b>Brindis con propósito</b>: cada persona dice una meta corta del año que termina —sin discursos largos.",
+    "- <b>Playlist compartida</b>: un código o lista colaborativa para que no suene solo lo del anfitrión.",
+    "- <b>Misiones de foto</b>: con el pastel, con el equipo completo, con el brindis —cuenta solo si sube al álbum.",
+    "- <b>Rincón de props</b>: anteojos, letreros del año nuevo, un fondo simple.",
+    "## Junta las fotos con un código QR",
+    "Un <b>álbum de evento</b> en Albums evita el “pásame tus fotos” del 2 de enero:",
+    "1. Crea el álbum, p. ej. “Fin de año 2026 – familia / equipo”.",
+    "2. Imprime el QR en la invitación, en la mesa del pastel y cerca de la pista.",
+    "3. Los invitados escanean con la cámara y suben desde el navegador —sin instalar nada.",
+    "4. Activa <b>“Hold guest photos”</b> (aprobar fotos de invitados) si quieres revisar antes.",
+    "5. Después descarga el álbum completo en un solo ZIP.",
+    "Pueden subir sin cuenta. Quien inicia sesión además guarda una copia privada de lo que subió.",
+    "!cta",
+    "También: <a href=\"/es/guides/posada-navidena/\">posada navideña</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">QR para fotos en fiestas</a>.",
+    "## Precio",
+    "Álbum de evento de pago único: Small $39.99, Medium $69.99 o Large $129.99 (USD). Los invitados no pagan. Fotos hasta 4K; el álbum dura 6 meses desde la primera subida, prorrogable."
+  ],
+  "cta": {
+    "h2": "Un QR para toda la fiesta de fin de año",
+    "p": "Los invitados suben desde el navegador. Tú apruebas lo que se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "No pierdas el brindis ni la pista",
+    "p": "Desde $39.99 una vez. Hasta 4K, 6 meses desde la primera subida, prorrogable.",
+    "btn": "Crear mi álbum →"
+  },
+  "faq": [
+    [
+      "¿Qué ideas sirven para una fiesta de fin de año?",
+      "Brindis corto, playlist compartida, misiones de foto, props sencillos y un álbum QR para todos."
+    ],
+    [
+      "¿Cómo junto las fotos de los invitados?",
+      "Con un código QR en mesas y pastel: escanean y suben fotos y videos desde el navegador."
+    ],
+    [
+      "¿Los invitados necesitan cuenta?",
+      "No. Pueden subir sin registrarse; con sesión también guardan una copia privada de lo suyo."
+    ],
+    [
+      "¿Cuánto cuesta?",
+      "Small $39.99, Medium $69.99 o Large $129.99 (USD), una sola vez."
+    ]
+  ],
+  "related": [
+    "posada-navidena",
+    "qr-code-for-photos-at-party",
+    "company-party-photo-sharing"
+  ]
+}

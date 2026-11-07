@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "album ảnh cho mẹ",
+  "date": "2026-11-07",
+  "title": "Album ảnh cho mẹ: quà có giọng nói | Albums.ink",
+  "desc": "Làm album ảnh cho mẹ: chia chương, ghi âm lời con, gửi link riêng. Miễn phí, không quảng cáo.",
+  "h1": "Album ảnh cho mẹ: món quà mở trên điện thoại",
+  "lead": "Album ảnh cho mẹ đáng hơn thêm một món đồ — nhất là khi các con ở khác tỉnh và ảnh đẹp nằm rải rác. Cách làm album kể chuyện với chương và tin nhắn thoại ngắn.",
+  "body": [
+    "## Nên bỏ gì vào",
+    "- <b>Xưa và nay</b>: vài ảnh scan cũ rồi tới chuyến đi và bữa cơm gần đây.",
+    "- <b>Một chương mỗi con</b>: mỗi người thêm ảnh và 20 giây thoại.",
+    "- <b>Chỗ mẹ thích</b>: bếp, công viên, quán cà phê quen.",
+    "- <b>Ngày thường</b>: ly cà phê sáng, thú cưng — phần mẹ mở lại nhiều nhất.",
+    "## Album kể chuyện miễn phí",
+    "Trên Albums bạn tạo <b>album kể chuyện</b> với chương, ảnh, video và ghi âm. Riêng tư hoặc chỉ gia đình. Không quảng cáo. Giữ bao lâu bạn muốn.",
+    "1. Tạo album miễn phí, ví dụ “Tặng mẹ 2026”.",
+    "2. Thêm chương (Tuổi thơ, Gia đình, Du lịch, Năm nay).",
+    "3. Tải ảnh (tối đa 30 MB) và video ngắn (tối đa 50 MB).",
+    "4. Ghi âm trên trình duyệt hoặc tải audio (tối đa 20 MB).",
+    "5. Có thể mời một đồng tác giả (đã là bạn trên Albums).",
+    "6. Gửi link kèm ảnh bìa — mẹ mở bằng trình duyệt — không cần cài đặt.",
+    "!cta",
+    "Liên quan: <a href=\"/vi/guides/album-anh-gia-dinh/\">album ảnh gia đình</a>, <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng vào ảnh</a>.",
+    "## Vì sao dùng link",
+    "Mẹ xem trên TV phòng khách hoặc trên xe buýt. Sau này bạn thêm ảnh sinh nhật. Có thể tải cả album thành một ZIP."
+  ],
+  "cta": {
+    "h2": "Album cho mẹ có giọng của bạn",
+    "p": "Album kể chuyện miễn phí với chương và ghi âm. Không quảng cáo.",
+    "btn": "Bắt đầu album →"
+  },
+  "cta2": {
+    "h2": "Quà mở được trong tối nay",
+    "p": "Album miễn phí giữ bao lâu bạn muốn. Có thể để riêng tư.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Album ảnh cho mẹ nên có gì?",
+      "Ảnh cũ và mới, chương theo từng con, và tin nhắn thoại ngắn."
+    ],
+    [
+      "Có miễn phí không?",
+      "Có. Album kể chuyện trên Albums miễn phí, không quảng cáo."
+    ],
+    [
+      "Mẹ có cần cài đặt gì không?",
+      "Không. Chỉ cần mở link trên trình duyệt."
+    ],
+    [
+      "Giữ được bao lâu?",
+      "Bao lâu bạn muốn."
+    ]
+  ],
+  "related": [
+    "album-anh-gia-dinh",
+    "add-voice-to-photos",
+    "album-anh-tang-nguoi-yeu"
+  ]
+}

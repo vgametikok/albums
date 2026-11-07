@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "EVJF idées",
+  "date": "2026-11-07",
+  "title": "EVJF : idées et photos des invitées | Albums.ink",
+  "desc": "Idées d’EVJF en Suisse : week-end, jeux et un album QR pour rassembler toutes les photos des amies.",
+  "h1": "EVJF : idées pour le week-end et un album pour toutes les photos",
+  "lead": "L’enterrement de vie de jeune fille (EVJF) en Suisse, c’est souvent un week-end entre amies — spa, fondue, piste de danse. Chacune prend des photos, puis tout disparaît dans WhatsApp. Voici des idées concrètes et un moyen simple de tout garder dans un seul album.",
+  "body": [
+    "## Idées qui marchent sans stress",
+    "- <b>Week-end court</b> : une nuit en chalet ou en ville, plutôt qu’un marathon de trois jours.",
+    "- <b>Atelier ou dégustation</b> : chocolat, fromage, cocktail — moments faciles à photographier.",
+    "- <b>Jeux photo</b> : bingo d’instants (premier toast, robe blanche, selfie de groupe) à déposer dans l’album.",
+    "- <b>Lettre / voeux</b> : une note courte de chaque amie, lue le dimanche matin.",
+    "## Rassembler les photos avec un QR",
+    "Un <b>album événement</b> sur Albums remplace le « envoie-moi tes photos » du lundi :",
+    "1. Créez l’album, ex. « EVJF Léa 2026 ».",
+    "2. Imprimez le QR sur l’invitation et près des jeux.",
+    "3. Les invitées scannent avec l’appareil photo et envoient depuis le navigateur — rien à installer.",
+    "4. Activez <b>« Hold guest photos »</b> (valider les photos) si besoin.",
+    "5. Téléchargez ensuite tout l’album en un seul ZIP.",
+    "Upload possible sans compte. Avec connexion, chacune garde aussi une copie privée de ses envois.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/enterrement-vie-de-garcon/\">EVG</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">QR pour photos de fête</a>.",
+    "## Tarif",
+    "Album événement en achat unique : Small $39.99, Medium $69.99 ou Large $129.99 (USD). Les invitées ne paient rien. Photos jusqu’à 4K ; album disponible 6 mois après le premier envoi, prolongeable."
+  ],
+  "cta": {
+    "h2": "Un QR pour tout l’EVJF",
+    "p": "Les amies envoient depuis le navigateur. Vous validez ce qui apparaît.",
+    "btn": "Créer l’album événement →"
+  },
+  "cta2": {
+    "h2": "Ne perdez aucune photo du week-end",
+    "p": "À partir de $39.99 une fois. Jusqu’à 4K, 6 mois dès le premier envoi.",
+    "btn": "Créer mon album →"
+  },
+  "faq": [
+    [
+      "Qu’est-ce qu’un EVJF ?",
+      "L’enterrement de vie de jeune fille : fête ou week-end entre amies avant le mariage."
+    ],
+    [
+      "Quelles idées pour un EVJF ?",
+      "Week-end court, atelier, bingo photo, vœux courts et un album QR partagé."
+    ],
+    [
+      "Comment collecter les photos ?",
+      "Un QR sur l’invitation et les tables : scan, puis envoi depuis le navigateur."
+    ],
+    [
+      "Faut-il un compte ?",
+      "Non pour envoyer. Avec compte, copie privée de ses propres photos en plus."
+    ]
+  ],
+  "related": [
+    "enterrement-vie-de-garcon",
+    "qr-code-for-photos-at-party",
+    "bachelorette-party-photo-scavenger-hunt"
+  ]
+}

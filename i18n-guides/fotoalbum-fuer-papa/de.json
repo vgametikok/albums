@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "Fotoalbum für Papa",
+  "date": "2026-11-07",
+  "title": "Fotoalbum für Papa selber machen | Albums.ink",
+  "desc": "Fotoalbum für Papa: Kapitel, Sprachnachrichten der Kinder und ein Link-Geschenk — privat, ohne Werbung.",
+  "h1": "Fotoalbum für Papa selber machen",
+  "lead": "Ein Fotoalbum für Papa wirkt persönlicher als noch ein Gadget — besonders wenn die Kinder verteilt wohnen und die besten Bilder in verschiedenen Handys stecken. So baust du in der Schweiz ein digitales Story-Album mit Kapiteln und kurzer Stimme dazu.",
+  "body": [
+    "## Was rein sollte",
+    "- <b>Früher und heute</b>: ein paar gescannte Prints, dann Wanderungen, Grillabende, Skitage.",
+    "- <b>Ein Kapitel pro Kind</b>: jedes Kind lädt Fotos und eine kurze Sprachnachricht hoch.",
+    "- <b>Seine Orte</b>: Hütte, Garten, der Stammplatz im Café.",
+    "- <b>Alltag</b>: Kaffee am Morgen, der Hund — genau das will er später nochmal hören.",
+    "## Kostenloses Story-Album",
+    "Auf Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnotizen. Privatsphäre: privat oder nur Familie. Ohne Werbung. Das Album bleibt so lange du es behalten willst.",
+    "1. Kostenloses Album anlegen, z. B. „Für Papa 2026“.",
+    "2. Kapitel setzen (Kindheit, Familie, Reisen, Dieses Jahr).",
+    "3. Fotos (bis 30 MB) und kurze Videos (bis 50 MB) hochladen.",
+    "4. Sprachnachricht im Browser aufnehmen oder Audio laden (bis 20 MB).",
+    "5. Optional einen Co-Autor (bereits Freund auf Albums) einladen.",
+    "6. Link mit Cover-Vorschau schicken — er öffnet ihn im Browser — nichts zu installieren.",
+    "!cta",
+    "Ähnlich: <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a> und <a href=\"/de/guides/add-voice-to-photos/\">Stimme zu Fotos</a>.",
+    "## Link statt nur Druck",
+    "Er kann das Album auf dem Handy oder am TV öffnen. Später kannst du Geburtstagsfotos nachlegen. Das ganze Album lässt sich als eine ZIP herunterladen."
+  ],
+  "cta": {
+    "h2": "Ein Album mit eurer Stimme für Papa",
+    "p": "Kostenloses Story-Album mit Kapiteln und Sprachnotizen. Ohne Werbung.",
+    "btn": "Album starten →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das er sofort öffnen kann",
+    "p": "Unbegrenzt freie Alben — so lange du sie behalten willst. Privat oder nur Familie.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was kommt in ein Fotoalbum für Papa?",
+      "Alte und neue Fotos, kurze Kapitel und eine Sprachnachricht von jedem Kind."
+    ],
+    [
+      "Ist ein Fotoalbum für Papa online kostenlos?",
+      "Ja. Story-Alben auf Albums sind kostenlos, ohne Werbung."
+    ],
+    [
+      "Braucht Papa etwas zu installieren?",
+      "Nein. Nur im Browser — Link öffnen."
+    ],
+    [
+      "Wie lange bleibt das Album?",
+      "So lange du es behalten willst."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-oma",
+    "add-voice-to-photos",
+    "year-in-review-photo-album"
+  ]
+}

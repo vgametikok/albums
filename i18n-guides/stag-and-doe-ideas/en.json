@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CA",
+  "query": "stag and doe ideas",
+  "date": "2026-11-07",
+  "title": "Stag and Doe Ideas: Games, Toonie Toss and Guest Photos | Albums.ink",
+  "desc": "Stag and doe ideas for Canada: toonie toss, dollar dance, raffles and one QR album that collects every guest's photos from the hall.",
+  "h1": "Stag and doe ideas: games that raise cash and one album for every guest photo",
+  "lead": "A stag and doe (stag & doe) is the Canadian wedding fundraiser that fills a hall with coworkers, cousins and friends who may never make the wedding guest list. The toonie toss and dollar dance raise money — and create photo moments that vanish into private camera rolls. Here are stag and doe ideas that work in Ontario, Alberta and beyond, plus a simple way to keep every guest photo in one place.",
+  "body": [
+    "## Classic games guests actually play",
+    "- <b>Toonie toss</b>: coins toward a bottle or prize — crowds form every round.",
+    "- <b>Dollar dance</b>: a short dance with the couple for a loonie or toonie; the line is full of candid photos.",
+    "- <b>50/50 draw</b>: half the pot to a winner, half to the couple — announce it loud so someone captures the cheer.",
+    "- <b>Silent auction / raffle tables</b>: donated baskets and gift cards keep people moving between games.",
+    "- <b>Photo bingo</b>: cards with moments to capture (toonie toss winner, first pie, dance floor) so guests hunt for pictures instead of only scrolling.",
+    "## Where the best photos happen",
+    "Doors, game tables, the dollar dance line and last call on the dance floor. Hired coverage often misses the late, loud part of the night — that is exactly when guests take the funniest videos.",
+    "## Collect every guest photo with one QR code",
+    "An <b>event album</b> on Albums replaces “send me your pics” the next morning:",
+    "1. Create the album, e.g. “Alex & Sam Stag & Doe 2026”.",
+    "2. Print the QR on the ticket table, bar and each game station.",
+    "3. Guests scan with their phone camera and upload from the browser — nothing to install.",
+    "4. Turn on <b>“Hold guest photos”</b> if you want to approve uploads first.",
+    "5. After the night, download the whole album as one ZIP.",
+    "Guests can upload without signing in. Anyone who signs in also gets a private copy of just their own uploads.",
+    "!cta",
+    "Also useful: <a href=\"/guides/qr-code-for-photos-at-party/\">QR codes for party photos</a> and <a href=\"/guides/collect-wedding-photos-from-guests/\">collect wedding photos from guests</a>.",
+    "## What it costs",
+    "An event album is a one-off purchase: Small $39.99, Medium $69.99 or Large $129.99 (USD). Guests pay nothing. Photos up to 4K; the album stays available for 6 months from the first upload, extendable."
+  ],
+  "cta": {
+    "h2": "One QR code for the whole stag and doe",
+    "p": "Guests upload from the browser — nothing to install. You approve what appears.",
+    "btn": "Create event album →"
+  },
+  "cta2": {
+    "h2": "Keep every toonie-toss moment",
+    "p": "One-off from $39.99. Photos up to 4K, 6 months from first upload, extendable.",
+    "btn": "Create my album →"
+  },
+  "faq": [
+    [
+      "What is a stag and doe?",
+      "A Canadian wedding fundraiser — usually a ticketed hall night with games, a cash bar and dancing that raises money for the couple."
+    ],
+    [
+      "What are good stag and doe ideas?",
+      "Toonie toss, dollar dance, 50/50, raffles, photo bingo and a QR album so every guest's photos land in one place."
+    ],
+    [
+      "How do I collect photos from stag and doe guests?",
+      "Print a QR code at the door and game tables. Guests scan and upload photos and videos from the browser."
+    ],
+    [
+      "Do guests need an account?",
+      "No. They can upload without signing in; signed-in guests also get a private copy of their uploads."
+    ]
+  ],
+  "related": [
+    "qr-code-for-photos-at-party",
+    "collect-wedding-photos-from-guests",
+    "bachelorette-party-photo-scavenger-hunt"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc đầy tháng",
+  "date": "2026-11-07",
+  "title": "Tiệc đầy tháng: ý tưởng và ảnh khách mời | Albums.ink",
+  "desc": "Tiệc đầy tháng ở Việt Nam: gợi ý tổ chức và mã QR để gom ảnh từ điện thoại họ hàng, không cần cài đặt.",
+  "h1": "Tiệc đầy tháng: gom ảnh họ hàng vào một album",
+  "lead": "Tiệc đầy tháng mừng bé tròn một tháng. Ngoài ảnh studio, ảnh từ điện thoại ông bà và họ hàng thường lạc trong Zalo. Đây là vài ý tưởng và cách gom tất cả bằng một mã QR.",
+  "body": [
+    "## Khoảnh khắc nên giữ",
+    "- <b>Mâm lễ và ảnh gia đình</b> bên bàn tiệc.",
+    "- <b>Ảnh với ông bà, cô dì</b> — hay bị hỏi lại nhất.",
+    "- <b>Cắt bánh / nâng ly</b> ngắn gọn.",
+    "- <b>Khách đến chào</b> — dễ bỏ lỡ nếu chỉ có một máy.",
+    "## Gom ảnh bằng mã QR",
+    "Album <b>sự kiện</b> trên Albums thay cho lời “gửi ảnh cho mình nhé” hôm sau:",
+    "1. Tạo album, ví dụ “Đầy tháng bé An 2026”.",
+    "2. In QR trên thiệp, bàn lễ tân và bàn tiệc.",
+    "3. Khách quét bằng camera và tải lên từ trình duyệt — không cần cài đặt.",
+    "4. Bật <b>Hold guest photos</b> (duyệt ảnh khách) nếu cần.",
+    "5. Sau tiệc tải cả album thành một file ZIP.",
+    "Khách có thể tải lên không cần đăng nhập. Ai đăng nhập còn giữ bản sao riêng phần mình tải.",
+    "!cta",
+    "Liên quan: <a href=\"/vi/guides/tiec-thoi-noi/\">tiệc thôi nôi</a>, <a href=\"/vi/guides/qr-code-for-photos-at-party/\">QR ảnh tiệc</a>.",
+    "## Chi phí",
+    "Album sự kiện mua một lần: Small $39.99 / Medium $69.99 / Large $129.99 (USD). Khách miễn phí. Ảnh tới 4K; lưu 6 tháng từ lần tải đầu, có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho tiệc đầy tháng",
+    "p": "Khách tải từ trình duyệt — không cần cài đặt. Bạn duyệt trước khi hiện.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Đừng để ảnh họ hàng lạc trong Zalo",
+    "p": "Từ $39.99 một lần. Tới 4K, 6 tháng từ lần tải đầu, gia hạn được.",
+    "btn": "Tạo album của tôi →"
+  },
+  "faq": [
+    [
+      "Tiệc đầy tháng gom ảnh thế nào?",
+      "Dán QR ở lễ tân và bàn tiệc; khách quét và tải ảnh ngay trên trình duyệt."
+    ],
+    [
+      "Có cần cài đặt gì không?",
+      "Không. Chỉ cần camera quét QR và trình duyệt."
+    ],
+    [
+      "Khách có cần tài khoản?",
+      "Không. Có thể tải không đăng nhập; đăng nhập thì thêm bản sao riêng."
+    ],
+    [
+      "Giá bao nhiêu?",
+      "Small $39.99, Medium $69.99, Large $129.99 (USD), một lần. Khách miễn phí."
+    ]
+  ],
+  "related": [
+    "tiec-thoi-noi",
+    "qr-code-for-photos-at-party",
+    "first-birthday-photo-ideas"
+  ]
+}

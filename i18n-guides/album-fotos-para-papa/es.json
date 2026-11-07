@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AR",
+  "query": "álbum de fotos para papá",
+  "date": "2026-11-07",
+  "title": "Álbum de fotos para papá: regalo con tu voz | Albums.ink",
+  "desc": "Cómo hacer un álbum de fotos para papá en Argentina: capítulos, notas de voz de los hijos y un link privado para el celular.",
+  "h1": "Álbum de fotos para papá: un regalo que abre en el celular",
+  "lead": "Un álbum de fotos para papá gana a otro perfume —sobre todo si los hijos viven en distintas ciudades y las mejores fotos están en chats distintos. En Argentina “papá” es la palabra del tag. Así armás un álbum historia con capítulos y notas de voz.",
+  "body": [
+    "## Qué ponerle",
+    "- <b>Antes y ahora</b>: algunas fotos viejas escaneadas y asados, viajes y cumpleaños recientes.",
+    "- <b>Un capítulo por hijo</b>: cada uno sube fotos y un audio corto.",
+    "- <b>Sus lugares</b>: la cancha, el patio, el café de siempre.",
+    "- <b>El día a día</b>: el mate, el perro —eso es lo que después vuelve a abrir.",
+    "## Álbum historia gratis",
+    "En Albums creás un <b>álbum historia</b> con capítulos, fotos, videos y notas de voz. Privacidad: privado o solo familia. Sin anuncios. El álbum queda el tiempo que vos quieras.",
+    "1. Creá un álbum gratis, p. ej. “Para papá 2026”.",
+    "2. Armá capítulos (Infancia, Familia, Viajes, Este año).",
+    "3. Subí fotos (hasta 30 MB) y videos cortos (hasta 50 MB).",
+    "4. Grabá una nota de voz en el navegador o subí audio (hasta 20 MB).",
+    "5. Si querés, invitá a un coautor (ya amigo en Albums).",
+    "6. Mandale el link con vista previa de portada —lo abre en el navegador — nada que instalar.",
+    "!cta",
+    "Parecido: <a href=\"/es/guides/album-fotos-para-mama/\">álbum para mamá</a> y <a href=\"/es/guides/add-voice-to-photos/\">voz en fotos</a>.",
+    "## Por qué un link ayuda",
+    "Lo puede ver en el living o en el bondi. Después le sumás fotos del cumpleaños. También podés bajar el álbum completo en un ZIP."
+  ],
+  "cta": {
+    "h2": "Un álbum para papá con tu voz",
+    "p": "Álbum historia gratis con capítulos y notas de voz. Sin anuncios.",
+    "btn": "Empezar el álbum →"
+  },
+  "cta2": {
+    "h2": "Un regalo que abre hoy",
+    "p": "Álbumes gratis ilimitados, el tiempo que quieras. Privado o solo familia.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué va en un álbum de fotos para papá?",
+      "Fotos viejas y nuevas, capítulos cortos y una nota de voz de cada hijo."
+    ],
+    [
+      "¿Se puede hacer gratis online?",
+      "Sí. Los álbumes historia en Albums son gratis y sin anuncios."
+    ],
+    [
+      "¿Papá necesita instalar algo?",
+      "No. Es solo web: abre el link en el navegador."
+    ],
+    [
+      "¿Cuánto dura el álbum?",
+      "El tiempo que vos quieras."
+    ]
+  ],
+  "related": [
+    "album-fotos-para-mama",
+    "add-voice-to-photos",
+    "year-in-review-photo-album"
+  ]
+}

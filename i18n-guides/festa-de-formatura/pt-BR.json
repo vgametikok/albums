@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de formatura ideias",
+  "date": "2026-11-07",
+  "title": "Festa de formatura: ideias e fotos dos convidados | Albums.ink",
+  "desc": "Ideias para festa de formatura no Brasil e um álbum QR para juntar as fotos da turma, família e convidados.",
+  "h1": "Festa de formatura: ideias e um álbum para todas as fotos",
+  "lead": "A festa de formatura no Brasil — baile, churrasco da turma ou sala de buffet — vira uma chuva de stories. No dia seguinte, ninguém acha o vídeo do juramento. Aqui vão ideias práticas e um jeito simples de reunir as fotos num só álbum.",
+  "body": [
+    "## Ideias que funcionam na prática",
+    "- <b>Entrada da turma</b>: o momento que todo mundo filma.",
+    "- <b>Juramento e discurso curto</b>: combine um limite de tempo.",
+    "- <b>Foto com pais e padrinhos</b>: as mais pedidas depois.",
+    "- <b>Missões de foto</b>: com a placa da faculdade, com a mesa inteira, com o bolo — só vale se for para o álbum.",
+    "## Junte as fotos com um QR",
+    "Um <b>álbum de evento</b> no Albums evita o “me manda suas fotos” na segunda-feira:",
+    "1. Crie o álbum, ex. “Formatura Medicina USP 2026”.",
+    "2. Imprima o QR no convite, na recepção e nas mesas.",
+    "3. Convidados escaneiam com a câmera e enviam pelo navegador — sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> (aprovar fotos) se quiser revisar.",
+    "5. Depois baixe o álbum inteiro em um único ZIP.",
+    "Dá para enviar sem conta. Quem entra na conta também guarda uma cópia privada só do que enviou.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/graduation-party-photo-display-ideas/\">fotos na festa de formatura</a> e <a href=\"/pt-BR/guides/qr-code-for-photos-at-party/\">QR para fotos de festa</a>.",
+    "## Preço",
+    "Álbum de evento com pagamento único: Small $39.99, Medium $69.99 ou Large $129.99 (USD). Convidados não pagam. Fotos até 4K; o álbum fica 6 meses a partir do primeiro envio, com opção de prorrogar."
+  ],
+  "cta": {
+    "h2": "Um QR para toda a festa de formatura",
+    "p": "Convidados enviam pelo navegador. Você aprova o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Não perca o juramento nem a pista",
+    "p": "A partir de $39.99 uma vez. Até 4K, 6 meses desde o primeiro envio.",
+    "btn": "Criar meu álbum →"
+  },
+  "faq": [
+    [
+      "Quais ideias servem para festa de formatura?",
+      "Entrada da turma, discurso curto, foto com os pais, missões de foto e um álbum QR compartilhado."
+    ],
+    [
+      "Como juntar as fotos dos convidados?",
+      "QR na recepção e nas mesas: escaneiam e enviam fotos e vídeos pelo navegador."
+    ],
+    [
+      "Precisa de conta?",
+      "Não para enviar. Com conta, há também uma cópia privada dos próprios envios."
+    ],
+    [
+      "Quanto custa?",
+      "Small $39.99, Medium $69.99 ou Large $129.99 (USD), uma vez."
+    ]
+  ],
+  "related": [
+    "graduation-party-photo-display-ideas",
+    "qr-code-for-photos-at-party",
+    "festa-de-15-anos"
+  ]
+}

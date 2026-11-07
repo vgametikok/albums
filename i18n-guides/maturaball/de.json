@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "Maturaball Ideen",
+  "date": "2026-11-07",
+  "title": "Maturaball: Ideen und Fotos der Gäste | Albums.ink",
+  "desc": "Maturaball in Österreich: Ablauf, Ideen für die Nacht und ein QR-Album, das alle Fotos der Klasse sammelt.",
+  "h1": "Maturaball: Ideen für die Nacht und ein Album für alle Fotos",
+  "lead": "Der Maturaball ist in Österreich der große Abschlussabend der Klasse — Saal, Polonaise, Mitternachtseinlage. Jeder filmt die Ehrengäste und die Afterparty, aber am Montag liegen die Clips in zehn Chats. Hier kurze Ideen für den Ball und ein Weg, alle Gästefotos an einem Ort zu halten.",
+  "body": [
+    "## Was den Maturaball ausmacht",
+    "- <b>Einzug und Polonaise</b>: der Moment, den alle filmen wollen.",
+    "- <b>Mitternachtseinlage</b>: Show der Maturantinnen und Maturanten.",
+    "- <b>Eltern und Ehrengäste</b>: viele Fotos, die sonst nie bei der Klasse landen.",
+    "- <b>Afterparty</b>: oft die ehrlichsten Videos — und die, die man am nächsten Tag sucht.",
+    "## Fotos von allen Gästen sammeln",
+    "Mit einem <b>Event-Album</b> auf Albums reicht ein QR-Code:",
+    "1. Album anlegen, z. B. „Maturaball 2026 – Klasse 8A“.",
+    "2. QR auf Einladung, am Empfang und an den Tischen drucken.",
+    "3. Gäste scannen mit der Handykamera und laden im Browser hoch — nichts installieren.",
+    "4. Optional <b>„Hold guest photos“</b> (Gästefotos freigeben) aktivieren.",
+    "5. Danach das ganze Album als eine ZIP-Datei laden.",
+    "Gäste können ohne Konto hochladen. Wer sich anmeldet, behält zusätzlich eine private Kopie der eigenen Uploads.",
+    "!cta",
+    "Mehr dazu: <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partys</a> und <a href=\"/de/guides/graduation-party-photo-display-ideas/\">Abschlussfeier Fotos</a>.",
+    "## Kosten",
+    "Ein Event-Album ist einmalig: Small $39.99, Medium $69.99 oder Large $129.99 (USD). Gäste zahlen nichts. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für den ganzen Maturaball",
+    "p": "Gäste laden im Browser hoch — nichts zu installieren. Du gibst frei, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Keine Ballnacht-Fotos verlieren",
+    "p": "Einmalpreis ab $39.99. Bis 4K, 6 Monate ab erstem Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Was ist ein Maturaball?",
+      "Der traditionelle Abschlussball der Maturaklasse in Österreich — oft mit Polonaise, Mitternachtseinlage und Afterparty."
+    ],
+    [
+      "Wie sammle ich Fotos vom Maturaball?",
+      "QR-Code am Empfang und an den Tischen: Gäste scannen und laden Fotos und Videos im Browser hoch."
+    ],
+    [
+      "Brauchen Gäste ein Konto?",
+      "Nein. Upload geht ohne Anmeldung; mit Anmeldung gibt es zusätzlich eine private Kopie der eigenen Fotos."
+    ],
+    [
+      "Was kostet das Album?",
+      "Small $39.99, Medium $69.99 oder Large $129.99 (USD), einmalig. Gäste zahlen nichts."
+    ]
+  ],
+  "related": [
+    "graduation-party-photo-display-ideas",
+    "qr-code-for-photos-at-party",
+    "company-party-photo-sharing"
+  ]
+}

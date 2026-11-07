@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "cadeau anniversaire papa original",
+  "date": "2026-11-07",
+  "title": "Cadeau anniversaire papa : un album souvenir | Albums.ink",
+  "desc": "Cadeau d’anniversaire original pour papa en Belgique : album avec chapitres, messages vocaux des enfants et lien privé.",
+  "h1": "Cadeau anniversaire papa : un album qu’il ouvre sur son téléphone",
+  "lead": "Un cadeau d’anniversaire pour papa qui sort du lot, ce n’est pas une autre cravate. Quand la famille est éparpillée, un album histoire avec la voix des enfants reste. Voici comment le faire simplement en Belgique.",
+  "body": [
+    "## Que mettre dans l’album",
+    "- <b>Avant / maintenant</b> : quelques scans d’anciennes photos, puis weekends et fêtes récentes.",
+    "- <b>Un chapitre par enfant</b> : chacun ajoute photos et un message vocal court.",
+    "- <b>Ses lieux</b> : le jardin, le café du coin, le terrain de foot.",
+    "- <b>Le quotidien</b> : le café du matin, le chien — ce qu’il reverra volontiers.",
+    "## Album histoire gratuit",
+    "Sur Albums, créez un <b>album histoire</b> avec chapitres, photos, vidéos et notes vocales. Confidentialité : privé ou famille. Sans pubs. L’album reste aussi longtemps que vous le voulez.",
+    "1. Créez un album gratuit, ex. « Pour papa 2026 ».",
+    "2. Ajoutez des chapitres (Enfance, Famille, Voyages, Cette année).",
+    "3. Envoyez photos (jusqu’à 30 Mo) et vidéos courtes (jusqu’à 50 Mo).",
+    "4. Enregistrez une note vocale dans le navigateur ou importez un audio (jusqu’à 20 Mo).",
+    "5. Invitez un co-auteur (déjà ami sur Albums) si besoin.",
+    "6. Envoyez le lien avec aperçu de couverture — il ouvre dans le navigateur, sans appli.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/album-photo-grands-parents/\">album grands-parents</a> et <a href=\"/fr/guides/add-voice-to-photos/\">voix sur les photos</a>.",
+    "## Pourquoi un lien",
+    "Il peut le regarder sur le canapé ou dans le train. Vous ajouterez les photos d’anniversaire plus tard. Téléchargement de tout l’album en un ZIP possible."
+  ],
+  "cta": {
+    "h2": "Un album pour papa avec votre voix",
+    "p": "Album histoire gratuit avec chapitres et notes vocales. Sans pubs.",
+    "btn": "Commencer l’album →"
+  },
+  "cta2": {
+    "h2": "Un cadeau à ouvrir ce soir",
+    "p": "Albums gratuits illimités, aussi longtemps que vous le voulez. Privé ou famille.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau anniversaire original pour papa ?",
+      "Un album histoire avec photos et messages vocaux des enfants — plus personnel qu’un objet générique."
+    ],
+    [
+      "Est-ce gratuit ?",
+      "Oui. Les albums histoire sur Albums sont gratuits, sans pubs."
+    ],
+    [
+      "Faut-il une appli ?",
+      "Non. Tout est web : il ouvre le lien dans le navigateur."
+    ],
+    [
+      "Combien de temps reste l’album ?",
+      "Aussi longtemps que vous le voulez."
+    ]
+  ],
+  "related": [
+    "album-photo-grands-parents",
+    "add-voice-to-photos",
+    "cadeau-depart-collegue"
+  ]
+}

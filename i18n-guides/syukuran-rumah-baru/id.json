@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "syukuran rumah baru",
+  "date": "2026-11-07",
+  "title": "Syukuran rumah baru: ide dan foto tamu | Albums.ink",
+  "desc": "Ide syukuran rumah baru di Indonesia plus album QR untuk mengumpulkan foto dari HP kerabat, tanpa instal aplikasi.",
+  "h1": "Syukuran rumah baru: kumpulkan foto tamu di satu album",
+  "lead": "Syukuran rumah baru merayakan pindah ke hunian baru. Kerabat memotret rumah dan toast, lalu fotonya hilang di grup WhatsApp. Berikut ide praktis dan cara mengumpulkan semuanya dengan satu kode QR.",
+  "body": [
+    "## Momen yang biasanya difoto",
+    "- <b>Masuk rumah dan foto keluarga</b> di ruang tamu atau teras.",
+    "- <b>Doa dan toast singkat</b> — mudah difoto bersama.",
+    "- <b>Foto dengan tetangga dan saudara</b> yang paling sering diminta lagi.",
+    "- <b>Suasana santai setelah makan</b> yang sering terlewat kamera resmi.",
+    "## Kumpulkan foto dengan QR",
+    "Album <b>acara</b> di Albums menggantikan “kirim fotonya nanti ya”:",
+    "1. Buat album, misalnya “Syukuran rumah baru 2026”.",
+    "2. Cetak QR di undangan, meja penerima, dan meja makan.",
+    "3. Tamu pindai dengan kamera dan unggah lewat browser — tanpa instal aplikasi.",
+    "4. Aktifkan <b>Hold guest photos</b> (setujui foto tamu) bila perlu.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Tamu bisa unggah tanpa akun. Yang masuk akun juga mendapat salinan pribadi dari unggahannya sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/qr-code-for-photos-at-party/\">QR untuk foto pesta</a> dan <a href=\"/id/guides/acara-aqiqah/\">acara aqiqah</a>.",
+    "## Biaya",
+    "Album acara sekali bayar: Small $39.99, Medium $69.99, atau Large $129.99 (USD). Tamu gratis. Foto hingga 4K; album tersedia 6 bulan sejak unggahan pertama, bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu QR untuk seluruh syukuran rumah baru",
+    "p": "Tamu unggah lewat browser. Anda menyetujui yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Jangan biarkan foto toast hilang di chat",
+    "p": "Dari $39.99 sekali. Hingga 4K, 6 bulan sejak unggahan pertama.",
+    "btn": "Buat album saya →"
+  },
+  "faq": [
+    [
+      "Bagaimana mengumpulkan foto syukuran rumah baru?",
+      "Tempel QR di meja penerima dan meja makan; tamu pindai dan unggah di browser."
+    ],
+    [
+      "Perlu aplikasi?",
+      "Tidak. Cukup pindai QR dan unggah lewat browser."
+    ],
+    [
+      "Tamu perlu akun?",
+      "Tidak. Bisa unggah tanpa masuk; jika masuk, ada salinan pribadi unggahannya."
+    ],
+    [
+      "Berapa biayanya?",
+      "Small $39.99, Medium $69.99, Large $129.99 (USD), sekali bayar."
+    ]
+  ],
+  "related": [
+    "acara-aqiqah",
+    "qr-code-for-photos-at-party",
+    "company-party-photo-sharing"
+  ]
+}

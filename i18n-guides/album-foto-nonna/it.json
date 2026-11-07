@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "album foto per nonna",
+  "date": "2026-11-07",
+  "title": "Album foto per nonna: regalo con la tua voce | Albums.ink",
+  "desc": "Come fare un album foto per nonna: capitoli, messaggi vocali dei nipoti e link privato. Gratis, senza pubblicità.",
+  "h1": "Album foto per nonna: un regalo che apre sul telefono",
+  "lead": "Un album foto per nonna batte un altro profumo — soprattutto se i nipoti vivono lontani e le foto migliori sono sparse. Ecco come creare un album storia con capitoli e brevi vocali.",
+  "body": [
+    "## Cosa mettere dentro",
+    "- <b>Prima e adesso</b>: qualche stampa scansionata e pranzi o gite recenti.",
+    "- <b>Un capitolo per nipote</b>: ognuno aggiunge foto e un vocale di 20 secondi.",
+    "- <b>I suoi luoghi</b>: la cucina, il balcone, la chiesa del paese.",
+    "- <b>Il quotidiano</b>: il caffè, il gatto — quello che riapre dopo.",
+    "## Album storia gratis",
+    "Su Albums crei un <b>album storia</b> con capitoli, foto, video e note vocali. Privacy: privato o solo famiglia. Senza pubblicità. L’album resta per tutto il tempo che vuoi.",
+    "1. Crea un album gratis, es. “Per nonna 2026”.",
+    "2. Aggiungi capitoli (Infanzia, Famiglia, Viaggi, Quest’anno).",
+    "3. Carica foto (fino a 30 MB) e video brevi (fino a 50 MB).",
+    "4. Registra un vocale nel browser o carica audio (fino a 20 MB).",
+    "5. Se serve, invita un co-autore (già amico su Albums).",
+    "6. Invia il link con anteprima di copertina — apre nel browser — niente da installare.",
+    "!cta",
+    "Simile: <a href=\"/it/guides/album-ricordi-neonato/\">album ricordi neonato</a> e <a href=\"/it/guides/add-voice-to-photos/\">voce sulle foto</a>.",
+    "## Perché un link aiuta",
+    "Può guardarlo sul divano o in treno. Poi aggiungi le foto del compleanno. Si può scaricare tutto l’album in uno ZIP."
+  ],
+  "cta": {
+    "h2": "Un album per nonna con la tua voce",
+    "p": "Album storia gratis con capitoli e vocali. Senza pubblicità.",
+    "btn": "Inizia l’album →"
+  },
+  "cta2": {
+    "h2": "Un regalo da aprire stasera",
+    "p": "Album gratis per tutto il tempo che vuoi. Privato o solo famiglia.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa mettere in un album foto per nonna?",
+      "Foto vecchie e nuove, un capitolo per nipote e un breve vocale."
+    ],
+    [
+      "È gratis?",
+      "Sì. Gli album storia su Albums sono gratis e senza pubblicità."
+    ],
+    [
+      "Serve installare qualcosa?",
+      "No. Solo web: apre il link nel browser."
+    ],
+    [
+      "Quanto resta l’album?",
+      "Per tutto il tempo che vuoi."
+    ]
+  ],
+  "related": [
+    "album-ricordi-neonato",
+    "add-voice-to-photos",
+    "album-anniversario-matrimonio"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "álbum de fotos para pai",
+  "date": "2026-11-07",
+  "title": "Álbum de fotos para pai: presente com a sua voz | Albums.ink",
+  "desc": "Como fazer um álbum de fotos para pai: capítulos, áudios dos filhos e link privado. Grátis, sem anúncios.",
+  "h1": "Álbum de fotos para pai: um presente que abre no celular",
+  "lead": "Um álbum de fotos para pai vale mais que mais uma carteira — principalmente quando os filhos moram longe e as melhores fotos estão em chats diferentes. Veja como montar um álbum-história com capítulos e áudios curtos.",
+  "body": [
+    "## O que colocar",
+    "- <b>Antes e agora</b>: algumas fotos antigas digitalizadas e churrascos ou viagens recentes.",
+    "- <b>Um capítulo por filho</b>: cada um sobe fotos e um áudio de 20 segundos.",
+    "- <b>Lugares dele</b>: a garagem, o campo, o café de sempre.",
+    "- <b>O dia a dia</b>: café da manhã, o cachorro — o que ele reabre depois.",
+    "## Álbum-história grátis",
+    "No Albums você cria um <b>álbum-história</b> com capítulos, fotos, vídeos e notas de voz. Privacidade: privado ou só família. Sem anúncios. O álbum fica pelo tempo que você quiser.",
+    "1. Crie um álbum grátis, ex. “Para o pai 2026”.",
+    "2. Monte capítulos (Infância, Família, Viagens, Este ano).",
+    "3. Envie fotos (até 30 MB) e vídeos curtos (até 50 MB).",
+    "4. Grave um áudio no navegador ou envie áudio (até 20 MB).",
+    "5. Se quiser, convide um coautor (já amigo no Albums).",
+    "6. Mande o link com capa — ele abre no navegador — nada para instalar.",
+    "!cta",
+    "Parecido: <a href=\"/pt-BR/guides/album-presente-para-mae/\">presente para mãe</a> e <a href=\"/pt-BR/guides/add-voice-to-photos/\">voz nas fotos</a>.",
+    "## Por que um link ajuda",
+    "Ele vê na TV da sala ou no ônibus. Depois você adiciona as fotos do aniversário. Dá para baixar o álbum inteiro em um ZIP."
+  ],
+  "cta": {
+    "h2": "Um álbum para o pai com a sua voz",
+    "p": "Álbum-história grátis com capítulos e áudios. Sem anúncios.",
+    "btn": "Começar o álbum →"
+  },
+  "cta2": {
+    "h2": "Um presente para abrir hoje",
+    "p": "Álbuns grátis pelo tempo que você quiser. Privado ou só família.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que colocar num álbum de fotos para pai?",
+      "Fotos antigas e novas, um capítulo por filho e um áudio curto de cada um."
+    ],
+    [
+      "É grátis?",
+      "Sim. Álbuns-história no Albums são grátis e sem anúncios."
+    ],
+    [
+      "Precisa instalar algo?",
+      "Não. É só web: ele abre o link no navegador."
+    ],
+    [
+      "Por quanto tempo fica?",
+      "Pelo tempo que você quiser."
+    ]
+  ],
+  "related": [
+    "album-presente-para-mae",
+    "add-voice-to-photos",
+    "album-de-viagem"
+  ]
+}
