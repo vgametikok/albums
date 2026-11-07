@@ -165,10 +165,20 @@ export const PRICING_FAQ = [
 const PAGES = {
   'index.html': {
     path: '/',
-    title: 'Albums.ink — QR Photo Albums for Weddings & Events, and Story Albums',
+    title: 'Event QR Photo Albums — Every Guest Photo with One QR Code | Albums.ink',
+    og: 'events',
+    ogTitle: 'Every guest photo. One QR code.',
+    ogDesc: 'A QR photo album for your wedding or event: guests scan the code on the table and upload photos and videos from their phones — no app, no signup. From $39.99 one-time.',
+    desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their photos too.',
+    ld: [APP_LD, faq(EVENT_FAQ)],
+    sitemap: { changefreq: 'monthly', priority: '1.0' },
+  },
+  'social/index.html': {
+    path: '/social/',
+    title: 'Social — Story Albums and Photo Feed | Albums.ink',
     og: 'home',
-    desc: 'Collect every guest photo from your wedding or event with one QR code — no app, no signup, full export. And turn memories into story albums with chapters, videos and voice notes.',
-    ogTitle: 'Albums.ink — every guest photo with one QR code, and albums told as stories',
+    desc: 'Explore photo and story albums, discover creators, and share memories with chapters, videos and voice notes.',
+    ogTitle: 'Social — Story Albums and Photo Feed | Albums.ink',
     ogDesc: CANON,
     ld: [ORG_LD, APP_LD_HOME],
     sitemap: { changefreq: 'weekly', priority: '1.0' },
@@ -184,14 +194,13 @@ const PAGES = {
   // Лендинг QR-альбомов. Раньше жил в event-album.html — теперь там только
   // переадресация сюда (noindex + canonical), поэтому в карте её нет.
   'events/index.html': {
-    path: '/events/',
+    path: '/',
     title: 'Event QR Photo Albums — Every Guest Photo with One QR Code | Albums.ink',
     og: 'events',
     ogTitle: 'Every guest photo. One QR code.',
     ogDesc: 'A QR photo album for your wedding or event: guests scan the code on the table and upload photos and videos from their phones — no app, no signup. From $39.99 one-time.',
     desc: 'Collect wedding and event photos from guests with one QR code — no app, no signup, from $39.99 one-time per event. Storage for 6 months from the first upload, extendable; full export anytime, and guests keep their photos too.',
     ld: [APP_LD, faq(EVENT_FAQ)],
-    sitemap: { changefreq: 'monthly', priority: '0.9' },
   },
   // Гайды (SEO): английские статьи, FAQ-разметка совпадает с видимым текстом.
   'guides/index.html': {

@@ -1,4 +1,5 @@
 ﻿export default {
+  nav_social: 'Social',
   foot_support: 'Assistance et suggestions',
   foot_partnership: 'Partenariats',
   foot_blog: 'Blog',

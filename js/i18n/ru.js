@@ -1,4 +1,5 @@
 ﻿export default {
+  nav_social: 'Соцсеть',
   foot_guides: 'Гайды',
   foot_support: 'Поддержка и предложения',
   foot_partnership: 'Партнёрство',

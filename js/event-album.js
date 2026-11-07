@@ -18,6 +18,12 @@ import { mountShell } from './ui.js';
 import { trackLandingVisit, wireBuyClickTracking } from './landing-funnel.js';
 
 (async function main() {
+  // Legacy homepage search URLs may bypass the exact root Worker route.
+  // Preserve the entire query and auth fragment without touching checkout state.
+  if ((location.pathname === '/' || location.pathname === '/index.html') && new URLSearchParams(location.search).has('q')) {
+    location.replace('/social/' + location.search + location.hash);
+    return;
+  }
   await initI18n();
   document.title = t('ea_title');
   // Шапка и нижняя панель — те же, что на главной (js/ui.js). Подвал у

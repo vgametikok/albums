@@ -97,7 +97,7 @@ function currentVisibility() {
 /* ---------------------------------------------------------------- render */
 function render() {
   clear(app);
-  app.appendChild(el('a', { class: 'back', href: albumId ? `album.html?id=${albumId}` : 'index.html' },
+  app.appendChild(el('a', { class: 'back', href: albumId ? `album.html?id=${albumId}` : '/social/' },
     icon('back', 16, { sw: 2 }), albumId ? t('back_to_album') : t('back_to_feed')));
 
   app.appendChild(el('h1', {
@@ -674,7 +674,7 @@ function actionsBox() {
         if (!confirm(t('delete_album_confirm'))) return;
         const { error } = await sb.from('albums').delete().eq('id', albumId);
         if (error) { toast(error.message); return; }
-        location.href = 'index.html';
+        location.href = '/social/';
       },
     }, t('delete_album')));
   }

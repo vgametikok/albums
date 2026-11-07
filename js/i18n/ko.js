@@ -1,4 +1,5 @@
 ﻿export default {
+  nav_social: '소셜',
   foot_support: '지원 및 제안',
   foot_partnership: '제휴 문의',
   foot_blog: '블로그',

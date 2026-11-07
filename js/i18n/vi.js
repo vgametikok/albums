@@ -1,4 +1,5 @@
 ﻿export default {
+  nav_social: 'Cộng đồng',
   foot_support: 'Hỗ trợ và góp ý',
   foot_partnership: 'Hợp tác',
   foot_blog: 'Blog',

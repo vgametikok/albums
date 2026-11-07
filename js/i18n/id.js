@@ -1,4 +1,5 @@
 export default {
+  nav_social: 'Sosial',
   foot_support: 'Bantuan & saran',
   foot_partnership: 'Kemitraan',
   foot_blog: 'Blog',

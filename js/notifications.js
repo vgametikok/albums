@@ -120,10 +120,10 @@ function textFor(n) {
 }
 
 function hrefFor(n) {
-  if (n.subject_type === 'album') return `album.html?id=${n.subject_id}`;
-  if (n.subject_type === 'post') return `posts.html#post-${n.subject_id}`;
+  if (n.subject_type === 'album') return `/album.html?id=${n.subject_id}`;
+  if (n.subject_type === 'post') return `/posts.html#post-${n.subject_id}`;
   if (n.subject_type === 'profile' && n.actor?.username) {
-    return `profile.html?u=${encodeURIComponent(n.actor.username)}`;
+    return `/profile.html?u=${encodeURIComponent(n.actor.username)}`;
   }
   return null;
 }

@@ -102,6 +102,8 @@ async function render(slug, lang, langs) {
     existsSync(join(SRC, s, `${lang}.json`)) ? `href="/${lang}/guides/${s}/"` : all);
   body = body.replace(/href="(?:https:\/\/albums\.ink)?\/events\/"/g, `href="/events/?lang=${lang}"`);
 
+  body = body.replace(/href="https:\/\/albums\.ink\/social\/"/g, `href="/social/?lang=${lang}"`);
+
   const url = urlFor(lang, slug);
   const title = esc(tr.title), desc = esc(tr.desc);
   let head = head0
@@ -166,7 +168,7 @@ async function renderStandalone(slug, lang, tr) {
   if (/forever|indefinite|\bapps?\b/i.test(all)) throw new Error(`${slug}/${lang}: banned word (forever/indefinite/app)`);
   const ui = await uiStrings(lang);
   const pre = lang === 'en' ? '' : `/${lang}`;
-  const href = tr.type === 'event' ? (lang === 'en' ? 'https://albums.ink/events/' : `/events/?lang=${lang}`) : 'https://albums.ink/';
+  const href = tr.type === 'event' ? (lang === 'en' ? 'https://albums.ink/events/' : `/events/?lang=${lang}`) : (lang === 'en' ? 'https://albums.ink/social/' : `/social/?lang=${lang}`);
   const url = urlFor(lang, slug);
   const tpl = await readFile(join(ROOT, 'guides', UI_REF, 'index.html'), 'utf8');
   const [head0] = splitBody(tpl);

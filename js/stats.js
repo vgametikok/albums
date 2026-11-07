@@ -90,7 +90,7 @@ export function source() {
     if (u.origin !== location.origin) return 'external';
     const p = u.pathname.split('/').pop() || 'index.html';
     if (u.searchParams.get('q')) return 'search';
-    if (p === '' || p === 'index.html') return 'feed';
+    if (/^\/social(?:\/|$)/.test(u.pathname)) return 'feed';
     if (p === 'posts.html') return 'posts';
     if (p === 'profile.html') return 'profile';
     if (p === 'calendar.html') return 'calendar';

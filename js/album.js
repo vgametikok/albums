@@ -55,7 +55,7 @@ async function render(d) {
   }
 
   clear(app);
-  app.appendChild(el('a', { class: 'back', href: 'index.html' }, icon('back', 16, { sw: 2 }), t('back_to_feed')));
+  app.appendChild(el('a', { class: 'back', href: '/social/' }, icon('back', 16, { sw: 2 }), t('back_to_feed')));
 
   /* ---- hero ---- */
   const hero = el('div', { class: 'album-hero' });

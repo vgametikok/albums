@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- seo -->
+<title>Social — Story Albums and Photo Feed | Albums.ink</title>
+<meta name="description" content="Explore photo and story albums, discover creators, and share memories with chapters, videos and voice notes.">
+<link rel="canonical" href="https://albums.ink/social/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Albums.ink">
+<meta property="og:url" content="https://albums.ink/social/">
+<meta property="og:title" content="Social — Story Albums and Photo Feed | Albums.ink">
+<meta property="og:description" content="Albums collects wedding and event photos from guests by QR code — no app, no signup, no per-guest limits, full export — lets guests keep their photos in their own free account, and turns memories into story albums with chapters and narration.">
+<meta property="og:image" content="https://albums.ink/img/og/og-home.jpg">
+<meta property="og:image:secure_url" content="https://albums.ink/img/og/og-home.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Albums.ink — your memories, told as stories: story albums and QR photo albums for weddings and events">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Social — Story Albums and Photo Feed | Albums.ink">
+<meta name="twitter:description" content="Albums collects wedding and event photos from guests by QR code — no app, no signup, no per-guest limits, full export — lets guests keep their photos in their own free account, and turns memories into story albums with chapters and narration.">
+<meta name="twitter:image" content="https://albums.ink/img/og/og-home.jpg">
+<meta name="twitter:image:alt" content="Albums.ink — your memories, told as stories: story albums and QR photo albums for weddings and events">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albums","url":"https://albums.ink/","logo":"https://albums.ink/icon.svg","email":"support@albums.ink","description":"Albums collects wedding and event photos from guests by QR code — no app, no signup, no per-guest limits, full export — lets guests keep their photos in their own free account, and turns memories into story albums with chapters and narration."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Albums","applicationCategory":"PhotoApplication","operatingSystem":"Web","url":"https://albums.ink/","description":"Albums collects wedding and event photos from guests by QR code — no app, no signup, no per-guest limits, full export — lets guests keep their photos in their own free account, and turns memories into story albums with chapters and narration."}</script>
+<!-- /seo -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://telegram.org https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://t.me https://*.telesco.pe https://rizveurkjpcwrmbtoawj.supabase.co https://lh3.googleusercontent.com https://avatars.yandex.net https://96b91534a2f6087bc76e5a279febc1a8.r2.cloudflarestorage.com; media-src 'self' blob: https://rizveurkjpcwrmbtoawj.supabase.co https://96b91534a2f6087bc76e5a279febc1a8.r2.cloudflarestorage.com; connect-src 'self' https://rizveurkjpcwrmbtoawj.supabase.co https://96b91534a2f6087bc76e5a279febc1a8.r2.cloudflarestorage.com https://cloudflareinsights.com; frame-src https://oauth.telegram.org; frame-ancestors 'none'; base-uri 'none'">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<link href="/css/base.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+  <div id="shell">
+    <!-- Статическая шапка для краулеров; mountShell() заменяет её живой. -->
+    <header class="hdr">
+      <a class="logo" href="/">albums.ink</a>
+      <nav class="hdr-right">
+        <a class="nav-link" href="/posts.html">Posts</a>
+        <a class="nav-link" href="/pricing">Pricing</a>
+        <a class="nav-link" href="/events/">Event Albums</a>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Карточка QR-альбома событий: настоящий HTML до всякого JS — его читают
+       краулеры поисковиков и языковых моделей. feed.js переносит её в ленту:
+       гостю — большой врезкой на месте featured, вошедшему — первой плиткой
+       сетки. Главная одна для всех; цен здесь нет — они на /events/ и /pricing. -->
+  <section id="home-event" class="featured-main ev-feature">
+    <div class="ev-feature-text">
+      <div class="kicker" data-i18n="qr_album_full">QR Album for events</div>
+      <h1 data-i18n="hero_title">Every guest photo from your event — with one QR code</h1>
+      <p data-i18n="home_ev_text">Guests scan the code and upload photos and videos from the phone browser — no app, no signup. 6 months of storage from the first upload (extendable), full export anytime, and guests keep their photos too.</p>
+      <a class="btn btn-primary" href="/events/" data-i18n="home_ev_more">More about event albums</a>
+    </div>
+    <!-- Узор декоративный: настоящий код вёл бы в чей-то альбом. -->
+    <div class="ev-feature-sign" aria-hidden="true">
+      <picture class="ev-couple"><source srcset="/img/event-couple.webp" type="image/webp"><img src="/img/event-couple.png" width="492" height="600" alt="Pastel drawing of a newlywed couple" loading="eager" decoding="async"></picture>
+      <div class="hi-sign">
+        <div class="hi-sign-title" data-i18n="hi_sign_names">Emma &amp; James</div>
+        <div class="hi-sign-sub" data-i18n="hi_sign_date">July 12, 2026</div>
+        <svg class="hi-qr" viewBox="0 0 25 25" aria-hidden="true" shape-rendering="crispEdges">
+            <rect width="25" height="25" fill="#FCFAF6"/>
+            <path fill="#2B2620" d="M0 0h7v7H0zM18 0h7v7h-7zM0 18h7v7H0z"/>
+            <path fill="#FCFAF6" d="M1 1h5v5H1zM19 1h5v5h-5zM1 19h5v5H1z"/>
+            <path fill="#2B2620" d="M2 2h3v3H2zM20 2h3v3h-3zM2 20h3v3H2zM9 0h1v1H9zM11 0h2v1h-2zM14 0h1v2h-1zM9 2h1v2H9zM12 2h1v1h-1zM15 2h2v1h-2zM10 4h2v1h-2zM13 4h1v1h-1zM16 4h1v2h-1zM9 6h1v1H9zM12 6h2v1h-2zM0 9h1v1H0zM2 9h2v1H2zM5 9h1v2H5zM7 9h2v1H7zM11 9h1v1h-1zM13 9h2v2h-2zM17 9h1v1h-1zM20 9h2v1h-2zM23 9h2v1h-2zM1 11h1v1H1zM3 11h1v1H3zM7 11h2v1H7zM10 11h1v2h-1zM16 11h1v1h-1zM19 11h1v1h-1zM22 11h1v2h-1zM0 13h2v1H0zM4 13h2v1H4zM8 13h1v1H8zM12 13h1v1h-1zM15 13h2v1h-2zM18 13h1v2h-1zM21 13h1v1h-1zM24 13h1v2h-1zM2 15h1v1H2zM5 15h1v1H5zM7 15h1v1H7zM9 15h2v1H9zM13 15h1v1h-1zM16 15h1v1h-1zM20 15h2v1h-2zM9 17h1v1H9zM11 17h2v1h-2zM14 17h2v1h-2zM18 17h1v1h-1zM22 17h2v1h-2zM9 19h1v2H9zM12 19h1v1h-1zM15 19h1v2h-1zM17 19h2v1h-2zM21 19h1v1h-1zM24 19h1v1h-1zM10 21h2v1h-2zM13 21h1v1h-1zM18 21h2v1h-2zM22 21h1v1h-1zM9 23h2v1H9zM12 23h2v1h-2zM16 23h2v1h-2zM20 23h1v1h-1zM23 23h2v1h-2z"/>
+          </svg>
+        <div class="hi-sign-cap" data-i18n="hi_sign_cap">Scan to add your photos</div>
+      </div>
+    </div>
+  </section>
+
+  <main id="app"><!-- feed --><div class="grid" id="feed-ssr" aria-hidden="true"><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div><div><div class="skel" style="aspect-ratio:3/2"></div><div class="skel" style="height:18px;margin-top:14px;width:70%;border-radius:6px"></div><div class="skel" style="height:14px;margin-top:8px;width:45%;border-radius:6px"></div></div></div><!-- /feed --></main>
+</div>
+
+<!-- Статический подвал для краулеров; mountFooter() заменяет его локализованным. -->
+<footer class="site-foot" style="text-align:center;padding:28px 16px 96px;color:#A69D8E;font-size:12.5px;line-height:1.7">
+  <div style="margin-bottom:8px">
+    <a href="/events/" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Event Albums</a>
+    <a href="/pricing" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Pricing</a>
+    <a href="/terms" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Terms of Service</a>
+    <a href="/privacy" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Privacy Policy</a>
+    <a href="/refunds" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Refund Policy</a>
+  </div>
+  <div>Support &amp; suggestions: <a href="mailto:support@albums.ink" style="color:#A69D8E;text-decoration:underline">support@albums.ink</a></div>
+  <div>Partnerships: <a href="mailto:partners@albums.ink" style="color:#A69D8E;text-decoration:underline">partners@albums.ink</a></div>
+</footer>
+
+<script type="module" src="/js/feed.js"></script>
+</body>
+</html>

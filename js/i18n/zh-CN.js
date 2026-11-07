@@ -1,4 +1,5 @@
 ﻿export default {
+  nav_social: '社区',
   foot_support: '支持与建议',
   foot_partnership: '商务合作',
   foot_blog: '博客',

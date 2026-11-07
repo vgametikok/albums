@@ -204,7 +204,7 @@ function renderFeed() {
       grid.appendChild(wide(emptyState(
         t('feed_empty_title'),
         t('feed_empty_text'),
-        el('a', { class: 'btn btn-primary', href: 'editor.html' }, t('create_first_album')))));
+        el('a', { class: 'btn btn-primary', href: '/editor.html' }, t('create_first_album')))));
       return;
     }
 
@@ -242,7 +242,7 @@ function renderFeed() {
 function featured(a, b, urls, pro) {
   const wrap = el('div', { class: 'featured' });
   const cover = urls[a.cover_path] || urls[a.thumb1_path];
-  const main = el('a', { class: 'featured-main', href: `album.html?id=${a.id}` });
+  const main = el('a', { class: 'featured-main', href: `/album.html?id=${a.id}` });
   if (cover) main.appendChild(el('img', { src: cover, alt: a.title }));
   main.appendChild(el('div', { class: 'hero-card' },
     el('div', { class: 'hero-inner' },
@@ -280,7 +280,7 @@ async function renderSearch(q) {
     app.appendChild(el('div', { class: 'section-head' }, el('h2', { text: t('search_people') })));
     const row = el('div', { class: 'grid' });
     people.forEach(p => row.appendChild(el('a', {
-      class: 'side-card', href: `profile.html?u=${encodeURIComponent(p.username)}`,
+      class: 'side-card', href: `/profile.html?u=${encodeURIComponent(p.username)}`,
       style: 'display:flex;gap:14px;align-items:center',
     },
       avatarImg(p.avatar, p.name, 52, pro.has(p.username)),

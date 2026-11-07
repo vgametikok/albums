@@ -154,3 +154,6 @@
   .hdr .btn-icon{width:40px;height:40px}
   .hdr .hide-sm{display:none}
 }
+
+/* Social stays visible in the shared header on phones as well as desktop. */
+@media (max-width:720px){.hdr .nav-social{order:2;white-space:nowrap}}

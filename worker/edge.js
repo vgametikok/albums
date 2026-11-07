@@ -213,13 +213,13 @@ function feedComp(a) {
 }
 function feedCard(a) {
   const id = UUID.test(a.id) ? a.id : '';
-  const href = `album.html?id=${id}`;
+  const href = `/album.html?id=${id}`;
   const u = USERNAME.test(a.author_username || '') ? a.author_username : '';
   return `<div data-album-id="${id}"><a class="card-cover" href="${href}"><div class="mosaic"><div class="big">`
     + `<img src="/og/a/${id}.jpg" alt="${esc(a.title)}" loading="lazy" decoding="async"></div><div></div><div></div></div>`
     + `<div class="badge">${esc(feedComp(a))}</div></a><div class="card-meta"><div style="min-width:0">`
     + `<a class="card-title" href="${href}">${esc(a.title)}</a>`
-    + (u ? `<a class="card-sub" href="profile.html?u=${encodeURIComponent(u)}">${esc(a.author_name || u)}</a>` : '')
+    + (u ? `<a class="card-sub" href="/profile.html?u=${encodeURIComponent(u)}">${esc(a.author_name || u)}</a>` : '')
     + `</div></div></div>`;
 }
 const HOME_LIMIT = 24 + FEED_HIDE.size;   // как LIMIT в js/feed.js — тот же ответ RPC
@@ -230,7 +230,7 @@ const withCC = (r) => { const h = new Headers(r.headers); h.set('Cache-Control',
 async function homePage(req, url, ctx) {
   if (url.searchParams.has('q')) return fetch(req);
   const cache = caches.default;
-  const cacheKey = new Request(`${SITE}/__home2${url.pathname}`);
+  const cacheKey = new Request(`${SITE}/__social1${url.pathname}`);
   const hit = await cache.match(cacheKey);
   if (hit) return withCC(hit);
   // Сид — один на окно кэша: клиент читает его из data-seed и запрашивает ту же ленту.
@@ -273,7 +273,15 @@ export default {
     if (old && OLD_GUIDES[old[1]]) return Response.redirect(`${SITE}${OLD_GUIDES[old[1]]}`, 301);
     try {
       const p = url.pathname;
-      if (p === '/' || p === '/index.html') return await homePage(req, url, ctx);
+      // Preserve legacy feed searches, query parameters, and browser fragment inheritance.
+      if ((p === '/' || p === '/index.html') && url.searchParams.has('q')) {
+        return Response.redirect(`${SITE}/social/${url.search}`, 302);
+      }
+      if (p === '/index.html') return Response.redirect(`${SITE}/${url.search}`, 302);
+      if (p === '/social' || p === '/social/index.html') return Response.redirect(`${SITE}/social/${url.search}`, 302);
+      if (p === '/social/') return await homePage(req, url, ctx);
+      // Root is the event landing, never the cached feed or its RPC.
+      if (p === '/') return fetch(req);
       if (p === '/album.html') return await albumPage(req, url, ctx);
       if (p === '/profile.html') return await profilePage(req, url, ctx);
       let m = p.match(/^\/og\/a\/([0-9a-f-]{36})\.jpg$/i);

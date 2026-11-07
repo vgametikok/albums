@@ -304,7 +304,7 @@ export function openReport(subjectType, subjectId, ownerUsername) {
             if (error) { toast(error.message); return; }
             close();
             toast(t('blocked_done'));
-            location.href = 'index.html';
+            location.href = '/social/';
           },
         }, t('block_user'))));
     }
@@ -358,13 +358,14 @@ export async function mountShell(active, opts = {}) {
     onkeydown: (e) => {
       if (e.key === 'Enter') {
         const q = e.currentTarget.value.trim();
-        location.href = q ? `/index.html?q=${encodeURIComponent(q)}` : '/index.html';
+        location.href = q ? `/social/?q=${encodeURIComponent(q)}` : '/social/';
       }
     },
   });
 
   const right = el('div', { class: 'hdr-right' });
   right.append(
+    el('a', { class: 'btn btn-ghost nav-social' + (active === 'home' ? ' active' : ''), href: '/social/', 'aria-current': active === 'home' ? 'page' : null }, t('nav_social')),
     el('a', { class: 'nav-link hide-sm' + (active === 'posts' ? ' active' : ''), href: '/posts.html' }, t('nav_posts')),
     // Цены — единственная ссылка, нужная и вошедшему, и случайному посетителю:
     // это торговая страница. Ключ общий с подвалом — слово буквально то же,
@@ -409,7 +410,7 @@ export async function mountShell(active, opts = {}) {
   }
 
   clear(host).append(el('header', { class: 'hdr' },
-    el('a', { class: 'logo', href: '/index.html' }, 'albums.ink'),
+    el('a', { class: 'logo', href: '/' }, 'albums.ink'),
     el('div', { class: 'search-wrap' },
       el('div', { class: 'search' }, icon('search', 20, { stroke: '#A69D8E', sw: 2 }), searchInput)),
     right,
@@ -466,7 +467,7 @@ function mountMobileNav(active, me) {
   }, icon(iconName, 22, { sw: active === key ? 2.2 : 1.8 }), el('span', { text: label }));
 
   document.body.appendChild(el('nav', { class: 'mobnav' },
-    item('home', '/index.html', 'home', t('nav_albums')),
+    item('home', '/social/', 'home', t('nav_albums')),
     item('posts', '/posts.html', 'grid', t('nav_posts')),
     // Скринридеру нужна полная формулировка: у кнопки только «+», и короткое
     // «Альбом» из шапки здесь не объясняло бы, что она делает.
@@ -595,7 +596,7 @@ function albumBadge(a) {
 
 /* ---------------- карточка альбома ---------------- */
 export function albumCard(a, urls = {}, opts = {}) {
-  const href = `album.html?id=${a.id}`;
+  const href = `/album.html?id=${a.id}`;
   const cover = urls[a.cover_path || a.cover] || urls[a.thumb1_path || a.thumb1] || null;
   const t1 = urls[a.thumb1_path || a.thumb1] || null;
   const t2 = urls[a.thumb2_path || a.thumb2] || null;
@@ -625,14 +626,14 @@ export function albumCard(a, urls = {}, opts = {}) {
 
   const meta = el('div', { class: 'card-meta' });
   if (!opts.hideAuthor && a.author_username) {
-    meta.appendChild(el('a', { href: `profile.html?u=${encodeURIComponent(a.author_username)}`, style: 'flex-shrink:0' },
+    meta.appendChild(el('a', { href: `/profile.html?u=${encodeURIComponent(a.author_username)}`, style: 'flex-shrink:0' },
       avatarImg(a.author_avatar, a.author_name, 44, !!opts.pro?.has(a.author_username))));
   }
   const info = el('div', { style: 'min-width:0' },
     el('a', { class: 'card-title', href, text: a.title }));
   if (!opts.hideAuthor && a.author_username) {
     info.appendChild(el('a', {
-      class: 'card-sub', href: `profile.html?u=${encodeURIComponent(a.author_username)}`,
+      class: 'card-sub', href: `/profile.html?u=${encodeURIComponent(a.author_username)}`,
       text: a.author_name || a.author_username,
     }));
   }

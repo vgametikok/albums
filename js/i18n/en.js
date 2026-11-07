@@ -1,6 +1,7 @@
 ﻿// English — базовый словарь. Остальные языки дополняют его; недостающие ключи
 // автоматически падают сюда, поэтому здесь должен быть ПОЛНЫЙ набор.
 export default {
+  nav_social: 'Social',
   foot_support: 'Support & suggestions',
   foot_partnership: 'Partnerships',
   foot_blog: 'Blog',
