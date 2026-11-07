@@ -825,3 +825,30 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
 
 /* Social stays visible in the shared header on phones as well as desktop. */
 @media (max-width:720px){.hdr .nav-social{order:2;white-space:nowrap}}
+
+/* Compact phone header: no search; product links above language/account controls.
+   Header-scoped and mobile-only: desktop, dialogs and page buttons are unchanged. */
+@media (max-width:720px){
+  .hdr{gap:4px 6px;padding-top:6px;padding-bottom:6px}
+  .hdr .search-wrap{display:none}
+  .hdr .logo{font-size:18px;order:1;margin-right:auto;white-space:nowrap}
+  .hdr .nav-social{order:2;white-space:nowrap}
+  .hdr .btn-primary{order:3}
+  .hdr::before{content:'';order:4;flex-basis:100%;height:0;margin:0}
+  .hdr .lang-select{order:5;margin-right:auto;height:40px;font-size:13px;max-width:104px}
+  .hdr .notif-btn{order:6}
+  .hdr-right > .btn-ghost:not(.nav-social),
+  .hdr-right > a[href^="profile"],
+  .hdr-right > a[href^="/profile"]{order:7}
+  .hdr .btn{height:40px;padding:0 10px;font-size:13px;gap:5px;margin:0}
+  .hdr .btn-icon{width:40px;height:40px;padding:0}
+  .hdr a[href^="profile"],.hdr a[href^="/profile"]{
+    display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px;
+  }
+  .hdr a[href^="profile"] .avatar,.hdr a[href^="/profile"] .avatar,
+  .hdr a[href^="profile"] .ava-pro,.hdr a[href^="/profile"] .ava-pro{
+    width:32px!important;height:32px!important;
+  }
+  .hdr a[href^="profile"] .avatar-ph,.hdr a[href^="/profile"] .avatar-ph{font-size:13px!important}
+  .hdr .btn-primary svg{width:18px;height:18px}
+}
