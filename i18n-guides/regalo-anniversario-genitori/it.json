@@ -18,7 +18,7 @@
     "Su Albums create un <b>album storia</b> con capitoli, foto, video e note vocali. Potete aggiungere una narrazione e riguardarlo come presentazione. Per condividerlo con i parenti, aggiungeteli come amici e scegliete Amici oppure Amici, tranne…. Solo io non dà accesso ad altri, nemmeno con il link. Senza pubblicità. L’album resta per tutto il tempo in cui vorrete tenerlo.",
     "1. Create un album gratuito, ad esempio «Per mamma e papà, 40 anni insieme».",
     "2. Aggiungete i capitoli (Il vostro inizio, Noi figli, Le feste, Quest’anno).",
-    "3. Caricate foto (fino a 30 MB, fino a 4K) e video brevi (fino a 50 MB).",
+    "3. Caricate foto (fino a 30 MB, nel piano gratuito fino a 2048 pixel sul lato lungo) e video brevi (fino a 50 MB).",
     "4. Registrate una nota vocale nel browser oppure caricate un audio (fino a 20 MB).",
     "5. Potete invitare un co-autore (un fratello o una sorella già amici su Albums).",
     "6. Inviate il link con l’anteprima di copertina: si apre nel browser, senza installare nulla.",
@@ -48,7 +48,7 @@
     ],
     [
       "Lo vedranno solo loro?",
-      "Aggiungete i genitori come amici e scegliete Amici oppure Amici, tranne…. Solo io non apre l’accesso nemmeno con il link. Non esiste un’impostazione «solo famiglia»."
+      "Amici rende l’album visibile a tutti i vostri amici, non solo ai genitori. Aggiungete i genitori come amici, scegliete Amici, tranne… ed escludete tutti gli altri amici se volete mostrarlo solo a loro. Ricontrollate la selezione quando aggiungete nuovi amici. Solo io non dà accesso ad altri nemmeno con il link; non esiste una modalità «solo famiglia»."
     ],
     [
       "Per quanto tempo resta l’album?",

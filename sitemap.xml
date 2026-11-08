@@ -3,7 +3,7 @@
   <url><loc>https://albums.ink/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://albums.ink/social/</loc><lastmod>2026-11-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://albums.ink/pricing</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/collect-wedding-photos-from-guests/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/wedding-qr-code-table-signs/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/google-photos-vs-qr-guest-album/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -754,5 +754,29 @@
   <url><loc>https://albums.ink/id/guides/year-in-review-photo-album/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://albums.ink/ko/guides/yeohaeng-sajin-jeongri/</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://albums.ink/ru/guides/yubiley-photo/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/id/guides/acara-siraman-pengantin/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ru/guides/albom-na-godovshchinu/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/pt-BR/guides/album-de-recordacoes/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/es/guides/album-fotos-bebe/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/fr/guides/album-photo-grossesse/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/pt-BR/guides/cha-de-casa-nova/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/guides/christmas-do-ideas/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/zh-CN/guides/dianzi-xiangce/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/id/guides/diary-kehamilan/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/it/guides/festa-di-battesimo/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/de/guides/fotoalbum-fuer-freundin/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ko/guides/gyeolhonsik-hagaek-sajin/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/es/guides/ideas-baby-shower/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/fr/guides/idees-shower-bebe/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ja/guides/kekkon-kinenbi-album/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/vi/guides/lam-album-anh-ky-niem/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/vi/guides/le-thanh-hon/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ru/guides/novoselye-foto/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/guides/pregnancy-photo-album/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/it/guides/regalo-anniversario-genitori/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ko/guides/sinhon-yeohaeng-aelbeom/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/de/guides/weihnachtsfeier-ideen/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/zh-CN/guides/xieshiyan/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ja/guides/yuino-photos/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <!-- /guides-i18n -->
 </urlset>

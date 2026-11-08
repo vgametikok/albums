@@ -18,7 +18,7 @@
     "Auf Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnotizen. Optional mit Erzählung als Slideshow. Zum Teilen: die Person als Freundin hinzufügen und Freunde oder Freunde, außer… wählen. Nur ich gibt auch per Link keinen Zugriff. Ohne Werbung. Das Album bleibt so lange du es behalten willst.",
     "1. Kostenloses Album anlegen, z. B. „Für dich, 2026“.",
     "2. Kapitel setzen (Anfang, Reisen, Alltag, Dieses Jahr).",
-    "3. Fotos (bis 30 MB, bis 4K) und kurze Videos (bis 50 MB) hochladen.",
+    "3. Fotos (bis 30 MB, im kostenlosen Tarif bis 2048 Pixel an der langen Seite) und kurze Videos (bis 50 MB) hochladen.",
     "4. Sprachnachricht im Browser aufnehmen oder Audio laden (bis 20 MB).",
     "5. Optional eine Co-Autorin einladen — nur wenn sie bereits Freundin auf Albums ist.",
     "6. Link mit Cover-Vorschau schicken — sie öffnet ihn im Browser, nichts zu installieren.",
@@ -48,7 +48,7 @@
     ],
     [
       "Sieht das nur sie?",
-      "Du wählst die Sichtbarkeit. Nur ich gibt auch per Link keinen Zugriff. Zum Teilen fügst du sie als Freundin hinzu und wählst Freunde oder Freunde, außer…."
+      "Freunde macht das Album für alle deine Freunde sichtbar, nicht nur für sie. Füge sie als Freundin hinzu, wähle Freunde, außer… und schließe alle anderen Freunde aus, wenn nur sie Zugriff haben soll. Prüfe die Auswahl auch nach neuen Freundschaften. Nur ich gibt anderen auch per Link keinen Zugriff."
     ],
     [
       "Wie lange bleibt das Album?",
@@ -56,7 +56,7 @@
     ]
   ],
   "related": [
-    "private-photo-sharing-for-couples",
+    "photo-diary",
     "add-voice-to-photos",
     "year-in-review-photo-album"
   ]
