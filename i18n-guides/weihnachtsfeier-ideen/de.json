@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "Weihnachtsfeier Ideen",
+  "date": "2026-11-08",
+  "title": "Weihnachtsfeier Ideen und Fotos der Gäste | Albums.ink",
+  "desc": "Weihnachtsfeier Ideen für Firmen in Deutschland: Quiz, Wichteln, Tagesessen — und ein QR-Album, das alle Gästefotos sammelt.",
+  "h1": "Weihnachtsfeier Ideen: Programm, das die Leute mitmachen",
+  "lead": "Ab November suchen Teams in Deutschland nach Weihnachtsfeier Ideen: ein Quiz im Brauhaus, Wichteln mit Preisgrenze, ein Mittagessen statt einer späten Nacht. Die Rede der Geschäftsführung steht. Die Fotos liegen danach auf fünfzig Handys. Hier sind Ideen, die in kleinen Teams und großen Abteilungen funktionieren — plus ein Weg, alle Gästefotos an einem Ort zu halten.",
+  "body": [
+    "## Weihnachtsfeier Ideen, die niemand überspringt",
+    "- <b>Kurzquiz</b>: ein paar Runden zu Filmen, Musik und internen Running Gags — Preise klein halten.",
+    "- <b>Wichteln</b>: klares Limit, Teilnahme freiwillig. Die Übergabe ist oft das beste Fotomotiv des Abends.",
+    "- <b>Tagesessen</b>: für Kolleginnen und Kollegen mit Familie oder langer Anreise oft die bessere Wahl als 22 Uhr im Club.",
+    "- <b>Gemeinsam etwas machen</b>: Kränze binden, kochen, eine kurze Tour — die Leute sitzen nicht drei Stunden am selben Platz.",
+    "- <b>Kurze Rede, dann frei</b>: fünf Minuten Dank genügen. Danach sollen sich die Tische mischen können.",
+    "## Wo die Fotos entstehen",
+    "Am Eingang mit den Weihnachtspullovern, beim Wichteln, später auf der Tanzfläche. Genau dann fotografieren Gäste selbst — und genau diese Bilder fehlen am Montag.",
+    "## Alle Gästefotos mit einem QR-Code",
+    "Ein <b>Event-Album</b> auf Albums ersetzt das „schickt mir bitte eure Bilder“ am nächsten Morgen:",
+    "1. Album anlegen, z. B. „Weihnachtsfeier Team Nord 2026“.",
+    "2. QR auf Tischkarten, an der Garderobe und neben dem Quiz auslegen.",
+    "3. Gäste scannen mit der Handykamera und laden im Browser hoch — nichts zu installieren.",
+    "4. <b>„Hold guest photos“</b> einschalten, wenn du Uploads erst freigeben willst.",
+    "5. Hinterher das ganze Album als eine ZIP herunterladen.",
+    "Ohne Anmeldung erscheinen Uploads anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Dazu: <a href=\"/de/guides/company-party-photo-sharing/\">Fotos von der Betriebsfeier</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Was es kostet",
+    "Ein Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload verfügbar, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für die ganze Weihnachtsfeier",
+    "p": "Gäste laden im Browser hoch — nichts zu installieren. Du entscheidest, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Wichteln und Quiz nicht verlieren",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Was sind gute Weihnachtsfeier Ideen für kleine Teams?",
+      "Ein kurzes Quiz, Wichteln mit Limit, ein Tagesessen im separaten Raum und eine gemeinsame Aktivität statt einer langen Rede."
+    ],
+    [
+      "Wie sammle ich Fotos von der Firmenweihnachtsfeier?",
+      "QR-Code auf die Tische legen. Gäste scannen und laden Fotos und Videos im Browser hoch."
+    ],
+    [
+      "Müssen Kolleginnen und Kollegen ein Konto anlegen?",
+      "Nein. Sie können ohne Anmeldung hochladen; angemeldete Gäste erhalten zusätzlich eine private Kopie ihrer Uploads."
+    ],
+    [
+      "Wie lange bleiben die Fotos?",
+      "6 Monate ab dem ersten Upload, verlängerbar."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party",
+    "christmas-party-photo-booth-ideas"
+  ]
+}

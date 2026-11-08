@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo anniversario genitori",
+  "date": "2026-11-08",
+  "title": "Regalo anniversario genitori: un album di famiglia | Albums.ink",
+  "desc": "Un regalo per l’anniversario dei genitori in Italia: album con capitoli, messaggi vocali dei figli e un link da aprire sul telefono.",
+  "h1": "Regalo anniversario genitori: un album che aprono la sera stessa",
+  "lead": "«Regalo anniversario genitori» è la ricerca di chi deve festeggiare 25, 30, 40 o 50 anni di matrimonio di mamma e papà — e non vuole un altro oggetto da riporre. Un album storia, con le voci dei figli e qualche foto vecchia scannerizzata, si apre sul telefono e si può continuare ad arricchire.",
+  "body": [
+    "## Cosa mettere nell’album per i genitori",
+    "- <b>Il loro inizio</b>: il giorno del matrimonio, le prime foto in casa, anche se la qualità è quella di allora.",
+    "- <b>Un capitolo per figlio</b>: ognuno aggiunge foto e un messaggio vocale di venti secondi.",
+    "- <b>I posti di sempre</b>: la cucina la domenica, le vacanze al mare, il paese da cui viene la famiglia.",
+    "- <b>Gli anni tondi</b>: se sono le nozze d’argento o d’oro, un capitolo «da allora a oggi» aiuta a vedere il filo.",
+    "## Un album storia gratuito",
+    "Su Albums create un <b>album storia</b> con capitoli, foto, video e note vocali. Potete aggiungere una narrazione e riguardarlo come presentazione. Per condividerlo con i parenti, aggiungeteli come amici e scegliete Amici oppure Amici, tranne…. Solo io non dà accesso ad altri, nemmeno con il link. Senza pubblicità. L’album resta per tutto il tempo in cui vorrete tenerlo.",
+    "1. Create un album gratuito, ad esempio «Per mamma e papà, 40 anni insieme».",
+    "2. Aggiungete i capitoli (Il vostro inizio, Noi figli, Le feste, Quest’anno).",
+    "3. Caricate foto (fino a 30 MB, fino a 4K) e video brevi (fino a 50 MB).",
+    "4. Registrate una nota vocale nel browser oppure caricate un audio (fino a 20 MB).",
+    "5. Potete invitare un co-autore (un fratello o una sorella già amici su Albums).",
+    "6. Inviate il link con l’anteprima di copertina: si apre nel browser, senza installare nulla.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/album-anniversario-matrimonio/\">album per l’anniversario di matrimonio</a> e <a href=\"/it/guides/album-foto-nonna/\">album foto per la nonna</a>.",
+    "## Prima lo preparate voi, poi lo aprono loro",
+    "Usate Solo io mentre lo montate. Quando è pronto, aggiungete i genitori come amici. Potete cambiare la visibilità file per file. L’album intero si scarica in un unico ZIP se volete una copia."
+  ],
+  "cta": {
+    "h2": "Un regalo con la vostra voce dentro",
+    "p": "Album storia gratuito, con capitoli e note vocali. Senza pubblicità.",
+    "btn": "Crea l’album →"
+  },
+  "cta2": {
+    "h2": "Lo aprono stasera, sul telefono",
+    "p": "Album gratuiti illimitati, per tutto il tempo in cui vorrete tenerli. Amici, Amici tranne… oppure Solo io.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Quale regalo fare per l’anniversario dei genitori?",
+      "Un album con foto di allora e di ora, un capitolo per ciascun figlio e un messaggio vocale breve è più personale di un oggetto generico."
+    ],
+    [
+      "Si può fare online e gratis?",
+      "Sì. Su Albums gli album storia sono gratuiti, con capitoli, note vocali e link. Senza pubblicità."
+    ],
+    [
+      "Lo vedranno solo loro?",
+      "Aggiungete i genitori come amici e scegliete Amici oppure Amici, tranne…. Solo io non apre l’accesso nemmeno con il link. Non esiste un’impostazione «solo famiglia»."
+    ],
+    [
+      "Per quanto tempo resta l’album?",
+      "Per tutto il tempo in cui vorrete tenerlo."
+    ]
+  ],
+  "related": [
+    "album-anniversario-matrimonio",
+    "album-foto-nonna",
+    "family-history-stories"
+  ]
+}

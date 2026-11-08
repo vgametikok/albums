@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CA",
+  "query": "idées shower bébé",
+  "date": "2026-11-08",
+  "title": "Idées shower bébé : jeux et photos | Albums.ink",
+  "desc": "Idées de shower de bébé au Québec : jeux, cadeaux et un album QR pour rassembler les photos de toutes les invitées.",
+  "h1": "Idées shower bébé : des jeux qui marchent et un seul album pour les photos",
+  "lead": "Au Québec, on dit « shower de bébé » — et on cherche « idées shower bébé » quand les amies et les tantes préparent la fête avant l’arrivée. Il y a des jeux, un gâteau, une table de cadeaux. Ce qui se perd, ce sont les photos de chaque invitée. Voici des idées qui se font vraiment, et une façon simple de ne plus écrire « envoyez-moi vos photos » le lendemain.",
+  "body": [
+    "## Idées de shower de bébé que les invitées jouent vraiment",
+    "- <b>Devine la date ou la taille du ventre</b> : un papier, un crayon ; les visages au dévoilement se photographient tout seuls.",
+    "- <b>Bingo des cadeaux</b> : chaque case est un type de cadeau ; la première ligne complète gagne un petit prix.",
+    "- <b>Un mot pour bébé</b> : chaque invitée écrit ou enregistre une phrase courte — ça reste ensuite dans l’album.",
+    "- <b>Un brunch ou un cinq à sept simple</b> : chez quelqu’un ou dans une petite salle ; la future maman doit pouvoir s’asseoir.",
+    "- <b>Une liste de cadeaux claire</b> : couches, vêtements par grandeur, deux ou trois choses demandées — ça évite six hochets pareils.",
+    "## Où se prennent les meilleures photos",
+    "À l’entrée, à l’ouverture des cadeaux, pendant le petit discours. C’est là que chaque invitée sort son téléphone — et que les photos restent dans vingt pellicules différentes.",
+    "## Rassemblez les photos avec un code QR",
+    "Un <b>album événement</b> sur Albums remplace le groupe de messages du lendemain :",
+    "1. Créez l’album, par exemple « Shower de bébé de Camille, 2026 ».",
+    "2. Imprimez le QR sur la table des cadeaux, derrière la chaise de la future maman et près du gâteau.",
+    "3. Les invitées balayent avec l’appareil photo du téléphone et téléversent depuis le navigateur — rien à installer.",
+    "4. Activez <b>« Hold guest photos »</b> si vous voulez approuver les photos avant qu’elles apparaissent.",
+    "5. Après, téléchargez tout l’album en un seul ZIP.",
+    "Sans connexion, les envois apparaissent de façon anonyme. Les invitées connectées reçoivent aussi une copie brouillon privée contenant uniquement ce qu’elles ont envoyé.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/baby-shower-photo-album/\">album du baby shower</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">code QR pour les photos d’une fête</a>.",
+    "## Combien ça coûte",
+    "L’album événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Les invitées ne paient rien. Photos jusqu’à 4K ; l’album reste disponible 6 mois à partir du premier envoi, et on peut le prolonger."
+  ],
+  "cta": {
+    "h2": "Un QR pour tout le shower de bébé",
+    "p": "Les invitées téléversent depuis le navigateur — rien à installer. Vous approuvez ce qui paraît.",
+    "btn": "Créer l’album événement →"
+  },
+  "cta2": {
+    "h2": "Gardez les mots pour bébé",
+    "p": "Achat unique à partir de 39,99 $. Photos jusqu’à 4K, 6 mois dès le premier envoi, prolongeable.",
+    "btn": "Créer mon album →"
+  },
+  "faq": [
+    [
+      "Quelles idées de shower bébé fonctionnent au Québec ?",
+      "Des jeux courts (date, bingo des cadeaux), un brunch ou un cinq à sept simple, un mot pour bébé et une liste de cadeaux claire."
+    ],
+    [
+      "Comment rassembler les photos des invitées d’un shower de bébé ?",
+      "Imprimez un code QR sur les tables. Elles balayent et téléversent photos et vidéos depuis le navigateur."
+    ],
+    [
+      "Les invitées ont-elles besoin d’un compte ?",
+      "Non. Elles peuvent envoyer sans se connecter ; si elles se connectent, elles reçoivent aussi une copie privée de leurs envois."
+    ],
+    [
+      "Combien de temps les photos restent-elles ?",
+      "6 mois à partir du premier envoi, et on peut prolonger."
+    ]
+  ],
+  "related": [
+    "baby-shower-photo-album",
+    "first-birthday-photo-ideas",
+    "qr-code-for-photos-at-party"
+  ]
+}

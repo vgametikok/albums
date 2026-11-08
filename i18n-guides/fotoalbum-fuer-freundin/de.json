@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AT",
+  "query": "Fotoalbum für Freundin",
+  "date": "2026-11-08",
+  "title": "Fotoalbum für Freundin selber machen | Albums.ink",
+  "desc": "Fotoalbum für die Freundin in Österreich: Kapitel eurer Geschichte, kurze Sprachnachrichten und ein Link, den sie am Handy öffnet.",
+  "h1": "Fotoalbum für Freundin selber machen",
+  "lead": "Ein Fotoalbum für die Freundin trifft mehr als noch ein Gutschein — vor allem, wenn die besten Bilder auf zwei Handys verteilt sind. In Österreich sucht man genau so: „Fotoalbum für Freundin“. So baust du ein digitales Story-Album mit Kapiteln und deiner Stimme dazu.",
+  "body": [
+    "## Was ins Fotoalbum für die Freundin gehört",
+    "- <b>Der Anfang</b>: das erste gemeinsame Foto, der erste Ausflug — auch wenn die Qualität noch bescheiden ist.",
+    "- <b>Orte, die ihr kennt</b>: ein Wochenende in der Wachau, der Stammplatz im Kaffeehaus, der Weg auf die Hütte.",
+    "- <b>Alltag, nicht nur Feiertage</b>: Frühstück, der Hund, der Blick aus eurem Fenster.",
+    "- <b>Deine Stimme</b>: eine kurze Sprachnachricht zu zwei oder drei Bildern sagt mehr als eine lange Karte.",
+    "## Kostenloses Story-Album",
+    "Auf Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnotizen. Optional mit Erzählung als Slideshow. Zum Teilen: die Person als Freundin hinzufügen und Freunde oder Freunde, außer… wählen. Nur ich gibt auch per Link keinen Zugriff. Ohne Werbung. Das Album bleibt so lange du es behalten willst.",
+    "1. Kostenloses Album anlegen, z. B. „Für dich, 2026“.",
+    "2. Kapitel setzen (Anfang, Reisen, Alltag, Dieses Jahr).",
+    "3. Fotos (bis 30 MB, bis 4K) und kurze Videos (bis 50 MB) hochladen.",
+    "4. Sprachnachricht im Browser aufnehmen oder Audio laden (bis 20 MB).",
+    "5. Optional eine Co-Autorin einladen — nur wenn sie bereits Freundin auf Albums ist.",
+    "6. Link mit Cover-Vorschau schicken — sie öffnet ihn im Browser, nichts zu installieren.",
+    "!cta",
+    "Ähnlich: <a href=\"/de/guides/private-photo-sharing-for-couples/\">privates Teilen als Paar</a> und <a href=\"/de/guides/add-voice-to-photos/\">Stimme zu Fotos</a>.",
+    "## Link statt nur Druck",
+    "Sie kann das Album am Abend auf dem Handy oder am Laptop öffnen. Du kannst später Geburtstagsfotos nachlegen. Das ganze Album lässt sich als eine ZIP herunterladen."
+  ],
+  "cta": {
+    "h2": "Ein Album, das deine Stimme mitträgt",
+    "p": "Kostenloses Story-Album mit Kapiteln und Sprachnotizen. Ohne Werbung.",
+    "btn": "Album starten →"
+  },
+  "cta2": {
+    "h2": "Heute noch den Link schicken",
+    "p": "Unbegrenzt Alben, so lange du sie behalten willst. Freunde, Freunde, außer… oder Nur ich.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was kommt in ein Fotoalbum für die Freundin?",
+      "Der Anfang eurer Geschichte, ein paar gemeinsame Orte, Alltag und eine kurze Sprachnachricht — persönlicher als eine generische Karte."
+    ],
+    [
+      "Kann ich ein Fotoalbum für die Freundin online kostenlos machen?",
+      "Ja. Auf Albums sind Story-Alben kostenlos, mit Kapiteln, Sprachnotizen und Link. Ohne Werbung."
+    ],
+    [
+      "Sieht das nur sie?",
+      "Du wählst die Sichtbarkeit. Nur ich gibt auch per Link keinen Zugriff. Zum Teilen fügst du sie als Freundin hinzu und wählst Freunde oder Freunde, außer…."
+    ],
+    [
+      "Wie lange bleibt das Album?",
+      "So lange du es behalten willst."
+    ]
+  ],
+  "related": [
+    "private-photo-sharing-for-couples",
+    "add-voice-to-photos",
+    "year-in-review-photo-album"
+  ]
+}

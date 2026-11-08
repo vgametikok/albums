@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "álbum de recordações",
+  "date": "2026-11-08",
+  "title": "Álbum de recordações: como fazer um online | Albums.ink",
+  "desc": "Como fazer um álbum de recordações no Brasil: capítulos da família ou do casal, notas de voz e um link privado para ir preenchendo.",
+  "h1": "Álbum de recordações: a história em capítulos, não numa pasta sem nome",
+  "lead": "Um álbum de recordações é o que a gente procura quando as fotos boas estão espalhadas no celular, no computador e numa caixa de revelações antigas. No Brasil, o termo é esse — não precisa ser um livro de papel para contar a família, o casal ou um ano que importou. Veja como montar um álbum história online, com a sua voz no meio.",
+  "body": [
+    "## O que entra num álbum de recordações",
+    "- <b>Um fio, não um amontoado</b>: escolha um recorte — a família, o casal, a infância dos filhos, este ano — e siga essa linha.",
+    "- <b>Antigo e agora</b>: digitalize algumas fotos de gaveta e junte com o que saiu do celular neste mês.",
+    "- <b>Gente e lugar</b>: a mesa de domingo, a viagem de feriado, o quintal que todo mundo conhece.",
+    "- <b>A voz de quem estava lá</b>: uma nota de voz curta em dois ou três capítulos vale mais do que uma legenda longa.",
+    "## Um álbum história gratuito",
+    "No Albums você cria um <b>álbum história</b> com capítulos, fotos, vídeos e notas de voz. Dá para acrescentar narração e reproduzir como apresentação. Para compartilhar com parentes, adicione-os como amigos e escolha Amigos ou Amigos, exceto…. Somente eu não libera o acesso nem pelo link. Sem anúncios. O álbum fica pelo tempo que você quiser.",
+    "1. Crie um álbum grátis, por exemplo «Recordações da família, 2026».",
+    "2. Defina capítulos (Antes, Viagens, Domingo em casa, Este ano).",
+    "3. Envie fotos (até 30 MB, até 4K) e vídeos curtos (até 50 MB).",
+    "4. Grave uma nota de voz no navegador ou envie um áudio (até 20 MB).",
+    "5. Convide um coautor (já precisa ser amigo no Albums) se quiserem preencher juntos.",
+    "6. Mande o link com prévia da capa — abre no navegador, sem instalar nada.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/digital-scrapbook/\">scrapbook digital</a> e <a href=\"/pt-BR/guides/add-voice-to-photos/\">adicionar voz às fotos</a>.",
+    "## Particular agora, compartilhado quando você decidir",
+    "Use Somente eu enquanto monta. Depois adicione as pessoas de confiança como amigos. Dá para ajustar a visibilidade arquivo por arquivo. Baixe o álbum inteiro num único ZIP se quiser uma cópia no computador."
+  ],
+  "cta": {
+    "h2": "Comece o seu álbum de recordações",
+    "p": "Álbum história grátis, com capítulos e notas de voz. Sem anúncios.",
+    "btn": "Criar o álbum →"
+  },
+  "cta2": {
+    "h2": "Uma história para ir preenchendo",
+    "p": "Álbuns grátis ilimitados, pelo tempo que você quiser. Amigos, Amigos, exceto… ou Somente eu.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que colocar num álbum de recordações?",
+      "Um recorte claro (família, casal, um ano), fotos antigas e recentes, lugares de sempre e uma nota de voz curta em alguns capítulos."
+    ],
+    [
+      "Como fazer um álbum de recordações online de graça?",
+      "No Albums os álbuns história são grátis, com capítulos, notas de voz e link. Sem anúncios."
+    ],
+    [
+      "O álbum pode ficar só para a família?",
+      "Não existe um modo «somente família». Adicione os parentes como amigos e escolha Amigos ou Amigos, exceto…. Somente eu não permite acesso pelo link."
+    ],
+    [
+      "Por quanto tempo o álbum fica disponível?",
+      "Pelo tempo que você quiser conservá-lo."
+    ]
+  ],
+  "related": [
+    "digital-scrapbook",
+    "year-in-review-photo-album",
+    "add-voice-to-photos"
+  ]
+}

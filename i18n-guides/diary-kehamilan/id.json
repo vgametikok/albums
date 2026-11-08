@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "diary kehamilan",
+  "date": "2026-11-08",
+  "title": "Diary kehamilan: catat bulanan dengan foto dan suara | Albums.ink",
+  "desc": "Cara membuat diary kehamilan di Indonesia: foto perut tiap bulan, hasil USG, catatan suara, dan tautan pribadi yang bisa terus ditambah.",
+  "h1": "Diary kehamilan: sembilan bulan yang tercatat per bab, bukan terserak di galeri",
+  "lead": "Diary kehamilan dicari supaya tes kehamilan, foto perut tiap bulan, hasil USG, dan rasa di minggu itu tidak hilang di folder HP. Tidak harus buku kertas yang dijual di toko. Album cerita daring dengan bab dan suara singkat bisa dibuka di peramban, lalu dilengkapi sampai hari-hari pertama di rumah.",
+  "body": [
+    "## Apa yang dimasukkan ke diary kehamilan",
+    "- <b>Awal cerita</b>: tes, siapa yang pertama diberi kabar, kartu kontrol pertama.",
+    "- <b>Bulan ke bulan</b>: satu foto perut di tempat yang sama, plus kalimat pendek tentang minggu itu.",
+    "- <b>Hasil USG</b>: yang menunjukkan detak dan yang lebih lengkap kemudian — diberi tanggal, bukan menumpuk tanpa nama.",
+    "- <b>Yang di antara itu</b>: kamar bayi yang disiapkan, tas ke rumah sakit, ngidam yang tidak masuk akal dini hari.",
+    "- <b>Suara orang terdekat</b>: catatan suara singkat dari pasangan, kakak, atau orang tua, seolah bayi sudah bisa mendengar.",
+    "## Buat sebagai album cerita gratis",
+    "Di Albums Anda membuat <b>album cerita</b> berisi bab, foto, video, dan catatan suara. Narasi bisa ditambahkan dan diputar sebagai tayangan slide. Untuk berbagi dengan kerabat, tambahkan mereka sebagai teman lalu pilih Teman atau Teman, kecuali…. Hanya saya tidak memberi akses kepada orang lain, termasuk lewat tautan. Tanpa iklan. Album tetap ada selama Anda ingin menyimpannya.",
+    "1. Buat album gratis, misalnya «Menunggu kamu, 2026».",
+    "2. Tambahkan bab (Trimester pertama, Kedua, Ketiga, Kamar bayi, Hari-hari pertama).",
+    "3. Unggah foto (hingga 30 MB, hingga 4K) dan video pendek (hingga 50 MB).",
+    "4. Rekam catatan suara di peramban atau unggah audio (hingga 20 MB).",
+    "5. Undang satu rekan penulis (pasangan yang sudah menjadi teman di Albums) bila ingin mengisi bersama.",
+    "6. Kirim tautan dengan pratinjau sampul — dibuka di peramban, tidak perlu memasang apa pun.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/baby-photo-sharing/\">berbagi foto bayi</a> dan <a href=\"/id/guides/add-voice-to-photos/\">menambah suara pada foto</a>.",
+    "## Pribadi dulu, dibagikan ketika Anda siap",
+    "Pakai Hanya saya selama menyusun. Ketika siap, tambahkan orang yang dipercaya sebagai teman. Visibilitas bisa diatur per berkas jika sebagian hasil USG hanya untuk kalian berdua. Seluruh album bisa diunduh sebagai satu ZIP."
+  ],
+  "cta": {
+    "h2": "Mulai diary kehamilan Anda hari ini",
+    "p": "Album cerita gratis dengan bab dan catatan suara. Tanpa iklan.",
+    "btn": "Buat album →"
+  },
+  "cta2": {
+    "h2": "Cerita yang bisa dilanjutkan sampai bayi lahir",
+    "p": "Album gratis tanpa batas jumlah, tetap ada selama Anda ingin menyimpannya. Teman, Teman kecuali…, atau Hanya saya.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    [
+      "Apa yang ditulis di diary kehamilan?",
+      "Foto perut tiap bulan di tempat yang sama, hasil USG bertanggal, kabar pertama, persiapan kamar bayi, dan catatan suara singkat dari orang terdekat."
+    ],
+    [
+      "Bisakah membuat diary kehamilan online secara gratis?",
+      "Bisa. Album cerita di Albums gratis, dengan bab, catatan suara, dan tautan. Tanpa iklan."
+    ],
+    [
+      "Apakah diary kehamilan bisa dijaga tetap pribadi?",
+      "Ya. Gunakan Hanya saya saat menyusun. Untuk berbagi, tambahkan kerabat sebagai teman lalu pilih Teman atau Teman, kecuali…. Hanya saya tidak membuka akses lewat tautan."
+    ],
+    [
+      "Berapa lama album tersimpan?",
+      "Selama Anda ingin menyimpannya."
+    ]
+  ],
+  "related": [
+    "baby-photo-sharing",
+    "add-voice-to-photos",
+    "photo-diary"
+  ]
+}

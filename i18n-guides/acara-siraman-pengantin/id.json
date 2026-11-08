@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara siraman pengantin",
+  "date": "2026-11-08",
+  "title": "Acara siraman pengantin: urutan adat dan foto tamu | Albums.ink",
+  "desc": "Acara siraman pengantin adat Jawa dan Sunda: sungkeman, air kembang, pecah kendi — plus album QR untuk foto keluarga. Bukan siraman tujuh bulanan.",
+  "h1": "Acara siraman pengantin: restu keluarga sehari sebelum akad, dan satu album untuk fotonya",
+  "lead": "Acara siraman pengantin adalah ritual mandi kembang sebelum pernikahan — biasanya sehari sebelum akad — dalam adat Jawa dan juga ada versinya dalam adat Sunda. Calon pengantin sungkem minta restu, lalu disiram air bunga oleh orang tua dan sesepuh. Ini bukan siraman pada acara tujuh bulanan. Fotonya mudah tercecer di HP saudara. Berikut urutan yang biasa dijalankan, dan cara mengumpulkannya di satu tempat.",
+  "body": [
+    "## Urutan yang biasa dijalankan",
+    "- <b>Sungkeman</b>: calon pengantin mohon maaf dan minta doa restu kepada orang tua (dan kakek-nenek bila hadir). Momen ini sering paling mengharukan, dan paling sering difoto keluarga.",
+    "- <b>Doa singkat</b>: perwakilan keluarga atau tokoh agama memimpin doa sebelum air pertama disiramkan.",
+    "- <b>Siraman</b>: air jernih ditaburi bunga (biasanya mawar, melati, kenanga). Yang menyiram berjumlah ganjil — sering 7 atau 9 — dimulai dari orang tua dan sesepuh, ditutup juru rias. Tiap orang biasanya menyiram tiga kali.",
+    "- <b>Pecah kendi</b>: setelah air kendi habis, kendi dipecahkan. Dalam adat Jawa ini menandai berakhirnya masa lajang dan siapnya calon pengantin berumah tangga.",
+    "- <b>Yang bisa berbeda</b>: potong rikmo (memotong sedikit ujung rambut) dan bopongan (ayah menggendong putrinya ke kamar rias) ada di sebagian keluarga Jawa, dan tidak wajib di setiap rumah. Adat Sunda punya urutan yang serupa namun tidak sama; ikuti sesepuh yang memimpin di rumah Anda.",
+    "## Foto mana yang pantas dikumpulkan",
+    "Sungkeman, keluarga yang berkumpul, rangkaian bunga, pecah kendi, dan tamu yang memberi restu. Untuk prosesi penyiraman itu sendiri, tanyakan dulu kepada keluarga: sebagian rumah berkenan, sebagian ingin lebih tertutup. Jangan menghalangi juru rias atau sesepuh hanya demi foto.",
+    "## Kumpulkan foto tamu dengan satu kode QR",
+    "<b>Album acara</b> di Albums menggantikan «kirim fotonya ke grup keluarga» keesokan harinya:",
+    "1. Buat album, misalnya «Siraman Adinda, 2026».",
+    "2. Cetak QR di meja tamu, dekat tempat sungkeman, dan di area keluarga berkumpul.",
+    "3. Tamu memindai dengan kamera HP dan mengunggah dari peramban — tidak perlu memasang apa pun.",
+    "4. Nyalakan <b>«Hold guest photos»</b> bila ingin meninjau unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Tanpa masuk akun, unggahan tampil secara anonim. Tamu yang masuk akun juga mendapat salinan draf pribadi yang hanya berisi berkas mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/acara-lamaran/\">acara lamaran</a> dan <a href=\"/id/guides/qr-code-for-photos-at-party/\">kode QR untuk foto acara</a>.",
+    "## Biaya",
+    "Album acara dibeli sekali: Small 39,99 dolar, Medium 69,99 dolar, atau Large 129,99 dolar (USD). Tamu tidak membayar. Foto hingga 4K; album tersedia 6 bulan sejak unggahan pertama, dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh acara siraman",
+    "p": "Tamu mengunggah dari peramban — tidak perlu memasang apa pun. Anda yang meninjau sebelum foto tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan sungkeman dan restu keluarga",
+    "p": "Pembelian sekali mulai 39,99 dolar. Foto hingga 4K, 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Buat album saya →"
+  },
+  "faq": [
+    [
+      "Apa itu acara siraman pengantin?",
+      "Ritual mandi kembang sehari sebelum pernikahan dalam adat Jawa (dan ada versinya dalam adat Sunda): calon pengantin sungkem, lalu disiram air bunga oleh orang tua dan sesepuh sebagai penanda siap berumah tangga."
+    ],
+    [
+      "Apa bedanya dengan siraman tujuh bulanan?",
+      "Siraman tujuh bulanan adalah syukuran kehamilan di bulan ketujuh. Siraman pengantin dilakukan menjelang akad, sebagai bagian dari rangkaian pernikahan."
+    ],
+    [
+      "Bagaimana mengumpulkan foto tamu di acara siraman?",
+      "Letakkan kode QR di meja tamu. Mereka memindai dan mengunggah foto serta video dari peramban."
+    ],
+    [
+      "Apakah tamu perlu membuat akun?",
+      "Tidak. Mereka bisa mengunggah tanpa masuk; tamu yang masuk akun juga mendapat salinan pribadi dari berkas yang mereka kirim."
+    ]
+  ],
+  "related": [
+    "acara-lamaran",
+    "qr-code-for-photos-at-party",
+    "collect-wedding-photos-from-guests"
+  ]
+}

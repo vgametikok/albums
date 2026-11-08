@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CL",
+  "query": "ideas baby shower",
+  "date": "2026-11-08",
+  "title": "Ideas baby shower: juegos, regalos y fotos de invitados | Albums.ink",
+  "desc": "Ideas de baby shower en Chile: juegos, mesa de regalos y un álbum QR para juntar las fotos de todas las invitadas.",
+  "h1": "Ideas baby shower: lo que sí funciona y un solo álbum para las fotos",
+  "lead": "En Chile se busca «ideas baby shower» — con esas palabras en inglés — cuando las amigas y las tías organizan la celebración de la guagua que viene. Hay juegos, torta y una mesa de regalos. Lo que casi nunca queda junto son las fotos de cada invitada. Aquí van ideas que se usan de verdad, y una forma simple de no pedir «pásame las fotos» al día siguiente.",
+  "body": [
+    "## Ideas baby shower que la gente realmente juega",
+    "- <b>Adivina la fecha o el tamaño de la guatita</b>: un papel y un lápiz bastan; las caras al revelar el resultado se fotografían solas.",
+    "- <b>Bingo de regalos</b>: cada casilla es un tipo de regalo; quien completa la línea gana un detalle chico.",
+    "- <b>Mensaje para la guagua</b>: cada invitada escribe o graba una frase corta — después queda en el álbum.",
+    "- <b>Mesa simple, no un escenario</b>: once o almuerzo en casa o en un salón chico; la mamá tiene que poder sentarse.",
+    "- <b>Lista de regalos clara</b>: pañales, ropa por talla y dos o tres cosas pedidas evitan seis sonajeros iguales.",
+    "## Dónde salen las mejores fotos",
+    "En la puerta, al abrir regalos y cuando alguien dice un discurso corto. Justo ahí cada invitada saca el teléfono — y esas fotos se quedan en veinte rollos distintos.",
+    "## Junta las fotos de las invitadas con un código QR",
+    "Un <b>álbum de evento</b> en Albums reemplaza el grupo de WhatsApp del día siguiente:",
+    "1. Crea el álbum, por ejemplo «Baby shower de Camila, 2026».",
+    "2. Imprime el QR en la mesa de regalos, en el respaldo de la silla de la mamá y junto a la torta.",
+    "3. Las invitadas escanean con la cámara del teléfono y suben desde el navegador — no hay que instalar nada.",
+    "4. Activa <b>«Hold guest photos»</b> si quieres aprobar las fotos antes de que se vean.",
+    "5. Después descarga el álbum completo en un solo ZIP.",
+    "Sin iniciar sesión, las subidas aparecen de forma anónima. Quienes entran con su cuenta reciben además una copia privada en borrador solo de lo que ellas subieron.",
+    "!cta",
+    "También: <a href=\"/es/guides/baby-shower-photo-album/\">álbum del baby shower</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de una fiesta</a>.",
+    "## Cuánto cuesta",
+    "El álbum de evento es una compra única: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Las invitadas no pagan. Fotos hasta 4K; el álbum permanece 6 meses desde la primera subida, y se puede extender."
+  ],
+  "cta": {
+    "h2": "Un QR para todo el baby shower",
+    "p": "Las invitadas suben desde el navegador — no hay que instalar nada. Tú apruebas lo que se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Que no se pierdan los mensajes para la guagua",
+    "p": "Pago único desde 39,99 $. Fotos hasta 4K, 6 meses desde la primera subida, extensible.",
+    "btn": "Crear mi álbum →"
+  },
+  "faq": [
+    [
+      "¿Qué ideas de baby shower funcionan en Chile?",
+      "Juegos cortos (fecha, bingo de regalos), una mesa de once o almuerzo sin tanto protocolo, mensajes para la guagua y una lista de regalos clara."
+    ],
+    [
+      "¿Cómo junto las fotos de las invitadas del baby shower?",
+      "Imprime un código QR en la mesa. Escanean y suben fotos y videos desde el navegador."
+    ],
+    [
+      "¿Las invitadas necesitan una cuenta?",
+      "No. Pueden subir sin iniciar sesión; si entran con su cuenta, además reciben una copia privada de lo que ellas subieron."
+    ],
+    [
+      "¿Cuánto tiempo quedan las fotos?",
+      "6 meses desde la primera subida, y se puede extender."
+    ]
+  ],
+  "related": [
+    "baby-shower-photo-album",
+    "first-birthday-photo-ideas",
+    "qr-code-for-photos-at-party"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "UK",
+  "query": "christmas do ideas",
+  "date": "2026-11-08",
+  "title": "Christmas Do Ideas: Quizzes, Jumpers and Guest Photos | Albums.ink",
+  "desc": "Christmas do ideas for UK offices: festive quiz, jumper contest, daytime lunch and one QR album that collects every colleague's photos.",
+  "h1": "Christmas do ideas: a night (or lunch) colleagues will actually remember",
+  "lead": "A Christmas do is the British work party that fills diaries from mid-November — a pub lunch in Leeds, a quiz in a Manchester function room, a jumper contest in a London office. The speeches and Secret Santa get planned. The photos vanish into fifty camera rolls. Here are Christmas do ideas that work for small teams and bigger offices, plus a simple way to keep every guest photo in one place.",
+  "body": [
+    "## Christmas do ideas that people actually join in",
+    "- <b>Festive quiz</b>: short rounds (films, music, your own office lore) and a small prize on each table.",
+    "- <b>Christmas jumper contest</b>: funniest, most extra, best homemade — judged by a quick show of hands, not a long awards segment.",
+    "- <b>Daytime lunch</b>: easier for parents, carers and anyone who would skip a late night out. Book a private room and keep speeches short.",
+    "- <b>Wreath-making or a cooking class</b>: colleagues move around instead of sitting in the same seats all evening.",
+    "- <b>Secret Santa with a cap</b>: £10–£15 is the usual range; keep it optional so nobody feels boxed in.",
+    "## Where the best photos happen",
+    "The doorway when people arrive in jumpers, the quiz-sheet panic, the unplanned dance after dessert. Hired coverage, if you have any, often misses the last hour — that is when colleagues take the funniest videos.",
+    "## Collect every guest photo with one QR code",
+    "An <b>event album</b> on Albums replaces “please AirDrop me your pics” on the Monday morning commute:",
+    "1. Create the album, e.g. “North team Christmas do 2026”.",
+    "2. Print the QR on the table plans, the bar tab and the quiz sheets.",
+    "3. Guests scan with their phone camera and upload from the browser — nothing to install.",
+    "4. Turn on <b>“Hold guest photos”</b> if you want to approve uploads first.",
+    "5. After the night, download the whole album as one ZIP.",
+    "Without signing in, uploads appear anonymously. Signed-in guests also get a private draft copy containing only their own uploads.",
+    "!cta",
+    "Also useful: <a href=\"/guides/company-party-photo-sharing/\">company party photo sharing</a> and <a href=\"/guides/qr-code-for-photos-at-party/\">QR codes for party photos</a>.",
+    "## What it costs",
+    "An event album is a one-off purchase: Small $39.99, Medium $69.99 or Large $129.99 (USD). Guests pay nothing. Photos up to 4K; the album stays available for 6 months from the first upload, extendable."
+  ],
+  "cta": {
+    "h2": "One QR code for the whole Christmas do",
+    "p": "Guests upload from the browser — nothing to install. You approve what appears.",
+    "btn": "Create event album →"
+  },
+  "cta2": {
+    "h2": "Keep the jumper-contest moment",
+    "p": "One-off from $39.99. Photos up to 4K, 6 months from first upload, extendable.",
+    "btn": "Create my album →"
+  },
+  "faq": [
+    [
+      "What is a Christmas do?",
+      "In the UK, a Christmas do is the work Christmas party — a booked lunch, a quiz night or an evening out that the team plans from November onwards."
+    ],
+    [
+      "What are good Christmas do ideas for a small office?",
+      "A festive quiz, a jumper contest, a daytime lunch in a private room, wreath-making and an optional Secret Santa with a clear spending cap."
+    ],
+    [
+      "How do I collect photos from the work Christmas party?",
+      "Print a QR code on the tables and quiz sheets. Guests scan and upload photos and videos from the browser."
+    ],
+    [
+      "Do colleagues need to create an account?",
+      "No. They can upload without signing in; signed-in guests also get a private copy of their uploads."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party",
+    "christmas-party-photo-booth-ideas"
+  ]
+}

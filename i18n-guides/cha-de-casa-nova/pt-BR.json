@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "chá de casa nova",
+  "date": "2026-11-08",
+  "title": "Chá de casa nova: ideias e fotos dos convidados | Albums.ink",
+  "desc": "Chá de casa nova no Brasil: lista de presentes, recepção simples e um álbum QR para reunir as fotos de todos os convidados.",
+  "h1": "Chá de casa nova: ideias que funcionam e um álbum para as fotos",
+  "lead": "O chá de casa nova é o encontro em que amigos e família chegam com um presente para o lar novo — panela, jogo de cama, um vaso — e comem juntos na sala que ainda cheira a tinta. Não é um ritual religioso: é um chá, no mesmo espírito do chá de panela, só que para a casa. O que quase nunca fica junto são as fotos de cada convidado. Aqui vão ideias práticas e um jeito de não pedir «me mandem as fotos» no grupo no dia seguinte.",
+  "body": [
+    "## Ideias para o chá de casa nova",
+    "- <b>Lista objetiva</b>: o que ainda falta na casa (toalhas, talheres, lâmpadas) evita cinco tabuas de corte iguais.",
+    "- <b>Um tour curto</b>: mostre dois ou três cômodos, sem transformar a visita num programa de TV.",
+    "- <b>Comida que dá para comer em pé</b>: salgados, uma mesa de doces, suco e café — a sala nova quase nunca tem cadeira para todo mundo.",
+    "- <b>Um recado para a casa</b>: cada convidado escreve ou grava uma frase; depois isso entra no álbum.",
+    "- <b>Horário de tarde</b>: no Brasil o chá costuma ser à tarde, mais fácil do que uma festa até tarde na casa recém-mudada.",
+    "## Onde as fotos acontecem",
+    "Na porta com o presente na mão, na primeira foto da sala arrumada, na hora do recado. É aí que cada um tira o celular — e as imagens ficam em vinte rolos diferentes.",
+    "## Reúna as fotos dos convidados com um QR",
+    "Um <b>álbum de evento</b> no Albums substitui o «me marquem no álbum» do dia seguinte:",
+    "1. Crie o álbum, por exemplo «Chá de casa nova da Ana e do Pedro, 2026».",
+    "2. Imprima o QR na mesa de presentes, na entrada e perto do bolo.",
+    "3. Os convidados apontam a câmera do celular e enviam pelo navegador — sem instalar nada.",
+    "4. Ative <b>«Hold guest photos»</b> se quiser aprovar as fotos antes de aparecerem.",
+    "5. Depois baixe o álbum inteiro num único ZIP.",
+    "Sem entrar na conta, os envios aparecem de forma anônima. Quem entra com a conta recebe também uma cópia rascunho privada só do que a própria pessoa enviou.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/cha-de-panela/\">chá de panela</a> e <a href=\"/pt-BR/guides/qr-code-for-photos-at-party/\">QR para fotos da festa</a>.",
+    "## Quanto custa",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos até 4K; o álbum fica disponível por 6 meses a partir do primeiro envio, e dá para prorrogar."
+  ],
+  "cta": {
+    "h2": "Um QR para o chá de casa nova inteiro",
+    "p": "Os convidados enviam pelo navegador — sem instalar nada. Você aprova o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde os recados para a casa nova",
+    "p": "Compra única a partir de US$ 39,99. Fotos até 4K, 6 meses desde o primeiro envio, prorrogável.",
+    "btn": "Criar meu álbum →"
+  },
+  "faq": [
+    [
+      "O que é um chá de casa nova?",
+      "É um encontro em que amigos e família visitam a casa recém-mudada, levam um presente para o lar e comem juntos — no mesmo espírito de um chá de panela, só que para a casa."
+    ],
+    [
+      "Como reunir as fotos dos convidados do chá de casa nova?",
+      "Imprima um código QR na entrada e na mesa de presentes. Eles apontam a câmera e enviam fotos e vídeos pelo navegador."
+    ],
+    [
+      "Os convidados precisam de uma conta?",
+      "Não. Dá para enviar sem entrar; quem entra na conta recebe também uma cópia privada do que enviou."
+    ],
+    [
+      "Por quanto tempo as fotos ficam?",
+      "6 meses a partir do primeiro envio, e dá para prorrogar."
+    ]
+  ],
+  "related": [
+    "cha-de-panela",
+    "qr-code-for-photos-at-party",
+    "birthday-party-photo-sharing"
+  ]
+}

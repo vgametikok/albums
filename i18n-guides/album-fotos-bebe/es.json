@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ES",
+  "query": "álbum de fotos bebé",
+  "date": "2026-11-08",
+  "title": "Álbum de fotos bebé: capítulos del primer año | Albums.ink",
+  "desc": "Cómo hacer un álbum de fotos bebé en España: meses, primeras veces, notas de voz y un enlace privado que la familia abre en el móvil.",
+  "h1": "Álbum de fotos bebé: el primer año, contado por capítulos",
+  "lead": "Un álbum de fotos bebé no debería ser una carpeta sin orden en el teléfono. En España se busca justo así — «álbum de fotos bebé» — cuando llegan las fotos del recién nacido, del mes a mes y de las primeras veces. Aquí tienes una forma sencilla de montarlo en internet, con capítulos y la voz de quien lo vive.",
+  "body": [
+    "## Qué poner en un álbum de fotos bebé",
+    "- <b>Los primeros días</b>: la llegada a casa, las visitas, ese primer gorrito que luego se queda pequeño.",
+    "- <b>Mes a mes</b>: una foto en el mismo rincón, con la fecha — a los doce meses se ve el cambio de verdad.",
+    "- <b>Primeras veces</b>: la sonrisa, sentarse, el puré, el parque de abajo.",
+    "- <b>Quien está alrededor</b>: una nota de voz corta de la madre, del padre o de los abuelos, como si el bebé ya pudiera oírla.",
+    "## Un álbum historia gratuito",
+    "En Albums creas un <b>álbum historia</b> con capítulos, fotos, vídeos y notas de voz. Puedes añadir narración y reproducirlo como pases de diapositivas. Para compartir con familiares, añádelos como amigos y elige Amigos o Amigos, excepto…. Solo yo no da acceso a otras personas ni siquiera con el enlace. Sin anuncios. El álbum se queda mientras tú quieras.",
+    "1. Crea un álbum gratis, por ejemplo «El primer año de Martín, 2026».",
+    "2. Añade capítulos (Llegada, Mes a mes, Familia, Primeras veces).",
+    "3. Sube fotos (hasta 30 MB, hasta 4K) y vídeos cortos (hasta 50 MB).",
+    "4. Graba una nota de voz en el navegador o sube un audio (hasta 20 MB).",
+    "5. Invita a un coautor (ya tiene que ser amigo en Albums) si queréis llenar capítulos entre dos.",
+    "6. Envía el enlace con portada — se abre en el navegador, no hay que instalar nada.",
+    "!cta",
+    "También: <a href=\"/es/guides/baby-photo-sharing/\">compartir fotos del bebé</a> y <a href=\"/es/guides/add-voice-to-photos/\">añadir voz a las fotos</a>.",
+    "## Privado ahora, para la familia cuando tú decidas",
+    "Mientras lo montas, usa Solo yo. Cuando quieras enseñarlo, añade a los familiares como amigos. Puedes cambiar la visibilidad archivo a archivo si alguna foto debe quedar solo entre vosotros. Descarga el álbum entero en un único ZIP si quieres una copia."
+  ],
+  "cta": {
+    "h2": "Empieza el álbum de fotos bebé hoy",
+    "p": "Álbum historia gratis, con capítulos y notas de voz. Sin anuncios.",
+    "btn": "Crear el álbum →"
+  },
+  "cta2": {
+    "h2": "Un álbum que puedes ir llenando",
+    "p": "Álbumes gratis ilimitados, mientras tú quieras. Amigos, Amigos, excepto… o Solo yo.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué se pone en un álbum de fotos bebé?",
+      "Los primeros días, una foto al mes en el mismo sitio, las primeras veces y una nota de voz corta de quien está cerca."
+    ],
+    [
+      "¿Puedo hacer un álbum de fotos bebé online gratis?",
+      "Sí. En Albums los álbumes historia son gratis, con capítulos, notas de voz y enlace. Sin anuncios."
+    ],
+    [
+      "¿Lo puede ver solo la familia?",
+      "No hay un modo «solo familia». Añade a los parientes como amigos y elige Amigos o Amigos, excepto…. Solo yo no permite el acceso por enlace."
+    ],
+    [
+      "¿Cuánto tiempo se guarda el álbum?",
+      "Mientras tú quieras conservarlo."
+    ]
+  ],
+  "related": [
+    "baby-photo-sharing",
+    "add-voice-to-photos",
+    "first-birthday-photo-ideas"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa di battesimo",
+  "date": "2026-11-08",
+  "title": "Festa di battesimo: idee e foto degli ospiti | Albums.ink",
+  "desc": "Idee per la festa di battesimo in Italia: pranzo dopo la chiesa, bomboniere, padrini — e un album QR per le foto degli ospiti.",
+  "h1": "Festa di battesimo: il pranzo dopo la chiesa e un album per tutte le foto",
+  "lead": "La festa di battesimo, in Italia, è il pranzo o il ricevimento che segue la celebrazione in chiesa: ci sono i padrini, le bomboniere, i nonni e i cugini che non si vedono da mesi. Il rito è in chiesa; la festa è a tavola. Quel che si disperde sono le foto di ogni ospite. Ecco idee concrete e un modo per non chiedere «mandatemi le foto» il giorno dopo.",
+  "body": [
+    "## Idee per la festa di battesimo",
+    "- <b>Dopo la chiesa, a tavola</b>: un pranzo in agriturismo o in una sala piccola va meglio di un programma lungo. Il bambino deve poter stare tranquillo.",
+    "- <b>Padrino e madrina</b>: un momento visibile per loro (un brindisi breve, una foto con i genitori) senza trasformarlo in un discorso.",
+    "- <b>Bomboniere</b>: il classico italiano resta; tenete un tavolo ordinato, non un secondo allestimento.",
+    "- <b>Un messaggio per il bambino</b>: ogni ospite scrive o registra una frase — poi resta nell’album.",
+    "- <b>Non è la prima comunione</b>: al battesimo gli ospiti sono soprattutto famiglia e amici stretti; il ritmo è quello di un pranzo, non di una festa da ballo.",
+    "## Dove nascono le foto più belle",
+    "Sulla scalinata della chiesa, all’arrivo in sala, quando si aprono le bomboniere, al taglio della torta. È lì che ogni ospite tira fuori il telefono — e le foto restano in venti rullini diversi.",
+    "## Raccogliete le foto degli ospiti con un QR",
+    "Un <b>album evento</b> su Albums sostituisce il gruppo WhatsApp del giorno dopo:",
+    "1. Create l’album, ad esempio «Battesimo di Sofia, 2026».",
+    "2. Stampate il QR sui tableau, accanto alle bomboniere e vicino alla torta.",
+    "3. Gli ospiti inquadrano con la fotocamera del telefono e caricano dal browser — senza installare nulla.",
+    "4. Attivate <b>«Hold guest photos»</b> se volete approvare le foto prima che si vedano.",
+    "5. Dopo, scaricate tutto l’album in un unico ZIP.",
+    "Senza accedere, i caricamenti appaiono in forma anonima. Chi accede riceve anche una copia bozza privata con soli i propri file.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/prima-comunione-foto/\">foto della prima comunione</a> e <a href=\"/it/guides/festa-cresima/\">festa della cresima</a>.",
+    "## Quanto costa",
+    "L’album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gli ospiti non pagano. Foto fino a 4K; l’album resta disponibile 6 mesi dal primo caricamento, ed è possibile prolungarlo."
+  ],
+  "cta": {
+    "h2": "Un QR per tutta la festa di battesimo",
+    "p": "Gli ospiti caricano dal browser — senza installare nulla. Decidete voi cosa resta visibile.",
+    "btn": "Crea album evento →"
+  },
+  "cta2": {
+    "h2": "Conservate i messaggi per il bambino",
+    "p": "Acquisto unico da 39,99 $. Foto fino a 4K, 6 mesi dal primo caricamento, prolungabile.",
+    "btn": "Crea il mio album →"
+  },
+  "faq": [
+    [
+      "Come si organizza una festa di battesimo?",
+      "Dopo la celebrazione in chiesa si fa un pranzo con famiglia, padrini e amici stretti. Bastano un brindisi breve, le bomboniere e un ritmo che tenga conto del bambino."
+    ],
+    [
+      "Come raccogliere le foto degli ospiti al battesimo?",
+      "Mettete un codice QR sui tableau e accanto alla torta. Gli ospiti inquadrano e caricano foto e video dal browser."
+    ],
+    [
+      "Gli ospiti devono creare un account?",
+      "No. Possono caricare senza accedere; chi accede riceve anche una copia privata di ciò che ha inviato."
+    ],
+    [
+      "Per quanto tempo restano le foto?",
+      "6 mesi dal primo caricamento, e si può prolungare."
+    ]
+  ],
+  "related": [
+    "prima-comunione-foto",
+    "festa-cresima",
+    "first-birthday-photo-ideas"
+  ]
+}

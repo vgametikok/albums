@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "làm album ảnh kỷ niệm",
+  "date": "2026-11-08",
+  "title": "Làm album ảnh kỷ niệm online với chương và lời thoại | Albums.ink",
+  "desc": "Cách làm album ảnh kỷ niệm ở Việt Nam: chia chương, ghi âm lời nhắn và gửi liên kết để gia đình xem trên điện thoại.",
+  "h1": "Làm album ảnh kỷ niệm: một câu chuyện, không phải một thư mục lộn xộn",
+  "lead": "Người Việt tìm «làm album ảnh kỷ niệm» khi ảnh đẹp nằm rải trên vài chiếc điện thoại và trong album giấy cũ. Không nhất thiết phải in thành sách. Một album kể chuyện với từng chương và giọng nói ngắn có thể mở ngay trên trình duyệt, rồi bổ sung thêm khi có kỷ niệm mới.",
+  "body": [
+    "## Nên đưa gì vào album ảnh kỷ niệm",
+    "- <b>Một mạch truyện</b>: chọn một chủ đề — gia đình, một năm đã qua, chuyến đi, tuổi thơ của con — rồi đi theo mạch đó.",
+    "- <b>Cũ và mới</b>: số hóa vài tấm ảnh giấy, ghép với ảnh vừa chụp tháng này.",
+    "- <b>Chỗ quen thuộc</b>: mâm cơm chủ nhật, sân trước nhà, quán cà phê cũ.",
+    "- <b>Giọng của người trong ảnh</b>: một đoạn ghi âm ngắn cho hai ba tấm ảnh đáng hơn một dòng chú thích dài.",
+    "## Tạo album kể chuyện miễn phí",
+    "Trên Albums bạn tạo <b>album kể chuyện</b> với chương, ảnh, video và ghi âm. Có thể thêm lời dẫn và xem như trình chiếu. Để chia sẻ với người thân, hãy thêm họ làm bạn bè rồi chọn Bạn bè hoặc Bạn bè, trừ…. Chỉ mình tôi không cho người khác xem, kể cả khi có liên kết. Không có quảng cáo. Album ở lại chừng nào bạn còn muốn giữ.",
+    "1. Tạo album miễn phí, ví dụ «Kỷ niệm gia đình 2026».",
+    "2. Đặt chương (Ngày xưa, Chuyến đi, Cơm nhà, Năm nay).",
+    "3. Tải ảnh (tối đa 30 MB mỗi tấm, tối đa 4K) và video ngắn (tối đa 50 MB).",
+    "4. Ghi âm ngay trên trình duyệt hoặc tải file âm thanh (tối đa 20 MB).",
+    "5. Mời một đồng tác giả (phải đã là bạn trên Albums) nếu muốn làm chung.",
+    "6. Gửi liên kết có ảnh bìa — mở bằng trình duyệt, không cần cài gì thêm.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/album-anh-gia-dinh/\">album ảnh gia đình</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Riêng tư trước, chia sẻ khi bạn sẵn sàng",
+    "Trong lúc dựng album, dùng Chỉ mình tôi. Khi muốn gửi, thêm người thân làm bạn bè. Có thể chỉnh quyền xem từng tệp. Tải cả album về trong một file ZIP nếu cần bản sao."
+  ],
+  "cta": {
+    "h2": "Bắt đầu làm album ảnh kỷ niệm",
+    "p": "Album kể chuyện miễn phí, có chương và ghi âm. Không có quảng cáo.",
+    "btn": "Tạo album →"
+  },
+  "cta2": {
+    "h2": "Một câu chuyện để viết tiếp",
+    "p": "Album miễn phí không giới hạn số lượng, ở lại chừng nào bạn còn muốn giữ. Bạn bè, Bạn bè trừ… hoặc Chỉ mình tôi.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Làm album ảnh kỷ niệm thì nên đưa gì vào?",
+      "Một chủ đề rõ (gia đình, một năm, một chuyến đi), ảnh cũ lẫn ảnh mới, vài nơi quen thuộc và một đoạn ghi âm ngắn."
+    ],
+    [
+      "Làm album ảnh kỷ niệm online có miễn phí không?",
+      "Có. Album kể chuyện trên Albums là miễn phí, có chương, ghi âm và liên kết. Không có quảng cáo."
+    ],
+    [
+      "Có giữ album chỉ cho người thân được không?",
+      "Không có chế độ «chỉ gia đình». Hãy thêm họ làm bạn bè rồi chọn Bạn bè hoặc Bạn bè, trừ…. Chỉ mình tôi không mở quyền xem qua liên kết."
+    ],
+    [
+      "Album được giữ trong bao lâu?",
+      "Chừng nào bạn còn muốn giữ."
+    ]
+  ],
+  "related": [
+    "album-anh-gia-dinh",
+    "year-in-review-photo-album",
+    "add-voice-to-photos"
+  ]
+}

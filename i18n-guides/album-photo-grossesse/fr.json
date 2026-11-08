@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "album photo grossesse",
+  "date": "2026-11-08",
+  "title": "Album photo grossesse : mois par mois | Albums.ink",
+  "desc": "Créer un album photo grossesse en France : photos du ventre mois par mois, échographies, voix de la famille et un lien privé.",
+  "h1": "Album photo grossesse : les neuf mois, racontés par chapitres",
+  "lead": "Un album photo grossesse, ce n’est pas un dossier « échographies » oublié dans le téléphone. En France, on cherche justement « album photo grossesse » pour garder le test, les photos du ventre au même endroit chaque mois, et quelques mots de ceux qui attendent avec vous. Voici comment le monter simplement en ligne.",
+  "body": [
+    "## Que mettre dans un album photo grossesse",
+    "- <b>Le début</b> : le test, la première personne prévenue, le premier rendez-vous.",
+    "- <b>Mois par mois</b> : une photo du ventre au même endroit, avec la semaine et une phrase sur ce mois-là.",
+    "- <b>Les échographies</b> : celle du cœur, celle de la morphologie — datées, avec une légende courte, pas un tas de fichiers sans nom.",
+    "- <b>Le reste</b> : la chambre qui se prépare, le sac pour la maternité, l’envie absurde à 2 heures du matin.",
+    "- <b>Les voix autour</b> : une note vocale courte du conjoint, d’un frère, d’une sœur ou des grands-parents.",
+    "## Un album histoire gratuit",
+    "Sur Albums, vous créez un <b>album histoire</b> avec chapitres, photos, vidéos et notes vocales. Vous pouvez ajouter une narration et le parcourir en diaporama. Pour le partager avec la famille, ajoutez vos proches comme amis puis choisissez Amis ou Amis, sauf…. Moi uniquement ne donne pas accès aux autres, même avec le lien. Sans pubs. L’album reste aussi longtemps que vous le voulez.",
+    "1. Créez un album gratuit, par exemple « On t’attend, 2026 ».",
+    "2. Ajoutez des chapitres (Premier trimestre, Deuxième, Troisième, Chambre, Premiers jours).",
+    "3. Envoyez des photos (jusqu’à 30 Mo, jusqu’à 4K) et de courtes vidéos (jusqu’à 50 Mo).",
+    "4. Enregistrez une note vocale dans le navigateur ou importez un audio (jusqu’à 20 Mo).",
+    "5. Invitez un co-auteur (déjà ami sur Albums), souvent l’autre parent, pour remplir les chapitres à deux.",
+    "6. Envoyez le lien avec aperçu de couverture — on ouvre dans le navigateur, rien à installer.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/baby-photo-sharing/\">partager les photos de bébé</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter une voix aux photos</a>.",
+    "## Privé tant que vous le souhaitez",
+    "Gardez Moi uniquement le temps de le construire. Quand vous serez prêts, ajoutez les personnes de confiance comme amis. Vous pouvez régler la visibilité fichier par fichier si certaines échographies restent entre vous deux. Téléchargement de tout l’album en un seul ZIP possible."
+  ],
+  "cta": {
+    "h2": "Commencez votre album photo grossesse",
+    "p": "Album histoire gratuit, avec chapitres et notes vocales. Sans pubs.",
+    "btn": "Créer l’album →"
+  },
+  "cta2": {
+    "h2": "Une histoire à compléter jusqu’à la naissance",
+    "p": "Des albums gratuits illimités, aussi longtemps que vous le voulez. Amis, Amis, sauf… ou Moi uniquement.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Que mettre dans un album photo grossesse ?",
+      "Une photo du ventre chaque mois au même endroit, les échographies datées, l’annonce, la chambre, et une courte note vocale de ceux qui attendent avec vous."
+    ],
+    [
+      "Peut-on faire un album photo grossesse en ligne gratuitement ?",
+      "Oui. Sur Albums, les albums histoire sont gratuits, avec chapitres, notes vocales et lien. Sans pubs."
+    ],
+    [
+      "L’album peut-il rester privé ?",
+      "Oui. Utilisez Moi uniquement pendant la préparation. Pour partager, ajoutez vos proches comme amis puis choisissez Amis ou Amis, sauf…. Moi uniquement n’ouvre pas l’accès par le lien."
+    ],
+    [
+      "Combien de temps l’album reste-t-il ?",
+      "Aussi longtemps que vous le voulez."
+    ]
+  ],
+  "related": [
+    "baby-photo-sharing",
+    "add-voice-to-photos",
+    "photo-diary"
+  ]
+}

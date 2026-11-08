@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "US",
+  "query": "pregnancy photo album",
+  "date": "2026-11-08",
+  "title": "Pregnancy Photo Album: Chapters, Voice Notes and Your Story | Albums.ink",
+  "desc": "How to make a pregnancy photo album in the US: monthly bump photos, scan pictures, a letter to the baby and a private link you can keep adding to.",
+  "h1": "Pregnancy photo album: the nine months, told in chapters",
+  "lead": "A pregnancy photo album is more than a folder of bump pictures. In the US, parents often want one place for the positive test, monthly photos against the same wall, anatomy-scan printouts and the voice of the people waiting with them. Here is a simple way to build that story online — privately, with chapters you can keep filling until the first days at home.",
+  "body": [
+    "## What to put in a pregnancy photo album",
+    "- <b>The beginning</b>: the test, who you told first, the first appointment card.",
+    "- <b>Month by month</b>: one bump photo in the same spot, plus a sentence about how that month felt.",
+    "- <b>Scan pictures</b>: the heartbeat visit and the anatomy scan, dated, with a short caption — not a pile of unmarked files.",
+    "- <b>The in-between</b>: nursery painting, the hospital bag, the craving that made no sense at 2 a.m.",
+    "- <b>People around you</b>: a short voice note from a partner, a sibling or a grandparent, spoken as if the baby could already hear it.",
+    "## Build it as a free story album",
+    "On Albums you create a <b>story album</b> with chapters, photos, videos and voice notes. Add narration if you want a slideshow you can play through later. To share with relatives, add them as friends and choose Friends or Friends, except…. Only me does not grant access through a link. No ads. The album stays as long as you want it.",
+    "1. Create a free album — e.g. “Waiting for you, 2026”.",
+    "2. Add chapters (First trimester, Second, Third, Nursery, First days).",
+    "3. Upload photos (up to 30 MB each, up to 4K) and short videos (up to 50 MB).",
+    "4. Record a voice note in the browser or upload audio (up to 20 MB).",
+    "5. Invite one co-author (your partner, if they are already a friend on Albums) to help fill chapters.",
+    "6. Send a link with cover preview — family opens it in the browser, nothing to install.",
+    "!cta",
+    "Related: <a href=\"/guides/baby-photo-sharing/\">sharing baby photos</a> and <a href=\"/guides/add-voice-to-photos/\">add voice to photos</a>.",
+    "## Keep it private while you are still waiting",
+    "A pregnancy album is personal. Use Only me while you draft, then add the people you trust as friends when you are ready. You can change visibility per file if some scan pictures should stay between you two. Download the whole album as one ZIP if you also want a backup on your computer."
+  ],
+  "cta": {
+    "h2": "Start your pregnancy photo album today",
+    "p": "Free story album with chapters, voice notes and a slideshow. No ads.",
+    "btn": "Start the album →"
+  },
+  "cta2": {
+    "h2": "A story you can keep adding to",
+    "p": "Unlimited free albums that stay as long as you want them. Choose Friends, Friends, except… or Only me.",
+    "btn": "Start free →"
+  },
+  "faq": [
+    [
+      "What should I put in a pregnancy photo album?",
+      "Monthly bump photos in the same spot, dated scan pictures, the announcement, nursery progress, a few everyday moments and a short voice note from the people waiting with you."
+    ],
+    [
+      "How do I make a pregnancy photo album online for free?",
+      "On Albums, story albums are free. Create chapters by trimester, upload photos and voice notes, then share a link when you are ready. No ads."
+    ],
+    [
+      "Can I keep a pregnancy photo album private?",
+      "Yes. Use Only me while you draft. To share with relatives, add them as friends and choose Friends or Friends, except…. Only me does not allow access via a link."
+    ],
+    [
+      "How long does the album stay?",
+      "As long as you want it. You keep it while you need it."
+    ]
+  ],
+  "related": [
+    "baby-photo-sharing",
+    "add-voice-to-photos",
+    "first-birthday-photo-ideas"
+  ]
+}
