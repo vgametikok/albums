@@ -3,7 +3,7 @@
   <url><loc>https://albums.ink/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://albums.ink/social/</loc><lastmod>2026-11-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://albums.ink/pricing</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/collect-wedding-photos-from-guests/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/wedding-qr-code-table-signs/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://albums.ink/guides/google-photos-vs-qr-guest-album/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -778,5 +778,29 @@
   <url><loc>https://albums.ink/de/guides/weihnachtsfeier-ideen/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://albums.ink/zh-CN/guides/xieshiyan/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://albums.ink/ja/guides/yuino-photos/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/id/guides/acara-reuni-sekolah/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/vi/guides/album-anh-tang-thay-co/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/es/guides/album-de-fotos-para-mi-novia/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/it/guides/album-foto-mamma/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/fr/guides/album-photo-bebe/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ko/guides/appa-saengil-seonmul/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/it/guides/cena-aziendale-natale/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/pt-BR/guides/confraternizacao-fim-de-ano/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ru/guides/detskiy-den-rozhdeniya/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/guides/engagement-party-ideas/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ru/guides/fotoalbom-podarok-parnyu/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/de/guides/fotoalbum-fuer-mama/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/zh-CN/guides/gongsi-nianhui/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/zh-CN/guides/guimi-shengri-liwu/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/vi/guides/hop-lop/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/es/guides/ideas-para-bautismo/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/fr/guides/idee-anniversaire-30-ans/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ko/guides/jibdeuri/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/id/guides/kado-untuk-sahabat/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/de/guides/klassenzusammenkunft/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ja/guides/nijikai-photos/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/guides/photo-album-for-dad/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/pt-BR/guides/presente-para-melhor-amiga/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://albums.ink/ja/guides/tomodachi-birthday-album/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <!-- /guides-i18n -->
 </urlset>
