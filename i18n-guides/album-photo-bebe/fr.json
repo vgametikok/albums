@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "album photo bébé",
+  "date": "2026-11-09",
+  "title": "Album photo bébé en ligne | Albums.ink",
+  "desc": "Album photo bébé pour la première année : chapitres par mois, notes vocales, partage avec la famille en Suisse romande. Gratuit et sans pubs.",
+  "h1": "Album photo bébé : la première année racontée en chapitres",
+  "lead": "Un album photo bébé se cherche souvent « à remplir » ou « 1ère année ». Les albums en tissu et les albums de naissance restent de jolis cadeaux, mais les photos, elles, sont sur le natel. Un album en ligne permet de les ranger mois par mois, avec des vidéos et la voix des parents, et de les montrer aux grands-parents de Genève à Lausanne sans envoyer cent fichiers.",
+  "body": [
+    "## Que mettre dans un album photo bébé",
+    "- <b>La naissance</b>: le faire-part, le bracelet de la maternité, les premières visites.",
+    "- <b>Mois par mois</b>: une photo au même endroit avec la même peluche pour voir la différence.",
+    "- <b>Les premières fois</b>: le premier bain, le premier sourire, la première purée.",
+    "- <b>La famille</b>: grands-parents, parrain et marraine, frères et sœurs.",
+    "- <b>Une voix</b>: une courte note vocale des parents à la fin de chaque chapitre.",
+    "## Créer l’album gratuitement",
+    "Sur Albums, vous créez un <b>album histoire</b> avec chapitres, photos, vidéos et notes vocales. Vous pouvez ajouter une narration et le regarder en diaporama. Pour le partager, ajoutez vos proches comme amis puis choisissez Amis — tous vos amis le verront. Pour limiter, choisissez Amis, sauf… et excluez les autres ; vérifiez ce réglage après chaque nouvel ami. Moi uniquement ne donne pas accès, même avec le lien. Sans pubs. L’album reste aussi longtemps que vous le voulez.",
+    "1. Créez un album gratuit — par exemple « Léa, première année ».",
+    "2. Ajoutez des chapitres : Naissance, 1 à 3 mois, 4 à 6 mois, 7 à 12 mois.",
+    "3. Envoyez des photos (jusqu’à 30 Mo, jusqu’à 2048 pixels sur le grand côté avec l’offre gratuite) et de courtes vidéos (jusqu’à 50 Mo).",
+    "4. Enregistrez une note vocale dans le navigateur ou envoyez un audio (jusqu’à 20 Mo).",
+    "5. Invitez un co-auteur (déjà ami sur Albums), souvent l’autre parent.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/album-photo-grossesse/\">album photo grossesse</a> et <a href=\"/fr/guides/baby-photo-sharing/\">partager les photos de bébé</a>.",
+    "## Garder certaines photos pour vous",
+    "Gardez Moi uniquement pendant que vous construisez l’album. La visibilité se règle aussi fichier par fichier, pratique pour les photos du bain. Tout l’album se télécharge en un seul ZIP."
+  ],
+  "cta": {
+    "h2": "Commencez l’album photo de bébé",
+    "p": "Album histoire gratuit avec chapitres, notes vocales et diaporama. Sans pubs.",
+    "btn": "Commencer l’album →"
+  },
+  "cta2": {
+    "h2": "Un album qui grandit avec bébé",
+    "p": "Albums gratuits illimités, qui restent aussi longtemps que vous le voulez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Que mettre dans un album photo bébé ?",
+      "Le faire-part, une photo par mois au même endroit, les premières fois, la famille et une note vocale des parents."
+    ],
+    [
+      "Peut-on faire un album photo bébé en ligne gratuitement ?",
+      "Oui. Sur Albums, les albums histoire sont gratuits, avec chapitres, photos, vidéos et notes vocales. Sans pubs."
+    ],
+    [
+      "Comment le montrer seulement aux grands-parents ?",
+      "Ajoutez-les comme amis, choisissez Amis, sauf… et excluez les autres. Revérifiez après chaque nouvel ami."
+    ],
+    [
+      "Peut-on le remplir à deux ?",
+      "Oui, avec un co-auteur par album, qui doit déjà être votre ami sur Albums."
+    ]
+  ],
+  "related": [
+    "album-photo-grossesse",
+    "baby-photo-sharing",
+    "add-voice-to-photos"
+  ]
+}

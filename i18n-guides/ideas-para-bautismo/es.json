@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AR",
+  "query": "ideas para bautismo",
+  "date": "2026-11-09",
+  "title": "Ideas para bautismo: festejo, mesa dulce y fotos | Albums.ink",
+  "desc": "Ideas para bautismo en Argentina: festejo en casa o en salón, bautismo y primer añito, souvenirs y un álbum QR con las fotos de todos los invitados.",
+  "h1": "Ideas para bautismo: un festejo sencillo y todas las fotos en un lugar",
+  "lead": "En Argentina las búsquedas de “ideas para bautismo” se dividen entre nena y varón, festejo en casa y la combinación de bautismo y primer añito. Después de la ceremonia en la parroquia, con los padrinos, la vela y el ropón blanco, llega el almuerzo o la merienda con la familia. Acá van ideas para ese festejo y una forma simple de juntar las fotos que saca cada invitado.",
+  "body": [
+    "## Ideas para el festejo",
+    "- <b>En casa</b>: un almuerzo largo o un asado en el patio; alcanza con una mesa dulce bien armada.",
+    "- <b>En salón</b>: si se juntan bautismo y primer añito, conviene un salón con espacio para los chicos.",
+    "- <b>Mesa dulce</b>: torta con el nombre, cupcakes y alfajorcitos de maicena en tonos suaves.",
+    "- <b>Souvenirs</b>: velitas, rosarios pequeños o frascos con confites, con una tarjeta y la fecha.",
+    "- <b>Rincón de los padrinos</b>: una foto de los padrinos con el bebé y una carta que puedan leer más adelante.",
+    "## Las fotos que no te querés perder",
+    "La entrada a la iglesia, el momento del agua, los abuelos sosteniendo la vela, la torta. Cada invitado saca fotos con su celular y después nadie las comparte.",
+    "## Juntá todas las fotos con un código QR",
+    "Un <b>álbum de evento</b> en Albums las reúne en un solo lugar:",
+    "1. Creá el álbum, por ejemplo “Bautismo de Valentina”.",
+    "2. Imprimí el QR en la tarjeta del souvenir o en un cartelito en la mesa dulce.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador — no hay que instalar nada.",
+    "4. Activá <b>«Hold guest photos»</b> si querés aprobar las fotos antes de que se vean.",
+    "5. Después descargá el álbum completo en un solo ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados que inician sesión reciben además una copia privada en borrador solo con sus propias fotos.",
+    "!cta",
+    "También te puede servir: <a href=\"/es/guides/ideas-primera-comunion/\">ideas para primera comunión</a> y <a href=\"/es/guides/baby-photo-sharing/\">compartir fotos del bebé</a>.",
+    "## Cuánto cuesta",
+    "El álbum de evento es una compra única: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Los invitados no pagan. Fotos hasta 4K; el álbum queda disponible 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Un QR para todo el bautismo",
+    "p": "Los invitados suben desde el navegador — no hay que instalar nada. Vos aprobás lo que se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Que no se pierda la foto con los padrinos",
+    "p": "Pago único desde 39,99 $. Fotos hasta 4K, 6 meses desde la primera subida, extensible.",
+    "btn": "Crear mi álbum →"
+  },
+  "faq": [
+    [
+      "¿Cómo festejar un bautismo en casa?",
+      "Con un almuerzo o asado, una mesa dulce sencilla, souvenirs pequeños y un rincón con fotos de los padrinos."
+    ],
+    [
+      "¿Se puede hacer bautismo y primer añito juntos?",
+      "Sí, es habitual. Conviene un salón con lugar para los chicos y una sola mesa dulce para las dos ocasiones."
+    ],
+    [
+      "¿Cómo junto las fotos de los invitados?",
+      "Poné un código QR en los souvenirs o en la mesa. Los invitados escanean y suben fotos y videos desde el navegador."
+    ],
+    [
+      "¿Los invitados necesitan una cuenta?",
+      "No. Sin iniciar sesión aparecen de forma anónima; quienes inician sesión reciben una copia privada en borrador de sus propias fotos."
+    ]
+  ],
+  "related": [
+    "ideas-primera-comunion",
+    "baby-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

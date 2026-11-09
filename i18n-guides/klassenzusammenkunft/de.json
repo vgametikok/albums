@@ -1,0 +1,68 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "Klassenzusammenkunft organisieren",
+  "date": "2026-11-09",
+  "title": "Klassenzusammenkunft organisieren | Albums.ink",
+  "desc": "Klassenzusammenkunft organisieren: Einladung, Ablauf mit Apéro und Nachtessen, Ideen für Spiele und ein QR-Album für alle Fotos von damals und heute.",
+  "h1": "Klassenzusammenkunft organisieren: von der Einladung bis zum Fotoalbum",
+  "lead": "In der Schweiz heisst das Wiedersehen der alten Schulklasse Klassenzusammenkunft — oft alle fünf oder zehn Jahre, organisiert von zwei, drei Leuten aus der Klasse. Gesucht wird vor allem nach Einladung, Ablauf und Ideen. Hier ein Ablauf, der funktioniert, und eine einfache Lösung, damit die Fotos des Abends nicht in zwanzig Handys verschwinden.",
+  "body": [
+    "## Klassenzusammenkunft organisieren: die Schritte",
+    "1. <b>Adressen sammeln</b>: alte Klassenliste, Gruppenchat, Eltern oder Geschwister fragen.",
+    "2. <b>Datum früh fixieren</b>: drei Vorschläge per Umfrage, mindestens drei Monate vorher.",
+    "3. <b>Einladung schreiben</b>: Datum, Ort, Kosten pro Person, Anmeldeschluss und ob Partnerinnen und Partner mitkommen.",
+    "4. <b>Lehrperson einladen</b>: viele freuen sich, wenn die frühere Klassenlehrerin oder der Klassenlehrer zum Apéro kommt.",
+    "## Ablauf und Ideen",
+    "- <b>Schulhausbesichtigung</b>: am Nachmittag durch das alte Schulhaus, wenn die Gemeinde es erlaubt.",
+    "- <b>Apéro</b>: Namensschilder mit dem Klassenfoto von damals — erleichtert das Wiedererkennen.",
+    "- <b>Nachtessen</b>: ein Saal im Restaurant, keine langen Reden, eine kurze Begrüssung reicht.",
+    "- <b>Spiele</b>: „Wer war das?“ mit alten Fotos, ein Quiz über Lager und Schulreisen.",
+    "## Alle Fotos an einem Ort",
+    "Mit einem <b>Event-Album</b> auf Albums landen alte und neue Fotos zusammen:",
+    "1. Album erstellen, z. B. „Klasse 3b — 20 Jahre später“.",
+    "2. QR-Code schon in die Einladung setzen, damit alle vorher ihre alten Fotos hochladen.",
+    "3. Am Abend den QR auf die Tische stellen. Gäste scannen mit der Handykamera und laden im Browser hoch — nichts zu installieren.",
+    "4. <b>„Hold guest photos“</b> einschalten, wenn du Uploads erst freigeben willst.",
+    "5. Danach das ganze Album als eine ZIP herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Passend dazu: <a href=\"/de/guides/group-photo-sharing/\">Fotos in der Gruppe teilen</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Kosten",
+    "Ein Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload verfügbar, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für die ganze Klasse",
+    "p": "Alle laden im Browser hoch — nichts zu installieren. Du entscheidest, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Klassenfoto von damals und heute",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Wie organisiert man eine Klassenzusammenkunft?",
+      "Adressen sammeln, Datum per Umfrage fixieren, Einladung mit Ort, Kosten und Anmeldeschluss verschicken, Lokal reservieren."
+    ],
+    [
+      "Was schreibt man in die Einladung?",
+      "Datum, Treffpunkt, Ablauf, Kosten pro Person, Anmeldeschluss und Kontakt des Organisationsteams."
+    ],
+    [
+      "Welche Spiele passen?",
+      "„Wer war das?“ mit alten Fotos und ein kurzes Quiz über Lager, Schulreisen und Lehrpersonen."
+    ],
+    [
+      "Müssen Gäste ein Konto erstellen?",
+      "Nein. Ohne Anmeldung erscheinen Uploads anonym; angemeldete Gäste erhalten eine private Entwurfskopie ihrer eigenen Uploads."
+    ]
+  ],
+  "related": [
+    "group-photo-sharing",
+    "qr-code-for-photos-at-party",
+    "how-to-collect-photos-from-event-guests"
+  ]
+}

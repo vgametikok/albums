@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "album foto per mamma",
+  "date": "2026-11-09",
+  "title": "Album foto per mamma: idee e voci della famiglia | Albums.ink",
+  "desc": "Album foto per la mamma: capitoli della sua storia, ricette, video e messaggi vocali di figli e nipoti. Online, gratuito, senza pubblicità.",
+  "h1": "Album foto per mamma: la sua storia, raccontata da voi",
+  "lead": "Un album foto per la mamma è un regalo che si cerca per il compleanno, per Natale o per la Festa della mamma. Le foto ci sono già, nei telefoni di tutta la famiglia: basta metterle in ordine e aggiungere le vostre voci.",
+  "body": [
+    "## Cosa mettere nell’album",
+    "- <b>Mamma da giovane</b>: foto in bianco e nero, il matrimonio, la prima casa.",
+    "- <b>Mamma e noi</b>: il primo giorno di scuola, le vacanze al mare, la comunione.",
+    "- <b>La sua cucina</b>: il ragù della domenica, la torta di compleanno, con la ricetta in didascalia.",
+    "- <b>I nipoti</b>: disegni, un video breve, un messaggio vocale.",
+    "- <b>Una frase per foto</b>: dove, quando e cosa diceva lei in quel momento.",
+    "## Come crearlo gratis",
+    "Su Albums create un <b>album storia</b> con capitoli, foto, video e note vocali. Potete aggiungere una narrazione e riguardarlo come presentazione. Per regalarlo, aggiungete la mamma come amica. Amici lo mostra a tutti i vostri amici; perché lo veda solo lei, scegliete Amici, tranne… ed escludete gli altri, e ricontrollate dopo aver aggiunto nuovi amici. Solo io non dà accesso ad altri, nemmeno con il link. Senza pubblicità. L’album resta per tutto il tempo in cui vorrete tenerlo.",
+    "1. Create un album gratuito, ad esempio “Per la mamma, con amore”.",
+    "2. Aggiungete capitoli: Da giovane, La nostra famiglia, In cucina, I nipoti.",
+    "3. Caricate foto (fino a 30 MB, nel piano gratuito fino a 2048 pixel sul lato lungo) e video brevi (fino a 50 MB).",
+    "4. Registrate una nota vocale nel browser o caricate un audio (fino a 20 MB).",
+    "5. Potete invitare un co-autore (un fratello o una sorella già amici su Albums).",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-foto-nonna/\">album foto per la nonna</a> e <a href=\"/it/guides/regalo-anniversario-genitori/\">regalo per l’anniversario dei genitori</a>.",
+    "## Come regalarlo",
+    "Fate partire la presentazione con la narrazione a pranzo, poi mandatele il link. Lo apre nel browser e accede con Google. L’album intero si scarica in un unico ZIP."
+  ],
+  "cta": {
+    "h2": "Iniziate l’album per la mamma",
+    "p": "Album storia gratuito con capitoli, note vocali e presentazione. Senza pubblicità.",
+    "btn": "Inizia l’album →"
+  },
+  "cta2": {
+    "h2": "Un regalo che continua a crescere",
+    "p": "Album gratuiti illimitati, che restano finché volete tenerli.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa mettere in un album foto per la mamma?",
+      "Foto di quando era giovane, momenti di famiglia, le sue ricette, i nipoti e un messaggio vocale di ognuno."
+    ],
+    [
+      "Si può fare un album foto online gratis?",
+      "Sì. Su Albums gli album storia sono gratuiti, con capitoli, foto, video e note vocali. Senza pubblicità."
+    ],
+    [
+      "Come farlo vedere solo a lei?",
+      "Aggiungetela come amica, scegliete Amici, tranne… ed escludete gli altri. Ricontrollate dopo nuovi amici."
+    ],
+    [
+      "I fratelli possono aiutare?",
+      "Sì, con un co-autore per album, che deve essere già vostro amico su Albums."
+    ]
+  ],
+  "related": [
+    "album-foto-nonna",
+    "regalo-anniversario-genitori",
+    "add-voice-to-photos"
+  ]
+}

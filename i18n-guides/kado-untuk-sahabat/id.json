@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "kado untuk sahabat",
+  "date": "2026-11-09",
+  "title": "Kado untuk Sahabat: Album Foto dengan Pesan Suara | Albums.ink",
+  "desc": "Ide kado untuk sahabat: album online berisi foto, video, dan pesan suara tentang persahabatan kalian. Gratis, tanpa iklan.",
+  "h1": "Kado untuk sahabat: album cerita persahabatan kalian",
+  "lead": "Pencarian “kado untuk sahabat perempuan”, “laki-laki”, atau “yang menikah” menunjukkan banyak orang ingin hadiah yang personal. Album online berisi foto, video, dan pesan suara bisa dibuat gratis dan diberikan bersama kado fisik.",
+  "body": [
+    "## Isi album untuk sahabat",
+    "- <b>Awal kenal</b>: MOS, kos-kosan, atau kantor pertama.",
+    "- <b>Tempat favorit</b>: warung langganan, kafe, tempat nongkrong.",
+    "- <b>Momen penting</b>: wisuda, ulang tahun, pernikahan salah satu dari kalian.",
+    "- <b>Keterangan foto</b>: satu kalimat yang hanya kalian berdua pahami.",
+    "- <b>Pesan suara</b>: ucapan di akhir setiap bab.",
+    "## Cara membuatnya gratis",
+    "Di Albums Anda membuat <b>album cerita</b> berisi bab, foto, video, dan catatan suara. Narasi bisa ditambahkan dan diputar sebagai tayangan slide. Untuk memberikannya, tambahkan sahabat Anda sebagai teman. Teman berarti semua teman Anda bisa melihat; agar hanya dia yang melihat, pilih Teman, kecuali… dan kecualikan yang lain, lalu periksa lagi setelah menambah teman baru. Hanya saya tidak memberi akses kepada orang lain, termasuk lewat tautan. Tanpa iklan. Album tetap ada selama Anda ingin menyimpannya.",
+    "1. Buat album gratis, misalnya “10 Tahun Bersahabat”.",
+    "2. Bagi menjadi bab: Awal Kenal, Jalan-Jalan, Momen Penting, Ke Depan.",
+    "3. Unggah foto (hingga 30 MB, pada paket gratis hingga 2048 piksel pada sisi panjang) dan video pendek (hingga 50 MB).",
+    "4. Rekam catatan suara di peramban atau unggah audio (hingga 20 MB).",
+    "5. Undang satu rekan penulis yang sudah menjadi teman di Albums.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/album-foto-pacar/\">album foto bersama pacar</a> dan <a href=\"/id/guides/album-kenangan-sekolah/\">album kenangan sekolah</a>.",
+    "## Cara memberikannya",
+    "Putar tayangan slide dengan narasi saat merayakan, lalu kirim tautannya. Dia membuka di peramban dan masuk dengan Google. Seluruh album bisa diunduh sebagai satu ZIP."
+  ],
+  "cta": {
+    "h2": "Mulai album untuk sahabat",
+    "p": "Album cerita gratis dengan bab, catatan suara, dan tayangan slide. Tanpa iklan.",
+    "btn": "Mulai album →"
+  },
+  "cta2": {
+    "h2": "Kado yang bisa terus ditambah",
+    "p": "Album gratis tanpa batas, tetap ada selama Anda ingin menyimpannya.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    [
+      "Kado apa yang personal untuk sahabat?",
+      "Album online berisi foto, video, dan pesan suara tentang persahabatan kalian, ditemani kado kecil."
+    ],
+    [
+      "Apakah bisa dibuat gratis?",
+      "Ya. Album cerita di Albums gratis, dengan bab, foto, video, dan catatan suara. Tanpa iklan."
+    ],
+    [
+      "Bagaimana agar hanya sahabat saya yang melihat?",
+      "Tambahkan dia sebagai teman, pilih Teman, kecuali… dan kecualikan yang lain. Periksa lagi setelah menambah teman baru."
+    ],
+    [
+      "Bisakah teman lain ikut mengisi?",
+      "Bisa, satu rekan penulis per album yang sudah menjadi teman di Albums."
+    ]
+  ],
+  "related": [
+    "album-foto-pacar",
+    "album-kenangan-sekolah",
+    "add-voice-to-photos"
+  ]
+}

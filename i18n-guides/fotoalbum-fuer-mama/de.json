@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Fotoalbum für Mama gestalten",
+  "date": "2026-11-09",
+  "title": "Fotoalbum für Mama gestalten | Albums.ink",
+  "desc": "Fotoalbum für Mama gestalten: Ideen für Kapitel, Bildunterschriften und Sprachnachrichten der Familie — online, kostenlos und ohne Werbung.",
+  "h1": "Fotoalbum für Mama gestalten: Ideen mit Kapiteln und Stimmen",
+  "lead": "Ein Fotoalbum für Mama ist eines der persönlichsten Geschenke — zum Geburtstag, zu Weihnachten oder einfach so. Gesucht wird vor allem nach „gestalten“ und nach Ideen für Mutter und Tochter. Online geht etwas, das ein gedrucktes Album nicht kann: Videos und die Stimmen der Familie gleich mit hineinpacken.",
+  "body": [
+    "## Ideen für den Inhalt",
+    "- <b>Mama früher</b>: Kinderfotos, Abschlussfeier, der erste Urlaub ohne Eltern.",
+    "- <b>Mama und wir</b>: Einschulung, Geburtstagskuchen, gemeinsame Ausflüge.",
+    "- <b>Mutter und Tochter</b>: das gleiche Motiv damals und heute nachgestellt.",
+    "- <b>Ihre Rezepte</b>: ein Foto vom Lieblingsessen mit dem Rezept als Bildunterschrift.",
+    "- <b>Stimmen</b>: kurze Sprachnachrichten von Enkeln, Geschwistern oder dem Partner.",
+    "## So gestaltest du das Album kostenlos",
+    "Auf Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnotizen, optional mit Erzählung als Slideshow. Zum Teilen Mama als Freundin hinzufügen und Freunde wählen — das sind dann alle deine Freunde. Soll nur sie es sehen, wähle Freunde, außer… und schließe die anderen aus; nach neuen Freundschaften die Einstellung prüfen. Nur ich gibt auch per Link keinen Zugriff. Ohne Werbung. Das Album bleibt, solange du es behalten willst.",
+    "1. Kostenloses Album anlegen, z. B. „Für Mama, mit Liebe“.",
+    "2. Kapitel anlegen: Früher, Unsere Familie, Reisen, Enkel.",
+    "3. Fotos (bis 30 MB, im kostenlosen Tarif bis 2048 Pixel an der langen Seite) und kurze Videos (bis 50 MB) hochladen.",
+    "4. Eine Sprachnotiz im Browser aufnehmen oder Audio hochladen (bis 20 MB).",
+    "5. Einen Mitautor einladen — z. B. deinen Bruder, wenn er schon dein Freund auf Albums ist.",
+    "!cta",
+    "Weitere Ideen: <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a> und <a href=\"/de/guides/fotoalbum-fuer-papa/\">Fotoalbum für Papa</a>.",
+    "## Übergeben",
+    "Spiel die Slideshow mit Erzählung beim Kaffee ab und schick ihr danach den Link. Sie öffnet ihn im Browser und meldet sich mit Google an. Das ganze Album lässt sich als eine ZIP herunterladen."
+  ],
+  "cta": {
+    "h2": "Fotoalbum für Mama starten",
+    "p": "Kostenloses Story-Album mit Kapiteln, Sprachnotizen und Slideshow. Ohne Werbung.",
+    "btn": "Album starten →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das weiterwächst",
+    "p": "Unbegrenzt kostenlose Alben, die bleiben, solange du willst.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was kommt in ein Fotoalbum für Mama?",
+      "Fotos von früher und heute, gemeinsame Momente, Lieblingsrezepte und kurze Sprachnachrichten der Familie."
+    ],
+    [
+      "Kann ich ein Fotoalbum für Mama online kostenlos gestalten?",
+      "Ja. Story-Alben auf Albums sind kostenlos, mit Kapiteln, Fotos, Videos und Sprachnotizen. Ohne Werbung."
+    ],
+    [
+      "Wie sieht nur Mama das Album?",
+      "Mama als Freundin hinzufügen, Freunde, außer… wählen und alle anderen ausschließen. Nach neuen Freundschaften erneut prüfen."
+    ],
+    [
+      "Können Geschwister mitmachen?",
+      "Pro Album ist ein Mitautor möglich, der bereits dein Freund auf Albums ist."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-oma",
+    "fotoalbum-fuer-papa",
+    "add-voice-to-photos"
+  ]
+}

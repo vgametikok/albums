@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "confraternização de fim de ano",
+  "date": "2026-11-09",
+  "title": "Confraternização de fim de ano: ideias e fotos | Albums.ink",
+  "desc": "Ideias para confraternização de fim de ano na empresa: amigo secreto, churrasco, retrospectiva e um QR para juntar as fotos de todos os colegas.",
+  "h1": "Confraternização de fim de ano: ideias e todas as fotos num só lugar",
+  "lead": "Entre novembro e dezembro, a confraternização de fim de ano movimenta empresas, escolas e igrejas. Na empresa, costuma ter amigo secreto (ou amigo oculto, dependendo da região), churrasco ou jantar, e aquela retrospectiva do ano. As fotos ficam espalhadas nos celulares e no grupo do WhatsApp. Veja ideias e uma forma simples de juntar tudo.",
+  "body": [
+    "## Ideias para a confraternização",
+    "- <b>Amigo secreto</b>: defina um valor e faça o sorteio online com antecedência.",
+    "- <b>Churrasco ou almoço</b>: num sítio, salão de festas ou restaurante com área reservada.",
+    "- <b>Retrospectiva</b>: fotos do ano no telão antes do almoço — peça os arquivos com antecedência.",
+    "- <b>Premiações divertidas</b>: “mais pontual”, “rei do café”, “melhor figurinha do grupo”.",
+    "- <b>Sorteio de brindes</b>: entre um prato e outro, para manter o clima.",
+    "## Junte as fotos com um QR",
+    "Um <b>álbum de evento</b> no Albums reúne as fotos de todos:",
+    "1. Crie o álbum, por exemplo “Confra 2026 — Time Comercial”.",
+    "2. Imprima o QR nas mesas, no crachá ou no cardápio.",
+    "3. Os colegas escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador — sem instalar nada.",
+    "4. Ative <b>«Hold guest photos»</b> se quiser aprovar as fotos antes de aparecerem.",
+    "5. Depois baixe o álbum inteiro num único ZIP — já serve para a retrospectiva do ano que vem.",
+    "Quem envia sem fazer login aparece de forma anônima. Quem está logado recebe também uma cópia privada em rascunho só com os próprios envios.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/company-party-photo-sharing/\">fotos de festa da empresa</a> e <a href=\"/pt-BR/guides/qr-code-for-photos-at-party/\">QR code para fotos em festas</a>.",
+    "## Quanto custa",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos até 4K; o álbum fica disponível por 6 meses a partir do primeiro envio, e dá para prorrogar."
+  ],
+  "cta": {
+    "h2": "Um QR para a confraternização inteira",
+    "p": "Os colegas enviam pelo navegador — sem instalar nada. Você aprova o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde a revelação do amigo secreto",
+    "p": "Compra única a partir de US$ 39,99. Fotos até 4K, 6 meses desde o primeiro envio, prorrogável.",
+    "btn": "Criar meu álbum →"
+  },
+  "faq": [
+    [
+      "O que fazer numa confraternização de fim de ano da empresa?",
+      "Amigo secreto, churrasco ou almoço, retrospectiva do ano, premiações divertidas e sorteio de brindes."
+    ],
+    [
+      "É confraternização de fim de ano ou de final de ano?",
+      "As duas formas são usadas no Brasil e estão corretas."
+    ],
+    [
+      "Como juntar as fotos dos colegas?",
+      "Coloque um QR nas mesas; todos enviam fotos e vídeos pelo navegador."
+    ],
+    [
+      "Os colegas precisam criar conta?",
+      "Não. Sem login, aparecem de forma anônima; logados, recebem uma cópia privada em rascunho dos próprios envios."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party",
+    "how-to-collect-photos-from-event-guests"
+  ]
+}

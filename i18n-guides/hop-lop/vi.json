@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "họp lớp",
+  "date": "2026-11-09",
+  "title": "Họp lớp: cách tổ chức và gom ảnh của cả lớp | Albums.ink",
+  "desc": "Cách tổ chức họp lớp cấp 3: chọn ngày, địa điểm, chương trình, mời thầy cô và một mã QR để gom ảnh, video của cả lớp vào một album.",
+  "h1": "Họp lớp: tổ chức gọn gàng, ảnh không thất lạc",
+  "lead": "Họp lớp cấp 3 thường rơi vào dịp cuối năm hoặc Tết, khi mọi người về quê. Ban liên lạc lo danh sách, quỹ lớp, địa điểm và mời thầy cô chủ nhiệm. Sau buổi họp, ảnh nằm rải rác trong điện thoại của từng người và trong nhóm chat. Dưới đây là cách tổ chức và gom ảnh vào một chỗ.",
+  "body": [
+    "## Các bước tổ chức họp lớp",
+    "1. <b>Lập ban liên lạc</b>: hai, ba người lo danh sách, quỹ và địa điểm.",
+    "2. <b>Chọn ngày</b>: khảo sát trong nhóm chat, ưu tiên dịp nhiều người về quê.",
+    "3. <b>Địa điểm</b>: nhà hàng có phòng riêng, quán nướng hoặc ghé thăm trường cũ trước.",
+    "4. <b>Mời thầy cô</b>: gọi điện mời trực tiếp, chuẩn bị hoa và vài lời tri ân.",
+    "## Chương trình gợi ý",
+    "- Chiếu ảnh kỷ yếu ngày xưa và chụp lại đúng tư thế đó.",
+    "- Mỗi người kể ngắn về mình sau từng ấy năm.",
+    "- Trò chơi “Đây là ai?” với ảnh thời đi học.",
+    "## Gom ảnh của cả lớp bằng một mã QR",
+    "<b>Album sự kiện</b> trên Albums giúp gom ảnh vào một chỗ:",
+    "1. Tạo album, ví dụ “12A1 — 10 năm gặp lại”.",
+    "2. Gửi QR trong nhóm chat trước buổi họp để mọi người tải ảnh cũ lên, rồi đặt QR trên bàn.",
+    "3. Mọi người quét bằng camera điện thoại và tải ảnh, video từ trình duyệt — không cần cài gì.",
+    "4. Bật <b>«Hold guest photos»</b> nếu muốn duyệt ảnh trước khi chúng hiện ra.",
+    "5. Sau buổi họp, tải cả album về trong một file ZIP.",
+    "Người tải lên mà không đăng nhập sẽ hiện ẩn danh. Người đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/ky-yeu-lop/\">kỷ yếu lớp</a> và <a href=\"/vi/guides/group-photo-sharing/\">chia sẻ ảnh nhóm</a>.",
+    "## Chi phí",
+    "Album sự kiện mua một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $ (USD). Khách không trả phí. Ảnh tới 4K; album dùng được 6 tháng kể từ lần tải đầu, và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi họp lớp",
+    "p": "Mọi người tải từ trình duyệt — không cần cài gì. Bạn duyệt trước khi ảnh hiện.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Ảnh ngày xưa và hôm nay trong một album",
+    "p": "Mua một lần từ 39,99 $. Ảnh tới 4K, 6 tháng từ lần tải đầu, có thể gia hạn.",
+    "btn": "Tạo album →"
+  },
+  "faq": [
+    [
+      "Tổ chức họp lớp cần chuẩn bị gì?",
+      "Ban liên lạc, danh sách, ngày giờ, địa điểm, quỹ lớp, lời mời thầy cô và cách gom ảnh sau buổi họp."
+    ],
+    [
+      "Họp lớp nên có chương trình gì?",
+      "Chiếu ảnh kỷ yếu, chụp lại ảnh cũ, mỗi người kể ngắn về mình và trò chơi đoán ảnh thời đi học."
+    ],
+    [
+      "Làm sao gom ảnh của cả lớp?",
+      "Gửi mã QR trong nhóm chat và đặt trên bàn; mọi người tải ảnh, video từ trình duyệt."
+    ],
+    [
+      "Có cần tạo tài khoản không?",
+      "Không. Không đăng nhập thì hiện ẩn danh; đăng nhập thì nhận thêm bản nháp riêng tư chỉ gồm ảnh của mình."
+    ]
+  ],
+  "related": [
+    "ky-yeu-lop",
+    "group-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

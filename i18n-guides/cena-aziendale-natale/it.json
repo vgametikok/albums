@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "cena aziendale di Natale",
+  "date": "2026-11-09",
+  "title": "Cena aziendale di Natale: idee e foto dei colleghi | Albums.ink",
+  "desc": "Idee per la cena aziendale di Natale: location, tombolata, Babbo Natale segreto, brindisi e un QR per raccogliere le foto di tutti i colleghi.",
+  "h1": "Cena aziendale di Natale: idee semplici e tutte le foto in un posto",
+  "lead": "Tra fine novembre e metà dicembre arriva la cena aziendale di Natale: un ristorante a Milano, una trattoria a Bologna, un agriturismo fuori città. Le ricerche vanno da “outfit” a “invito”, ma alla fine la serata si ricorda per i momenti insieme — e quelle foto restano sparse nei telefoni dei colleghi. Ecco qualche idea e un modo per raccoglierle.",
+  "body": [
+    "## Idee per la cena aziendale",
+    "- <b>Location</b>: una sala riservata in trattoria o un agriturismo, con menù fisso concordato prima.",
+    "- <b>Tombolata</b>: la tradizione natalizia italiana funziona anche tra colleghi, con piccoli premi.",
+    "- <b>Babbo Natale segreto</b>: estrazione online, budget fisso, regali aperti dopo il dolce.",
+    "- <b>Brindisi breve</b>: due parole del responsabile, poi panettone e spumante.",
+    "- <b>Invito chiaro</b>: data, luogo, orario, dress code e scadenza per confermare.",
+    "## Raccogliete le foto con un QR",
+    "Un <b>album evento</b> su Albums raccoglie le foto di tutti:",
+    "1. Create l’album, ad esempio “Cena di Natale 2026 — Ufficio Milano”.",
+    "2. Stampate il QR sui segnaposto o sul menù.",
+    "3. I colleghi lo scansionano con la fotocamera del telefono e caricano foto e video dal browser — senza installare nulla.",
+    "4. Attivate <b>«Hold guest photos»</b> se volete approvare le foto prima che si vedano.",
+    "5. Dopo, scaricate tutto l’album in un unico ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Chi ha effettuato l’accesso riceve anche una copia bozza privata con i soli propri caricamenti.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/company-party-photo-sharing/\">foto delle feste aziendali</a> e <a href=\"/it/guides/qr-code-for-photos-at-party/\">QR code per le foto della festa</a>.",
+    "## Quanto costa",
+    "L’album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gli ospiti non pagano. Foto fino a 4K; l’album resta disponibile 6 mesi dal primo caricamento, ed è possibile prolungarlo."
+  ],
+  "cta": {
+    "h2": "Un QR per tutta la cena di Natale",
+    "p": "I colleghi caricano dal browser — senza installare nulla. Decidete voi cosa resta visibile.",
+    "btn": "Crea album evento →"
+  },
+  "cta2": {
+    "h2": "Conservate la tombolata",
+    "p": "Acquisto unico da 39,99 $. Foto fino a 4K, 6 mesi dal primo caricamento, prolungabile.",
+    "btn": "Crea il mio album →"
+  },
+  "faq": [
+    [
+      "Cosa fare alla cena aziendale di Natale?",
+      "Una tombolata, il Babbo Natale segreto, un brindisi breve e il panettone a fine cena."
+    ],
+    [
+      "Cosa scrivere nell’invito?",
+      "Data, luogo, orario, eventuale dress code e scadenza per confermare la presenza."
+    ],
+    [
+      "Come raccogliere le foto dei colleghi?",
+      "Mettete un QR sui segnaposto o sul menù: tutti caricano foto e video dal browser."
+    ],
+    [
+      "I colleghi devono creare un account?",
+      "No. Senza accesso appaiono in forma anonima; chi accede riceve una copia bozza privata dei propri caricamenti."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party",
+    "christmas-party-photo-booth-ideas"
+  ]
+}

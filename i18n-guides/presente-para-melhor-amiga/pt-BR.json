@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para melhor amiga",
+  "date": "2026-11-09",
+  "title": "Presente para melhor amiga: álbum com fotos e voz | Albums.ink",
+  "desc": "Ideia de presente para melhor amiga: um álbum online com as fotos de vocês, vídeos e recados em áudio. Grátis, sem anúncios.",
+  "h1": "Presente para melhor amiga: um álbum com a história de vocês",
+  "lead": "“Presente para melhor amiga criativo” e “feito à mão” estão entre as buscas mais comuns. Um álbum online com as fotos de vocês, vídeos e um recado em áudio é pessoal, cabe em qualquer orçamento e pode ir junto com o presente físico.",
+  "body": [
+    "## O que colocar no álbum",
+    "- <b>Como tudo começou</b>: a escola, a faculdade, o primeiro rolê juntas.",
+    "- <b>Os lugares de vocês</b>: a praia, o barzinho, a viagem que deu errado e virou história.",
+    "- <b>Datas importantes</b>: formatura, aniversários, casamento de alguém.",
+    "- <b>Legendas</b>: uma frase que só vocês entendem.",
+    "- <b>Áudio</b>: um recado no fim de cada capítulo, como no WhatsApp, só que guardado num lugar.",
+    "## Como fazer de graça",
+    "No Albums você cria um <b>álbum história</b> com capítulos, fotos, vídeos e notas de voz, e pode adicionar narração e assistir como apresentação de slides. Para dar de presente, adicione ela como amiga no Albums. Amigos mostra para todos os seus amigos; para que só ela veja, escolha Amigos, exceto… e exclua os outros, e revise depois de adicionar novos amigos. Somente eu não dá acesso nem pelo link. Sem anúncios. O álbum fica enquanto você quiser.",
+    "1. Crie um álbum grátis, por exemplo “10 anos de amizade”.",
+    "2. Separe capítulos: Escola, Viagens, Rolês, Daqui pra frente.",
+    "3. Envie fotos (até 30 MB, até 2048 pixels no lado maior no plano gratuito) e vídeos curtos (até 50 MB).",
+    "4. Grave uma nota de voz no navegador ou envie um áudio (até 20 MB).",
+    "5. Convide um coautor (já precisa ser seu amigo no Albums) para montar junto.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/album-de-recordacoes/\">álbum de recordações</a> e <a href=\"/pt-BR/guides/album-de-fotos-para-namorado/\">álbum de fotos para namorado</a>.",
+    "## Como entregar",
+    "Mostre a apresentação com narração no dia do aniversário e depois mande o link. Ela abre no navegador e entra com Google. Dá para baixar o álbum inteiro num único ZIP."
+  ],
+  "cta": {
+    "h2": "Comece o álbum para sua melhor amiga",
+    "p": "Álbum história grátis com capítulos, notas de voz e apresentação. Sem anúncios.",
+    "btn": "Começar o álbum →"
+  },
+  "cta2": {
+    "h2": "Um presente que continua crescendo",
+    "p": "Álbuns grátis ilimitados, que ficam enquanto você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "Qual presente criativo dar para a melhor amiga?",
+      "Um álbum online com as fotos de vocês, vídeos e um recado em áudio, junto com um presente pequeno."
+    ],
+    [
+      "Dá para fazer o álbum de graça?",
+      "Sim. No Albums, os álbuns história são grátis, com capítulos, fotos, vídeos e notas de voz. Sem anúncios."
+    ],
+    [
+      "Como deixar só ela ver?",
+      "Adicione como amiga, escolha Amigos, exceto… e exclua os outros. Revise ao adicionar novos amigos."
+    ],
+    [
+      "Outra amiga pode ajudar?",
+      "Sim, um coautor por álbum, que já precisa ser seu amigo no Albums."
+    ]
+  ],
+  "related": [
+    "album-de-recordacoes",
+    "album-de-fotos-para-namorado",
+    "add-voice-to-photos"
+  ]
+}

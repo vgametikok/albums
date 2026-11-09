@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara reuni sekolah",
+  "date": "2026-11-09",
+  "title": "Acara Reuni Sekolah: Susunan Acara dan Foto | Albums.ink",
+  "desc": "Ide acara reuni sekolah (SMA/SMP): susunan acara, sambutan, games, doorprize, dan satu kode QR untuk mengumpulkan foto semua alumni.",
+  "h1": "Acara reuni sekolah: susunan acara yang seru dan foto yang terkumpul",
+  "lead": "Reuni SMA atau SMP biasanya digelar akhir tahun atau saat libur Lebaran, ketika banyak alumni pulang kampung. Panitia sibuk dengan undangan, sambutan, dan doorprize; foto-foto terbaik malah tersebar di ponsel peserta dan grup WhatsApp angkatan. Berikut ide susunan acara dan cara mengumpulkan semua foto di satu tempat.",
+  "body": [
+    "## Contoh susunan acara reuni",
+    "1. <b>Registrasi</b>: name tag dengan foto zaman sekolah.",
+    "2. <b>Pembukaan dan doa</b>.",
+    "3. <b>Sambutan</b>: ketua panitia dan perwakilan guru — singkat saja.",
+    "4. <b>Kilas balik</b>: tayangan foto buku tahunan.",
+    "5. <b>Games dan doorprize</b>: tebak foto masa sekolah, kuis tentang guru favorit.",
+    "6. <b>Makan bersama dan foto per kelas</b>.",
+    "## Tips untuk panitia",
+    "- Sebar undangan reuni minimal dua bulan sebelumnya.",
+    "- Undang guru dan wali kelas secara langsung.",
+    "- Tentukan iuran yang jelas dan laporkan penggunaannya.",
+    "## Kumpulkan foto dengan satu kode QR",
+    "<b>Album acara</b> di Albums mengumpulkan foto semua peserta:",
+    "1. Buat album, misalnya “Reuni SMA Angkatan 2016”.",
+    "2. Kirim QR ke grup angkatan sebelum acara agar foto lama ikut diunggah, lalu pasang QR di meja registrasi.",
+    "3. Peserta memindai dengan kamera ponsel dan mengunggah foto serta video dari peramban — tidak perlu memasang apa pun.",
+    "4. Nyalakan <b>«Hold guest photos»</b> bila ingin meninjau unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Unggahan tanpa masuk akun tampil secara anonim. Peserta yang masuk akun juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/album-kenangan-sekolah/\">album kenangan sekolah</a> dan <a href=\"/id/guides/group-photo-sharing/\">berbagi foto grup</a>.",
+    "## Biaya",
+    "Album acara dibeli sekali: Small 39,99 dolar, Medium 69,99 dolar, atau Large 129,99 dolar (USD). Peserta tidak membayar. Foto hingga 4K; album tersedia 6 bulan sejak unggahan pertama, dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh acara reuni",
+    "p": "Peserta mengunggah dari peramban — tidak perlu memasang apa pun. Anda yang meninjau sebelum foto tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Foto dulu dan sekarang dalam satu album",
+    "p": "Pembelian sekali mulai 39,99 dolar. Foto hingga 4K, 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Buat album saya →"
+  },
+  "faq": [
+    [
+      "Apa saja susunan acara reuni sekolah?",
+      "Registrasi, pembukaan dan doa, sambutan, kilas balik foto, games dan doorprize, lalu makan bersama."
+    ],
+    [
+      "Games apa yang seru untuk reuni?",
+      "Tebak foto masa sekolah dan kuis tentang guru atau kejadian lucu di kelas."
+    ],
+    [
+      "Bagaimana mengumpulkan foto peserta?",
+      "Bagikan kode QR di grup angkatan dan di meja registrasi; peserta mengunggah dari peramban."
+    ],
+    [
+      "Apakah peserta perlu membuat akun?",
+      "Tidak. Tanpa masuk akun tampil anonim; yang masuk akun mendapat salinan draf pribadi berisi unggahannya sendiri."
+    ]
+  ],
+  "related": [
+    "album-kenangan-sekolah",
+    "group-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "làm album ảnh tặng thầy cô",
+  "date": "2026-11-09",
+  "title": "Làm album ảnh tặng thầy cô 20/11 | Albums.ink",
+  "desc": "Cách làm album ảnh tặng thầy cô nhân Ngày Nhà giáo Việt Nam 20/11: ảnh lớp, video và lời chúc bằng giọng nói của từng bạn. Miễn phí, không quảng cáo.",
+  "h1": "Làm album ảnh tặng thầy cô nhân ngày 20/11",
+  "lead": "Gần 20/11, “quà 20/11 cho cô giáo” và “làm album ảnh tặng thầy cô” được tìm nhiều. Bên cạnh bó hoa và tấm thiệp, một album ảnh của cả lớp — có video và lời chúc bằng giọng nói của từng bạn — là món quà thầy cô có thể mở lại nhiều lần.",
+  "body": [
+    "## Nên đưa gì vào album",
+    "- <b>Ảnh lớp</b>: ngày khai giảng, giờ sinh hoạt lớp, chuyến dã ngoại.",
+    "- <b>Khoảnh khắc với thầy cô</b>: buổi văn nghệ, ngày hội thao, giờ học đáng nhớ.",
+    "- <b>Lời chúc</b>: mỗi bạn một câu ngắn dưới ảnh.",
+    "- <b>Giọng nói</b>: ghi âm lời cảm ơn của từng bạn hoặc của cả lớp.",
+    "## Cách làm miễn phí",
+    "Trên Albums bạn tạo <b>album kể chuyện</b> với chương, ảnh, video và ghi âm. Có thể thêm lời dẫn và xem như trình chiếu. Để tặng, thêm thầy cô làm bạn bè rồi chọn quyền xem. Bạn bè nghĩa là tất cả bạn bè của bạn đều xem được; nếu chỉ muốn thầy cô xem, chọn Bạn bè, trừ… và loại những người khác, rồi kiểm tra lại sau khi kết bạn thêm. Chỉ mình tôi không cho người khác xem, kể cả khi có liên kết. Không có quảng cáo. Album ở lại chừng nào bạn còn muốn giữ.",
+    "1. Tạo album miễn phí, ví dụ “Lớp 10A2 tri ân cô Hạnh”.",
+    "2. Chia chương: Năm học này, Hoạt động lớp, Lời chúc.",
+    "3. Tải ảnh (tối đa 30 MB mỗi tấm, gói miễn phí tối đa 2048 pixel ở cạnh dài) và video ngắn (tối đa 50 MB).",
+    "4. Ghi âm ngay trên trình duyệt hoặc tải file âm thanh (tối đa 20 MB).",
+    "5. Mời một đồng tác giả (phải đã là bạn trên Albums), ví dụ lớp trưởng.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/ky-yeu-lop/\">kỷ yếu lớp</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Trao tặng",
+    "Trong buổi sinh hoạt ngày 20/11, bật trình chiếu có lời dẫn cho cả lớp cùng xem, sau đó gửi liên kết cho thầy cô. Thầy cô mở bằng trình duyệt và đăng nhập bằng Google. Có thể tải cả album về trong một file ZIP."
+  ],
+  "cta": {
+    "h2": "Bắt đầu album tặng thầy cô",
+    "p": "Album kể chuyện miễn phí, có chương, ghi âm và trình chiếu. Không quảng cáo.",
+    "btn": "Bắt đầu album →"
+  },
+  "cta2": {
+    "h2": "Món quà 20/11 có giọng nói của cả lớp",
+    "p": "Album miễn phí không giới hạn, ở lại chừng nào bạn còn muốn giữ.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Làm album ảnh tặng thầy cô cần những gì?",
+      "Ảnh lớp trong năm học, khoảnh khắc với thầy cô, một câu chúc của mỗi bạn và lời cảm ơn ghi âm."
+    ],
+    [
+      "Có thể làm album 20/11 miễn phí không?",
+      "Có. Album kể chuyện trên Albums miễn phí, gồm chương, ảnh, video và ghi âm. Không quảng cáo."
+    ],
+    [
+      "Làm sao để chỉ thầy cô xem?",
+      "Thêm thầy cô làm bạn bè, chọn Bạn bè, trừ… và loại những người khác. Kiểm tra lại khi kết bạn thêm."
+    ],
+    [
+      "Nhiều bạn có cùng làm được không?",
+      "Mỗi album mời được một đồng tác giả là bạn trên Albums; các bạn khác có thể gửi ảnh và ghi âm cho người làm album."
+    ]
+  ],
+  "related": [
+    "ky-yeu-lop",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}
