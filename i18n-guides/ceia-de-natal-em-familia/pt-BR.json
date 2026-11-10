@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "ceia de natal em família",
+  "date": "2026-11-10",
+  "title": "Ceia de Natal em família: dicas e fotos de todos | Albums.ink",
+  "desc": "Dicas para a ceia de Natal em família: cardápio, convite, amigo secreto, oração e um QR para todos enviarem fotos e vídeos para um só álbum.",
+  "h1": "Ceia de Natal em família: dicas para organizar e guardar as fotos de todos",
+  "lead": "“Cardápio para ceia de Natal em família”, “convite”, “mensagem”, “foto” — as buscas de novembro e dezembro mostram que quem recebe a família no dia 24 quer organização e lembranças. Aqui vão dicas para dividir as tarefas, animar a noite e juntar num só lugar as fotos que cada parente tira no celular.",
+  "body": [
+    "## Organize a ceia sem sobrecarregar ninguém",
+    "- <b>Divida o cardápio</b>: quem recebe faz o peru ou o chester; os outros trazem farofa, arroz à grega, salpicão e a rabanada.",
+    "- <b>Convite no grupo da família</b>: horário, endereço e o que cada um leva, numa mensagem só.",
+    "- <b>Mesa posta cedo</b>: assim sobra tempo para receber quem chega.",
+    "## Ideias para a noite",
+    "- <b>Amigo secreto</b>: sorteio online com valor combinado; a revelação vem antes ou depois da ceia.",
+    "- <b>Oração ou palavra antes de comer</b>: uma mensagem curta de agradecimento por quem está à mesa — e por quem faz falta.",
+    "- <b>Foto de família às 22h</b>: antes que as crianças durmam e os tios comecem a dançar.",
+    "- <b>Meia-noite</b>: abraços, presentes e, para quem vai, a Missa do Galo.",
+    "## Todas as fotos num só álbum",
+    "A foto da mesa, o amigo secreto, a vovó com os netos: no dia 25, está tudo espalhado em vinte celulares. Um <b>álbum de evento</b> no Albums reúne tudo:",
+    "1. Crie o álbum, por exemplo “Natal da família Souza 2026”.",
+    "2. Imprima o QR e coloque na mesa e perto da árvore.",
+    "3. Os parentes escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador — sem instalar nada.",
+    "4. Ative <b>«Hold guest photos»</b> se quiser aprovar as fotos antes de aparecerem.",
+    "5. Depois baixe o álbum inteiro num único ZIP.",
+    "Quem envia sem fazer login aparece de forma anônima. Quem está logado recebe também uma cópia privada em rascunho só com os próprios envios.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/confraternizacao-fim-de-ano/\">confraternização de fim de ano</a> e <a href=\"/pt-BR/guides/family-reunion-photo-ideas/\">ideias para encontro de família</a>.",
+    "## Quanto custa",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos até 4K; o álbum fica disponível por 6 meses a partir do primeiro envio, e dá para prorrogar."
+  ],
+  "cta": {
+    "h2": "Um QR para a ceia inteira",
+    "p": "A família envia pelo navegador — sem instalar nada. Você aprova o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde a foto da família reunida",
+    "p": "Compra única a partir de US$ 39,99. Fotos até 4K, 6 meses desde o primeiro envio, prorrogável.",
+    "btn": "Criar meu álbum →"
+  },
+  "faq": [
+    [
+      "Como organizar uma ceia de Natal em família?",
+      "Divida o cardápio entre os parentes, mande um convite único no grupo e combine o amigo secreto com antecedência."
+    ],
+    [
+      "O que não pode faltar na ceia de Natal?",
+      "Peru ou chester, farofa, arroz à grega, salpicão e rabanada são os clássicos."
+    ],
+    [
+      "Como juntar as fotos que todos tiraram?",
+      "Coloque um QR na mesa: cada um envia fotos e vídeos pelo navegador para o mesmo álbum."
+    ],
+    [
+      "Precisa criar conta?",
+      "Não. Envios sem login aparecem de forma anônima; quem está logado recebe também uma cópia privada em rascunho dos próprios envios."
+    ]
+  ],
+  "related": [
+    "confraternizacao-fim-de-ano",
+    "family-reunion-photo-ideas",
+    "qr-code-for-photos-at-party"
+  ]
+}

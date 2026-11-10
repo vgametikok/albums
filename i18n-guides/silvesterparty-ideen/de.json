@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "Silvesterparty Ideen",
+  "date": "2026-11-10",
+  "title": "Silvesterparty Ideen für zuhause | Albums.ink",
+  "desc": "Silvesterparty Ideen für zuhause: Raclette, Spiele, Wachsgießen, Mottos und ein QR-Album, in dem alle Gäste ihre Fotos und Videos sammeln.",
+  "h1": "Silvesterparty Ideen: entspannt feiern zuhause mit Freunden",
+  "lead": "„Silvesterparty Ideen für zuhause“, „mit Freunden“, „mit Kindern“ — die Suchanfragen zeigen, dass die meisten den Jahreswechsel lieber im Wohnzimmer als im Club verbringen. Hier sind Ideen, die ohne großen Aufwand funktionieren, und ein einfacher Weg, die Fotos und Videos aller Gäste nach der Party an einem Ort zu haben.",
+  "body": [
+    "## Essen, das den Abend trägt",
+    "- <b>Raclette oder Fondue</b>: der Klassiker, weil alle am Tisch sitzen bleiben und der Abend langsam läuft.",
+    "- <b>Fingerfood-Buffet</b>: jeder bringt etwas mit, du stellst Sekt und Berliner.",
+    "- <b>Mitternachtssuppe</b>: eine Gulasch- oder Kartoffelsuppe gegen Ende hält bis zum Feuerwerk durch.",
+    "## Spiele und Bräuche",
+    "- <b>Wachsgießen</b>: seit dem Verbot von Bleigießen die beliebte Variante — die Figuren deuten macht immer Spaß.",
+    "- <b>„Dinner for One“</b>: gemeinsam schauen gehört für viele dazu.",
+    "- <b>Jahresrückblick-Quiz</b>: Fragen zu dem, was eure Runde dieses Jahr erlebt hat.",
+    "- <b>Wünsche fürs neue Jahr</b>: jeder schreibt einen auf, ihr öffnet die Zettel nächstes Silvester.",
+    "- <b>Glücksbringer</b>: kleine Schornsteinfeger, Kleeblätter oder Glücksschweine auf jedem Platz.",
+    "## Motto-Ideen",
+    "Glitzer & Gold, 20er-Jahre, Bad-Taste oder „Rückblick“ — jeder kommt im Outfit eines Moments aus dem vergangenen Jahr.",
+    "## Alle Fotos der Nacht an einem Ort",
+    "Der Countdown, das Anstoßen, die Wunderkerzen auf dem Balkon — am Ende liegen die Bilder auf zwanzig Handys. Ein <b>Event-Album</b> bei Albums sammelt sie an einem Ort:",
+    "1. Album anlegen, z. B. „Silvester bei Lena & Tim“.",
+    "2. QR-Code an die Wohnungstür, ans Buffet und zum Sekt kleben.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch — nichts zu installieren.",
+    "4. <b>„Hold guest photos“</b> einschalten, wenn du Uploads erst freigeben willst.",
+    "5. Am Neujahrstag das ganze Album als eine ZIP herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Noch eine Feier davor? Siehe <a href=\"/de/guides/weihnachtsfeier-ideen/\">Weihnachtsfeier Ideen</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Was es kostet",
+    "Ein Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload verfügbar, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für die ganze Silvesternacht",
+    "p": "Alle laden im Browser hoch — nichts zu installieren. Du entscheidest, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Den Countdown aus allen Blickwinkeln",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Was macht man an Silvester zuhause?",
+      "Raclette oder Fondue, Wachsgießen, „Dinner for One“, ein Jahresrückblick-Quiz und um Mitternacht anstoßen."
+    ],
+    [
+      "Welche Spiele passen zur Silvesterparty?",
+      "Wachsgießen, ein Quiz über das vergangene Jahr und Wunschzettel, die ihr nächstes Silvester öffnet."
+    ],
+    [
+      "Wie sammle ich die Fotos aller Gäste?",
+      "Mit einem QR-Code an Tür und Buffet: Gäste laden Fotos und Videos im Browser in ein gemeinsames Album."
+    ],
+    [
+      "Brauchen Gäste ein Konto?",
+      "Nein. Uploads ohne Anmeldung erscheinen anonym; angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren Uploads."
+    ]
+  ],
+  "related": [
+    "weihnachtsfeier-ideen",
+    "qr-code-for-photos-at-party",
+    "birthday-party-photo-sharing"
+  ]
+}

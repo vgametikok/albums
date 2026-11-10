@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tổ chức sinh nhật cho bé",
+  "date": "2026-11-10",
+  "title": "Tổ chức sinh nhật cho bé: ý tưởng và cách gom ảnh | Albums.ink",
+  "desc": "Ý tưởng tổ chức sinh nhật cho bé tại nhà, ở lớp hay nhà hàng: trang trí, trò chơi, quà về và một mã QR để khách gửi ảnh, video về một album.",
+  "h1": "Tổ chức sinh nhật cho bé: ý tưởng đơn giản và một album cho mọi tấm ảnh",
+  "lead": "“Tổ chức sinh nhật cho bé ở đâu”, “ở lớp nên mua gì”, “tại nhà” — các bố mẹ tìm cách làm buổi sinh nhật vui mà không quá vất vả. Bài này dành cho sinh nhật từ 2 tuổi trở lên (sinh nhật tròn 1 tuổi xem bài tiệc thôi nôi): gợi ý địa điểm, trò chơi, quà về, và cách gom ảnh, video mà ông bà, cô chú chụp bằng điện thoại.",
+  "body": [
+    "## Chọn nơi tổ chức",
+    "- <b>Tại nhà</b>: bóng bay, băng rôn tên bé, một bàn bánh kẹo — ấm cúng và tiết kiệm.",
+    "- <b>Ở lớp mẫu giáo</b>: hỏi trước cô giáo; thường là bánh kem, bánh ngọt chia phần và quà nhỏ cho các bạn.",
+    "- <b>Nhà hàng, khu vui chơi</b>: có sẵn gói trang trí và người dẫn trò, bố mẹ đỡ việc.",
+    "## Trò chơi cho các bé",
+    "- <b>Truy tìm kho báu</b>: giấu kẹo quanh nhà, mỗi bé một tấm bản đồ đơn giản.",
+    "- <b>Ngồi ghế âm nhạc</b>: nhạc dừng thì ngồi, ai không có ghế ra ngoài.",
+    "- <b>Tô màu, nặn đất</b>: góc yên tĩnh cho các bé nhỏ.",
+    "- <b>Thổi nến và cắt bánh</b>: khoảnh khắc mọi người đều giơ điện thoại lên.",
+    "## Quà về cho các bạn",
+    "Túi quà nhỏ với bút màu, sticker, kẹo. Ghi tên từng bé lên túi để không lẫn.",
+    "## Gom ảnh của mọi người bằng một mã QR",
+    "Sau tiệc, ảnh nằm rải rác trong điện thoại của ông bà, cô chú và các phụ huynh. <b>Album sự kiện</b> trên Albums gom tất cả về một nơi:",
+    "1. Tạo album, ví dụ “Sinh nhật 4 tuổi của Bin”.",
+    "2. In mã QR đặt ở bàn bánh và cửa ra vào.",
+    "3. Khách quét bằng camera điện thoại, tải ảnh và video từ trình duyệt — không cần cài gì.",
+    "4. Bật <b>«Hold guest photos»</b> nếu muốn duyệt trước khi ảnh hiện.",
+    "5. Sau tiệc, tải cả album về trong một file ZIP.",
+    "Người tải lên mà không đăng nhập sẽ hiện ẩn danh. Người đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-thoi-noi/\">tiệc thôi nôi</a> và <a href=\"/vi/guides/birthday-party-photo-sharing/\">chia sẻ ảnh tiệc sinh nhật</a>.",
+    "## Chi phí",
+    "Album sự kiện mua một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $ (USD). Khách không trả phí. Ảnh tới 4K; album dùng được 6 tháng kể từ lần tải đầu, và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi sinh nhật",
+    "p": "Khách tải từ trình duyệt — không cần cài gì. Bạn duyệt trước khi ảnh hiện.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại khoảnh khắc bé thổi nến",
+    "p": "Mua một lần từ 39,99 $. Ảnh tới 4K, 6 tháng từ lần tải đầu, có thể gia hạn.",
+    "btn": "Tạo album →"
+  },
+  "faq": [
+    [
+      "Tổ chức sinh nhật cho bé ở đâu?",
+      "Tại nhà, ở lớp mẫu giáo (hỏi trước cô giáo) hoặc ở nhà hàng, khu vui chơi có gói tiệc."
+    ],
+    [
+      "Sinh nhật ở lớp nên mua gì?",
+      "Thường là bánh kem hoặc bánh ngọt chia phần và túi quà nhỏ cho các bạn; nên hỏi cô giáo trước."
+    ],
+    [
+      "Làm sao gom ảnh mọi người chụp?",
+      "Đặt mã QR ở bàn bánh: khách tải ảnh và video từ trình duyệt vào một album chung."
+    ],
+    [
+      "Khách có cần tạo tài khoản không?",
+      "Không. Ảnh tải lên khi chưa đăng nhập hiện ẩn danh; người đã đăng nhập nhận thêm bản nháp riêng tư chỉ gồm ảnh của họ."
+    ]
+  ],
+  "related": [
+    "tiec-thoi-noi",
+    "birthday-party-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

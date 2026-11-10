@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per papà",
+  "date": "2026-11-10",
+  "title": "Regalo per papà: un album con le voci di famiglia | Albums.ink",
+  "desc": "Regalo per papà per il compleanno o Natale: un album online con foto, video e messaggi vocali di figli e nipoti. Gratis, senza pubblicità.",
+  "h1": "Regalo per papà: un album di foto con le voci di tutta la famiglia",
+  "lead": "“Regalo per papà compleanno”, “60 anni”, “Natale”, “fai da te”: trovare un regalo per chi dice sempre “non mi serve niente” è difficile. Un album con la sua storia, i video dei nipoti e i messaggi registrati con la voce dei figli è un regalo fai da te che non occupa spazio e che rivedrà volentieri.",
+  "body": [
+    "## Cosa mettere nell’album",
+    "- <b>Da giovane</b>: il militare o l’università, la prima macchina, il matrimonio.",
+    "- <b>Papà e figli</b>: una foto d’infanzia accanto a una di oggi, nello stesso posto.",
+    "- <b>Le sue passioni</b>: la squadra del cuore, l’orto, la pesca, la bici.",
+    "- <b>Le vacanze</b>: il mare d’agosto, la montagna, i viaggi in macchina.",
+    "- <b>I nipoti</b>: disegni, video brevi e un messaggio vocale.",
+    "- <b>Una didascalia per foto</b>: dove, quando e la frase che dice sempre.",
+    "## Come farlo gratis",
+    "Su Albums create un <b>album storia</b> con capitoli, foto, video e note vocali. Potete aggiungere una narrazione e riguardarlo come presentazione. Per regalarlo, aggiungete il papà come amico. Amici lo mostra a tutti i vostri amici; perché lo veda solo lui, scegliete Amici, tranne… ed escludete gli altri, e ricontrollate dopo aver aggiunto nuovi amici. Solo io non dà accesso ad altri, nemmeno con il link. Senza pubblicità. L’album resta per tutto il tempo in cui vorrete tenerlo.",
+    "1. Create un album gratis, ad esempio “Papà, 60 anni”.",
+    "2. Capitoli: Da giovane, La nostra famiglia, Le sue passioni, I nipoti.",
+    "3. Caricate foto (fino a 30 MB, nel piano gratuito fino a 2048 pixel sul lato lungo) e video brevi (fino a 50 MB).",
+    "4. Registrate una nota vocale nel browser o caricate un audio (fino a 20 MB).",
+    "5. Invitate un coautore — un fratello o una sorella già vostri amici su Albums — per completare i capitoli.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-foto-mamma/\">album foto per la mamma</a> e <a href=\"/it/guides/regalo-anniversario-genitori/\">regalo anniversario genitori</a>.",
+    "## Come regalarlo",
+    "Fate partire la presentazione con la narrazione a fine pranzo, poi mandategli il link. Lo apre nel browser e accede con Google. Potete anche scaricare tutto l’album in un unico ZIP."
+  ],
+  "cta": {
+    "h2": "Iniziate l’album per papà",
+    "p": "Album storia gratis con capitoli, note vocali e presentazione. Senza pubblicità.",
+    "btn": "Inizia l’album →"
+  },
+  "cta2": {
+    "h2": "Un regalo con le vostre voci",
+    "p": "Album gratis e illimitati, che restano finché volete.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare a un papà che non vuole niente?",
+      "Un album con la sua storia, le foto di famiglia, i video dei nipoti e messaggi vocali dei figli."
+    ],
+    [
+      "È un buon regalo per i 60 o 70 anni?",
+      "Sì: un capitolo per ogni decennio rende l’album un racconto della sua vita."
+    ],
+    [
+      "Come faccio a farlo vedere solo a lui?",
+      "Aggiungetelo come amico, scegliete Amici, tranne… ed escludete gli altri."
+    ],
+    [
+      "È gratis?",
+      "Sì. Gli album storia con foto, video e note vocali sono gratis e senza pubblicità."
+    ]
+  ],
+  "related": [
+    "album-foto-mamma",
+    "regalo-anniversario-genitori",
+    "add-voice-to-photos"
+  ]
+}

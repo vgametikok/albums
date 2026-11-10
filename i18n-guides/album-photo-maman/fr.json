@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "album photo maman",
+  "date": "2026-11-10",
+  "title": "Album photo pour maman | Albums.ink",
+  "desc": "Créer un album photo pour maman : idées de chapitres, légendes, vidéos et messages vocaux de la famille, dans un album en ligne gratuit et sans pubs.",
+  "h1": "Album photo pour maman : un cadeau avec la voix de toute la famille",
+  "lead": "« Album photo maman », « album photo cadeau maman », « album photo anniversaire maman » : ces recherches reviennent toute l’année, pas seulement à la fête des Mères. Pour un anniversaire ou pour Noël, un album en ligne peut contenir ce qu’un livre photo ne peut pas : des vidéos et la voix de ses enfants et petits-enfants. Voici comment le composer.",
+  "body": [
+    "## Que mettre dans l’album",
+    "- <b>Avant nous</b> : ses photos de jeunesse, son mariage, ses premières vacances.",
+    "- <b>Mère et fille, mère et fils</b> : une photo d’enfance à côté d’une photo récente, au même endroit si possible.",
+    "- <b>Les souvenirs de famille</b> : les dimanches chez elle, les vacances en Bretagne ou dans le Sud, les fêtes.",
+    "- <b>Ses talents</b> : son gâteau au yaourt, son jardin, ses travaux d’aiguille.",
+    "- <b>Les petits-enfants</b> : dessins, courtes vidéos et un message vocal.",
+    "- <b>Une légende par photo</b> : le lieu, l’année et une phrase qu’elle reconnaîtra.",
+    "## Le créer gratuitement en ligne",
+    "Sur Albums, vous créez un <b>album histoire</b> avec chapitres, photos, vidéos et notes vocales. Vous pouvez ajouter une narration et le regarder en diaporama. Pour le partager, ajoutez votre mère comme amie puis choisissez Amis — tous vos amis le verront. Pour qu’elle seule le voie, choisissez Amis, sauf… et excluez les autres ; vérifiez ce réglage après chaque nouvel ami. Moi uniquement ne donne pas accès, même avec le lien. Sans pubs. L’album reste aussi longtemps que vous le voulez.",
+    "1. Créez un album gratuit, par exemple « Maman, 65 ans ».",
+    "2. Chapitres : Sa jeunesse, Nous, Les vacances, Les petits-enfants.",
+    "3. Envoyez des photos (jusqu’à 30 Mo, jusqu’à 2048 pixels sur le grand côté avec l’offre gratuite) et de courtes vidéos (jusqu’à 50 Mo).",
+    "4. Enregistrez une note vocale dans le navigateur ou envoyez un fichier audio (jusqu’à 20 Mo).",
+    "5. Invitez un coauteur — votre frère ou votre sœur, déjà ami sur Albums — pour compléter les chapitres.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/cadeau-anniversaire-papa/\">cadeau d’anniversaire pour papa</a> et <a href=\"/fr/guides/album-photo-grands-parents/\">album photo grands-parents</a>.",
+    "## L’offrir",
+    "Lancez le diaporama avec votre narration au dessert, puis envoyez-lui le lien. Elle l’ouvre dans le navigateur et se connecte avec Google. Vous pouvez aussi télécharger tout l’album en un seul ZIP."
+  ],
+  "cta": {
+    "h2": "Commencez l’album de maman",
+    "p": "Album histoire gratuit avec chapitres, notes vocales et diaporama. Sans pubs.",
+    "btn": "Commencer l’album →"
+  },
+  "cta2": {
+    "h2": "Un cadeau avec vos voix",
+    "p": "Albums gratuits et illimités, qui restent aussi longtemps que vous le voulez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Que mettre dans un album photo pour maman ?",
+      "Ses photos de jeunesse, des photos avec ses enfants, les souvenirs de famille, les petits-enfants et une légende par photo."
+    ],
+    [
+      "Peut-on ajouter des messages vocaux ?",
+      "Oui. Enregistrez une note vocale dans le navigateur ou envoyez un fichier audio jusqu’à 20 Mo."
+    ],
+    [
+      "Comment faire pour qu’elle seule le voie ?",
+      "Ajoutez-la comme amie, choisissez Amis, sauf… et excluez les autres. Vérifiez après chaque nouvel ami."
+    ],
+    [
+      "C’est gratuit ?",
+      "Oui. Les albums histoire avec photos, vidéos et notes vocales sont gratuits et sans pubs."
+    ]
+  ],
+  "related": [
+    "cadeau-anniversaire-papa",
+    "album-photo-grands-parents",
+    "add-voice-to-photos"
+  ]
+}

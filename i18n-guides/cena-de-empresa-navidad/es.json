@@ -1,0 +1,68 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "cena de empresa navidad",
+  "date": "2026-11-10",
+  "title": "Cena de empresa de Navidad: ideas y fotos de todos | Albums.ink",
+  "desc": "Ideas para la cena de empresa de Navidad en España: formato, amigo invisible, juegos y un álbum con QR donde todo el equipo sube sus fotos.",
+  "h1": "Cena de empresa de Navidad: ideas para organizarla y guardar las fotos",
+  "lead": "En diciembre, “cena de empresa navidad” se busca junto a Madrid, Barcelona o Valencia: casi todo el mundo está reservando restaurante. Pero una buena cena de empresa no depende solo del menú. Aquí tienes ideas para el formato, el amigo invisible y una forma sencilla de reunir las fotos que hace cada compañero.",
+  "body": [
+    "## Ideas de formato",
+    "- <b>Cena en restaurante con sala privada</b>: lo clásico. Reservad con tiempo — las fechas de mediados de diciembre vuelan.",
+    "- <b>Comida en lugar de cena</b>: un viernes al mediodía, ideal para quien tiene niños o vive lejos.",
+    "- <b>Actividad + cena</b>: scape room, cata de vinos o taller de cocina antes de sentaros a la mesa.",
+    "- <b>Copas después</b>: un sitio cerca para quien quiera alargar la noche, sin obligar a nadie.",
+    "## Amigo invisible y juegos",
+    "- <b>Amigo invisible</b>: sorteo online con presupuesto cerrado, por ejemplo 15 €.",
+    "- <b>Premios del año</b>: “el más puntual”, “el rey del café”, votados por todo el equipo.",
+    "- <b>Quiz del año</b>: preguntas sobre proyectos, viajes y anécdotas de la oficina.",
+    "- <b>Discurso breve</b>: dos minutos del responsable y un brindis. Nada más.",
+    "## Las fotos de todos, en un solo álbum",
+    "El brindis, la foto de grupo, el amigo invisible: al final de la noche están repartidos en treinta móviles. Un <b>álbum de evento</b> en Albums los reúne:",
+    "1. Crea el álbum, por ejemplo “Cena de Navidad 2026”.",
+    "2. Pon el QR en las mesas o en la tarjeta del menú.",
+    "3. Cada compañero escanea con la cámara del móvil y sube fotos y vídeos desde el navegador — sin instalar nada.",
+    "4. Activa <b>«Hold guest photos»</b> si quieres aprobar las fotos antes de que se vean.",
+    "5. Después descarga el álbum completo en un solo ZIP, listo para el resumen del año.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Quien ha iniciado sesión recibe además una copia privada en borrador solo con lo que ha subido.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/company-party-photo-sharing/\">fotos de la fiesta de empresa</a> y <a href=\"/es/guides/christmas-party-photo-booth-ideas/\">photocall de Navidad</a>.",
+    "## Cuánto cuesta",
+    "El álbum de evento es una compra única: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Los compañeros no pagan. Fotos hasta 4K; el álbum queda disponible 6 meses desde la primera subida y se puede ampliar."
+  ],
+  "cta": {
+    "h2": "Un QR para toda la cena de empresa",
+    "p": "Todos suben desde el navegador — sin instalar nada. Tú decides qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Que no se pierda la foto de grupo",
+    "p": "Pago único desde 39,99 $. Fotos hasta 4K, 6 meses desde la primera subida, ampliable.",
+    "btn": "Crear mi álbum →"
+  },
+  "faq": [
+    [
+      "¿Qué se puede hacer en una cena de empresa de Navidad?",
+      "Amigo invisible, premios del año votados por el equipo, un quiz y un brindis corto."
+    ],
+    [
+      "¿Comida o cena de empresa?",
+      "La comida de un viernes facilita que vaya más gente; la cena permite alargar con copas después."
+    ],
+    [
+      "¿Cómo reunir las fotos de todos los compañeros?",
+      "Con un QR en las mesas: cada uno sube fotos y vídeos desde el navegador a un mismo álbum."
+    ],
+    [
+      "¿Hace falta crear una cuenta?",
+      "No. Lo que se sube sin iniciar sesión aparece de forma anónima; quien inicia sesión recibe además una copia privada en borrador de lo suyo."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "christmas-party-photo-booth-ideas",
+    "qr-code-for-photos-at-party"
+  ]
+}

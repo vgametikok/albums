@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "US",
+  "query": "gender reveal party ideas",
+  "date": "2026-11-10",
+  "title": "Gender Reveal Party Ideas: At Home, Games and Guest Photos | Albums.ink",
+  "desc": "Gender reveal party ideas for families in the US: at-home reveals, simple games, food and one QR album that collects every guest photo and video.",
+  "h1": "Gender reveal party ideas: simple reveals, games and a way to keep every photo",
+  "lead": "Searches like “gender reveal party ideas at home”, “for family” and “games” show what most parents-to-be in the US actually want: a relaxed afternoon with the people closest to them, a reveal everyone can see, and the reactions saved. Here are ideas that work in a living room or a backyard — and a simple way to collect the photos and videos guests take.",
+  "body": [
+    "## Reveal ideas that work at home",
+    "- <b>Cake reveal</b>: the bakery gets the sealed envelope from your doctor; you cut the cake in front of everyone.",
+    "- <b>Balloon box</b>: a big box filled with pink or blue balloons that float out when you open it.",
+    "- <b>Confetti cannons</b>: a handheld cannon each for the two of you. Keep it outdoors and pick up afterwards.",
+    "- <b>Big sibling reveal</b>: an older child opens a gift with a T-shirt that says “Big Brother of a…”.",
+    "- <b>Pet reveal</b>: the dog wears a bandana hidden under a plain one that you swap at the moment.",
+    "Skip anything with flames or pyrotechnics — a reveal is about the faces, not the smoke.",
+    "## Gender reveal party games",
+    "- <b>Team pink vs team blue</b>: guests pick a side with a sticker or bracelet when they arrive.",
+    "- <b>Old wives’ tales quiz</b>: cravings, heartburn, how the bump is carried — guests vote and keep score.",
+    "- <b>Baby photo match</b>: guess which baby picture belongs to which parent.",
+    "- <b>Prediction cards</b>: due date, weight, hair color. Keep them for after the birth.",
+    "## Food that keeps it easy",
+    "Pink and blue cupcakes, a candy table, sliders or a taco bar. For a family afternoon, a potluck works well — the grandparents usually want to bring something anyway.",
+    "## Keep every reaction with one QR code",
+    "The best moment lasts about two seconds, and it is filmed from twenty angles on twenty phones. An <b>event album</b> on Albums gathers them in one place:",
+    "1. Create the album, e.g. “Baby Miller — boy or girl?”.",
+    "2. Print the QR on the welcome sign and next to the cake.",
+    "3. Guests scan with their phone camera and upload photos and videos from the browser — nothing to install.",
+    "4. Turn on <b>“Hold guest photos”</b> if you want to approve uploads before they appear.",
+    "5. After the party, download the whole album as one ZIP.",
+    "Guests who upload without signing in appear anonymously. Signed-in guests also get a private draft copy containing only their own uploads.",
+    "!cta",
+    "Planning the next step? See <a href=\"/guides/baby-shower-photo-album/\">baby shower photo album</a> and <a href=\"/guides/pregnancy-photo-album/\">pregnancy photo album</a>.",
+    "## What it costs",
+    "An event album is a one-off purchase: Small $39.99, Medium $69.99 or Large $129.99 (USD). Guests pay nothing. Photos up to 4K; the album stays available for 6 months from the first upload, and you can extend it."
+  ],
+  "cta": {
+    "h2": "One QR code for the whole reveal",
+    "p": "Guests upload from the browser — nothing to install. You approve what appears.",
+    "btn": "Create event album →"
+  },
+  "cta2": {
+    "h2": "Keep the moment from every angle",
+    "p": "One-off from $39.99. Photos up to 4K, 6 months from first upload, extendable.",
+    "btn": "Create my album →"
+  },
+  "faq": [
+    [
+      "What are easy gender reveal party ideas at home?",
+      "A cake reveal, a balloon box or confetti cannons outdoors, plus a simple team pink vs team blue game."
+    ],
+    [
+      "What games can we play at a gender reveal?",
+      "Team pink vs team blue, an old wives’ tales quiz, a baby photo match and prediction cards."
+    ],
+    [
+      "How do we collect the videos guests take of the reveal?",
+      "Put a QR code next to the cake. Guests scan it and upload photos and videos from the browser into one album."
+    ],
+    [
+      "Do guests need an account to upload?",
+      "No. Uploads without signing in appear anonymously; signed-in guests also get a private draft copy of only their own uploads."
+    ]
+  ],
+  "related": [
+    "baby-shower-photo-album",
+    "pregnancy-photo-album",
+    "qr-code-for-photos-at-party"
+  ]
+}

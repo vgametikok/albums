@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "capodanno a casa cosa fare",
+  "date": "2026-11-10",
+  "title": "Capodanno a casa: cosa fare con gli amici | Albums.ink",
+  "desc": "Capodanno a casa con amici: cenone, giochi, tradizioni di mezzanotte e un QR per raccogliere in un unico album le foto e i video di tutti.",
+  "h1": "Capodanno a casa: idee per una festa con gli amici",
+  "lead": "“Capodanno a casa cosa fare” è una delle ricerche tipiche di fine anno: sempre più persone scelgono il salotto di un amico al posto del locale. Ecco idee semplici per il cenone, i giochi e la mezzanotte — e un modo per avere tutte le foto della serata in un unico posto.",
+  "body": [
+    "## Il cenone",
+    "- <b>Ognuno porta un piatto</b>: antipasti, primo, dolce — chi ospita pensa a lenticchie e cotechino (o zampone).",
+    "- <b>Buffet invece della tavola</b>: più spazio per muoversi e chiacchierare.",
+    "- <b>Panettone e pandoro</b>: con lo spumante per il brindisi.",
+    "## Giochi e tradizioni",
+    "- <b>Tombola</b>: la classica, magari con premi a tema.",
+    "- <b>Carte</b>: sette e mezzo, mercante in fiera.",
+    "- <b>Quiz dell’anno</b>: domande su quello che il gruppo ha vissuto nei dodici mesi.",
+    "- <b>Intimo rosso</b>: la tradizione porta fortuna — e qualche risata.",
+    "- <b>Lenticchie dopo mezzanotte</b>: un cucchiaio a testa, per i soldi dell’anno nuovo.",
+    "- <b>Buoni propositi</b>: scritti su un biglietto e chiusi in una busta da aprire il prossimo Capodanno.",
+    "## Tutte le foto in un unico album",
+    "Il conto alla rovescia, il brindisi, i botti dal balcone: a fine serata le foto sono sparse su venti telefoni. Un <b>album evento</b> su Albums le raccoglie:",
+    "1. Create l’album, ad esempio “Capodanno da Giulia”.",
+    "2. Stampate il QR e mettetelo all’ingresso e vicino al buffet.",
+    "3. Gli amici lo scansionano con la fotocamera e caricano foto e video dal browser — senza installare nulla.",
+    "4. Attivate <b>«Hold guest photos»</b> se volete approvare le foto prima che si vedano.",
+    "5. Il primo gennaio, scaricate tutto l’album in un unico ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Chi ha effettuato l’accesso riceve anche una copia bozza privata con i soli propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/cena-aziendale-natale/\">cena aziendale di Natale</a> e <a href=\"/it/guides/qr-code-for-photos-at-party/\">QR per le foto della festa</a>.",
+    "## Quanto costa",
+    "L’album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gli ospiti non pagano. Foto fino a 4K; l’album resta disponibile 6 mesi dal primo caricamento, ed è possibile prolungarlo."
+  ],
+  "cta": {
+    "h2": "Un QR per tutta la notte di Capodanno",
+    "p": "Gli amici caricano dal browser — senza installare nulla. Decidete voi cosa resta visibile.",
+    "btn": "Crea album evento →"
+  },
+  "cta2": {
+    "h2": "Conservate il brindisi di mezzanotte",
+    "p": "Acquisto unico da 39,99 $. Foto fino a 4K, 6 mesi dal primo caricamento, prolungabile.",
+    "btn": "Crea il mio album →"
+  },
+  "faq": [
+    [
+      "Cosa fare a Capodanno a casa con gli amici?",
+      "Un cenone condiviso, tombola o carte, un quiz sull’anno e il brindisi a mezzanotte con lenticchie e spumante."
+    ],
+    [
+      "Cosa si mangia a Capodanno?",
+      "Lenticchie con cotechino o zampone, poi panettone o pandoro con lo spumante."
+    ],
+    [
+      "Come raccogliere le foto di tutti?",
+      "Con un QR all’ingresso: ognuno carica foto e video dal browser in un unico album."
+    ],
+    [
+      "Serve creare un account?",
+      "No. Chi carica senza accedere appare in forma anonima; chi accede riceve anche una copia bozza privata dei propri caricamenti."
+    ]
+  ],
+  "related": [
+    "cena-aziendale-natale",
+    "qr-code-for-photos-at-party",
+    "birthday-party-photo-sharing"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CL",
+  "query": "regalo para mi abuela",
+  "date": "2026-11-10",
+  "title": "Regalo para mi abuela: un álbum con la voz de sus nietos | Albums.ink",
+  "desc": "Regalo para tu abuela en su cumpleaños o en Navidad: un álbum online con fotos de la familia, videos y mensajes de voz de los nietos. Gratis, sin anuncios.",
+  "h1": "Regalo para mi abuela: un álbum de fotos con la voz de toda la familia",
+  "lead": "“Regalo para mi abuela en su cumpleaños”, “de 80 años”, “Navidad”: las búsquedas muestran que lo difícil es encontrar algo que de verdad la emocione. En Chile, donde la familia suele juntarse en la casa de la abuela para la once o la cena del 24, un álbum con fotos de todos, videos y los saludos grabados de los nietos es un regalo que ella puede ver una y otra vez.",
+  "body": [
+    "## Qué poner en el álbum",
+    "- <b>Fotos antiguas</b>: su matrimonio, sus hijos chicos, la casa de siempre. Pide a tus tíos que busquen en las cajas.",
+    "- <b>Sus recetas</b>: la foto del pan de pascua o de las empanadas, con el nombre de quien aprendió a hacerlas.",
+    "- <b>Los veraneos</b>: la playa, el campo, las vacaciones de todos los años.",
+    "- <b>Cada nieto</b>: una foto reciente y un saludo grabado con su voz.",
+    "- <b>Videos cortos</b>: un “¡Feliz cumpleaños, abuelita!” de los bisnietos vale más que cualquier tarjeta.",
+    "## Cómo armarlo gratis",
+    "En Albums creas un <b>álbum historia</b> con capítulos, fotos, videos y notas de voz. Puedes añadir narración y reproducirlo como presentación. Para compartirlo, agrégala como amiga y elige Amigos — eso lo ven todos tus amigos. Para que solo lo vea ella, elige Amigos, excepto… y excluye a los demás; revisa el ajuste cuando agregues nuevos amigos. Solo yo no da acceso ni con el enlace. Sin anuncios. El álbum se queda mientras tú quieras.",
+    "1. Crea un álbum gratis, por ejemplo “Para la abuela Rosa”.",
+    "2. Capítulos: Su historia, La familia, Veraneos, Saludos de los nietos.",
+    "3. Sube fotos (hasta 30 MB, hasta 2048 píxeles en el lado largo en el plan gratuito) y videos cortos (hasta 50 MB).",
+    "4. Graba notas de voz en el navegador o sube audio (hasta 20 MB).",
+    "5. Invita a un coautor — por ejemplo una prima que ya sea tu amiga en Albums — para completar capítulos contigo.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-aniversario-papas/\">regalo de aniversario para tus papás</a> y <a href=\"/es/guides/family-history-stories/\">historias de familia</a>.",
+    "## Cómo entregárselo",
+    "Pon la presentación con la narración en la once o después de la cena, en un notebook o un tablet. Si ella no usa cuenta de Google, puedes poner el álbum público: así se abre con el enlace sin iniciar sesión, aunque cualquiera con el enlace podrá verlo. También puedes descargar el álbum completo en un ZIP."
+  ],
+  "cta": {
+    "h2": "Empieza el álbum de tu abuela",
+    "p": "Álbum historia gratis con capítulos, notas de voz y presentación. Sin anuncios.",
+    "btn": "Empezar álbum →"
+  },
+  "cta2": {
+    "h2": "Un regalo con la voz de sus nietos",
+    "p": "Álbumes gratis e ilimitados que se quedan mientras tú quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi abuela que la emocione?",
+      "Un álbum con fotos antiguas y recientes de la familia, videos cortos y saludos grabados por los nietos."
+    ],
+    [
+      "¿Qué regalar a una abuela de 80 o 90 años?",
+      "Algo que no tenga que guardar: recuerdos de su vida y las voces de su familia, que puede ver en presentación."
+    ],
+    [
+      "¿Mi abuela necesita una cuenta para verlo?",
+      "Si el álbum es público, se abre con el enlace sin iniciar sesión. Para Amigos, necesita iniciar sesión con Google."
+    ],
+    [
+      "¿Es gratis?",
+      "Sí. Los álbumes historia con fotos, videos y notas de voz son gratis y sin anuncios."
+    ]
+  ],
+  "related": [
+    "regalo-aniversario-papas",
+    "family-history-stories",
+    "add-voice-to-photos"
+  ]
+}

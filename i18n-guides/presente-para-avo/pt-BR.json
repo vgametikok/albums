@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para avó",
+  "date": "2026-11-10",
+  "title": "Presente para avó: um álbum com a voz dos netos | Albums.ink",
+  "desc": "Presente para avó de aniversário ou Natal: um álbum online com fotos da família, vídeos e recados de voz dos netos. Grátis, sem anúncios.",
+  "h1": "Presente para avó: um álbum de fotos com a voz de toda a família",
+  "lead": "“Presente para avó de aniversário”, “80 anos”, “personalizado” — quem procura quer algo que emocione de verdade. Um álbum com as fotos da vida dela, vídeos dos netos e recados gravados com a voz de cada um é um presente personalizado que ela pode rever quantas vezes quiser.",
+  "body": [
+    "## O que colocar no álbum",
+    "- <b>A história dela</b>: fotos de casamento, a casa antiga, os filhos pequenos.",
+    "- <b>As receitas</b>: o bolo de fubá, o pudim, o almoço de domingo — com o nome de quem aprendeu.",
+    "- <b>Datas da família</b>: Natais, festas juninas, aniversários.",
+    "- <b>Cada neto</b>: uma foto recente e um recado de voz.",
+    "- <b>Vídeos curtos</b>: um “parabéns, vó!” cantado pelos bisnetos.",
+    "- <b>Uma legenda por foto</b>: quando, onde e uma frase que ela vai reconhecer.",
+    "## Como fazer de graça",
+    "No Albums você cria um <b>álbum de histórias</b> com capítulos, fotos, vídeos e notas de voz. Dá para adicionar narração e assistir como apresentação de slides. Para compartilhar, adicione sua avó como amiga e escolha Amigos — isso mostra para todos os seus amigos. Para que só ela veja, escolha Amigos, exceto… e exclua os demais; confira de novo depois de adicionar novos amigos. Só eu não dá acesso nem com o link. Sem anúncios. O álbum fica enquanto você quiser.",
+    "1. Crie um álbum grátis, por exemplo “Vó Cida, 80 anos”.",
+    "2. Capítulos: A história dela, Nossa família, As receitas, Recados dos netos.",
+    "3. Envie fotos (até 30 MB, até 2048 pixels no lado maior no plano gratuito) e vídeos curtos (até 50 MB).",
+    "4. Grave notas de voz no navegador ou envie áudio (até 20 MB).",
+    "5. Convide um coautor — um primo que já seja seu amigo no Albums — para completar os capítulos.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/album-presente-para-mae/\">presente para mãe</a> e <a href=\"/pt-BR/guides/album-de-recordacoes/\">álbum de recordações</a>.",
+    "## Como entregar",
+    "Passe a apresentação com narração no almoço de aniversário, num tablet ou notebook. Se ela não usa conta do Google, você pode deixar o álbum público: assim ele abre pelo link sem login, mas qualquer pessoa com o link poderá ver. Também dá para baixar o álbum inteiro num ZIP."
+  ],
+  "cta": {
+    "h2": "Comece o álbum da vovó",
+    "p": "Álbum de histórias grátis com capítulos, notas de voz e apresentação. Sem anúncios.",
+    "btn": "Começar álbum →"
+  },
+  "cta2": {
+    "h2": "Um presente com a voz dos netos",
+    "p": "Álbuns grátis e ilimitados, que ficam enquanto você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "Qual presente dar para a avó que emocione?",
+      "Um álbum com a história dela, fotos da família, vídeos e recados de voz dos netos."
+    ],
+    [
+      "O que dar para uma avó de 80 ou 90 anos?",
+      "Algo que não ocupe espaço: lembranças da vida dela e as vozes da família, para rever em apresentação."
+    ],
+    [
+      "Minha avó precisa de conta para ver?",
+      "Se o álbum for público, abre pelo link sem login. Para Amigos, ela precisa entrar com o Google."
+    ],
+    [
+      "É grátis?",
+      "Sim. Álbuns de histórias com fotos, vídeos e notas de voz são grátis e sem anúncios."
+    ]
+  ],
+  "related": [
+    "album-presente-para-mae",
+    "album-de-recordacoes",
+    "add-voice-to-photos"
+  ]
+}

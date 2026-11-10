@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara ulang tahun anak",
+  "date": "2026-11-10",
+  "title": "Acara Ulang Tahun Anak: Susunan Acara, Ide, dan Foto | Albums.ink",
+  "desc": "Ide acara ulang tahun anak di rumah atau sekolah: susunan acara, permainan, bingkisan, dan satu kode QR untuk mengumpulkan foto dan video tamu.",
+  "h1": "Acara ulang tahun anak: susunan acara sederhana dan cara mengumpulkan foto",
+  "lead": "“Acara ulang tahun anak sederhana”, “di rumah”, “di sekolah”, “MC” — orang tua mencari cara membuat pesta yang meriah tanpa repot. Berikut contoh susunan acara, ide permainan, bingkisan untuk teman-teman, dan cara mengumpulkan foto dan video yang diambil para tamu di ponsel mereka.",
+  "body": [
+    "## Contoh susunan acara",
+    "1. Pembukaan oleh MC atau orang tua.",
+    "2. Doa bersama.",
+    "3. Menyanyikan lagu “Selamat Ulang Tahun”, tiup lilin, dan potong kue — potongan pertama untuk ayah dan ibu.",
+    "4. Permainan dan lomba.",
+    "5. Makan bersama, foto bersama, dan pembagian bingkisan.",
+    "## Ide permainan",
+    "- <b>Lomba makan kerupuk</b>: klasik dan selalu ramai.",
+    "- <b>Kursi musik</b>: musik berhenti, semua cari kursi.",
+    "- <b>Tebak gambar</b>: cocok untuk anak TK.",
+    "- <b>Estafet balon</b>: untuk anak yang lebih besar.",
+    "## Di rumah atau di sekolah",
+    "Di rumah lebih leluasa dan hemat. Di sekolah, tanyakan dulu ke guru: biasanya cukup kue, nasi kotak atau snack, dan bingkisan untuk teman sekelas.",
+    "## Kumpulkan foto semua tamu dengan satu kode QR",
+    "Saat tiup lilin, semua orang memotret dari ponselnya masing-masing. <b>Album acara</b> di Albums mengumpulkannya di satu tempat:",
+    "1. Buat album, misalnya “Ulang tahun Kenzo ke-5”.",
+    "2. Cetak kode QR dan taruh di meja kue dan pintu masuk.",
+    "3. Tamu memindai dengan kamera ponsel dan mengunggah foto dan video dari peramban — tidak perlu memasang apa pun.",
+    "4. Nyalakan <b>«Hold guest photos»</b> bila ingin meninjau unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Unggahan tanpa masuk akun tampil secara anonim. Tamu yang masuk akun juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/birthday-party-photo-sharing/\">berbagi foto pesta ulang tahun</a> dan <a href=\"/id/guides/acara-aqiqah/\">acara aqiqah</a>.",
+    "## Biaya",
+    "Album acara dibeli sekali: Small 39,99 dolar, Medium 69,99 dolar, atau Large 129,99 dolar (USD). Tamu tidak membayar. Foto hingga 4K; album tersedia 6 bulan sejak unggahan pertama, dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh pesta",
+    "p": "Tamu mengunggah dari peramban — tidak perlu memasang apa pun. Anda yang meninjau sebelum foto tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan momen tiup lilin dari semua sudut",
+    "p": "Pembelian sekali mulai 39,99 dolar. Foto hingga 4K, 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Buat album saya →"
+  },
+  "faq": [
+    [
+      "Bagaimana susunan acara ulang tahun anak yang sederhana?",
+      "Pembukaan, doa, menyanyi dan tiup lilin, potong kue, permainan, lalu makan bersama dan pembagian bingkisan."
+    ],
+    [
+      "Permainan apa yang cocok untuk ulang tahun anak?",
+      "Lomba makan kerupuk, kursi musik, tebak gambar, dan estafet balon."
+    ],
+    [
+      "Bagaimana mengumpulkan foto dari para tamu?",
+      "Taruh kode QR di meja kue: tamu mengunggah foto dan video dari peramban ke satu album."
+    ],
+    [
+      "Apakah tamu harus membuat akun?",
+      "Tidak. Unggahan tanpa masuk akun tampil anonim; tamu yang masuk akun juga mendapat salinan draf pribadi berisi unggahan mereka."
+    ]
+  ],
+  "related": [
+    "birthday-party-photo-sharing",
+    "acara-aqiqah",
+    "qr-code-for-photos-at-party"
+  ]
+}

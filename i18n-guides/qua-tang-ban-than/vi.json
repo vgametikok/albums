@@ -1,0 +1,64 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng bạn thân",
+  "date": "2026-11-10",
+  "title": "Quà tặng bạn thân ý nghĩa: album ảnh có giọng nói | Albums.ink",
+  "desc": "Quà tặng bạn thân sinh nhật hay ngày cưới: tự làm album ảnh online có video và lời chúc bằng giọng nói của cả nhóm. Miễn phí, không quảng cáo.",
+  "h1": "Quà tặng bạn thân ý nghĩa: tự làm album ảnh kỷ niệm",
+  "lead": "“Quà tặng bạn thân ý nghĩa”, “tự làm”, “sinh nhật”, “ngày cưới” — ai cũng muốn món quà cho bạn thân thật riêng. Một album ảnh online với những chuyến đi, những năm học chung, video và lời chúc thu âm của cả nhóm là món quà tự làm mà bạn thân có thể mở lại bất cứ lúc nào.",
+  "body": [
+    "## Nên đưa gì vào album",
+    "- <b>Ngày đầu quen nhau</b>: lớp học, ký túc xá hay chỗ làm đầu tiên.",
+    "- <b>Những chuyến đi</b>: Đà Lạt, Vũng Tàu, chuyến phượt đầu tiên.",
+    "- <b>Chuyện thường ngày</b>: quán trà sữa quen, những buổi tối nói chuyện tới khuya.",
+    "- <b>Cả nhóm</b>: mỗi người một tấm ảnh và một câu chúc.",
+    "- <b>Giọng nói</b>: lời chúc thu âm thay cho tấm thiệp.",
+    "- <b>Ngày cưới</b>: nếu là quà cưới, thêm một chương dành cho cô dâu chú rể.",
+    "## Cách làm miễn phí",
+    "Trên Albums bạn tạo <b>album kể chuyện</b> với chương, ảnh, video và ghi âm. Có thể thêm lời dẫn và xem như trình chiếu. Để tặng, thêm bạn thân làm bạn bè rồi chọn quyền xem. Bạn bè nghĩa là tất cả bạn bè của bạn đều xem được; nếu chỉ muốn bạn thân xem, chọn Bạn bè, trừ… và loại những người khác, rồi kiểm tra lại sau khi kết bạn thêm. Chỉ mình tôi không cho người khác xem, kể cả khi có liên kết. Không có quảng cáo. Album ở lại chừng nào bạn còn muốn giữ.",
+    "1. Tạo album miễn phí, ví dụ “10 năm làm bạn với Linh”.",
+    "2. Chia chương: Ngày đầu, Những chuyến đi, Cả nhóm, Lời chúc.",
+    "3. Tải ảnh (tối đa 30 MB mỗi tấm, gói miễn phí tối đa 2048 pixel ở cạnh dài) và video ngắn (tối đa 50 MB).",
+    "4. Ghi âm ngay trên trình duyệt hoặc tải file âm thanh (tối đa 20 MB). Các bạn khác có thể gửi file ghi âm cho bạn.",
+    "5. Mời một đồng tác giả (phải đã là bạn trên Albums) để cùng làm.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/lam-album-anh-ky-niem/\">làm album ảnh kỷ niệm</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Trao tặng",
+    "Bật trình chiếu có lời dẫn trong buổi sinh nhật, rồi gửi liên kết cho bạn thân. Bạn ấy mở bằng trình duyệt và đăng nhập bằng Google. Có thể tải cả album về trong một file ZIP."
+  ],
+  "cta": {
+    "h2": "Bắt đầu album tặng bạn thân",
+    "p": "Album kể chuyện miễn phí, có chương, ghi âm và trình chiếu. Không quảng cáo.",
+    "btn": "Bắt đầu album →"
+  },
+  "cta2": {
+    "h2": "Món quà có giọng nói của cả nhóm",
+    "p": "Album miễn phí không giới hạn, ở lại chừng nào bạn còn muốn giữ.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Quà tặng bạn thân tự làm nào ý nghĩa?",
+      "Một album ảnh kỷ niệm có video và lời chúc thu âm của cả nhóm, bạn thân có thể mở lại bất cứ lúc nào."
+    ],
+    [
+      "Có hợp làm quà cưới cho bạn thân không?",
+      "Có. Thêm một chương dành cho cô dâu chú rể và lời chúc bằng giọng nói."
+    ],
+    [
+      "Làm sao chỉ bạn thân xem được?",
+      "Thêm bạn ấy làm bạn bè, chọn Bạn bè, trừ… và loại những người khác. Kiểm tra lại khi kết bạn thêm."
+    ],
+    [
+      "Có miễn phí không?",
+      "Có. Album kể chuyện với ảnh, video và ghi âm miễn phí, không quảng cáo."
+    ]
+  ],
+  "related": [
+    "lam-album-anh-ky-niem",
+    "album-anh-tang-nguoi-yeu",
+    "add-voice-to-photos"
+  ]
+}

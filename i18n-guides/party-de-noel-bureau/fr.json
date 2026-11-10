@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CA",
+  "query": "party de Noël de bureau",
+  "date": "2026-11-10",
+  "title": "Party de Noël de bureau : idées | Albums.ink",
+  "desc": "Idées pour le party de Noël de bureau au Québec : formule, échange de cadeaux, jeux et un album QR où tous les collègues déposent leurs photos.",
+  "h1": "Party de Noël de bureau : idées pour une soirée réussie",
+  "lead": "En novembre, « party de Noël bureau », « party de Noël corporatif » et « party de Noël restaurant » montent dans les recherches au Québec : les organisateurs réservent la salle et cherchent comment faire mieux que l’an passé. Voici des idées simples pour la formule, l’échange de cadeaux et l’animation — et une façon de rassembler toutes les photos des collègues après la soirée.",
+  "body": [
+    "## Choisir la formule",
+    "- <b>Souper au restaurant avec salle privée</b> : réservez tôt, les vendredis de décembre partent vite.",
+    "- <b>Party au bureau</b> : traiteur, musique, décorations — pratique pour les équipes en mode hybride.",
+    "- <b>Activité + souper</b> : quilles, salle d’évasion ou atelier cocktail avant de passer à table.",
+    "- <b>5 à 7 des Fêtes</b> : plus court, plus léger, idéal quand le budget est serré.",
+    "Prévoyez le retour : covoiturage, Opération Nez rouge ou taxis réservés.",
+    "## Échange de cadeaux et jeux",
+    "- <b>Échange de cadeaux</b> : tirage au sort avec un montant fixe, par exemple 25 $.",
+    "- <b>Échange de cadeaux « voleur »</b> : on peut voler le cadeau d’un autre — fous rires garantis.",
+    "- <b>Prix de l’année</b> : « roi du café », « reine des courriels », votés par l’équipe.",
+    "- <b>Quiz du bureau</b> : questions sur les projets et les anecdotes de l’année.",
+    "## Toutes les photos dans un seul album",
+    "Le toast, la photo de groupe, l’échange de cadeaux : à la fin de la soirée, tout est éparpillé dans trente cellulaires. Un <b>album événement</b> sur Albums les réunit :",
+    "1. Créez l’album, par exemple « Party des Fêtes 2026 ».",
+    "2. Mettez le code QR sur les tables ou au bar.",
+    "3. Les collègues balaient le code avec la caméra du cellulaire et envoient photos et vidéos depuis le navigateur — rien à installer.",
+    "4. Activez <b>« Hold guest photos »</b> si vous voulez approuver les photos avant qu’elles apparaissent.",
+    "5. Après la soirée, téléchargez tout l’album en un seul ZIP.",
+    "Sans connexion, les envois apparaissent de façon anonyme. Les collègues connectés reçoivent en plus une copie brouillon privée avec uniquement leurs propres envois.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/company-party-photo-sharing/\">photos de la fête d’entreprise</a> et <a href=\"/fr/guides/cadeau-depart-collegue/\">cadeau de départ pour un collègue</a>.",
+    "## Combien ça coûte",
+    "L’album événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Les collègues ne paient rien. Photos jusqu’à 4K ; l’album reste disponible 6 mois à partir du premier envoi, et on peut le prolonger."
+  ],
+  "cta": {
+    "h2": "Un code QR pour tout le party",
+    "p": "Les collègues envoient depuis le navigateur — rien à installer. Vous approuvez ce qui paraît.",
+    "btn": "Créer l’album événement →"
+  },
+  "cta2": {
+    "h2": "Gardez la photo de groupe",
+    "p": "Achat unique à partir de 39,99 $. Photos jusqu’à 4K, 6 mois dès le premier envoi, prolongeable.",
+    "btn": "Créer mon album →"
+  },
+  "faq": [
+    [
+      "Quoi faire dans un party de Noël de bureau?",
+      "Un échange de cadeaux, des prix de l’année votés par l’équipe, un quiz et un toast court."
+    ],
+    [
+      "Quel montant pour l’échange de cadeaux?",
+      "Un montant fixe pour tous, souvent entre 20 et 30 $, annoncé lors du tirage."
+    ],
+    [
+      "Comment rassembler les photos des collègues?",
+      "Avec un code QR sur les tables : chacun envoie photos et vidéos depuis le navigateur dans un même album."
+    ],
+    [
+      "Faut-il créer un compte?",
+      "Non. Les envois sans connexion apparaissent de façon anonyme; les personnes connectées reçoivent aussi une copie brouillon privée de leurs envois."
+    ]
+  ],
+  "related": [
+    "company-party-photo-sharing",
+    "cadeau-depart-collegue",
+    "christmas-party-photo-booth-ideas"
+  ]
+}
