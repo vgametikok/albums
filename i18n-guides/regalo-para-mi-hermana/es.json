@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ES",
+  "query": "regalo para mi hermana",
+  "date": "2026-11-11",
+  "title": "Regalo para mi hermana: un álbum con vuestra historia | Albums.ink",
+  "desc": "Regalo para tu hermana por su cumpleaños o tu boda: un álbum online con fotos, vídeos y notas de voz de vuestra historia. Gratis y sin anuncios.",
+  "h1": "Regalo para mi hermana: un álbum con fotos, vídeos y tu voz",
+  "lead": "“Regalo para mi hermana por su cumpleaños”, “el día de mi boda”, “de 30 años”: las búsquedas en España buscan algo personal, no otro objeto más. Un álbum de historia con vuestras fotos de infancia, los veranos en el pueblo y un mensaje grabado con tu voz es un regalo que no se queda en un cajón.",
+  "body": [
+    "## Qué meter en el álbum",
+    "- <b>Infancia</b>: fotos escaneadas de cumpleaños, Reyes, la primera comunión.",
+    "- <b>Veranos</b>: el pueblo, la playa, los viajes en coche con vuestros padres.",
+    "- <b>Etapas</b>: el instituto, la universidad, su primer piso.",
+    "- <b>Lo que solo vosotras entendéis</b>: frases, motes, canciones.",
+    "- <b>Mensajes de la familia</b>: unas líneas de padres, abuelos o sobrinos.",
+    "## Para cada ocasión",
+    "- <b>Cumpleaños</b>: un capítulo por cada década, ideal para los 18 o los 30.",
+    "- <b>Tu boda</b>: un álbum de agradecimiento por todo lo que ha hecho por ti.",
+    "- <b>Si está embarazada</b>: un capítulo con fotos de las dos de pequeñas para su bebé.",
+    "## Cómo hacerlo gratis",
+    "En Albums creas un <b>álbum de historia</b> con capítulos, fotos, vídeos y notas de voz, y lo reproduces como presentación con tu narración. Para compartirlo, añádela como amiga y elige Amigos: eso incluye a todos tus amigos, así que si solo debe verlo ella, elige “Amigos excepto…” y excluye al resto; revísalo cuando añadas amigos nuevos. “Solo yo” no permite acceso por enlace. Sin anuncios, y el álbum se queda el tiempo que quieras.",
+    "1. Crea un álbum gratis, por ejemplo “Hermanas desde 1994”.",
+    "2. Añade capítulos: Infancia, Veranos, Ahora.",
+    "3. Sube fotos (hasta 30 MB; el plan gratuito las guarda hasta 2048 px en el lado largo) y vídeos cortos (hasta 50 MB).",
+    "4. Graba una nota de voz en el navegador o sube un audio (hasta 20 MB).",
+    "5. ¿Tu hermano o un primo quiere participar? Invita a un coautor que ya sea tu amigo en Albums.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/album-para-mi-mejor-amiga/\">álbum para mi mejor amiga</a> y <a href=\"/es/guides/add-voice-to-photos/\">añadir voz a las fotos</a>.",
+    "## Cómo regalarlo",
+    "Pon la presentación en la comida de cumpleaños o mándale el enlace con una tarjeta. Lo abre en el navegador del móvil y entra con Google. También puedes descargar el álbum entero en un ZIP."
+  ],
+  "cta": {
+    "h2": "Empieza su álbum hoy",
+    "p": "Álbum de historia gratis con capítulos, notas de voz y presentación. Sin anuncios.",
+    "btn": "Crear mi álbum →"
+  },
+  "cta2": {
+    "h2": "Un regalo con tu voz",
+    "p": "Álbumes ilimitados y gratis que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué regalar a mi hermana por su cumpleaños?",
+      "Algo personal: un álbum con vuestra historia, fotos de infancia y un mensaje grabado con tu voz."
+    ],
+    [
+      "¿Qué regalo hacer a mi hermana el día de mi boda?",
+      "Un álbum de agradecimiento con fotos de vuestra vida juntas y unas palabras tuyas."
+    ],
+    [
+      "¿Es gratis?",
+      "Sí. Un álbum de historia en Albums es gratis, con fotos, vídeos y notas de voz. Sin anuncios."
+    ],
+    [
+      "¿Cómo hago que solo lo vea ella?",
+      "Añádela como amiga, elige “Amigos excepto…” y excluye a todos los demás."
+    ]
+  ],
+  "related": [
+    "album-para-mi-mejor-amiga",
+    "add-voice-to-photos",
+    "online-photo-album-free"
+  ]
+}

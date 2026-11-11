@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de batizado",
+  "date": "2026-11-11",
+  "title": "Festa de batizado simples: ideias e fotos dos convidados | Albums.ink",
+  "desc": "Festa de batizado simples para menina ou menino: almoço depois da missa, decoração, lembrancinhas, padrinhos e um álbum por QR code com as fotos de todos.",
+  "h1": "Festa de batizado: ideias simples e todas as fotos dos convidados num álbum só",
+  "lead": "“Festa de batizado simples”, “menina”, “decoração”, “tem que levar presente” — quem organiza o batizado quer uma comemoração bonita sem complicar. Aqui vão ideias para o almoço depois da igreja e um jeito fácil de juntar as fotos e vídeos que padrinhos, avós e tios tiram no celular.",
+  "body": [
+    "## Onde fazer",
+    "- <b>Em casa</b>: almoço com a família, o mais prático com um bebê.",
+    "- <b>Salão de festas do prédio ou do condomínio</b>: espaço para todos sem gastar muito.",
+    "- <b>Restaurante</b>: reservar uma mesa grande logo depois da missa.",
+    "## Decoração simples",
+    "Branco com tons claros, flores, um painel com o nome do bebê, anjinhos ou pombas, e a mesa do bolo com docinhos. Para menina, rosa claro ou lilás; para menino, azul claro ou verde — ou tudo branco.",
+    "## Comida e lembrancinhas",
+    "- <b>Almoço</b>: churrasco, massas ou um buffet de salgados.",
+    "- <b>Bolo e docinhos</b>: brigadeiro, beijinho, bem-casado.",
+    "- <b>Lembrancinhas</b>: terço, sabonete artesanal, vela com o nome e a data.",
+    "## Momentos com os padrinhos",
+    "Uma foto com os padrinhos segurando o bebê, a vela do batismo e um recado deles para a criança ler quando crescer.",
+    "## Convidado tem que levar presente?",
+    "Não é obrigatório, mas é costume: os padrinhos costumam dar a roupa, a vela ou uma joia; os outros convidados levam algo simples.",
+    "## Todas as fotos num álbum só",
+    "Depois da festa, as fotos ficam espalhadas em vinte celulares. Um <b>álbum de evento</b> no Albums junta tudo:",
+    "1. Crie o álbum, por exemplo “Batizado da Helena”.",
+    "2. Coloque o QR code nas mesas e na mesa do bolo, ou mande no grupo da família.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador — sem instalar nada.",
+    "4. Ative <b>“Hold guest photos”</b> para aprovar as fotos antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro num único ZIP.",
+    "Quem envia sem entrar aparece de forma anônima. Convidados que entram recebem também uma cópia de rascunho privada só com os próprios envios.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/cha-de-bebe/\">chá de bebê</a> e <a href=\"/pt-BR/guides/baby-photo-sharing/\">compartilhar fotos do bebê com a família</a>.",
+    "## Quanto custa",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos até 4K; o álbum fica disponível por 6 meses a partir do primeiro envio, com extensão."
+  ],
+  "cta": {
+    "h2": "Um QR code para o batizado inteiro",
+    "p": "Os convidados enviam pelo navegador, sem aplicativo. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "O batizado pelo olhar de cada convidado",
+    "p": "Compra única a partir de US$ 39,99. Fotos até 4K, 6 meses a partir do primeiro envio, com extensão.",
+    "btn": "Criar o álbum →"
+  },
+  "faq": [
+    [
+      "Como fazer uma festa de batizado simples?",
+      "Um almoço em casa ou no salão do prédio, decoração branca, bolo, docinhos e lembrancinhas."
+    ],
+    [
+      "Convidado tem que levar presente no batizado?",
+      "Não é obrigatório, mas é costume levar algo simples; os padrinhos costumam dar a roupa, a vela ou uma joia."
+    ],
+    [
+      "Que lembrancinha dar no batizado?",
+      "Terço, sabonete artesanal ou vela com o nome e a data."
+    ],
+    [
+      "Como juntar as fotos dos convidados?",
+      "Com um QR code: todos enviam fotos e vídeos pelo navegador para um álbum compartilhado."
+    ]
+  ],
+  "related": [
+    "cha-de-bebe",
+    "baby-photo-sharing",
+    "first-birthday-photo-ideas"
+  ]
+}

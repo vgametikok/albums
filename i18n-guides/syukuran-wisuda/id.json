@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "syukuran wisuda",
+  "date": "2026-11-11",
+  "title": "Syukuran Wisuda: Susunan Acara, Ide, dan Foto Tamu | Albums.ink",
+  "desc": "Syukuran wisuda di rumah atau restoran: susunan acara, doa bersama, tumpeng, ide dekorasi, dan album QR untuk mengumpulkan foto serta video semua tamu.",
+  "h1": "Syukuran wisuda: susunan acara sederhana dan cara mengumpulkan foto semua tamu",
+  "lead": "“Syukuran wisuda sarjana”, “doa syukuran wisuda”, “S2” — setelah toga dilepas, banyak keluarga mengadakan syukuran kecil untuk berterima kasih. Berikut susunan acara yang praktis dan cara mudah mengumpulkan foto serta video yang diambil keluarga dan teman di HP masing-masing.",
+  "body": [
+    "## Di mana mengadakan syukuran",
+    "- <b>Di rumah</b>: paling hangat, bisa mengundang tetangga dan keluarga besar.",
+    "- <b>Restoran atau kafe</b>: praktis untuk teman kampus dan keluarga.",
+    "- <b>Di kampung halaman</b>: kalau wisuda di kota lain, syukuran bisa diadakan saat pulang.",
+    "## Susunan acara sederhana",
+    "1. Pembukaan dan sambutan dari orang tua.",
+    "2. Doa bersama dipimpin tokoh agama atau anggota keluarga.",
+    "3. Sambutan singkat dari wisudawan: terima kasih kepada orang tua, dosen, dan teman.",
+    "4. Potong tumpeng — potongan pertama untuk orang tua.",
+    "5. Makan bersama dan foto keluarga.",
+    "## Ide dekorasi dan hidangan",
+    "- <b>Tumpeng nasi kuning</b> dengan lauk lengkap.",
+    "- <b>Backdrop</b> bertuliskan nama dan gelar, misalnya “Selamat atas gelar S.T.”.",
+    "- <b>Foto perjalanan kuliah</b>: dari ospek sampai sidang skripsi.",
+    "## Kumpulkan foto semua tamu di satu album",
+    "Foto di hari wisuda dan syukuran tersebar di HP keluarga dan teman. <b>Album acara</b> di Albums mengumpulkannya:",
+    "1. Buat album, misalnya “Syukuran Wisuda Rina”.",
+    "2. Pasang kode QR di meja tamu atau bagikan di grup WhatsApp keluarga.",
+    "3. Tamu memindai dengan kamera HP dan mengunggah foto serta video lewat peramban — tanpa instal aplikasi.",
+    "4. Aktifkan <b>“Hold guest photos”</b> jika ingin menyetujui foto sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang masuk juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/album-kenangan-sekolah/\">album kenangan sekolah</a> dan <a href=\"/id/guides/graduation-party-photo-display-ideas/\">ide pajangan foto wisuda</a>.",
+    "## Biaya",
+    "Album acara dibeli sekali: Small US$39,99, Medium US$69,99, atau Large US$129,99. Gratis untuk tamu. Foto hingga 4K; album tersedia 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh syukuran",
+    "p": "Tamu mengunggah lewat peramban, tanpa aplikasi. Anda yang menentukan apa yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Hari bahagia dari sudut pandang semua tamu",
+    "p": "Sekali beli mulai US$39,99. Foto hingga 4K, 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Buat album →"
+  },
+  "faq": [
+    [
+      "Apa saja susunan acara syukuran wisuda?",
+      "Pembukaan, doa bersama, sambutan wisudawan, potong tumpeng, lalu makan bersama dan foto keluarga."
+    ],
+    [
+      "Di mana sebaiknya syukuran wisuda diadakan?",
+      "Di rumah, restoran, atau di kampung halaman saat pulang."
+    ],
+    [
+      "Bagaimana mengumpulkan foto dari tamu?",
+      "Bagikan kode QR: tamu mengunggah foto dan video lewat peramban ke satu album bersama."
+    ],
+    [
+      "Apakah tamu perlu membuat akun?",
+      "Tidak. Unggahan tanpa masuk tampil anonim."
+    ]
+  ],
+  "related": [
+    "album-kenangan-sekolah",
+    "graduation-party-photo-display-ideas",
+    "syukuran-rumah-baru"
+  ]
+}

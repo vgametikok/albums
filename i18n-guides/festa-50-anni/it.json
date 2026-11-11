@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa 50 anni",
+  "date": "2026-11-11",
+  "title": "Festa 50 anni: idee per lui e per lei | Albums.ink",
+  "desc": "Festa 50 anni per uomo o donna: location, temi, sorprese e un album con QR code dove gli invitati caricano tutte le foto e i video.",
+  "h1": "Festa 50 anni: idee per organizzarla e raccogliere le foto di tutti gli invitati",
+  "lead": "“Festa 50 anni donna”, “uomo”, “idee”, “economica” — mezzo secolo merita una festa, e le ricerche mostrano che si cerca qualcosa di personale senza spendere una fortuna. Ecco idee per location, temi e sorprese, più un modo semplice per raccogliere le foto e i video che gli invitati fanno con il telefono.",
+  "body": [
+    "## Dove festeggiare",
+    "- <b>A casa o in giardino</b>: buffet, musica e un'atmosfera rilassata.",
+    "- <b>Agriturismo o casale</b>: pranzo lungo con famiglia e amici, spazio per i bambini.",
+    "- <b>Ristorante o locale riservato</b>: nessun pensiero per cucina e pulizie.",
+    "## Temi che funzionano",
+    "Anni '70 o '80 (gli anni della sua giovinezza), serata elegante oro e nero, “50 anni, 50 ricordi”: ogni invitato porta una foto di un momento passato insieme.",
+    "## Sorprese e momenti",
+    "- <b>Video di auguri</b> da chi non può esserci.",
+    "- <b>Quiz sul festeggiato</b>: la prima auto, il primo concerto, i suoi modi di dire.",
+    "- <b>Discorso</b> breve, ironico e affettuoso.",
+    "- <b>Torta</b> con un riferimento alla sua passione: calcio, viaggi, cucina.",
+    "## Tutte le foto della festa in un album",
+    "A fine serata le foto sono su trenta telefoni diversi. Un <b>album evento</b> su Albums le raccoglie:",
+    "1. Crea l'album, ad esempio “I 50 anni di Marco”.",
+    "2. Metti il QR code sui tavoli, al bar e vicino alla torta.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>“Hold guest photos”</b> per approvare ogni foto prima che sia visibile.",
+    "5. Il giorno dopo scarica l'intero album in un unico ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli invitati che accedono ricevono anche una copia bozza privata con solo i propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-18-anni/\">festa 18 anni</a> e <a href=\"/it/guides/birthday-party-photo-sharing/\">condividere le foto di un compleanno</a>.",
+    "## Quanto costa",
+    "L'album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gratis per gli invitati. Foto fino a 4K; l'album resta disponibile 6 mesi dal primo caricamento, estendibile."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Gli invitati caricano dal browser, senza installare nulla. Decidi tu cosa mostrare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "I 50 anni visti da ogni invitato",
+    "p": "Acquisto unico da 39,99 $. Foto fino a 4K, 6 mesi dal primo caricamento, estendibile.",
+    "btn": "Crea l'album →"
+  },
+  "faq": [
+    [
+      "Come organizzare una festa per i 50 anni?",
+      "Scegli la location, un tema, un video di auguri, un quiz sul festeggiato e una torta personalizzata."
+    ],
+    [
+      "Come fare una festa 50 anni economica?",
+      "A casa o in giardino con buffet, oppure un pranzo in agriturismo con menù fisso."
+    ],
+    [
+      "Come raccolgo le foto degli invitati?",
+      "Con un QR code sui tavoli: tutti caricano foto e video dal browser in un album condiviso."
+    ],
+    [
+      "Gli invitati devono registrarsi?",
+      "No. I caricamenti senza accesso appaiono anonimi; chi accede riceve una copia bozza privata dei propri caricamenti."
+    ]
+  ],
+  "related": [
+    "festa-18-anni",
+    "birthday-party-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

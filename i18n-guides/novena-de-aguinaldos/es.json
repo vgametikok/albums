@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CO",
+  "query": "novena de aguinaldos",
+  "date": "2026-11-11",
+  "title": "Novena de aguinaldos: cómo organizarla en familia | Albums.ink",
+  "desc": "Novena de aguinaldos en casa, con la familia o en la oficina: cómo organizar las nueve noches, comida, juegos de aguinaldos y un álbum QR para las fotos de todos.",
+  "h1": "Novena de aguinaldos: cómo organizar las nueve noches y guardar las fotos de todos",
+  "lead": "Del 16 al 24 de diciembre, en Colombia se reza la novena de aguinaldos: cada noche una casa distinta, villancicos con maracas y panderetas, buñuelos y natilla. Las búsquedas de estos días piden el texto de la novena, ideas para niños y cómo organizarla. Aquí tienes un plan sencillo para las nueve noches y una forma fácil de reunir las fotos y videos que toma cada familia.",
+  "body": [
+    "## Cómo repartir las nueve noches",
+    "- <b>Una casa por noche</b>: entre familiares, vecinos del conjunto o compañeros de trabajo; cada anfitrión pone el pesebre y la comida.",
+    "- <b>Una persona que guía</b>: lee las oraciones del día y las consideraciones; los niños pueden leer los gozos.",
+    "- <b>Horario fijo</b>: empezar a la misma hora ayuda a que lleguen todos.",
+    "## Comida típica",
+    "Buñuelos, natilla, hojuelas, arequipe y, para los adultos, una bebida caliente o un vino. En la última noche, muchas familias cenan juntas.",
+    "## Juegos de aguinaldos",
+    "- <b>Pajita en boca</b>: llevar un palillo en la boca todo el tiempo sin que te pillen.",
+    "- <b>Sí y no</b>: está prohibido decir esas dos palabras.",
+    "- <b>Tres pies</b>: meter un pie entre los del otro sin que se dé cuenta.",
+    "- <b>Dar y no recibir</b>: entregar algo a alguien sin que lo acepte.",
+    "## Ideas para los niños",
+    "Que toquen las maracas y panderetas, que cada uno tenga un villancico, y que ayuden a armar el pesebre la primera noche.",
+    "## Todas las fotos de la novena en un solo álbum",
+    "Nueve noches en casas distintas dejan fotos en decenas de celulares. Un <b>álbum de evento</b> en Albums las reúne:",
+    "1. Crea el álbum, por ejemplo “Novena familia Rodríguez”.",
+    "2. Imprime el código QR y ponlo junto al pesebre en cada casa, o compártelo en el grupo de WhatsApp.",
+    "3. Los invitados escanean con la cámara y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>“Hold guest photos”</b> si quieres aprobar las fotos antes de que se vean.",
+    "5. Después del 24, descarga todo el álbum en un solo ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados que inician sesión reciben además una copia privada en borrador solo con sus propias fotos.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/family-reunion-photo-ideas/\">fotos de reuniones familiares</a> y <a href=\"/es/guides/how-to-collect-photos-from-event-guests/\">cómo reunir las fotos de los invitados</a>.",
+    "## Cuánto cuesta",
+    "Un álbum de evento es un pago único: Small 39,99 US$, Medium 69,99 US$ o Large 129,99 US$. Los invitados no pagan. Fotos hasta 4K; el álbum está disponible 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Un código QR para las nueve noches",
+    "p": "Todos suben desde el navegador, sin instalar nada. Tú decides qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "La novena desde todos los celulares",
+    "p": "Pago único desde 39,99 US$. Fotos hasta 4K, 6 meses desde la primera subida, ampliable.",
+    "btn": "Crear el álbum →"
+  },
+  "faq": [
+    [
+      "¿Cuándo se reza la novena de aguinaldos?",
+      "Del 16 al 24 de diciembre, una noche por día, normalmente cada noche en una casa distinta."
+    ],
+    [
+      "¿Qué se come en la novena?",
+      "Buñuelos, natilla, hojuelas y arequipe, con una bebida caliente."
+    ],
+    [
+      "¿Qué juegos de aguinaldos hay?",
+      "Pajita en boca, sí y no, tres pies y dar y no recibir, entre otros."
+    ],
+    [
+      "¿Cómo reúno las fotos de todas las familias?",
+      "Con un código QR: cada invitado sube fotos y videos desde el navegador a un álbum compartido."
+    ]
+  ],
+  "related": [
+    "posada-navidena",
+    "family-reunion-photo-ideas",
+    "how-to-collect-photos-from-event-guests"
+  ]
+}

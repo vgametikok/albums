@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "album photo meilleure amie",
+  "date": "2026-11-11",
+  "title": "Album photo meilleure amie : idées | Albums.ink",
+  "desc": "Album photo pour sa meilleure amie : idées de chapitres, textes, vidéos et messages vocaux, à offrir en ligne. Gratuit, sans publicité.",
+  "h1": "Album photo pour sa meilleure amie : idées et textes pour raconter votre amitié",
+  "lead": "« Cadeau meilleure amie personnalisé », « idée album photo meilleure amie » : pour un anniversaire, ses 30 ans ou juste pour dire merci, un album qui raconte votre histoire touche plus qu'un objet. En ligne, il peut contenir les vidéos de vos vacances, votre voix et des chapitres pour chaque époque de votre amitié.",
+  "body": [
+    "## Idées de chapitres",
+    "- <b>La rencontre</b> : l'école, les mouvements de jeunesse, l'unif, le premier boulot.",
+    "- <b>Vos sorties</b> : festivals d'été, soirées, week-ends à la Côte.",
+    "- <b>Vos rituels</b> : le resto du vendredi, les longs messages vocaux sur le GSM.",
+    "- <b>Les grands moments</b> : anniversaires, déménagements, mariages, naissances.",
+    "- <b>Des mots des autres</b> : quelques lignes de sa famille ou d'amis communs.",
+    "## Textes courts pour l'album",
+    "- « Merci d'être là, même quand je suis insupportable. »",
+    "- « Toi, moi, et toutes ces photos qu'on ne montrera jamais à personne. »",
+    "- « Les années passent, la meilleure amie reste. »",
+    "## Le créer gratuitement",
+    "Sur Albums, vous créez un <b>album-récit</b> avec chapitres, photos, vidéos et messages vocaux, à lire en diaporama avec votre narration. Pour le partager, ajoutez-la en amie et choisissez Amis : cela inclut tous vos amis. Pour qu'elle seule le voie, choisissez « Amis sauf… » et excluez les autres, puis vérifiez après chaque nouvel ami. « Moi uniquement » ne donne pas accès par lien. Sans publicité, et l'album reste aussi longtemps que vous le souhaitez.",
+    "1. Créez un album gratuit, par exemple « 20 ans d'amitié ».",
+    "2. Ajoutez des chapitres : La rencontre, Nos sorties, Nos rituels, La suite.",
+    "3. Envoyez des photos (jusqu'à 30 Mo ; l'offre gratuite les garde jusqu'à 2048 px sur le grand côté) et de courtes vidéos (jusqu'à 50 Mo).",
+    "4. Enregistrez un message vocal dans le navigateur ou importez un audio (jusqu'à 20 Mo).",
+    "5. Une amie commune veut participer ? Invitez une co-autrice déjà amie avec vous sur Albums.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/album-photo-couple/\">album photo couple</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
+    "## L'offrir",
+    "Lancez le diaporama au souper d'anniversaire ou envoyez-lui le lien avec une carte. Elle l'ouvre dans le navigateur et se connecte avec Google. Vous pouvez aussi télécharger tout l'album en un seul ZIP."
+  ],
+  "cta": {
+    "h2": "Commencez son album ce soir",
+    "p": "Album-récit gratuit avec chapitres, messages vocaux et diaporama. Sans publicité.",
+    "btn": "Créer mon album →"
+  },
+  "cta2": {
+    "h2": "Un cadeau avec votre voix",
+    "p": "Albums illimités et gratuits, qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Que mettre dans un album photo pour sa meilleure amie ?",
+      "Votre rencontre, vos sorties, vos rituels, les grands moments et quelques mots de proches."
+    ],
+    [
+      "Quel texte écrire dans l'album ?",
+      "Des phrases courtes et personnelles ; les blagues entre vous comptent plus qu'une longue citation."
+    ],
+    [
+      "Peut-on le faire gratuitement ?",
+      "Oui. Un album-récit sur Albums est gratuit, avec photos, vidéos et messages vocaux."
+    ],
+    [
+      "Comment faire pour qu'elle seule le voie ?",
+      "Ajoutez-la en amie, choisissez « Amis sauf… » et excluez tous les autres."
+    ]
+  ],
+  "related": [
+    "album-photo-couple",
+    "add-voice-to-photos",
+    "online-photo-album-free"
+  ]
+}
