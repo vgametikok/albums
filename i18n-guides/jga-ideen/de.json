@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "JGA Ideen",
+  "date": "2026-11-11",
+  "title": "JGA Ideen für Frauen und Männer | Albums.ink",
+  "desc": "JGA Ideen für Frauen und Männer: Aufgaben, Bauchladen, Heuriger, Wochenendtrip – und ein QR-Album, in dem alle ihre Fotos und Videos sammeln.",
+  "h1": "JGA Ideen: Aufgaben, Ausflüge und alle Fotos an einem Ort",
+  "lead": "„JGA Ideen Frauen“, „JGA Ideen Männer“, „Wochenendtrip“ – wer den Junggesellenabschied organisiert, sucht nach einem Programm, das Spaß macht und die Braut oder den Bräutigam nicht blamiert. In Österreich heißt der JGA oft auch Polterabend. Hier sind Ideen für einen Tag oder ein Wochenende – und ein einfacher Weg, danach alle Fotos und Videos beisammen zu haben.",
+  "body": [
+    "## Klassiker für den JGA",
+    "- <b>Bauchladen</b>: Kleinigkeiten an Passanten verkaufen, um die Getränke zu finanzieren.",
+    "- <b>Aufgabenliste</b>: ein Foto mit einem Polizisten, ein Ständchen in der Bim, ein Selfie mit jemandem, der gleich heißt.",
+    "- <b>Gleiche T-Shirts</b>: für die Gruppe, ein auffälliges Outfit für die Hauptperson.",
+    "## Ideen für Frauen",
+    "Brunch, Wellness-Nachmittag, Cocktail- oder Töpferkurs, ein Fotospaziergang durch die Altstadt und am Abend Tanzen.",
+    "## Ideen für Männer",
+    "Kartfahren, Escape Room, Rafting, Bierverkostung oder ein Grillnachmittag mit anschließender Tour durch die Lokale.",
+    "## Österreichische Varianten",
+    "- <b>Heurigen-Tour</b>: Wanderung durch die Weinberge mit Einkehr beim Heurigen.",
+    "- <b>Wochenendtrip</b>: Wien, Salzburg oder eine Hütte in den Bergen.",
+    "- <b>Hüttengaudi</b>: Rodeln im Winter, Wandern im Sommer.",
+    "## Alle Fotos vom JGA an einem Ort",
+    "Am nächsten Morgen sind die Bilder auf zehn Handys verteilt. Ein <b>Event-Album</b> bei Albums sammelt sie:",
+    "1. Album anlegen, z. B. „JGA Lisa“.",
+    "2. QR-Code aufs Aufgabenblatt oder in die Gruppen-Nachricht.",
+    "3. Alle scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – nichts zu installieren.",
+    "4. <b>„Hold guest photos“</b> einschalten: so prüfst du jedes Foto, bevor es sichtbar wird – praktisch, falls die Braut nicht alles sehen soll.",
+    "5. Danach das ganze Album als eine ZIP herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Für die Hochzeit selbst: <a href=\"/de/guides/collect-wedding-photos-from-guests/\">Hochzeitsfotos von Gästen sammeln</a> und <a href=\"/de/guides/bachelorette-party-photo-scavenger-hunt/\">Foto-Schnitzeljagd für den JGA</a>.",
+    "## Was es kostet",
+    "Ein Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload verfügbar, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für den ganzen JGA",
+    "p": "Alle laden im Browser hoch – nichts zu installieren. Du entscheidest, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Der JGA aus allen Blickwinkeln",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Was macht man bei einem JGA?",
+      "Aufgabenliste, Bauchladen, gemeinsame Aktivität wie Escape Room oder Heurigen-Tour und am Abend feiern."
+    ],
+    [
+      "Wer organisiert den JGA?",
+      "Meist Trauzeugin oder Trauzeuge zusammen mit engen Freundinnen und Freunden."
+    ],
+    [
+      "Wie sammle ich alle Fotos vom JGA?",
+      "Mit einem QR-Code: Alle laden Fotos und Videos im Browser in ein gemeinsames Album."
+    ],
+    [
+      "Kann ich Fotos vorher prüfen?",
+      "Ja. Mit „Hold guest photos“ gibst du Uploads erst frei, bevor sie sichtbar werden."
+    ]
+  ],
+  "related": [
+    "bachelorette-party-photo-scavenger-hunt",
+    "collect-wedding-photos-from-guests",
+    "polterabend"
+  ]
+}

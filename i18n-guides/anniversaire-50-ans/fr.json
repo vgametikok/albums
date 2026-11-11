@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "FR",
+  "query": "anniversaire 50 ans",
+  "date": "2026-11-11",
+  "title": "Anniversaire 50 ans : idées de fête | Albums.ink",
+  "desc": "Anniversaire 50 ans femme ou homme : thèmes, lieu, animations, textes et un album QR où tous les invités déposent leurs photos et vidéos.",
+  "h1": "Anniversaire 50 ans : idées pour une fête réussie et toutes les photos des invités",
+  "lead": "« Anniversaire 50 ans femme », « homme », « humour », « texte » : un demi-siècle se fête, et les recherches montrent qu'on veut une soirée à son image, avec des surprises et des mots qui touchent. Voici des idées de thèmes, d'animations et une façon simple de réunir les photos et vidéos de tous les invités.",
+  "body": [
+    "## Où fêter ses 50 ans",
+    "- <b>À la maison ou dans le jardin</b> : un buffet, un DJ amateur, l'ambiance la plus détendue.",
+    "- <b>Une salle des fêtes ou un gîte</b> : pour réunir famille et amis venus de loin sur un week-end.",
+    "- <b>Un restaurant privatisé</b> : rien à organiser côté repas.",
+    "## Thèmes qui marchent",
+    "Années de naissance (années 70), soirée chic noir et or, guinguette, ou « 50 ans, 50 souvenirs » : chaque invité apporte une photo d'un moment partagé.",
+    "## Animations et surprises",
+    "- <b>Vidéo de messages</b> : des proches qui ne peuvent pas venir enregistrent quelques mots.",
+    "- <b>Quiz sur la personne fêtée</b> : sa première voiture, son premier concert, ses expressions.",
+    "- <b>Discours avec humour</b> : court, tendre, avec une ou deux anecdotes.",
+    "- <b>Livre d'or</b> : des mots à relire plus tard.",
+    "## Réunir toutes les photos de la soirée",
+    "À la fin, les photos sont sur trente téléphones. Un <b>album d'événement</b> sur Albums les rassemble :",
+    "1. Créez l'album, par exemple « Les 50 ans de Sophie ».",
+    "2. Posez le QR code sur les tables, au bar et près du gâteau.",
+    "3. Les invités le scannent avec l'appareil photo du téléphone et envoient photos et vidéos depuis le navigateur, sans rien installer.",
+    "4. Activez <b>« Hold guest photos »</b> pour valider chaque photo avant qu'elle soit visible.",
+    "5. Le lendemain, téléchargez tout l'album en un seul ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Ceux qui se connectent reçoivent en plus une copie brouillon privée avec uniquement leurs propres envois.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/idee-anniversaire-30-ans/\">idées d'anniversaire 30 ans</a> et <a href=\"/fr/guides/birthday-party-photo-sharing/\">partager les photos d'un anniversaire</a>.",
+    "## Combien ça coûte",
+    "Un album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Gratuit pour les invités. Photos jusqu'en 4K ; l'album reste disponible 6 mois après le premier envoi, prolongeable."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute la fête",
+    "p": "Les invités envoient depuis le navigateur, sans application. Vous décidez de ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Les 50 ans vus par tous les invités",
+    "p": "Achat unique dès 39,99 $. Photos jusqu'en 4K, 6 mois après le premier envoi, prolongeable.",
+    "btn": "Créer l'album →"
+  },
+  "faq": [
+    [
+      "Comment fêter ses 50 ans ?",
+      "À la maison, dans une salle ou au restaurant, avec un thème, un quiz, une vidéo de messages et un discours."
+    ],
+    [
+      "Quel thème pour un anniversaire 50 ans ?",
+      "Les années de naissance, une soirée noir et or, une guinguette ou « 50 ans, 50 souvenirs »."
+    ],
+    [
+      "Comment récupérer les photos des invités ?",
+      "Avec un QR code sur les tables : chacun envoie ses photos et vidéos dans un album commun depuis le navigateur."
+    ],
+    [
+      "Les invités doivent-ils créer un compte ?",
+      "Non. Les envois sans connexion apparaissent anonymement ; les invités connectés reçoivent une copie brouillon privée de leurs envois."
+    ]
+  ],
+  "related": [
+    "idee-anniversaire-30-ans",
+    "birthday-party-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

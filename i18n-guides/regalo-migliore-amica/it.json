@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo migliore amica",
+  "date": "2026-11-11",
+  "title": "Regalo migliore amica originale: un album con la vostra storia | Albums.ink",
+  "desc": "Regalo originale e personalizzato per la migliore amica: un album online con foto, video e messaggi vocali, per compleanno, 30 anni o laurea. Gratis, senza pubblicità.",
+  "h1": "Regalo per la migliore amica: un album originale con foto, video e la tua voce",
+  "lead": "“Regalo migliore amica originale”, “personalizzato”, “compleanno”, “laurea” — per lei vuoi qualcosa che parli di voi. Un album di storia online con le foto delle estati al mare, i video delle serate e un tuo messaggio vocale è un regalo che riaprirà ancora.",
+  "body": [
+    "## Cosa mettere nell'album",
+    "- <b>Come vi siete conosciute</b>: il banco di scuola, l'università, il primo lavoro.",
+    "- <b>Estati e viaggi</b>: il mare, le gite in Vespa, l'Interrail.",
+    "- <b>Le vostre abitudini</b>: l'aperitivo del venerdì, le chiamate infinite.",
+    "- <b>Momenti importanti</b>: 18 anni, laurea, trasloco, matrimonio.",
+    "- <b>Messaggi di altri</b>: due righe da famiglia e amici in comune.",
+    "## Per ogni occasione",
+    "- <b>Compleanno</b>: un capitolo per ogni anno insieme.",
+    "- <b>30 o 40 anni</b>: un capitolo per decennio.",
+    "- <b>Laurea</b>: dagli anni dello studio alla proclamazione.",
+    "## Crealo gratis",
+    "Su Albums crei gratis un <b>album di storia</b> con capitoli, foto, video e note vocali, da riprodurre come presentazione con la tua narrazione. Per condividerlo, aggiungila come amica e scegli Amici: include tutti i tuoi amici. Se deve vederlo solo lei, scegli “Amici tranne…” ed escludi gli altri; ricontrolla dopo aver aggiunto nuovi amici. “Solo io” non permette l'accesso tramite link. Niente pubblicità, e l'album resta finché vuoi.",
+    "1. Crea un album gratis, ad esempio “Noi due dal 2010”.",
+    "2. Aggiungi capitoli: Scuola, Estati, Abitudini, Prossima tappa.",
+    "3. Carica foto (fino a 30 MB; nel piano gratuito fino a 2048 pixel sul lato lungo) e video brevi (fino a 50 MB).",
+    "4. Registra una nota vocale nel browser o carica un audio (fino a 20 MB).",
+    "5. Un'amica in comune vuole partecipare? Invita una coautrice che è già tua amica su Albums.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-foto-fidanzato/\">album foto per il fidanzato</a> e <a href=\"/it/guides/add-voice-to-photos/\">aggiungere la voce alle foto</a>.",
+    "## Come regalarlo",
+    "Fai partire la presentazione alla cena di compleanno o mandale il link con un biglietto. Lo apre nel browser e accede con Google. Puoi anche scaricare l'intero album in un unico ZIP."
+  ],
+  "cta": {
+    "h2": "Inizia il suo album stasera",
+    "p": "Album di storia gratis con capitoli, note vocali e presentazione. Senza pubblicità.",
+    "btn": "Crea il mio album →"
+  },
+  "cta2": {
+    "h2": "Un regalo con la tua voce",
+    "p": "Album illimitati e gratis, che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare alla migliore amica di originale?",
+      "Un album con la vostra storia: foto, video e un tuo messaggio vocale."
+    ],
+    [
+      "Un regalo personalizzato per i 30 anni?",
+      "Un album con un capitolo per ogni decennio e messaggi di amici e famiglia."
+    ],
+    [
+      "È gratis?",
+      "Sì. L'album di storia su Albums è gratuito e senza pubblicità."
+    ],
+    [
+      "Come faccio perché lo veda solo lei?",
+      "Aggiungila come amica, scegli “Amici tranne…” ed escludi tutti gli altri."
+    ]
+  ],
+  "related": [
+    "album-foto-fidanzato",
+    "album-foto-mamma",
+    "add-voice-to-photos"
+  ]
+}
