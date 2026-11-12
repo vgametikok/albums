@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "amigo secreto",
+  "date": "2026-11-12",
+  "title": "Amigo secreto: como organizar e ideias de brincadeiras | Albums.ink",
+  "desc": "Como organizar o amigo secreto da família, da firma ou da turma: sorteio, valor do presente, variações como amigo secreto das cores e um álbum com QR para as fotos de todos.",
+  "h1": "Amigo secreto: como organizar e guardar as fotos de todo mundo",
+  "lead": "“Amigo secreto online”, “virtual”, “das cores”: no fim de ano, o amigo secreto (ou amigo oculto, como se diz em Minas) aparece na confraternização da firma, na ceia da família e no encontro da turma. Veja como organizar, algumas variações divertidas e um jeito fácil de juntar as fotos e vídeos que todo mundo fez na hora da revelação.",
+  "body": [
+    "## Como organizar",
+    "1. Defina a data, o local e quem participa.",
+    "2. Combine um valor mínimo e máximo para o presente.",
+    "3. Faça o sorteio: papeizinhos numa tigela ou um sorteador online que manda o nome por mensagem.",
+    "4. Peça que cada um deixe uma lista de sugestões de presente.",
+    "5. No dia, cada pessoa dá dicas sobre quem tirou antes de revelar.",
+    "## Variações do amigo secreto",
+    "- <b>Amigo secreto das cores</b>: cada rodada tem uma cor, e o presente precisa ser dessa cor.",
+    "- <b>Amigo secreto de chocolate</b>: semanas antes do dia, troca de chocolates entre os participantes.",
+    "- <b>Amigo da onça</b>: presentes engraçados e baratos ou de brincadeira, de baixo valor.",
+    "- <b>Amigo secreto virtual</b>: sorteio por aplicativo de mensagem e revelação por videochamada.",
+    "## Junte as fotos da revelação com um QR code",
+    "Os abraços, as caretas e as dicas erradas ficam espalhados no celular de todo mundo. Um <b>álbum de evento</b> no Albums reúne tudo:",
+    "1. Crie o álbum, por exemplo “Amigo secreto da família 2026”.",
+    "2. Coloque o QR code na mesa ou mande no grupo do WhatsApp.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>“Hold guest photos”</b> para revisar cada foto antes de ela ficar visível.",
+    "5. Depois, baixe o álbum inteiro em um único ZIP.",
+    "Quem envia sem fazer login aparece como anônimo. Convidados logados recebem também uma cópia privada em rascunho só com o que eles mesmos enviaram.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/confraternizacao-fim-de-ano/\">confraternização de fim de ano</a> e <a href=\"/pt-BR/guides/ceia-de-natal-em-familia/\">ceia de Natal em família</a>.",
+    "## Quanto custa",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam nada. Fotos em até 4K; o álbum fica guardado por 6 meses a partir do primeiro envio, com opção de prorrogar."
+  ],
+  "cta": {
+    "h2": "Um QR code para todo o amigo secreto",
+    "p": "Todo mundo envia pelo navegador, sem instalar nada. Você decide o que fica visível.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "A revelação vista por todos",
+    "p": "Compra única a partir de US$ 39,99. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, prorrogável.",
+    "btn": "Criar o álbum →"
+  },
+  "faq": [
+    [
+      "Como fazer o sorteio do amigo secreto?",
+      "Com papeizinhos numa tigela ou com um sorteador online que envia o nome de cada um por mensagem."
+    ],
+    [
+      "O que é amigo secreto das cores?",
+      "Uma variação em que cada rodada tem uma cor e o presente precisa ser daquela cor."
+    ],
+    [
+      "Como juntar as fotos de todo mundo?",
+      "Com um QR code: cada pessoa envia fotos e vídeos pelo navegador para o mesmo álbum."
+    ],
+    [
+      "Dá para revisar as fotos antes?",
+      "Sim. Com “Hold guest photos” você aprova cada envio antes de ele ficar visível."
+    ]
+  ],
+  "related": [
+    "confraternizacao-fim-de-ano",
+    "ceia-de-natal-em-familia",
+    "qr-code-for-photos-at-party"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "MX",
+  "query": "fiesta de 50 años",
+  "date": "2026-11-12",
+  "title": "Fiesta de 50 años: ideas y temáticas para mujer y hombre | Albums.ink",
+  "desc": "Ideas para una fiesta de 50 años de mujer u hombre: temáticas, lugar, comida y dinámicas, más un álbum con QR para juntar las fotos y videos de los invitados.",
+  "h1": "Fiesta de 50 años: temáticas, ideas y todas las fotos en un álbum",
+  "lead": "“Fiesta de 50 años mujer”, “hombre”, “temáticas”, “sencilla”: en México, medio siglo se celebra en grande o en familia, pero casi siempre con pastel, Las Mañanitas y muchas fotos. Aquí tienes ideas para organizarla y una forma sencilla de reunir después todo lo que grabaron los invitados.",
+  "body": [
+    "## Temáticas para una fiesta de 50 años",
+    "- <b>Años 70 y 80</b>: música, ropa y fotos de la época en que nació o creció el festejado.",
+    "- <b>Noche elegante</b>: código de vestimenta, centros de mesa sencillos y un brindis.",
+    "- <b>Fiesta mexicana</b>: papel picado, taquiza, aguas frescas y mariachi.",
+    "- <b>Viaje en el tiempo</b>: cada mesa representa una década de su vida.",
+    "## Fiesta sencilla en casa",
+    "Para una fiesta de 50 años sencilla bastan el patio o la terraza, una taquiza o carne asada, una mesa de postres y una lista de canciones que le gusten al festejado. Mejor pocos invitados cercanos que un salón medio vacío.",
+    "## Dinámicas y momentos",
+    "- <b>Las Mañanitas</b> y el pastel, con todos los celulares listos.",
+    "- <b>50 recuerdos</b>: cada invitado escribe un recuerdo o un deseo en una tarjeta.",
+    "- <b>Fotos de antes</b>: los invitados traen una foto vieja y el festejado adivina el año.",
+    "- <b>Brindis corto</b> de hijos, pareja o amigos de toda la vida.",
+    "Ojo: la “fiesta de 50 años de casados” (bodas de oro) es otra celebración; esta guía es para un cumpleaños.",
+    "## Junta las fotos de todos con un código QR",
+    "Al día siguiente las fotos están repartidas en muchos celulares. Un <b>álbum de evento</b> en Albums las reúne:",
+    "1. Crea el álbum, por ejemplo “Los 50 de Laura”.",
+    "2. Pon el código QR en las mesas o en la invitación.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>“Hold guest photos”</b> para revisar cada foto antes de que sea visible.",
+    "5. Después descarga todo el álbum en un solo ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con lo que subieron ellos.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/birthday-party-photo-sharing/\">compartir fotos de una fiesta de cumpleaños</a> y <a href=\"/es/guides/digital-guest-book/\">libro de firmas digital</a>.",
+    "## Cuánto cuesta",
+    "Un álbum de evento es un pago único: Small 39,99 USD, Medium 69,99 USD o Large 129,99 USD. Los invitados no pagan nada. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Un QR para toda la fiesta",
+    "p": "Todos suben desde el navegador, sin instalar nada. Tú decides qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Sus 50 desde todos los ángulos",
+    "p": "Pago único desde 39,99 USD. Fotos hasta 4K, 6 meses desde la primera subida, extensible.",
+    "btn": "Crear el álbum →"
+  },
+  "faq": [
+    [
+      "¿Qué temática elegir para una fiesta de 50 años?",
+      "Años 70 u 80, noche elegante, fiesta mexicana o un viaje por las décadas de su vida."
+    ],
+    [
+      "¿Cómo hacer una fiesta de 50 años sencilla?",
+      "En casa, con taquiza o carne asada, mesa de postres, música que le guste y pocos invitados cercanos."
+    ],
+    [
+      "¿Cómo juntar las fotos de los invitados?",
+      "Con un código QR: todos suben fotos y videos desde el navegador a un mismo álbum."
+    ],
+    [
+      "¿Puedo revisar las fotos antes de publicarlas?",
+      "Sí. Con “Hold guest photos” apruebas cada subida antes de que sea visible."
+    ]
+  ],
+  "related": [
+    "birthday-party-photo-sharing",
+    "digital-guest-book",
+    "qr-code-for-photos-at-party"
+  ]
+}

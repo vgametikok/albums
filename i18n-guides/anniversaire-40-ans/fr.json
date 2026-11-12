@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "anniversaire 40 ans",
+  "date": "2026-11-12",
+  "title": "Anniversaire 40 ans : idées de fête | Albums.ink",
+  "desc": "Idées pour un anniversaire 40 ans femme ou homme : lieu, thème, animations et textes, plus un album QR pour réunir les photos et vidéos des invités.",
+  "h1": "Anniversaire 40 ans : idées de fête et toutes les photos au même endroit",
+  "lead": "« Anniversaire 40 ans femme », « homme », « texte », « humour » : en Suisse romande, on fête volontiers ce cap entre amis, en famille ou les deux. Voici des idées de lieu, de thème et d'animations — et un moyen simple de récupérer ensuite toutes les photos et vidéos des invités.",
+  "body": [
+    "## Où fêter ses 40 ans ?",
+    "- <b>À la maison ou au jardin</b> : apéro dînatoire, grill et playlist, idéal jusqu'à une trentaine d'invités.",
+    "- <b>Salle communale ou carnotzet</b> : de la place pour la famille, les amis et les collègues.",
+    "- <b>Chalet ou buvette d'alpage</b> : fondue ou raclette après une petite randonnée.",
+    "- <b>Bateau sur le lac</b> : une croisière avec apéro pour une soirée plus chic.",
+    "## Idées de thème",
+    "- <b>Né en 1986</b> : musique, tenues et photos de l'année de naissance.",
+    "- <b>Voyage dans le temps</b> : chaque table représente une décennie.",
+    "- <b>Le pays préféré</b> : cuisine et déco inspirées du dernier grand voyage.",
+    "## Animations et textes",
+    "- <b>Quiz sur la personne fêtée</b> préparé par la famille et les amis.",
+    "- <b>40 souvenirs</b> : chaque invité écrit un souvenir ou un vœu sur une carte.",
+    "- <b>Photos d'enfance</b> : les invités apportent une vieille photo, la personne fêtée devine l'année.",
+    "- <b>Discours courts et pleins d'humour</b> : trois ou quatre personnes, deux minutes chacune.",
+    "## Réunir les photos de tous avec un QR code",
+    "Le lendemain, les photos sont dispersées sur des dizaines de natels. Un <b>album d'événement</b> sur Albums les rassemble :",
+    "1. Créez l'album, par exemple « Les 40 ans de Julie ».",
+    "2. Posez le QR code sur les tables ou dans l'invitation.",
+    "3. Les invités le scannent avec l'appareil photo du téléphone et envoient photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>« Hold guest photos »</b> pour vérifier chaque envoi avant qu'il soit visible.",
+    "5. Ensuite, téléchargez l'album entier en un seul ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie brouillon privée contenant uniquement leurs propres envois.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/idee-anniversaire-30-ans/\">idées pour un anniversaire 30 ans</a> et <a href=\"/fr/guides/anniversaire-50-ans/\">anniversaire 50 ans</a>.",
+    "## Combien ça coûte",
+    "Un album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Les invités ne paient rien. Photos jusqu'en 4K ; l'album est conservé 6 mois à partir du premier envoi, prolongeable."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute la fête",
+    "p": "Chacun envoie depuis le navigateur, sans rien installer. Vous décidez de ce qui est visible.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Ses 40 ans sous tous les angles",
+    "p": "Achat unique dès 39,99 $. Photos jusqu'en 4K, conservées 6 mois à partir du premier envoi, prolongeable.",
+    "btn": "Créer l'album →"
+  },
+  "faq": [
+    [
+      "Comment fêter ses 40 ans ?",
+      "À la maison avec un apéro dînatoire, dans une salle communale, dans un chalet ou sur un bateau, avec quiz, discours et photos d'enfance."
+    ],
+    [
+      "Quelles animations pour un anniversaire 40 ans ?",
+      "Un quiz sur la personne fêtée, 40 souvenirs sur des cartes et un jeu avec des photos d'enfance."
+    ],
+    [
+      "Comment récupérer les photos des invités ?",
+      "Avec un QR code : chacun envoie photos et vidéos dans le navigateur, dans un album commun."
+    ],
+    [
+      "Peut-on vérifier les photos avant publication ?",
+      "Oui. Avec « Hold guest photos », vous validez chaque envoi avant qu'il soit visible."
+    ]
+  ],
+  "related": [
+    "anniversaire-50-ans",
+    "idee-anniversaire-30-ans",
+    "birthday-party-photo-sharing"
+  ]
+}

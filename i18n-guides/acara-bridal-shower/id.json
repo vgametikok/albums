@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "bridal shower",
+  "date": "2026-11-12",
+  "title": "Bridal Shower: Ngapain Aja dan Cara Mengadakannya | Albums.ink",
+  "desc": "Bridal shower itu apa, ngapain aja, dan siapa yang bayar? Ide konsep, games, dan cara mengumpulkan foto serta video semua tamu dalam satu album lewat QR.",
+  "h1": "Bridal shower: ide acara dan semua foto tamu dalam satu album",
+  "lead": "“Bridal shower itu apa”, “ngapain aja”, “siapa yang bayar” — pertanyaan ini sering muncul saat sahabat calon pengantin mulai merencanakan kejutan. Bridal shower adalah pesta kecil untuk calon pengantin perempuan sebelum hari pernikahan, biasanya bersama sahabat dekat. Berikut ide acaranya dan cara mudah mengumpulkan semua foto dan video tamu di satu tempat.",
+  "body": [
+    "## Siapa yang mengadakan dan siapa yang bayar",
+    "Biasanya sahabat dekat atau bridesmaid yang merencanakan dan menanggung biayanya bersama-sama, lalu calon pengantin datang sebagai tamu kehormatan. Kesepakatan soal patungan sebaiknya dibicarakan sejak awal.",
+    "## Konsep bridal shower",
+    "- <b>Di rumah atau kamar hotel</b>: dekorasi balon, selempang “bride to be”, dan dessert table.",
+    "- <b>Brunch atau high tea di kafe</b>: cocok untuk kelompok kecil.",
+    "- <b>Konsep sederhana</b>: banyak yang memilih acara khusus perempuan yang sederhana dan sesuai nilai keluarga.",
+    "- <b>Dress code warna</b>: semua tamu memakai warna senada, calon pengantin memakai putih.",
+    "## Bridal shower ngapain aja?",
+    "- <b>Kejutan</b>: calon pengantin diajak datang dengan alasan lain.",
+    "- <b>Games</b>: kuis “seberapa kenal kamu dengan bride”, tebak-tebakan kisah cinta, dan pesan untuk calon pengantin.",
+    "- <b>Surat dan doa</b>: tiap sahabat menulis pesan atau doa untuk pernikahan.",
+    "- <b>Kado</b>: hadiah kecil atau kado patungan.",
+    "## Kumpulkan semua foto dengan kode QR",
+    "Setelah acara, foto tersebar di HP semua sahabat. <b>Album acara</b> di Albums mengumpulkannya di satu tempat:",
+    "1. Buat album, misalnya “Bridal Shower Nadia”.",
+    "2. Taruh kode QR di meja atau kirim ke grup WhatsApp.",
+    "3. Tamu memindai dengan kamera HP dan mengunggah foto serta video lewat browser, tanpa instal apa pun.",
+    "4. Aktifkan <b>“Hold guest photos”</b> untuk memeriksa tiap foto sebelum terlihat.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP untuk calon pengantin.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/acara-lamaran/\">acara lamaran</a> dan <a href=\"/id/guides/collect-wedding-photos-from-guests/\">mengumpulkan foto pernikahan dari tamu</a>.",
+    "## Biaya",
+    "Album acara dibeli sekali: Small 39,99 USD, Medium 69,99 USD, atau Large 129,99 USD. Tamu tidak membayar apa pun. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh bridal shower",
+    "p": "Semua mengunggah lewat browser, tanpa instal aplikasi. Anda yang menentukan apa yang terlihat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Momen bride dari semua sudut",
+    "p": "Sekali bayar mulai 39,99 USD. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Buat album →"
+  },
+  "faq": [
+    [
+      "Bridal shower itu apa?",
+      "Pesta kecil untuk calon pengantin perempuan sebelum hari pernikahan, biasanya diadakan oleh sahabat dekat."
+    ],
+    [
+      "Siapa yang bayar bridal shower?",
+      "Umumnya sahabat atau bridesmaid yang patungan, sedangkan calon pengantin datang sebagai tamu."
+    ],
+    [
+      "Bagaimana mengumpulkan foto semua tamu?",
+      "Dengan kode QR: semua mengunggah foto dan video lewat browser ke satu album yang sama."
+    ],
+    [
+      "Bisakah foto diperiksa dulu?",
+      "Bisa. Dengan “Hold guest photos”, Anda menyetujui setiap unggahan sebelum terlihat."
+    ]
+  ],
+  "related": [
+    "acara-lamaran",
+    "acara-siraman-pengantin",
+    "collect-wedding-photos-from-guests"
+  ]
+}

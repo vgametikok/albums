@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "nozze d'argento",
+  "date": "2026-11-12",
+  "title": "Nozze d'argento: come festeggiare i 25 anni di matrimonio | Albums.ink",
+  "desc": "Nozze d'argento, 25 anni di matrimonio: idee per la festa, rinnovo delle promesse, cosa regalare, frasi e un album con QR per le foto e i video di tutti gli invitati.",
+  "h1": "Nozze d'argento: idee per la festa e le foto di tutti in un album",
+  "lead": "“Nozze d'argento quanti anni”, “cosa regalare”, “frasi”: le nozze d'argento festeggiano 25 anni di matrimonio e spesso sono i figli a organizzare la festa. Ecco idee per il programma, i regali e le frasi, e un modo semplice per raccogliere poi tutte le foto e i video degli invitati.",
+  "body": [
+    "## Come festeggiare",
+    "- <b>Rinnovo delle promesse</b>: in chiesa o con una piccola cerimonia simbolica in famiglia.",
+    "- <b>Pranzo o cena al ristorante</b>: con parenti e testimoni delle nozze.",
+    "- <b>Festa a sorpresa organizzata dai figli</b>: in agriturismo o in giardino.",
+    "- <b>Viaggio a due</b>: un ritorno nel luogo della luna di miele.",
+    "## Idee per la festa",
+    "- <b>Le foto del matrimonio</b> esposte su un tavolo, accanto a quelle di oggi.",
+    "- <b>Torta a tema argento</b> e un brindisi dei figli.",
+    "- <b>Quiz sugli sposi</b>: domande su come si sono conosciuti e sul giorno delle nozze.",
+    "- <b>Biglietti dei ricordi</b>: ogni invitato scrive un ricordo o un augurio.",
+    "## Cosa regalare e frasi",
+    "Il simbolo è l'argento: una cornice, un gioiello o un oggetto per la casa. Per le frasi bastano due righe sincere, magari ricordando un episodio dei loro 25 anni.",
+    "## Le foto di tutti con un QR code",
+    "Dopo la festa le foto sono sparse nei telefoni di parenti e amici. Un <b>album evento</b> su Albums le raccoglie:",
+    "1. Crea l'album, ad esempio “25 anni di Paolo e Anna”.",
+    "2. Metti il QR code sui tavoli o nel gruppo WhatsApp di famiglia.",
+    "3. Gli invitati lo inquadrano con la fotocamera del telefono e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>“Hold guest photos”</b> per controllare ogni foto prima che sia visibile.",
+    "5. Alla fine scarica l'intero album in un unico ZIP.",
+    "Chi carica senza accedere compare in forma anonima. Gli invitati che hanno effettuato l'accesso ricevono anche una copia privata in bozza con i soli propri caricamenti.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/album-anniversario-matrimonio/\">album per l'anniversario di matrimonio</a> e <a href=\"/it/guides/regalo-anniversario-genitori/\">regalo per l'anniversario dei genitori</a>.",
+    "## Quanto costa",
+    "L'album evento è un acquisto una tantum: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gli invitati non pagano nulla. Foto fino a 4K; l'album resta disponibile 6 mesi dal primo caricamento, prorogabile."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Tutti caricano dal browser, senza installare nulla. Decidi tu cosa diventa visibile.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "25 anni visti da tutti",
+    "p": "Acquisto una tantum da 39,99 $. Foto fino a 4K, 6 mesi dal primo caricamento, prorogabile.",
+    "btn": "Crea l'album →"
+  },
+  "faq": [
+    [
+      "Quanti anni sono le nozze d'argento?",
+      "25 anni di matrimonio."
+    ],
+    [
+      "Cosa si regala per le nozze d'argento?",
+      "Un oggetto in argento, come una cornice o un gioiello, oppure un ricordo condiviso con le foto di famiglia."
+    ],
+    [
+      "Come raccolgo le foto degli invitati?",
+      "Con un QR code: tutti caricano foto e video dal browser nello stesso album."
+    ],
+    [
+      "Posso controllare le foto prima?",
+      "Sì. Con “Hold guest photos” approvi ogni caricamento prima che sia visibile."
+    ]
+  ],
+  "related": [
+    "album-anniversario-matrimonio",
+    "regalo-anniversario-genitori",
+    "digital-guest-book"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Ehemann",
+  "date": "2026-11-12",
+  "title": "Geschenk für den Ehemann: euer Fotoalbum | Albums.ink",
+  "desc": "Geschenk für den Ehemann, der alles hat: ein Fotoalbum mit eurer Geschichte, Videos und deiner Stimme – zum Geburtstag oder Hochzeitstag. Kostenlos, ohne Werbung.",
+  "h1": "Geschenk für den Ehemann: eure gemeinsame Geschichte als Album",
+  "lead": "„Geschenk für Ehemann, der alles hat“, „zum Geburtstag“, „zum Hochzeitstag“ – wenn Gadgets und Gutscheine schon durch sind, wirkt etwas Persönliches am stärksten. Ein Online-Album mit euren Fotos, Videos und Sprachnachrichten kostet nichts außer etwas Zeit und lässt sich heute Abend noch anfangen.",
+  "body": [
+    "## Was ins Album gehört",
+    "- <b>Der Anfang</b>: das erste gemeinsame Foto, der erste Urlaub, die erste Wohnung.",
+    "- <b>Große Tage</b>: Antrag, Hochzeit, Umzug, die Geburt der Kinder.",
+    "- <b>Reisen</b>: Ostsee, Alpen, der Roadtrip, auf dem alles schiefging.",
+    "- <b>Alltag</b>: Sonntagsfrühstück, Fußballabende, Gartenarbeit.",
+    "- <b>Worte</b>: ein kurzer Satz unter jedem Foto – warum genau dieser Moment zählt.",
+    "## Ein kostenloses Story-Album",
+    "Bei Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnachrichten und kannst es mit deiner eigenen Stimme erzählen. Kostenlose Fotos werden bis 2048 px an der langen Seite gespeichert. Keine Werbung, unbegrenzt viele Alben, und das Album bleibt, solange du es möchtest.",
+    "1. Kostenloses Album anlegen, z. B. „Zehn Jahre wir“.",
+    "2. Kapitel anlegen: Kennenlernen, Hochzeit, Unser Zuhause, Was noch kommt.",
+    "3. Fotos und kurze Videos hochladen und beschriften.",
+    "4. Eine Sprachnachricht im Browser aufnehmen – etwa zur Hochzeit.",
+    "5. Sollen die Kinder mithelfen? Lade eine Mitautorin oder einen Mitautor ein, die bereits mit dir befreundet sind.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/add-voice-to-photos/\">Fotos mit Stimme versehen</a> und <a href=\"/de/guides/how-to-make-a-photo-story/\">eine Fotostory erstellen</a>.",
+    "## Nur für ihn sichtbar",
+    "Füge deinen Mann als Freund hinzu und wähle „Friends“ – das umfasst alle deine Freunde. Soll nur er das Album sehen, wähle „Friends except…“ und schließe die anderen aus. Prüfe das erneut, wenn du neue Freunde hinzufügst. „Only me“ erlaubt keinen Zugriff per Link. Einzelne Dateien lassen sich zusätzlich verbergen, und das ganze Album kann als eine ZIP heruntergeladen werden.",
+    "## Übergeben",
+    "Schick den Link mit einer Karte. Er zeigt eine Vorschau mit Cover; dein Mann öffnet das Album im Browser und meldet sich mit Google an."
+  ],
+  "cta": {
+    "h2": "Sein Album heute anfangen",
+    "p": "Kostenloses Story-Album mit Kapiteln, Videos und Sprachnachrichten. Ohne Werbung.",
+    "btn": "Album anlegen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das man hören kann",
+    "p": "Kostenlos und unbegrenzt – die Alben bleiben, solange du möchtest.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenke ich meinem Mann, der alles hat?",
+      "Etwas Persönliches: ein Album mit eurer Geschichte, Videos und einer Sprachnachricht von dir."
+    ],
+    [
+      "Ist das Album kostenlos?",
+      "Ja. Ein Story-Album bei Albums ist kostenlos, mit Kapiteln, Fotos, Videos und Sprachnachrichten, ohne Werbung."
+    ],
+    [
+      "Wie sieht nur mein Mann das Album?",
+      "Ihn als Freund hinzufügen, „Friends except…“ wählen und alle anderen ausschließen. Nach neuen Freundschaften erneut prüfen."
+    ],
+    [
+      "Kann ich eine Kopie behalten?",
+      "Ja. Du kannst das ganze Album als eine ZIP herunterladen."
+    ]
+  ],
+  "related": [
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story",
+    "fotoalbum-fuer-papa"
+  ]
+}

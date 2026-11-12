@@ -1,0 +1,65 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "cadeau pour mon chum",
+  "date": "2026-11-12",
+  "title": "Cadeau pour mon chum : un album de votre histoire | Albums.ink",
+  "desc": "Cadeau pour ton chum, pour sa fête ou à Noël : un album en ligne avec vos photos, vos vidéos et ta voix qui raconte votre histoire. Gratuit, sans publicité.",
+  "h1": "Cadeau pour mon chum : votre histoire dans un album",
+  "lead": "« Cadeau pour mon chum », « pour sa fête », « pour Noël », « pas cher » : quand il a déjà tout, c'est le cadeau personnel qui touche le plus. Un album en ligne avec vos photos, vos vidéos et des notes vocales ne coûte rien et peut se commencer ce soir.",
+  "body": [
+    "## Quoi mettre dans l'album",
+    "- <b>Le début</b> : votre première photo ensemble, votre première sortie, votre premier appart.",
+    "- <b>Les grandes étapes</b> : le premier voyage, l'emménagement, le chien ou le chat.",
+    "- <b>Les saisons</b> : le chalet, la cabane à sucre, le camping, les soirées de hockey.",
+    "- <b>Le quotidien</b> : brunchs du dimanche, épicerie, soupers improvisés.",
+    "- <b>Ce que tu ne lui dis pas assez</b> : une phrase sous chaque photo suffit.",
+    "## Un album-récit gratuit",
+    "Sur Albums, tu crées un <b>album-récit</b> avec des chapitres, des photos, des vidéos et des notes vocales, et tu peux le raconter avec ta propre voix. Les photos gratuites sont conservées jusqu'à 2048 px sur le grand côté. Aucune publicité, albums illimités, et l'album reste aussi longtemps que tu le veux.",
+    "1. Crée un album gratuit, par exemple « Nos trois ans ».",
+    "2. Ajoute des chapitres : Notre rencontre, Nos voyages, Notre appart, La suite.",
+    "3. Téléverse photos et courtes vidéos, avec une légende pour chacune.",
+    "4. Enregistre une note vocale dans le navigateur pour les moments importants.",
+    "5. Tu veux qu'une amie t'aide ? Invite un coauteur qui est déjà ton ami sur Albums.",
+    "!cta",
+    "D'autres idées : <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix à des photos</a> et <a href=\"/fr/guides/how-to-make-a-photo-story/\">créer un récit en photos</a>.",
+    "## Qu'il soit le seul à le voir",
+    "Ajoute ton chum comme ami et choisis Friends : ça inclut tous tes amis. Pour qu'il soit le seul à le voir, choisis Friends except… et exclus les autres. Vérifie de nouveau quand tu ajoutes des amis. Only me ne donne pas d'accès par lien. Tu peux aussi masquer des fichiers un par un et télécharger l'album entier en un seul ZIP.",
+    "## Le lui offrir",
+    "Envoie-lui le lien par texto ou par courriel avec un petit mot. Le lien affiche un aperçu avec la couverture ; il ouvre l'album dans le navigateur de son cellulaire et se connecte avec Google."
+  ],
+  "cta": {
+    "h2": "Commence son album ce soir",
+    "p": "Album-récit gratuit avec chapitres, vidéos et notes vocales. Sans publicité.",
+    "btn": "Créer mon album →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui s'écoute",
+    "p": "Gratuit et illimité : les albums restent aussi longtemps que tu le veux.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quoi offrir à mon chum qui a déjà tout ?",
+      "Un cadeau personnel : un album avec votre histoire, vos vidéos et une note vocale de toi."
+    ],
+    [
+      "Est-ce que l'album est gratuit ?",
+      "Oui. Un album-récit sur Albums est gratuit, avec chapitres, photos, vidéos et notes vocales, sans publicité."
+    ],
+    [
+      "Comment faire pour qu'il soit le seul à le voir ?",
+      "Ajoute-le comme ami, choisis Friends except… et exclus les autres. Vérifie après chaque nouvel ami."
+    ],
+    [
+      "Est-ce que je peux garder une copie ?",
+      "Oui. Tu peux télécharger l'album entier en un seul ZIP."
+    ]
+  ],
+  "related": [
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story",
+    "online-photo-album-free"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc giáng sinh",
+  "date": "2026-11-12",
+  "title": "Tổ chức tiệc Giáng sinh tại nhà: ăn gì, chơi gì | Albums.ink",
+  "desc": "Gợi ý tổ chức tiệc Giáng sinh tại nhà hoặc ở công ty: món ăn, trò chơi, trang trí và cách gom ảnh, video của mọi người vào một album bằng mã QR.",
+  "h1": "Tiệc Giáng sinh: ăn gì, chơi gì và gom ảnh của mọi người về một album",
+  "lead": "“Tiệc Giáng sinh ăn gì”, “tại nhà”, “công ty” — cứ đến tháng 12 là nhiều người bắt đầu lên kế hoạch cho một buổi tiệc Noel với gia đình, bạn bè hay đồng nghiệp. Dưới đây là gợi ý món ăn, trò chơi, trang trí và cách gom toàn bộ ảnh, video mọi người chụp về một chỗ.",
+  "body": [
+    "## Chuẩn bị",
+    "- <b>Thời gian</b>: tối 24/12 hoặc cuối tuần gần Noel để mọi người đến đủ.",
+    "- <b>Trang trí</b>: cây thông, dây đèn, vòng nguyệt quế và một góc chụp ảnh nhỏ.",
+    "- <b>Trang phục</b>: chọn tông đỏ – xanh lá hoặc mũ ông già Noel cho vui.",
+    "- <b>Quà</b>: thống nhất mức giá cho trò trao đổi quà.",
+    "## Tiệc Giáng sinh ăn gì?",
+    "- <b>Món chính</b>: gà nướng, sườn nướng, mì Ý hoặc lẩu cho ngày se lạnh.",
+    "- <b>Món nhẹ</b>: salad, bánh mì que bơ tỏi, khoai tây chiên.",
+    "- <b>Tráng miệng</b>: bánh khúc cây (bûche de Noël), bánh quy gừng, trái cây.",
+    "- <b>Đồ uống</b>: rượu vang, nước ép, trà nóng.",
+    "## Trò chơi",
+    "- <b>Trao đổi quà bí mật</b>: bốc thăm tên người sẽ tặng quà.",
+    "- <b>Đố vui Giáng sinh</b>: câu hỏi về phim, bài hát, phong tục Noel các nước.",
+    "- <b>Karaoke nhạc Giáng sinh</b>: chia đội, chấm điểm bằng vỗ tay.",
+    "- <b>Bốc thăm may mắn</b>: phù hợp với tiệc công ty đông người.",
+    "## Gom ảnh và video bằng mã QR",
+    "Sau bữa tiệc, ảnh nằm rải rác trong điện thoại của mọi người. <b>Album sự kiện</b> trên Albums gom chúng về một chỗ:",
+    "1. Tạo album, ví dụ “Noel 2026 nhà mình”.",
+    "2. Đặt mã QR trên bàn hoặc gửi vào nhóm Zalo.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt, không cần cài đặt gì.",
+    "4. Bật <b>“Hold guest photos”</b> nếu muốn duyệt ảnh trước khi hiển thị.",
+    "5. Xong tiệc, tải toàn bộ album về dưới dạng một file ZIP.",
+    "Ai tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm những gì chính họ tải lên.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên</a> và <a href=\"/vi/guides/company-party-photo-sharing/\">chia sẻ ảnh tiệc công ty</a>.",
+    "## Chi phí",
+    "Album sự kiện thanh toán một lần: Small 39,99 USD, Medium 69,99 USD, Large 129,99 USD. Khách không phải trả gì. Ảnh tối đa 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả bữa tiệc Noel",
+    "p": "Mọi người tải lên ngay trên trình duyệt, không cần cài đặt. Bạn quyết định ảnh nào được hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Đêm Noel qua ống kính của mọi người",
+    "p": "Thanh toán một lần từ 39,99 USD. Ảnh tối đa 4K, lưu 6 tháng từ lần tải lên đầu tiên, có thể gia hạn.",
+    "btn": "Tạo album →"
+  },
+  "faq": [
+    [
+      "Tiệc Giáng sinh tại nhà nên ăn gì?",
+      "Gà nướng, sườn nướng, mì Ý hoặc lẩu, kèm salad và bánh khúc cây tráng miệng."
+    ],
+    [
+      "Tiệc Giáng sinh chơi trò gì?",
+      "Trao đổi quà bí mật, đố vui Giáng sinh, karaoke nhạc Noel và bốc thăm may mắn."
+    ],
+    [
+      "Làm sao gom ảnh của mọi người sau tiệc?",
+      "Dùng mã QR: mọi người tải ảnh, video lên cùng một album ngay trên trình duyệt."
+    ],
+    [
+      "Có duyệt ảnh trước khi hiển thị được không?",
+      "Có. Bật “Hold guest photos” để duyệt từng ảnh trước khi hiển thị."
+    ]
+  ],
+  "related": [
+    "tiec-tat-nien",
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

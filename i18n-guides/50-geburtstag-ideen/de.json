@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "50. Geburtstag Ideen",
+  "date": "2026-11-12",
+  "title": "50. Geburtstag: Ideen für die Feier | Albums.ink",
+  "desc": "Ideen für den 50. Geburtstag von Frau oder Mann: Motto, Spiele, Apéro oder Fest im Gemeindesaal – und ein QR-Album für alle Fotos und Videos der Gäste.",
+  "h1": "50. Geburtstag: Ideen für ein Fest, an das sich alle erinnern",
+  "lead": "„50 Geburtstag Ideen Feier“, „Ideen Frau“, „Ideen Mann“, „Spiele“ – wer in der Schweiz einen runden Fünfzigsten plant, sucht ein Programm, das zur Person passt. Hier sind Ideen für Ort, Motto und Spiele – und ein einfacher Weg, danach alle Fotos und Videos der Gäste beisammen zu haben.",
+  "body": [
+    "## Wo feiern?",
+    "- <b>Zu Hause oder im Garten</b>: Apéro riche, Grill und Musik – ideal für bis zu 30 Gäste.",
+    "- <b>Gemeindesaal oder Vereinslokal</b>: genug Platz für Familie, Freunde und Arbeitskolleginnen.",
+    "- <b>Berghütte oder Besenbeiz</b>: ein Fondue- oder Raclette-Abend mit kleiner Wanderung vorher.",
+    "- <b>Schiff auf dem See</b>: eine Rundfahrt mit Apéro für eine elegante Feier.",
+    "## Motto-Ideen",
+    "- <b>Jahrgang 1976</b>: Musik, Kleidung und Fotos aus dem Geburtsjahr.",
+    "- <b>Zeitreise</b>: jede Tischgruppe steht für ein Lebensjahrzehnt.",
+    "- <b>Lieblingsland</b>: Essen und Deko aus dem Land der letzten grossen Reise.",
+    "## Spiele und Programmpunkte",
+    "- <b>Quiz über das Geburtstagskind</b>: Fragen von Familie und Freunden.",
+    "- <b>50 Wünsche</b>: jeder Gast schreibt einen Wunsch oder eine Erinnerung auf eine Karte.",
+    "- <b>Fotos von früher</b>: Gäste bringen ein altes Bild mit, das Geburtstagskind errät das Jahr.",
+    "- <b>Kurze Reden</b>: drei bis vier Leute, je zwei Minuten.",
+    "## Alle Fotos vom Fest an einem Ort",
+    "Nach dem Fest sind die Bilder auf vielen Handys verteilt. Ein <b>Event-Album</b> bei Albums sammelt sie:",
+    "1. Album anlegen, z. B. „Martins 50.“.",
+    "2. QR-Code auf die Tischkarten oder in die Einladung.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – nichts zu installieren.",
+    "4. <b>„Hold guest photos“</b> einschalten: So prüfst du jedes Foto, bevor es sichtbar wird.",
+    "5. Danach das ganze Album als eine ZIP herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr dazu: <a href=\"/de/guides/birthday-party-photo-sharing/\">Fotos von der Geburtstagsparty teilen</a> und <a href=\"/de/guides/digital-guest-book/\">digitales Gästebuch</a>.",
+    "## Was es kostet",
+    "Ein Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload verfügbar, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für den ganzen 50.",
+    "p": "Alle laden im Browser hoch – nichts zu installieren. Du entscheidest, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Das Fest aus allen Blickwinkeln",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album anlegen →"
+  },
+  "faq": [
+    [
+      "Wie feiert man den 50. Geburtstag?",
+      "Je nach Gästezahl zu Hause mit Apéro, im Gemeindesaal, in einer Berghütte oder auf einem Schiff – mit Quiz, Reden und Fotos von früher."
+    ],
+    [
+      "Welche Spiele passen zum 50.?",
+      "Ein Quiz über das Geburtstagskind, 50 Wünsche auf Karten und ein Ratespiel mit alten Fotos."
+    ],
+    [
+      "Wie sammle ich die Fotos der Gäste?",
+      "Mit einem QR-Code: Alle laden Fotos und Videos im Browser in ein gemeinsames Album."
+    ],
+    [
+      "Kann ich Fotos vorher prüfen?",
+      "Ja. Mit „Hold guest photos“ gibst du Uploads frei, bevor sie sichtbar werden."
+    ]
+  ],
+  "related": [
+    "birthday-party-photo-sharing",
+    "digital-guest-book",
+    "qr-code-for-photos-at-party"
+  ]
+}

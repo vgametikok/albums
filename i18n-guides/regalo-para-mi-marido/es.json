@@ -1,0 +1,65 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AR",
+  "query": "regalo para mi marido",
+  "date": "2026-11-12",
+  "title": "Regalo para mi marido: un álbum con su historia | Albums.ink",
+  "desc": "Regalo para tu marido por su cumple o aniversario: un álbum online con fotos, videos y tu voz contando su historia. Gratis y sin publicidad.",
+  "h1": "Regalo para mi marido: la historia de ustedes en un álbum",
+  "lead": "“Regalo para mi marido por su cumpleaños”, “aniversario”, “original”: cuando ya le regalaste todo, lo que más llega es algo personal. Un álbum online con sus fotos, videos y notas de voz no cuesta nada y lo podés empezar hoy a la noche.",
+  "body": [
+    "## Qué poner en el álbum",
+    "- <b>El comienzo</b>: la primera foto juntos, la primera salida, el primer departamento.",
+    "- <b>Los días grandes</b>: el casamiento, la mudanza, la llegada de los chicos.",
+    "- <b>Viajes</b>: la costa, Bariloche, la ruta en auto donde todo salió al revés.",
+    "- <b>La vida de todos los días</b>: los asados del domingo, la cancha, los mates en el balcón.",
+    "- <b>Lo que no le decís seguido</b>: una frase corta debajo de cada foto alcanza.",
+    "## Armá un álbum de historias gratis",
+    "En Albums creás un <b>álbum de historias</b> con capítulos, fotos, videos y notas de voz, y podés narrarlo con tu propia voz. Las fotos gratis se guardan hasta 2048 px en el lado largo. Sin publicidad, álbumes ilimitados, y el álbum queda el tiempo que vos quieras.",
+    "1. Creá un álbum gratis, por ejemplo “Diez años juntos”.",
+    "2. Sumá capítulos: Cómo nos conocimos, El casamiento, Nuestra casa, Lo que viene.",
+    "3. Subí fotos y videos cortos y escribí un epígrafe para cada uno.",
+    "4. Grabá una nota de voz desde el navegador para los capítulos más importantes.",
+    "5. ¿Querés que los chicos ayuden? Invitá a un coautor que ya sea tu amigo en Albums.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/album-de-fotos-para-mi-novio/\">álbum de fotos para mi novio</a> y <a href=\"/es/guides/add-voice-to-photos/\">cómo agregar tu voz a las fotos</a>.",
+    "## Que lo vea solo él",
+    "Agregá a tu marido como amigo y elegí Friends: eso incluye a todos tus amigos. Para que lo vea solo él, elegí Friends except… y excluí a los demás. Revisalo de nuevo cuando sumes amigos. Only me no da acceso por enlace. También podés ocultar archivos sueltos y descargar el álbum entero en un solo ZIP.",
+    "## Cómo dárselo",
+    "Mandale el enlace con una tarjeta en su cumple o en el aniversario. El enlace muestra una vista previa con la portada; él abre el álbum en el navegador del celu y entra con Google."
+  ],
+  "cta": {
+    "h2": "Empezá su álbum hoy",
+    "p": "Álbum de historias gratis con capítulos, videos y notas de voz. Sin publicidad.",
+    "btn": "Crear mi álbum →"
+  },
+  "cta2": {
+    "h2": "Un regalo que se escucha",
+    "p": "Gratis e ilimitado: los álbumes quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le regalo a mi marido que tiene todo?",
+      "Algo personal: un álbum con la historia de ustedes, videos y una nota de voz tuya."
+    ],
+    [
+      "¿El álbum es gratis?",
+      "Sí. Un álbum de historias en Albums es gratis, con capítulos, fotos, videos y notas de voz, sin publicidad."
+    ],
+    [
+      "¿Cómo hago para que lo vea solo él?",
+      "Agregalo como amigo, elegí Friends except… y excluí a los demás. Revisalo al sumar amigos nuevos."
+    ],
+    [
+      "¿Puedo guardar una copia?",
+      "Sí. Podés descargar el álbum entero en un solo ZIP."
+    ]
+  ],
+  "related": [
+    "album-de-fotos-para-mi-novio",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

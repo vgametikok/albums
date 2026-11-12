@@ -1,0 +1,65 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per la fidanzata",
+  "date": "2026-11-12",
+  "title": "Regalo per la fidanzata: un album con la vostra storia | Albums.ink",
+  "desc": "Regalo per la fidanzata per il compleanno o per Natale: un album online con foto, video e la tua voce che racconta la vostra storia. Gratis, senza pubblicità.",
+  "h1": "Regalo per la fidanzata: la vostra storia in un album",
+  "lead": "“Regalo per la fidanzata compleanno”, “Natale”: tra gioielli e profumi, il regalo che resta è quello che parla di voi. Un album online con le vostre foto, i video e messaggi vocali è gratuito e puoi iniziarlo stasera, anche da affiancare a un regalo classico.",
+  "body": [
+    "## Cosa mettere nell'album",
+    "- <b>L'inizio</b>: la prima foto insieme, il primo appuntamento, il primo viaggio.",
+    "- <b>Le tappe</b>: gli anniversari, il primo Natale insieme, la casa nuova.",
+    "- <b>I viaggi</b>: il weekend al mare, la gita in montagna, la città in cui vi siete persi.",
+    "- <b>La vita di tutti i giorni</b>: l'aperitivo, la pizza del sabato, le domeniche dai suoi.",
+    "- <b>Le parole</b>: una frase breve sotto ogni foto basta.",
+    "## Un album di storie gratuito",
+    "Su Albums crei un <b>album di storie</b> con capitoli, foto, video e messaggi vocali, e puoi narrarlo con la tua voce. Le foto gratuite sono conservate fino a 2048 px sul lato lungo. Niente pubblicità, album illimitati, e l'album resta finché lo desideri.",
+    "1. Crea un album gratuito, ad esempio “I nostri due anni”.",
+    "2. Aggiungi i capitoli: Come ci siamo conosciuti, Viaggi, Casa nostra, Il futuro.",
+    "3. Carica foto e brevi video, con una didascalia per ciascuno.",
+    "4. Registra un messaggio vocale dal browser per gli auguri.",
+    "5. Vuoi l'aiuto di un'amica? Invita un coautore che sia già tuo amico su Albums.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-foto-fidanzato/\">album foto per il fidanzato</a> e <a href=\"/it/guides/add-voice-to-photos/\">come aggiungere la tua voce alle foto</a>.",
+    "## Solo per lei",
+    "Aggiungi la tua ragazza agli amici e scegli Friends: include tutti i tuoi amici. Perché lo veda solo lei, scegli Friends except… ed escludi gli altri. Ricontrolla quando aggiungi nuovi amici. Only me non consente l'accesso tramite link. Puoi anche nascondere singoli file e scaricare l'intero album in un unico ZIP.",
+    "## Come darglielo",
+    "Mandale il link con un biglietto il giorno del compleanno. Il link mostra un'anteprima con la copertina; lei apre l'album nel browser e accede con Google."
+  ],
+  "cta": {
+    "h2": "Inizia il suo album stasera",
+    "p": "Album di storie gratuito con capitoli, video e messaggi vocali. Senza pubblicità.",
+    "btn": "Crea il mio album →"
+  },
+  "cta2": {
+    "h2": "Un regalo che si può ascoltare",
+    "p": "Gratis e illimitato: gli album restano finché lo desideri.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare alla fidanzata per il compleanno?",
+      "Un regalo personale: un album con la vostra storia, i video e un tuo messaggio vocale, anche insieme a un regalo classico."
+    ],
+    [
+      "L'album è gratuito?",
+      "Sì. L'album di storie su Albums è gratuito, con capitoli, foto, video e messaggi vocali, senza pubblicità."
+    ],
+    [
+      "Come faccio a farlo vedere solo a lei?",
+      "Aggiungila agli amici, scegli Friends except… ed escludi tutti gli altri. Ricontrolla dopo nuove amicizie."
+    ],
+    [
+      "Posso conservarne una copia?",
+      "Sì. Puoi scaricare l'intero album in un unico ZIP."
+    ]
+  ],
+  "related": [
+    "album-foto-fidanzato",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}
