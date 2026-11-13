@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc độc thân trước ngày cưới",
+  "date": "2026-11-13",
+  "title": "Tiệc độc thân trước ngày cưới: ý tưởng tổ chức | Albums.ink",
+  "desc": "Tiệc độc thân là gì và tổ chức thế nào: địa điểm, trò chơi, trang phục cho cô dâu, chú rể – kèm album mã QR gom ảnh và video của cả nhóm bạn.",
+  "h1": "Tiệc độc thân trước ngày cưới: ý tưởng và cách giữ lại kỷ niệm",
+  "lead": "“Tiệc độc thân là gì”, “tiệc độc thân trước ngày cưới”, “tiệc độc thân có ý nghĩa gì” – ngày càng nhiều cặp đôi ở Việt Nam tổ chức một buổi tiệc riêng với bạn bè trước khi cưới. Dưới đây là ý tưởng địa điểm, trò chơi và cách gom ảnh, video của cả nhóm về một album.",
+  "body": [
+    "## Tiệc độc thân là gì?",
+    "Là buổi tiệc cô dâu hoặc chú rể tổ chức cùng bạn thân, thường một đến vài tuần trước đám cưới, để đánh dấu những ngày cuối “độc thân”. Đây là buổi vui của bạn bè, khác với các nghi lễ gia đình như dạm ngõ, ăn hỏi hay lễ thành hôn.",
+    "## Ý tưởng địa điểm",
+    "- <b>Homestay hoặc villa</b> ở Đà Lạt, Vũng Tàu, Ba Vì cho một chuyến cuối tuần.",
+    "- <b>Nhà hàng hoặc rooftop</b> trong thành phố cho buổi tối nhẹ nhàng.",
+    "- <b>Karaoke hoặc tiệc tại nhà</b> khi muốn tiết kiệm.",
+    "## Trò chơi và hoạt động",
+    "- Đố vui “Bạn hiểu cô dâu (chú rể) đến đâu?”.",
+    "- Thử thách theo đội và phần thưởng nhỏ.",
+    "- Viết lời chúc và lời khuyên cho cuộc sống hôn nhân.",
+    "- Trang phục đồng điệu: băng đeo “Bride to be”, áo nhóm.",
+    "## Gom ảnh của cả nhóm bằng mã QR",
+    "Ảnh và video của buổi tiệc nằm rải rác trong điện thoại của từng người. Một <b>album sự kiện</b> trên Albums gom tất cả về một nơi:",
+    "1. Tạo album, ví dụ “Tiệc độc thân của Linh”.",
+    "2. Gửi mã QR vào nhóm chat hoặc in đặt trên bàn.",
+    "3. Mọi người quét bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt – không cần cài ứng dụng.",
+    "4. Bật <b>Hold guest photos</b> (duyệt trước) để xem ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album thành một file ZIP.",
+    "Người tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập nhận thêm một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/bachelorette-party-photo-scavenger-hunt/\">trò chơi săn ảnh cho tiệc chia tay độc thân</a> và <a href=\"/vi/guides/collect-wedding-photos-from-guests/\">cách gom ảnh cưới từ khách mời</a>.",
+    "## Chi phí",
+    "Album sự kiện là gói mua một lần: Small $39.99, Medium $69.99 hoặc Large $129.99. Khách không phải trả phí. Ảnh tối đa 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả nhóm bạn",
+    "p": "Tải lên trên trình duyệt, không cần ứng dụng. Bạn quyết định ảnh nào được hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ trọn kỷ niệm trước ngày cưới",
+    "p": "Mua một lần từ $39.99. Ảnh tối đa 4K, lưu 6 tháng từ lần tải đầu tiên, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    [
+      "Tiệc độc thân là gì?",
+      "Là buổi tiệc cô dâu hoặc chú rể tổ chức với bạn thân trước đám cưới, khác với các nghi lễ gia đình như ăn hỏi hay lễ thành hôn."
+    ],
+    [
+      "Nên tổ chức tiệc độc thân khi nào?",
+      "Thường một đến vài tuần trước đám cưới, tránh sát ngày cưới để mọi người kịp nghỉ ngơi."
+    ],
+    [
+      "Làm sao gom ảnh của mọi người?",
+      "Chia sẻ một mã QR: mọi người tải ảnh và video lên cùng một album trên trình duyệt, bạn có thể duyệt trước."
+    ],
+    [
+      "Có cần cài ứng dụng không?",
+      "Không. Quét mã QR là album mở ngay trên trình duyệt."
+    ]
+  ],
+  "related": [
+    "bachelorette-party-photo-scavenger-hunt",
+    "collect-wedding-photos-from-guests",
+    "qr-code-for-photos-at-party"
+  ]
+}

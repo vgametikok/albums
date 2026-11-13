@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "mesversário",
+  "date": "2026-11-13",
+  "title": "Mesversário: ideias e um álbum para cada mês | Albums.ink",
+  "desc": "Ideias de mesversário mês a mês, textos curtos e como guardar fotos, vídeos e áudios do bebê num álbum online grátis, sem anúncios.",
+  "h1": "Mesversário: ideias e um álbum com todos os meses do bebê",
+  "lead": "“Mesversário 1 mês”, “mesversário 6 meses texto”, “frases curtas” – todo mês milhares de famílias no Brasil procuram ideias para comemorar mais um mês do bebê. Aqui vão temas, textos e um jeito de reunir as fotos de cada mês num álbum online grátis, com vídeos e a sua voz.",
+  "body": [
+    "## Ideias de mesversário",
+    "- <b>Tema do mês</b>: frutas, fundo do mar, safari, futebol, estações do ano.",
+    "- <b>Mesma pose todo mês</b>: na mesma poltrona ou ao lado do mesmo bichinho de pelúcia para ver o crescimento.",
+    "- <b>Mini bolo ou docinhos</b>: um bolo pequeno com o número do mês.",
+    "- <b>Plaquinha ou letreiro</b> com o mês e o nome do bebê.",
+    "- <b>Festa em casa</b>: só os avós e padrinhos, sem complicação.",
+    "## Textos curtos para o mesversário",
+    "- “Mais um mês de você, mais um mês de amor.”",
+    "- “6 meses: metade do caminho até o primeiro ano!”",
+    "- “Cada mês, uma descoberta nova.”",
+    "## Um álbum com todos os meses",
+    "No Albums você cria um <b>álbum história</b> grátis com capítulos, fotos, vídeos e notas de voz, e pode narrar com a sua própria voz. Fotos grátis ficam com até 2048 px no lado maior. Sem anúncios, álbuns ilimitados, e o álbum fica pelo tempo que você quiser.",
+    "1. Crie um álbum, por exemplo “O primeiro ano da Alice”.",
+    "2. Faça um capítulo por mês: 1 mês, 2 meses… até 11 meses.",
+    "3. Envie as fotos do mesversário e vídeos curtos: o primeiro sorriso, o primeiro engatinhar.",
+    "4. Grave uma nota de voz no navegador contando as novidades do mês.",
+    "5. Convide um coautor – o pai ou a mãe que já é seu amigo no Albums.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/album-do-bebe-digital/\">álbum do bebê digital</a> e <a href=\"/pt-BR/guides/add-voice-to-photos/\">como colocar sua voz nas fotos</a>.",
+    "## Compartilhar com a família",
+    "Adicione avós e padrinhos como amigos e escolha Amigos – isso inclui todos os seus amigos; para mostrar só à família, escolha Amigos, exceto… e exclua os outros, e revise ao adicionar amigos novos. “Só eu” não libera acesso por link. Também dá para ocultar arquivos individuais. O link mostra uma prévia com a capa, e o álbum inteiro pode ser baixado num único ZIP."
+  ],
+  "cta": {
+    "h2": "Comece o álbum do bebê hoje",
+    "p": "Álbum história grátis com capítulos, vídeos e notas de voz. Sem anúncios.",
+    "btn": "Criar meu álbum →"
+  },
+  "cta2": {
+    "h2": "Do 1º mês ao 1º aninho",
+    "p": "Grátis e ilimitado, os álbuns ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que é mesversário?",
+      "É a comemoração de cada mês de vida do bebê, do 1º ao 11º mês, antes do primeiro aniversário."
+    ],
+    [
+      "Como fazer um mesversário simples?",
+      "Escolha um tema, faça fotos na mesma pose todo mês, um mini bolo e uma plaquinha com o número do mês."
+    ],
+    [
+      "Onde guardar as fotos de todos os meses?",
+      "Num álbum história grátis no Albums, com um capítulo por mês, vídeos e notas de voz."
+    ],
+    [
+      "Como mostrar só para a família?",
+      "Adicione os parentes como amigos e escolha Amigos, exceto… para excluir os demais."
+    ]
+  ],
+  "related": [
+    "album-do-bebe-digital",
+    "add-voice-to-photos",
+    "first-birthday-photo-ideas"
+  ]
+}

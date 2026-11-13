@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "FR",
+  "query": "pot de départ à la retraite",
+  "date": "2026-11-13",
+  "title": "Pot de départ à la retraite : idées | Albums.ink",
+  "desc": "Organiser un pot de départ à la retraite : invitation, discours, cadeau et animations, plus un album QR où les collègues déposent leurs photos et vidéos.",
+  "h1": "Pot de départ à la retraite : organiser une belle fête",
+  "lead": "« Pot de départ à la retraite discours », « invitation », « message », « humour » : en France, quand un collègue part à la retraite, ce sont les recherches de ceux qui organisent. Voici le déroulé, des idées de discours et de cadeau, et une façon simple de lui offrir toutes les photos prises par l'équipe.",
+  "body": [
+    "## Préparer le pot",
+    "- <b>Date et lieu</b> : une salle de réunion, la cantine, un restaurant ou un bar près du bureau, en fin de journée.",
+    "- <b>Invitation</b> : envoyée deux à trois semaines avant, aux collègues actuels et aux anciens qui ont compté.",
+    "- <b>Buffet</b> : champagne ou crémant, petits fours, fromages, gâteau.",
+    "- <b>Cagnotte</b> : lancée tôt pour le cadeau commun, avec une carte que tout le monde signe.",
+    "## Le discours",
+    "Trois à cinq minutes suffisent : une anecdote drôle, ce que l'équipe retiendra de son travail, des vœux pour la suite (voyages, petits-enfants, jardin). Le jeune retraité prend souvent la parole à son tour.",
+    "## Idées d'animation",
+    "- <b>Quiz sur sa carrière</b> : dates, projets, souvenirs de l'équipe.",
+    "- <b>Mur de messages</b> : chacun écrit un mot ou un conseil pour la retraite.",
+    "- <b>Panneau souvenirs</b> : des photos de ses débuts imprimées et affichées près du buffet.",
+    "## Toutes les photos de l'équipe grâce à un QR code",
+    "Les photos du pot finissent sur une vingtaine de téléphones. Un <b>album d'événement</b> sur Albums les réunit :",
+    "1. Créez l'album, par exemple « Le pot de départ de Michel ».",
+    "2. Imprimez le QR code sur la carte, les tables ou l'invitation.",
+    "3. Les collègues scannent avec l'appareil photo du téléphone et déposent photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> (validation préalable) pour vérifier chaque envoi avant qu'il soit visible.",
+    "5. Ensuite, téléchargez l'album entier en un ZIP et offrez le lien au retraité.",
+    "Les collègues qui déposent sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie brouillon privée de leurs seuls envois.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/retirement-party-photo-ideas/\">idées photo pour une fête de retraite</a> et <a href=\"/fr/guides/company-party-photo-sharing/\">partager les photos d'une soirée d'entreprise</a>.",
+    "## Prix",
+    "L'album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $. Gratuit pour les invités. Photos jusqu'en 4K ; l'album est conservé 6 mois à partir du premier envoi, et vous pouvez prolonger."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute l'équipe",
+    "p": "Les collègues déposent dans le navigateur, sans application. Vous choisissez ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Un cadeau fait de souvenirs",
+    "p": "Achat unique dès 39,99 $. Photos jusqu'en 4K, conservées 6 mois après le premier envoi, prolongeable.",
+    "btn": "Commencer l'album →"
+  },
+  "faq": [
+    [
+      "Comment organiser un pot de départ à la retraite ?",
+      "Fixez la date, envoyez l'invitation deux à trois semaines avant, lancez une cagnotte et prévoyez un buffet et un discours court."
+    ],
+    [
+      "Que dire dans un discours de départ à la retraite ?",
+      "Une anecdote, ce que l'équipe retient de son travail et des vœux pour la suite, en trois à cinq minutes."
+    ],
+    [
+      "Quel cadeau offrir pour un départ à la retraite ?",
+      "Un cadeau commun financé par une cagnotte, une carte signée et un album avec les photos et messages des collègues."
+    ],
+    [
+      "Comment récupérer les photos du pot ?",
+      "Avec un QR code : chacun dépose ses photos et vidéos dans le navigateur, dans un même album que vous pouvez valider."
+    ]
+  ],
+  "related": [
+    "retirement-party-photo-ideas",
+    "company-party-photo-sharing",
+    "cadeau-depart-collegue"
+  ]
+}

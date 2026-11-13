@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "bodas de oro",
+  "date": "2026-11-13",
+  "title": "Bodas de oro: ideas para celebrar 50 años | Albums.ink",
+  "desc": "Ideas para unas bodas de oro: renovación de votos, comida familiar, decoración sencilla y regalos, más un álbum con código QR para las fotos de todos los invitados.",
+  "h1": "Bodas de oro: cómo celebrar 50 años de casados",
+  "lead": "«Bodas de oro ideas», «bodas de oro regalos» y «decoración sencilla» son búsquedas habituales en España cuando unos padres o abuelos cumplen 50 años de casados. Aquí tienes ideas para la celebración, los regalos y una forma sencilla de reunir todas las fotos y vídeos que hagan los invitados.",
+  "body": [
+    "## Ideas para la celebración",
+    "- <b>Renovación de votos</b>: una misa o una ceremonia civil breve con los hijos y nietos como testigos.",
+    "- <b>Comida familiar</b>: en el restaurante de siempre, en una finca o en casa del pueblo.",
+    "- <b>Fiesta sorpresa</b>: los hijos organizan y la pareja solo sabe que hay una comida.",
+    "- <b>Viaje</b>: repetir el destino de la luna de miel o una escapada con toda la familia.",
+    "## Decoración sencilla",
+    "Dorado y blanco, flores en jarrones de cristal, la foto de la boda original en la entrada y un mural con fotos de cada década. Unas velas y una tarta con «50» bastan para que quede elegante.",
+    "## Regalos para unas bodas de oro",
+    "- Una joya o un detalle dorado, como manda la tradición.",
+    "- Un viaje o una escapada a un balneario.",
+    "- Un álbum con la historia de la pareja, con mensajes y vídeos de hijos, nietos y amigos.",
+    "## Reúne las fotos de todos con un código QR",
+    "En una comida de 50 o 100 invitados las fotos acaban repartidas en muchos móviles. Un <b>álbum de evento</b> en Albums las reúne:",
+    "1. Crea el álbum, por ejemplo «Bodas de oro de Carmen y Antonio».",
+    "2. Imprime el código QR en las mesas o en el seating.",
+    "3. Los invitados escanean con la cámara del móvil y suben fotos y vídeos en el navegador, sin instalar nada.",
+    "4. Activa <b>Retener las fotos de los invitados</b> para revisar cada subida antes de que sea visible.",
+    "5. Después, descarga el álbum completo en un ZIP para la pareja.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con sus propias subidas.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-aniversario-papas/\">regalo de aniversario para papás</a> y <a href=\"/es/guides/digital-guest-book/\">libro de firmas digital</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Los invitados no pagan nada. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y puedes ampliarlo."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la familia",
+    "p": "Los invitados suben en el navegador, sin instalar nada. Tú decides qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "50 años en un solo álbum",
+    "p": "Pago único desde 39,99 $. Fotos hasta 4K, guardadas 6 meses desde la primera subida, ampliable.",
+    "btn": "Empezar el álbum →"
+  },
+  "faq": [
+    [
+      "¿Cuántos años son las bodas de oro?",
+      "50 años de casados. Las de plata son 25 y las de diamante, 60."
+    ],
+    [
+      "¿Cómo se celebran unas bodas de oro?",
+      "Con una renovación de votos, una comida familiar o una fiesta sorpresa organizada por los hijos."
+    ],
+    [
+      "¿Qué se regala en unas bodas de oro?",
+      "Tradicionalmente algo dorado; también un viaje o un álbum con la historia de la pareja y mensajes de la familia."
+    ],
+    [
+      "¿Cómo reúno las fotos de los invitados?",
+      "Con un código QR en las mesas: todos suben fotos y vídeos en el navegador a un mismo álbum y puedes revisarlas antes."
+    ]
+  ],
+  "related": [
+    "regalo-aniversario-papas",
+    "digital-guest-book",
+    "family-reunion-photo-ideas"
+  ]
+}

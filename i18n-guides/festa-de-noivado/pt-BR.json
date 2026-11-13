@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de noivado",
+  "date": "2026-11-13",
+  "title": "Festa de noivado simples e bonita: como organizar | Albums.ink",
+  "desc": "Como funciona uma festa de noivado, ideias para uma festa simples e bonita, se convidado leva presente, e um álbum com QR code para as fotos de todos.",
+  "h1": "Festa de noivado: como organizar uma comemoração simples e bonita",
+  "lead": "“Festa de noivado simples”, “como funciona” e “leva presente?” estão entre as buscas mais comuns no Brasil depois do pedido. Veja como organizar, ideias de decoração e cardápio, e um jeito fácil de juntar todas as fotos e vídeos que os convidados fizerem.",
+  "body": [
+    "## Como funciona uma festa de noivado",
+    "É a comemoração do compromisso, geralmente meses antes do casamento, com as duas famílias e os amigos próximos. Costuma ter um brinde, algumas palavras dos noivos ou dos pais e, às vezes, a troca das alianças de noivado.",
+    "## Ideias para uma festa simples e bonita",
+    "- <b>Em casa ou no salão de festas do prédio</b>: mesa de frios, petiscos e drinks.",
+    "- <b>Almoço em família</b> num restaurante ou numa chácara.",
+    "- <b>Decoração</b>: flores do campo, luzinhas, uma mesa com fotos do casal e um painel com as iniciais.",
+    "- <b>Brinde e discurso</b>: curto, com uma história engraçada do casal.",
+    "## Convidado leva presente?",
+    "Não é obrigatório. Muitos levam uma lembrança ou vinho; alguns casais fazem uma lista simples. Combine com a família e avise no convite.",
+    "## Junte as fotos de todos com QR code",
+    "As fotos da festa ficam espalhadas nos celulares dos convidados. Um <b>álbum de evento</b> no Albums reúne tudo:",
+    "1. Crie o álbum, por exemplo “Noivado da Ana e do Pedro”.",
+    "2. Imprima o QR code em plaquinhas nas mesas ou mande no grupo da família.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Reter fotos dos convidados</b> para aprovar cada envio antes de ficar visível.",
+    "5. Depois, baixe o álbum inteiro num único ZIP.",
+    "Quem envia sem entrar na conta aparece de forma anônima. Convidados com conta recebem também uma cópia privada em rascunho só com os próprios envios.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/cha-de-panela/\">chá de panela</a> e <a href=\"/pt-BR/guides/collect-wedding-photos-from-guests/\">como juntar as fotos do casamento</a>.",
+    "## Preço",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam nada. Fotos até 4K; o álbum fica guardado 6 meses a partir do primeiro envio e pode ser prorrogado."
+  ],
+  "cta": {
+    "h2": "Um QR code para toda a festa",
+    "p": "Convidados enviam pelo navegador, sem aplicativo. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas as fotos do noivado juntas",
+    "p": "Compra única a partir de US$ 39,99. Fotos até 4K, guardadas 6 meses desde o primeiro envio, prorrogável.",
+    "btn": "Começar o álbum →"
+  },
+  "faq": [
+    [
+      "Como funciona uma festa de noivado?",
+      "É uma comemoração com as famílias e amigos próximos, com brinde, algumas palavras e, às vezes, a troca das alianças."
+    ],
+    [
+      "Convidado leva presente no noivado?",
+      "Não é obrigatório; muitos levam uma lembrança. Alguns casais fazem uma lista simples."
+    ],
+    [
+      "Como fazer uma festa de noivado simples?",
+      "Em casa ou no salão do prédio, com petiscos, drinks, flores e uma mesa com fotos do casal."
+    ],
+    [
+      "Como juntar as fotos dos convidados?",
+      "Com um QR code: todos enviam fotos e vídeos pelo navegador para o mesmo álbum, e você aprova antes."
+    ]
+  ],
+  "related": [
+    "cha-de-panela",
+    "collect-wedding-photos-from-guests",
+    "qr-code-for-photos-at-party"
+  ]
+}

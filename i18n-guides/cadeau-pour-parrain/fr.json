@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "cadeau pour parrain",
+  "date": "2026-11-13",
+  "title": "Cadeau pour parrain : idées personnelles | Albums.ink",
+  "desc": "Cadeau pour parrain ou marraine au baptême, à la communion ou au Nouvel An : un album en ligne avec photos, vidéos et la voix de l'enfant. Gratuit, sans pub.",
+  "h1": "Cadeau pour parrain : un album qui raconte la vie du filleul",
+  "lead": "« Cadeau pour parrain baptême », « cadeau pour parrain marraine » ou « cadeau pour parrain Noël » : en Belgique, parents et filleuls cherchent chaque année une attention qui ait du sens. Un album en ligne avec les photos, les vidéos et la voix de l'enfant se prépare en une soirée et ne coûte rien.",
+  "body": [
+    "## Quand faire un cadeau au parrain",
+    "- <b>Au baptême</b> : pour remercier le parrain d'avoir accepté ce rôle, avec les dragées.",
+    "- <b>À la communion</b> : un souvenir de la journée de son filleul.",
+    "- <b>Au Nouvel An</b> : quand l'enfant lit sa lettre de Nouvel An, il peut aussi lui offrir quelque chose.",
+    "- <b>À son anniversaire</b> : un mot ou une petite vidéo de l'enfant.",
+    "## Idées de cadeau personnel",
+    "- Un album des premiers moments avec son filleul.",
+    "- Une lettre ou un dessin de l'enfant, joint à l'album.",
+    "- Une sortie à deux : la mer, un parc, un match.",
+    "## Que mettre dans l'album",
+    "- Le jour du baptême : l'église, la famille, le parrain qui porte l'enfant.",
+    "- Les premières fois : premiers pas, premier Saint-Nicolas, premier jour d'école.",
+    "- Les moments passés ensemble, avec une légende sous chaque photo.",
+    "- Une note vocale de l'enfant : « Merci parrain ! »",
+    "## Créer l'album gratuitement",
+    "Sur Albums, vous créez un <b>album histoire</b> avec chapitres, photos, vidéos et notes vocales, et vous pouvez le raconter de votre voix. Les photos gratuites sont conservées jusqu'à 2048 px sur le grand côté. Sans pub, albums illimités, et l'album reste aussi longtemps que vous le souhaitez.",
+    "1. Créez un album, par exemple « Lucas et son parrain ».",
+    "2. Ajoutez des chapitres : Le baptême, Les premières fois, Nos moments, Merci.",
+    "3. Déposez photos et courtes vidéos, ajoutez une légende.",
+    "4. Enregistrez dans le navigateur une note vocale de l'enfant ou la vôtre.",
+    "5. Invitez un co-auteur, par exemple l'autre parent, déjà votre ami sur Albums.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/album-photo-bapteme/\">album photo de baptême</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
+    "## Partager avec le parrain uniquement",
+    "Ajoutez le parrain comme ami et choisissez Amis : cela inclut tous vos amis, donc pour qu'il soit le seul à le voir, choisissez Amis, sauf… et excluez les autres ; vérifiez après chaque nouvel ami. Moi uniquement ne donne pas accès aux autres, même avec le lien. Vous pouvez aussi masquer des fichiers. Le lien affiche un aperçu avec la couverture, et l'album entier se télécharge en un ZIP."
+  ],
+  "cta": {
+    "h2": "Un cadeau qui fait entendre son filleul",
+    "p": "Album histoire gratuit avec chapitres, vidéos et notes vocales. Sans pub.",
+    "btn": "Créer mon album →"
+  },
+  "cta2": {
+    "h2": "Prêt pour le Nouvel An",
+    "p": "Gratuit et illimité, vos albums restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Que faut-il offrir au parrain pour le baptême ?",
+      "Un souvenir personnel : un album des premiers moments avec son filleul, une lettre ou un objet gravé, accompagné des dragées."
+    ],
+    [
+      "Peut-on faire l'album gratuitement ?",
+      "Oui. Un album histoire sur Albums est gratuit, avec chapitres, photos, vidéos et notes vocales, sans publicité."
+    ],
+    [
+      "Comment le partager seulement avec le parrain ?",
+      "Ajoutez-le comme ami, choisissez Amis, sauf… et excluez les autres. Vérifiez après chaque nouvel ami."
+    ],
+    [
+      "Le parrain peut-il garder une copie ?",
+      "Oui, l'album entier se télécharge en un seul ZIP."
+    ]
+  ],
+  "related": [
+    "album-photo-bapteme",
+    "add-voice-to-photos",
+    "fete-de-communion"
+  ]
+}

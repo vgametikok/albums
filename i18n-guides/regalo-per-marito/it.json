@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per marito",
+  "date": "2026-11-13",
+  "title": "Regalo per marito: un album della vostra storia | Albums.ink",
+  "desc": "Regalo per il marito per compleanno, anniversario di matrimonio o Natale: un album online con foto, video e la tua voce. Gratis e senza pubblicità.",
+  "h1": "Regalo per il marito: la vostra storia in un album",
+  "lead": "«Regalo per marito compleanno», «anniversario di matrimonio», «50 anni»: chi cerca un regalo per il marito in Italia trova soprattutto oggetti. Se vuoi qualcosa di personale, un album online con le vostre foto, i video e la tua voce si prepara in una sera ed è gratis.",
+  "body": [
+    "## Idee di regalo personali",
+    "- <b>Un album della vostra storia</b>: dal primo appuntamento a oggi.",
+    "- <b>Un messaggio vocale</b>: la tua voce che racconta un ricordo.",
+    "- <b>Un'esperienza</b>: un weekend alle terme, una cena nel ristorante del primo appuntamento, una partita allo stadio.",
+    "- <b>Un album con i figli</b>: foto e vocali dei bambini per papà.",
+    "## Cosa mettere nell'album",
+    "- Come vi siete conosciuti e il primo viaggio insieme.",
+    "- Il matrimonio, la casa, l'arrivo dei figli.",
+    "- Le estati al mare, le domeniche dai nonni, le vacanze in montagna.",
+    "- Una didascalia o un vocale per ogni capitolo.",
+    "## Crearlo gratis",
+    "Su Albums crei un <b>album storia</b> gratis con capitoli, foto, video e note vocali, e puoi narrarlo con la tua voce. Le foto gratuite sono conservate fino a 2048 px sul lato lungo. Niente pubblicità, album illimitati, e l'album resta finché lo desideri.",
+    "1. Crea un album, ad esempio «I nostri 10 anni».",
+    "2. Dividi in capitoli: Come ci siamo conosciuti, Il matrimonio, La nostra famiglia, Il futuro.",
+    "3. Carica foto e brevi video e scrivi una didascalia.",
+    "4. Registra una nota vocale dal browser per i capitoli più importanti.",
+    "5. Invita un coautore, ad esempio un figlio grande già tuo amico su Albums.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/album-anniversario-matrimonio/\">album per l'anniversario di matrimonio</a> e <a href=\"/it/guides/add-voice-to-photos/\">come aggiungere la voce alle foto</a>.",
+    "## Condividerlo solo con lui",
+    "Aggiungi tuo marito come amico e scegli Amici: lo mostra a tutti i tuoi amici; perché lo veda solo lui, scegli Amici, tranne… ed escludi gli altri, e ricontrolla dopo aver aggiunto nuovi amici. Solo io non dà accesso tramite link. Puoi anche nascondere singoli file. Il link mostra un'anteprima con la copertina, e puoi scaricare l'intero album in un unico ZIP."
+  ],
+  "cta": {
+    "h2": "Prepara il suo regalo stasera",
+    "p": "Album storia gratis con capitoli, video e note vocali. Niente pubblicità.",
+    "btn": "Crea il mio album →"
+  },
+  "cta2": {
+    "h2": "Un regalo che si ascolta",
+    "p": "Gratis e illimitato, gli album restano finché lo desideri.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare a mio marito di personale?",
+      "Un album della vostra storia, un messaggio vocale o un'esperienza da vivere insieme."
+    ],
+    [
+      "Posso creare l'album gratis?",
+      "Sì. Un album storia su Albums è gratis, con capitoli, foto, video e note vocali, senza pubblicità."
+    ],
+    [
+      "Come faccio perché lo veda solo lui?",
+      "Aggiungilo come amico, scegli Amici, tranne… ed escludi gli altri. Ricontrolla dopo nuovi amici."
+    ],
+    [
+      "Può tenerne una copia?",
+      "Sì, l'intero album si scarica in un unico ZIP."
+    ]
+  ],
+  "related": [
+    "album-anniversario-matrimonio",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

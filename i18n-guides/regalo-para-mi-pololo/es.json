@@ -1,0 +1,66 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CL",
+  "query": "regalo para mi pololo",
+  "date": "2026-11-13",
+  "title": "Regalo para mi pololo: un álbum de su historia | Albums.ink",
+  "desc": "Ideas de regalo para tu pololo en su cumpleaños, aniversario o Navidad: un álbum online con fotos, videos y notas de voz. Gratis y sin publicidad.",
+  "h1": "Regalo para mi pololo: su historia juntos en un álbum",
+  "lead": "«Ideas de regalo para mi pololo», «regalo de cumpleaños para mi pololo» y «regalo de Navidad para mi pololo» se buscan mucho en Chile. Si quieres algo personal que no se compre en el mall, un álbum online con sus fotos, videos y tu voz se arma en una tarde y es gratis.",
+  "body": [
+    "## Ideas de regalo personales",
+    "- <b>Un álbum de su historia</b>: desde la primera salida hasta hoy.",
+    "- <b>Una carta en audio</b>: tu voz contando por qué lo quieres.",
+    "- <b>Una salida planificada</b>: un picnic en el cerro, un asado o una escapada a la playa.",
+    "- <b>Algo de su equipo o banda favorita</b>, junto con un mensaje escrito.",
+    "## Qué poner en el álbum",
+    "- La primera foto juntos y cómo se conocieron.",
+    "- Paseos, viajes, carretes con amigos y las Fiestas Patrias.",
+    "- Detalles del día a día: su comida favorita, sus mascotas, sus chistes internos.",
+    "- Una frase o nota de voz en cada capítulo.",
+    "## Cómo armarlo gratis",
+    "En Albums creas un <b>álbum historia</b> con capítulos, fotos, videos y notas de voz, y puedes narrarlo con tu propia voz. Las fotos gratis se guardan hasta 2048 px en el lado largo. Sin publicidad, álbumes ilimitados y el álbum se queda todo el tiempo que quieras.",
+    "1. Crea un álbum, por ejemplo «Nuestro primer año».",
+    "2. Divide en capítulos: Cómo nos conocimos, Nuestros viajes, Lo cotidiano, Lo que viene.",
+    "3. Sube fotos y videos cortos y escribe un pie de foto.",
+    "4. Graba una nota de voz en el navegador para los capítulos más importantes.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/album-de-fotos-para-mi-novio/\">álbum de fotos para mi novio</a> y <a href=\"/es/guides/add-voice-to-photos/\">cómo añadir tu voz a las fotos</a>.",
+    "## Compartirlo solo con él",
+    "Agrega a tu pololo como amigo y elige Amigos: eso incluye a todos tus amigos, así que para que lo vea solo él elige «Amigos, excepto…» y excluye a los demás; revísalo cuando agregues amigos nuevos. «Solo yo» no permite el acceso por enlace. También puedes ocultar archivos sueltos. El enlace muestra una vista previa con la portada, él entra desde el navegador con Google, y el álbum completo se puede descargar en un ZIP."
+  ],
+  "cta": {
+    "h2": "Arma su regalo hoy",
+    "p": "Álbum historia gratis con capítulos, videos y notas de voz. Sin publicidad.",
+    "btn": "Crear mi álbum →"
+  },
+  "cta2": {
+    "h2": "Un regalo que se escucha",
+    "p": "Gratis y con álbumes ilimitados que se quedan todo el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi pololo que sea personal?",
+      "Un álbum con su historia, una carta en audio o una salida planificada por ti."
+    ],
+    [
+      "¿Puedo hacer el álbum gratis?",
+      "Sí. Un álbum historia en Albums es gratis, con capítulos, fotos, videos y notas de voz, sin publicidad."
+    ],
+    [
+      "¿Cómo hago para que solo él lo vea?",
+      "Agrégalo como amigo, elige «Amigos, excepto…» y excluye a los demás. Revísalo al agregar amigos nuevos."
+    ],
+    [
+      "¿Él puede guardar una copia?",
+      "Sí, el álbum completo se descarga en un solo ZIP."
+    ]
+  ],
+  "related": [
+    "album-de-fotos-para-mi-novio",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

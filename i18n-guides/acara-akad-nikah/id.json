@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara akad nikah",
+  "date": "2026-11-13",
+  "title": "Acara Akad Nikah: Susunan Acara dan Persiapannya | Albums.ink",
+  "desc": "Susunan acara akad nikah di masjid atau di rumah, berapa lama, apa saja yang disiapkan, plus album QR untuk mengumpulkan foto dan video dari keluarga dan tamu.",
+  "h1": "Acara akad nikah: susunan acara dan cara mengumpulkan semua fotonya",
+  "lead": "“Acara akad nikah apa saja”, “berapa lama”, “sederhana di rumah” dan “di masjid” sering dicari calon pengantin di Indonesia. Berikut susunan acara yang umum, persiapan yang perlu diperhatikan, dan cara mudah mengumpulkan semua foto serta video dari keluarga dan tamu dalam satu album.",
+  "body": [
+    "## Susunan acara akad nikah yang umum",
+    "1. Pembukaan oleh pembawa acara dan pembacaan ayat suci Al-Qur'an.",
+    "2. Khutbah nikah singkat.",
+    "3. Ijab kabul antara wali (atau penghulu yang diwakilkan) dan mempelai pria, disaksikan dua saksi.",
+    "4. Penandatanganan buku nikah dan penyerahan mahar.",
+    "5. Doa, lalu sungkeman kepada orang tua bila menjadi tradisi keluarga.",
+    "Inti acara biasanya berlangsung sekitar satu jam; dengan sambutan dan foto keluarga bisa lebih lama.",
+    "## Persiapan",
+    "- Daftarkan pernikahan ke KUA jauh-jauh hari dan pastikan jadwal penghulu.",
+    "- Siapkan wali, dua saksi, mahar, dan cincin.",
+    "- <b>Di masjid</b>: konfirmasi aturan tempat dan jumlah tamu.",
+    "- <b>Di rumah</b>: atur dekorasi sederhana, karpet, dan konsumsi untuk keluarga.",
+    "## Kumpulkan foto semua orang dengan kode QR",
+    "Saat ijab kabul, banyak keluarga merekam dari ponsel masing-masing. <b>Album acara</b> di Albums mengumpulkan semuanya:",
+    "1. Buat album, misalnya “Akad Nikah Rina & Fajar”.",
+    "2. Cetak kode QR di meja penerima tamu atau kirim ke grup keluarga.",
+    "3. Tamu memindai dengan kamera ponsel lalu mengunggah foto dan video lewat browser – tanpa instal aplikasi.",
+    "4. Aktifkan <b>“Hold guest photos”</b> (persetujuan dulu) untuk memilih foto yang tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu ZIP.",
+    "Tamu yang mengunggah tanpa masuk akun tampil sebagai anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi berisi unggahan mereka sendiri.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/acara-lamaran/\">acara lamaran</a> dan <a href=\"/id/guides/acara-siraman-pengantin/\">acara siraman pengantin</a>.",
+    "## Biaya",
+    "Album acara adalah pembelian sekali bayar: Small US$39,99, Medium US$69,99, atau Large US$129,99. Tamu tidak membayar. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh keluarga",
+    "p": "Tamu mengunggah lewat browser, tanpa aplikasi. Anda yang menentukan apa yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Momen ijab kabul dari semua sudut",
+    "p": "Sekali bayar mulai US$39,99. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    [
+      "Apa saja susunan acara akad nikah?",
+      "Pembukaan, pembacaan Al-Qur'an, khutbah nikah, ijab kabul, penandatanganan buku nikah, penyerahan mahar, doa, dan sungkeman bila menjadi tradisi."
+    ],
+    [
+      "Berapa lama acara akad nikah?",
+      "Inti acara biasanya sekitar satu jam, lebih lama bila ada sambutan dan foto keluarga."
+    ],
+    [
+      "Bisakah akad nikah sederhana di rumah?",
+      "Bisa, selama penghulu, wali, dan saksi hadir dan pernikahan sudah didaftarkan ke KUA."
+    ],
+    [
+      "Bagaimana mengumpulkan foto dari keluarga?",
+      "Bagikan kode QR album acara. Semua mengunggah lewat browser ke satu album, dan Anda bisa menyetujui dulu."
+    ]
+  ],
+  "related": [
+    "acara-lamaran",
+    "acara-siraman-pengantin",
+    "collect-wedding-photos-from-guests"
+  ]
+}

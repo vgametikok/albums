@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "Abiball",
+  "date": "2026-11-13",
+  "title": "Abiball planen: Location, Ablauf, Ideen | Albums.ink",
+  "desc": "Abiball planen: Location finden, Ablauf, Programm-Ideen und Budget fürs Abikomitee – plus ein QR-Album, in dem alle Gäste ihre Fotos und Videos teilen.",
+  "h1": "Abiball planen: von der Location bis zu den Fotos aller Gäste",
+  "lead": "„Abiball Location“, „Abiball 2026“, „Abiball Ablauf“ – wer im Abikomitee sitzt, hat viel zu organisieren. Hier ist ein Überblick über Location, Ablauf und Programm – und wie ihr am Ende alle Fotos und Videos von Abiturienten, Eltern und Lehrkräften in einem Album habt.",
+  "body": [
+    "## Zeitplan fürs Abikomitee",
+    "- <b>Etwa ein Jahr vorher</b>: Komitee gründen, Budget schätzen, Location anfragen – beliebte Säle sind früh vergeben.",
+    "- <b>Ein halbes Jahr vorher</b>: Catering, DJ oder Band, Fotograf und Deko buchen.",
+    "- <b>Ein bis zwei Monate vorher</b>: Ticketverkauf, Sitzplan, Programm und Moderation festlegen.",
+    "## Location-Ideen",
+    "- Stadthalle oder Festsaal für große Jahrgänge mit Familien.",
+    "- Eventlocation, Hotel oder Schiff für einen eleganten Abend.",
+    "- Schulaula – günstig und mit persönlicher Note.",
+    "## Typischer Ablauf",
+    "1. Sektempfang und Ankunft der Gäste.",
+    "2. Reden von Schulleitung, Stufenleitung und Komitee.",
+    "3. Zeugnisübergabe oder Ehrungen, je nach Schule.",
+    "4. Essen, Programmpunkte wie Lehrerwahl, Jahrgangsvideo oder Showeinlagen.",
+    "5. Party bis spät in die Nacht.",
+    "## Alle Fotos in einem Album – per QR-Code",
+    "Hunderte Fotos landen auf den Handys von Abiturienten, Eltern und Lehrkräften. Ein <b>Event-Album</b> auf Albums sammelt sie:",
+    "1. Album anlegen, z. B. „Abiball 2027 – Jahrgang Q2“.",
+    "2. QR-Code auf Tischkarten, Ticket oder Programmheft drucken.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>„Gästefotos zurückhalten“</b> prüft das Komitee jeden Upload, bevor er sichtbar wird.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen oder den Link im Jahrgangschat teilen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr dazu: <a href=\"/de/guides/graduation-party-photo-display-ideas/\">Abschlussfeier: Ideen für Fotos</a> und <a href=\"/de/guides/maturaball/\">Maturaball in Österreich</a>.",
+    "## Kosten",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $. Für die Gäste kostenlos. Fotos bis 4K; das Album wird 6 Monate ab dem ersten Upload gespeichert und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für den ganzen Jahrgang",
+    "p": "Gäste laden im Browser hoch, ohne Installation. Ihr entscheidet, was sichtbar wird.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Die Fotos aller Gäste, an einem Ort",
+    "p": "Einmalig ab 39,99 $. Fotos bis 4K, 6 Monate ab dem ersten Upload gespeichert, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    [
+      "Wann sollte man mit der Abiball-Planung beginnen?",
+      "Etwa ein Jahr vorher, vor allem für die Location, da beliebte Säle früh ausgebucht sind."
+    ],
+    [
+      "Wie läuft ein Abiball ab?",
+      "Meist Sektempfang, Reden, Ehrungen, Essen mit Programmpunkten und anschließend Party."
+    ],
+    [
+      "Wie sammeln wir die Fotos aller Gäste?",
+      "Mit einem QR-Code auf den Tischen. Alle laden Fotos und Videos im Browser in ein Album hoch; das Komitee kann Uploads vorher prüfen."
+    ],
+    [
+      "Müssen die Gäste etwas installieren?",
+      "Nein. Der QR-Code öffnet das Album im Browser."
+    ]
+  ],
+  "related": [
+    "graduation-party-photo-display-ideas",
+    "maturaball",
+    "qr-code-for-photos-at-party"
+  ]
+}

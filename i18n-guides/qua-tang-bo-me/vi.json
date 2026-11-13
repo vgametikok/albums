@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng bố mẹ ý nghĩa",
+  "date": "2026-11-13",
+  "title": "Quà tặng bố mẹ ý nghĩa: album kỷ niệm gia đình | Albums.ink",
+  "desc": "Quà tặng bố mẹ ý nghĩa dịp Tết, kỷ niệm ngày cưới hay sinh nhật: album online với ảnh, video và lời nhắn bằng giọng nói của con cháu. Miễn phí, không quảng cáo.",
+  "h1": "Quà tặng bố mẹ ý nghĩa: một album kể chuyện cả gia đình",
+  "lead": "“Quà tặng bố mẹ ý nghĩa”, “quà tặng bố mẹ ngày Tết”, “quà kỷ niệm ngày cưới cho bố mẹ” là những từ khóa nhiều người Việt tìm mỗi dịp cuối năm. Bố mẹ thường nói “không cần gì đâu”, nhưng một album gom lại kỷ niệm của cả nhà luôn khiến họ xúc động. Bạn có thể làm miễn phí trong một buổi tối.",
+  "body": [
+    "## Dịp tặng quà cho bố mẹ",
+    "- <b>Tết Nguyên Đán</b>: món quà khi cả nhà sum họp.",
+    "- <b>Kỷ niệm ngày cưới của bố mẹ</b>: nhất là các mốc 25, 30, 40 năm.",
+    "- <b>Sinh nhật, mừng thọ</b>: dịp con cháu cùng gửi lời chúc.",
+    "- <b>Lễ tri ân, ngày ra trường</b>: cảm ơn bố mẹ đã nuôi dạy.",
+    "## Nên đưa gì vào album",
+    "- Ảnh cũ: ảnh cưới của bố mẹ, ảnh các con hồi nhỏ (chụp lại hoặc scan).",
+    "- Những chuyến về quê, Tết sum họp, ngày con tốt nghiệp.",
+    "- Ảnh và video các cháu trong năm qua.",
+    "- Lời cảm ơn của từng người con, viết dưới ảnh hoặc ghi âm giọng nói.",
+    "## Làm album miễn phí",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> với chương, ảnh, video và ghi chú giọng nói, có thể tự kể bằng giọng mình. Ảnh miễn phí được lưu tối đa 2048 px ở cạnh dài. Không quảng cáo, số album không giới hạn và album được giữ lâu như bạn muốn.",
+    "1. Tạo album, ví dụ “Tặng bố mẹ – Tết 2027”.",
+    "2. Chia chương: Ngày xưa, Các con lớn lên, Các cháu, Lời cảm ơn.",
+    "3. Tải ảnh và video ngắn, viết vài dòng cho mỗi ảnh.",
+    "4. Ghi âm lời nhắn ngay trên trình duyệt.",
+    "5. Mời một đồng tác giả (anh chị em đã là bạn của bạn trên Albums) cùng thêm ảnh.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/album-anh-cho-me/\">album ảnh tặng mẹ</a> và <a href=\"/vi/guides/album-anh-gia-dinh/\">album ảnh gia đình</a>.",
+    "## Chia sẻ trong gia đình",
+    "Thêm bố mẹ làm bạn và chọn Bạn bè – lựa chọn này gồm tất cả bạn bè của bạn, nên nếu chỉ muốn gia đình xem, hãy chọn Bạn bè, ngoại trừ… và loại những người khác; kiểm tra lại sau khi thêm bạn mới. Chỉ mình tôi không mở quyền xem qua liên kết. Bạn cũng có thể ẩn từng tệp. Liên kết hiển thị ảnh bìa xem trước, và có thể tải toàn bộ album thành một file ZIP."
+  ],
+  "cta": {
+    "h2": "Món quà bố mẹ có thể nghe",
+    "p": "Album câu chuyện miễn phí với chương, video và ghi chú giọng nói. Không quảng cáo.",
+    "btn": "Tạo album →"
+  },
+  "cta2": {
+    "h2": "Kịp trước Tết",
+    "p": "Miễn phí, không giới hạn, album được giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Tặng gì cho bố mẹ thật ý nghĩa?",
+      "Thời gian bên nhau, một bữa cơm cả nhà, hoặc một album kỷ niệm có ảnh, video và lời nhắn của con cháu."
+    ],
+    [
+      "Có làm album miễn phí được không?",
+      "Có. Album câu chuyện trên Albums miễn phí, có chương, ảnh, video và ghi chú giọng nói, không quảng cáo."
+    ],
+    [
+      "Anh chị em có cùng làm được không?",
+      "Được, mỗi album có một đồng tác giả là bạn của bạn trên Albums. Những người khác có thể gửi ảnh để bạn tải lên."
+    ],
+    [
+      "Làm sao để chỉ gia đình xem?",
+      "Thêm người thân làm bạn, chọn Bạn bè, ngoại trừ… và loại những người khác."
+    ]
+  ],
+  "related": [
+    "album-anh-cho-me",
+    "album-anh-gia-dinh",
+    "family-history-stories"
+  ]
+}

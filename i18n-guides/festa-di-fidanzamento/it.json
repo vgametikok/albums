@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa di fidanzamento",
+  "date": "2026-11-13",
+  "title": "Festa di fidanzamento: quando si fa e cosa regalare | Albums.ink",
+  "desc": "Festa di fidanzamento: quando si fa, come organizzarla, come vestirsi e cosa regalare, più un album con QR code per raccogliere le foto e i video degli invitati.",
+  "h1": "Festa di fidanzamento: come organizzarla e conservarne i ricordi",
+  "lead": "«Festa di fidanzamento quando si fa», «cosa regalare», «come vestirsi»: sono le domande più cercate in Italia dopo la proposta. Ecco come organizzare la festa, cosa aspettarsi da invitati e regali, e un modo semplice per raccogliere tutte le foto e i video della serata.",
+  "body": [
+    "## Quando si fa la festa di fidanzamento",
+    "Di solito qualche settimana o qualche mese dopo la proposta, e comunque con buon anticipo sul matrimonio. Spesso è anche l'occasione in cui le due famiglie si conoscono meglio.",
+    "## Come organizzarla",
+    "- <b>Cena in famiglia</b>: a casa o al ristorante, con genitori, fratelli e nonni.",
+    "- <b>Aperitivo con gli amici</b>: un locale o una terrazza, stuzzichini e brindisi.",
+    "- <b>Festa in giardino o in agriturismo</b>: per chi vuole invitare più persone.",
+    "- <b>Brindisi e discorso</b>: poche parole dei fidanzati o dei genitori.",
+    "## Come vestirsi",
+    "Elegante ma non da cerimonia: per lei un abito da cocktail, per lui camicia e giacca. Gli invitati seguono lo stesso tono.",
+    "## Cosa regalare",
+    "Il regalo non è obbligatorio. Gli invitati spesso portano fiori, una bottiglia o un pensiero per la casa; i genitori a volte regalano un gioiello o un oggetto di famiglia.",
+    "## Le foto di tutti con un QR code",
+    "Le foto della festa finiscono sui telefoni di parenti e amici. Un <b>album evento</b> su Albums le raccoglie in un unico posto:",
+    "1. Crea l'album, ad esempio «Fidanzamento di Giulia e Marco».",
+    "2. Stampa il QR code su un segnaposto o mandalo nella chat di famiglia.",
+    "3. Gli invitati inquadrano con la fotocamera del telefono e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> (approva le foto) per controllare ogni caricamento prima che diventi visibile.",
+    "5. Dopo la festa, scarica l'intero album in un unico ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli invitati che hanno effettuato l'accesso ricevono anche una copia privata in bozza con i soli propri caricamenti.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/addio-al-nubilato/\">addio al nubilato</a> e <a href=\"/it/guides/collect-wedding-photos-from-guests/\">come raccogliere le foto del matrimonio dagli invitati</a>.",
+    "## Prezzo",
+    "L'album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gratis per gli invitati. Foto fino a 4K; l'album è conservato per 6 mesi dal primo caricamento ed è prorogabile."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Gli invitati caricano dal browser, senza installare nulla. Decidi tu cosa diventa visibile.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Tutte le foto del fidanzamento insieme",
+    "p": "Acquisto unico da 39,99 $. Foto fino a 4K, conservate 6 mesi dal primo caricamento, prorogabile.",
+    "btn": "Inizia l'album →"
+  },
+  "faq": [
+    [
+      "Quando si fa la festa di fidanzamento?",
+      "Di solito alcune settimane o mesi dopo la proposta, con anticipo sul matrimonio."
+    ],
+    [
+      "Cosa si regala a una festa di fidanzamento?",
+      "Non è obbligatorio: fiori, una bottiglia o un pensiero per la casa vanno benissimo."
+    ],
+    [
+      "Come ci si veste?",
+      "Elegante ma non da cerimonia: abito da cocktail per lei, camicia e giacca per lui."
+    ],
+    [
+      "Come raccolgo le foto degli invitati?",
+      "Con un QR code: tutti caricano foto e video dal browser nello stesso album, e puoi approvarli prima."
+    ]
+  ],
+  "related": [
+    "addio-al-nubilato",
+    "collect-wedding-photos-from-guests",
+    "qr-code-for-photos-at-party"
+  ]
+}

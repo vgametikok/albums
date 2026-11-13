@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AT",
+  "query": "Weihnachtsgeschenk für Eltern",
+  "date": "2026-11-13",
+  "title": "Weihnachtsgeschenk für Eltern: persönlich | Albums.ink",
+  "desc": "Weihnachtsgeschenk für Eltern, die schon alles haben: ein Album mit Familienfotos, Videos und Sprachnachrichten der Enkel. Kostenlos, ohne Werbung.",
+  "h1": "Weihnachtsgeschenk für Eltern: Erinnerungen statt noch ein Packerl",
+  "lead": "„Weihnachtsgeschenk für Eltern, die alles haben“ – genau das suchen in Österreich viele jedes Jahr im Advent. Mama und Papa brauchen selten noch etwas. Worüber sie sich aber freuen: gemeinsame Erinnerungen. Hier sind Ideen und ein Weg, in einem Abend ein persönliches Album mit Fotos, Videos und Stimmen zu gestalten – kostenlos.",
+  "body": [
+    "## Ideen für Eltern, die schon alles haben",
+    "- <b>Zeit schenken</b>: ein Gutschein für einen gemeinsamen Ausflug, einen Thermentag oder ein Essen im Lieblingsgasthaus.",
+    "- <b>Etwas Selbstgemachtes</b>: Kekse nach Omas Rezept, ein Kalender mit Familienfotos.",
+    "- <b>Ein Erinnerungsalbum</b>: Fotos aus der Kindheit, vom Urlaub und von den Enkelkindern – mit kurzen Texten dazu.",
+    "- <b>Stimmen der Familie</b>: kurze Sprachnachrichten der Enkel, Geschwister und Freunde.",
+    "## Was ins Album gehört",
+    "- Alte Fotos aus dem Familienfundus, z. B. vom Hochzeitstag der Eltern oder den ersten Urlauben.",
+    "- Die Kinder- und Schulzeit: erster Schultag, Skikurs, Sommer am See.",
+    "- Das letzte Jahr: Feste, Besuche, die Enkel beim Spielen.",
+    "- Ein paar Worte von jedem: wofür ihr euren Eltern dankbar seid.",
+    "## So entsteht das Album",
+    "Auf Albums erstellst du ein kostenloses <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnachrichten. Kostenlose Fotos werden mit bis zu 2048 px an der langen Kante gespeichert. Keine Werbung, unbegrenzt viele Alben, und das Album bleibt, solange du es möchtest.",
+    "1. Lege ein Album an, z. B. „Für Mama und Papa – Weihnachten 2026“.",
+    "2. Teile es in Kapitel: Früher, Unsere Familie, Dieses Jahr, Danke.",
+    "3. Lade alte Fotos (abfotografiert oder eingescannt) und neue Videos hoch.",
+    "4. Nimm im Browser eine Sprachnachricht auf oder erzähle ein Kapitel mit deiner Stimme.",
+    "5. Lade einen Co-Autor ein, z. B. deine Schwester – sie muss auf Albums mit dir befreundet sein.",
+    "!cta",
+    "Mehr dazu: <a href=\"/de/guides/fotoalbum-fuer-mama/\">Fotoalbum für Mama</a> und <a href=\"/de/guides/fotoalbum-fuer-papa/\">Fotoalbum für Papa</a>.",
+    "## Teilen und schenken",
+    "Füge deine Eltern als Freunde hinzu und wähle Freunde – das sind alle deine Freunde. Soll nur die Familie das Album sehen, wähle „Freunde außer …“ und schließe die anderen aus; prüfe das nach neuen Freundschaften erneut. „Nur ich“ erlaubt keinen Zugriff über einen Link. Einzelne Dateien kannst du ausblenden. Der Link zeigt eine Vorschau mit Titelbild, und das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Ein Geschenk, das man hören kann",
+    "p": "Kostenloses Story-Album mit Kapiteln, Videos und Sprachnachrichten. Keine Werbung.",
+    "btn": "Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Noch rechtzeitig vor dem Christkind",
+    "p": "Kostenlos und unbegrenzt – deine Alben bleiben, solange du sie möchtest.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man Eltern, die schon alles haben?",
+      "Gemeinsame Zeit, etwas Selbstgemachtes oder ein persönliches Album mit Familienfotos, Videos und Sprachnachrichten."
+    ],
+    [
+      "Kann ich so ein Album kostenlos erstellen?",
+      "Ja. Ein Story-Album auf Albums ist kostenlos, mit Kapiteln, Fotos, Videos und Sprachnachrichten, ohne Werbung."
+    ],
+    [
+      "Können meine Geschwister mitmachen?",
+      "Ja, ein Co-Autor pro Album – er muss auf Albums mit dir befreundet sein. Andere können dir Fotos schicken, die du hochlädst."
+    ],
+    [
+      "Wie sehen es nur meine Eltern?",
+      "Füge sie als Freunde hinzu und wähle „Freunde außer …“, um alle anderen auszuschließen."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-mama",
+    "fotoalbum-fuer-papa",
+    "family-history-stories"
+  ]
+}
