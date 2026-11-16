@@ -642,6 +642,7 @@ export default {
 
   /* ---- guest hero / footer legal links ---- */
   hero_title: "Todas as fotos dos convidados do seu evento — com um único QR code",
+  social_h1: "Álbuns-história e feed de fotos",
   hero_event: "Criar um Álbum de Evento",
   hero_text: "Os convidados escaneiam o código e enviam pelo navegador do celular — sem app, sem cadastro. A partir de US$ 39,99 em pagamento único por evento: o armazenamento dura 6 meses a partir do primeiro envio e pode ser estendido, sem prazo para enviar, com exportação completa quando você quiser. E, ao contrário de qualquer outro lugar, seus convidados também ficam com as próprias fotos — em uma conta gratuita só deles.",
   hero_start: "Começar um álbum de histórias grátis",

@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
 <url><loc>https://albums.ink/</loc><lastmod>2026-11-08</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-<url><loc>https://albums.ink/social/</loc><lastmod>2026-11-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://albums.ink/pricing</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://albums.ink/social/</loc><lastmod>2026-11-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://albums.ink/pricing</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://albums.ink/guides/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://albums.ink/guides/collect-wedding-photos-from-guests/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://albums.ink/guides/wedding-qr-code-table-signs/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://albums.ink/guides/google-photos-vs-qr-guest-album/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -55,9 +55,9 @@
 <url><loc>https://albums.ink/guides/shared-photo-album-iphone-android/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://albums.ink/guides/qr-code-for-photo-sharing/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://albums.ink/guides/voice-guest-book/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://albums.ink/terms</loc><lastmod>2026-10-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-<url><loc>https://albums.ink/privacy</loc><lastmod>2026-10-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-<url><loc>https://albums.ink/refunds</loc><lastmod>2026-10-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<url><loc>https://albums.ink/terms</loc><lastmod>2026-11-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<url><loc>https://albums.ink/privacy</loc><lastmod>2026-11-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<url><loc>https://albums.ink/refunds</loc><lastmod>2026-11-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 <url><loc>https://albums.ink/album.html?id=b9ed64c3-1a38-41fc-a2be-ceb28d627611</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://albums.ink/album.html?id=544f2ef7-c38b-4ba3-a8af-2f3039775dff</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://albums.ink/album.html?id=ca3556a7-e6f8-4c28-94f5-f6aa9da6548c</loc><lastmod>2026-10-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

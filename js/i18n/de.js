@@ -419,6 +419,7 @@
 
   /* ---- Gast-Banner / Footer-Links ---- */
   hero_title: "Jedes Gästefoto deines Events — mit einem QR-Code",
+  social_h1: "Story-Alben und Fotofeed",
   hero_event: "Event-Album erstellen",
   hero_text: "Gäste scannen den Code und laden direkt aus dem Handy-Browser hoch — ohne App, ohne Registrierung. Ab 39,99 $ einmalig pro Event: 6 Monate Speicherung ab dem ersten Upload, verlängerbar, kein Upload-Fenster, voller Export jederzeit. Und anders als überall sonst behalten deine Gäste ihre Aufnahmen auch selbst — im eigenen kostenlosen Konto.",
   hero_start: "Kostenloses Story-Album starten",

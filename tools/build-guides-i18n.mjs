@@ -9,14 +9,15 @@
  *
  * Английская версия остаётся на /guides/<slug>/ и служит x-default. Каждая
  * версия получает self-canonical и hreflang на все языки. Ссылки на другие
- * гайды ведут на ту же языковую версию, если она есть; CTA на /events/
- * получают ?lang=<код>, чтобы лендинг открылся на нужном языке.
+ * гайды ведут на ту же языковую версию, если она есть; CTA событий ведут
+ * на / или /?lang=<код>, CTA соцсети — на /social/ или /social/?lang=<код>.
+ * Язык запоминается в localStorage/cookie; Worker 301 снимает ?lang= с URL.
  * Самостоятельные гайды (без английского оригинала): <lang>.json с "standalone": true —
  * пишутся под спрос конкретной страны/языка и есть только на этом языке
  * (en → /guides/<slug>/, остальные → /<lang>/guides/<slug>/). Поля: title, desc,
  * h1, lead, body (мини-разметка: "## " h2, "### " h3, "- " ul, "1. " ol, "!cta" —
  * CTA-блок из cta, остальное — <p>), cta {h2,p,btn}, cta2 (финальный, необяз.),
- * faq [[q,a]…], type ("event" → CTA /events/, "social" → https://albums.ink/),
+ * faq [[q,a]…], type ("event" → CTA на /, "social" → /social/),
  * country/query (целевой рынок и запрос — служебные), date, related [slug…].
  * build.mjs вызывает этот скрипт после build-head.mjs (тот переписывает
  * <!-- seo --> и sitemap.xml, а блоки <!-- hreflang --> не трогает).
@@ -42,6 +43,14 @@ const cellsOf = (body) => { const o = []; body.replace(CELL, (...m) => { o.push(
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const unesc = (s) => String(s).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const urlFor = (lang, slug) => `${SITE}${lang === 'en' ? '' : '/' + lang}/guides/${slug}/`;
+const eventCtaHref = (lang) => lang === 'en' ? `${SITE}/` : `/?lang=${lang}`;
+const socialCtaHref = (lang) => lang === 'en' ? `${SITE}/social/` : `/social/?lang=${lang}`;
+function rewriteLandingHrefs(html, lang) {
+  return html
+    .replace(/href="(?:https:\/\/albums\.ink)?\/events\/(?:\?lang=[^"#]*)?"/g, `href="${eventCtaHref(lang)}"`)
+    .replace(/href="(?:https:\/\/albums\.ink)?\/social\/(?:\?lang=[^"#]*)?"/g, `href="${socialCtaHref(lang)}"`)
+    .replace(/href="(?:https:\/\/albums\.ink)?\/guides\/\?lang=[^"]*"/g, 'href="/guides/"');
+}
 
 function splitBody(html) {
   const i = html.indexOf('<body'); return [html.slice(0, i), html.slice(i)];
@@ -97,12 +106,11 @@ async function render(slug, lang, langs) {
     return m[11] + t + m[13];
   });
   if (cells.length && tr.tables) { let c = 0; body = body.replace(CELL, (all, a, t, b) => a + tr.tables[c++] + b); }
-  // Ссылки: гайды — на эту же языковую версию, если она есть; /events/ — с ?lang.
+  // Ссылки: гайды — на эту же языковую версию, если она есть;
+  // лендинг событий — /, соцсеть — /social/; язык через ?lang= (воркер снимет его 301).
   body = body.replace(/href="(?:https:\/\/albums\.ink)?\/guides\/([a-z0-9-]+)\/"/g, (all, s) =>
     existsSync(join(SRC, s, `${lang}.json`)) ? `href="/${lang}/guides/${s}/"` : all);
-  body = body.replace(/href="(?:https:\/\/albums\.ink)?\/events\/"/g, `href="/events/?lang=${lang}"`);
-
-  body = body.replace(/href="https:\/\/albums\.ink\/social\/"/g, `href="/social/?lang=${lang}"`);
+  body = rewriteLandingHrefs(body, lang);
 
   const url = urlFor(lang, slug);
   const title = esc(tr.title), desc = esc(tr.desc);
@@ -168,7 +176,7 @@ async function renderStandalone(slug, lang, tr) {
   if (/forever|indefinite|\bapps?\b/i.test(all)) throw new Error(`${slug}/${lang}: banned word (forever/indefinite/app)`);
   const ui = await uiStrings(lang);
   const pre = lang === 'en' ? '' : `/${lang}`;
-  const href = tr.type === 'event' ? (lang === 'en' ? 'https://albums.ink/events/' : `/events/?lang=${lang}`) : (lang === 'en' ? 'https://albums.ink/social/' : `/social/?lang=${lang}`);
+  const href = tr.type === 'event' ? eventCtaHref(lang) : socialCtaHref(lang);
   const url = urlFor(lang, slug);
   const tpl = await readFile(join(ROOT, 'guides', UI_REF, 'index.html'), 'utf8');
   const [head0] = splitBody(tpl);
@@ -238,7 +246,7 @@ async function build() {
     const langs = LANGS.filter(l => l === 'en' || existsSync(join(SRC, slug, `${l}.json`)));
     if (langs.length < 2) continue;
     const enPath = join(ROOT, 'guides', slug, 'index.html');
-    await writeFile(enPath, putHreflang(await readFile(enPath, 'utf8'), hreflangBlock(slug, langs)));
+    await writeFile(enPath, rewriteLandingHrefs(putHreflang(await readFile(enPath, 'utf8'), hreflangBlock(slug, langs)), 'en'));
     for (const l of langs) if (l !== 'en') urls.push({ url: await render(slug, l, langs), file: join('i18n-guides', slug, `${l}.json`) });
   }
   // В sitemap.xml (его только что переписал build-head) — переводы гайдов.

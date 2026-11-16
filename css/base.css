@@ -736,18 +736,22 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
 @media (pointer:coarse){.drag-handle{display:none}}
 .voice-btn{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 
-/* ---- Карточка QR-альбома событий на главной (#home-event).
-   Статический HTML в index.html — его читают краулеры; feed.js переносит
+/* Заголовок ленты /social/ — свой, не герой событий с главной. */
+.social-h1{font-family:var(--font-display);font-size:clamp(28px,3vw,40px);font-weight:600;
+  letter-spacing:0;line-height:1.1;margin:18px 0 8px;color:var(--ink)}
+
+/* ---- Карточка QR-альбома событий на /social/ (#home-event).
+   Статический HTML в social/index.html — его читают краулеры; feed.js переносит
    карточку в ленту: гостю — большой врезкой на месте featured, вошедшему —
-   плиткой сетки (.ev-tile) того же размера, что и альбомы. Цены на главной
-   нет намеренно: она на /events/ и /pricing. Табличка .hi-sign — та же
-   «Emma & James», что и на /events/. ---- */
+   плиткой сетки (.ev-tile) того же размера, что и альбомы. Цены на ленте
+   нет намеренно: они на / и /pricing. Табличка .hi-sign — та же
+   «Emma & James», что и на главной. ---- */
 .ev-feature{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:34px;align-items:center;
   padding:34px 42px;background:linear-gradient(135deg,#FBF6EA,#F0E4C6);border:1.5px solid #E6D29B;
   color:var(--ink);margin:8px 0 40px}
 .featured .ev-feature{margin:0}
 .ev-feature .kicker{text-transform:uppercase}
-.ev-feature h1{font-family:var(--font-display);font-size:clamp(30px,3.1vw,46px);font-weight:600;
+.ev-feature h1,.ev-feature h2{font-family:var(--font-display);font-size:clamp(30px,3.1vw,46px);font-weight:600;
   letter-spacing:0;line-height:1.06;margin:8px 0 12px}
 .ev-feature p{font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 22px;max-width:560px}
 .ev-feature .btn{padding:0 24px}
@@ -783,7 +787,7 @@ body.has-mobnav .gal-bar{bottom:calc(84px + env(safe-area-inset-bottom))}
 @media (max-width:1024px){ .featured-event .ev-feature{flex:none} }
 @media (max-width:720px){
   .ev-feature{grid-template-columns:1fr;gap:0;padding:24px 20px 22px;margin-bottom:24px}
-  .ev-feature h1{font-size:30px}
+  .ev-feature h1,.ev-feature h2{font-size:30px}
   .ev-feature p{font-size:15px;margin-bottom:18px}
   .ev-feature .btn{width:100%}
   /* пара и табличка — под кнопкой, компактно: кнопку вниз не сдвигают */

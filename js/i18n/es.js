@@ -419,6 +419,7 @@
 
   /* ---- banner de invitado / enlaces del pie ---- */
   hero_title: "Cada foto de tus invitados — con un solo código QR",
+  social_h1: "Álbumes historia y feed de fotos",
   hero_event: "Crear un álbum de evento",
   hero_text: "Los invitados escanean el código y suben fotos desde el navegador del móvil — sin app, sin registro. Desde $39.99 una sola vez por evento: almacenamiento de 6 meses desde la primera subida, ampliable, sin ventana de subida, exportación completa cuando quieras. Y a diferencia de cualquier otro sitio, tus invitados también se quedan con sus fotos — en su propia cuenta gratuita.",
   hero_start: "Empezar un álbum-historia gratis",

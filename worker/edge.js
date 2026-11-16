@@ -265,6 +265,23 @@ async function homePage(req, url, ctx) {
   return withCC(out);
 }
 
+
+const UI_LANGS = new Set(['en', 'de', 'es', 'fr', 'ja', 'ko', 'ru', 'vi', 'zh-CN', 'pt-BR', 'it', 'id']);
+
+/** 301/302 на чистый путь: ?lang= снимается, язык уходит в cookie для i18n.js. */
+function redirectClean(url, destPath, status = 301) {
+  const next = new URL(destPath, SITE);
+  for (const [k, v] of url.searchParams.entries()) {
+    if (k !== 'lang') next.searchParams.append(k, v);
+  }
+  const headers = { Location: next.href };
+  const lang = url.searchParams.get('lang');
+  if (lang && UI_LANGS.has(lang)) {
+    headers['Set-Cookie'] = `albums_lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+  }
+  return new Response(null, { status, headers });
+}
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
@@ -273,12 +290,23 @@ export default {
     if (old && OLD_GUIDES[old[1]]) return Response.redirect(`${SITE}${OLD_GUIDES[old[1]]}`, 301);
     try {
       const p = url.pathname;
-      // Preserve legacy feed searches, query parameters, and browser fragment inheritance.
-      if ((p === '/' || p === '/index.html') && url.searchParams.has('q')) {
-        return Response.redirect(`${SITE}/social/${url.search}`, 302);
+      // /events/ — полный дубль главной: канон уже /, сюда ведут старые CTA.
+      if (p === '/events' || p === '/events/' || p === '/events/index.html') {
+        return redirectClean(url, '/', 301);
       }
-      if (p === '/index.html') return Response.redirect(`${SITE}/${url.search}`, 302);
-      if (p === '/social' || p === '/social/index.html') return Response.redirect(`${SITE}/social/${url.search}`, 302);
+      // Только хаб гайдов (статьи на этот Worker не повешены, чтобы не жечь лимит).
+      if (p === '/guides' || (p === '/guides/' && url.searchParams.has('lang'))) {
+        return redirectClean(url, '/guides/', 301);
+      }
+      // Поиск ?q= — не постоянный адрес, оставляем 302. Язык, если был, уходит в cookie.
+      if ((p === '/' || p === '/index.html') && url.searchParams.has('q')) {
+        return redirectClean(url, '/social/', 302);
+      }
+      if (p === '/index.html') return redirectClean(url, '/', 301);
+      if (p === '/social' || p === '/social/index.html') return redirectClean(url, '/social/', 301);
+      if ((p === '/' || p === '/social/') && url.searchParams.has('lang')) {
+        return redirectClean(url, p, 301);
+      }
       if (p === '/social/') return await homePage(req, url, ctx);
       // Root is the event landing, never the cached feed or its RPC.
       if (p === '/') return fetch(req);

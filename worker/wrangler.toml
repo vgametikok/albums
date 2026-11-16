@@ -10,6 +10,9 @@ workers_dev = false
 # тратит лимит бесплатного тарифа (100 000 запросов в сутки).
 routes = [
   { pattern = "albums.ink/social*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/events*", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides", zone_name = "albums.ink" },
+  { pattern = "albums.ink/guides/", zone_name = "albums.ink" },
   { pattern = "albums.ink/index.html*", zone_name = "albums.ink" },
   { pattern = "albums.ink/", zone_name = "albums.ink" },
   { pattern = "albums.ink/index.html", zone_name = "albums.ink" },

@@ -419,6 +419,7 @@
 
   /* ---- bannière invité / liens du pied de page ---- */
   hero_title: "Chaque photo de vos invités — avec un seul QR code",
+  social_h1: "Albums racontés et fil photo",
   hero_event: "Créer un album d'événement",
   hero_text: "Les invités scannent le code et envoient leurs photos depuis le navigateur du téléphone — sans appli, sans inscription. À partir de 39,99 $ une seule fois par événement : stockage de 6 mois à partir du premier envoi, prolongeable, pas de fenêtre d'envoi, export complet quand vous voulez. Et contrairement à partout ailleurs, vos invités gardent aussi leurs clichés — dans leur propre compte gratuit.",
   hero_start: "Commencer un album-histoire gratuit",

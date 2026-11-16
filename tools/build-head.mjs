@@ -640,7 +640,7 @@ const PAGES = {
     desc: 'A creator profile on Albums: their story albums, posts and friends.',
   },
   'posts.html': {
-    path: '/posts.html',
+    path: '/posts.html', robots: 'noindex,follow',
     title: 'Posts — Albums.ink',
     og: 'album',
     desc: 'The posts feed on Albums: photos, videos and carousels from creators.',

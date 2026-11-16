@@ -643,6 +643,7 @@ export default {
 
   /* ---- guest hero / footer legal links ---- */
   hero_title: "Every guest photo from your event — with one QR code",
+  social_h1: "Story albums and photo feed",
   hero_event: "Create an Event Album",
   hero_text: "Guests scan the code and upload from the phone browser — no app, no signup. From $39.99 one-time per event: storage runs 6 months from the first upload and can be extended, no upload window, full export whenever you want. And unlike anywhere else, your guests keep their photos too — in their own free account.",
   hero_start: "Start a free story album",

@@ -39,13 +39,14 @@ let trendPeriod = 'week';
 
 (async function main() {
   await mountShell('home');
+  document.querySelectorAll('.social-h1[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
   const q = new URLSearchParams(location.search).get('q');
 
   // Карточка QR-альбома событий лежит в index.html настоящим HTML — её видят
   // краулеры, которые скрипты не исполняют. Здесь она переезжает в ленту:
   // гостю — большой врезкой на месте featured, вошедшему — первой обычной
   // плиткой сетки. Главная у всех одна и та же: шапка, вкладки, чипы, сетка.
-  // Цены на главной нет намеренно — она живёт на /events/ и /pricing.
+  // Цены на ленте нет намеренно — она живёт на / и /pricing.
   const ev = document.getElementById('home-event');
   const ssrFeat = document.getElementById('feed-ssr-feat');
   if (ev) {
@@ -74,7 +75,7 @@ function eventFeatured() {
 /** Плитка для вошедшего: того же размера и устройства, что albumCard. */
 function eventTile() {
   if (!eventSign) return null;
-  const href = '/events/';
+  const href = '/';
   return el('div', { class: 'ev-tile' },
     el('a', { class: 'card-cover', href, 'aria-label': t('home_ev_more') },
       ...(eventCouple ? [eventCouple.cloneNode(true)] : []),

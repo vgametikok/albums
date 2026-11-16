@@ -642,6 +642,7 @@ export default {
 
   /* ---- guest hero / footer legal links ---- */
   hero_title: "Tutte le foto degli invitati al tuo evento — con un solo codice QR",
+  social_h1: "Album racconto e feed fotografico",
   hero_event: "Crea un Album evento",
   hero_text: "Gli invitati inquadrano il codice e caricano dal browser del telefono — senza app, senza registrazione. Da 39,99 $ una tantum per evento: la conservazione dura 6 mesi dal primo caricamento e si può prolungare, nessun limite di tempo per caricare, esportazione completa quando vuoi. E, a differenza di altrove, i tuoi invitati conservano anche le proprie foto — nel loro account gratuito.",
   hero_start: "Inizia un album storia gratuito",

@@ -28,23 +28,43 @@ export const LANGS = {
 };
 
 const STORAGE_KEY = 'albums.lang';
+const COOKIE_KEY = 'albums_lang';
 let lang = 'en';
 let dict = EN;
 let pr = new Intl.PluralRules('en');
 
+function persistLang(l) {
+  try { localStorage.setItem(STORAGE_KEY, l); } catch (_) { /* private mode */ }
+  try {
+    document.cookie = `${COOKIE_KEY}=${encodeURIComponent(l)}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+  } catch (_) { /* без document */ }
+}
+
+function langFromCookie() {
+  try {
+    const m = document.cookie.match(/(?:^|; )albums_lang=([^;]*)/);
+    const v = m && decodeURIComponent(m[1]);
+    return v && LANGS[v] ? v : null;
+  } catch (_) { return null; }
+}
+
 /** Выбор пользователя, иначе язык браузера, иначе английский. */
 export function detectLang() { return detect(); }
 function detect() {
-  // ?lang=de в ссылке (переводы гайдов ведут на /events/?lang=…) — выбор и запоминаем.
+  // ?lang=de в ссылке (CTA гайдов и старые URL до 301 воркера) — выбор и запоминаем.
   try {
     const q = new URLSearchParams(location.search).get('lang');
-    if (q && LANGS[q]) { localStorage.setItem(STORAGE_KEY, q); return q; }
+    if (q && LANGS[q]) { persistLang(q); return q; }
   } catch (_) { /* без location — дальше по порядку */ }
+  // Cookie ставит Worker при 301 /?lang=xx и /social/?lang=xx на чистый URL.
+  const cookie = langFromCookie();
+  if (cookie) { persistLang(cookie); return cookie; }
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved && LANGS[saved]) return saved;
   // Страница на конкретном языке (/de/guides/…): шапка и подвал на нём же.
+  // Запоминаем, только если выбора ещё не было — иначе не перебиваем язык из переключателя.
   const page = document.documentElement.getAttribute('data-lang');
-  if (page && LANGS[page]) return page;
+  if (page && LANGS[page]) { persistLang(page); return page; }
   for (const raw of (navigator.languages || [navigator.language || 'en'])) {
     const l = String(raw);
     if (LANGS[l]) return l;
@@ -78,7 +98,7 @@ export function currentLang() { return lang; }
 
 export function setLang(l) {
   if (!LANGS[l] || l === lang) return;
-  localStorage.setItem(STORAGE_KEY, l);
+  persistLang(l);
   location.reload();
 }
 

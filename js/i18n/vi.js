@@ -419,6 +419,7 @@
 
   /* ---- banner khách / liên kết chân trang ---- */
   hero_title: "Mọi bức ảnh của khách mời — chỉ với một mã QR",
+  social_h1: "Album câu chuyện và bảng tin ảnh",
   hero_event: "Tạo album sự kiện",
   hero_text: "Khách quét mã và tải ảnh lên ngay từ trình duyệt điện thoại — không cần ứng dụng, không cần đăng ký. Từ $39.99 một lần cho mỗi sự kiện: lưu trữ 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn, không giới hạn thời gian tải lên, xuất toàn bộ bất cứ lúc nào. Và khác với mọi nơi khác, khách của bạn cũng giữ được ảnh của mình — trong tài khoản miễn phí của riêng họ.",
   hero_start: "Bắt đầu album câu chuyện miễn phí",

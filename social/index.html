@@ -43,21 +43,24 @@
       <nav class="hdr-right">
         <a class="nav-link" href="/posts.html">Posts</a>
         <a class="nav-link" href="/pricing">Pricing</a>
-        <a class="nav-link" href="/events/">Event Albums</a>
+        <a class="nav-link" href="/">Event Albums</a>
       </nav>
     </header>
   </div>
 
+  <h1 class="social-h1" data-i18n="social_h1">Story albums and photo feed</h1>
+
   <!-- Карточка QR-альбома событий: настоящий HTML до всякого JS — его читают
        краулеры поисковиков и языковых моделей. feed.js переносит её в ленту:
        гостю — большой врезкой на месте featured, вошедшему — первой плиткой
-       сетки. Главная одна для всех; цен здесь нет — они на /events/ и /pricing. -->
+       сетки. H1 страницы — про ленту; у врезки события заголовок h2.
+       Цены на ленте нет — они на / и /pricing. -->
   <section id="home-event" class="featured-main ev-feature">
     <div class="ev-feature-text">
       <div class="kicker" data-i18n="qr_album_full">QR Album for events</div>
-      <h1 data-i18n="hero_title">Every guest photo from your event — with one QR code</h1>
+      <h2 data-i18n="hero_title">Every guest photo from your event — with one QR code</h2>
       <p data-i18n="home_ev_text">Guests scan the code and upload photos and videos from the phone browser — no app, no signup. 6 months of storage from the first upload (extendable), full export anytime, and guests keep their photos too.</p>
-      <a class="btn btn-primary" href="/events/" data-i18n="home_ev_more">More about event albums</a>
+      <a class="btn btn-primary" href="/" data-i18n="home_ev_more">More about event albums</a>
     </div>
     <!-- Узор декоративный: настоящий код вёл бы в чей-то альбом. -->
     <div class="ev-feature-sign" aria-hidden="true">
@@ -82,7 +85,7 @@
 <!-- Статический подвал для краулеров; mountFooter() заменяет его локализованным. -->
 <footer class="site-foot" style="text-align:center;padding:28px 16px 96px;color:#A69D8E;font-size:12.5px;line-height:1.7">
   <div style="margin-bottom:8px">
-    <a href="/events/" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Event Albums</a>
+    <a href="/" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Event Albums</a>
     <a href="/pricing" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Pricing</a>
     <a href="/terms" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Terms of Service</a>
     <a href="/privacy" style="color:#A69D8E;text-decoration:underline;margin:0 8px">Privacy Policy</a>

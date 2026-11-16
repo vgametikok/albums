@@ -642,6 +642,7 @@ export default {
 
   /* ---- guest hero / footer legal links ---- */
   hero_title: "Semua foto tamu dari acaramu — dengan satu kode QR",
+  social_h1: "Album cerita dan umpan foto",
   hero_event: "Buat Album Acara",
   hero_text: "Tamu memindai kodenya dan mengunggah lewat browser ponsel — tanpa aplikasi, tanpa daftar akun. Mulai US$39,99 sekali bayar per acara: penyimpanan berlaku 6 bulan sejak unggahan pertama dan bisa diperpanjang, tanpa batas waktu unggah, ekspor lengkap kapan pun kamu mau. Dan tidak seperti di tempat lain, tamumu juga menyimpan foto mereka sendiri — di akun gratis milik mereka.",
   hero_start: "Mulai album cerita gratis",
