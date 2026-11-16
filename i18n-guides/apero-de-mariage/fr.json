@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "apéro mariage",
+  "date": "2026-11-16",
+  "title": "Apéro de mariage : idées et organisation | Albums.ink",
+  "desc": "Organiser l'apéro de mariage en Suisse romande : timing, boissons, amuse-bouches, animations et un code QR pour réunir les photos de tous les invités.",
+  "h1": "Apéro de mariage : idées pour un moment réussi",
+  "lead": "« Apéro mariage », « apéro mariage fait maison », « apéro mariage simple » : en Suisse romande, l'apéro après la cérémonie est souvent le moment où tous les invités se retrouvent, y compris ceux qui ne restent pas au repas. Voici comment l'organiser et récupérer toutes les photos prises ce jour-là.",
+  "body": [
+    "## Le timing",
+    "- Juste après la cérémonie civile ou religieuse, souvent sur une ou deux heures.",
+    "- C'est aussi le moment des photos de groupe et des félicitations.",
+    "- Les invités « apéro seulement » repartent ensuite ; les autres restent pour le souper.",
+    "## Boissons",
+    "- Un vin blanc local (chasselas, par exemple), un crémant ou un mousseux.",
+    "- Jus de pomme, sirops et eau pour les enfants et les conducteurs.",
+    "- Prévoyez de l'ombre et de l'eau fraîche si l'apéro est en plein air.",
+    "## Amuse-bouches",
+    "- Fait maison : tresse au jambon, feuilletés, plateaux de fromages et de viande séchée.",
+    "- Un ou deux plats chauds en petites portions.",
+    "- Comptez plus large si la famille et les amis aident à préparer.",
+    "## Animations",
+    "- Un livre d'or ou un arbre à empreintes.",
+    "- Jeux de pelouse pour les enfants.",
+    "- Un quiz sur les mariés.",
+    "## Toutes les photos des invités avec un code QR",
+    "Chacun prend des photos avec son natel. Avec un <b>album d'événement</b> sur Albums, elles arrivent toutes au même endroit :",
+    "1. Créez l'album, par exemple « Mariage Léa & Marc ».",
+    "2. Imprimez le code QR et posez-le sur le bar de l'apéro et les tables.",
+    "3. Les invités le scannent avec l'appareil photo du téléphone et envoient photos et vidéos depuis le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> pour valider les photos avant leur affichage.",
+    "5. Après la fête, téléchargez tout l'album en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Ceux qui sont connectés reçoivent en plus une copie brouillon privée de leurs propres envois uniquement.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/wedding-qr-code-table-signs/\">panneaux QR code pour le mariage</a> et <a href=\"/fr/guides/collect-wedding-photos-from-guests/\">récupérer les photos des invités</a>.",
+    "## Prix",
+    "L'album d'événement est un achat unique : Small $39.99, Medium $69.99 ou Large $129.99. Les invités ne paient rien. Photos jusqu'en 4K ; l'album est conservé 6 mois à partir du premier envoi, prolongeable."
+  ],
+  "cta": {
+    "h2": "Un code QR pour tout le mariage",
+    "p": "Envoi depuis le navigateur, sans compte. Vous décidez de ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Gardez toutes les photos du grand jour",
+    "p": "Achat unique dès $39.99. Jusqu'en 4K, 6 mois à partir du premier envoi, prolongeable.",
+    "btn": "Lancer l'album →"
+  },
+  "faq": [
+    [
+      "Combien de temps dure un apéro de mariage ?",
+      "En général une à deux heures, entre la cérémonie et le repas."
+    ],
+    [
+      "Quoi servir à un apéro de mariage simple ?",
+      "Un vin local, des boissons sans alcool, des feuilletés, une tresse au jambon et des plateaux."
+    ],
+    [
+      "Comment récupérer les photos des invités ?",
+      "Avec un code QR : tous envoient photos et vidéos dans le même album, et vous pouvez les valider."
+    ],
+    [
+      "Les invités doivent-ils installer quelque chose ?",
+      "Non. Le code QR ouvre l'album directement dans le navigateur."
+    ]
+  ],
+  "related": [
+    "collect-wedding-photos-from-guests",
+    "wedding-qr-code-table-signs",
+    "evjf-idees"
+  ]
+}

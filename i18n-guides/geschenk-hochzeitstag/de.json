@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "geschenk hochzeitstag",
+  "date": "2026-11-16",
+  "title": "Geschenk zum Hochzeitstag: Fotoalbum | Albums.ink",
+  "desc": "Persönliches Geschenk zum Hochzeitstag für Mann, Frau oder Eltern: ein Online-Fotoalbum mit Kapiteln, Videos und Sprachnachrichten. Kostenlos, im Browser.",
+  "h1": "Geschenk zum Hochzeitstag: eure Geschichte als Album",
+  "lead": "„Geschenk Hochzeitstag Mann“, „Geschenk Hochzeitstag Frau“, „Geschenk Hochzeitstag Eltern“ – in der Schweiz wird jedes Jahr danach gesucht. Ein Album mit euren gemeinsamen Jahren ist persönlich, kostet nichts und ist an einem Abend gemacht.",
+  "body": [
+    "## Für wen?",
+    "- <b>Für den Partner</b>: zum 1., 5. oder 10. Hochzeitstag.",
+    "- <b>Für die Eltern</b>: zur Silberhochzeit (25 Jahre) oder Goldenen Hochzeit (50 Jahre) – Geschwister sammeln gemeinsam.",
+    "- <b>Für Freunde</b>: als Erinnerung an ihre Hochzeit, bei der ihr dabei wart.",
+    "## Was ins Album gehört",
+    "- Das erste gemeinsame Foto und die Geschichte, wie ihr euch kennengelernt habt.",
+    "- Bilder vom Standesamt, der Hochzeit und vom Apéro.",
+    "- Ferien, Wanderungen, die erste Wohnung, die Kinder.",
+    "- Ein Foto pro Jahr – so sieht man, wie viel passiert ist.",
+    "- Eine Sprachnachricht mit dem, was man sonst selten sagt.",
+    "## Kapitel-Ideen",
+    "1. Wie alles begann.",
+    "2. Unser Hochzeitstag.",
+    "3. Unsere Jahre zusammen.",
+    "4. Was ich mir für die nächsten Jahre wünsche.",
+    "## So machst du es kostenlos",
+    "Auf Albums erstellst du ein <b>Story-Album</b> mit Kapiteln, Fotos, Videos und Sprachnotizen und kannst es mit eigener Stimme erzählen. Alben sind unbegrenzt und bleiben, so lange du willst. Gratis-Fotos werden mit bis zu 2048 px an der langen Kante gespeichert.",
+    "1. Album anlegen, z. B. „10 Jahre wir“.",
+    "2. Kapitel anlegen, Fotos und kurze Videos hochladen, zu jedem Bild ein Satz.",
+    "3. Eine Sprachnachricht direkt im Browser aufnehmen.",
+    "4. Einen Co-Autor einladen – z. B. ein Geschwister, das bereits mit dir befreundet ist.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich, mit Ausnahmen pro Person. „Freunde“ heisst alle Freunde – soll es eine Überraschung bleiben, schliesst du die beschenkte Person bis zum Tag aus.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/geschenk-fuer-ehemann/\">Geschenk für den Ehemann</a> und <a href=\"/de/guides/add-voice-to-photos/\">Sprachnachrichten zu Fotos</a>.",
+    "## Übergeben",
+    "Schick den Link mit ein paar Worten oder schaut das Album beim Znacht gemeinsam an. Das ganze Album lässt sich jederzeit als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Euer Album zum Hochzeitstag",
+    "p": "Fotos, Videos und deine Stimme in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das nur du machen kannst",
+    "p": "Unbegrenzte Alben, die bleiben, so lange du willst.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man zum Hochzeitstag?",
+      "Etwas Persönliches: zum Beispiel ein Album mit euren Erinnerungen, Notizen und Sprachnachrichten."
+    ],
+    [
+      "Was schenkt man den Eltern zur Silberhochzeit?",
+      "Viele Geschwister sammeln Fotos aus 25 Jahren und machen daraus ein gemeinsames Album."
+    ],
+    [
+      "Können Geschwister mitmachen?",
+      "Ja, ein Co-Autor kann Fotos hinzufügen; er muss mit dir auf Albums befreundet sein."
+    ],
+    [
+      "Kann man das Album speichern?",
+      "Ja, das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+    ]
+  ],
+  "related": [
+    "geschenk-fuer-ehemann",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "einweihungsparty ideen",
+  "date": "2026-11-16",
+  "title": "Einweihungsparty: Ideen, Essen & Deko | Albums.ink",
+  "desc": "Einweihungsparty planen: Einladung per WhatsApp, einfaches Essen, Deko und Spiele für die neue Wohnung – plus ein QR-Code, der alle Fotos der Gäste sammelt.",
+  "h1": "Einweihungsparty: Ideen für die neue Wohnung",
+  "lead": "„Einweihungsparty Ideen“, „Einweihungsparty Essen“ und „Einweihungsparty Einladung WhatsApp“ – wer umgezogen ist, sucht genau das. Hier ein einfacher Plan für Einladung, Essen, Deko und Spiele, und wie die Fotos aller Gäste am Ende in einem Album landen.",
+  "body": [
+    "## Einladung",
+    "- Zwei bis sechs Wochen nach dem Umzug, wenn die wichtigsten Räume fertig sind.",
+    "- Eine kurze Nachricht in der WhatsApp-Gruppe reicht: Datum, Uhrzeit, Adresse, Klingelschild, Parkmöglichkeit.",
+    "- Die Nachbarn kurz vorwarnen – oder gleich mit einladen.",
+    "## Essen und Getränke",
+    "- Fingerfood, Brezeln, Partybrötchen, Nudelsalat und ein Chili im großen Topf.",
+    "- Mitbring-Buffet: Jeder bringt eine Kleinigkeit mit.",
+    "- Brot und Salz als Geschenk ist ein alter Brauch – Gäste freuen sich, wenn man ihn erwähnt.",
+    "## Deko",
+    "- Lichterketten, Kerzen und ein paar Blumen genügen.",
+    "- Ein Schild „Willkommen in unserem neuen Zuhause“ an der Tür.",
+    "- Kartons dürfen stehen bleiben – als Stehtisch mit Tischdecke.",
+    "## Spiele und Ideen",
+    "- <b>Wohnungsführung</b> mit Zetteln in jedem Raum: Gäste schreiben Wünsche oder Tipps dazu.",
+    "- <b>Nachbarschafts-Quiz</b>: bester Bäcker, nächste Haltestelle, schönster Spazierweg.",
+    "- <b>Gästebuch</b> für die neue Wohnung.",
+    "## Fotos aller Gäste mit einem QR-Code sammeln",
+    "Jeder fotografiert mit dem eigenen Handy. Mit einem <b>Event-Album</b> auf Albums landen alle Bilder an einem Ort:",
+    "1. Album anlegen, z. B. „Einweihung Lindenstraße“.",
+    "2. QR-Code ausdrucken und an die Tür oder ans Buffet hängen.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Hold guest photos</b> prüfst du Uploads, bevor sie sichtbar werden.",
+    "5. Nach der Party das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/silvesterparty-ideen/\">Silvesterparty zu Hause</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Preise",
+    "Ein Event-Album kostet einmalig: Small $39.99, Medium $69.99 oder Large $129.99. Gäste zahlen nichts. Fotos bis 4K; das Album wird 6 Monate ab dem ersten Upload gespeichert und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für alle Gäste",
+    "p": "Hochladen im Browser, ohne Konto. Du entscheidest, was erscheint.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Die ersten Erinnerungen im neuen Zuhause",
+    "p": "Einmalig ab $39.99. Bis 4K, 6 Monate ab dem ersten Upload gespeichert, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    [
+      "Wann macht man eine Einweihungsparty?",
+      "Meist einige Wochen nach dem Umzug, wenn die Wohnung eingerichtet ist."
+    ],
+    [
+      "Was bringt man zur Einweihungsparty mit?",
+      "Traditionell Brot und Salz, oft auch Pflanzen, Getränke oder etwas fürs Buffet."
+    ],
+    [
+      "Wie bekomme ich die Fotos aller Gäste?",
+      "Mit einem QR-Code: Alle laden Fotos und Videos ins selbe Album hoch, du kannst sie vorher prüfen."
+    ],
+    [
+      "Müssen Gäste etwas installieren?",
+      "Nein. Der QR-Code öffnet das Album direkt im Browser."
+    ]
+  ],
+  "related": [
+    "silvesterparty-ideen",
+    "qr-code-for-photos-at-party",
+    "how-to-collect-photos-from-event-guests"
+  ]
+}

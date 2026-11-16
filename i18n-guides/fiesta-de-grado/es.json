@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CO",
+  "query": "fiesta de grado",
+  "date": "2026-11-16",
+  "title": "Fiesta de grado: ideas, decoración y fotos | Albums.ink",
+  "desc": "Ideas para la fiesta de grado en Colombia: grado de once o universitario, decoración, comida y actividades, más un código QR que reúne las fotos de todos los invitados.",
+  "h1": "Fiesta de grado: ideas para celebrar y guardar las fotos",
+  "lead": "“Fiesta de grado”, “fiesta de grado universitario” y “fiesta de grados decoración” son búsquedas típicas en Colombia entre noviembre y diciembre, cuando se gradúan los bachilleres de once, y en las temporadas de grados universitarios. Aquí tienes ideas para la celebración y una forma sencilla de juntar las fotos de todos.",
+  "body": [
+    "## Antes de la fiesta",
+    "- Después de la ceremonia de grado, muchas familias celebran con un almuerzo o una fiesta en casa o en un salón.",
+    "- Define si es solo familia o también compañeros de colegio o universidad.",
+    "- Manda la invitación por WhatsApp con hora, dirección y si hay código de vestuario.",
+    "## Decoración",
+    "- Colores del colegio o de la universidad, globos y birretes de papel.",
+    "- Un rincón con la toga, el diploma y fotos de todos los años de estudio.",
+    "- Un letrero “¡Felicitaciones, graduado!” con el nombre y el año.",
+    "## Comida y música",
+    "- Picadas, empanadas, ajiaco o lechona para muchos invitados, y torta de grado.",
+    "- Una lista de canciones que el graduado escogió.",
+    "## Actividades",
+    "- Palabras de los papás y de un profesor o amigo.",
+    "- Una mesa de mensajes donde cada invitado escribe un consejo para la nueva etapa.",
+    "- Mostrar fotos del primer día de colegio al lado de las del grado.",
+    "## Reúne las fotos de todos con un código QR",
+    "Cada invitado toma fotos con su celular. Con un <b>álbum de evento</b> en Albums todas quedan en un mismo lugar:",
+    "1. Crea el álbum, por ejemplo “Grado de Valentina 2026”.",
+    "2. Imprime el código QR y ponlo en las mesas o en la entrada.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Hold guest photos</b> para revisar las fotos antes de que se publiquen.",
+    "5. Después de la fiesta, descarga todo el álbum en un solo archivo ZIP.",
+    "Quien sube fotos sin iniciar sesión aparece como anónimo. Los invitados que inician sesión reciben además una copia privada en borrador solo con sus propias fotos.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/graduation-party-photo-display-ideas/\">ideas para exhibir fotos en una fiesta de graduación</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de fiesta</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small $39.99, Medium $69.99 o Large $129.99. Los invitados no pagan. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera foto subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la fiesta de grado",
+    "p": "Suben desde el navegador, sin crear cuenta. Tú decides qué se muestra.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarda todas las fotos del grado",
+    "p": "Pago único desde $39.99. Hasta 4K, 6 meses desde la primera subida, extensible.",
+    "btn": "Empezar el álbum →"
+  },
+  "faq": [
+    [
+      "¿Cuándo son los grados de bachiller en Colombia?",
+      "En calendario A suelen ser entre noviembre y diciembre; en calendario B, a mitad de año."
+    ],
+    [
+      "¿Qué se hace en una fiesta de grado?",
+      "Una comida con familia y amigos, palabras para el graduado, música y la torta de grado."
+    ],
+    [
+      "¿Cómo junto las fotos de los invitados?",
+      "Comparte un código QR: todos suben fotos y videos al mismo álbum y tú puedes revisarlas antes."
+    ],
+    [
+      "¿Los invitados deben instalar algo?",
+      "No. El código QR abre el álbum directamente en el navegador."
+    ]
+  ],
+  "related": [
+    "graduation-party-photo-display-ideas",
+    "qr-code-for-photos-at-party",
+    "how-to-collect-photos-from-event-guests"
+  ]
+}

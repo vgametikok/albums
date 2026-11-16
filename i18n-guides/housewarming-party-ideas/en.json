@@ -1,0 +1,75 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "US",
+  "query": "housewarming party ideas",
+  "date": "2026-11-16",
+  "title": "Housewarming Party Ideas: Food, Games and Photos | Albums.ink",
+  "desc": "Housewarming party ideas for a new house or small apartment: invites, easy food, games, a home tour and one QR code that collects every guest's photos and videos.",
+  "h1": "Housewarming party ideas for your new place",
+  "lead": "People in the US search “housewarming party ideas”, “housewarming party ideas on a budget” and “housewarming party ideas for small apartment” right after they get the keys. Here is a simple plan: invites, food, games, the home tour, and an easy way to gather everyone's photos from the night.",
+  "body": [
+    "## Invites and timing",
+    "- Wait until the boxes are mostly gone – usually a few weeks after moving in.",
+    "- An open house (for example 2–6 pm) lets neighbors, coworkers and family drop by when it suits them.",
+    "- A text or group chat invite is fine; add parking tips and whether kids are welcome.",
+    "## Food on a budget",
+    "- A taco or baked potato bar, sliders, a big salad and a dessert table.",
+    "- Ask close friends to bring one dish – a potluck housewarming is common and keeps costs down.",
+    "- Label drinks and keep one cooler outside to free up the new kitchen.",
+    "## Ideas for a small apartment",
+    "- Stagger the guest list over two time slots.",
+    "- Use the balcony or the building's shared space if it is allowed.",
+    "- Finger food only, so nobody needs a table.",
+    "## Games and activities",
+    "- <b>Home tour</b> with a sticky note in each room: guests write a wish or a tip for the space.",
+    "- <b>Guess the price</b> of things you bought for the house.",
+    "- <b>Neighborhood trivia</b>: best pizza nearby, closest park, local quirks.",
+    "- A guest book where everyone signs the first page for the new home.",
+    "## Collect every guest's photos with one QR code",
+    "Guests will take photos of the rooms, the food and each other. With an <b>event album</b> on Albums they all end up in one place:",
+    "1. Create an album, for example “Our First Home – Housewarming”.",
+    "2. Print the QR code and put it by the door or on the snack table.",
+    "3. Guests scan it with the phone camera and upload photos and videos in the browser – nothing to install.",
+    "4. Turn on <b>Hold guest photos</b> if you want to approve uploads before they appear.",
+    "5. After the party, download the whole album as one ZIP file.",
+    "Guests who upload without signing in appear anonymously. Signed-in guests also get a private draft copy of just their own uploads.",
+    "!cta",
+    "More ideas: <a href=\"/guides/qr-code-for-photos-at-party/\">QR code for party photos</a> and <a href=\"/guides/family-reunion-photo-ideas/\">family reunion photo ideas</a>.",
+    "## Pricing",
+    "An event album is a one-time purchase: Small $39.99, Medium $69.99 or Large $129.99. Guests never pay. Photos are kept in up to 4K, and the album is stored for 6 months from the first upload, with an option to extend."
+  ],
+  "cta": {
+    "h2": "One QR code for the whole housewarming",
+    "p": "Guests upload in the browser, no sign-up needed. You decide what appears.",
+    "btn": "Create an event album →"
+  },
+  "cta2": {
+    "h2": "Keep the first memories of your new home",
+    "p": "One-time price from $39.99. Up to 4K, stored 6 months from the first upload, extendable.",
+    "btn": "Start your album →"
+  },
+  "faq": [
+    [
+      "When should you have a housewarming party?",
+      "Most people host a few weeks after moving in, once the main rooms are set up."
+    ],
+    [
+      "What do you serve at a housewarming party?",
+      "Easy finger food, a build-your-own bar or a potluck where friends bring one dish each."
+    ],
+    [
+      "How do I get photos from all my guests?",
+      "Share one QR code: guests upload photos and videos to the same album in the browser, and you can approve them first."
+    ],
+    [
+      "Do guests need to install anything?",
+      "No. Scanning the QR code opens the album in the phone's browser."
+    ]
+  ],
+  "related": [
+    "qr-code-for-photos-at-party",
+    "how-to-collect-photos-from-event-guests",
+    "family-reunion-photo-ideas"
+  ]
+}

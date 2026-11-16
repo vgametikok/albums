@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "ide acara tahun baru di rumah",
+  "date": "2026-11-16",
+  "title": "Ide Acara Tahun Baru di Rumah: Bakar-bakar, Games, Foto | Albums.ink",
+  "desc": "Ide acara tahun baru di rumah bersama keluarga atau teman: bakar-bakar, games seru, dekorasi sederhana, dan satu kode QR untuk mengumpulkan foto semua tamu.",
+  "h1": "Ide acara tahun baru di rumah bersama keluarga dan teman",
+  "lead": "“Ide acara tahun baru di rumah”, “ide acara tahun baru keluarga”, “ide acara malam tahun baru” – banyak orang memilih merayakan malam pergantian tahun di rumah. Berikut ide acara, makanan, dan games, plus cara mengumpulkan semua foto dan video malam itu dalam satu album.",
+  "body": [
+    "## Konsep acara",
+    "- <b>Bakar-bakar</b> jagung, sate, ayam, atau ikan di halaman.",
+    "- <b>Nonton bareng</b> siaran pergantian tahun sambil kumpul keluarga.",
+    "- <b>Pesta kecil di rooftop</b> atau teras untuk melihat kembang api.",
+    "## Makanan",
+    "- Jagung bakar, sate, sosis bakar, dan sambal.",
+    "- Camilan untuk begadang: martabak, gorengan, kue kering.",
+    "- Sistem potluck: setiap tamu membawa satu hidangan.",
+    "## Games seru",
+    "- Tebak-tebakan momen terbaik tahun ini.",
+    "- Tulis resolusi, simpan dalam toples, dan buka tahun depan.",
+    "- Karaoke dan lomba joget sampai hitung mundur.",
+    "- Tukar kado kecil antar tamu.",
+    "## Kumpulkan foto semua tamu dengan satu kode QR",
+    "Saat hitung mundur semua orang merekam dengan HP masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Tahun Baru 2027 di Rumah”.",
+    "2. Cetak kode QR dan taruh di meja, atau kirim ke grup WhatsApp.",
+    "3. Tamu memindainya dengan kamera HP dan mengunggah foto serta video lewat browser – tanpa perlu instal apa pun.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk menyetujui foto sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa login akan tampil anonim. Tamu yang login juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/syukuran-rumah-baru/\">syukuran rumah baru</a> dan <a href=\"/id/guides/qr-code-for-photos-at-party/\">kode QR untuk foto pesta</a>.",
+    "## Harga",
+    "Album acara dibeli sekali: Small $39.99, Medium $69.99, atau Large $129.99. Tamu tidak perlu membayar. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk malam tahun baru",
+    "p": "Unggah lewat browser, tanpa akun. Kamu yang menentukan foto mana yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan momen pergantian tahun",
+    "p": "Sekali bayar mulai $39.99. Hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    [
+      "Acara tahun baru di rumah yang seru apa saja?",
+      "Bakar-bakar, karaoke, games tebak-tebakan, tulis resolusi, dan tukar kado kecil."
+    ],
+    [
+      "Makanan apa untuk bakar-bakar tahun baru?",
+      "Jagung, sate, sosis, ayam atau ikan bakar, ditambah camilan untuk begadang."
+    ],
+    [
+      "Bagaimana mengumpulkan foto semua tamu?",
+      "Bagikan satu kode QR: semua mengunggah foto dan video ke album yang sama, dan kamu bisa menyetujuinya dulu."
+    ],
+    [
+      "Apakah tamu perlu instal sesuatu?",
+      "Tidak. Kode QR langsung membuka album di browser."
+    ]
+  ],
+  "related": [
+    "syukuran-rumah-baru",
+    "qr-code-for-photos-at-party",
+    "family-reunion-photo-ideas"
+  ]
+}

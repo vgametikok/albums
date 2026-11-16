@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa 30 anni idee",
+  "date": "2026-11-16",
+  "title": "Festa 30 anni: idee per uomo e donna | Albums.ink",
+  "desc": "Idee per la festa dei 30 anni: location, temi, giochi e allestimento per lui e per lei, più un QR code che raccoglie le foto e i video di tutti gli invitati.",
+  "h1": "Festa 30 anni: idee per organizzarla e raccogliere le foto",
+  "lead": "“Festa 30 anni idee”, “festa 30 anni uomo”, “festa 30 anni donna”, “festa 30 anni a tema”: i trenta si festeggiano in grande. Ecco idee per location, tema e giochi, e un modo semplice per avere tutte le foto della serata in un solo album.",
+  "body": [
+    "## Location",
+    "- Un locale o un birrificio con sala privata.",
+    "- Una casa in campagna o un agriturismo con gli amici.",
+    "- Una terrazza o il giardino di casa per una festa più intima.",
+    "## Temi",
+    "- <b>Anni '90</b>: la musica e i giochi di quando eravate bambini.",
+    "- <b>Dress code a colori</b> o total white.",
+    "- <b>Aperitivo lungo</b> con DJ set.",
+    "## Giochi e idee",
+    "- Quiz sul festeggiato: amici contro famiglia.",
+    "- Una parete con le foto da 0 a 30 anni.",
+    "- Biglietti “30 consigli per i prossimi 30 anni”.",
+    "- Una torta con il numero e un brindisi a mezzanotte.",
+    "## Tutte le foto degli invitati con un QR code",
+    "Ogni invitato fotografa con il proprio telefono. Con un <b>album evento</b> su Albums le foto finiscono tutte in un posto:",
+    "1. Crea l'album, per esempio “I 30 di Marco”.",
+    "2. Stampa il QR code e mettilo sui tavoli o all'ingresso, oppure mandalo nel gruppo WhatsApp.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per approvare le foto prima che vengano mostrate.",
+    "5. Dopo la festa, scarica l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli invitati che hanno effettuato l'accesso ricevono anche una copia in bozza privata solo con i propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-50-anni/\">festa dei 50 anni</a> e <a href=\"/it/guides/birthday-party-photo-sharing/\">condividere le foto della festa di compleanno</a>.",
+    "## Prezzi",
+    "L'album evento è un acquisto unico: Small $39.99, Medium $69.99 o Large $129.99. Gli invitati non pagano nulla. Foto fino a 4K; l'album è conservato 6 mesi dal primo caricamento ed è prolungabile."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Caricamento dal browser, senza account. Decidi tu cosa mostrare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "I tuoi 30 anni, da ogni punto di vista",
+    "p": "Acquisto unico da $39.99. Fino a 4K, 6 mesi dal primo caricamento, prolungabile.",
+    "btn": "Inizia l'album →"
+  },
+  "faq": [
+    [
+      "Come festeggiare i 30 anni in modo originale?",
+      "Scegli un tema (per esempio anni '90), una parete di foto dalla nascita a oggi e un quiz sul festeggiato."
+    ],
+    [
+      "Dove fare una festa per i 30 anni?",
+      "In un locale con sala privata, in agriturismo o a casa con amici e famiglia."
+    ],
+    [
+      "Come raccolgo le foto degli invitati?",
+      "Con un QR code: tutti caricano foto e video nello stesso album e puoi approvarle prima."
+    ],
+    [
+      "Gli invitati devono installare qualcosa?",
+      "No. Il QR code apre l'album direttamente nel browser."
+    ]
+  ],
+  "related": [
+    "festa-50-anni",
+    "festa-18-anni",
+    "birthday-party-photo-sharing"
+  ]
+}

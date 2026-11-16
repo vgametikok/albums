@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "reveillon em casa ideias",
+  "date": "2026-11-16",
+  "title": "Réveillon em casa: ideias, cardápio e fotos | Albums.ink",
+  "desc": "Ideias para o réveillon em casa: decoração, cardápio, simpatias de Ano Novo e brincadeiras, e um QR code que junta as fotos e vídeos de todos os convidados.",
+  "h1": "Réveillon em casa: ideias para a virada com a família e os amigos",
+  "lead": "“Réveillon em casa ideias”, “réveillon em casa o que fazer”, “cardápio réveillon em casa” – muita gente prefere virar o ano em casa, com a família e os amigos. Veja ideias para a noite e uma forma simples de juntar todas as fotos e vídeos da virada.",
+  "body": [
+    "## Decoração",
+    "- Branco com dourado ou prateado, luzes de fio e velas.",
+    "- Uma mesa de doces e um cantinho com a contagem regressiva.",
+    "- Se tiver área externa, monte a festa lá para ver os fogos da vizinhança.",
+    "## Cardápio",
+    "- Clássicos: lentilha, arroz à grega, farofa, pernil ou tender.",
+    "- Frutas e uvas para a meia-noite.",
+    "- Para facilitar, cada convidado leva um prato.",
+    "## Simpatias e tradições",
+    "- Roupa branca ou de uma cor escolhida para o novo ano.",
+    "- Comer romã ou uvas e fazer pedidos.",
+    "- Pular sete ondas – quem está na praia; em casa vale o brinde.",
+    "## Brincadeiras",
+    "- Retrospectiva: cada um conta o melhor momento do ano.",
+    "- Potes de desejos para abrir no próximo réveillon.",
+    "- Karaokê até a contagem regressiva.",
+    "## Todas as fotos da virada num só álbum com QR code",
+    "Na meia-noite todo mundo filma e fotografa. Com um <b>álbum de evento</b> no Albums tudo fica num só lugar:",
+    "1. Crie o álbum, por exemplo “Réveillon 2027 em casa”.",
+    "2. Imprima o QR code e deixe na mesa ou mande no grupo do WhatsApp.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para aprovar as fotos antes de aparecerem.",
+    "5. Depois da festa, baixe o álbum inteiro num único arquivo ZIP.",
+    "Quem envia sem entrar na conta aparece como anônimo. Convidados com login recebem também uma cópia privada em rascunho só com os próprios envios.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/ceia-de-natal-em-familia/\">ceia de Natal em família</a> e <a href=\"/pt-BR/guides/confraternizacao-fim-de-ano/\">confraternização de fim de ano</a>.",
+    "## Preço",
+    "O álbum de evento é uma compra única: Small $39.99, Medium $69.99 ou Large $129.99. Os convidados não pagam nada. Fotos em até 4K; o álbum fica guardado por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Um QR code para toda a virada",
+    "p": "Envio pelo navegador, sem cadastro. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde a virada de todos os ângulos",
+    "p": "Compra única a partir de $39.99. Até 4K, 6 meses a partir do primeiro envio, extensível.",
+    "btn": "Começar o álbum →"
+  },
+  "faq": [
+    [
+      "O que fazer no réveillon em casa?",
+      "Uma ceia com pratos tradicionais, brincadeiras, retrospectiva do ano e brinde à meia-noite."
+    ],
+    [
+      "O que servir no réveillon em casa?",
+      "Lentilha, arroz à grega, farofa, pernil ou tender, além de frutas e uvas."
+    ],
+    [
+      "Como juntar as fotos de todos?",
+      "Compartilhe um QR code: todos enviam fotos e vídeos para o mesmo álbum e você pode aprovar antes."
+    ],
+    [
+      "Os convidados precisam instalar algo?",
+      "Não. O QR code abre o álbum direto no navegador."
+    ]
+  ],
+  "related": [
+    "ceia-de-natal-em-familia",
+    "confraternizacao-fim-de-ano",
+    "qr-code-for-photos-at-party"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng ông bà ý nghĩa",
+  "date": "2026-11-16",
+  "title": "Quà tặng ông bà ý nghĩa: album ảnh của con cháu | Albums.ink",
+  "desc": "Quà tặng ông bà ý nghĩa dịp Tết, sinh nhật hay mừng thọ: album online với ảnh, video và lời chúc bằng giọng nói của các cháu. Miễn phí, trên trình duyệt.",
+  "h1": "Quà tặng ông bà ý nghĩa: album kỷ niệm của cả nhà",
+  "lead": "“Quà tặng ông bà ý nghĩa”, “quà Tết tặng ông bà”, “quà tặng ông bà ngoại” – càng gần Tết càng nhiều người tìm. Ông bà thường không cần thêm đồ đạc, nhưng được nghe giọng các cháu và xem lại ảnh cả nhà luôn là niềm vui lớn. Bạn có thể làm album miễn phí trong một buổi tối.",
+  "body": [
+    "## Dịp tặng",
+    "- <b>Tết Nguyên Đán</b>, khi con cháu về quê sum họp.",
+    "- <b>Sinh nhật</b> hoặc <b>mừng thọ</b> ông bà.",
+    "- <b>Kỷ niệm ngày cưới</b> của ông bà.",
+    "- Khi các cháu ở xa, đi học hoặc làm việc ở nước ngoài.",
+    "## Nên đưa gì vào album",
+    "- Ảnh cũ của ông bà thời trẻ (chụp lại hoặc scan).",
+    "- Ảnh các con, các cháu qua từng năm.",
+    "- Video ngắn các cháu hát, đọc thơ, chúc Tết.",
+    "- Lời chúc bằng giọng nói của từng người – ông bà có thể nghe lại nhiều lần.",
+    "## Chia chương",
+    "1. Ông bà ngày xưa.",
+    "2. Các con lớn lên.",
+    "3. Các cháu năm nay.",
+    "4. Lời chúc của con cháu.",
+    "## Làm album miễn phí",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> với chương, ảnh, video và ghi chú giọng nói, có thể tự kể bằng giọng mình. Số album không giới hạn và album được giữ lâu như bạn muốn. Ảnh miễn phí được lưu tối đa 2048 px ở cạnh dài.",
+    "1. Tạo album, ví dụ “Tặng ông bà – Tết 2027”.",
+    "2. Chia chương, tải ảnh và video ngắn, viết vài dòng cho mỗi ảnh.",
+    "3. Ghi âm lời chúc ngay trên trình duyệt.",
+    "4. Mời một đồng tác giả (anh chị em đã là bạn của bạn trên Albums) cùng thêm ảnh.",
+    "5. Chọn ai được xem: công khai, bạn bè hoặc chỉ mình tôi, có ngoại lệ cho từng người. “Bạn bè” gồm tất cả bạn bè của bạn.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/mung-tho/\">tiệc mừng thọ</a> và <a href=\"/vi/guides/album-anh-gia-dinh/\">album ảnh gia đình</a>.",
+    "## Cách tặng",
+    "Mở album trên điện thoại hoặc máy tính bảng cùng ông bà ngày Tết, hoặc gửi đường link qua Zalo. Toàn bộ album có thể tải về thành một file ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album tặng ông bà ngay tối nay",
+    "p": "Ảnh, video và giọng nói của cả nhà trong một câu chuyện. Miễn phí, trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà chỉ con cháu mới làm được",
+    "p": "Album không giới hạn, được giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Nên tặng gì cho ông bà ngày Tết?",
+      "Một món quà tình cảm như album ảnh và lời chúc của các cháu luôn được ông bà trân trọng."
+    ],
+    [
+      "Ông bà không rành điện thoại có xem được không?",
+      "Được. Con cháu mở đường link trên điện thoại hoặc máy tính bảng để cả nhà cùng xem."
+    ],
+    [
+      "Có mất phí không?",
+      "Không. Album câu chuyện miễn phí và không giới hạn số lượng."
+    ],
+    [
+      "Có tải album về được không?",
+      "Có, toàn bộ album tải về thành một file ZIP."
+    ]
+  ],
+  "related": [
+    "mung-tho",
+    "album-anh-gia-dinh",
+    "add-voice-to-photos"
+  ]
+}

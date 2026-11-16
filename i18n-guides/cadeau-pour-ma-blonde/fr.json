@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "cadeau pour ma blonde",
+  "date": "2026-11-16",
+  "title": "Cadeau pour ma blonde : album souvenir | Albums.ink",
+  "desc": "Cadeau pour ma blonde pour sa fête, Noël ou votre anniversaire de couple : un album photo en ligne avec chapitres, vidéos et messages vocaux. Gratuit, dans le navigateur.",
+  "h1": "Cadeau pour ma blonde : votre histoire en album",
+  "lead": "« Cadeau pour ma blonde », « cadeau pour ma copine anniversaire », « cadeau pour ma femme Noël » : au Québec, ces recherches reviennent avant chaque fête. Un album de vos souvenirs, avec vos mots et votre voix, la touchera plus qu'un énième parfum. Il se fait gratuitement en une soirée.",
+  "body": [
+    "## Pour quelle occasion ?",
+    "- <b>Sa fête</b>, surtout une fête marquante.",
+    "- <b>Noël</b> ou le temps des Fêtes.",
+    "- <b>Votre anniversaire de couple</b> : 1 an, 5 ans, 10 ans.",
+    "- <b>La Saint-Valentin</b>.",
+    "## Quoi mettre dans l'album",
+    "- La première photo de vous deux et l'histoire de votre rencontre.",
+    "- Vos voyages, les fins de semaine au chalet, les soirées entre amis.",
+    "- Les petits moments du quotidien : brunchs, promenades, votre premier appartement.",
+    "- Une phrase sous chaque photo, ou une blague que vous seuls comprenez.",
+    "- Un message vocal pour dire ce que vous dites rarement.",
+    "## Idées de chapitres",
+    "1. Notre rencontre.",
+    "2. Nos premières aventures.",
+    "3. Notre quotidien.",
+    "4. Ce que j'ai hâte de vivre avec toi.",
+    "## Le faire gratuitement",
+    "Sur Albums, vous créez un <b>album-récit</b> avec chapitres, photos, vidéos et notes vocales, et vous pouvez le narrer avec votre propre voix. Les albums sont illimités et restent aussi longtemps que vous le voulez. Les photos gratuites sont conservées jusqu'à 2048 px sur le grand côté.",
+    "1. Créez un album, par exemple « Nous deux – 5 ans ».",
+    "2. Ajoutez des chapitres, téléversez photos et courtes vidéos, écrivez une ligne pour chacune.",
+    "3. Enregistrez un message vocal dans le navigateur.",
+    "4. Choisissez qui peut le voir : Public, Amis ou Moi seulement, avec des exceptions par personne. « Amis » inclut tous vos amis : pour garder la surprise, excluez votre blonde jusqu'au jour J.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/cadeau-pour-mon-chum/\">cadeau pour mon chum</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
+    "## Offrir l'album",
+    "Envoyez-lui le lien par texto avec un mot doux, ou ouvrez-le ensemble au souper. L'album complet peut être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créez son album ce soir",
+    "p": "Photos, vidéos et votre voix dans un seul récit. Gratuit, dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau que vous seul pouvez faire",
+    "p": "Albums illimités qui restent aussi longtemps que vous le voulez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quoi offrir à ma blonde qui a tout ?",
+      "Quelque chose de personnel : un album de vos souvenirs avec des mots et des messages vocaux."
+    ],
+    [
+      "Quel cadeau pour un anniversaire de couple ?",
+      "Un album qui raconte votre histoire, du premier rendez-vous à aujourd'hui."
+    ],
+    [
+      "Est-ce vraiment gratuit ?",
+      "Oui, les albums-récits sont gratuits et illimités."
+    ],
+    [
+      "Peut-elle garder l'album ?",
+      "Oui, l'album complet se télécharge en un seul fichier ZIP."
+    ]
+  ],
+  "related": [
+    "cadeau-pour-mon-chum",
+    "album-photo-couple",
+    "add-voice-to-photos"
+  ]
+}
