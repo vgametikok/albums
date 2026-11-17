@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "cadeau pour mon mari",
+  "date": "2026-11-17",
+  "title": "Cadeau pour mon mari : un album souvenir | Albums.ink",
+  "desc": "Un cadeau pour votre mari, pour son anniversaire, vos noces ou Noël : un album en ligne avec photos, vidéos et votre voix. Gratuit, dans le navigateur.",
+  "h1": "Cadeau pour mon mari : l'album de notre histoire",
+  "lead": "« Cadeau pour mon mari », « cadeau pour mon mari anniversaire », « cadeau pour mon mari anniversaire de mariage » : trouver une idée originale chaque année devient difficile. Un album de votre histoire, avec photos, vidéos et votre voix, est personnel, gratuit et se prépare en une soirée.",
+  "body": [
+    "## Pour quelle occasion",
+    "- <b>Son anniversaire</b>, surtout pour ses 40, 50 ou 60 ans.",
+    "- <b>Votre anniversaire de mariage</b> : un chapitre par année.",
+    "- <b>Noël</b> ou la <b>Saint-Valentin</b>.",
+    "## Que mettre dedans",
+    "- La première photo à deux, le mariage, les premières vacances.",
+    "- Les petits moments : le premier appartement, les dimanches en famille.",
+    "- De courtes vidéos : la première danse, les enfants avec leur papa.",
+    "- Des messages vocaux de vous, des enfants ou de ses amis.",
+    "## Idées de chapitres",
+    "1. Notre rencontre.",
+    "2. Le mariage.",
+    "3. Notre famille.",
+    "4. Nos voyages.",
+    "5. Pourquoi je te redirais oui.",
+    "## Le créer gratuitement",
+    "Sur Albums, vous créez un <b>album-récit</b> avec photos, vidéos et notes vocales, en chapitres, avec une narration à votre voix. Les albums sont illimités et restent aussi longtemps que vous le souhaitez. Les photos gratuites sont enregistrées jusqu'à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google et créez un album, par exemple « Nos 15 ans ».",
+    "2. Ajoutez des chapitres, des photos et des vidéos, avec une phrase pour chacune.",
+    "3. Enregistrez des notes vocales directement dans le navigateur.",
+    "4. Choisissez la visibilité : Public, Amis ou Moi uniquement. « Amis » concerne tous vos amis : pour garder la surprise, utilisez <b>Amis, sauf…</b> et excluez votre mari jusqu'au jour J.",
+    "5. Le jour venu, passez en Amis et envoyez-lui le lien, qui s'ouvre avec un aperçu de la couverture.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/album-photo-couple/\">album photo couple</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
+    "## Garder une copie",
+    "L'album entier peut être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créez son album ce soir",
+    "p": "Photos, vidéos et votre voix dans un seul récit. Gratuit, dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau que personne d'autre ne peut faire",
+    "p": "Albums illimités, qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    ["Quel cadeau original offrir à son mari ?", "Un cadeau qui raconte votre histoire : un album avec vos photos, vos vidéos et des messages de la famille."],
+    ["Peut-on ajouter des messages vocaux ?", "Oui. Les notes vocales s'enregistrent dans le navigateur et s'ajoutent aux photos ou aux chapitres."],
+    ["Comment garder la surprise ?", "Avec Amis, sauf…, vous cachez l'album à votre mari, puis vous changez la visibilité le jour J."],
+    ["Est-ce gratuit ?", "Oui. Les albums-récits sont gratuits et illimités."]
+  ],
+  "related": ["album-photo-couple", "cadeau-pour-ma-blonde", "add-voice-to-photos"]
+}

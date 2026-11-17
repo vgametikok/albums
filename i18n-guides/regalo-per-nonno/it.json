@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per nonno",
+  "date": "2026-11-17",
+  "title": "Regalo per nonno: un album dei nipoti | Albums.ink",
+  "desc": "Regalo per il nonno per il compleanno, gli 80 anni o Natale: un album online con foto, video e la voce dei nipoti. Gratis, dal browser.",
+  "h1": "Regalo per nonno: un album con la voce dei nipoti",
+  "lead": "“Regalo per nonno”, “regalo per nonno 80 anni”, “regalo per nonno Natale”: i nonni dicono sempre che non serve niente. Quello che li emoziona davvero sono i ricordi e le voci dei nipoti. Un album racconto con foto, video e messaggi vocali è gratuito e si prepara in una sera.",
+  "body": [
+    "## Quando regalarlo",
+    "- Al <b>compleanno</b> del nonno, soprattutto per i 70, 80 o 90 anni.",
+    "- A <b>Natale</b>, con tutta la famiglia riunita.",
+    "- Se il nonno vive lontano e vede poco i nipoti.",
+    "## Cosa metterci",
+    "- Foto d'epoca: il nonno da giovane, il matrimonio, il paese, il lavoro.",
+    "- Momenti con i nipoti: l'orto, il mare, i pranzi della domenica.",
+    "- Brevi video: i nipoti che cantano, il primo passo del pronipote.",
+    "- Messaggi vocali: “Nonno, grazie per avermi insegnato…”.",
+    "## Idee per i capitoli",
+    "1. Il nonno da ragazzo.",
+    "2. La famiglia che ha costruito.",
+    "3. Il nonno e i suoi nipoti.",
+    "4. Quello che vogliamo dirti.",
+    "## Come farlo gratis",
+    "Su Albums crei un <b>album racconto</b> con foto, video e note vocali, diviso in capitoli e con narrazione con la tua voce. Gli album sono illimitati e restano finché vuoi. Le foto gratuite vengono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google e crea un album, per esempio “Per nonno Giuseppe”.",
+    "2. Aggiungi i capitoli, carica foto e video e scrivi una frase per ciascuno.",
+    "3. Registra i messaggi dei nipoti direttamente nel browser.",
+    "4. Puoi invitare un coautore, per esempio un cugino o tua mamma; deve essere tra i tuoi amici.",
+    "5. Scegli la visibilità: Pubblico, Amici o Solo io, con eccezioni per singole persone.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/album-foto-nonna/\">album foto per nonna</a> e <a href=\"/it/guides/add-voice-to-photos/\">aggiungere la voce alle foto</a>.",
+    "## Come darglielo",
+    "Sfogliatelo insieme sul tablet il giorno della festa, oppure mandagli il link su WhatsApp: si apre con l'anteprima della copertina. L'intero album si può scaricare in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Crea oggi l'album per il nonno",
+    "p": "Foto, video e voci dei nipoti in un'unica storia. Gratis nel browser.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un regalo che solo la famiglia può fare",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    ["Cosa regalare a un nonno che ha tutto?", "Qualcosa di personale: i ricordi della sua vita e i messaggi dei nipoti, per esempio in un album con foto e voci."],
+    ["Possono partecipare i nipoti piccoli?", "Sì. Registrano un messaggio vocale o fanno un disegno da fotografare e caricare."],
+    ["Si può salvare l'album?", "Sì. L'intero album si scarica in un unico file ZIP."],
+    ["È gratis?", "Sì. Gli album racconto sono gratuiti e illimitati."]
+  ],
+  "related": ["album-foto-nonna", "add-voice-to-photos", "how-to-make-a-photo-story"]
+}

@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "Kindergeburtstag Ideen",
+  "date": "2026-11-17",
+  "title": "Kindergeburtstag Ideen: Spiele, Jause, Fotos | Albums.ink",
+  "desc": "Kindergeburtstag Ideen für zuhause: Motto, Spiele nach Alter, Jause, Mitgebsackerl – und ein QR-Code, über den alle Eltern ihre Fotos und Videos teilen.",
+  "h1": "Kindergeburtstag: Ideen für zuhause",
+  "lead": "Eltern in Österreich suchen nach „Kindergeburtstag Ideen“, „Kindergeburtstag Ideen für 6-Jährige“ oder „für 10-Jährige zuhause“. Hier ein einfacher Plan mit Motto, Spielen, Jause – und einer Lösung, damit am Ende alle Fotos der Eltern in einem Album landen.",
+  "body": [
+    "## Motto wählen",
+    "- <b>Piraten</b> oder <b>Schatzsuche</b> – passt fast für jedes Alter.",
+    "- <b>Prinzessinnen</b>, <b>Dinos</b>, <b>Weltraum</b> für die Kleinen.",
+    "- <b>Detektive</b>, <b>Kochparty</b> oder <b>Kinoabend</b> für 9- bis 12-Jährige.",
+    "## Spiele nach Alter",
+    "- <b>4–6 Jahre</b>: Topfschlagen, Sackhüpfen, Reise nach Jerusalem.",
+    "- <b>7–9 Jahre</b>: Schatzsuche durch Wohnung oder Garten, Stopptanz, Eierlauf.",
+    "- <b>10–12 Jahre</b>: Escape-Rätsel, Pizza selber belegen, Fotorallye im Park.",
+    "## Jause und Torte",
+    "- Würstel, Aufstrichbrote, Gemüsesticks und Obstspieße.",
+    "- Die Geburtstagstorte mit Kerzen – und Saft oder Holundersaft für alle.",
+    "## Mitgebsackerl",
+    "Kleine Sackerl mit Seifenblasen, Stickern oder einem Foto vom Fest als Andenken.",
+    "## Alle Fotos mit einem QR-Code sammeln",
+    "Jede Mama und jeder Papa fotografiert mit dem eigenen Handy. Mit einem <b>Event-Album</b> auf Albums landen die Bilder an einem Ort:",
+    "1. Album anlegen, z. B. „Lenas 7. Geburtstag“.",
+    "2. Den QR-Code auf die Einladung drucken oder beim Abholen zeigen.",
+    "3. Die Eltern scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Hold guest photos</b> gebt ihr jedes Bild frei, bevor es erscheint – sinnvoll bei Fotos von fremden Kindern.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr dazu: <a href=\"/de/guides/birthday-party-photo-sharing/\">Fotos vom Geburtstag teilen</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Preise",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $. Gäste zahlen nichts. Fotos in bis zu 4K, gespeichert 6 Monate ab dem ersten Upload, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für alle Eltern",
+    "p": "Hochladen im Browser, ohne Installation. Ihr entscheidet, was erscheint.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Alle Fotos vom Kindergeburtstag an einem Ort",
+    "p": "Einmalig ab 39,99 $. Bis 4K, 6 Monate ab dem ersten Upload gespeichert, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    ["Was kann man beim Kindergeburtstag zuhause spielen?", "Topfschlagen, Sackhüpfen und Stopptanz für Kleine, Schatzsuche oder Rätsel für Ältere."],
+    ["Wie lange dauert ein Kindergeburtstag?", "Für Kleinkinder reichen meist zwei Stunden, für Schulkinder etwa drei."],
+    ["Wie bekomme ich die Fotos der anderen Eltern?", "Über einen QR-Code: Alle laden Fotos und Videos im Browser ins selbe Album, ihr könnt sie vorher freigeben."],
+    ["Müssen die Eltern etwas installieren?", "Nein. Der QR-Code öffnet das Album im Handybrowser."]
+  ],
+  "related": ["birthday-party-photo-sharing", "qr-code-for-photos-at-party", "first-birthday-photo-ideas"]
+}

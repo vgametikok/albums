@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ES",
+  "query": "regalo para mi abuelo",
+  "date": "2026-11-17",
+  "title": "Regalo para mi abuelo: un álbum de los nietos | Albums.ink",
+  "desc": "Regalo para tu abuelo en su cumpleaños o en Navidad: un álbum online con fotos, vídeos y la voz de los nietos. Gratis y hecho desde el navegador.",
+  "h1": "Regalo para mi abuelo: un álbum con la voz de sus nietos",
+  "lead": "“Regalo para mi abuelo”, “regalo original para mi abuelo”, “regalo para mi abuelo de 80 años”: los abuelos suelen decir que no necesitan nada. Lo que sí les emociona son los recuerdos y escuchar a sus nietos. Un álbum de historia con fotos, vídeos y voces es gratis y se prepara en una tarde.",
+  "body": [
+    "## Cuándo regalarlo",
+    "- En su <b>cumpleaños</b>, sobre todo si cumple 80 o 90.",
+    "- En <b>Navidad</b> o en Reyes, con toda la familia reunida.",
+    "- Si vive en otra ciudad y veis poco a los nietos.",
+    "## Qué incluir",
+    "- Fotos antiguas: el abuelo de joven, su boda, la mili, el pueblo.",
+    "- Momentos con los nietos: la playa, el huerto, las comidas de domingo.",
+    "- Vídeos cortos: los nietos cantando, el primer paso del bisnieto.",
+    "- Notas de voz: “Abuelo, gracias por enseñarme a…”.",
+    "## Ideas de capítulos",
+    "1. Cuando el abuelo era joven.",
+    "2. La familia que formó.",
+    "3. El abuelo y sus nietos.",
+    "4. Lo que te queremos decir.",
+    "## Cómo hacerlo gratis",
+    "En Albums creas un <b>álbum de historia</b> con fotos, vídeos y notas de voz, dividido en capítulos y con narración en tu propia voz. Los álbumes son ilimitados y se quedan el tiempo que quieras. Las fotos gratuitas se guardan con un máximo de 2048 px en el lado largo.",
+    "1. Entra con Google y crea un álbum, por ejemplo “Para el abuelo Paco”.",
+    "2. Añade capítulos, sube fotos y vídeos y escribe una frase en cada uno.",
+    "3. Graba notas de voz de los nietos directamente en el navegador.",
+    "4. Puedes invitar a un coautor, por ejemplo a un primo o a tu madre; tiene que estar entre tus amigos.",
+    "5. Elige la visibilidad: Público, Amigos o Solo yo, con excepciones por persona.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-abuela/\">regalo para mi abuela</a> y <a href=\"/es/guides/add-voice-to-photos/\">añadir voz a las fotos</a>.",
+    "## Cómo dárselo",
+    "Ábrelo con él en la tablet o la tele el día de la fiesta, o mándale el enlace por WhatsApp: se abre con una vista previa de la portada. El álbum completo se puede descargar en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Crea hoy el álbum para tu abuelo",
+    "p": "Fotos, vídeos y las voces de los nietos en una sola historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historia →"
+  },
+  "cta2": {
+    "h2": "Un regalo que solo la familia puede hacer",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi abuelo que lo tiene todo?",
+      "Algo personal: recuerdos de su vida y mensajes de sus nietos, por ejemplo en un álbum con fotos y voces."
+    ],
+    [
+      "¿Pueden participar los nietos pequeños?",
+      "Sí. Graban una nota de voz o hacen un dibujo que fotografías y subes."
+    ],
+    [
+      "¿Se puede guardar el álbum?",
+      "Sí. Puedes descargar el álbum completo en un solo archivo ZIP."
+    ],
+    [
+      "¿Es gratis?",
+      "Sí. Los álbumes de historia son gratuitos e ilimitados."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-abuela",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

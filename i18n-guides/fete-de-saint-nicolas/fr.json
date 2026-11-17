@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BE",
+  "query": "fête de Saint-Nicolas",
+  "date": "2026-11-17",
+  "title": "Fête de Saint-Nicolas : idées et photos | Albums.ink",
+  "desc": "Organiser la fête de Saint-Nicolas en Belgique, en famille, à l'école ou au club : déroulement, friandises, activités et un QR code pour réunir les photos de tous.",
+  "h1": "Fête de Saint-Nicolas : idées pour la famille",
+  "lead": "En Belgique, on cherche « fête de Saint-Nicolas », « fête de Saint-Nicolas Belgique » et des idées d'activités dès la mi-novembre. Voici un plan simple pour le 6 décembre, en famille, à l'école ou au club, et une façon de réunir toutes les photos des parents.",
+  "body": [
+    "## La veille au soir",
+    "- Les enfants déposent leur chaussure ou leur pantoufle près de la cheminée ou de la porte.",
+    "- Ils ajoutent une carotte ou un sucre pour l'âne, parfois un dessin pour le Grand Saint.",
+    "- Le matin du 6 décembre, ils découvrent speculoos, chocolats, mandarines et un cadeau.",
+    "## Une fête en famille ou entre amis",
+    "- Un goûter avec chocolat chaud, speculoos et massepain.",
+    "- La visite d'un Saint-Nicolas déguisé qui lit un mot pour chaque enfant.",
+    "- Des chansons comme « Ô grand Saint Nicolas ».",
+    "## Activités pour les enfants",
+    "- Décorer des biscuits ou des sablés en forme de mitre.",
+    "- Bricoler une lettre ou un dessin pour Saint-Nicolas.",
+    "- Une chasse aux friandises dans le jardin ou la salle.",
+    "## À l'école ou au club",
+    "Beaucoup d'écoles, de mouvements de jeunesse et de clubs sportifs organisent une visite de Saint-Nicolas. Chaque parent prend des photos de son côté – autant les réunir.",
+    "## Réunir les photos avec un QR code",
+    "Avec un <b>album d'événement</b> sur Albums, les photos arrivent toutes au même endroit :",
+    "1. Créez un album, par exemple « Saint-Nicolas 2026 – classe de 2e ».",
+    "2. Affichez le QR code à l'entrée ou glissez-le dans le mot aux parents.",
+    "3. Les parents le scannent avec l'appareil photo du téléphone et envoient photos et vidéos depuis le navigateur, sans application.",
+    "4. Activez <b>Hold guest photos</b> pour valider les photos avant leur affichage, utile quand d'autres enfants y figurent.",
+    "5. Ensuite, téléchargez l'album entier en un seul fichier ZIP.",
+    "Les envois faits sans connexion apparaissent de façon anonyme. Les invités connectés reçoivent aussi une copie brouillon privée de leurs seuls envois.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/how-to-collect-photos-from-event-guests/\">récupérer les photos des invités</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">QR code pour les photos de fête</a>.",
+    "## Tarifs",
+    "L'album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $. Les invités ne paient rien. Photos jusqu'en 4K, conservées 6 mois à partir du premier envoi, avec prolongation possible."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute la fête",
+    "p": "Les parents envoient leurs photos depuis le navigateur, sans application. Vous validez ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Tous les souvenirs du 6 décembre au même endroit",
+    "p": "Achat unique dès 39,99 $. Jusqu'en 4K, conservé 6 mois à partir du premier envoi, prolongeable.",
+    "btn": "Créer mon album →"
+  },
+  "faq": [
+    ["Quand fête-t-on la Saint-Nicolas en Belgique ?", "Le 6 décembre. Les enfants déposent leur chaussure la veille au soir et découvrent friandises et cadeaux le matin."],
+    ["Que met-on dans la chaussure ?", "Les enfants y laissent une carotte ou un sucre pour l'âne ; le matin, ils y trouvent chocolats, speculoos, mandarines ou un petit cadeau."],
+    ["Comment réunir les photos de tous les parents ?", "Avec un QR code : chacun envoie ses photos et vidéos dans le même album depuis le navigateur, et vous pouvez les valider avant."],
+    ["Faut-il une application ?", "Non. Le QR code ouvre l'album dans le navigateur du téléphone."]
+  ],
+  "related": ["how-to-collect-photos-from-event-guests", "qr-code-for-photos-at-party", "christmas-party-photo-booth-ideas"]
+}

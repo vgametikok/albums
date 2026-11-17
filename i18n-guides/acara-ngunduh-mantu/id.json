@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara ngunduh mantu",
+  "date": "2026-11-17",
+  "title": "Acara Ngunduh Mantu: Susunan Acara dan Foto Tamu | Albums.ink",
+  "desc": "Apa itu ngunduh mantu, susunan acara ngunduh mantu sederhana, persiapan keluarga pengantin pria, dan cara mengumpulkan foto semua tamu dengan satu kode QR.",
+  "h1": "Acara ngunduh mantu: susunan acara sederhana",
+  "lead": "“Acara ngunduh mantu”, “acara ngunduh mantu adalah”, “acara ngunduh mantu sederhana” dan “ngunduh mantu ngapain aja” banyak dicari keluarga pengantin pria. Berikut penjelasan singkat, contoh susunan acara, dan cara mudah mengumpulkan foto serta video dari semua tamu.",
+  "body": [
+    "## Apa itu ngunduh mantu",
+    "- Tradisi Jawa: setelah akad dan resepsi di pihak perempuan, keluarga pengantin pria mengadakan acara untuk menyambut menantu barunya.",
+    "- Biasanya digelar beberapa hari hingga beberapa minggu setelah pernikahan.",
+    "- Tamunya terutama kerabat, tetangga, dan kenalan dari pihak keluarga pria.",
+    "## Contoh susunan acara sederhana",
+    "1. Penyambutan pengantin oleh keluarga pria.",
+    "2. Pembukaan dan doa bersama atau pengajian.",
+    "3. Sambutan dari perwakilan keluarga.",
+    "4. Ramah tamah dan makan bersama.",
+    "5. Foto bersama keluarga dan tamu.",
+    "## Persiapan",
+    "- Tentukan tempat: di rumah dengan tenda, atau di gedung jika tamunya banyak.",
+    "- Siapkan hidangan prasmanan atau nasi kotak.",
+    "- Pengantin bisa memakai busana adat atau busana resepsi yang berbeda dari hari pernikahan.",
+    "## Kumpulkan foto semua tamu dengan satu kode QR",
+    "Kerabat dan tetangga memotret dengan ponsel masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Ngunduh Mantu Rina & Bagus”.",
+    "2. Pasang kode QR di meja penerima tamu atau cetak di undangan.",
+    "3. Tamu memindainya dengan kamera ponsel dan mengunggah foto serta video lewat browser, tanpa aplikasi.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk menyetujui foto sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Unggahan tanpa login tampil secara anonim. Tamu yang login juga mendapat salinan draf pribadi yang berisi unggahan mereka sendiri saja.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/acara-akad-nikah/\">acara akad nikah</a> dan <a href=\"/id/guides/collect-wedding-photos-from-guests/\">mengumpulkan foto pernikahan dari tamu</a>.",
+    "## Harga",
+    "Album acara dibayar sekali: Small $39,99, Medium $69,99, atau Large $129,99. Tamu tidak membayar. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk semua tamu",
+    "p": "Tamu mengunggah lewat browser, tanpa aplikasi. Anda yang menentukan foto mana yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Semua kenangan ngunduh mantu di satu tempat",
+    "p": "Bayar sekali mulai $39,99. Hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    ["Apa itu ngunduh mantu?", "Acara dari keluarga pengantin pria untuk menyambut menantu baru, digelar setelah akad dan resepsi di pihak perempuan."],
+    ["Kapan ngunduh mantu diadakan?", "Biasanya beberapa hari hingga beberapa minggu setelah pernikahan, sesuai kesepakatan keluarga."],
+    ["Bagaimana mengumpulkan foto dari semua tamu?", "Bagikan satu kode QR: semua tamu mengunggah foto dan video ke album yang sama lewat browser, dan Anda bisa menyetujuinya dulu."],
+    ["Apakah tamu perlu aplikasi?", "Tidak. Kode QR membuka album di browser ponsel."]
+  ],
+  "related": ["acara-akad-nikah", "collect-wedding-photos-from-guests", "acara-siraman-pengantin"]
+}

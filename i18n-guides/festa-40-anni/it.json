@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa 40 anni idee originali",
+  "date": "2026-11-17",
+  "title": "Festa 40 anni: idee originali per lei e per lui | Albums.ink",
+  "desc": "Idee originali per la festa dei 40 anni, per donna o uomo: temi, location, buffet, giochi e un QR code per raccogliere foto e video di tutti gli invitati.",
+  "h1": "Festa 40 anni: idee originali",
+  "lead": "“Festa 40 anni idee originali”, “festa 40 anni donna”, “festa 40 anni uomo” e “festa 40 anni a tema”: i 40 sono un traguardo da festeggiare bene. Ecco un piano semplice con tema, location, buffet, giochi e un modo facile per avere tutte le foto della serata.",
+  "body": [
+    "## Temi",
+    "- <b>Anni '80 e '90</b>: musica e look di quando eravate ragazzi.",
+    "- <b>Black & gold</b> con palloncini numerici e brindisi.",
+    "- <b>Cena in agriturismo</b> o <b>aperitivo in terrazza</b> per un gruppo più piccolo.",
+    "## Per lei e per lui",
+    "- <b>Per lei</b>: brunch con le amiche, weekend in una spa, festa a tema con dress code.",
+    "- <b>Per lui</b>: grigliata con gli amici, partita di calcetto e pizza, serata in birreria.",
+    "## Buffet e torta",
+    "- Taglieri di salumi e formaggi, focacce, arancini, un primo per tutti.",
+    "- Torta con il numero 40 e uno spumante per il brindisi.",
+    "## Giochi e momenti",
+    "- <b>Indovina l'anno</b>: foto d'infanzia e d'adolescenza da mettere in ordine.",
+    "- <b>40 desideri</b>: ogni invitato scrive un augurio per il nuovo decennio.",
+    "- Un video con i messaggi di chi non può esserci.",
+    "## Raccogliere le foto di tutti con un QR code",
+    "Ognuno fotografa con il proprio telefono. Con un <b>album evento</b> su Albums arriva tutto nello stesso posto:",
+    "1. Crea un album, per esempio “I 40 anni di Marco”.",
+    "2. Metti il QR code vicino alla torta, al bar o sull'invito.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per approvare le foto prima che vengano mostrate.",
+    "5. Dopo la festa, scarica l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli ospiti che hanno effettuato l'accesso ricevono anche una copia bozza privata solo con i propri caricamenti.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/festa-50-anni/\">festa 50 anni</a> e <a href=\"/it/guides/festa-30-anni/\">festa 30 anni</a>.",
+    "## Prezzi",
+    "L'album evento si paga una volta: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gli invitati non pagano. Foto fino a 4K, conservate 6 mesi dal primo caricamento, con possibilità di estensione."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Gli invitati caricano dal browser, senza installare nulla. Decidi tu cosa appare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Tutte le foto dei tuoi 40 in un posto",
+    "p": "Pagamento unico da 39,99 $. Fino a 4K, conservato 6 mesi dal primo caricamento, estendibile.",
+    "btn": "Inizia il tuo album →"
+  },
+  "faq": [
+    ["Come festeggiare i 40 anni in modo originale?", "Con un tema degli anni '80 o '90, una cena in agriturismo o un weekend fuori, più un momento di ricordi con gli amici."],
+    ["Cosa offrire a una festa dei 40 anni?", "Un buffet con taglieri, focacce e un primo, la torta e uno spumante per il brindisi."],
+    ["Come raccolgo le foto di tutti gli invitati?", "Con un QR code: tutti caricano foto e video nello stesso album dal browser, e puoi approvarle prima."],
+    ["Bisogna installare qualcosa?", "No. Il QR code apre l'album nel browser del telefono."]
+  ],
+  "related": ["festa-50-anni", "festa-30-anni", "qr-code-for-photos-at-party"]
+}

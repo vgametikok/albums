@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Opa",
+  "date": "2026-11-17",
+  "title": "Geschenk für Opa: Album von den Enkeln | Albums.ink",
+  "desc": "Geschenk für Opa zum Geburtstag oder zu Weihnachten: ein Album mit Fotos, Videos und den Stimmen der Enkel – kostenlos im Browser erstellt.",
+  "h1": "Geschenk für Opa: ein Album von den Enkeln",
+  "lead": "„Geschenk für Opa“, „Geschenk für Opa von Enkel“, „Geschenk für Opa zum 70. Geburtstag“ – Opa hat meist schon alles. Was ihn wirklich freut: Erinnerungen und die Stimmen seiner Enkel. Ein Story-Album dafür ist kostenlos und in einem Abend fertig.",
+  "body": [
+    "## Passende Anlässe",
+    "- <b>Opas Geburtstag</b>, besonders der 70., 75. oder 80.",
+    "- <b>Weihnachten</b>, wenn die Familie zusammenkommt.",
+    "- Wenn Opa weit weg wohnt und die Enkel selten sieht.",
+    "## Was ins Album gehört",
+    "- Alte Familienfotos: Opa jung, bei der Hochzeit, mit den Kindern.",
+    "- Gemeinsame Momente mit den Enkeln: Garten, Ausflüge, Urlaub.",
+    "- Kurze Videos: das Enkelkind fährt Fahrrad, singt ein Lied.",
+    "- Sprachnachrichten der Enkel: „Lieber Opa, danke, dass du …“",
+    "## Kapitel-Ideen",
+    "1. Opa früher.",
+    "2. Opa und seine Kinder.",
+    "3. Opa und die Enkel.",
+    "4. Das wünschen wir dir.",
+    "## Kostenlos erstellen",
+    "Auf Albums baut ihr ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit eigener Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange ihr möchtet. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Opa Heinz“.",
+    "2. Kapitel anlegen, Fotos und Videos hochladen, kurze Texte dazuschreiben.",
+    "3. Die Enkel sprechen ihre Nachrichten direkt im Browser ein.",
+    "4. Eine zweite Person kann als Co-Autor mitmachen, z. B. Mama oder Papa – sie muss in eurer Freundesliste sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich, mit Ausnahmen für einzelne Personen.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a> und <a href=\"/de/guides/add-voice-to-photos/\">Fotos mit Stimme</a>.",
+    "## Übergeben",
+    "Zeigt das Album an Opas Geburtstag auf dem Tablet oder schickt ihm den Link – er öffnet sich mit Titelbild-Vorschau. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Das Album für Opa noch heute erstellen",
+    "p": "Fotos, Videos und Enkelstimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das nur die Familie machen kann",
+    "p": "Unbegrenzte Alben, die bleiben, so lange ihr möchtet.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einem Opa, der alles hat?",
+      "Etwas Persönliches: Erinnerungen an früher und Nachrichten seiner Enkel, z. B. in einem Album mit Fotos und Stimmen."
+    ],
+    [
+      "Können kleine Kinder mitmachen?",
+      "Ja. Sie sprechen eine Sprachnachricht ein oder malen ein Bild, das ihr fotografiert und hochladet."
+    ],
+    [
+      "Kann man das Album speichern?",
+      "Ja. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+    ],
+    [
+      "Ist das kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-oma",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

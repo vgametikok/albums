@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "chá bar",
+  "date": "2026-11-17",
+  "title": "Chá bar: como organizar, brincadeiras e fotos | Albums.ink",
+  "desc": "Chá bar: o que é, como organizar, decoração, lista de bebidas, brincadeiras com prendas e um QR code para juntar as fotos e vídeos de todos os convidados.",
+  "h1": "Chá bar: como organizar o seu",
+  "lead": "“Chá bar”, “chá bar decoração”, “chá bar presentes” e “chá bar significado” estão entre as buscas de quem vai casar. O chá bar é a festa do casal antes do casamento, com amigos e família, em que os convidados costumam levar bebidas para montar o bar da casa nova. Veja um roteiro simples e um jeito fácil de juntar as fotos de todo mundo.",
+  "body": [
+    "## O que é o chá bar",
+    "- Uma festa descontraída para o casal, com convidados dos dois lados.",
+    "- No lugar dos utensílios do chá de panela, o presente costuma ser uma bebida: vinho, cerveja artesanal, cachaça, destilados.",
+    "- Muitos casais fazem lista de bebidas para evitar repetição.",
+    "## Decoração",
+    "- Tema boteco: toalhas xadrez, engradados, plaquinhas com nomes de drinks.",
+    "- Mesa de petiscos e um cantinho para fotos com o nome do casal.",
+    "## Comida e bebida",
+    "- Petiscos de boteco: coxinha, bolinho de bacalhau, pastel, caldinho.",
+    "- Gelo de sobra, cerveja gelada e uma opção sem álcool.",
+    "## Brincadeiras com prendas",
+    "- <b>Adivinhe o presente</b>: o casal tenta acertar a bebida pelo formato; se errar, paga prenda.",
+    "- <b>Quiz do casal</b>: quem conhece mais o outro?",
+    "- <b>Mímica</b> de momentos da história do casal.",
+    "## Juntar as fotos de todos com um QR code",
+    "Todo mundo fotografa pelo celular. Com um <b>álbum de evento</b> no Albums, tudo vai para o mesmo lugar:",
+    "1. Crie um álbum, por exemplo “Chá bar da Ana e do Lucas”.",
+    "2. Coloque o QR code no balcão do bar ou no convite.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para aprovar as fotos antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem fazer login aparece como anônimo. Convidados logados recebem também uma cópia de rascunho privada só com o que eles enviaram.",
+    "!cta",
+    "Leia também: <a href=\"/pt-BR/guides/cha-de-panela/\">chá de panela</a> e <a href=\"/pt-BR/guides/festa-de-noivado/\">festa de noivado</a>.",
+    "## Preços",
+    "O álbum de evento é pago uma vez: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Um QR code para o chá bar inteiro",
+    "p": "Os convidados enviam pelo navegador, sem instalar nada. Vocês decidem o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas as fotos do chá bar em um só lugar",
+    "p": "Pagamento único a partir de US$ 39,99. Até 4K, guardado 6 meses a partir do primeiro envio, extensível.",
+    "btn": "Começar meu álbum →"
+  },
+  "faq": [
+    ["O que é chá bar?", "É uma festa para o casal antes do casamento, com amigos e familiares, em que os convidados geralmente levam bebidas de presente."],
+    ["Qual a diferença entre chá bar e chá de panela?", "No chá de panela os presentes são utensílios para a casa; no chá bar, bebidas para montar o bar do casal."],
+    ["Como juntar as fotos de todos os convidados?", "Com um QR code: todos enviam fotos e vídeos para o mesmo álbum pelo navegador, e vocês podem aprovar antes."],
+    ["Precisa baixar aplicativo?", "Não. O QR code abre o álbum no navegador do celular."]
+  ],
+  "related": ["cha-de-panela", "festa-de-noivado", "qr-code-for-photos-at-party"]
+}

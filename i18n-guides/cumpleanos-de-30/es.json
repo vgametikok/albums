@@ -1,0 +1,57 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AR",
+  "query": "ideas para cumpleaños de 30",
+  "date": "2026-11-17",
+  "title": "Ideas para cumpleaños de 30: festejo, comida y fotos | Albums.ink",
+  "desc": "Ideas para festejar un cumpleaños de 30 para mujer u hombre: temáticas, asado o previa en casa, juegos y un código QR para juntar las fotos de todos los invitados.",
+  "h1": "Ideas para festejar un cumpleaños de 30",
+  "lead": "En Argentina se busca “ideas para cumpleaños de 30”, “ideas para cumpleaños de 30 mujer” y “ideas originales para cumpleaños de 30”. Acá va un plan simple: temática, lugar, comida, juegos y una forma fácil de juntar las fotos y videos de todos.",
+  "body": [
+    "## Temáticas",
+    "- <b>Fiesta de los 90 o de los 2000</b>: música y vestuario de la época en que eras chico.",
+    "- <b>Dorado y negro</b>, con globos de números y brindis.",
+    "- <b>Fiesta en la terraza</b> o en el quincho si cumplís en verano.",
+    "## Comida y bebida",
+    "- Un <b>asado</b> con choripán de entrada, o pizzas y empanadas si son muchos.",
+    "- Mesa dulce con torta, alfajores y algo sin TACC si hace falta.",
+    "- Fernet con coca, cerveza y una opción sin alcohol.",
+    "## Para mujer y para hombre",
+    "- <b>Para ella</b>: brunch con amigas, clase de tragos, picnic en un parque.",
+    "- <b>Para él</b>: asado con amigos, partido de fútbol 5 y después cena, noche de juegos.",
+    "## Juegos y momentos",
+    "- <b>Adiviná la edad</b>: fotos de chico y de adolescente para que los invitados las ordenen.",
+    "- <b>30 deseos</b>: cada invitado escribe un deseo para la nueva década.",
+    "- El saludo a las doce y el brindis con todos.",
+    "## Juntar las fotos de todos con un código QR",
+    "Cada invitado saca fotos con su celular. Con un <b>álbum de evento</b> en Albums todas quedan en un solo lugar:",
+    "1. Creá un álbum, por ejemplo “Los 30 de Sofi”.",
+    "2. Poné el código QR en la barra, junto a la torta o en la invitación.",
+    "3. Los invitados lo escanean con la cámara y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activá <b>Hold guest photos</b> para revisar las fotos antes de que se vean.",
+    "5. Después descargá el álbum completo en un solo archivo ZIP.",
+    "Quienes suben sin iniciar sesión aparecen como anónimos. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con lo que subieron.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/fiesta-de-50-anos/\">fiesta de 50 años</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de fiesta</a>.",
+    "## Precios",
+    "El álbum de evento es un pago único: Small 39,99 US$, Medium 69,99 US$ o Large 129,99 US$. Los invitados no pagan. Fotos en hasta 4K, guardadas 6 meses desde la primera subida, con opción de extender."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la fiesta",
+    "p": "Los invitados suben desde el navegador, sin instalar nada. Vos decidís qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas las fotos de tus 30 en un lugar",
+    "p": "Pago único desde 39,99 US$. Hasta 4K, guardado 6 meses desde la primera subida, ampliable.",
+    "btn": "Empezar mi álbum →"
+  },
+  "faq": [
+    ["¿Cómo festejar los 30 de forma original?", "Con una temática de tu adolescencia, un asado con juegos o un brunch, y un momento para que los amigos compartan recuerdos."],
+    ["¿Qué comida se sirve en un cumpleaños de 30?", "Asado, pizzas y empanadas o una picada grande, más la torta y una mesa dulce."],
+    ["¿Cómo junto las fotos de todos los invitados?", "Con un código QR: todos suben fotos y videos al mismo álbum desde el navegador y vos podés aprobarlas antes."],
+    ["¿Los invitados tienen que instalar algo?", "No. El QR abre el álbum en el navegador del celular."]
+  ],
+  "related": ["fiesta-de-50-anos", "qr-code-for-photos-at-party", "birthday-party-photo-sharing"]
+}

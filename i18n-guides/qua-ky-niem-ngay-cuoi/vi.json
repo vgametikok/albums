@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà kỷ niệm ngày cưới",
+  "date": "2026-11-17",
+  "title": "Quà kỷ niệm ngày cưới ý nghĩa: album kỷ niệm | Albums.ink",
+  "desc": "Quà kỷ niệm ngày cưới cho vợ, cho chồng hay cho bố mẹ: một album online với ảnh, video và lời chúc bằng giọng nói. Miễn phí, làm ngay trên trình duyệt.",
+  "h1": "Quà kỷ niệm ngày cưới: album câu chuyện của hai người",
+  "lead": "“Quà kỷ niệm ngày cưới”, “quà kỷ niệm ngày cưới cho vợ”, “cho chồng”, “cho bố mẹ” – món quà ý nghĩa nhất thường là kỷ niệm. Một album câu chuyện với ảnh, video và giọng nói của người thân làm miễn phí, xong trong một buổi tối.",
+  "body": [
+    "## Tặng ai",
+    "- <b>Vợ hoặc chồng</b>: kỷ niệm 1 năm, 5 năm, 10 năm ngày cưới.",
+    "- <b>Bố mẹ</b>: các con cùng làm album cho kỷ niệm 25 hay 30 năm.",
+    "- <b>Ông bà</b>: cả nhà góp ảnh xưa và lời chúc của con cháu.",
+    "## Nên đưa gì vào album",
+    "- Ảnh thời yêu nhau, ảnh lễ ăn hỏi và đám cưới.",
+    "- Khoảnh khắc đời thường: căn nhà đầu tiên, ngày con chào đời, chuyến du lịch.",
+    "- Video ngắn: điệu nhảy đầu tiên, các con chúc mừng.",
+    "- Ghi âm lời chúc của các con, cháu.",
+    "## Gợi ý chương",
+    "1. Ngày đầu gặp nhau.",
+    "2. Đám cưới.",
+    "3. Tổ ấm của chúng ta.",
+    "4. Những điều muốn nói.",
+    "## Cách làm miễn phí",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành chương và có thể thuyết minh bằng giọng của mình. Album không giới hạn và được giữ lâu như bạn muốn. Ảnh miễn phí được lưu với cạnh dài tối đa 2048px.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “10 năm bên nhau”.",
+    "2. Thêm chương, tải ảnh và video lên, viết một dòng cho mỗi ảnh.",
+    "3. Ghi âm lời chúc ngay trong trình duyệt.",
+    "4. Có thể mời một đồng tác giả, ví dụ anh chị em cùng làm quà cho bố mẹ; người đó phải là bạn bè của bạn trên Albums.",
+    "5. Chọn quyền xem: Công khai, Bạn bè hoặc Chỉ mình tôi. Bạn bè là tất cả bạn bè, nên muốn giữ bất ngờ thì chọn Bạn bè, ngoại trừ… và loại người được tặng đến đúng ngày.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/qua-tang-vo/\">quà tặng vợ</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Tặng và lưu giữ",
+    "Gửi đường link qua Zalo hoặc Messenger, album mở ra với ảnh bìa xem trước. Toàn bộ album có thể tải về thành một tệp ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album kỷ niệm ngay tối nay",
+    "p": "Ảnh, video và giọng nói trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà chỉ gia đình mới làm được",
+    "p": "Album không giới hạn, giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    ["Kỷ niệm ngày cưới nên tặng gì ý nghĩa?", "Một món quà kể lại câu chuyện của hai người, như album ảnh, video và lời chúc của người thân."],
+    ["Có thể giữ bí mật đến ngày kỷ niệm không?", "Có. Chọn Bạn bè, ngoại trừ… để ẩn với người được tặng, rồi đổi quyền xem vào đúng ngày."],
+    ["Có thêm được giọng nói không?", "Có. Ghi âm ngay trong trình duyệt và gắn vào ảnh hoặc chương."],
+    ["Có miễn phí không?", "Có. Album câu chuyện miễn phí và không giới hạn số lượng."]
+  ],
+  "related": ["qua-tang-vo", "qua-tang-bo-me", "add-voice-to-photos"]
+}

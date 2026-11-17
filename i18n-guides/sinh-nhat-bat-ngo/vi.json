@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tổ chức sinh nhật bất ngờ",
+  "date": "2026-11-17",
+  "title": "Cách tổ chức sinh nhật bất ngờ và gom ảnh mọi người | Albums.ink",
+  "desc": "Cách tổ chức sinh nhật bất ngờ cho người yêu, chồng, mẹ, bạn thân hay sếp: chọn địa điểm, chuẩn bị, kịch bản và gom ảnh của mọi người bằng một mã QR.",
+  "h1": "Cách tổ chức sinh nhật bất ngờ",
+  "lead": "“Tổ chức sinh nhật bất ngờ”, “tổ chức sinh nhật bất ngờ cho người yêu”, “cho chồng”, “cho sếp” là những tìm kiếm phổ biến trước mỗi dịp sinh nhật. Dưới đây là kế hoạch đơn giản: địa điểm, đồ chuẩn bị, kịch bản và cách gom ảnh, video của mọi người về một chỗ.",
+  "body": [
+    "## Chọn địa điểm",
+    "- <b>Tại nhà</b>: trang trí khi nhân vật chính ra ngoài, tắt đèn chờ người về.",
+    "- <b>Quán cà phê hoặc nhà hàng</b>: gửi bánh trước, nhờ nhân viên mang ra.",
+    "- <b>Văn phòng</b>: sinh nhật sếp hoặc đồng nghiệp vào giờ nghỉ trưa.",
+    "## Đồ cần chuẩn bị",
+    "- Bánh kem, nến, bóng bay số tuổi, dây chữ Happy Birthday.",
+    "- Quà và thiệp có lời chúc của mọi người.",
+    "- Một người “đánh lạc hướng” đưa nhân vật chính đến đúng giờ.",
+    "## Kịch bản gợi ý",
+    "1. Mọi người đến sớm và trốn sẵn.",
+    "2. Nhân vật chính bước vào, cả nhóm hô “Chúc mừng sinh nhật”.",
+    "3. Thổi nến, cắt bánh.",
+    "4. Xem video chúc mừng từ người ở xa, tặng quà.",
+    "## Gom ảnh của mọi người bằng một mã QR",
+    "Ai cũng chụp bằng điện thoại của mình. Với <b>album sự kiện</b> trên Albums, tất cả về một nơi:",
+    "1. Tạo album, ví dụ “Sinh nhật bất ngờ của Linh”.",
+    "2. Đặt mã QR cạnh bàn bánh hoặc gửi vào nhóm chat.",
+    "3. Mọi người quét bằng camera điện thoại và tải ảnh, video lên trong trình duyệt, không cần cài ứng dụng.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album thành một tệp ZIP.",
+    "Ảnh tải lên khi không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập nhận thêm một bản nháp riêng chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/to-chuc-sinh-nhat-cho-be/\">tổ chức sinh nhật cho bé</a> và <a href=\"/vi/guides/qr-code-for-photos-at-party/\">mã QR gom ảnh tiệc</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $. Khách không phải trả. Ảnh tối đa 4K, lưu 6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi tiệc",
+    "p": "Mọi người tải ảnh trong trình duyệt, không cần ứng dụng. Bạn quyết định ảnh nào hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại khoảnh khắc bất ngờ",
+    "p": "Trả một lần từ 39,99 $. Tối đa 4K, lưu 6 tháng từ lần tải lên đầu tiên, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    ["Tổ chức sinh nhật bất ngờ cần chuẩn bị gì?", "Địa điểm, bánh kem, đồ trang trí, quà và một người đưa nhân vật chính đến đúng lúc."],
+    ["Làm sao để giữ bí mật?", "Lập nhóm chat riêng không có nhân vật chính và thống nhất giờ, vai trò của từng người."],
+    ["Làm sao gom ảnh của mọi người?", "Chia sẻ một mã QR: mọi người tải ảnh, video vào cùng một album trong trình duyệt và bạn có thể duyệt trước."],
+    ["Có cần cài ứng dụng không?", "Không. Quét mã QR là album mở ngay trong trình duyệt điện thoại."]
+  ],
+  "related": ["to-chuc-sinh-nhat-cho-be", "qr-code-for-photos-at-party", "birthday-party-photo-sharing"]
+}
