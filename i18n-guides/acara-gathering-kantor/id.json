@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara gathering kantor",
+  "date": "2026-11-18",
+  "title": "Acara Gathering Kantor yang Seru: Rundown dan Foto | Albums.ink",
+  "desc": "Ide acara gathering kantor yang seru: lokasi, susunan acara, games, dan QR code untuk mengumpulkan foto serta video semua karyawan dalam satu album.",
+  "h1": "Acara gathering kantor yang seru",
+  "lead": "Banyak yang mencari “acara gathering kantor yang seru”, “rundown acara gathering kantor” dan “ide acara gathering kantor”. Berikut rencana sederhana: lokasi, susunan acara, games, dan cara mudah mengumpulkan foto serta video yang diambil semua orang.",
+  "body": [
+    "## Pilihan lokasi",
+    "- <b>Villa atau resort</b> di Puncak, Bandung, atau Bali untuk acara menginap.",
+    "- <b>Outbound</b> di area alam terbuka.",
+    "- <b>Restoran atau hotel</b> untuk gathering satu hari.",
+    "## Contoh rundown",
+    "1. Kumpul dan registrasi.",
+    "2. Sambutan pimpinan.",
+    "3. Ice breaking dan games tim.",
+    "4. Makan siang atau makan malam bersama.",
+    "5. Pembagian doorprize dan apresiasi karyawan.",
+    "6. Foto bersama.",
+    "## Ide games",
+    "- <b>Estafet tim</b>: kelereng sendok, sarung, atau tarik tambang.",
+    "- <b>Kuis kantor</b>: tebak siapa di foto masa kecil rekan kerja.",
+    "- <b>Photo hunt</b>: tiap tim mengumpulkan foto sesuai daftar tantangan.",
+    "## Kumpulkan foto semua orang dengan QR code",
+    "Semua karyawan memotret dengan HP masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Gathering Kantor 2026”.",
+    "2. Pasang QR code di meja registrasi, di banner, atau kirim ke grup WhatsApp.",
+    "3. Karyawan memindai dengan kamera dan mengunggah foto serta video lewat browser, tanpa instal apa pun.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk memeriksa unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album dalam satu file ZIP.",
+    "Yang mengunggah tanpa login tampil sebagai anonim. Tamu yang login juga mendapat salinan draf pribadi berisi unggahannya sendiri saja.",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/acara-reuni-sekolah/\">acara reuni sekolah</a> dan <a href=\"/id/guides/company-party-photo-sharing/\">berbagi foto acara kantor</a>.",
+    "## Harga",
+    "Album acara dibayar sekali: Small 39,99 USD, Medium 69,99 USD, atau Large 129,99 USD. Peserta tidak membayar. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu QR code untuk seluruh gathering",
+    "p": "Peserta mengunggah lewat browser, tanpa instal. Anda yang menentukan apa yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Semua foto gathering di satu tempat",
+    "p": "Bayar sekali mulai 39,99 USD. Hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    [
+      "Apa saja acara gathering kantor yang seru?",
+      "Outbound, games tim, kuis kantor, photo hunt, makan bersama, dan doorprize."
+    ],
+    [
+      "Bagaimana susunan acara gathering kantor?",
+      "Registrasi, sambutan, ice breaking dan games, makan bersama, doorprize, lalu foto bersama."
+    ],
+    [
+      "Bagaimana mengumpulkan foto dari semua karyawan?",
+      "Dengan QR code: semua mengunggah foto dan video ke album yang sama lewat browser, dan Anda bisa menyetujuinya dulu."
+    ],
+    [
+      "Apakah peserta perlu instal sesuatu?",
+      "Tidak. QR code membuka album di browser HP."
+    ]
+  ],
+  "related": [
+    "acara-reuni-sekolah",
+    "company-party-photo-sharing",
+    "qr-code-for-photos-at-party"
+  ]
+}

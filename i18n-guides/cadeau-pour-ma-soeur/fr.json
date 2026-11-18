@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "cadeau pour ma sœur",
+  "date": "2026-11-18",
+  "title": "Cadeau pour ma sœur : un album souvenir | Albums.ink",
+  "desc": "Un cadeau pour ta sœur, pour ses 30, 40 ou 50 ans ou pour Noël : un album avec photos, vidéos et messages vocaux, gratuit dans le navigateur.",
+  "h1": "Cadeau pour ma sœur : un album souvenir",
+  "lead": "On cherche « cadeau pour ma sœur », « pour ses 30 ans », « 40 ans », « Noël » ou « sœur de cœur ». Ce qui touche le plus une sœur, ce sont souvent les souvenirs partagés. Un album-récit les rassemble : gratuit et prêt en une soirée.",
+  "body": [
+    "## Pour quelle occasion",
+    "- Un anniversaire rond : 30, 40, 50 ou 60 ans.",
+    "- Noël en famille.",
+    "- Son mariage, un déménagement à l’étranger ou l’arrivée d’un bébé.",
+    "## Quoi mettre dans l’album",
+    "- Photos d’enfance : vacances au lac, Escalade, camps de ski.",
+    "- Vos moments à deux : voyages, fêtes, colocation.",
+    "- Courtes vidéos et messages vocaux des parents, des amies et des neveux.",
+    "## Idées de chapitres",
+    "1. Nous, petites.",
+    "2. Nos fous rires.",
+    "3. Ce que je ne t’ai jamais dit.",
+    "4. Ce qui nous attend.",
+    "## Le créer gratuitement",
+    "Sur Albums, tu crées un <b>album-récit</b> à partir de photos, vidéos et notes vocales, en chapitres, avec narration vocale si tu veux. Les albums sont illimités et restent aussi longtemps que tu le souhaites. Les photos gratuites sont enregistrées jusqu’à 2048 px sur le grand côté.",
+    "1. Connecte-toi avec Google et crée un album, par exemple « Pour Léa ».",
+    "2. Ajoute des chapitres, téléverse photos et vidéos, écris quelques lignes.",
+    "3. Enregistre les messages vocaux directement dans le navigateur.",
+    "4. Invite un coauteur, par exemple ton frère ; il doit être dans ta liste d’amis.",
+    "5. Choisis la visibilité : Public, Amis ou Moi uniquement, avec des exceptions pour certaines personnes. Pour garder la surprise, exclus-la avec « Amis sauf ».",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/album-photo-meilleure-amie/\">album photo meilleure amie</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
+    "## L’offrir",
+    "Envoie-lui le lien – il s’ouvre avec un aperçu de la couverture – ou montre l’album le jour J sur une tablette. L’album entier peut aussi être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Crée l’album pour ta sœur dès ce soir",
+    "p": "Photos, vidéos et voix réunies dans une histoire. Gratuit dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau que seule une sœur ou un frère peut faire",
+    "p": "Albums illimités, qui restent aussi longtemps que tu le souhaites.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau original pour ma sœur?",
+      "Un album de vos souvenirs avec des messages vocaux de la famille et de ses amies."
+    ],
+    [
+      "Quel cadeau pour les 40 ans de ma sœur?",
+      "Un album avec un chapitre par décennie et des messages de ceux qui comptent pour elle."
+    ],
+    [
+      "Puis-je garder la surprise?",
+      "Oui. Choisis Moi uniquement ou exclus-la avec « Amis sauf », puis change la visibilité le jour J."
+    ],
+    [
+      "Est-ce gratuit?",
+      "Oui. Les albums-récits sont gratuits et illimités."
+    ]
+  ],
+  "related": [
+    "album-photo-meilleure-amie",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

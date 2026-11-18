@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng đồng nghiệp",
+  "date": "2026-11-18",
+  "title": "Quà tặng đồng nghiệp nghỉ việc, chuyển công tác | Albums.ink",
+  "desc": "Quà tặng đồng nghiệp nghỉ hưu, nghỉ việc hay chuyển công tác: một album kỷ niệm với ảnh, video và lời nhắn thoại của cả phòng, làm miễn phí.",
+  "h1": "Quà tặng đồng nghiệp: album kỷ niệm của cả phòng",
+  "lead": "Nhiều người tìm “quà tặng đồng nghiệp nghỉ hưu”, “chuyển công tác”, “nghỉ việc” hay “sinh nhật”. Bên cạnh hoa và quà, một album ghi lại những ngày làm việc cùng nhau là món quà ý nghĩa. Làm miễn phí, xong trong một buổi tối.",
+  "body": [
+    "## Dịp phù hợp",
+    "- Đồng nghiệp <b>nghỉ hưu</b> sau nhiều năm gắn bó.",
+    "- Đồng nghiệp <b>nghỉ việc</b> hoặc <b>chuyển công tác</b>.",
+    "- Sinh nhật hoặc nghỉ thai sản.",
+    "## Nên đưa gì vào album",
+    "- Ảnh team building, tiệc tất niên, sinh nhật trong phòng.",
+    "- Ảnh những dự án làm chung.",
+    "- Video ngắn và lời nhắn thoại của từng người: “Cảm ơn anh/chị vì…”.",
+    "## Gợi ý chương",
+    "1. Ngày đầu đi làm.",
+    "2. Những dự án nhớ đời.",
+    "3. Lời nhắn của cả phòng.",
+    "4. Chúc chặng đường mới.",
+    "## Cách làm miễn phí",
+    "Trên Albums bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành chương, có thể thêm giọng kể. Album không giới hạn và được giữ lâu như bạn muốn. Ảnh miễn phí được lưu tối đa 2048 px ở cạnh dài.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “Tạm biệt chị Hương”.",
+    "2. Tạo chương, tải ảnh, video và viết vài dòng.",
+    "3. Ghi âm lời nhắn ngay trên trình duyệt.",
+    "4. Mời một đồng tác giả cùng làm; người đó phải nằm trong danh sách bạn bè của bạn.",
+    "5. Chọn chế độ hiển thị: Công khai, Bạn bè hoặc Chỉ mình tôi, có thể loại trừ từng người.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/lam-album-anh-ky-niem/\">làm album ảnh kỷ niệm</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Trao tặng",
+    "Gửi đường link qua Zalo, link mở kèm ảnh bìa xem trước (album để Chỉ mình tôi thì không xem được qua link). Có thể tải cả album về thành một file ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album tặng đồng nghiệp ngay hôm nay",
+    "p": "Ảnh, video và lời nhắn của cả phòng trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà chỉ cả phòng mới làm được",
+    "p": "Album không giới hạn, giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Tặng gì cho đồng nghiệp nghỉ hưu?",
+      "Một món quà kỷ niệm như album ảnh và lời nhắn của cả phòng, kèm hoa hoặc quà nhỏ."
+    ],
+    [
+      "Cả phòng có thể cùng góp ảnh không?",
+      "Mỗi album có một đồng tác giả; những người khác gửi ảnh và lời nhắn để bạn thêm vào."
+    ],
+    [
+      "Người nhận có cần tài khoản không?",
+      "Nếu album ở chế độ Công khai, chỉ cần mở link. Chế độ Bạn bè thì người đó cần đăng nhập và là bạn bè của bạn."
+    ],
+    [
+      "Có miễn phí không?",
+      "Có. Album câu chuyện miễn phí và không giới hạn."
+    ]
+  ],
+  "related": [
+    "lam-album-anh-ky-niem",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

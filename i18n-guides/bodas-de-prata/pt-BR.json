@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "bodas de prata",
+  "date": "2026-11-18",
+  "title": "Bodas de prata: festa de 25 anos de casamento | Albums.ink",
+  "desc": "Bodas de prata são 25 anos de casamento. Ideias de festa, decoração, renovação de votos e um QR code para juntar as fotos de todos os convidados.",
+  "h1": "Bodas de prata: como fazer a festa de 25 anos de casamento",
+  "lead": "No Brasil, muita gente busca “bodas de prata”, “bodas de prata quantos anos”, “significado” e “decoração”. Bodas de prata são os <b>25 anos de casamento</b>. Aqui vai um plano simples para a festa e um jeito fácil de juntar as fotos e vídeos que todo mundo tira.",
+  "body": [
+    "## O que significa",
+    "- A prata simboliza uma união valiosa e resistente, que ficou mais bonita com o tempo.",
+    "- É comum o casal renovar os votos, às vezes na mesma igreja do casamento.",
+    "## Formato da festa",
+    "- <b>Almoço ou jantar em família</b> em casa ou num salão de festas.",
+    "- <b>Renovação de votos</b> com cerimônia curta e celebração depois.",
+    "- <b>Churrasco</b> com amigos e padrinhos do casamento.",
+    "## Decoração",
+    "- Prata e branco, com toques de azul ou rosê.",
+    "- Uma mesa com fotos do casamento e de cada fase da família.",
+    "- Bolo com topo “25 anos”.",
+    "## Momentos especiais",
+    "- Os filhos contam a história do casal.",
+    "- A primeira música do casamento para dançar de novo.",
+    "- Recados dos convidados num livro de mensagens.",
+    "## Juntar as fotos de todos com QR code",
+    "Cada convidado tira fotos no celular. Com um <b>álbum de evento</b> no Albums, tudo fica num lugar só:",
+    "1. Crie um álbum, por exemplo “Bodas de prata Márcia e Paulo”.",
+    "2. Coloque o QR code nas mesas, na mesa de fotos ou no convite.",
+    "3. Os convidados escaneiam com a câmera e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative o <b>Hold guest photos</b> para aprovar os envios antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem fazer login aparece como anônimo. Convidados logados recebem também uma cópia privada em rascunho só com o que eles mesmos enviaram.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/festa-de-noivado/\">festa de noivado</a> e <a href=\"/pt-BR/guides/qr-code-for-photos-at-party/\">QR code para fotos da festa</a>.",
+    "## Preços",
+    "O álbum de evento é pagamento único: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam nada. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Um QR code para toda a festa",
+    "p": "Os convidados enviam pelo navegador, sem instalar nada. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas as fotos das bodas de prata num lugar só",
+    "p": "Pagamento único a partir de US$ 39,99. Até 4K, guardado 6 meses desde o primeiro envio, com extensão.",
+    "btn": "Começar meu álbum →"
+  },
+  "faq": [
+    [
+      "Bodas de prata são quantos anos?",
+      "25 anos de casamento."
+    ],
+    [
+      "Como comemorar bodas de prata?",
+      "Com almoço ou jantar em família, renovação de votos ou um churrasco com os padrinhos, e uma mesa de fotos do casal."
+    ],
+    [
+      "Como juntar as fotos de todos os convidados?",
+      "Com um QR code: todo mundo envia fotos e vídeos para o mesmo álbum pelo navegador, e você pode aprovar antes."
+    ],
+    [
+      "Os convidados precisam instalar algo?",
+      "Não. O QR code abre o álbum no navegador do celular."
+    ]
+  ],
+  "related": [
+    "festa-de-noivado",
+    "qr-code-for-photos-at-party",
+    "collect-wedding-photos-from-guests"
+  ]
+}

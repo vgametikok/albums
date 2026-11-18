@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "US",
+  "query": "christmas gift for grandparents",
+  "date": "2026-11-18",
+  "title": "Christmas Gift for Grandparents from the Grandkids | Albums.ink",
+  "desc": "A Christmas gift for grandparents who have everything: a free story album with photos, videos and the grandkids' voices, made in your browser.",
+  "h1": "A Christmas gift for grandparents from the grandkids",
+  "lead": "People search “christmas gift for grandparents”, “from grandkids”, “from baby” and “who have everything”. Most grandparents don’t need more stuff. What they love is the year with their grandkids, in pictures and in their voices. A story album does that, it’s free, and you can finish it in an evening.",
+  "body": [
+    "## Why it works for grandparents who have everything",
+    "- It’s personal: only your family can make it.",
+    "- It works even if they live in another state and saw the kids only a few times this year.",
+    "- Little ones can take part with a voice note or a drawing.",
+    "## What to put in it",
+    "- The year’s highlights: first steps, first day of school, Halloween costumes, summer trips.",
+    "- Short videos: a song, a soccer goal, a dance recital.",
+    "- Voice notes: “Merry Christmas, Grandma! Thank you for…”",
+    "- One older photo of the grandparents with your kids as babies.",
+    "## Chapter ideas",
+    "1. Our year.",
+    "2. Things the kids want to tell you.",
+    "3. Our favorite days with you.",
+    "4. Christmas wishes.",
+    "## How to make it for free",
+    "On Albums you build a <b>story album</b> from photos, videos and voice notes, split into chapters, with optional voice narration. Albums are unlimited and stay as long as you want them. Free photos are saved at up to 2048 px on the long edge.",
+    "1. Sign in with Google and create an album, e.g. “Grandma & Grandpa’s Christmas Album”.",
+    "2. Add chapters, upload photos and videos, write a line under each.",
+    "3. Record the kids’ messages right in the browser.",
+    "4. Invite one co-author, like your sibling, so their kids can add moments too. They need to be on your friends list.",
+    "5. Choose who can see it: Public, Friends or Only me, with exceptions for specific people.",
+    "!cta",
+    "More ideas: <a href=\"/en/guides/photo-album-for-grandma/\">photo album for grandma</a> and <a href=\"/en/guides/add-voice-to-photos/\">add voice to photos</a>.",
+    "## Giving it on Christmas",
+    "Open it on a tablet or TV browser on Christmas morning, or text them the link: it opens with a cover preview. Keep in mind that a link works only if the album isn’t set to Only me. You can also download the whole album as one ZIP file."
+  ],
+  "cta": {
+    "h2": "Make the grandparents’ album tonight",
+    "p": "Photos, videos and the grandkids’ voices in one story. Free, in your browser.",
+    "btn": "Create a story album →"
+  },
+  "cta2": {
+    "h2": "A gift only your family can give",
+    "p": "Unlimited albums that stay as long as you want them.",
+    "btn": "Start free →"
+  },
+  "faq": [
+    [
+      "What do you get grandparents who have everything?",
+      "Something personal: the year with their grandkids in photos, videos and voice messages."
+    ],
+    [
+      "Can a baby or toddler “give” this gift?",
+      "Yes. Add their photos and videos, and an older sibling or parent can record a message for them."
+    ],
+    [
+      "Do grandparents need an account to view it?",
+      "If the album is Public, they can open the link. For Friends visibility they need to sign in and be on your friends list."
+    ],
+    [
+      "Is it free?",
+      "Yes. Story albums are free and unlimited."
+    ]
+  ],
+  "related": [
+    "photo-album-for-grandma",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}
