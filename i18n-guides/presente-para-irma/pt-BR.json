@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para irmã",
+  "date": "2026-11-18",
+  "title": "Presente para irmã: um álbum de memórias | Albums.ink",
+  "desc": "Presente criativo para irmã mais velha ou mais nova: um álbum com fotos, vídeos e mensagens de voz da família, feito de graça no navegador.",
+  "h1": "Presente para irmã: um álbum de memórias",
+  "lead": "Muita gente procura “presente para irmã”, “irmã mais velha”, “de aniversário” e “criativo”. O que mais emociona uma irmã costuma ser o que vocês viveram juntas. Um álbum de histórias reúne tudo isso, é grátis e fica pronto numa noite.",
+  "body": [
+    "## Para qual ocasião",
+    "- Aniversário, principalmente 18, 30 ou 40 anos.",
+    "- Natal ou amigo secreto da família.",
+    "- Casamento, mudança para outra cidade ou chegada de um bebê.",
+    "## O que colocar no álbum",
+    "- Fotos de infância: praia nas férias, festa junina da escola, aniversários.",
+    "- Momentos de vocês duas: viagens, shows, rolês.",
+    "- Vídeos curtos e mensagens de voz dos pais, amigas e sobrinhos.",
+    "## Ideias de capítulos",
+    "1. Nós pequenas.",
+    "2. Nossas histórias.",
+    "3. O que eu nunca te disse.",
+    "4. O que vem por aí.",
+    "## Como fazer de graça",
+    "No Albums você monta um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e com narração por voz opcional. Os álbuns são ilimitados e ficam pelo tempo que você quiser. Fotos grátis são salvas com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para a Bia”.",
+    "2. Crie capítulos, envie fotos e vídeos e escreva uma frase em cada.",
+    "3. Grave as mensagens de voz direto no navegador.",
+    "4. Convide um coautor, como seu irmão; ele precisa estar na sua lista de amigos.",
+    "5. Escolha quem vê: Público, Amigos ou Só eu, com exceções para pessoas específicas. Para manter a surpresa, deixe sua irmã de fora com “Amigos exceto”.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-melhor-amiga/\">presente para melhor amiga</a> e <a href=\"/pt-BR/guides/add-voice-to-photos/\">fotos com voz</a>.",
+    "## Como entregar",
+    "Mande o link no WhatsApp: ele abre com prévia da capa (álbum em “Só eu” não abre por link). Ou mostre no tablet durante a festa. O álbum inteiro pode ser baixado em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Monte o álbum da sua irmã hoje",
+    "p": "Fotos, vídeos e vozes numa só história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que só quem é da família consegue fazer",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "Qual presente criativo dar para minha irmã?",
+      "Um álbum com as memórias de vocês e mensagens de voz da família e das amigas dela."
+    ],
+    [
+      "O que dar para a irmã mais velha?",
+      "Algo pessoal: um capítulo para cada fase da vida dela, com recados de quem ela ama."
+    ],
+    [
+      "Dá para manter surpresa?",
+      "Sim. Deixe em Só eu ou exclua sua irmã com “Amigos exceto” e mude a visibilidade no dia."
+    ],
+    [
+      "É grátis?",
+      "Sim. Álbuns de histórias são grátis e ilimitados."
+    ]
+  ],
+  "related": [
+    "presente-para-melhor-amiga",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

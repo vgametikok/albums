@@ -1,0 +1,75 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CA",
+  "query": "idée fête 60 ans",
+  "date": "2026-11-18",
+  "title": "Idées de fête pour 60 ans | Albums.ink",
+  "desc": "Idées de fête pour les 60 ans d’un homme ou d’une femme : formule, thème, souper, activités et un code QR pour réunir les photos de tous les invités.",
+  "h1": "Idées de fête pour 60 ans",
+  "lead": "Au Québec, on cherche « idée fête 60 ans », « idée anniversaire 60 ans homme », « femme », « maman » ou « papa ». Voici un plan simple : la formule, le thème, le repas, quelques moments forts et une façon facile de réunir les photos et vidéos de tout le monde.",
+  "body": [
+    "## Choisir la formule",
+    "- <b>Party à la maison</b> en après-midi, pour la famille et les voisins.",
+    "- <b>Souper au restaurant</b> dans une salle privée avec les proches.",
+    "- <b>Fin de semaine au chalet</b> avec les enfants et petits-enfants.",
+    "- <b>Party surprise</b> avec des amis de toutes les époques.",
+    "## Idées de thème",
+    "- <b>Années 60</b> : musique et déco de l’année de naissance.",
+    "- <b>Noir et or</b>, avec ballons chiffres et toast.",
+    "- <b>Sa passion</b> : hockey, golf, jardinage ou voyage.",
+    "## Le repas",
+    "- Buffet ou formule potluck, avec ses plats préférés.",
+    "- Plateau de fromages et charcuteries, table de desserts.",
+    "- Un cocktail signature et des options sans alcool.",
+    "## Moments à prévoir",
+    "- Une table souvenirs avec des photos de chaque décennie.",
+    "- Quelques mots d’un enfant, d’un frère ou d’une sœur et d’un ami.",
+    "- Un livre de vœux où chaque invité écrit un souvenir.",
+    "## Réunir les photos de tous avec un code QR",
+    "Chaque invité prend des photos avec son cellulaire. Avec un <b>album d’événement</b> sur Albums, tout se retrouve au même endroit :",
+    "1. Crée un album, par exemple « Les 60 ans de Denis ».",
+    "2. Mets le code QR sur les tables, la table souvenirs ou l’invitation.",
+    "3. Les invités le scannent avec l’appareil photo et téléversent photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Active <b>Hold guest photos</b> pour vérifier les téléversements avant qu’ils s’affichent.",
+    "5. Après la fête, télécharge l’album entier en un seul fichier ZIP.",
+    "Les invités qui téléversent sans se connecter apparaissent comme anonymes. Les invités connectés reçoivent en plus une copie brouillon privée avec seulement leurs propres fichiers.",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/anniversaire-50-ans/\">anniversaire 50 ans</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">code QR pour les photos de fête</a>.",
+    "## Prix",
+    "L’album d’événement est un paiement unique : Small 39,99 $ US, Medium 69,99 $ US ou Large 129,99 $ US. Les invités ne paient rien. Photos jusqu’en 4K, conservées 6 mois à partir du premier téléversement, avec possibilité de prolonger."
+  ],
+  "cta": {
+    "h2": "Un code QR pour tout le party",
+    "p": "Les invités téléversent dans le navigateur, sans rien installer. Tu choisis ce qui s’affiche.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Toutes les photos des 60 ans au même endroit",
+    "p": "Paiement unique dès 39,99 $ US. Jusqu’en 4K, conservé 6 mois après le premier téléversement, prolongeable.",
+    "btn": "Commencer mon album →"
+  },
+  "faq": [
+    [
+      "Comment fêter des 60 ans de façon originale?",
+      "Avec un thème années 60, une table souvenirs, quelques discours courts et un livre de vœux."
+    ],
+    [
+      "Que servir pour une fête de 60 ans?",
+      "Un buffet ou un potluck, un plateau de fromages, un gâteau et des boissons avec des options sans alcool."
+    ],
+    [
+      "Comment réunir les photos de tous les invités?",
+      "Avec un code QR : chacun téléverse ses photos et vidéos dans le même album depuis le navigateur, et tu peux les approuver avant."
+    ],
+    [
+      "Les invités doivent-ils installer quelque chose?",
+      "Non. Le code QR ouvre l’album dans le navigateur du cellulaire."
+    ]
+  ],
+  "related": [
+    "anniversaire-50-ans",
+    "qr-code-for-photos-at-party",
+    "birthday-party-photo-sharing"
+  ]
+}

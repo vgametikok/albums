@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AT",
+  "query": "Geschenk für Bruder",
+  "date": "2026-11-18",
+  "title": "Geschenk für Bruder: Erinnerungsalbum | Albums.ink",
+  "desc": "Persönliches Geschenk für den Bruder zum Geburtstag oder zu Weihnachten: ein Album mit Fotos, Videos und Sprachnachrichten – kostenlos im Browser.",
+  "h1": "Geschenk für den Bruder: ein Album voller Erinnerungen",
+  "lead": "Gesucht wird „Geschenk für Bruder“, „von Schwester“, „zum Geburtstag“ oder „zum 30./40./50. Geburtstag“. Brüder sagen oft, sie brauchen nichts. Gemeinsame Erinnerungen freuen sie trotzdem – als Story-Album, kostenlos und an einem Abend gemacht.",
+  "body": [
+    "## Passende Anlässe",
+    "- Ein runder Geburtstag: 18, 30, 40 oder 50.",
+    "- Weihnachten oder der Abschied, wenn er ins Ausland zieht.",
+    "- Hochzeit oder die Geburt seines ersten Kindes.",
+    "## Was ins Album gehört",
+    "- Kinderfotos: Urlaub am See, Skikurs, gemeinsame Streiche.",
+    "- Fotos aus der Schulzeit, vom Bundesheer oder Zivildienst, von seinem ersten Auto.",
+    "- Kurze Videos und Sprachnachrichten von Eltern, Freunden und Geschwistern.",
+    "## Kapitel-Ideen",
+    "1. Wir als Kinder.",
+    "2. Die wilden Jahre.",
+    "3. Was ich dir nie gesagt habe.",
+    "4. Was noch kommt.",
+    "## Kostenlos erstellen",
+    "Auf Albums baust du ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit eigener Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange du möchtest. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Lukas“.",
+    "2. Kapitel anlegen, Fotos und Videos hochladen, kurze Texte schreiben.",
+    "3. Sprachnachrichten direkt im Browser aufnehmen.",
+    "4. Eine Person als Co-Autor einladen, z. B. die zweite Schwester – sie muss in deiner Freundesliste sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich, mit Ausnahmen für einzelne Personen. Soll es eine Überraschung bleiben, schließe ihn bei „Freunde außer“ aus.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/geschenk-fuer-ehemann/\">Geschenk für Ehemann</a> und <a href=\"/de/guides/add-voice-to-photos/\">Fotos mit Stimme</a>.",
+    "## Übergeben",
+    "Schick ihm den Link – er öffnet sich mit Titelbild-Vorschau – oder zeig das Album bei der Feier am Tablet. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Das Album für deinen Bruder heute erstellen",
+    "p": "Fotos, Videos und Stimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das nur Geschwister machen können",
+    "p": "Unbegrenzte Alben, die bleiben, so lange du möchtest.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einem Bruder, der alles hat?",
+      "Etwas Persönliches: gemeinsame Erinnerungen und Nachrichten von Familie und Freunden in einem Album."
+    ],
+    [
+      "Was schenke ich meinem Bruder zum 30. oder 40.?",
+      "Ein Album mit einem Kapitel pro Lebensabschnitt und Sprachnachrichten von allen, die ihm wichtig sind."
+    ],
+    [
+      "Kann ich das Album geheim halten?",
+      "Ja. Stell es auf Nur ich oder schließe ihn bei „Freunde außer“ aus und gib es erst am Geburtstag frei."
+    ],
+    [
+      "Ist das kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ]
+  ],
+  "related": [
+    "geschenk-fuer-ehemann",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
+}

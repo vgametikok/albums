@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc tốt nghiệp",
+  "date": "2026-11-18",
+  "title": "Tổ chức tiệc tốt nghiệp: ý tưởng và cách gom ảnh | Albums.ink",
+  "desc": "Ý tưởng tiệc tốt nghiệp đại học hoặc cấp 3: địa điểm, trang trí, hoạt động và mã QR để gom ảnh, video của mọi người vào một album.",
+  "h1": "Tổ chức tiệc tốt nghiệp: ý tưởng và cách gom ảnh",
+  "lead": "Nhiều người tìm “tiệc tốt nghiệp”, “tiệc tốt nghiệp đại học”, “tiệc tốt nghiệp cấp 3” và “trang trí tiệc tốt nghiệp”. Dưới đây là kế hoạch đơn giản: địa điểm, trang trí, hoạt động và cách gom ảnh, video mà bạn bè, gia đình chụp vào một chỗ.",
+  "body": [
+    "## Chọn địa điểm",
+    "- <b>Nhà hàng hoặc quán nướng</b> có phòng riêng cho cả lớp.",
+    "- <b>Ở nhà</b>, tiệc nhỏ cùng gia đình sau lễ trao bằng.",
+    "- <b>Quán cà phê có sân thượng</b> hoặc homestay ngoại thành cho nhóm bạn thân.",
+    "## Trang trí",
+    "- Bóng bay, mũ cử nhân, phông chữ “Congratulations” và tên trường.",
+    "- Góc kỷ niệm với ảnh từ năm nhất đến năm cuối.",
+    "- Bánh kem in hình áo cử nhân.",
+    "## Hoạt động",
+    "- Mỗi người viết một lời chúc lên thiệp, đọc to cuối buổi.",
+    "- Trò chơi “ai là ai” với ảnh năm nhất.",
+    "- Lời cảm ơn gửi bố mẹ và thầy cô.",
+    "## Gom ảnh của mọi người bằng mã QR",
+    "Ai cũng chụp bằng điện thoại. Với <b>album sự kiện</b> trên Albums, tất cả ảnh và video về một chỗ:",
+    "1. Tạo album, ví dụ “Tốt nghiệp K65”.",
+    "2. Đặt mã QR trên bàn, ở góc kỷ niệm hoặc gửi trong nhóm Zalo.",
+    "3. Khách quét bằng camera và tải ảnh, video lên ngay trên trình duyệt, không cần cài đặt gì.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải cả album về thành một file ZIP.",
+    "Ai tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ gồm ảnh của chính mình.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/ky-yeu-lop/\">kỷ yếu lớp 12</a> và <a href=\"/vi/guides/hop-lop/\">họp lớp</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Khách không phải trả gì. Ảnh tối đa 4K, lưu 6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi tiệc",
+    "p": "Khách tải lên từ trình duyệt, không cần cài đặt. Bạn quyết định ảnh nào hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Mọi ảnh tốt nghiệp ở một nơi",
+    "p": "Trả một lần từ 39,99 USD. Tối đa 4K, lưu 6 tháng từ lần tải đầu, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    [
+      "Tiệc tốt nghiệp nên tổ chức ở đâu?",
+      "Nhà hàng có phòng riêng cho cả lớp, ở nhà cùng gia đình hoặc quán cà phê cho nhóm bạn thân."
+    ],
+    [
+      "Tiệc tốt nghiệp có những hoạt động gì?",
+      "Viết lời chúc, trò chơi với ảnh năm nhất và lời cảm ơn bố mẹ, thầy cô."
+    ],
+    [
+      "Làm sao gom ảnh của mọi người?",
+      "Dùng mã QR: ai cũng tải ảnh, video vào cùng một album trên trình duyệt, bạn có thể duyệt trước."
+    ],
+    [
+      "Khách có phải cài gì không?",
+      "Không. Mã QR mở album ngay trên trình duyệt điện thoại."
+    ]
+  ],
+  "related": [
+    "ky-yeu-lop",
+    "hop-lop",
+    "qr-code-for-photos-at-party"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa di pensionamento",
+  "date": "2026-11-18",
+  "title": "Festa di pensionamento: idee e come raccogliere le foto | Albums.ink",
+  "desc": "Idee per una festa di pensionamento in ufficio o al ristorante: organizzazione, discorso, regalo e un QR code per raccogliere le foto di tutti i colleghi.",
+  "h1": "Festa di pensionamento: idee per organizzarla",
+  "lead": "In Italia si cerca “festa di pensionamento”, “festa di pensionamento idee”, “cosa regalare” e “frasi”. Ecco un piano semplice: formato, programma, regalo e un modo facile per raccogliere foto e video che colleghi e famiglia scattano con il telefono.",
+  "body": [
+    "## Che formato scegliere",
+    "- <b>Rinfresco in ufficio</b> a fine giornata, con aperitivo e torta.",
+    "- <b>Cena al ristorante</b> con colleghi e famiglia.",
+    "- <b>Pranzo in agriturismo</b> nel weekend, se il gruppo è affiatato.",
+    "## Il programma",
+    "1. Accoglienza e aperitivo.",
+    "2. Discorso del responsabile o del collega più vicino.",
+    "3. Consegna del regalo e del biglietto firmato da tutti.",
+    "4. Brindisi e foto di gruppo.",
+    "## Idee per il regalo",
+    "- Un regalo di gruppo legato a una passione: viaggio, bici, corso di cucina.",
+    "- Un album con le foto degli anni di lavoro e i messaggi dei colleghi.",
+    "## Frasi per il biglietto",
+    "- “Ora il tuo unico capo sarà il tempo libero.”",
+    "- “Grazie per tutti gli anni insieme: ci mancherai.”",
+    "## Raccogliere le foto di tutti con un QR code",
+    "Ognuno scatta con il proprio telefono. Con un <b>album evento</b> su Albums tutto finisce in un unico posto:",
+    "1. Crea un album, per esempio “La pensione di Giorgio”.",
+    "2. Metti il QR code sui tavoli, vicino alla torta o nell’invito.",
+    "3. Gli ospiti lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per controllare i caricamenti prima che compaiano.",
+    "5. Alla fine scarica l’intero album in un unico file ZIP.",
+    "Chi carica senza accedere compare come anonimo. Gli ospiti che hanno effettuato l’accesso ricevono anche una copia privata in bozza con solo i propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/cena-aziendale-natale/\">cena aziendale di Natale</a> e <a href=\"/it/guides/retirement-party-photo-ideas/\">idee foto per la pensione</a>.",
+    "## Prezzi",
+    "L’album evento è un pagamento unico: Small 39,99 USD, Medium 69,99 USD o Large 129,99 USD. Gli ospiti non pagano. Foto fino a 4K, conservate 6 mesi dal primo caricamento, con possibilità di estendere."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Gli ospiti caricano dal browser, senza installare nulla. Decidi tu cosa si vede.",
+    "btn": "Crea album evento →"
+  },
+  "cta2": {
+    "h2": "Tutte le foto della festa in un posto",
+    "p": "Pagamento unico da 39,99 USD. Fino a 4K, conservate 6 mesi dal primo caricamento, estendibile.",
+    "btn": "Inizia il mio album →"
+  },
+  "faq": [
+    [
+      "Come organizzare una festa di pensionamento?",
+      "Scegli tra rinfresco in ufficio, cena o pranzo nel weekend; prevedi un discorso, il regalo e un brindisi."
+    ],
+    [
+      "Cosa regalare per la pensione a un collega?",
+      "Un regalo di gruppo legato a una sua passione, oppure un album con foto e messaggi dei colleghi."
+    ],
+    [
+      "Come raccolgo le foto di tutti?",
+      "Con un QR code: tutti caricano foto e video nello stesso album dal browser, e tu puoi approvarle prima."
+    ],
+    [
+      "Gli ospiti devono installare qualcosa?",
+      "No. Il QR code apre l’album nel browser del telefono."
+    ]
+  ],
+  "related": [
+    "cena-aziendale-natale",
+    "retirement-party-photo-ideas",
+    "qr-code-for-photos-at-party"
+  ]
+}
