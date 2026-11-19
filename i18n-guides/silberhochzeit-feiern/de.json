@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "Silberhochzeit feiern",
+  "title": "Silberhochzeit feiern: Ideen und Fotos | Albums.ink",
+  "desc": "Silberhochzeit feiern: Ablauf, Deko in Silber, Spiele, Rede und ein QR-Code, mit dem alle Gäste ihre Fotos und Videos in ein Album laden.",
+  "h1": "Silberhochzeit feiern",
+  "lead": "Nach 25 Jahren Ehe wird gesucht: „Silberhochzeit Deko“, „Silberhochzeit Geschenk“, „Silberhochzeit Sprüche“. Hier ein einfacher Plan für das Fest – vom Ort bis zu den Spielen – und wie ihr danach alle Fotos der Gäste beisammen habt.",
+  "body": [
+    "## Ort und Rahmen",
+    "- Zu Hause oder im Garten, im Lieblingsrestaurant oder in einem Saal im Ort.",
+    "- Manche Paare feiern dort, wo vor 25 Jahren die Hochzeit war.",
+    "- Wer möchte, beginnt mit einem kleinen Gottesdienst oder einer Segnung in der Kirche.",
+    "## Bräuche",
+    "- In vielen Regionen binden Nachbarn oder Freunde einen <b>Silberkranz</b> aus Tannengrün mit silbernen Rosen für die Haustür.",
+    "- Das Paar trägt oft einen silbernen Anstecker oder ein silbernes Sträußchen.",
+    "- Ein Ehegelübde zu erneuern ist kein Muss, aber eine schöne Idee.",
+    "## Deko in Silber",
+    "- Weiß, Silber und Grün, dazu Kerzen und eine silberne „25“.",
+    "- Hochzeitsfotos von damals als Tischkarten oder auf einer Leine.",
+    "## Spiele und Rede",
+    "- <b>Paar-Quiz</b>: Wo war das erste Date? Wer hat zuerst „Ich liebe dich“ gesagt?",
+    "- <b>Damals und heute</b>: Gäste raten, aus welchem Jahr ein Foto stammt.",
+    "- Eine kurze Rede der Kinder oder der Trauzeugen von damals.",
+    "## Alle Fotos der Gäste mit einem QR-Code",
+    "Jeder fotografiert mit dem Handy. Mit einem <b>Event-Album</b> auf Albums landet alles an einem Ort:",
+    "1. Album anlegen, z. B. „Silberhochzeit Petra & Thomas“.",
+    "2. QR-Code auf die Tische oder in die Einladung.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Hold guest photos</b> prüft ihr Uploads, bevor sie sichtbar werden.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/geschenk-hochzeitstag/\">Geschenk zum Hochzeitstag</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Preise",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Gäste zahlen nichts. Fotos in bis zu 4K, gespeichert 6 Monate ab dem ersten Upload, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für das ganze Fest",
+    "p": "Gäste laden im Browser hoch, ohne Installation. Ihr entscheidet, was erscheint.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "25 Jahre – und alle Fotos an einem Ort",
+    "p": "Einmalig ab 39,99 $. Bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    [
+      "Wie feiert man Silberhochzeit?",
+      "Meist mit Familie und Freunden zu Hause, im Restaurant oder Saal – oft mit Silberkranz, kurzer Rede und Fotos von damals."
+    ],
+    [
+      "Was ist der Silberkranz?",
+      "Ein Kranz aus Tannengrün mit silbernen Rosen, den Nachbarn oder Freunde für die Haustür des Paares binden."
+    ],
+    [
+      "Welche Spiele passen zur Silberhochzeit?",
+      "Ein Paar-Quiz, „Damals und heute“ mit alten Fotos oder Wünsche der Gäste für die nächsten 25 Jahre."
+    ],
+    [
+      "Wie bekomme ich die Fotos aller Gäste?",
+      "Mit einem QR-Code: Alle laden Fotos und Videos im Browser in dasselbe Album, und ihr könnt sie vorher freigeben."
+    ]
+  ],
+  "related": [
+    "geschenk-hochzeitstag",
+    "qr-code-for-photos-at-party",
+    "50-geburtstag-ideen"
+  ],
+  "date": "2026-11-19"
+}

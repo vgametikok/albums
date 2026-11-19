@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa 60 anni",
+  "title": "Festa 60 anni: idee per lei e per lui | Albums.ink",
+  "desc": "Idee per una festa dei 60 anni, per donna o uomo: location, tema, menù, momenti speciali e un QR code per raccogliere le foto di tutti gli invitati.",
+  "h1": "Festa 60 anni: idee per lei e per lui",
+  "lead": "Si cerca “festa 60 anni donna”, “festa 60 anni uomo” e “idee originali per festa 60 anni”. Ecco un piano semplice, dalla location al brindisi, e un modo facile per avere dopo tutte le foto scattate da parenti e amici.",
+  "body": [
+    "## Dove festeggiare",
+    "- Un pranzo o una cena al ristorante o in agriturismo.",
+    "- A casa o in taverna, con un buffet e i parenti più stretti.",
+    "- Una sala in affitto se gli invitati sono tanti.",
+    "## Temi e allestimento",
+    "- <b>Anni '60</b>: musica beat, vinili e abiti a tema.",
+    "- <b>Elegante</b>: bianco, oro e fiori, con un grande “60” sul tavolo.",
+    "- <b>Una vita in foto</b>: immagini di ogni decennio su un filo con mollette.",
+    "## Momenti speciali",
+    "- Un video o un discorso dei figli e dei nipoti.",
+    "- <b>Quiz sul festeggiato</b>: dov'è nato, il primo lavoro, il viaggio di nozze.",
+    "- Il taglio della torta e il brindisi con le bollicine.",
+    "## Per lei e per lui",
+    "- <b>Per lei</b>: un pranzo con le amiche di sempre, una gita in una città d'arte, un tavolo dei ricordi.",
+    "- <b>Per lui</b>: una cena in osteria, una grigliata con gli amici, la squadra del cuore come tema.",
+    "## Raccogli le foto di tutti con un QR code",
+    "Ognuno fa foto con il telefono. Con un <b>album evento</b> su Albums arrivano tutte in un unico posto:",
+    "1. Crea un album, per esempio “I 60 anni di Paola”.",
+    "2. Metti il QR code sui tavoli o nell'invito.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per approvare i caricamenti prima che compaiano.",
+    "5. Dopo la festa, scarica l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere compare in forma anonima. Gli invitati che hanno effettuato l'accesso ricevono anche una copia bozza privata con i soli loro caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-50-anni/\">festa 50 anni</a> e <a href=\"/it/guides/regalo-per-papa/\">regalo per papà</a>.",
+    "## Prezzi",
+    "L'album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gli invitati non pagano nulla. Foto fino a 4K, album conservato per 6 mesi dal primo caricamento, con possibilità di estensione."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "Gli invitati caricano dal browser, senza installare nulla. Decidi tu cosa compare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Sessant'anni, tutte le foto in un posto",
+    "p": "Acquisto unico da 39,99 $. Fino a 4K, 6 mesi dal primo caricamento, estendibile.",
+    "btn": "Inizia l'album →"
+  },
+  "faq": [
+    [
+      "Come organizzare una festa per i 60 anni?",
+      "Scegli la location, un tema semplice come gli anni '60, un menù e qualche momento speciale come un video dei figli e dei nipoti."
+    ],
+    [
+      "Cosa fare per i 60 anni di una donna?",
+      "Un pranzo con le amiche e la famiglia, un tavolo con le foto di ogni decennio e un discorso dei figli."
+    ],
+    [
+      "Come raccolgo le foto di tutti gli invitati?",
+      "Con un QR code: tutti caricano foto e video nello stesso album dal browser, e puoi approvarli prima."
+    ],
+    [
+      "Gli invitati devono installare qualcosa?",
+      "No. Il QR code apre l'album nel browser del telefono."
+    ]
+  ],
+  "related": [
+    "festa-50-anni",
+    "regalo-per-papa",
+    "qr-code-for-photos-at-party"
+  ],
+  "date": "2026-11-19"
+}

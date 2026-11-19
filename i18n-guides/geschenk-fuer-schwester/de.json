@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "Geschenk für Schwester",
+  "title": "Geschenk für Schwester: ein Erinnerungsalbum | Albums.ink",
+  "desc": "Ein persönliches Geschenk für die Schwester zum Geburtstag oder zu Weihnachten: ein kostenloses Story-Album mit Fotos, Videos und Sprachnachrichten.",
+  "h1": "Geschenk für Schwester: ein Album voller Erinnerungen",
+  "lead": "Gesucht wird „Geschenk für Schwester“, „zum Geburtstag“, „selber machen“ oder „zum 40. Geburtstag“. Am meisten berührt meist das, was ihr zusammen erlebt habt. Ein Story-Album bringt das zusammen – kostenlos und an einem Abend gemacht.",
+  "body": [
+    "## Für welchen Anlass",
+    "- Geburtstag, besonders zum 30., 40. oder 50.",
+    "- Weihnachten oder das Familienwichteln.",
+    "- Hochzeit, Umzug in eine andere Stadt oder die Geburt eines Kindes.",
+    "## Was ins Album gehört",
+    "- Kinderfotos: Ferien in den Bergen, der erste Schultag, Geburtstage.",
+    "- Eure gemeinsamen Momente: Reisen, Konzerte, WG-Zeiten.",
+    "- Kurze Videos und Sprachnachrichten von Eltern, Freundinnen und Gotte oder Götti.",
+    "## Ideen für Kapitel",
+    "1. Wir als Kinder.",
+    "2. Unsere Geschichten.",
+    "3. Was ich dir nie gesagt habe.",
+    "4. Was noch kommt.",
+    "## So geht es kostenlos",
+    "Auf Albums baut ihr ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit eigener Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange ihr möchtet. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Lea“.",
+    "2. Kapitel erstellen, Fotos und Videos hochladen, zu jedem einen Satz schreiben.",
+    "3. Sprachnachrichten direkt im Browser aufnehmen.",
+    "4. Eine zweite Person kann als Co-Autor mitmachen, z. B. dein Bruder – sie muss in deiner Freundesliste sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. „Freunde“ heisst alle deine Freunde – für die Überraschung wählst du <b>Freunde ausser</b> und schliesst deine Schwester bis zum Tag aus.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/weihnachtsgeschenk-fuer-eltern/\">Weihnachtsgeschenk für Eltern</a> und <a href=\"/de/guides/fotoalbum-beste-freundin/\">Fotoalbum für die beste Freundin</a>.",
+    "## So überreichst du es",
+    "Am Tag die Sichtbarkeit ändern und den Link per WhatsApp schicken – er öffnet sich mit Titelbild-Vorschau. Ein Album auf „Nur ich“ öffnet sich über den Link für niemanden sonst. Oder ihr schaut es zusammen auf dem Tablet an. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Das Album für deine Schwester – heute noch",
+    "p": "Fotos, Videos und Stimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das nur Geschwister machen können",
+    "p": "Unbegrenzte Alben, die bleiben, so lange ihr möchtet.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenke ich meiner Schwester, die alles hat?",
+      "Etwas Persönliches: ein Album mit euren Erinnerungen und Sprachnachrichten der Familie."
+    ],
+    [
+      "Was kann ich meiner Schwester selber machen?",
+      "Ein Story-Album mit Kapiteln zu eurer Kindheit und euren gemeinsamen Erlebnissen – am Computer oder Handy im Browser."
+    ],
+    [
+      "Bleibt es eine Überraschung?",
+      "Ja. Lass es auf „Nur ich“ oder schliesse sie mit „Freunde ausser“ aus und ändere die Sichtbarkeit am Tag."
+    ],
+    [
+      "Ist es kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ]
+  ],
+  "related": [
+    "fotoalbum-beste-freundin",
+    "weihnachtsgeschenk-fuer-eltern",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-19"
+}

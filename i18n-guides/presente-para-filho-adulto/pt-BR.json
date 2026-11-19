@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para filho adulto",
+  "title": "Presente para filho adulto: um álbum da vida dele | Albums.ink",
+  "desc": "Presente para filho adulto de 18, 20 ou 30 anos: um álbum grátis com fotos de infância, vídeos e mensagens de voz da família, feito no navegador.",
+  "h1": "Presente para filho adulto: um álbum de memórias",
+  "lead": "Muitas mães e pais buscam “presente para filho adulto”, “filho homem adulto”, “de 18 anos” e “de 20 anos”. Quando ele já tem quase tudo, o que emociona é ver a própria história contada pela família. Um álbum de histórias faz isso, é grátis e fica pronto numa noite.",
+  "body": [
+    "## Para qual ocasião",
+    "- Aniversário de 18, 20, 25 ou 30 anos.",
+    "- Formatura, primeiro emprego ou mudança para outra cidade.",
+    "- Natal em família.",
+    "## O que colocar no álbum",
+    "- Fotos de bebê, do primeiro dia de escola, das férias na praia.",
+    "- O time do coração, as viagens, os amigos de infância.",
+    "- Vídeos curtos e mensagens de voz dos avós, dos padrinhos e dos irmãos.",
+    "## Ideias de capítulos",
+    "1. Quando você chegou.",
+    "2. A infância.",
+    "3. Do que temos orgulho.",
+    "4. O que desejamos para você.",
+    "## Como fazer de graça",
+    "No Albums você monta um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e com narração por voz opcional. Os álbuns são ilimitados e ficam pelo tempo que você quiser. Fotos grátis são salvas com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para o Pedro”.",
+    "2. Crie capítulos, envie fotos e vídeos e escreva uma frase em cada.",
+    "3. Grave as mensagens de voz direto no navegador.",
+    "4. Convide um coautor, como o pai ou a irmã dele; a pessoa precisa estar na sua lista de amigos.",
+    "5. Escolha quem vê: Público, Amigos ou Só eu, com exceções para pessoas específicas. “Amigos” são todos os seus amigos; para manter a surpresa, deixe seu filho de fora com “Amigos exceto”.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/album-fotos-para-pai/\">álbum de fotos para o pai</a> e <a href=\"/pt-BR/guides/album-do-bebe-digital/\">álbum do bebê digital</a>.",
+    "## Como entregar",
+    "No dia, mude a visibilidade e mande o link no WhatsApp: ele abre com prévia da capa (álbum em “Só eu” não abre por link para mais ninguém). Ou mostre na TV durante a festa. O álbum inteiro pode ser baixado em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Conte a história do seu filho hoje",
+    "p": "Fotos, vídeos e vozes numa só história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que só a família consegue fazer",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para um filho adulto?",
+      "Algo pessoal: um álbum com a história dele e mensagens de voz da família, junto ou no lugar de um presente prático."
+    ],
+    [
+      "Qual presente para filho de 18 anos?",
+      "Um álbum da infância até os 18, com recados dos avós e dos amigos, emociona mais do que um objeto."
+    ],
+    [
+      "Dá para manter surpresa?",
+      "Sim. Deixe em Só eu ou exclua seu filho com “Amigos exceto” e mude a visibilidade no dia."
+    ],
+    [
+      "É grátis?",
+      "Sim. Álbuns de histórias são grátis e ilimitados."
+    ]
+  ],
+  "related": [
+    "album-fotos-para-pai",
+    "album-do-bebe-digital",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-19"
+}
