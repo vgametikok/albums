@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "bodas de plata",
+  "title": "Bodas de plata: cómo celebrar 25 años de casados | Albums.ink",
+  "desc": "Ideas para celebrar unas bodas de plata: dónde, renovación de votos, decoración en plata, juegos y un código QR para reunir las fotos de todos los invitados.",
+  "h1": "Bodas de plata: ideas para celebrar 25 años",
+  "lead": "En España se busca “bodas de plata”, “bodas de plata cuántos años son”, “regalos” e “ideas divertidas”. Son 25 años de casados. Aquí tienes un plan sencillo para la celebración y una forma fácil de reunir después todas las fotos de la familia y los amigos.",
+  "body": [
+    "## Dónde celebrarlas",
+    "- Una comida o cena en el restaurante favorito de la pareja.",
+    "- En casa o en el jardín, con un catering sencillo o un picoteo.",
+    "- Una finca o salón si la lista de invitados es larga.",
+    "## Renovar los votos",
+    "- Algunas parejas celebran una misa de acción de gracias o una bendición en la parroquia donde se casaron.",
+    "- Otras prefieren unas palabras ante la familia, sin ceremonia religiosa.",
+    "- No es obligatorio: también vale un brindis con los hijos y los testigos de la boda.",
+    "## Decoración en plata",
+    "- Blanco, plata y verde, velas y un “25” plateado.",
+    "- Fotos de la boda de entonces en las mesas o colgadas con pinzas.",
+    "- El vestido o el ramo de la boda, si se conserva, como detalle.",
+    "## Juegos e ideas divertidas",
+    "- <b>Quiz de la pareja</b>: ¿dónde fue la primera cita?, ¿quién dijo “te quiero” primero?",
+    "- <b>Antes y ahora</b>: los invitados adivinan el año de cada foto.",
+    "- Un vídeo o unas palabras de los hijos y de los amigos de toda la vida.",
+    "## Reúne las fotos de todos con un código QR",
+    "Todos hacen fotos con el móvil. Con un <b>álbum de evento</b> en Albums llegan a un solo sitio:",
+    "1. Crea un álbum, por ejemplo “Bodas de plata de Carmen y Javier”.",
+    "2. Pon el código QR en las mesas o en la invitación.",
+    "3. Los invitados lo escanean con la cámara del móvil y suben fotos y vídeos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Hold guest photos</b> para aprobar las fotos antes de que aparezcan.",
+    "5. Después, descarga el álbum completo en un solo archivo ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados con sesión iniciada reciben además una copia borrador privada solo con lo que ellos subieron.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/bodas-de-oro/\">bodas de oro</a> y <a href=\"/es/guides/regalo-aniversario-papas/\">regalo de aniversario para tus padres</a>.",
+    "## Precios",
+    "El álbum de evento es un pago único: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Los invitados no pagan nada. Las fotos se guardan hasta en 4K y el álbum se conserva 6 meses desde la primera subida, con opción de ampliar."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la celebración",
+    "p": "Los invitados suben desde el navegador, sin instalar nada. Tú decides qué aparece.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "25 años y todas las fotos en un solo lugar",
+    "p": "Pago único desde 39,99 $. Hasta 4K, 6 meses desde la primera subida, ampliable.",
+    "btn": "Empezar álbum →"
+  },
+  "faq": [
+    [
+      "¿Cuántos años son las bodas de plata?",
+      "25 años de casados. Las bodas de oro son a los 50."
+    ],
+    [
+      "¿Cómo se celebran las bodas de plata?",
+      "Con una comida o cena con familia y amigos, a veces con una misa o renovación de votos, fotos de la boda y unas palabras de los hijos."
+    ],
+    [
+      "¿Qué juegos se pueden hacer?",
+      "Un quiz sobre la pareja, adivinar el año de fotos antiguas o mensajes de los invitados para los próximos 25 años."
+    ],
+    [
+      "¿Cómo reúno las fotos de todos los invitados?",
+      "Con un código QR: todos suben fotos y vídeos al mismo álbum desde el navegador y tú puedes aprobarlas antes."
+    ]
+  ],
+  "related": [
+    "bodas-de-oro",
+    "regalo-aniversario-papas",
+    "collect-wedding-photos-from-guests"
+  ],
+  "date": "2026-11-19"
+}

@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc báo hỷ",
+  "title": "Tiệc báo hỷ: là gì, tổ chức nhỏ và gom ảnh khách mời | Albums.ink",
+  "desc": "Tiệc báo hỷ là gì, khi nào tổ chức, cách lên kế hoạch tiệc nhỏ dưới 10 bàn và cách gom ảnh, video của mọi khách mời bằng một mã QR.",
+  "h1": "Tiệc báo hỷ: tổ chức nhỏ gọn, ảnh gom một nơi",
+  "lead": "Nhiều người tìm “tiệc báo hỷ là gì”, “tiệc báo hỷ dưới 10 bàn” và “tiệc báo hỷ nhỏ”. Tiệc báo hỷ là bữa tiệc để báo tin vui kết hôn với bạn bè, đồng nghiệp – thường khi đám cưới chính đã tổ chức ở quê hoặc cô dâu chú rể muốn làm gọn. Dưới đây là cách chuẩn bị và gom ảnh của mọi người.",
+  "body": [
+    "## Tiệc báo hỷ khác gì đám cưới",
+    "- Không phải nghi lễ cưới hỏi: không thay thế lễ ăn hỏi, lễ thành hôn hay lễ vu quy của gia đình.",
+    "- Thường nhỏ hơn, mời bạn bè và đồng nghiệp ở nơi đang sống và làm việc.",
+    "- Có thể tổ chức trước hoặc sau đám cưới ở quê.",
+    "## Quy mô và địa điểm",
+    "- Nhà hàng có phòng riêng, khoảng vài bàn đến dưới 10 bàn.",
+    "- Không gian sân vườn hoặc quán cà phê thuê riêng cho buổi tối.",
+    "## Chuẩn bị",
+    "- Thiệp mời online hoặc nhắn tin trực tiếp.",
+    "- Thực đơn, bàn ghế, bàn đón khách và hòm mừng.",
+    "- Một phông chụp ảnh đơn giản với tên cô dâu chú rể.",
+    "- Trang phục: áo dài, váy nhẹ hoặc vest, không cần cầu kỳ như ngày cưới.",
+    "## Gom ảnh khách mời bằng một mã QR",
+    "Ai cũng chụp ảnh bằng điện thoại. Với <b>album sự kiện</b> trên Albums, tất cả về một chỗ:",
+    "1. Tạo album, ví dụ “Báo hỷ Minh & Lan”.",
+    "2. Đặt mã QR trên bàn, ở bàn đón khách hoặc gửi kèm thiệp mời online.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên qua trình duyệt, không cần cài đặt gì.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album về thành một tệp ZIP.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/le-thanh-hon/\">lễ thành hôn</a> và <a href=\"/vi/guides/collect-wedding-photos-from-guests/\">gom ảnh cưới từ khách mời</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $. Khách mời không phải trả gì. Ảnh lưu đến 4K, album giữ 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi tiệc",
+    "p": "Khách tải lên qua trình duyệt, không cần cài đặt. Bạn quyết định ảnh nào hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Tiệc nhỏ, kỷ niệm trọn vẹn",
+    "p": "Trả một lần từ 39,99 $. Đến 4K, lưu 6 tháng kể từ lần tải đầu tiên, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    [
+      "Tiệc báo hỷ là gì?",
+      "Là bữa tiệc báo tin kết hôn với bạn bè, đồng nghiệp, thường nhỏ gọn và không thay thế các nghi lễ cưới hỏi của gia đình."
+    ],
+    [
+      "Tiệc báo hỷ nên tổ chức bao nhiêu bàn?",
+      "Tùy số khách, nhiều cặp đôi chọn tiệc nhỏ dưới 10 bàn tại nhà hàng có phòng riêng."
+    ],
+    [
+      "Làm sao gom ảnh của tất cả khách mời?",
+      "Dùng một mã QR: mọi người tải ảnh và video lên cùng một album qua trình duyệt, bạn có thể duyệt trước."
+    ],
+    [
+      "Khách có cần cài đặt gì không?",
+      "Không. Quét mã QR là album mở ngay trên trình duyệt điện thoại."
+    ]
+  ],
+  "related": [
+    "le-thanh-hon",
+    "collect-wedding-photos-from-guests",
+    "anh-dam-hoi"
+  ],
+  "date": "2026-11-19"
+}

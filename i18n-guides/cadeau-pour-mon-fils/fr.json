@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "cadeau pour mon fils",
+  "title": "Cadeau pour mon fils : un album de souvenirs | Albums.ink",
+  "desc": "Un cadeau pour votre fils de 18, 20, 30 ou 40 ans : un album gratuit avec ses photos d'enfance, des vidéos et les messages vocaux de la famille.",
+  "h1": "Cadeau pour mon fils : un album de souvenirs",
+  "lead": "En Belgique, on cherche « cadeau pour mon fils de 18 ans », « de 20 ans », « de 30 ans ». À ces âges, un objet s'oublie vite ; ce qui touche, c'est de voir le chemin parcouru. Un album-récit le raconte, gratuitement, et se prépare en une soirée.",
+  "body": [
+    "## Pour quelle occasion",
+    "- 18 ans, 20 ans, 30 ans ou 40 ans.",
+    "- Fin des études, premier emploi, départ en kot ou dans son propre appartement.",
+    "- Noël ou la Saint-Nicolas en famille.",
+    "## Que mettre dans l'album",
+    "- Les photos de bébé, de la première rentrée, des camps scouts ou des vacances à la mer.",
+    "- Ses passions : foot, musique, voyages.",
+    "- Des vidéos courtes et des messages vocaux de ses grands-parents, de son parrain ou de sa marraine, de ses amis.",
+    "## Idées de chapitres",
+    "1. Tes premières années.",
+    "2. L'école et les copains.",
+    "3. Ce dont nous sommes fiers.",
+    "4. Ce que nous te souhaitons.",
+    "## Comment le faire gratuitement",
+    "Sur Albums, vous créez un <b>album-récit</b> avec photos, vidéos et notes vocales, en chapitres, avec une narration à votre voix. Les albums sont illimités et restent aussi longtemps que vous le souhaitez. Les photos gratuites sont enregistrées jusqu'à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google et créez un album, par exemple « Pour Lucas, 18 ans ».",
+    "2. Créez des chapitres, ajoutez photos et vidéos et écrivez une phrase sous chacune.",
+    "3. Enregistrez les messages vocaux directement dans le navigateur.",
+    "4. Vous pouvez inviter un coauteur, par exemple son papa ou sa sœur ; il doit figurer parmi vos amis sur Albums.",
+    "5. Choisissez la visibilité : Public, Amis ou Moi uniquement. « Amis » concerne tous vos amis : pour garder la surprise, utilisez <b>Amis, sauf…</b> et excluez votre fils jusqu'au jour J.",
+    "!cta",
+    "Plus d'idées : <a href=\"/fr/guides/cadeau-anniversaire-papa/\">cadeau d'anniversaire pour papa</a> et <a href=\"/fr/guides/album-photo-bebe/\">album photo de bébé</a>.",
+    "## Comment l'offrir",
+    "Le jour venu, changez la visibilité et envoyez-lui le lien, qui s'ouvre avec un aperçu de la couverture. Un album en « Moi uniquement » ne s'ouvre pour personne d'autre par le lien. Vous pouvez aussi le regarder ensemble à la fête. L'album entier peut être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Racontez son histoire dès ce soir",
+    "p": "Photos, vidéos et voix réunies. Gratuit dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Le cadeau que seuls ses parents peuvent faire",
+    "p": "Albums illimités, qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau pour mon fils de 18 ans ?",
+      "En plus d'un cadeau utile, un album de son enfance avec les messages vocaux de la famille marque vraiment le coup."
+    ],
+    [
+      "Quel cadeau original pour un fils de 30 ans ?",
+      "Un album-récit de ses 30 ans, chapitre par chapitre, avec des vidéos et les mots de ses proches."
+    ],
+    [
+      "Peut-on garder la surprise ?",
+      "Oui. Laissez l'album en « Moi uniquement » ou excluez-le avec « Amis, sauf… », puis changez la visibilité le jour J."
+    ],
+    [
+      "Est-ce gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités."
+    ]
+  ],
+  "related": [
+    "cadeau-anniversaire-papa",
+    "album-photo-bebe",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-19"
+}

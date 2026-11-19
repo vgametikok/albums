@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "kỷ niệm 1 năm yêu nhau tặng gì",
+  "title": "Kỷ niệm 1 năm yêu nhau tặng gì: album 365 ngày | Albums.ink",
+  "desc": "Kỷ niệm 1 năm yêu nhau nên làm gì, tặng gì cho bạn gái hay bạn trai: một album câu chuyện miễn phí với ảnh, video và lời nhắn bằng giọng nói.",
+  "h1": "Kỷ niệm 1 năm yêu nhau: tặng gì và làm gì",
+  "lead": "Nhiều người tìm “kỷ niệm 1 năm yêu nhau nên làm gì”, “tặng gì” và “nên tặng gì cho bạn gái”. Một năm bên nhau đủ để có cả một câu chuyện. Gói câu chuyện đó vào một album – miễn phí, làm xong trong một buổi tối.",
+  "body": [
+    "## Nên làm gì",
+    "- Quay lại quán cà phê hoặc nơi hẹn hò đầu tiên.",
+    "- Một chuyến đi ngắn, ví dụ Đà Lạt hoặc Vũng Tàu.",
+    "- Bữa tối tự nấu ở nhà và cùng xem lại ảnh một năm qua.",
+    "## Tặng gì",
+    "- Nhẫn đôi hoặc phụ kiện nhỏ.",
+    "- Thư tay và hoa.",
+    "- Một <b>album câu chuyện</b> về 365 ngày của hai người – đi kèm món quà nào cũng hợp.",
+    "## Nội dung album",
+    "- Tấm ảnh chung đầu tiên, buổi hẹn đầu, chuyến đi đầu tiên.",
+    "- Các dịp: sinh nhật, Noel, Tết.",
+    "- Video ngắn và lời nhắn bằng giọng nói: ấn tượng đầu tiên về nhau.",
+    "## Gợi ý chương",
+    "1. Ngày đầu gặp nhau.",
+    "2. Những buổi hẹn.",
+    "3. Kỷ niệm đáng nhớ.",
+    "4. Năm thứ hai.",
+    "## Cách làm miễn phí",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành chương và có thể thuyết minh bằng giọng của mình. Album không giới hạn và được giữ lâu như bạn muốn. Ảnh miễn phí được lưu với cạnh dài tối đa 2048px.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “365 ngày của chúng mình”.",
+    "2. Tạo chương, tải ảnh và video lên, viết một dòng cho mỗi phần.",
+    "3. Ghi âm lời nhắn ngay trên trình duyệt.",
+    "4. Có thể mời một đồng tác giả, ví dụ một người bạn chung; người đó phải là bạn bè của bạn trên Albums.",
+    "5. Chọn quyền xem: Công khai, Bạn bè hoặc Chỉ mình tôi. Bạn bè là tất cả bạn bè, nên muốn giữ bất ngờ thì chọn Bạn bè, ngoại trừ… và loại người ấy đến đúng ngày.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/album-anh-tang-nguoi-yeu/\">làm album ảnh tặng người yêu</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
+    "## Cách trao",
+    "Đúng ngày, đổi quyền xem và gửi đường link qua Zalo hoặc Messenger, album mở ra với ảnh bìa xem trước. Album để Chỉ mình tôi thì người khác không mở được qua link. Toàn bộ album có thể tải về thành một tệp ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album 1 năm yêu nhau ngay tối nay",
+    "p": "Ảnh, video và giọng nói trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Mỗi năm thêm một chương",
+    "p": "Album không giới hạn, được giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Kỷ niệm 1 năm yêu nhau nên làm gì?",
+      "Quay lại nơi hẹn hò đầu tiên, đi một chuyến ngắn hoặc nấu bữa tối và cùng xem lại album một năm qua."
+    ],
+    [
+      "Kỷ niệm 1 năm nên tặng gì cho bạn gái?",
+      "Nhẫn đôi, thư tay hoặc hoa, kèm một album câu chuyện với ảnh và lời nhắn của bạn."
+    ],
+    [
+      "Có giữ bất ngờ được không?",
+      "Có. Để Chỉ mình tôi hoặc loại người ấy bằng Bạn bè, ngoại trừ… rồi đổi quyền xem đúng ngày."
+    ],
+    [
+      "Có miễn phí không?",
+      "Có. Album câu chuyện miễn phí và không giới hạn."
+    ]
+  ],
+  "related": [
+    "album-anh-tang-nguoi-yeu",
+    "add-voice-to-photos",
+    "lam-album-anh-ky-niem"
+  ],
+  "date": "2026-11-19"
+}

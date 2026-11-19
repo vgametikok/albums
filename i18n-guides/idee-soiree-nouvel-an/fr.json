@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "FR",
+  "query": "idée soirée nouvel an",
+  "title": "Soirée du Nouvel An : idées et photos | Albums.ink",
+  "desc": "Idées de soirée du Nouvel An à la maison, entre amis ou en famille : thème, repas, jeux, minuit, et un QR code pour réunir les photos de tous les invités.",
+  "h1": "Idées pour la soirée du Nouvel An",
+  "lead": "On cherche « idée soirée nouvel an », « à la maison », « entre amis » ou « en famille ». Voici un plan simple pour le réveillon de la Saint-Sylvestre chez soi, du thème au décompte – et un moyen facile de récupérer ensuite les photos de tout le monde.",
+  "body": [
+    "## Choisir un thème",
+    "- <b>Soirée chic</b> : tenue habillée, noir, or et paillettes.",
+    "- <b>Années 80</b> ou années 2000, avec une playlist assortie.",
+    "- <b>Soirée pyjama</b> en famille, avec les enfants.",
+    "## Le repas",
+    "- Un buffet ou un apéritif dînatoire, plus simple qu'un repas assis.",
+    "- Une raclette ou une fondue pour un petit groupe.",
+    "- Le champagne au frais pour minuit.",
+    "## Jeux et animations",
+    "- <b>Blind test</b> des tubes de l'année.",
+    "- <b>Bonnes résolutions</b> : chacun écrit les siennes, on les relit l'an prochain.",
+    "- Un quiz sur l'année écoulée, ou des jeux de société pour les familles.",
+    "## Minuit",
+    "- Décompte, bises sous le gui et vœux de bonne année.",
+    "- Un coin photo avec un « 2027 » doré et quelques accessoires.",
+    "## Toutes les photos des invités avec un QR code",
+    "Chacun prend des photos avec son téléphone. Avec un <b>album d'événement</b> sur Albums, tout arrive au même endroit :",
+    "1. Créez un album, par exemple « Nouvel An 2027 chez Julie ».",
+    "2. Affichez le QR code près du bar ou du coin photo.",
+    "3. Les invités le scannent avec l'appareil photo du téléphone et envoient photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> pour valider les envois avant qu'ils n'apparaissent.",
+    "5. Ensuite, téléchargez l'album entier en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent aussi une copie brouillon privée de leurs seuls envois.",
+    "!cta",
+    "Plus d'idées : <a href=\"/fr/guides/party-de-noel-bureau/\">party de Noël au bureau</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">QR code pour les photos de soirée</a>.",
+    "## Tarifs",
+    "L'album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $. Les invités ne paient rien. Photos jusqu'en 4K, album conservé 6 mois après le premier envoi, prolongeable."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute la soirée",
+    "p": "Les invités envoient depuis le navigateur, sans rien installer. Vous choisissez ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Commencez l'année avec toutes les photos",
+    "p": "Achat unique dès 39,99 $. Jusqu'en 4K, 6 mois après le premier envoi, prolongeable.",
+    "btn": "Créer l'album →"
+  },
+  "faq": [
+    [
+      "Que faire pour le Nouvel An à la maison ?",
+      "Choisir un thème, prévoir un buffet ou une raclette, quelques jeux comme un blind test, et un coin photo pour minuit."
+    ],
+    [
+      "Quels jeux pour une soirée du Nouvel An entre amis ?",
+      "Blind test, quiz sur l'année, bonnes résolutions à relire l'an prochain ou jeux de société."
+    ],
+    [
+      "Comment récupérer les photos de tous les invités ?",
+      "Avec un QR code : chacun envoie photos et vidéos dans le même album depuis le navigateur, et vous pouvez les valider avant."
+    ],
+    [
+      "Les invités doivent-ils installer quelque chose ?",
+      "Non. Le QR code ouvre l'album dans le navigateur du téléphone."
+    ]
+  ],
+  "related": [
+    "party-de-noel-bureau",
+    "qr-code-for-photos-at-party",
+    "birthday-party-photo-sharing"
+  ],
+  "date": "2026-11-19"
+}

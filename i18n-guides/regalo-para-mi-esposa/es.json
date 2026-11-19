@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CO",
+  "query": "regalo para mi esposa",
+  "title": "Regalo para mi esposa: un álbum con su historia | Albums.ink",
+  "desc": "Un regalo para tu esposa de cumpleaños, aniversario o Navidad: un álbum gratis con fotos, videos y notas de voz de su historia juntos.",
+  "h1": "Regalo para mi esposa: un álbum de su historia",
+  "lead": "En Colombia se busca “regalo para mi esposa”, “de cumpleaños”, “de aniversario” y “en Navidad”. Lo que más la va a emocionar es algo que solo usted le puede dar: la historia de los dos. Un álbum de historia es gratis y se arma en una noche.",
+  "body": [
+    "## Para qué ocasión",
+    "- Cumpleaños, sobre todo los 30, 40 o 50.",
+    "- Aniversario de matrimonio.",
+    "- Navidad, para abrir el 24 en la noche con la familia.",
+    "## Qué poner en el álbum",
+    "- Las fotos del noviazgo, la boda y los primeros viajes.",
+    "- Momentos de familia: los niños, las novenas, los paseos de fin de año.",
+    "- Videos cortos y notas de voz de los hijos, sus papás y sus amigas.",
+    "## Ideas de capítulos",
+    "1. Cómo nos conocimos.",
+    "2. Nuestra boda.",
+    "3. Lo que hemos construido.",
+    "4. Lo que te quiero decir.",
+    "## Cómo hacerlo gratis",
+    "En Albums crea un <b>álbum de historia</b> con fotos, videos y notas de voz, dividido en capítulos y con narración en su propia voz. Los álbumes son ilimitados y se quedan el tiempo que quiera. Las fotos gratuitas se guardan con un máximo de 2048 px en el lado largo.",
+    "1. Entre con Google y cree un álbum, por ejemplo “Para Andrea”.",
+    "2. Cree capítulos, suba fotos y videos y escriba una frase en cada uno.",
+    "3. Grabe las notas de voz directo en el navegador.",
+    "4. Puede invitar a un coautor, por ejemplo a uno de sus hijos; tiene que estar entre sus amigos en Albums.",
+    "5. Elija la visibilidad: Público, Amigos o Solo yo. “Amigos” son todos sus amigos, así que para la sorpresa use <b>Amigos excepto</b> y excluya a su esposa hasta el día.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-marido/\">regalo para mi marido</a> y <a href=\"/es/guides/album-de-fotos-para-mi-novia/\">álbum de fotos para mi novia</a>.",
+    "## Cómo entregarlo",
+    "El día indicado cambie la visibilidad y mándele el enlace por WhatsApp: se abre con una vista previa de la portada. Un álbum en “Solo yo” no se abre por enlace para nadie más. También pueden verlo juntos en el televisor. El álbum completo se puede descargar en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Arme hoy el álbum para su esposa",
+    "p": "Fotos, videos y voces en una sola historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historia →"
+  },
+  "cta2": {
+    "h2": "Un regalo que nadie más le puede dar",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quiera.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi esposa que sea especial?",
+      "Algo personal: un álbum con su historia juntos y mensajes de voz de los hijos y la familia."
+    ],
+    [
+      "¿Qué regalo de aniversario le doy a mi esposa?",
+      "Un capítulo por cada año o etapa del matrimonio, con fotos y lo que le quiere decir."
+    ],
+    [
+      "¿Se puede mantener la sorpresa?",
+      "Sí. Déjelo en Solo yo o exclúyala con Amigos excepto y cambie la visibilidad el día."
+    ],
+    [
+      "¿Es gratis?",
+      "Sí. Los álbumes de historia son gratis e ilimitados."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-marido",
+    "album-de-fotos-para-mi-novia",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-19"
+}

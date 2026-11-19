@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de 18 anos",
+  "title": "Festa de 18 anos: ideias simples e baratas | Albums.ink",
+  "desc": "Ideias de festa de 18 anos feminina ou masculina: tema balada, decoração, comida, playlist e um QR code para juntar as fotos de todos os convidados.",
+  "h1": "Festa de 18 anos: ideias e como juntar as fotos",
+  "lead": "No Brasil se busca “festa de 18 anos”, “feminina”, “masculino simples e barata” e “tema balada”. Aqui vai um plano fácil – do local à playlist – e um jeito simples de ter, no dia seguinte, todas as fotos que a galera tirou.",
+  "body": [
+    "## Onde fazer",
+    "- Em casa, no quintal ou no salão de festas do prédio – sai bem mais barato.",
+    "- Um barzinho ou uma casa de festas, se a lista for grande.",
+    "- Uma chácara para quem quer passar o dia com piscina e churrasco.",
+    "## Temas que fazem sucesso",
+    "- <b>Balada</b>: luz neon, globo espelhado e DJ ou playlist.",
+    "- <b>Anos 2000</b> ou <b>Y2K</b>, com dress code.",
+    "- <b>Preto e dourado</b> ou <b>neon</b> para uma festa masculina.",
+    "## Comida e bebida",
+    "- Salgadinhos, mini hambúrgueres, pizza ou um churrasco simples.",
+    "- Bolo e docinhos – brigadeiro não pode faltar.",
+    "- Drinks sem álcool para quem ainda é menor e água à vontade.",
+    "## Momentos para lembrar",
+    "- Parabéns com vídeo de fotos da infância.",
+    "- Mensagens dos pais e dos amigos mais próximos.",
+    "- Um cantinho com painel e plaquinhas para fotos.",
+    "## Junte as fotos de todos com um QR code",
+    "Todo mundo tira foto no celular. Com um <b>álbum de evento</b> no Albums, tudo vai para um lugar só:",
+    "1. Crie um álbum, por exemplo “18 da Júlia”.",
+    "2. Coloque o QR code no painel, nas mesas ou no convite.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para aprovar os envios antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem entrar na conta aparece como anônimo. Convidados com login recebem também uma cópia rascunho privada só com o que eles enviaram.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/festa-de-15-anos/\">festa de 15 anos</a> e <a href=\"/pt-BR/guides/festa-de-formatura/\">festa de formatura</a>.",
+    "## Preços",
+    "O álbum de evento é um pagamento único: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam nada. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Um QR code para a festa toda",
+    "p": "Convidados enviam pelo navegador, sem instalar nada. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Os 18 anos inteiros num álbum",
+    "p": "Pagamento único a partir de US$ 39,99. Até 4K, 6 meses a partir do primeiro envio, extensível.",
+    "btn": "Começar álbum →"
+  },
+  "faq": [
+    [
+      "Como fazer uma festa de 18 anos simples e barata?",
+      "Faça em casa ou no salão do prédio, com salgadinhos, bolo, uma boa playlist e decoração de um tema só."
+    ],
+    [
+      "Qual tema para festa de 18 anos?",
+      "Balada, anos 2000, neon ou preto e dourado estão entre os mais procurados."
+    ],
+    [
+      "Como juntar as fotos de todos os convidados?",
+      "Com um QR code: todos enviam fotos e vídeos para o mesmo álbum pelo navegador, e você pode aprovar antes."
+    ],
+    [
+      "Os convidados precisam instalar algo?",
+      "Não. O QR code abre o álbum no navegador do celular."
+    ]
+  ],
+  "related": [
+    "festa-de-15-anos",
+    "festa-de-formatura",
+    "qr-code-for-photos-at-party"
+  ],
+  "date": "2026-11-19"
+}
