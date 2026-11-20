@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "MX",
+  "query": "regalo para mi hijo",
+  "title": "Regalo para mi hijo: un álbum con su historia | Albums.ink",
+  "desc": "Un regalo para tu hijo de 15, 18 años o ya adulto: un álbum gratis con fotos, videos y notas de voz de su infancia y de la familia.",
+  "h1": "Regalo para mi hijo: un álbum con su historia",
+  "lead": "En México se busca “regalo para mi hijo”, “que cumple 18 años” y “de 15 años”. Más allá de lo que esté de moda, hay algo que solo tú le puedes dar: su propia historia contada por su familia. Un álbum de historia es gratis y lo armas en una noche.",
+  "body": [
+    "## Para qué ocasión",
+    "- Su cumpleaños, sobre todo los 15 o los 18.",
+    "- Su graduación de la prepa o de la universidad.",
+    "- Navidad, para abrirlo en la cena del 24.",
+    "- Cuando se va a estudiar o a vivir a otra ciudad.",
+    "## Qué poner en el álbum",
+    "- Fotos de bebé, sus primeros pasos, el kínder y las fiestas de cumpleaños.",
+    "- Sus partidos, bailables y viajes en familia.",
+    "- Videos cortos y notas de voz de los abuelos, sus tíos y sus hermanos.",
+    "## Ideas de capítulos",
+    "1. El día que llegaste.",
+    "2. Cuando eras chiquito.",
+    "3. Lo que te hace ser tú.",
+    "4. Lo que te queremos decir.",
+    "## Cómo hacerlo gratis",
+    "En Albums creas un <b>álbum de historia</b> con fotos, videos y notas de voz, dividido en capítulos y con narración en tu propia voz. Los álbumes son ilimitados y se quedan el tiempo que quieras. Las fotos gratuitas se guardan con un máximo de 2048 px en el lado largo.",
+    "1. Entra con Google y crea un álbum, por ejemplo “Para Diego”.",
+    "2. Crea capítulos, sube fotos y videos y escribe una frase en cada uno.",
+    "3. Graba las notas de voz directo en el navegador.",
+    "4. Puedes invitar a un coautor, por ejemplo a su papá o a su mamá; tiene que estar entre tus amigos en Albums.",
+    "5. Elige quién lo ve: público, amigos o solo yo, con excepciones por persona. “Amigos” incluye a todos tus amigos; para que sea sorpresa, excluye a tu hijo hasta el día.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/album-fotos-para-papa/\">álbum de fotos para papá</a> y <a href=\"/es/guides/album-fotos-bebe/\">álbum de fotos de bebé</a>.",
+    "## Cómo entregarlo",
+    "Ese día cambia la visibilidad y mándale el enlace por WhatsApp: se abre con una vista previa de la portada. Un álbum en “Solo yo” no se abre por enlace para nadie más. También lo pueden ver juntos en la tele. El álbum completo se puede descargar en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Arma hoy el álbum para tu hijo",
+    "p": "Fotos, videos y voces en una sola historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historia →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra en ninguna tienda",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi hijo que cumple 18?",
+      "Algo que no se compra: un álbum con su historia, desde bebé hasta hoy, con mensajes de voz de su familia."
+    ],
+    [
+      "¿El álbum de historia es gratis?",
+      "Sí. Los álbumes de historia son gratis e ilimitados y se quedan el tiempo que quieras."
+    ],
+    [
+      "¿Puede ayudarme alguien más?",
+      "Puedes invitar a un coautor que esté entre tus amigos en Albums. Los demás te pueden mandar sus fotos y audios."
+    ],
+    [
+      "¿Cómo se lo doy?",
+      "Le mandas el enlace: se abre en el navegador con vista previa de la portada, sin instalar nada."
+    ]
+  ],
+  "related": [
+    "album-fotos-para-papa",
+    "album-fotos-bebe",
+    "regalo-para-mi-hermano"
+  ],
+  "date": "2026-11-20"
+}

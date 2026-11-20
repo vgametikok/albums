@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Schwiegermutter",
+  "title": "Geschenk für Schwiegermutter: Fotoalbum | Albums.ink",
+  "desc": "Ein persönliches Geschenk für die Schwiegermutter, die alles hat – zu Weihnachten oder zum Geburtstag: ein kostenloses Story-Album mit Fotos, Videos und Sprachnotizen.",
+  "h1": "Geschenk für die Schwiegermutter, die alles hat",
+  "lead": "Gesucht wird „Geschenk für Schwiegermutter die alles hat“, „zum Geburtstag“ und „zu Weihnachten“. Wer nichts mehr braucht, freut sich über etwas Persönliches: Fotos der Familie, die Enkel und ein paar Worte von euch. Ein Story-Album ist kostenlos und an einem Abend fertig.",
+  "body": [
+    "## Was hinein kann",
+    "- Fotos von eurer Hochzeit und von Familienfesten mit ihr.",
+    "- Die Enkel: erster Geburtstag, Einschulung, Urlaub bei Oma.",
+    "- Kurze Videos und Sprachnotizen: „Frohe Weihnachten, Oma!“",
+    "- Alte Fotos aus ihrer Jugend – frag deinen Partner oder die Geschwister.",
+    "## Kapitel-Ideen",
+    "1. Wie wir uns kennengelernt haben.",
+    "2. Unsere Feste.",
+    "3. Die Enkel.",
+    "4. Danke für alles.",
+    "## Kostenlos erstellen",
+    "Auf Albums baut ihr ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit eigener Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange ihr möchtet. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Mama Gabi“.",
+    "2. Kapitel anlegen, Fotos und Videos hochladen, zu jedem einen Satz schreiben.",
+    "3. Sprachnotizen direkt im Browser aufnehmen.",
+    "4. Eine zweite Person kann als Co-Autor mitmachen, z. B. dein Partner – sie muss in deiner Freundesliste sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. „Freunde“ sind alle Freunde; bis zur Bescherung „Freunde außer …“ wählen und die Schwiegermutter ausschließen.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/weihnachtsgeschenk-fuer-eltern/\">Weihnachtsgeschenk für Eltern</a> und <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a>.",
+    "## Übergeben",
+    "Zeigt das Album an Heiligabend auf dem Tablet oder Fernseher, oder schickt ihr den Link – er öffnet sich mit Titelbild-Vorschau. Ein Album auf „Nur ich“ lässt sich nicht per Link öffnen. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Das Album für die Schwiegermutter heute anlegen",
+    "p": "Fotos, Videos und Stimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das es nicht zu kaufen gibt",
+    "p": "Unbegrenzte Alben, die bleiben, so lange ihr möchtet.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einer Schwiegermutter, die alles hat?",
+      "Etwas Persönliches: ein Album mit Familienfotos, den Enkeln und Sprachnotizen von euch."
+    ],
+    [
+      "Ist das Story-Album kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt und bleiben, so lange ihr möchtet."
+    ],
+    [
+      "Kann mein Partner mitmachen?",
+      "Ja, als Co-Autor, wenn er in deiner Freundesliste auf Albums ist."
+    ],
+    [
+      "Braucht sie etwas zum Installieren?",
+      "Nein. Der Link öffnet das Album im Browser."
+    ]
+  ],
+  "related": [
+    "weihnachtsgeschenk-fuer-eltern",
+    "fotoalbum-fuer-oma",
+    "fotoalbum-fuer-mama"
+  ],
+  "date": "2026-11-20"
+}

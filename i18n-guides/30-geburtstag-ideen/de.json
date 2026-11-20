@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "30. Geburtstag",
+  "title": "30. Geburtstag feiern: Ideen | Albums.ink",
+  "desc": "Ideen für den 30. Geburtstag in Österreich: Feier daheim, im Heurigen oder im Lokal, Motto, Spiele, Rede und ein QR-Code für alle Fotos der Gäste.",
+  "h1": "30. Geburtstag feiern",
+  "lead": "Rund um den 30er wird gesucht: „30. Geburtstag Frau“, „30. Geburtstag Mann“, „Sprüche“ und „Geschenk“. Hier ein Plan für die Feier – vom Lokal bis zur Rede – und wie danach alle Fotos der Gäste an einem Ort sind.",
+  "body": [
+    "## Wo feiern",
+    "- Daheim oder im Garten, mit Jause, Aufstrichen und Getränken.",
+    "- Beim <b>Heurigen</b> – viele haben Stuben für Gruppen.",
+    "- Im Lieblingslokal oder in einer Bar mit reserviertem Bereich.",
+    "- Als Hüttenwochenende mit den engsten Freunden.",
+    "## Motto-Ideen",
+    "- 90er oder 2000er: die Musik und Outfits der eigenen Kindheit.",
+    "- Schwarz-Gold mit einer großen „30“.",
+    "- Casino-Abend oder Krimi-Dinner.",
+    "## Spiele und Rede",
+    "- <b>Quiz über das Geburtstagskind</b>: erstes Auto, erster Urlaub, peinlichstes Foto.",
+    "- <b>Damals und heute</b>: Kinderfotos neben Fotos von heute.",
+    "- Eine kurze Rede von Eltern oder bester Freundin – zwei, drei Minuten reichen.",
+    "## Alle Fotos der Gäste mit einem QR-Code",
+    "Jeder fotografiert mit dem Handy. Mit einem <b>Event-Album</b> auf Albums landet alles an einem Ort:",
+    "1. Album anlegen, z. B. „Lenas 30er“.",
+    "2. QR-Code auf die Tische oder in die Einladung.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Hold guest photos</b> prüfst du Uploads, bevor sie sichtbar werden.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/50-geburtstag-ideen/\">50. Geburtstag</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Preise",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Gäste zahlen nichts. Fotos in bis zu 4K, gespeichert 6 Monate ab dem ersten Upload, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für die ganze Feier",
+    "p": "Gäste laden im Browser hoch, ohne Installation. Du entscheidest, was erscheint.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Der 30er – und alle Fotos an einem Ort",
+    "p": "Einmalig ab 39,99 $. Bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    [
+      "Wie feiert man den 30. Geburtstag?",
+      "Daheim mit Jause, beim Heurigen, im Lokal oder auf einer Hütte – oft mit Motto, kleinem Quiz und kurzer Rede."
+    ],
+    [
+      "Welches Motto passt zum 30er?",
+      "Beliebt sind 90er oder 2000er, Schwarz-Gold, Casino-Abend oder Krimi-Dinner."
+    ],
+    [
+      "Welche Spiele passen?",
+      "Ein Quiz über das Geburtstagskind oder „Damals und heute“ mit Kinderfotos."
+    ],
+    [
+      "Wie bekomme ich die Fotos aller Gäste?",
+      "Mit einem QR-Code: Alle laden Fotos und Videos im Browser in dasselbe Album, und du kannst sie vorher freigeben."
+    ]
+  ],
+  "related": [
+    "50-geburtstag-ideen",
+    "qr-code-for-photos-at-party",
+    "einweihungsparty"
+  ],
+  "date": "2026-11-20"
+}

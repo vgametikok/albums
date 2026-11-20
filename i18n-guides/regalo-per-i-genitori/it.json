@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per i genitori a Natale",
+  "title": "Regalo per i genitori a Natale: album di famiglia | Albums.ink",
+  "desc": "Un regalo per i genitori a Natale, anche se hanno già tutto: un album racconto gratuito con foto, video e note vocali di figli e nipoti.",
+  "h1": "Regalo per i genitori: l'album della famiglia",
+  "lead": "Si cerca “regalo per i genitori”, “a Natale” e “idee regalo per i genitori anziani”. Quando mamma e papà hanno già tutto, regala loro la storia della vostra famiglia. L'album racconto è gratuito e si prepara in una sera.",
+  "body": [
+    "## Cosa metterci",
+    "- Le vecchie foto: il loro matrimonio, la prima casa, le vacanze al mare.",
+    "- I momenti di quest'anno: compleanni, pranzi della domenica, le gite.",
+    "- Video brevi e note vocali dei nipoti: “Buon Natale, nonni!”",
+    "- Un ricordo scritto da ogni fratello e sorella.",
+    "## Idee per i capitoli",
+    "1. Come è cominciato tutto.",
+    "2. Crescere a casa nostra.",
+    "3. La famiglia oggi.",
+    "4. Quello che vogliamo dirvi.",
+    "## Come farlo gratis",
+    "Su Albums crei un <b>album racconto</b> con foto, video e note vocali, diviso in capitoli e con narrazione con la tua voce. Gli album sono illimitati e restano finché vuoi. Le foto gratuite vengono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google e crea un album, per esempio “Buon Natale, mamma e papà”.",
+    "2. Crea i capitoli, carica foto e video e scrivi una frase per ciascuno.",
+    "3. Registra le note vocali direttamente nel browser.",
+    "4. Puoi invitare un coautore, per esempio tuo fratello o tua sorella; deve essere tra i tuoi amici.",
+    "5. Scegli chi può vederlo: pubblico, amici o solo io, con eccezioni per singole persone. “Amici” include tutti i tuoi amici: per la sorpresa, escludi i tuoi genitori fino a Natale.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/regalo-anniversario-genitori/\">regalo per l'anniversario dei genitori</a> e <a href=\"/it/guides/album-foto-mamma/\">album foto per la mamma</a>.",
+    "## Come regalarlo",
+    "La sera della Vigilia o a pranzo di Natale guardatelo insieme sulla TV o su un tablet. Poi cambia la visibilità e manda il link su WhatsApp: si apre con l'anteprima della copertina. Un album impostato su “solo io” non si apre con il link. L'intero album si può scaricare in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Prepara stasera l'album per i tuoi genitori",
+    "p": "Foto, video e voci in un'unica storia. Gratis nel browser.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un regalo che non si compra",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare ai genitori che hanno tutto?",
+      "Qualcosa di personale: un album con le foto di famiglia di ieri e di oggi e i messaggi vocali dei nipoti."
+    ],
+    [
+      "Un regalo per genitori anziani?",
+      "Un album da sfogliare insieme sul tablet o sulla TV, con le voci dei nipoti: semplice da aprire con un link."
+    ],
+    [
+      "L'album racconto è gratuito?",
+      "Sì. Gli album racconto sono gratuiti e illimitati e restano finché vuoi."
+    ],
+    [
+      "I miei fratelli possono partecipare?",
+      "Puoi invitare un coautore tra i tuoi amici; gli altri possono mandarti foto e note vocali da aggiungere."
+    ]
+  ],
+  "related": [
+    "regalo-anniversario-genitori",
+    "album-foto-mamma",
+    "album-foto-nonna"
+  ],
+  "date": "2026-11-20"
+}

@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "anniversaire 18 ans",
+  "title": "Anniversaire 18 ans : idées de fête | Albums.ink",
+  "desc": "Idées pour fêter un anniversaire de 18 ans en Suisse romande : à la maison, en salle communale ou au bar, thème, discours et un QR code pour les photos.",
+  "h1": "Fêter un anniversaire de 18 ans",
+  "lead": "On cherche « anniversaire 18 ans fille », « anniversaire 18 ans garçon » et des textes pour la carte. 18 ans, c'est la majorité : voici des idées de lieu, de thème et de discours, et comment réunir ensuite toutes les photos et vidéos des invités.",
+  "body": [
+    "## Où faire la fête",
+    "- À la maison ou au jardin, avec un apéro dînatoire et une bonne playlist.",
+    "- Dans une <b>salle communale</b> ou une salle de société louée pour la soirée.",
+    "- Un souper au restaurant avec la famille, puis la soirée entre amis.",
+    "- Pensez aux horaires de bruit et aux transports pour rentrer.",
+    "## Idées de thème",
+    "- Années 2000 : la musique et les tenues de l'enfance.",
+    "- Noir et or, ou une couleur imposée.",
+    "- Soirée casino ou soirée fluo.",
+    "## Discours et petites attentions",
+    "- Un mot des parents et un du meilleur ami ou de la meilleure amie, deux ou trois minutes chacun.",
+    "- Un mur de photos, du bébé au gymnase ou à l'apprentissage.",
+    "- Un livre d'or où chacun écrit un vœu pour la majorité.",
+    "## Toutes les photos des invités avec un QR code",
+    "Chacun prend des photos avec son téléphone. Avec un <b>album d'événement</b> sur Albums, tout arrive au même endroit :",
+    "1. Créez un album, par exemple « Les 18 ans de Léa ».",
+    "2. Placez le QR code sur les tables, au bar ou sur l'invitation.",
+    "3. Les invités le scannent avec l'appareil photo du téléphone et envoient photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> pour valider les envois avant qu'ils ne s'affichent.",
+    "5. Ensuite, téléchargez tout l'album en un seul fichier ZIP.",
+    "Les envois faits sans connexion apparaissent de façon anonyme. Les invités connectés reçoivent aussi une copie brouillon privée de leurs seuls envois.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/idee-anniversaire-30-ans/\">idées pour un anniversaire de 30 ans</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">QR code pour les photos de fête</a>.",
+    "## Prix",
+    "L'album d'événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $. Les invités ne paient rien. Photos jusqu'en 4K, conservées 6 mois à partir du premier envoi, avec prolongation possible."
+  ],
+  "cta": {
+    "h2": "Un QR code pour toute la soirée",
+    "p": "Les invités envoient depuis le navigateur, sans installation. Vous choisissez ce qui s'affiche.",
+    "btn": "Créer un album d'événement →"
+  },
+  "cta2": {
+    "h2": "Les 18 ans, toutes les photos au même endroit",
+    "p": "Achat unique dès 39,99 $. Jusqu'en 4K, conservé 6 mois à partir du premier envoi, prolongeable.",
+    "btn": "Créer mon album →"
+  },
+  "faq": [
+    [
+      "Comment fêter ses 18 ans ?",
+      "À la maison, en salle communale, au restaurant puis entre amis – souvent avec un thème, un petit discours et un mur de photos."
+    ],
+    [
+      "Quel thème pour un anniversaire de 18 ans ?",
+      "Années 2000, noir et or, soirée casino ou soirée fluo sont des choix fréquents."
+    ],
+    [
+      "Que dire dans un discours pour les 18 ans ?",
+      "Un souvenir d'enfance, une qualité de la personne et un vœu pour la majorité : deux ou trois minutes suffisent."
+    ],
+    [
+      "Comment récupérer les photos des invités ?",
+      "Avec un QR code : chacun envoie photos et vidéos dans le navigateur vers le même album, et vous pouvez les valider avant."
+    ]
+  ],
+  "related": [
+    "idee-anniversaire-30-ans",
+    "qr-code-for-photos-at-party",
+    "anniversaire-40-ans"
+  ],
+  "date": "2026-11-20"
+}

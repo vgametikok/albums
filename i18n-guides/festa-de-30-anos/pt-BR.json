@@ -1,0 +1,74 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de 30 anos",
+  "title": "Festa de 30 anos: ideias, temas e fotos dos convidados | Albums.ink",
+  "desc": "Ideias para festa de 30 anos simples e barata ou em salão: temas como anos 2000 e boteco, decoração, brincadeiras e um QR code para as fotos de todos.",
+  "h1": "Festa de 30 anos: ideias e temas",
+  "lead": "Muita gente procura “festa de 30 anos feminina simples e barata”, “festa de 30 anos homem” e “tema anos 2000”. Aqui vão ideias de lugar, tema e brincadeiras – e como juntar depois todas as fotos e vídeos que os convidados fizerem.",
+  "body": [
+    "## Onde fazer",
+    "- Em casa ou no salão de festas do prédio, com petiscos e uma boa playlist.",
+    "- Num bar ou restaurante com área reservada.",
+    "- Num sítio ou chácara para passar o dia com os amigos.",
+    "## Ideias de tema",
+    "- <b>Anos 2000</b>: as músicas e as roupas da sua adolescência.",
+    "- <b>Boteco</b>: mesas com toalha xadrez, petiscos e samba.",
+    "- Preto e dourado, com um “30” bem grande.",
+    "## Simples e barata",
+    "- Lista de convidados enxuta e comida de boteco ou churrasco.",
+    "- Cada amigo leva uma bebida.",
+    "- Decoração com fotos suas de várias idades presas num varal.",
+    "## Brincadeiras e homenagem",
+    "- Quiz sobre o aniversariante.",
+    "- “Antes e depois”: foto de criança ao lado de uma foto de hoje.",
+    "- Um discurso curto de um amigo ou da família.",
+    "## As fotos de todos com um QR code",
+    "Todo mundo tira foto com o celular. Com um <b>álbum de evento</b> no Albums, tudo fica num só lugar:",
+    "1. Crie um álbum, por exemplo “Os 30 da Júlia”.",
+    "2. Coloque o QR code nas mesas, no bar ou no convite.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para revisar os envios antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem fazer login aparece como anônimo. Convidados logados recebem também uma cópia de rascunho privada só com o que eles enviaram.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/festa-de-15-anos/\">festa de 15 anos</a> e <a href=\"/pt-BR/guides/qr-code-for-photos-at-party/\">QR code para fotos da festa</a>.",
+    "## Preço",
+    "O álbum de evento é pago uma vez: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Um QR code para a festa toda",
+    "p": "Convidados enviam pelo navegador, sem instalar nada. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas as fotos dos seus 30 em um só lugar",
+    "p": "Pagamento único a partir de US$ 39,99. Até 4K, guardado 6 meses a partir do primeiro envio, extensível.",
+    "btn": "Começar meu álbum →"
+  },
+  "faq": [
+    [
+      "Como fazer uma festa de 30 anos simples e barata?",
+      "Em casa ou no salão do prédio, com petiscos ou churrasco, poucos convidados e decoração com fotos suas."
+    ],
+    [
+      "Quais temas para festa de 30 anos?",
+      "Anos 2000, boteco e preto e dourado estão entre os mais procurados."
+    ],
+    [
+      "Que brincadeiras fazer?",
+      "Quiz sobre o aniversariante e “antes e depois” com fotos de criança e de hoje."
+    ],
+    [
+      "Como juntar as fotos dos convidados?",
+      "Com um QR code: todos enviam fotos e vídeos pelo navegador para o mesmo álbum, e você pode aprovar antes."
+    ]
+  ],
+  "related": [
+    "festa-de-15-anos",
+    "qr-code-for-photos-at-party",
+    "cha-de-casa-nova"
+  ],
+  "date": "2026-11-20"
+}

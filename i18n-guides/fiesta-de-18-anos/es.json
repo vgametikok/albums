@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AR",
+  "query": "fiesta de 18 años",
+  "title": "Fiesta de 18 años: ideas para tu cumple | Albums.ink",
+  "desc": "Ideas para una fiesta de 18 años en Argentina: en casa, en un salón o con previa, temáticas, decoración y un código QR para juntar las fotos de todos.",
+  "h1": "Fiesta de 18 años: ideas para el cumple",
+  "lead": "En Argentina se busca “fiesta de 18 años mujer”, “fiesta de 18 años varón” y “temáticas”. Los 18 se festejan a lo grande: acá tenés ideas de lugar, temática y decoración, y cómo juntar después todas las fotos y videos que sacan tus amigos.",
+  "body": [
+    "## Dónde festejar",
+    "- <b>En casa o en un quincho</b>, con luces, parrilla o pizza party y un buen parlante.",
+    "- <b>Salón de fiestas</b> con DJ: se encargan del sonido, la comida y la limpieza.",
+    "- Una <b>previa</b> con amigos y después salir todos juntos.",
+    "- Antes de mandar las invitaciones, chequeá las reglas del lugar sobre horario y bebidas.",
+    "## Temáticas",
+    "- Años 2000: la música y la ropa de cuando eras chico.",
+    "- Negro y dorado, o un solo color para todos los invitados.",
+    "- Neón, glow party o noche de casino.",
+    "## Detalles que suman",
+    "- Un panel de fotos desde bebé hasta el último año del secundario.",
+    "- Unas palabras cortas de tus viejos y de tu mejor amigo o amiga.",
+    "- Un libro de firmas donde cada uno te deje un deseo para esta nueva etapa.",
+    "## Las fotos de todos con un código QR",
+    "Todos sacan fotos con el celular y después nadie las comparte. Con un <b>álbum de evento</b> en Albums quedan en un solo lugar:",
+    "1. Creá un álbum, por ejemplo “Los 18 de Cami”.",
+    "2. Poné el código QR en las mesas, en la barra o en la invitación.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activá <b>Hold guest photos</b> para revisar lo que suben antes de que se vea.",
+    "5. Después descargá el álbum completo en un solo archivo ZIP.",
+    "Quienes suben sin iniciar sesión aparecen como anónimos. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con lo que subieron.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/cumpleanos-de-30/\">cumpleaños de 30</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de la fiesta</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small 39,99 US$, Medium 69,99 US$ o Large 129,99 US$. Los invitados no pagan. Fotos en hasta 4K, guardadas 6 meses desde la primera subida, con opción de extender."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la fiesta",
+    "p": "Los invitados suben desde el navegador, sin instalar nada. Vos decidís qué se ve.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Todas las fotos de tus 18 en un lugar",
+    "p": "Pago único desde 39,99 US$. Hasta 4K, guardado 6 meses desde la primera subida, ampliable.",
+    "btn": "Empezar mi álbum →"
+  },
+  "faq": [
+    [
+      "¿Cómo festejar los 18 años?",
+      "En casa o en un quincho, en un salón con DJ o con una previa con amigos, muchas veces con una temática."
+    ],
+    [
+      "¿Qué temáticas hay para una fiesta de 18?",
+      "Años 2000, negro y dorado, neón o glow party y noche de casino son de las más elegidas."
+    ],
+    [
+      "¿Cómo armar una fiesta de 18 en casa?",
+      "Luces, comida simple como pizza o parrilla, música, un panel de fotos y un código QR para las fotos de todos."
+    ],
+    [
+      "¿Cómo junto las fotos de los invitados?",
+      "Con un código QR: todos suben fotos y videos desde el navegador al mismo álbum, y vos podés aprobarlas antes."
+    ]
+  ],
+  "related": [
+    "cumpleanos-de-30",
+    "qr-code-for-photos-at-party",
+    "fiesta-de-fin-de-ano"
+  ],
+  "date": "2026-11-20"
+}
