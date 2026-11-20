@@ -30,7 +30,7 @@
     "4. 共同作成者を1人招待できます（例：兄弟）。友達リストに入っている必要があります。",
     "5. 公開範囲を選択：公開、友達、自分のみ。特定の人を除外することもできます。",
     "!cta",
-    "関連ガイド：<a href=\"/ja/guides/kekkon-kinenbi-album/\">結婚記念日 アルバム</a>、<a href=\"/ja/guides/add-voice-to-photos/\">写真に声を追加</a>。",
+    "関連ガイド：<a href=\"/ja/guides/kekkon-kinenbi-album/\">結婚記念日 アルバム</a>、<a href=\"/ja/guides/mago-album-present/\">孫のアルバムをプレゼント</a>。",
     "## 渡し方",
     "リンクを送ればカバー画像のプレビュー付きで開きます（「自分のみ」の場合はリンクでは見られません）。帰省先でタブレットで一緒に見るのもおすすめ。アルバム全体を1つのZIPファイルでダウンロードすることもできます。"
   ],
@@ -64,7 +64,7 @@
   ],
   "related": [
     "kekkon-kinenbi-album",
-    "add-voice-to-photos",
-    "how-to-make-a-photo-story"
+    "mago-album-present",
+    "add-voice-to-photos"
   ]
 }
