@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "arisan keluarga",
+  "title": "Arisan Keluarga: Ide Acara dan Kumpulkan Foto | Albums.ink",
+  "desc": "Ide acara arisan keluarga besar: tempat, susunan acara, menu, permainan, dan satu kode QR untuk mengumpulkan foto serta video semua anggota keluarga.",
+  "h1": "Arisan keluarga: ide acara dan foto bersama",
+  "lead": "Banyak yang mencari “arisan keluarga”, “arisan keluarga besar”, dan “arisan keluarga adalah”. Arisan keluarga adalah pertemuan rutin anggota keluarga sambil mengumpulkan iuran yang diundi bergiliran. Berikut ide acaranya dan cara mengumpulkan foto semua yang hadir.",
+  "body": [
+    "## Tempat dan jadwal",
+    "- Bergiliran di rumah anggota keluarga, biasanya sebulan sekali.",
+    "- Di rumah makan dengan ruang privat jika keluarga besar.",
+    "- Tentukan jadwal tetap, misalnya Minggu pertama tiap bulan.",
+    "## Susunan acara",
+    "1. Pembukaan dan doa bersama.",
+    "2. Kabar keluarga: kelahiran, pernikahan, wisuda.",
+    "3. Pengumpulan iuran dan <b>kocok arisan</b>.",
+    "4. Makan bersama.",
+    "5. Foto bersama semua generasi.",
+    "## Menu dan permainan",
+    "- Masakan bersama atau potluck: tiap keluarga membawa satu hidangan.",
+    "- Kuis keluarga untuk anak-anak dan sepupu.",
+    "- Tebak foto lama: siapa ini waktu kecil?",
+    "## Kumpulkan foto semua dengan satu kode QR",
+    "Semua memotret dengan HP masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Arisan Keluarga Besar Pak Harjo”.",
+    "2. Taruh kode QR di meja atau kirim ke grup WhatsApp keluarga.",
+    "3. Keluarga memindainya dengan kamera HP dan mengunggah foto serta video lewat browser, tanpa instalasi.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk memeriksa unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Unggahan tanpa login tampil secara anonim. Tamu yang login juga mendapat salinan draf pribadi yang berisi unggahan mereka sendiri saja.",
+    "!cta",
+    "Baca juga: <a href=\"/id/guides/acara-reuni-sekolah/\">acara reuni sekolah</a> dan <a href=\"/id/guides/family-reunion-photo-ideas/\">ide foto kumpul keluarga</a>.",
+    "## Harga",
+    "Album acara dibayar sekali: Small $39,99, Medium $69,99, atau Large $129,99. Tamu tidak membayar. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk arisan keluarga",
+    "p": "Keluarga mengunggah lewat browser, tanpa instalasi. Anda yang menentukan foto mana yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Semua kenangan kumpul keluarga di satu tempat",
+    "p": "Bayar sekali mulai $39,99. Hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    [
+      "Arisan keluarga adalah apa?",
+      "Pertemuan rutin anggota keluarga sambil mengumpulkan iuran yang diundi bergiliran, sekaligus ajang silaturahmi."
+    ],
+    [
+      "Apa saja susunan acara arisan keluarga?",
+      "Pembukaan dan doa, kabar keluarga, kocok arisan, makan bersama, lalu foto bersama."
+    ],
+    [
+      "Ide acara arisan keluarga besar?",
+      "Potluck, kuis keluarga, tebak foto lama, dan foto semua generasi."
+    ],
+    [
+      "Bagaimana mengumpulkan foto semua?",
+      "Dengan kode QR: semua mengunggah foto dan video lewat browser ke album yang sama, dan Anda bisa memeriksanya dulu."
+    ]
+  ],
+  "related": [
+    "acara-reuni-sekolah",
+    "family-reunion-photo-ideas",
+    "syukuran-rumah-baru"
+  ],
+  "date": "2026-11-20"
+}

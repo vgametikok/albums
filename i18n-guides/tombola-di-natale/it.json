@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "tombola di Natale",
+  "title": "Tombola di Natale in famiglia: regole, premi e foto | Albums.ink",
+  "desc": "Come organizzare la tombola di Natale in famiglia: cartelle, premi, la smorfia napoletana, idee per bambini e un QR code per raccogliere le foto di tutti.",
+  "h1": "Tombola di Natale in famiglia",
+  "lead": "Si cerca “tombola di Natale”, “per bambini” e “da stampare”. La tombolata è il gioco delle feste, dalla Vigilia all'Epifania. Ecco come organizzarla a casa, quali premi mettere in palio e come raccogliere poi tutte le foto e i video della serata.",
+  "body": [
+    "## Cosa serve",
+    "- Il tabellone con i numeri da 1 a 90 e il sacchetto o il panariello.",
+    "- Le cartelle, da comprare o stampare, e qualcosa per segnare: fagioli, lenticchie o bucce di mandarino.",
+    "- Un piccolo contributo a cartella per il montepremi, oppure premi già pronti.",
+    "## I premi",
+    "- Ambo, terno, quaterna, cinquina e tombola, in quest'ordine.",
+    "- Premi simbolici: dolci, torrone, piccoli regali, o il montepremi diviso tra le vincite.",
+    "## La smorfia",
+    "Nella tradizione napoletana chi estrae annuncia il numero con il suo significato: 1 l'Italia, 33 gli anni di Cristo, 77 le gambe delle donne, 90 la paura. Fa ridere grandi e piccoli.",
+    "## Con i bambini",
+    "- Cartelle con disegni al posto dei numeri per i più piccoli.",
+    "- Un bambino può fare il “banco” ed estrarre i numeri.",
+    "## Le foto di tutti con un QR code",
+    "Tra zii, nonni e cugini tutti fotografano col telefono. Con un <b>album evento</b> su Albums finisce tutto in un unico posto:",
+    "1. Crea un album, per esempio “Tombolata di Natale 2026”.",
+    "2. Metti il QR code sul tavolo o mandalo nel gruppo di famiglia su WhatsApp.",
+    "3. Gli ospiti lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per controllare i caricamenti prima che siano visibili.",
+    "5. Alla fine scarica l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli ospiti che hanno effettuato l'accesso ricevono anche una copia bozza privata solo con i propri caricamenti.",
+    "!cta",
+    "Leggi anche: <a href=\"/it/guides/capodanno-a-casa/\">Capodanno a casa</a> e <a href=\"/it/guides/family-reunion-photo-ideas/\">foto delle riunioni di famiglia</a>.",
+    "## Prezzi",
+    "L'album evento si paga una volta: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gli invitati non pagano. Foto fino a 4K, conservate 6 mesi dal primo caricamento, con possibilità di estensione."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutte le feste",
+    "p": "Gli ospiti caricano dal browser, senza installare nulla. Decidi tu cosa appare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Le foto delle feste in un posto solo",
+    "p": "Pagamento unico da 39,99 $. Fino a 4K, conservato 6 mesi dal primo caricamento, estendibile.",
+    "btn": "Inizia il tuo album →"
+  },
+  "faq": [
+    [
+      "Come si gioca a tombola?",
+      "Chi fa il banco estrae i numeri da 1 a 90 e i giocatori li segnano sulle cartelle; si vincono ambo, terno, quaterna, cinquina e tombola."
+    ],
+    [
+      "Quando si fa la tombola di Natale?",
+      "Tradizionalmente durante le feste, dalla Vigilia all'Epifania."
+    ],
+    [
+      "Cos'è la smorfia nella tombola?",
+      "Nella tradizione napoletana ogni numero ha un significato, per esempio 33 gli anni di Cristo e 90 la paura."
+    ],
+    [
+      "Come raccolgo le foto di tutti?",
+      "Con un QR code: ognuno carica foto e video dal browser nello stesso album, e puoi approvarli prima."
+    ]
+  ],
+  "related": [
+    "capodanno-a-casa",
+    "family-reunion-photo-ideas",
+    "cena-aziendale-natale"
+  ],
+  "date": "2026-11-20"
+}

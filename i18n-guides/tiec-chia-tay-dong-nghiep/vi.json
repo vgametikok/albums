@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc chia tay đồng nghiệp",
+  "title": "Tiệc chia tay đồng nghiệp: tổ chức và gom ảnh | Albums.ink",
+  "desc": "Cách tổ chức tiệc chia tay đồng nghiệp nghỉ việc hoặc về hưu: địa điểm, kịch bản, lời chúc, quà và một mã QR để gom ảnh, video của mọi người.",
+  "h1": "Tiệc chia tay đồng nghiệp: chuẩn bị và gom ảnh",
+  "lead": "Nhiều người tìm “tiệc chia tay đồng nghiệp nên tặng gì”, “tiệc chia tay công ty” và “tiệc chia tay về hưu”. Dưới đây là cách tổ chức một buổi chia tay ấm áp và gom lại mọi ảnh, video cả phòng chụp hôm đó.",
+  "body": [
+    "## Địa điểm",
+    "- Ngay tại văn phòng sau giờ làm, với bánh ngọt và trà sữa.",
+    "- Nhà hàng hoặc quán lẩu, nướng có phòng riêng.",
+    "- Một buổi cà phê nhỏ nếu nhóm ít người.",
+    "## Kịch bản gợi ý",
+    "1. Trưởng phòng nói vài lời cảm ơn.",
+    "2. Mỗi người kể một kỷ niệm ngắn với người sắp đi.",
+    "3. Trao quà và hoa.",
+    "4. Người được chia tay phát biểu.",
+    "5. Chụp ảnh chung cả phòng.",
+    "## Lời chúc và quà",
+    "- Lời chúc nên ngắn: cảm ơn, một kỷ niệm vui và lời chúc cho chặng đường mới.",
+    "- Quà chung của cả phòng thường ý nghĩa hơn nhiều món nhỏ.",
+    "- Thiệp hoặc sổ lưu bút để mọi người viết vài dòng.",
+    "## Gom ảnh của mọi người bằng một mã QR",
+    "Ai cũng chụp ảnh bằng điện thoại. Với <b>album sự kiện</b> trên Albums, tất cả về một chỗ:",
+    "1. Tạo album, ví dụ “Chia tay chị Hương”.",
+    "2. Đặt mã QR trên bàn hoặc gửi vào nhóm Zalo của phòng.",
+    "3. Mọi người quét bằng camera điện thoại và tải ảnh, video lên qua trình duyệt, không cần cài đặt gì.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau buổi tiệc, tải toàn bộ album về thành một tệp ZIP.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên</a> và <a href=\"/vi/guides/company-party-photo-sharing/\">chia sẻ ảnh tiệc công ty</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $. Khách mời không phải trả gì. Ảnh lưu đến 4K, album giữ 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả buổi chia tay",
+    "p": "Mọi người tải lên qua trình duyệt, không cần cài đặt. Bạn quyết định ảnh nào hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Kỷ niệm cuối cùng, giữ trọn một nơi",
+    "p": "Trả một lần từ 39,99 $. Đến 4K, lưu 6 tháng kể từ lần tải đầu tiên, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    [
+      "Tiệc chia tay đồng nghiệp nên tổ chức ở đâu?",
+      "Tại văn phòng sau giờ làm, nhà hàng có phòng riêng hoặc quán cà phê nếu nhóm nhỏ."
+    ],
+    [
+      "Tiệc chia tay đồng nghiệp nên tặng gì?",
+      "Một món quà chung của cả phòng kèm hoa, thiệp hoặc album ảnh kỷ niệm thường được trân trọng."
+    ],
+    [
+      "Nói gì trong tiệc chia tay?",
+      "Lời cảm ơn, một kỷ niệm vui và lời chúc cho công việc mới hoặc cuộc sống sau khi nghỉ hưu."
+    ],
+    [
+      "Làm sao gom ảnh của mọi người?",
+      "Dùng một mã QR: mọi người tải ảnh và video lên cùng một album qua trình duyệt, bạn có thể duyệt trước."
+    ]
+  ],
+  "related": [
+    "tiec-tat-nien",
+    "company-party-photo-sharing",
+    "tiec-tan-gia"
+  ],
+  "date": "2026-11-20"
+}

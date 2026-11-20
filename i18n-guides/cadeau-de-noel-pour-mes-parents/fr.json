@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "cadeau de Noël pour mes parents",
+  "title": "Cadeau de Noël pour mes parents : un album | Albums.ink",
+  "desc": "Une idée de cadeau de Noël pour tes parents : un album-récit gratuit avec photos, vidéos et notes vocales de toute la famille, à ouvrir au réveillon.",
+  "h1": "Cadeau de Noël pour mes parents : l'album de la famille",
+  "lead": "Au Québec, on cherche « cadeau de Noël pour mes parents », « idée cadeau » et même « à fabriquer ». Quand tes parents ont déjà tout, offre-leur l'histoire de ta famille. Un album-récit est gratuit et se prépare avant le temps des Fêtes.",
+  "body": [
+    "## Quoi mettre dedans",
+    "- Les vieilles photos : leur mariage, la première maison, les vacances au chalet ou à la plage.",
+    "- Les moments de l'année : fêtes, sorties, la cabane à sucre au printemps.",
+    "- De courtes vidéos et des notes vocales des petits-enfants : « Joyeux Noël, grand-maman et grand-papa! »",
+    "- Un mot de chaque frère et sœur sur un souvenir préféré.",
+    "## Idées de chapitres",
+    "1. Le début de notre famille.",
+    "2. Grandir à la maison.",
+    "3. Notre famille aujourd'hui.",
+    "4. Ce qu'on veut vous dire.",
+    "## Le faire gratuitement",
+    "Sur Albums, tu crées un <b>album-récit</b> avec photos, vidéos et notes vocales, en chapitres, avec une narration à ta voix. Les albums sont illimités et restent aussi longtemps que tu le souhaites. Les photos gratuites sont enregistrées jusqu'à 2048 px sur le grand côté.",
+    "1. Connecte-toi avec Google et crée un album, par exemple « Joyeux Noël, papa et maman ».",
+    "2. Crée des chapitres, ajoute photos et vidéos et écris une phrase sous chacune.",
+    "3. Enregistre les notes vocales directement dans le navigateur.",
+    "4. Tu peux inviter un coauteur, par exemple ton frère ou ta sœur; il doit figurer parmi tes amis sur Albums.",
+    "5. Choisis la visibilité : Public, Amis ou Moi uniquement. « Amis » concerne tous tes amis : pour garder la surprise, utilise <b>Amis, sauf…</b> et exclus tes parents jusqu'au réveillon.",
+    "!cta",
+    "À lire aussi : <a href=\"/fr/guides/album-photo-maman/\">album photo pour maman</a> et <a href=\"/fr/guides/cadeau-anniversaire-papa/\">cadeau pour papa</a>.",
+    "## L'offrir",
+    "Au réveillon ou le matin de Noël, regardez-le ensemble sur la télé ou une tablette. Ensuite, change la visibilité et envoie-leur le lien, qui s'ouvre avec un aperçu de la couverture. Un album en « Moi uniquement » ne s'ouvre pas par lien. L'album entier peut être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Prépare l'album de tes parents ce soir",
+    "p": "Photos, vidéos et voix dans une seule histoire. Gratuit dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s'achète pas",
+    "p": "Albums illimités, qui restent aussi longtemps que tu le souhaites.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quoi offrir à ses parents qui ont déjà tout ?",
+      "Un cadeau personnel : un album avec les photos de famille d'hier et d'aujourd'hui et des messages vocaux des petits-enfants."
+    ],
+    [
+      "L'album-récit est-il gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités, et ils restent aussi longtemps que tu le souhaites."
+    ],
+    [
+      "Mes frères et sœurs peuvent-ils participer ?",
+      "Tu peux inviter un coauteur parmi tes amis sur Albums; les autres t'envoient leurs photos et notes vocales."
+    ],
+    [
+      "Comment mes parents l'ouvrent-ils ?",
+      "Avec le lien : l'album s'ouvre dans le navigateur avec un aperçu de la couverture, sans rien installer."
+    ]
+  ],
+  "related": [
+    "album-photo-maman",
+    "cadeau-anniversaire-papa",
+    "album-photo-grands-parents"
+  ],
+  "date": "2026-11-20"
+}

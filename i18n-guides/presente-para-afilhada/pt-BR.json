@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para afilhada",
+  "title": "Presente para afilhada: um álbum da história dela | Albums.ink",
+  "desc": "Presente para afilhada de batismo, crisma ou já adulta: um álbum de história gratuito com fotos, vídeos e mensagens de voz do padrinho e da madrinha.",
+  "h1": "Presente para afilhada: um álbum da história dela",
+  "lead": "Muita gente procura “presente para afilhada”, “de crisma”, “adulta” e “recém-nascida”. Além do presente da loja, dá para entregar algo que só a madrinha ou o padrinho tem: as lembranças de ter acompanhado ela crescer. O álbum de história é gratuito e fica pronto numa noite.",
+  "body": [
+    "## Para qual ocasião",
+    "- Batizado: comece o álbum para a afilhada recém-nascida e vá completando.",
+    "- Primeira comunhão ou crisma.",
+    "- Aniversário de 15 ou 18 anos.",
+    "- Formatura ou casamento, para a afilhada adulta.",
+    "## O que colocar",
+    "- Fotos do batizado, com você segurando ela no colo.",
+    "- Aniversários, viagens e passeios juntos.",
+    "- Vídeos curtos e mensagens de voz dos pais, avós e primos.",
+    "## Ideias de capítulos",
+    "1. O dia em que virei sua madrinha.",
+    "2. Crescendo pertinho.",
+    "3. Quem você é hoje.",
+    "4. O que eu desejo para você.",
+    "## Como fazer de graça",
+    "No Albums você cria um <b>álbum de história</b> com fotos, vídeos e notas de voz, dividido em capítulos e com narração na sua voz. Os álbuns são ilimitados e ficam pelo tempo que você quiser. As fotos gratuitas são salvas com até 2048 px no lado maior.",
+    "1. Entre com Google e crie um álbum, por exemplo “Para a minha afilhada Clara”.",
+    "2. Crie capítulos, suba fotos e vídeos e escreva uma frase em cada um.",
+    "3. Grave as notas de voz direto no navegador.",
+    "4. Você pode convidar um coautor, por exemplo o padrinho; ele precisa estar entre os seus amigos no Albums.",
+    "5. Escolha quem vê: Público, Amigos ou Somente eu. Amigos inclui todos os seus amigos, então para guardar a surpresa use Amigos, exceto… e exclua a afilhada até o dia.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/festa-de-batizado/\">festa de batizado</a> e <a href=\"/pt-BR/guides/album-de-recordacoes/\">álbum de recordações</a>.",
+    "## Como entregar",
+    "No dia, mude a visibilidade e mande o link pelo WhatsApp – ele abre com prévia da capa. Um álbum em Somente eu não abre por link. O álbum inteiro pode ser baixado em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Monte hoje o álbum da sua afilhada",
+    "p": "Fotos, vídeos e vozes numa só história. Grátis no navegador.",
+    "btn": "Criar álbum de história →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para afilhada?",
+      "Algo pessoal: um álbum com as fotos de vocês desde o batizado e mensagens de voz da família."
+    ],
+    [
+      "Presente para afilhada de crisma?",
+      "Um álbum com capítulos do batizado até a crisma, com uma mensagem sua para essa nova fase."
+    ],
+    [
+      "E para afilhada adulta?",
+      "Um álbum para a formatura ou o casamento, com lembranças de infância e recados da família."
+    ],
+    [
+      "O álbum de história é gratuito?",
+      "Sim. Os álbuns de história são gratuitos e ilimitados e ficam pelo tempo que você quiser."
+    ]
+  ],
+  "related": [
+    "festa-de-batizado",
+    "album-de-recordacoes",
+    "presente-para-melhor-amiga"
+  ],
+  "date": "2026-11-20"
+}

@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "christmas gift for parents",
+  "title": "Christmas Gift for Parents: A Family Story Album | Albums.ink",
+  "desc": "A Christmas gift for parents who have everything: a free story album with family photos, videos and voice notes from you and the grandkids.",
+  "h1": "Christmas gift for parents who have everything",
+  "lead": "In Canada people search “christmas gift for parents”, “who have everything” and “from kids”. When Mom and Dad already have what they need, give them something no store sells: the story of your family. A story album is free and you can finish it before the holidays.",
+  "body": [
+    "## What to put in it",
+    "- Old photos from the family boxes: their wedding, the first house, road trips, the cottage or the rink.",
+    "- This year's moments: birthdays, the kids' games, the summer holidays.",
+    "- Short videos and voice notes from the grandkids: “Merry Christmas, Grandma and Grandpa!”",
+    "- A few words from each sibling about a favourite memory.",
+    "## Chapter ideas",
+    "1. How it all started.",
+    "2. Growing up in our house.",
+    "3. Our family today.",
+    "4. What we want to say to you.",
+    "## How to make it for free",
+    "On Albums you build a <b>story album</b> from photos, videos and voice notes, split into chapters, and you can add voice narration. Albums are unlimited and stay as long as you want them. Free photos are stored at up to 2048px on the long edge.",
+    "1. Sign in with Google and create an album, e.g. “Merry Christmas, Mom and Dad”.",
+    "2. Add chapters, upload photos and videos and write a line under each.",
+    "3. Record voice notes right in the browser.",
+    "4. You can invite one co-author, for example a brother or sister; they have to be among your friends on Albums.",
+    "5. Choose who can see it: Public, Friends or Only me. Friends means all your friends, so if your parents are on your list, use <b>Friends except</b> and exclude them until Christmas.",
+    "!cta",
+    "More ideas: <a href=\"/guides/photo-album-for-mum/\">photo album for Mom</a> and <a href=\"/guides/photo-album-for-dad/\">photo album for Dad</a>.",
+    "## How to give it",
+    "On Christmas Eve or Christmas morning, open it together on the TV or a tablet. Then switch the visibility and send them the link – it opens with a cover preview. An album set to Only me cannot be opened by link. You can also download the whole album as one ZIP file."
+  ],
+  "cta": {
+    "h2": "Make your parents' Christmas album tonight",
+    "p": "Photos, videos and voices in one story. Free in your browser.",
+    "btn": "Create a story album →"
+  },
+  "cta2": {
+    "h2": "A gift that is all about your family",
+    "p": "Unlimited albums that stay as long as you want them.",
+    "btn": "Start for free →"
+  },
+  "faq": [
+    [
+      "What do you get parents who have everything?",
+      "Something personal: a story album with old and new family photos, videos and voice notes from you and the grandkids."
+    ],
+    [
+      "Is the story album free?",
+      "Yes. Story albums are free and unlimited, and they stay as long as you want them."
+    ],
+    [
+      "Can my siblings help?",
+      "You can invite one co-author who is on your friends list. Others can send you their photos and voice notes to add."
+    ],
+    [
+      "How do my parents open it?",
+      "Send them the link – it opens in the browser with a cover preview. They do not need to install anything."
+    ]
+  ],
+  "related": [
+    "photo-album-for-mum",
+    "photo-album-for-dad",
+    "family-history-stories"
+  ],
+  "date": "2026-11-20"
+}
