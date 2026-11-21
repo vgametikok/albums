@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Schwiegervater",
+  "title": "Geschenk für den Schwiegervater | Albums.ink",
+  "desc": "Geschenk für den Schwiegervater, der alles hat: ein kostenloses Story-Album mit Familienfotos, Videos und Sprachnachrichten der Enkel – zu Weihnachten oder zum Geburtstag.",
+  "h1": "Geschenk für den Schwiegervater, der alles hat",
+  "lead": "Gesucht wird „Geschenk für Schwiegervater der alles hat“, „selber machen“ und „Weihnachten“. Statt noch einer Flasche Wein: ein Album mit der Geschichte eurer Familie. Ein Story-Album ist kostenlos und schnell fertig.",
+  "body": [
+    "## Was hinein kann",
+    "- Fotos von gemeinsamen Momenten: Hochzeit, Urlaube, Grillabende im Garten.",
+    "- Alte Bilder aus seiner Jugend – frag die Schwiegermutter nach dem Schuhkarton.",
+    "- Kurze Videos und Sprachnachrichten der Enkel: „Frohe Weihnachten, Opa!“",
+    "- Ein paar Sätze von dir und deinem Partner oder deiner Partnerin.",
+    "## Ideen für Kapitel",
+    "1. Wie er war, bevor wir ihn kannten.",
+    "2. Wie wir uns kennengelernt haben.",
+    "3. Opa und die Enkel.",
+    "4. Danke für alles.",
+    "## So machst du es kostenlos",
+    "Auf Albums erstellst du ein <b>Story-Album</b> aus Fotos, Videos und Sprachnachrichten, gegliedert in Kapitel, auf Wunsch mit eingesprochener Erzählung. Alben sind unbegrenzt und bleiben, solange du willst. Kostenlose Fotos werden mit bis zu 2048 px an der langen Kante gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Klaus“.",
+    "2. Kapitel anlegen, Fotos und Videos hochladen, kurze Texte schreiben.",
+    "3. Sprachnachrichten direkt im Browser aufnehmen.",
+    "4. Eine Person als Co-Autor einladen – etwa deinen Partner. Sie muss auf Albums mit dir befreundet sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. „Freunde“ heißt alle Freunde – ist der Schwiegervater dabei, nutze <b>Freunde außer</b>, bis das Geschenk übergeben ist.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/geschenk-fuer-schwiegermutter/\">Geschenk für die Schwiegermutter</a> und <a href=\"/de/guides/fotoalbum-fuer-papa/\">Fotoalbum für Papa</a>.",
+    "## So überreichst du es",
+    "Zeig das Album gemeinsam auf dem Fernseher oder Tablet. Danach Sichtbarkeit ändern und den Link schicken – er öffnet sich mit Titelbild-Vorschau. Ein Album mit „Nur ich“ lässt sich nicht per Link öffnen. Das ganze Album kann auch als eine ZIP-Datei heruntergeladen werden."
+  ],
+  "cta": {
+    "h2": "Das Album für den Schwiegervater",
+    "p": "Fotos, Videos und Stimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das man nicht kaufen kann",
+    "p": "Unbegrenzte Alben, die bleiben, solange du willst.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    ["Was schenkt man einem Schwiegervater, der alles hat?", "Etwas Persönliches: ein Story-Album mit Familienfotos, Videos und Sprachnachrichten der Enkel."],
+    ["Ist das kostenlos?", "Ja. Story-Alben sind kostenlos und unbegrenzt und bleiben, solange du willst."],
+    ["Kann mein Partner mitmachen?", "Du kannst einen Co-Autor einladen, der auf Albums mit dir befreundet ist."],
+    ["Wie öffnet er das Album?", "Über den Link im Browser – mit Titelbild-Vorschau, ohne Installation."]
+  ],
+  "related": ["geschenk-fuer-schwiegermutter", "fotoalbum-fuer-papa", "geschenk-fuer-opa"],
+  "date": "2026-11-21"
+}

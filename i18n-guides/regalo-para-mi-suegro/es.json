@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CL",
+  "query": "regalo para mi suegro",
+  "title": "Regalo para mi suegro: un álbum con historia | Albums.ink",
+  "desc": "Un regalo original para tu suegro en Navidad o en su cumpleaños: un álbum de historias gratis con fotos, videos y notas de voz de la familia.",
+  "h1": "Regalo original para mi suegro",
+  "lead": "En Chile se busca “regalo para mi suegro”, “de cumpleaños”, “navidad” y “original”. Si ya tiene parrilla, vino y herramientas, regálale la historia de la familia. Un álbum de historias es gratis y lo armas en una tarde.",
+  "body": [
+    "## Qué poner",
+    "- Fotos de los asados del fin de semana, las vacaciones en la playa o en el sur.",
+    "- Fotos antiguas de su juventud – pídele a tu suegra la caja de recuerdos.",
+    "- Videos cortos y notas de voz de los nietos: “¡Feliz Navidad, tata!”",
+    "- Unas palabras tuyas y de tu pareja.",
+    "## Ideas de capítulos",
+    "1. Antes de que lo conociéramos.",
+    "2. Cómo llegué a la familia.",
+    "3. El tata y sus nietos.",
+    "4. Gracias por todo.",
+    "## Cómo hacerlo gratis",
+    "En Albums creas un <b>álbum de historias</b> con fotos, videos y notas de voz, dividido en capítulos y con narración de voz si quieres. Los álbumes son ilimitados y se quedan el tiempo que quieras. Las fotos gratis se guardan con hasta 2048 px en el lado largo.",
+    "1. Entra con Google y crea un álbum, por ejemplo “Para don Jorge”.",
+    "2. Agrega capítulos, sube fotos y videos y escribe una frase en cada uno.",
+    "3. Graba notas de voz desde el navegador.",
+    "4. Invita a un coautor, como tu pareja; tiene que estar en tu lista de amigos en Albums.",
+    "5. Elige quién lo ve: Público, Amigos o Solo yo. “Amigos” son todos tus amigos; para la sorpresa usa <b>Amigos excepto</b> y deja fuera a tu suegro hasta el día.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-suegra/\">regalo para mi suegra</a> y <a href=\"/es/guides/album-fotos-para-papa/\">álbum de fotos para papá</a>.",
+    "## Cómo entregarlo",
+    "Ábrelo juntos en la tele o en una tablet. Después cambia la visibilidad y mándale el enlace: se abre con una vista previa de la portada. Un álbum en “Solo yo” no se puede abrir por enlace. También puedes descargar el álbum entero en un único ZIP."
+  ],
+  "cta": {
+    "h2": "Arma el álbum para tu suegro",
+    "p": "Fotos, videos y voces en una sola historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    ["¿Qué le regalo a mi suegro que tiene de todo?", "Algo personal: un álbum de historias con fotos de la familia, videos y notas de voz de los nietos."],
+    ["¿Es gratis?", "Sí. Los álbumes de historias son gratis e ilimitados y se quedan el tiempo que quieras."],
+    ["¿Mi pareja puede ayudar?", "Puedes invitar a un coautor que esté en tu lista de amigos en Albums."],
+    ["¿Cómo lo abre mi suegro?", "Con el enlace, en el navegador, con vista previa de la portada y sin instalar nada."]
+  ],
+  "related": ["regalo-para-mi-suegra", "album-fotos-para-papa", "regalo-para-mi-abuelo"],
+  "date": "2026-11-21"
+}

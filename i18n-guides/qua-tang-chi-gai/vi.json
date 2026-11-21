@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng chị gái",
+  "title": "Quà tặng chị gái ý nghĩa: album kỷ niệm | Albums.ink",
+  "desc": "Quà tặng chị gái dịp sinh nhật, 8/3 hay ngày cưới: một album câu chuyện miễn phí với ảnh, video và lời chúc bằng giọng nói của cả nhà.",
+  "h1": "Quà tặng chị gái ý nghĩa",
+  "lead": "Mọi người tìm “quà tặng chị gái sinh nhật”, “ý nghĩa”, “8/3” và “quà cưới tặng chị gái”. Món quà làm chị xúc động nhất thường là kỷ niệm của hai chị em. Album câu chuyện miễn phí và làm xong trong một buổi tối.",
+  "body": [
+    "## Nên đưa gì vào album",
+    "- Ảnh hồi nhỏ: sinh nhật, Tết ở quê, những chuyến đi chơi cả nhà.",
+    "- Những dấu mốc của chị: tốt nghiệp, đi làm, ngày cưới.",
+    "- Video ngắn và lời chúc bằng giọng nói của bố mẹ, anh em.",
+    "- Vài lời của bạn gửi chị.",
+    "## Gợi ý các chương",
+    "1. Hồi chị em mình còn nhỏ.",
+    "2. Chị đã chăm em thế nào.",
+    "3. Chị bây giờ.",
+    "4. Lời em muốn nói.",
+    "## Cách làm miễn phí",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành chương và có thể thuyết minh bằng giọng của mình. Album không giới hạn và được giữ lâu như bạn muốn. Ảnh miễn phí được lưu tối đa 2048px ở cạnh dài.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “Chúc mừng sinh nhật chị Lan”.",
+    "2. Thêm chương, tải ảnh và video lên, viết một dòng cho mỗi phần.",
+    "3. Ghi âm lời chúc ngay trên trình duyệt.",
+    "4. Có thể mời một đồng tác giả, ví dụ em út; người đó phải là bạn bè của bạn trên Albums.",
+    "5. Chọn quyền xem: Công khai, Bạn bè hoặc Chỉ mình tôi. Bạn bè là tất cả bạn bè, nên muốn giữ bất ngờ thì chọn Bạn bè, ngoại trừ… và loại chị ra đến đúng ngày.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/qua-tang-ban-than/\">quà tặng bạn thân</a> và <a href=\"/vi/guides/album-anh-gia-dinh/\">album ảnh gia đình</a>.",
+    "## Cách trao quà",
+    "Mở album cùng nhau trên TV hoặc máy tính bảng. Sau đó đổi quyền xem và gửi đường link – link mở ra với ảnh bìa xem trước. Album ở chế độ Chỉ mình tôi không mở được bằng link. Bạn cũng có thể tải cả album về dưới dạng một file ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album tặng chị",
+    "p": "Ảnh, video và giọng nói trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà không mua được",
+    "p": "Album không giới hạn, được giữ lâu như bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    ["Tặng chị gái quà gì ý nghĩa?", "Một món quà mang dấu ấn riêng: album câu chuyện với ảnh hồi nhỏ, video và lời chúc của cả nhà."],
+    ["Có miễn phí không?", "Có. Album câu chuyện miễn phí, không giới hạn và được giữ lâu như bạn muốn."],
+    ["Anh chị em khác có cùng làm được không?", "Bạn có thể mời một đồng tác giả là bạn bè của bạn trên Albums."],
+    ["Chị mở album thế nào?", "Qua đường link trên trình duyệt, có ảnh bìa xem trước, không cần cài đặt."]
+  ],
+  "related": ["qua-tang-ban-than", "album-anh-gia-dinh", "qua-tang-bo-me"],
+  "date": "2026-11-21"
+}

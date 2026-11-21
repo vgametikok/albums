@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para esposa",
+  "title": "Presente para esposa: criativo e pessoal | Albums.ink",
+  "desc": "Presente criativo para a esposa no aniversário, no Natal ou no aniversário de casamento: um álbum de histórias grátis com fotos, vídeos e áudios.",
+  "h1": "Presente criativo para a esposa",
+  "lead": "No Brasil se busca “presente para esposa de aniversário”, “aniversário de casamento” e “criativo”. O que mais emociona costuma ser a história de vocês. Um álbum de histórias é grátis e fica pronto numa noite.",
+  "body": [
+    "## O que colocar",
+    "- Fotos do primeiro encontro, do casamento e das viagens.",
+    "- O dia a dia: almoço de domingo, a casa nova, o pet.",
+    "- Vídeos curtos e áudios dos filhos: “Parabéns, mãe!”",
+    "- Um áudio seu, com as suas palavras.",
+    "## Ideias de capítulos",
+    "1. Como a gente se conheceu.",
+    "2. O nosso casamento.",
+    "3. As nossas viagens.",
+    "4. Por que eu te amo.",
+    "## Como fazer grátis",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e áudios, dividido em capítulos e com narração por voz se quiser. Os álbuns são ilimitados e ficam pelo tempo que você quiser. As fotos grátis são salvas com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para a Ana”.",
+    "2. Adicione capítulos, envie fotos e vídeos e escreva uma frase em cada um.",
+    "3. Grave áudios direto no navegador.",
+    "4. Convide um coautor, como a melhor amiga dela; a pessoa precisa estar na sua lista de amigos no Albums.",
+    "5. Escolha quem vê: Público, Amigos ou Só eu. “Amigos” são todos os seus amigos; para manter a surpresa, use “Amigos exceto” e deixe sua esposa de fora até o dia.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-namorada/\">presente para namorada</a> e <a href=\"/pt-BR/guides/retrospectiva-namoro/\">retrospectiva de namoro</a>.",
+    "## Como entregar",
+    "Assistam juntos na TV ou no tablet. Depois mude a visibilidade e mande o link: ele abre com prévia da capa. Um álbum em “Só eu” não abre pelo link. Você também pode baixar o álbum inteiro num único ZIP."
+  ],
+  "cta": {
+    "h2": "Monte o álbum para sua esposa",
+    "p": "Fotos, vídeos e vozes numa só história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    ["Qual presente criativo dar para a esposa?", "Algo pessoal: um álbum de histórias com fotos do casal, vídeos e áudios seus e dos filhos."],
+    ["É grátis?", "Sim. Os álbuns de histórias são grátis e ilimitados e ficam pelo tempo que você quiser."],
+    ["Alguém pode me ajudar a montar?", "Você pode convidar um coautor que esteja na sua lista de amigos no Albums."],
+    ["Como ela abre o álbum?", "Pelo link, no navegador, com prévia da capa e sem instalar nada."]
+  ],
+  "related": ["presente-para-namorada", "retrospectiva-namoro", "presente-para-marido"],
+  "date": "2026-11-21"
+}

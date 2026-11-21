@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "US",
+  "query": "family christmas party ideas",
+  "title": "Family Christmas Party Ideas for Large Groups | Albums.ink",
+  "desc": "Family Christmas party ideas at home or for large groups: food, games, a white elephant exchange and one QR code that collects every guest's photos.",
+  "h1": "Family Christmas party ideas",
+  "lead": "In the US people search “family christmas party ideas”, “for large groups” and “at home”. Here is a simple plan for a party with cousins, grandparents and kids – and a way to get everyone's photos in one place afterwards.",
+  "body": [
+    "## Food that works for a crowd",
+    "- A potluck: each household brings one dish, you cover the ham or turkey.",
+    "- A hot cocoa bar with marshmallows and candy canes.",
+    "- A cookie decorating table for the kids.",
+    "## Games for all ages",
+    "- <b>White elephant gift exchange</b> with a set price limit.",
+    "- Christmas trivia, teams by family branch.",
+    "- Matching pajamas or a family ugly sweater contest.",
+    "- A carol sing-along before dessert.",
+    "## Ideas for large groups",
+    "- Rent a church hall or community room if the house is too small.",
+    "- Print name tags with “whose kid is whose” for the in-laws.",
+    "- Take one big family group photo early, before anyone leaves.",
+    "## Every guest's photos with one QR code",
+    "Everyone takes photos on their phone, and they end up in a dozen group chats. With an <b>event album</b> on Albums they land in one place:",
+    "1. Create the album, e.g. “Johnson Family Christmas 2026”.",
+    "2. Put the QR code on the fridge, the tables or in the invite.",
+    "3. Guests scan it with the phone camera and upload photos and videos in the browser – nothing to install.",
+    "4. Turn on <b>Hold guest photos</b> to approve uploads before they appear.",
+    "5. Afterwards download the whole album as one ZIP file.",
+    "Guests who upload without signing in appear anonymously. Signed-in guests also get a private draft copy of only their own uploads.",
+    "!cta",
+    "More: <a href=\"/guides/friendsgiving-ideas/\">Friendsgiving ideas</a> and <a href=\"/guides/family-reunion-photo-ideas/\">family reunion photo ideas</a>.",
+    "## Pricing",
+    "An event album is a one-time purchase: Small $39.99, Medium $69.99, Large $129.99. Guests pay nothing. Photos up to 4K, stored for 6 months from the first upload, and you can extend it."
+  ],
+  "cta": {
+    "h2": "One QR code for the whole family",
+    "p": "Guests upload in the browser, nothing to install. You decide what appears.",
+    "btn": "Create an event album →"
+  },
+  "cta2": {
+    "h2": "Keep this Christmas in one album",
+    "p": "One-time from $39.99. Up to 4K, 6 months from the first upload, extendable.",
+    "btn": "Start your album →"
+  },
+  "faq": [
+    ["How do you host a family Christmas party for a large group?", "Make it a potluck, rent a hall if needed, and plan a few games like a white elephant exchange and Christmas trivia."],
+    ["What games work for all ages?", "White elephant, Christmas trivia by family teams, an ugly sweater contest and a carol sing-along."],
+    ["How do I collect everyone's photos?", "Put one QR code on the tables. Guests upload photos and videos in the browser to the same album, and you can approve them first."],
+    ["Do guests need to install anything?", "No. They scan the code with the phone camera and upload in the browser."]
+  ],
+  "related": ["friendsgiving-ideas", "family-reunion-photo-ideas", "ugly-sweater-party-ideas"],
+  "date": "2026-11-21"
+}

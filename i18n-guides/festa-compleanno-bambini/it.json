@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "idee festa compleanno bambini",
+  "title": "Festa di compleanno per bambini: idee | Albums.ink",
+  "desc": "Idee per la festa di compleanno dei bambini in casa o fuori: giochi, buffet, tema, animazione e un QR code per raccogliere le foto di tutti i genitori.",
+  "h1": "Idee per la festa di compleanno dei bambini",
+  "lead": "Si cerca “idee festa compleanno bambini”, “in casa”, “6 anni”, “8 anni” e “vicino a me”. Ecco un piano semplice – dal posto ai giochi – e un modo per avere poi tutte le foto scattate dai genitori in un unico album.",
+  "body": [
+    "## Dove farla",
+    "- In casa o in giardino, con pochi invitati e giochi semplici.",
+    "- In una ludoteca o un parco giochi al chiuso, spesso con animatori.",
+    "- In una sala parrocchiale o un salone delle feste.",
+    "- All'aperto, al parco, nella bella stagione.",
+    "## Giochi per età",
+    "- 3–5 anni: caccia al tesoro facile, bolle di sapone, palloncini.",
+    "- 6–8 anni: gioco delle sedie, mummia con la carta igienica, pentolaccia.",
+    "- 9–10 anni: caccia al tesoro con indizi, quiz, karaoke.",
+    "## Buffet e tema",
+    "- Pizzette, tramezzini, focaccia, frutta a pezzi e la torta con le candeline.",
+    "- Temi amati: supereroi, principesse, dinosauri, calcio, unicorni.",
+    "- Piccoli sacchetti regalo per i bambini all'uscita.",
+    "## Tutte le foto con un QR code",
+    "Ogni genitore fa foto e video col telefono. Con un <b>album evento</b> su Albums finiscono tutti in un posto:",
+    "1. Crea l'album, per esempio “I 7 anni di Giulia”.",
+    "2. Metti il QR code sul tavolo del buffet o nell'invito.",
+    "3. I genitori lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Con <b>Hold guest photos</b> controlli i caricamenti prima che compaiano.",
+    "5. Poi scarichi l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli ospiti che hanno effettuato l'accesso ricevono anche una copia bozza privata con i soli propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-18-anni/\">festa dei 18 anni</a> e <a href=\"/it/guides/festa-di-battesimo/\">festa di battesimo</a>.",
+    "## Prezzi",
+    "L'album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Gli ospiti non pagano nulla. Foto fino a 4K, conservate 6 mesi dal primo caricamento, prorogabili."
+  ],
+  "cta": {
+    "h2": "Un QR code per tutta la festa",
+    "p": "I genitori caricano dal browser, senza installare nulla. Decidi tu cosa compare.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "La sua festa in un solo album",
+    "p": "Acquisto unico da 39,99 $. Fino a 4K, 6 mesi dal primo caricamento, prorogabili.",
+    "btn": "Inizia l'album →"
+  },
+  "faq": [
+    ["Come organizzare una festa di compleanno per bambini in casa?", "Pochi invitati, due o tre giochi adatti all'età, un buffet semplice e la torta. Due ore bastano."],
+    ["Quali giochi fare?", "Caccia al tesoro, gioco delle sedie, mummia, pentolaccia o un quiz per i più grandi."],
+    ["Come raccolgo le foto dei genitori?", "Con un QR code: ognuno carica foto e video dal browser nello stesso album, e puoi approvarli prima."],
+    ["Serve installare qualcosa?", "No. Si inquadra il codice con la fotocamera e si carica dal browser."]
+  ],
+  "related": ["festa-18-anni", "festa-di-battesimo", "birthday-party-photo-sharing"],
+  "date": "2026-11-21"
+}
