@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "nozze d'oro",
+  "title": "Nozze d'oro: come festeggiare 50 anni di matrimonio | Albums.ink",
+  "desc": "Come festeggiare le nozze d'oro: rinnovo delle promesse in chiesa, pranzo al ristorante, idee regalo e un QR code per raccogliere le foto di tutti gli invitati.",
+  "h1": "Nozze d'oro: idee per festeggiare 50 anni insieme",
+  "lead": "Si cerca “nozze d'oro quanti anni”, “cosa regalare” e “cerimonia in chiesa”. Le nozze d'oro festeggiano 50 anni di matrimonio e spesso riuniscono figli, nipoti e amici. Ecco idee per la giornata e un modo semplice per raccogliere tutte le foto e i video fatti dagli invitati.",
+  "body": [
+    "## Com'è la giornata",
+    "- <b>Rinnovo delle promesse</b>: molte coppie scelgono una messa o una benedizione in chiesa.",
+    "- <b>Pranzo al ristorante</b> o in agriturismo con la famiglia e gli amici di sempre.",
+    "- Una festa in casa, più intima, se gli sposi preferiscono.",
+    "## Idee per la festa",
+    "- Un tavolo con le foto del matrimonio e degli anni insieme.",
+    "- Un discorso dei figli e una lettera dei nipoti.",
+    "- Il taglio della torta con un “50” dorato.",
+    "- Videomessaggi dei parenti lontani.",
+    "## Cosa regalare",
+    "- Un ricordo in oro o fiori gialli e bianchi.",
+    "- Un album con le foto e i messaggi vocali della famiglia.",
+    "## Le foto di tutti con un QR code",
+    "Tutti fotografano con il telefono. Con un <b>album evento</b> su Albums, tutto finisce in un unico posto:",
+    "1. Crea un album, per esempio “Nozze d'oro di Anna e Giuseppe”.",
+    "2. Metti il QR code sui tavoli o accanto alla torta.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per approvare i caricamenti prima che compaiano.",
+    "5. Alla fine scarica l'intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli invitati che hanno effettuato l'accesso ricevono anche una copia bozza privata con solo i propri caricamenti.",
+    "!cta",
+    "Vedi anche: <a href=\"/it/guides/nozze-d-argento/\">nozze d'argento</a> e <a href=\"/it/guides/regalo-anniversario-genitori/\">regalo anniversario genitori</a>.",
+    "## Prezzo",
+    "L'album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gli invitati non pagano nulla. Foto fino a 4K, album conservato per 6 mesi dal primo caricamento, con possibilità di estensione."
+  ],
+  "cta": {
+    "h2": "Crea l'album delle nozze d'oro",
+    "p": "Un QR code, tutte le foto e i video degli invitati in un unico posto.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Cinquant'anni in un solo album",
+    "p": "Gli invitati caricano dal browser, tu scarichi l'intero album.",
+    "btn": "Inizia →"
+  },
+  "faq": [
+    [
+      "Le nozze d'oro sono dopo quanti anni?",
+      "Dopo 50 anni di matrimonio."
+    ],
+    [
+      "Gli invitati devono installare qualcosa?",
+      "No. Inquadrano il QR code e caricano dal browser."
+    ],
+    [
+      "Posso controllare le foto prima?",
+      "Sì, con Hold guest photos approvi ogni caricamento."
+    ],
+    [
+      "Per quanto tempo restano le foto?",
+      "6 mesi dal primo caricamento, con possibilità di estensione."
+    ]
+  ],
+  "related": [
+    "nozze-d-argento",
+    "regalo-anniversario-genitori",
+    "festa-60-anni"
+  ],
+  "date": "2026-11-22"
+}

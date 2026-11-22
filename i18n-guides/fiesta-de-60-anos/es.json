@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "MX",
+  "query": "fiesta de 60 años",
+  "title": "Fiesta de 60 años: ideas para mujer y hombre | Albums.ink",
+  "desc": "Ideas para una fiesta de 60 años de mujer u hombre: temáticas, decoración, Las Mañanitas, taquiza y un código QR para juntar las fotos de todos los invitados.",
+  "h1": "Fiesta de 60 años: ideas para celebrar",
+  "lead": "En México se busca mucho “fiesta de 60 años mujer”, “fiesta de 60 años hombre”, “temática” y “decoración”. Aquí tienes ideas de lugar, temática y dinámicas, y una forma sencilla de reunir después todas las fotos y videos que tomen los invitados.",
+  "body": [
+    "## Dónde celebrar",
+    "- En un salón de eventos o jardín con mesas para toda la familia.",
+    "- En casa, con taquiza o parrillada y música.",
+    "- En un restaurante con área privada para un grupo más pequeño.",
+    "## Ideas de temática",
+    "- <b>Años 60 y 70</b>: la música de su juventud, rock and roll y boleros.",
+    "- <b>Dorado y blanco</b>: elegante, con un “60” grande en la mesa de postres.",
+    "- <b>Fiesta mexicana</b>: papel picado, mariachi y comida típica.",
+    "## Momentos que no pueden faltar",
+    "- Cantar <b>Las Mañanitas</b> con el pastel.",
+    "- Un brindis de los hijos o los nietos.",
+    "- Una mesa con fotos de cada década de su vida.",
+    "- Videos de familiares que viven lejos, por ejemplo en Estados Unidos.",
+    "## Todas las fotos con un código QR",
+    "Todos toman fotos con el celular. Con un <b>álbum de evento</b> en Albums todo queda en un solo lugar:",
+    "1. Crea un álbum, por ejemplo “Los 60 de mi mamá Lupita”.",
+    "2. Pon el código QR en las mesas, junto al pastel o en la invitación.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Hold guest photos</b> para revisar lo que suben antes de que aparezca.",
+    "5. Después descarga el álbum completo en un solo archivo ZIP.",
+    "Quien sube sin iniciar sesión aparece como anónimo. Los invitados con sesión iniciada reciben además una copia en borrador privada solo con lo que ellos subieron.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/fiesta-de-50-anos/\">fiesta de 50 años</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de fiesta</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small 39,99 USD, Medium 69,99 USD o Large 129,99 USD. Los invitados no pagan nada. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de la fiesta de 60",
+    "p": "Un código QR, todas las fotos y videos de los invitados en un solo lugar.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Que no se pierda ningún recuerdo",
+    "p": "Los invitados suben desde el navegador y tú descargas todo el álbum.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    [
+      "¿Cómo celebrar unos 60 años?",
+      "Con una comida en salón, jardín o en casa, Las Mañanitas con pastel, un brindis de la familia y fotos de cada década."
+    ],
+    [
+      "¿Los invitados tienen que instalar algo?",
+      "No. Escanean el código QR y suben desde el navegador."
+    ],
+    [
+      "¿Puedo revisar las fotos antes de que aparezcan?",
+      "Sí, con Hold guest photos tú apruebas cada subida."
+    ],
+    [
+      "¿Cuánto tiempo se guardan las fotos?",
+      "6 meses desde la primera subida, con opción de extender."
+    ]
+  ],
+  "related": [
+    "fiesta-de-50-anos",
+    "qr-code-for-photos-at-party",
+    "bodas-de-oro"
+  ],
+  "date": "2026-11-22"
+}

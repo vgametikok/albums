@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "cadeau pour mon frère",
+  "title": "Cadeau pour mon frère : album photo | Albums.ink",
+  "desc": "Un cadeau pour ton frère à Noël ou à sa fête : un album gratuit avec vos photos d’enfance, des vidéos et des messages vocaux de la famille.",
+  "h1": "Un cadeau personnel pour ton frère",
+  "lead": "On cherche « cadeau pour mon frère », « cadeau pour mon frère Noël » et « à faire soi-même ». Pour le temps des Fêtes ou pour sa fête, offre-lui vos souvenirs : photos d’enfance, vidéos et messages de la famille dans un album. C’est gratuit.",
+  "body": [
+    "## Quoi mettre dedans",
+    "- Vos photos d’enfance : Noëls, chalet, camps de jour, hockey du samedi.",
+    "- Des vidéos de partys de famille et de voyages.",
+    "- Des messages vocaux des parents, des cousins et de ses chums.",
+    "- Les jokes de famille qu’on se raconte encore.",
+    "## Idées de chapitres",
+    "1. Quand on était petits.",
+    "2. L’adolescence.",
+    "3. Nos aventures.",
+    "4. Ce que je te souhaite.",
+    "## Le faire gratuitement",
+    "Sur Albums, tu crées un <b>album-récit</b> avec photos, vidéos et notes vocales, en chapitres, avec narration vocale si tu veux. Les albums sont illimités et restent aussi longtemps que tu le souhaites. Les photos gratuites sont gardées jusqu’à 2048 px sur le grand côté.",
+    "1. Connecte-toi avec Google et crée un album, par exemple « Pour Max ».",
+    "2. Crée des chapitres, ajoute photos et vidéos et écris une phrase pour chacune.",
+    "3. Enregistre des notes vocales dans le navigateur.",
+    "4. Tu peux inviter un coauteur, par exemple ta sœur ; il faut qu’elle soit dans ta liste d’amis.",
+    "5. Choisis la visibilité : Public, Amis ou Moi uniquement. « Amis » concerne tous tes amis : pour la surprise, choisis <b>Amis, sauf…</b> et exclus ton frère jusqu’au jour J.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/cadeau-pour-ma-soeur/\">cadeau pour ma sœur</a> et <a href=\"/fr/guides/cadeau-de-noel-pour-mes-parents/\">cadeau de Noël pour mes parents</a>.",
+    "## Le donner",
+    "Au réveillon, regardez-le ensemble sur la télé, ou change la visibilité et envoie-lui le lien par texto : il s’ouvre avec un aperçu de la couverture. Un album en « Moi uniquement » ne s’ouvre pas par lien. L’album entier se télécharge en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Crée l’album pour ton frère",
+    "p": "Photos, vidéos et voix dans une seule histoire. Gratuit, dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s’achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que tu le veux.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quoi offrir à mon frère qui a tout ?",
+      "Quelque chose de personnel : un album de vos souvenirs avec des messages de la famille."
+    ],
+    [
+      "Est-ce gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités et restent aussi longtemps que tu le souhaites."
+    ],
+    [
+      "Quelqu’un peut-il m’aider à le faire ?",
+      "Oui, un coauteur par album, qui doit être dans ta liste d’amis."
+    ],
+    [
+      "Doit-il installer quelque chose ?",
+      "Non. L’album s’ouvre dans le navigateur."
+    ]
+  ],
+  "related": [
+    "cadeau-pour-ma-soeur",
+    "cadeau-de-noel-pour-mes-parents",
+    "album-photo-maman"
+  ],
+  "date": "2026-11-22"
+}

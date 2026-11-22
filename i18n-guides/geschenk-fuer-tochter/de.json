@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Tochter",
+  "title": "Geschenk für Tochter: Fotoalbum | Albums.ink",
+  "desc": "Ein persönliches Geschenk für die Tochter von Mama und Papa – zum 30. Geburtstag, zur Hochzeit oder zu Weihnachten: ein kostenloses Story-Album mit Fotos und Sprachnotizen.",
+  "h1": "Persönliches Geschenk für die Tochter",
+  "lead": "Gesucht wird „Geschenk für Tochter von Mama und Papa“, „zum 30. Geburtstag“ und „zur Hochzeit“. Erwachsene Töchter haben meist alles – außer ihrer eigenen Geschichte, erzählt von euch. Ein Story-Album mit Kinderfotos, Videos und euren Stimmen ist kostenlos.",
+  "body": [
+    "## Was hinein kann",
+    "- Fotos von der Geburt, der Einschulung, dem Abi oder der Ausbildung.",
+    "- Alte Videos, z. B. erste Schritte oder Weihnachten als Kind.",
+    "- Sprachnotizen von Mama und Papa: „Weißt du noch …?“",
+    "- Grüße von Großeltern und Geschwistern.",
+    "## Kapitel-Ideen",
+    "1. Die ersten Jahre.",
+    "2. Schule und Freunde.",
+    "3. Dein eigener Weg.",
+    "4. Was wir dir wünschen.",
+    "## Anlässe",
+    "- <b>30. oder 40. Geburtstag</b>: ein Rückblick über die Jahrzehnte.",
+    "- <b>Hochzeit</b>: ihr Weg bis zum großen Tag, übergeben am Vorabend.",
+    "- <b>Geburt des Enkelkinds</b>: Fotos von ihr als Baby neben den ersten Bildern des Enkels.",
+    "## Kostenlos erstellen",
+    "Auf Albums baut ihr ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange ihr möchtet. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Lena“.",
+    "2. Kapitel anlegen, Fotos und Videos hochladen, zu jedem einen Satz schreiben.",
+    "3. Sprachnotizen direkt im Browser aufnehmen.",
+    "4. Ein Co-Autor kann mitmachen, z. B. der zweite Elternteil – er muss in deiner Freundesliste sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. „Freunde“ sind alle Freunde; für die Überraschung „Freunde außer …“ wählen und die Tochter ausschließen.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/fotoalbum-fuer-mama/\">Fotoalbum für Mama</a> und <a href=\"/de/guides/30-geburtstag-ideen/\">30. Geburtstag</a>.",
+    "## Übergeben",
+    "Schaut das Album gemeinsam auf dem Tablet an oder stellt die Sichtbarkeit um und schickt den Link – er öffnet sich mit Titelbild-Vorschau. Ein Album auf „Nur ich“ lässt sich nicht per Link öffnen. Das ganze Album kann als eine ZIP-Datei heruntergeladen werden."
+  ],
+  "cta": {
+    "h2": "Das Album für eure Tochter anlegen",
+    "p": "Fotos, Videos und eure Stimmen in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das es nicht zu kaufen gibt",
+    "p": "Unbegrenzte Alben, die bleiben, so lange ihr möchtet.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einer erwachsenen Tochter?",
+      "Etwas Persönliches: ein Album mit ihren Kinderfotos und Sprachnotizen von Mama und Papa."
+    ],
+    [
+      "Ist das Story-Album kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt und bleiben, so lange ihr möchtet."
+    ],
+    [
+      "Können beide Eltern daran arbeiten?",
+      "Ja, eine zweite Person kann Co-Autor sein, wenn sie in deiner Freundesliste ist."
+    ],
+    [
+      "Muss sie etwas installieren?",
+      "Nein. Das Album öffnet sich im Browser."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-mama",
+    "30-geburtstag-ideen",
+    "geschenk-fuer-schwester"
+  ],
+  "date": "2026-11-22"
+}

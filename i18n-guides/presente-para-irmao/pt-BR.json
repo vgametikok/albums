@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para irmão",
+  "title": "Presente para irmão: um álbum de memórias | Albums.ink",
+  "desc": "Presente para irmão mais velho ou mais novo, de aniversário ou Natal: um álbum gratuito com fotos de infância, vídeos e mensagens de voz da família.",
+  "h1": "Presente para irmão: algo que só você pode dar",
+  "lead": "Muita gente procura “presente para irmão mais velho”, “presente para irmão adulto” e “de aniversário”. Se ele já tem tudo, dê as memórias de vocês: fotos de infância, vídeos e áudios da família num álbum. É grátis.",
+  "body": [
+    "## O que colocar",
+    "- Fotos de vocês pequenos: Natal, férias na praia, festa junina da escola.",
+    "- Vídeos de aniversários, viagens e jogos de futebol.",
+    "- Áudios dos pais, dos avós e dos amigos dele.",
+    "- As histórias que a família sempre conta no almoço de domingo.",
+    "## Ideias de capítulos",
+    "1. Quando éramos pequenos.",
+    "2. Adolescência.",
+    "3. Nossas aventuras.",
+    "4. O que eu desejo para você.",
+    "## Quando dar",
+    "- No <b>aniversário</b>, inclusive datas redondas como 30 ou 40 anos.",
+    "- No <b>Natal</b>, para ver com a família na ceia.",
+    "## Monte grátis",
+    "No Albums você cria um <b>álbum de história</b> com fotos, vídeos e notas de voz, dividido em capítulos e com narração na sua voz, se quiser. Os álbuns são ilimitados e ficam guardados pelo tempo que você quiser. As fotos gratuitas ficam com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para o Pedro”.",
+    "2. Crie capítulos, envie fotos e vídeos e escreva uma frase em cada um.",
+    "3. Grave notas de voz no navegador.",
+    "4. Convide um coautor – sua irmã ou sua mãe, se já for sua amiga no Albums – para adicionar fotos.",
+    "5. Escolha quem vê: público, amigos ou só eu, com exceções por pessoa. “Amigos” inclui todos os seus amigos; para a surpresa, exclua seu irmão até o dia.",
+    "!cta",
+    "Veja também: <a href=\"/pt-BR/guides/presente-para-irma/\">presente para irmã</a> e <a href=\"/pt-BR/guides/presente-para-filho-adulto/\">presente para filho adulto</a>.",
+    "## Como entregar",
+    "Mude a visibilidade e mande o link no WhatsApp com uma mensagem – ele abre com a prévia da capa – ou abram juntos na festa. Um álbum em “só eu” não abre pelo link. O álbum inteiro pode ser baixado em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Crie o álbum para o seu irmão",
+    "p": "Fotos, vídeos e vozes numa só história. Grátis, no navegador.",
+    "btn": "Criar álbum de história →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados, guardados pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar para um irmão que tem tudo?",
+      "Algo pessoal: um álbum com as memórias de vocês e mensagens da família."
+    ],
+    [
+      "É grátis?",
+      "Sim. Os álbuns de história são grátis e ilimitados e ficam pelo tempo que você quiser."
+    ],
+    [
+      "Outra pessoa pode ajudar?",
+      "Sim, um coautor por álbum, que precisa ser seu amigo no Albums."
+    ],
+    [
+      "Ele precisa instalar algo?",
+      "Não. O álbum abre no navegador."
+    ]
+  ],
+  "related": [
+    "presente-para-irma",
+    "presente-para-filho-adulto",
+    "presente-para-melhor-amiga"
+  ],
+  "date": "2026-11-22"
+}

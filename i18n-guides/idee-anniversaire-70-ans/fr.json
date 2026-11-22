@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "anniversaire 70 ans",
+  "title": "Anniversaire 70 ans : idées de fête | Albums.ink",
+  "desc": "Idées pour fêter les 70 ans d’une femme ou d’un homme en Suisse romande : lieu, animations, textes et un QR code pour réunir les photos de tous les invités.",
+  "h1": "Anniversaire 70 ans : idées de fête",
+  "lead": "On cherche « anniversaire 70 ans femme », « homme » et « texte ». Voici des idées de lieu et d’animations pour fêter les septante ans, et une façon simple de réunir ensuite toutes les photos et vidéos des invités.",
+  "body": [
+    "## Où fêter",
+    "- Au restaurant ou dans une salle communale, avec un repas en famille.",
+    "- Dans une cave ou un carnotzet pour un apéro et une raclette ou une fondue.",
+    "- À la maison, avec un apéro dînatoire pour les proches.",
+    "## Animations",
+    "- Un discours court des enfants ou des petits-enfants.",
+    "- Un quiz sur septante ans de vie : premier travail, mariage, voyages.",
+    "- Un mur de photos de chaque décennie.",
+    "- Des vidéos de vœux des proches qui ne peuvent pas venir.",
+    "## Textes et vœux",
+    "Demandez à chaque invité d’écrire une phrase ou d’enregistrer un message vocal : on peut tout réunir ensuite dans un même album.",
+    "## Toutes les photos avec un QR code",
+    "Tout le monde photographie avec son téléphone. Avec un <b>album d’événement</b> sur Albums, tout se retrouve au même endroit :",
+    "1. Créez un album, par exemple « Les 70 ans de Monique ».",
+    "2. Posez le QR code sur les tables ou près du gâteau.",
+    "3. Les invités le scannent avec l’appareil photo du téléphone et envoient photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> pour valider les envois avant qu’ils apparaissent.",
+    "5. Ensuite, téléchargez l’album entier en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent aussi une copie brouillon privée avec uniquement leurs propres envois.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/idee-fete-60-ans/\">idées fête 60 ans</a> et <a href=\"/fr/guides/qr-code-for-photos-at-party/\">QR code pour les photos de fête</a>.",
+    "## Prix",
+    "L’album d’événement est un paiement unique : Small 39,99 $ US, Medium 69,99 $ US ou Large 129,99 $ US. Les invités ne paient rien. Photos jusqu’en 4K, conservées 6 mois à partir du premier envoi, avec prolongation possible."
+  ],
+  "cta": {
+    "h2": "Créez l’album des 70 ans",
+    "p": "Un QR code, toutes les photos et vidéos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez chaque souvenir de la fête",
+    "p": "Les invités envoient depuis le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    [
+      "Comment fêter des 70 ans ?",
+      "Avec un repas au restaurant ou en famille, un discours, un mur de photos et des messages des proches."
+    ],
+    [
+      "Les invités doivent-ils installer quelque chose ?",
+      "Non. Ils scannent le QR code et envoient leurs photos dans le navigateur."
+    ],
+    [
+      "Peut-on vérifier les photos avant publication ?",
+      "Oui, avec Hold guest photos vous validez chaque envoi."
+    ],
+    [
+      "Combien de temps les photos sont-elles gardées ?",
+      "6 mois à partir du premier envoi, avec prolongation possible."
+    ]
+  ],
+  "related": [
+    "idee-fete-60-ans",
+    "qr-code-for-photos-at-party",
+    "noces-d-or"
+  ],
+  "date": "2026-11-22"
+}
