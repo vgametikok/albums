@@ -1,0 +1,58 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de 50 anos",
+  "title": "Festa de 50 anos: ideias simples | Albums.ink",
+  "desc": "Ideias para festa de 50 anos feminina ou masculina, simples e barata: local, tema, cardápio, homenagem e um QR code para juntar as fotos dos convidados.",
+  "h1": "Festa de 50 anos: ideias simples",
+  "lead": "No Brasil se busca “festa de 50 anos feminina”, “masculino” e “simples e barata”. Aqui vai um roteiro – do local à homenagem – e um jeito de juntar depois todas as fotos dos convidados num só lugar.",
+  "body": [
+    "## Onde fazer",
+    "- Em casa ou na área de lazer do prédio, com churrasco.",
+    "- Num salão de festas ou numa chácara para a família toda.",
+    "- Num restaurante com espaço reservado.",
+    "## Temas que fazem sucesso",
+    "- <b>Anos 70 e 80</b>: músicas e roupas da juventude do aniversariante.",
+    "- Feijoada com samba ou pagode ao vivo.",
+    "- Dourado e preto, ou rosé e dourado para a festa feminina.",
+    "## Cardápio simples e barato",
+    "- Churrasco, feijoada ou caldos, dependendo da estação.",
+    "- Mesa de salgadinhos e docinhos: coxinha, brigadeiro, beijinho.",
+    "- Bolo com o número 50.",
+    "## Homenagem",
+    "- Um vídeo ou uma retrospectiva com fotos de 50 anos.",
+    "- Mensagens curtas dos filhos, irmãos e amigos de infância.",
+    "- Um parabéns pra você com todos juntos para a foto da família.",
+    "## Todas as fotos com um QR code",
+    "Todo mundo tira foto com o celular. Com um <b>álbum de evento</b> no Albums, tudo fica num só lugar:",
+    "1. Crie o álbum, por exemplo “50 anos da Cláudia”.",
+    "2. Coloque o QR code nas mesas ou no convite.",
+    "3. Os convidados leem com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Com <b>Hold guest photos</b> você aprova os envios antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro num único ZIP.",
+    "Quem envia sem entrar na conta aparece como anônimo. Convidados conectados recebem também uma cópia privada em rascunho só com os próprios envios.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/festa-de-30-anos/\">festa de 30 anos</a> e <a href=\"/pt-BR/guides/bodas-de-prata/\">bodas de prata</a>.",
+    "## Preços",
+    "O álbum de evento é uma compra única: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Os convidados não pagam nada. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com prorrogação."
+  ],
+  "cta": {
+    "h2": "Um QR code para a festa toda",
+    "p": "Convidados enviam pelo navegador, sem instalar nada. Você decide o que aparece.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Os 50 anos num só álbum",
+    "p": "Compra única a partir de 39,99 $. Até 4K, 6 meses a partir do primeiro envio, prorrogáveis.",
+    "btn": "Começar o álbum →"
+  },
+  "faq": [
+    ["Como fazer uma festa de 50 anos simples e barata?", "Em casa ou no salão do prédio, com churrasco ou feijoada, salgadinhos e docinhos e uma homenagem com fotos."],
+    ["Qual tema para festa de 50 anos?", "Anos 70 e 80, feijoada com samba, dourado e preto ou rosé e dourado."],
+    ["Como juntar as fotos dos convidados?", "Com um QR code: cada convidado envia fotos e vídeos pelo navegador para o mesmo álbum, e você pode aprovar antes."],
+    ["Os convidados precisam instalar algo?", "Não. Basta ler o código com a câmera e enviar pelo navegador."]
+  ],
+  "related": ["festa-de-30-anos", "bodas-de-prata", "birthday-party-photo-sharing"],
+  "date": "2026-11-21"
+}

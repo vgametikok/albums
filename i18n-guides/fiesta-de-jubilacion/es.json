@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "fiesta de jubilación",
+  "title": "Fiesta de jubilación: ideas para organizarla | Albums.ink",
+  "desc": "Ideas para una fiesta de jubilación en España: comida con compañeros, decoración, discurso, regalo y un código QR para reunir las fotos de todos.",
+  "h1": "Fiesta de jubilación: ideas",
+  "lead": "En España se busca “fiesta de jubilación ideas”, “para hombre”, “para mujer” y “docente”. Aquí tienes un plan sencillo – del lugar al discurso – y una forma de reunir después las fotos de todos los invitados.",
+  "body": [
+    "## Dónde celebrarla",
+    "- Una comida o cena en un restaurante con los compañeros de trabajo.",
+    "- Un aperitivo en la oficina o en la sala de profesores el último día.",
+    "- Una fiesta en casa o en el jardín con familia y amigos.",
+    "## Decoración",
+    "- Un cartel con “¡Feliz jubilación!” y el nombre.",
+    "- Fotos de su vida laboral: el primer día, cenas de empresa, viajes.",
+    "- Para una maestra o un profesor: dibujos y cartas de los alumnos.",
+    "## Discurso y detalles",
+    "- Un discurso corto del jefe o de un compañero de toda la vida.",
+    "- Un libro de firmas o una caja con mensajes de los compañeros.",
+    "- Un regalo de grupo: un viaje, una experiencia o un álbum de recuerdos.",
+    "## Todas las fotos con un código QR",
+    "Todos hacen fotos con el móvil. Con un <b>álbum de evento</b> en Albums se reúnen en un solo sitio:",
+    "1. Crea el álbum, por ejemplo “Jubilación de Carmen”.",
+    "2. Pon el código QR en las mesas o en la invitación.",
+    "3. Los invitados lo escanean con la cámara del móvil y suben fotos y vídeos desde el navegador, sin instalar nada.",
+    "4. Con <b>Hold guest photos</b> revisas las subidas antes de que aparezcan.",
+    "5. Después descargas el álbum entero en un único ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con sus propias subidas.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/cena-de-empresa-navidad/\">cena de empresa de Navidad</a> y <a href=\"/es/guides/fiesta-de-50-anos/\">fiesta de 50 años</a>.",
+    "## Precios",
+    "El álbum de evento es un pago único: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Los invitados no pagan nada. Fotos de hasta 4K, guardadas 6 meses desde la primera subida, ampliables."
+  ],
+  "cta": {
+    "h2": "Un código QR para toda la fiesta",
+    "p": "Los invitados suben desde el navegador, sin instalar nada. Tú decides qué aparece.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Su despedida, en un solo álbum",
+    "p": "Pago único desde 39,99 $. Hasta 4K, 6 meses desde la primera subida, ampliables.",
+    "btn": "Empezar el álbum →"
+  },
+  "faq": [
+    ["¿Cómo se organiza una fiesta de jubilación?", "Con una comida o cena con los compañeros, un discurso corto, un regalo de grupo y algo de decoración con fotos de su vida laboral."],
+    ["¿Qué se regala en una jubilación?", "Un viaje, una experiencia o un álbum de recuerdos con fotos y mensajes de los compañeros."],
+    ["¿Cómo reúno las fotos de todos?", "Con un código QR: cada invitado sube fotos y vídeos desde el navegador al mismo álbum, y tú puedes aprobarlas antes."],
+    ["¿Los invitados tienen que instalar algo?", "No. Escanean el código con la cámara y suben desde el navegador."]
+  ],
+  "related": ["cena-de-empresa-navidad", "fiesta-de-50-anos", "retirement-party-photo-ideas"],
+  "date": "2026-11-21"
+}

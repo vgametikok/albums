@@ -30,8 +30,8 @@
     "2. Ajoutez des chapitres, des photos et des vidéos, avec une phrase pour chacune.",
     "3. Enregistrez des notes vocales directement dans le navigateur.",
     "4. Vous pouvez inviter un coauteur, par exemple un frère, une sœur ou l'un des enfants ; il doit figurer parmi vos amis sur Albums.",
-    "5. Choisissez la visibilité : Public, Amis ou Moi uniquement. « Amis » concerne tous vos amis : pour garder la surprise, utilisez <b>Amis, sauf…</b> et excluez votre mari jusqu'au jour J.",
-    "6. Le jour venu, passez en Amis et envoyez-lui le lien, qui s'ouvre avec un aperçu de la couverture.",
+    "5. Choisissez la visibilité : Public, Amis ou Moi seulement. « Amis » concerne tous vos amis : pour garder la surprise, utilisez <b>Amis, sauf…</b> et excluez votre mari jusqu'au jour J.",
+    "6. Le jour venu, envoyez-lui le lien. En Public, il s'ouvre dans le navigateur avec un aperçu de la couverture, sans rien installer. En Amis, le destinataire doit être connecté et figurer dans ta liste d'amis.",
     "!cta",
     "À lire aussi : <a href=\"/fr/guides/album-photo-couple/\">album photo couple</a> et <a href=\"/fr/guides/add-voice-to-photos/\">ajouter sa voix aux photos</a>.",
     "## Garder une copie",
@@ -48,10 +48,26 @@
     "btn": "Commencer gratuitement →"
   },
   "faq": [
-    ["Quel cadeau original offrir à son mari ?", "Un cadeau qui raconte votre histoire : un album avec vos photos, vos vidéos et des messages de la famille."],
-    ["Peut-on ajouter des messages vocaux ?", "Oui. Les notes vocales s'enregistrent dans le navigateur et s'ajoutent aux photos ou aux chapitres."],
-    ["Comment garder la surprise ?", "Avec Amis, sauf…, vous cachez l'album à votre mari, puis vous changez la visibilité le jour J."],
-    ["Est-ce gratuit ?", "Oui. Les albums-récits sont gratuits et illimités."]
+    [
+      "Quel cadeau original offrir à son mari ?",
+      "Un cadeau qui raconte votre histoire : un album avec vos photos, vos vidéos et des messages de la famille."
+    ],
+    [
+      "Peut-on ajouter des messages vocaux ?",
+      "Oui. Les notes vocales s'enregistrent dans le navigateur et s'ajoutent aux photos ou aux chapitres."
+    ],
+    [
+      "Comment garder la surprise ?",
+      "Avec Amis, sauf…, vous cachez l'album à votre mari, puis vous changez la visibilité le jour J."
+    ],
+    [
+      "Est-ce gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités."
+    ]
   ],
-  "related": ["album-photo-couple", "cadeau-pour-ma-blonde", "add-voice-to-photos"]
+  "related": [
+    "album-photo-couple",
+    "cadeau-pour-ma-blonde",
+    "add-voice-to-photos"
+  ]
 }

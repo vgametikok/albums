@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "UK",
+  "query": "christmas gift for brother",
+  "title": "Christmas Gift for Brother: A Story Album | Albums.ink",
+  "desc": "A Christmas gift for your brother who has everything: a free story album of your childhood with photos, videos and voice notes from the family.",
+  "h1": "Christmas gift for your brother who has everything",
+  "lead": "In the UK people search “christmas gift for brother”, “who has everything” and “from sister”. Socks and a bottle are fine, but a story of growing up together is something only you can give. A story album is free and you can finish it before Christmas.",
+  "body": [
+    "## What to put in it",
+    "- Childhood photos: school uniforms, holidays at the seaside, the first football kit.",
+    "- The embarrassing ones he hoped were lost.",
+    "- Short videos from birthdays, weddings and family Christmases.",
+    "- Voice notes from Mum, Dad and the rest of the family with a favourite memory.",
+    "## Chapter ideas",
+    "1. Growing up in the same house.",
+    "2. Our holidays.",
+    "3. The big moments: graduation, first flat, wedding.",
+    "4. Why you're a brilliant brother.",
+    "## How to make it for free",
+    "On Albums you build a <b>story album</b> from photos, videos and voice notes, split into chapters, with voice narration if you like. Albums are unlimited and stay as long as you want them. Free photos are stored at up to 2048px on the long edge.",
+    "1. Sign in with Google and create an album, e.g. “Merry Christmas, little brother”.",
+    "2. Add chapters, upload photos and videos and write a line under each.",
+    "3. Record voice notes in the browser.",
+    "4. Invite one co-author – for example your sister – who must be on your friends list on Albums.",
+    "5. Choose visibility: Public, Friends or Only me. Friends means all your friends, so if your brother is on your list, use <b>Friends, except…</b> to hide it from him until Christmas Day.",
+    "!cta",
+    "More ideas: <a href=\"/guides/photo-album-for-sister/\">photo album for sister</a> and <a href=\"/guides/family-history-stories/\">family history stories</a>.",
+    "## How to give it",
+    "On Christmas Day, open it together on the telly or a tablet, then change the visibility and send him the link. If the album is Public, it opens in the browser with a cover preview, nothing to install. If it is set to Friends, he must be signed in and on your friends list. An album set to Only me cannot be opened by link. You can also download the whole album as one ZIP file."
+  ],
+  "cta": {
+    "h2": "Make your brother's Christmas album tonight",
+    "p": "Photos, videos and voices in one story. Free in your browser.",
+    "btn": "Create a story album →"
+  },
+  "cta2": {
+    "h2": "A gift he can't buy himself",
+    "p": "Unlimited albums that stay as long as you want them.",
+    "btn": "Start for free →"
+  },
+  "faq": [
+    ["What do you get a brother who has everything?", "Something personal: a story album of your childhood with photos, videos and voice notes from the family."],
+    ["Is it free?", "Yes. Story albums are free and unlimited, and they stay as long as you want them."],
+    ["Can my sister help make it?", "You can invite one co-author who is on your friends list. Others can send you their photos and voice notes to add."],
+    ["How does my brother open it?", "If the album is Public, send him the link – it opens in the browser with a cover preview, nothing to install. If it is set to Friends, he needs to sign in and be on your friends list."]
+  ],
+  "related": ["photo-album-for-sister", "family-history-stories", "christmas-gift-for-parents"],
+  "date": "2026-11-21"
+}

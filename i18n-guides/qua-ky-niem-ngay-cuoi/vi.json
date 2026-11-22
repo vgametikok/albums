@@ -33,7 +33,7 @@
     "!cta",
     "Xem thêm: <a href=\"/vi/guides/qua-tang-vo/\">quà tặng vợ</a> và <a href=\"/vi/guides/add-voice-to-photos/\">thêm giọng nói vào ảnh</a>.",
     "## Tặng và lưu giữ",
-    "Gửi đường link qua Zalo hoặc Messenger, album mở ra với ảnh bìa xem trước. Toàn bộ album có thể tải về thành một tệp ZIP."
+    "Gửi đường link qua Zalo hoặc Messenger, Nếu Công khai, link mở trên trình duyệt với ảnh bìa xem trước, không cần cài đặt. Nếu Bạn bè, người nhận phải đăng nhập và có trong danh sách bạn bè của bạn. Toàn bộ album có thể tải về thành một tệp ZIP."
   ],
   "cta": {
     "h2": "Làm album kỷ niệm ngay tối nay",
@@ -46,11 +46,30 @@
     "btn": "Bắt đầu miễn phí →"
   },
   "faq": [
-    ["Kỷ niệm ngày cưới nên tặng gì ý nghĩa?", "Một món quà kể lại câu chuyện của hai người, như album ảnh, video và lời chúc của người thân."],
-    ["Có thể giữ bí mật đến ngày kỷ niệm không?", "Có. Chọn Bạn bè, ngoại trừ… để ẩn với người được tặng, rồi đổi quyền xem vào đúng ngày."],
-    ["Có thêm được giọng nói không?", "Có. Ghi âm ngay trong trình duyệt và gắn vào ảnh hoặc chương."],
-    ["Có miễn phí không?", "Có. Album câu chuyện miễn phí và không giới hạn số lượng."],
-    ["Có làm được quà kỷ niệm ngày cưới cho bố mẹ hoặc ông bà không?", "Có. Các con có thể cùng làm album cho kỷ niệm của bố mẹ, hoặc cả nhà góp ảnh xưa và lời chúc cho ông bà. Cách làm giống như với vợ hoặc chồng."]
+    [
+      "Kỷ niệm ngày cưới nên tặng gì ý nghĩa?",
+      "Một món quà kể lại câu chuyện của hai người, như album ảnh, video và lời chúc của người thân."
+    ],
+    [
+      "Có thể giữ bí mật đến ngày kỷ niệm không?",
+      "Có. Chọn Bạn bè, ngoại trừ… để ẩn với người được tặng, rồi đổi quyền xem vào đúng ngày."
+    ],
+    [
+      "Có thêm được giọng nói không?",
+      "Có. Ghi âm ngay trong trình duyệt và gắn vào ảnh hoặc chương."
+    ],
+    [
+      "Có miễn phí không?",
+      "Có. Album câu chuyện miễn phí và không giới hạn số lượng."
+    ],
+    [
+      "Có làm được quà kỷ niệm ngày cưới cho bố mẹ hoặc ông bà không?",
+      "Có. Các con có thể cùng làm album cho kỷ niệm của bố mẹ, hoặc cả nhà góp ảnh xưa và lời chúc cho ông bà. Cách làm giống như với vợ hoặc chồng."
+    ]
   ],
-  "related": ["qua-tang-vo", "qua-tang-bo-me", "add-voice-to-photos"]
+  "related": [
+    "qua-tang-vo",
+    "qua-tang-bo-me",
+    "add-voice-to-photos"
+  ]
 }

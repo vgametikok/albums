@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "70. Geburtstag",
+  "title": "70. Geburtstag feiern: Ideen | Albums.ink",
+  "desc": "Ideen für den 70. Geburtstag von Frau oder Mann: Feier im Gasthaus oder beim Heurigen, Programm, Überraschungen und ein QR-Code für die Fotos aller Gäste.",
+  "h1": "70. Geburtstag feiern: Ideen",
+  "lead": "Gesucht wird „70. Geburtstag Frau“, „70. Geburtstag Mann“ und „Glückwünsche“. Hier gibt es Ideen für Ort und Programm – und wie ihr nach der Feier alle Fotos und Videos der Gäste an einem Ort habt.",
+  "body": [
+    "## Wo feiern",
+    "- Im Gasthaus oder Wirtshaus mit Mittagessen und Torte.",
+    "- Beim Heurigen, wenn das Geburtstagskind gern in gemütlicher Runde sitzt.",
+    "- Zu Hause mit Jause, Kaffee und Kuchen für die engste Familie.",
+    "## Programm-Ideen",
+    "- Eine kurze Rede der Kinder oder Enkel.",
+    "- Ein Quiz über 70 Jahre Leben: Geburtsort, erste Arbeit, Hochzeitstag.",
+    "- Alte Fotos aus den 1950er- bis 1980er-Jahren auf einer Leine oder einer Pinnwand.",
+    "- Ein Lied oder Gedicht der Enkel.",
+    "## Überraschungen",
+    "- Gäste von früher einladen: Schulfreunde, Kolleginnen, Nachbarn.",
+    "- Glückwünsche von Verwandten, die nicht kommen können, als Video.",
+    "## Alle Fotos mit einem QR-Code",
+    "Bei einer Feier fotografieren alle mit dem Handy. Mit einem <b>Event-Album</b> auf Albums landet alles an einem Ort:",
+    "1. Album anlegen, z. B. „70 Jahre Opa Franz“.",
+    "2. QR-Code auf die Tische oder neben die Torte stellen.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. <b>Hold guest photos</b> einschalten, um Uploads vor der Anzeige zu prüfen.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste bekommen zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/50-geburtstag-ideen/\">50. Geburtstag</a> und <a href=\"/de/guides/qr-code-for-photos-at-party/\">QR-Code für Partyfotos</a>.",
+    "## Preis",
+    "Das Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Album für den 70er anlegen",
+    "p": "Ein QR-Code, alle Fotos und Videos der Gäste an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Erinnerungen an den runden Geburtstag",
+    "p": "Gäste laden im Browser hoch, ihr ladet das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    [
+      "Wie feiert man einen 70. Geburtstag?",
+      "Oft im Gasthaus oder beim Heurigen mit Familie und Freunden, mit Rede, alten Fotos und Torte."
+    ],
+    [
+      "Müssen Gäste etwas installieren?",
+      "Nein. QR-Code scannen und im Browser hochladen."
+    ],
+    [
+      "Kann ich Fotos vorher prüfen?",
+      "Ja, mit Hold guest photos erscheinen Uploads erst nach eurer Freigabe."
+    ],
+    [
+      "Wie lange bleiben die Fotos?",
+      "6 Monate ab dem ersten Upload, mit Verlängerung möglich."
+    ]
+  ],
+  "related": [
+    "50-geburtstag-ideen",
+    "qr-code-for-photos-at-party",
+    "fotoalbum-fuer-oma"
+  ],
+  "date": "2026-11-22"
+}

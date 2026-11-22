@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara 4 bulanan",
+  "title": "Acara 4 Bulanan Kehamilan: Susunan Acara & Foto Keluarga | Albums.ink",
+  "desc": "Panduan acara 4 bulanan kehamilan: kapan diadakan, susunan acara pengajian, hidangan, dan cara mengumpulkan foto serta video keluarga lewat satu kode QR.",
+  "h1": "Acara 4 bulanan kehamilan: persiapan dan susunan acara",
+  "lead": "Banyak yang mencari “acara 4 bulanan kehamilan”, “acara 4 bulanan di minggu ke berapa” dan “acara 4 bulanan menurut Islam”. Di banyak keluarga Muslim, usia kandungan empat bulan diperingati dengan pengajian dan doa bersama. Berikut gambaran persiapannya, plus cara mengumpulkan foto dan video yang diambil keluarga dengan ponsel.",
+  "body": [
+    "## Kapan diadakan",
+    "- Umumnya saat kandungan sekitar empat bulan (sekitar 120 hari), sesuai kebiasaan keluarga.",
+    "- Ini tradisi, bukan kewajiban; bentuk acaranya berbeda-beda tiap keluarga dan daerah. Tanyakan pada orang tua atau ustaz setempat.",
+    "- Berbeda dengan acara tujuh bulanan (tingkeban/mitoni) yang biasanya diadakan di usia tujuh bulan.",
+    "## Contoh susunan acara",
+    "1. Pembukaan dan sambutan tuan rumah.",
+    "2. Pengajian dan pembacaan ayat suci, sesuai kebiasaan keluarga.",
+    "3. Doa bersama untuk ibu dan calon bayi.",
+    "4. Makan bersama dan pembagian berkat atau nasi kotak.",
+    "## Persiapan",
+    "- Undang keluarga, tetangga, dan kelompok pengajian.",
+    "- Siapkan hidangan dan bingkisan untuk tamu.",
+    "- Pilih satu orang untuk mengatur dokumentasi.",
+    "## Foto keluarga lewat satu kode QR",
+    "Tamu biasanya memotret dengan ponsel masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “4 Bulanan Kehamilan Rina”.",
+    "2. Letakkan kode QR di meja tamu atau dekat hidangan.",
+    "3. Tamu memindai dengan kamera ponsel dan mengunggah foto serta video lewat browser, tanpa instal apa pun.",
+    "4. Aktifkan <b>“Hold guest photos”</b> (persetujuan dulu) agar Anda bisa memeriksa foto sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil sebagai anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi berisi unggahan mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/acara-tujuh-bulanan/\">acara tujuh bulanan</a> dan <a href=\"/id/guides/diary-kehamilan/\">diary kehamilan</a>.",
+    "## Harga",
+    "Album acara dibayar sekali per acara: Small 39,99 USD, Medium 69,99 USD, Large 129,99 USD. Tamu tidak membayar apa pun. Foto disimpan hingga 4K, dan album tersedia 6 bulan sejak unggahan pertama, bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album acara 4 bulanan",
+    "p": "Satu kode QR, semua foto dan video keluarga di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan momen doa bersama keluarga",
+    "p": "Tamu mengunggah lewat browser, Anda mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    [
+      "Acara 4 bulanan diadakan di minggu ke berapa?",
+      "Umumnya saat kandungan sekitar empat bulan (sekitar 120 hari), sesuai kebiasaan keluarga."
+    ],
+    [
+      "Apakah tamu perlu instal sesuatu?",
+      "Tidak. Cukup pindai kode QR dan unggah lewat browser."
+    ],
+    [
+      "Bisakah foto diperiksa dulu?",
+      "Bisa, dengan Hold guest photos foto tampil setelah Anda setujui."
+    ],
+    [
+      "Berapa lama foto disimpan?",
+      "6 bulan sejak unggahan pertama, bisa diperpanjang."
+    ]
+  ],
+  "related": [
+    "acara-tujuh-bulanan",
+    "diary-kehamilan",
+    "acara-aqiqah"
+  ],
+  "date": "2026-11-22"
+}

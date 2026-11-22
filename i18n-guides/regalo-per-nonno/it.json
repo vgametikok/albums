@@ -33,7 +33,7 @@
     "!cta",
     "Leggi anche: <a href=\"/it/guides/album-foto-nonna/\">album foto per nonna</a> e <a href=\"/it/guides/add-voice-to-photos/\">aggiungere la voce alle foto</a>.",
     "## Come darglielo",
-    "Sfogliatelo insieme sul tablet il giorno della festa, oppure mandagli il link su WhatsApp: si apre con l'anteprima della copertina. L'intero album si può scaricare in un unico file ZIP."
+    "Sfogliatelo insieme sul tablet il giorno della festa, oppure mandagli il link su WhatsApp: Se è Pubblico, si apre nel browser con l'anteprima della copertina, senza installare nulla. Se è su Amici, deve accedere ed essere nella tua lista di amici. L'intero album si può scaricare in un unico file ZIP."
   ],
   "cta": {
     "h2": "Crea oggi l'album per il nonno",
@@ -46,10 +46,26 @@
     "btn": "Inizia gratis →"
   },
   "faq": [
-    ["Cosa regalare a un nonno che ha tutto?", "Qualcosa di personale: i ricordi della sua vita e i messaggi dei nipoti, per esempio in un album con foto e voci."],
-    ["Possono partecipare i nipoti piccoli?", "Sì. Registrano un messaggio vocale o fanno un disegno da fotografare e caricare."],
-    ["Si può salvare l'album?", "Sì. L'intero album si scarica in un unico file ZIP."],
-    ["È gratis?", "Sì. Gli album racconto sono gratuiti e illimitati."]
+    [
+      "Cosa regalare a un nonno che ha tutto?",
+      "Qualcosa di personale: i ricordi della sua vita e i messaggi dei nipoti, per esempio in un album con foto e voci."
+    ],
+    [
+      "Possono partecipare i nipoti piccoli?",
+      "Sì. Registrano un messaggio vocale o fanno un disegno da fotografare e caricare."
+    ],
+    [
+      "Si può salvare l'album?",
+      "Sì. L'intero album si scarica in un unico file ZIP."
+    ],
+    [
+      "È gratis?",
+      "Sì. Gli album racconto sono gratuiti e illimitati."
+    ]
   ],
-  "related": ["album-foto-nonna", "add-voice-to-photos", "how-to-make-a-photo-story"]
+  "related": [
+    "album-foto-nonna",
+    "add-voice-to-photos",
+    "how-to-make-a-photo-story"
+  ]
 }

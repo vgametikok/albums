@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "40. Geburtstag",
+  "title": "40. Geburtstag feiern: Ideen | Albums.ink",
+  "desc": "Ideen für den 40. Geburtstag in der Schweiz: Apéro, Fondue- oder Raclette-Abend, Motto, Spiele, Rede und ein QR-Code für alle Fotos der Gäste.",
+  "h1": "40. Geburtstag feiern",
+  "lead": "Zum 40. wird gesucht: „40. Geburtstag Frau“, „Mann“, „Deko“ und „Sprüche“. Hier ein Plan für das Fest – vom Apéro bis zur Rede – und wie danach alle Fotos der Gäste an einem Ort sind.",
+  "body": [
+    "## Wo feiern",
+    "- Zuhause mit Apéro riche und Dessertbuffet.",
+    "- Fondue- oder Raclette-Abend im Säli eines Restaurants.",
+    "- In einer Berghütte oder einem Waldhaus mit Grill.",
+    "- In der Lieblingsbar mit reserviertem Bereich.",
+    "## Motto und Deko",
+    "- 80er oder 90er: Musik und Outfits der eigenen Jugend.",
+    "- Schwarz-Gold oder Rosé-Gold mit einer grossen „40“.",
+    "- Collage mit Bildern aus 40 Jahren.",
+    "## Spiele und Rede",
+    "- <b>Quiz über das Geburtstagskind</b>: erste Stelle, erstes Auto, schlimmste Frisur.",
+    "- <b>40 Gründe</b>, warum man das Geburtstagskind gern hat – jeder Gast schreibt einen.",
+    "- Eine kurze Rede von Partner, Partnerin oder bester Freundin – zwei, drei Minuten reichen.",
+    "## Alle Fotos der Gäste mit einem QR-Code",
+    "Jede und jeder fotografiert mit dem Handy. Mit einem <b>Event-Album</b> auf Albums landet alles an einem Ort:",
+    "1. Album anlegen, z. B. „Sandras 40.“.",
+    "2. QR-Code auf die Tische oder in die Einladung.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Hold guest photos</b> prüfst du Uploads, bevor sie sichtbar werden.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur ihrer eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/50-geburtstag-ideen/\">50. Geburtstag</a> und <a href=\"/de/guides/30-geburtstag-ideen/\">30. Geburtstag</a>.",
+    "## Preise",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $, Large 129,99 $. Gäste zahlen nichts. Fotos in bis zu 4K, gespeichert 6 Monate ab dem ersten Upload, verlängerbar."
+  ],
+  "cta": {
+    "h2": "Ein QR-Code für das ganze Fest",
+    "p": "Gäste laden im Browser hoch, ohne Installation. Du entscheidest, was erscheint.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Der 40. – und alle Fotos an einem Ort",
+    "p": "Einmalig ab 39,99 $. Bis 4K, 6 Monate ab dem ersten Upload, verlängerbar.",
+    "btn": "Album starten →"
+  },
+  "faq": [
+    ["Wie feiert man den 40. Geburtstag?", "Mit Apéro zuhause, einem Fondue- oder Raclette-Abend, in einer Hütte oder in der Bar – oft mit Motto, Quiz und kurzer Rede."],
+    ["Welches Motto passt zum 40.?", "Beliebt sind 80er oder 90er, Schwarz-Gold oder eine Collage mit Bildern aus 40 Jahren."],
+    ["Welche Spiele passen?", "Ein Quiz über das Geburtstagskind oder „40 Gründe“, die die Gäste aufschreiben."],
+    ["Wie bekomme ich die Fotos aller Gäste?", "Mit einem QR-Code: Alle laden Fotos und Videos im Browser in dasselbe Album, und du kannst sie vorher freigeben."]
+  ],
+  "related": ["50-geburtstag-ideen", "30-geburtstag-ideen", "qr-code-for-photos-at-party"],
+  "date": "2026-11-21"
+}

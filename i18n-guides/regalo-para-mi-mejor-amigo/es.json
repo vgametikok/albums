@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AR",
+  "query": "regalo para mi mejor amigo",
+  "title": "Regalo para mi mejor amigo: un álbum de historias | Albums.ink",
+  "desc": "Un regalo original para tu mejor amigo, de cumpleaños o para las fiestas: un álbum gratis con fotos, videos y audios de todos estos años juntos.",
+  "h1": "Regalo original para tu mejor amigo",
+  "lead": "Se busca mucho “regalo para mi mejor amigo hombre”, “de cumpleaños” y “regalo original”. Si ya tiene de todo, regalale la historia de la amistad: fotos, videos y audios de los asados, los viajes y las noches que no se olvidan. Armarlo es gratis.",
+  "body": [
+    "## Qué poner",
+    "- Fotos de cuando se conocieron: el colegio, el club, la facu o el laburo.",
+    "- Videos de viajes, recitales y partidos.",
+    "- Audios de los amigos en común: “Feliz cumple, hermano”.",
+    "- Las anécdotas que siempre cuentan en los asados.",
+    "## Ideas de capítulos",
+    "1. Cómo nos conocimos.",
+    "2. Viajes y escapadas.",
+    "3. Asados, cumples y fiestas.",
+    "4. Lo que viene.",
+    "## Cuándo regalarlo",
+    "- En su <b>cumple</b>, para abrirlo en la juntada.",
+    "- Para <b>Navidad o fin de año</b>, antes de las vacaciones.",
+    "- El <b>Día del Amigo</b> (20 de julio).",
+    "## Armalo gratis",
+    "En Albums creás un <b>álbum de historias</b> con fotos, videos y notas de voz, dividido en capítulos y con narración opcional con tu voz. Los álbumes son ilimitados y quedan el tiempo que vos quieras. Las fotos gratis se guardan con hasta 2048 px en el lado largo.",
+    "1. Entrá con Google y creá un álbum, por ejemplo “Para el Colo”.",
+    "2. Armá capítulos, subí fotos y videos y escribí una frase en cada uno.",
+    "3. Grabá notas de voz desde el navegador.",
+    "4. Podés sumar un coautor, por ejemplo otro amigo del grupo; tiene que estar en tu lista de amigos.",
+    "5. Elegí quién lo ve: Público, Amigos o Solo yo. “Amigos” son todos tus amigos; para la sorpresa usá “Amigos, excepto…” y dejalo afuera hasta el día.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/album-para-mi-mejor-amiga/\">álbum para mi mejor amiga</a> y <a href=\"/es/guides/regalo-para-mi-hermano/\">regalo para mi hermano</a>.",
+    "## Cómo entregarlo",
+    "Mostralo en la tele en la juntada o cambiá la visibilidad y mandale el link por WhatsApp. Si está en Público, se abre en el navegador con vista previa de la portada, sin instalar nada. Si está en Amigos, tiene que iniciar sesión y estar en tu lista de amigos. Un álbum en Solo yo no se abre por link. También se puede descargar el álbum completo en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Armá el álbum para tu mejor amigo",
+    "p": "Fotos, videos y audios en una sola historia. Gratis, en el navegador.",
+    "btn": "Crear álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le regalo a mi mejor amigo que tiene de todo?",
+      "Algo personal: un álbum con fotos, videos y audios de la amistad."
+    ],
+    [
+      "¿Es gratis?",
+      "Sí. Los álbumes de historias son gratis e ilimitados y quedan el tiempo que quieras."
+    ],
+    [
+      "¿Otro amigo puede ayudar a armarlo?",
+      "Sí, un coautor por álbum, que tiene que estar en tu lista de amigos."
+    ],
+    [
+      "¿Tiene que instalar algo?",
+      "Si está en Público, sí, en el navegador. Si está en Amigos, tiene que iniciar sesión y ser tu amigo."
+    ]
+  ],
+  "related": [
+    "album-para-mi-mejor-amiga",
+    "regalo-para-mi-hermano",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-22"
+}

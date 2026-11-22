@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per mia moglie",
+  "title": "Regalo per mia moglie: un album della vostra storia | Albums.ink",
+  "desc": "Un regalo speciale per tua moglie a Natale, per il compleanno o l'anniversario: un album racconto gratuito con foto, video e messaggi vocali.",
+  "h1": "Un regalo speciale per mia moglie",
+  "lead": "Si cerca “regalo per mia moglie a Natale”, “compleanno”, “anniversario di matrimonio” e “originale”. Il regalo che la commuove di più spesso è la vostra storia. Un album racconto è gratuito e si prepara in una sera.",
+  "body": [
+    "## Cosa metterci",
+    "- Le foto del primo appuntamento, del matrimonio e dei viaggi.",
+    "- I momenti di tutti i giorni: la domenica a pranzo dai suoceri, le passeggiate, la casa nuova.",
+    "- Brevi video e messaggi vocali dei figli: “Buon Natale, mamma!”",
+    "- Un messaggio vocale tuo, con parole tue.",
+    "## Idee per i capitoli",
+    "1. Come ci siamo conosciuti.",
+    "2. Il nostro matrimonio.",
+    "3. I nostri viaggi.",
+    "4. Perché ti amo.",
+    "## Come farlo gratis",
+    "Su Albums crei un <b>album racconto</b> con foto, video e messaggi vocali, diviso in capitoli e con narrazione vocale se vuoi. Gli album sono illimitati e restano finché vuoi. Le foto gratuite sono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google e crea un album, per esempio “Per Francesca”.",
+    "2. Aggiungi i capitoli, carica foto e video e scrivi una frase sotto ognuno.",
+    "3. Registra i messaggi vocali dal browser.",
+    "4. Puoi invitare un coautore, per esempio un'amica di lei; deve essere tra i tuoi amici su Albums.",
+    "5. Scegli la visibilità: Pubblico, Amici o Solo io. “Amici” vale per tutti i tuoi amici: per la sorpresa usa <b>Amici tranne</b> ed escludi tua moglie fino al giorno giusto.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-anniversario-matrimonio/\">album per l'anniversario di matrimonio</a> e <a href=\"/it/guides/regalo-per-la-fidanzata/\">regalo per la fidanzata</a>.",
+    "## Come regalarlo",
+    "Guardatelo insieme sulla TV o su un tablet. Poi cambia la visibilità e mandale il link. Se è Pubblico, si apre nel browser con l'anteprima della copertina, senza installare nulla. Se è su Amici, deve accedere ed essere nella tua lista di amici. Un album impostato su Solo io non si apre tramite link. Puoi anche scaricare l'intero album in un unico ZIP."
+  ],
+  "cta": {
+    "h2": "Prepara l'album per tua moglie",
+    "p": "Foto, video e voci in un solo racconto. Gratis nel browser.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un regalo che non si compra",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    ["Cosa regalare a mia moglie di originale?", "Qualcosa di personale: un album racconto con le vostre foto, video e messaggi vocali tuoi e dei figli."],
+    ["È gratis?", "Sì. Gli album racconto sono gratuiti e illimitati e restano finché vuoi."],
+    ["Qualcuno può aiutarmi?", "Puoi invitare un coautore che sia tra i tuoi amici su Albums."],
+    ["Come lo apre lei?", "Se è Pubblico, con il link, nel browser, con l'anteprima della copertina e senza installare nulla. Se è su Amici, deve accedere ed essere tra i tuoi amici."]
+  ],
+  "related": ["album-anniversario-matrimonio", "regalo-per-la-fidanzata", "regalo-per-marito"],
+  "date": "2026-11-21"
+}

@@ -30,7 +30,7 @@
     "3. Grave áudios direto no navegador.",
     "4. Você pode convidar um coautor, por exemplo um irmão ou um dos filhos; ele precisa estar entre os seus amigos no Albums.",
     "5. Escolha quem vê: Público, Amigos ou Somente eu. Amigos inclui todos os seus amigos, então para guardar a surpresa use Amigos, exceto… e exclua seu amor até o dia.",
-    "6. No dia, mude a visibilidade e mande o link – ele abre com prévia da capa.",
+    "6. No dia, mude a visibilidade e mande o link – Se estiver em Público, abre no navegador com prévia da capa, sem instalar nada. Se estiver em Amigos, a pessoa precisa entrar na conta e estar na sua lista de amigos.",
     "!cta",
     "Leia também: <a href=\"/pt-BR/guides/presente-para-namorada/\">presente para namorada</a> e <a href=\"/pt-BR/guides/album-de-fotos-para-namorado/\">álbum de fotos para namorado</a>.",
     "## Guardar uma cópia",
@@ -47,10 +47,26 @@
     "btn": "Começar grátis →"
   },
   "faq": [
-    ["Como fazer uma retrospectiva de namoro grátis?", "Monte um álbum com capítulos para cada fase do namoro, com fotos, vídeos e áudios, e envie o link."],
-    ["Dá para manter surpresa?", "Sim. Use Amigos, exceto… para esconder o álbum até o dia e depois mude a visibilidade."],
-    ["Posso colocar áudios?", "Sim. Grave notas de voz no navegador e anexe a fotos ou capítulos."],
-    ["É grátis mesmo?", "Sim. Álbuns de história são gratuitos e ilimitados."]
+    [
+      "Como fazer uma retrospectiva de namoro grátis?",
+      "Monte um álbum com capítulos para cada fase do namoro, com fotos, vídeos e áudios, e envie o link."
+    ],
+    [
+      "Dá para manter surpresa?",
+      "Sim. Use Amigos, exceto… para esconder o álbum até o dia e depois mude a visibilidade."
+    ],
+    [
+      "Posso colocar áudios?",
+      "Sim. Grave notas de voz no navegador e anexe a fotos ou capítulos."
+    ],
+    [
+      "É grátis mesmo?",
+      "Sim. Álbuns de história são gratuitos e ilimitados."
+    ]
   ],
-  "related": ["album-de-fotos-para-namorado", "presente-para-namorada", "add-voice-to-photos"]
+  "related": [
+    "album-de-fotos-para-namorado",
+    "presente-para-namorada",
+    "add-voice-to-photos"
+  ]
 }

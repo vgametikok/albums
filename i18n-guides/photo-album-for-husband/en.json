@@ -32,7 +32,7 @@
     "3. Record a voice note in the browser for the moments that need your words.",
     "4. You can invite one co-author, for example a sibling or one of the children; they have to be among your friends on Albums.",
     "5. Choose who sees it: Public, Friends or Only me. Friends means all your friends, so if he is on your friends list, use <b>Friends except</b> and exclude him until the big day.",
-    "6. On the day, switch it to Friends and send him the link – it opens with a cover preview.",
+    "6. On the day, set it to Public and send him the link — it opens in the browser with a cover preview, nothing to install. If you set it to Friends, he must be signed in and on your friends list.",
     "!cta",
     "More ideas: <a href=\"/guides/anniversary-photo-album-ideas/\">anniversary photo album ideas</a> and <a href=\"/guides/add-voice-to-photos/\">how to add your voice to photos</a>.",
     "## Keeping a copy",
@@ -49,10 +49,26 @@
     "btn": "Start for free →"
   },
   "faq": [
-    ["What do you put in a photo album for your husband?", "Your story together: how you met, the wedding, holidays, home life and short messages from you and the family."],
-    ["Can I add voice messages?", "Yes. Record voice notes in the browser and attach them to photos or chapters, or narrate the album in your own voice."],
-    ["Can I keep it a surprise?", "Yes. Use Friends except to hide it from him, then switch the visibility on the day."],
-    ["Is it free?", "Yes. Story albums are free and unlimited."]
+    [
+      "What do you put in a photo album for your husband?",
+      "Your story together: how you met, the wedding, holidays, home life and short messages from you and the family."
+    ],
+    [
+      "Can I add voice messages?",
+      "Yes. Record voice notes in the browser and attach them to photos or chapters, or narrate the album in your own voice."
+    ],
+    [
+      "Can I keep it a surprise?",
+      "Yes. Use Friends except to hide it from him, then switch the visibility on the day."
+    ],
+    [
+      "Is it free?",
+      "Yes. Story albums are free and unlimited."
+    ]
   ],
-  "related": ["anniversary-photo-album-ideas", "photo-album-for-wife", "add-voice-to-photos"]
+  "related": [
+    "anniversary-photo-album-ideas",
+    "photo-album-for-wife",
+    "add-voice-to-photos"
+  ]
 }

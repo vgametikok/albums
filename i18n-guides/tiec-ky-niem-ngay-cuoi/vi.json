@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc kỷ niệm ngày cưới",
+  "title": "Tổ chức tiệc kỷ niệm ngày cưới tại nhà và gom ảnh của khách | Albums.ink",
+  "desc": "Gợi ý tổ chức tiệc kỷ niệm ngày cưới tại nhà hoặc nhà hàng: decor, bàn tiệc, hoạt động, và mã QR để gom ảnh, video của mọi người vào một album.",
+  "h1": "Tổ chức tiệc kỷ niệm ngày cưới",
+  "lead": "Nhiều người tìm “tiệc kỷ niệm ngày cưới tại nhà”, “decor tiệc kỷ niệm ngày cưới” và “tiệc kỷ niệm 10 năm ngày cưới”. Dưới đây là gợi ý địa điểm, trang trí và hoạt động – cùng cách gom lại toàn bộ ảnh và video mà khách chụp bằng điện thoại.",
+  "body": [
+    "## Tổ chức ở đâu",
+    "- <b>Tại nhà</b>: bàn tiệc nhỏ cho gia đình hai bên và bạn thân.",
+    "- <b>Nhà hàng</b>: khi mời đông khách, ví dụ kỷ niệm 10 năm hoặc 25 năm.",
+    "- Bữa tối riêng cho hai người, rồi một buổi họp mặt gia đình vào cuối tuần.",
+    "## Decor và bàn tiệc",
+    "- Một góc ảnh với ảnh cưới và ảnh gia đình qua từng năm.",
+    "- Hoa, nến và bánh kem có số năm kỷ niệm.",
+    "- Thực đơn có món ăn trong ngày cưới năm xưa.",
+    "## Hoạt động",
+    "- Các con đọc lời chúc hoặc kể kỷ niệm về bố mẹ.",
+    "- Câu đố về hai vợ chồng: gặp nhau ở đâu, ai tỏ tình trước.",
+    "- Video chúc mừng từ người thân ở xa.",
+    "## Gom ảnh của mọi người bằng mã QR",
+    "Ai cũng chụp bằng điện thoại. Với <b>album sự kiện</b> trên Albums, mọi thứ nằm ở một nơi:",
+    "1. Tạo album, ví dụ “Kỷ niệm 10 năm ngày cưới Minh & Lan”.",
+    "2. Đặt mã QR trên bàn tiệc hoặc ở góc ảnh.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt, không cần cài đặt.",
+    "4. Bật <b>“Hold guest photos”</b> nếu muốn duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album về thành một tệp ZIP.",
+    "Người tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/qua-ky-niem-ngay-cuoi/\">quà kỷ niệm ngày cưới</a> và <a href=\"/vi/guides/qr-code-for-photos-at-party/\">mã QR gom ảnh tiệc</a>.",
+    "## Giá",
+    "Album sự kiện mua một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Khách không phải trả phí. Ảnh tối đa 4K; album lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album cho tiệc kỷ niệm",
+    "p": "Một mã QR, toàn bộ ảnh và video của khách ở một nơi.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại trọn vẹn ngày kỷ niệm",
+    "p": "Khách tải lên qua trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    [
+      "Tổ chức tiệc kỷ niệm ngày cưới tại nhà cần gì?",
+      "Một bàn tiệc nhỏ, góc ảnh cưới, bánh kem có số năm và vài hoạt động cho cả nhà."
+    ],
+    [
+      "Khách có cần cài đặt gì không?",
+      "Không. Chỉ cần quét mã QR và tải lên trên trình duyệt."
+    ],
+    [
+      "Có duyệt ảnh trước được không?",
+      "Có, bật Hold guest photos thì ảnh chỉ hiện sau khi bạn duyệt."
+    ],
+    [
+      "Ảnh được lưu bao lâu?",
+      "6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+    ]
+  ],
+  "related": [
+    "qua-ky-niem-ngay-cuoi",
+    "qr-code-for-photos-at-party",
+    "mung-tho"
+  ],
+  "date": "2026-11-22"
+}

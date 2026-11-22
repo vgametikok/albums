@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara natal",
+  "title": "Ide Acara Natal yang Kreatif | Albums.ink",
+  "desc": "Ide acara Natal yang kreatif untuk keluarga, gereja, sekolah minggu, kantor atau marga: susunan acara, permainan, dan satu kode QR untuk semua foto.",
+  "h1": "Ide acara Natal yang kreatif",
+  "lead": "Orang mencari “acara natal kreatif”, “acara natal sekolah minggu”, “acara natal marga” dan “acara natal remaja”. Berikut contoh susunan acara dan cara mengumpulkan semua foto peserta di satu tempat.",
+  "body": [
+    "## Contoh susunan acara",
+    "1. Pembukaan dan doa.",
+    "2. Ibadah singkat dengan renungan Natal.",
+    "3. Pujian dari paduan suara, vokal grup atau anak sekolah minggu.",
+    "4. Drama Natal atau pembacaan kisah kelahiran Yesus.",
+    "5. Tukar kado dan makan bersama.",
+    "## Ide kreatif",
+    "- <b>Drama Natal anak</b>: kostum sederhana, naskah pendek, latihan dua atau tiga kali.",
+    "- <b>Tukar kado</b> dengan batas harga yang disepakati.",
+    "- Kuis Alkitab untuk remaja.",
+    "- Lomba menghias pohon Natal antar keluarga atau antar sektor.",
+    "## Untuk Natal marga dan kantor",
+    "Natal marga dan Natal kantor biasanya lebih besar: sambutan dari ketua, ibadah, hiburan dan makan bersama. Siapkan satu foto bersama di awal, sebelum ada yang pulang.",
+    "## Semua foto dengan satu kode QR",
+    "Semua orang memotret dengan HP. Dengan <b>album acara</b> di Albums, semua foto ada di satu tempat:",
+    "1. Buat album, misalnya “Natal Keluarga Besar 2026”.",
+    "2. Pasang kode QR di meja, pintu masuk atau di undangan.",
+    "3. Peserta memindainya dengan kamera HP dan mengunggah foto serta video lewat browser, tanpa instalasi.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk memeriksa unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Yang mengunggah tanpa masuk akun tampil secara anonim. Peserta yang masuk akun juga mendapat salinan draf pribadi berisi unggahan mereka sendiri saja.",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/arisan-keluarga/\">arisan keluarga</a> dan <a href=\"/id/guides/kado-natal-untuk-orang-tua/\">kado Natal untuk orang tua</a>.",
+    "## Harga",
+    "Album acara dibeli sekali: Small $39,99, Medium $69,99, Large $129,99. Peserta tidak membayar apa pun. Foto hingga 4K, disimpan 6 bulan sejak unggahan pertama, bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Satu kode QR untuk seluruh acara Natal",
+    "p": "Peserta mengunggah lewat browser, tanpa aplikasi. Anda yang menentukan apa yang tampil.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Kenangan Natal dalam satu album",
+    "p": "Sekali bayar mulai $39,99. Hingga 4K, 6 bulan sejak unggahan pertama, bisa diperpanjang.",
+    "btn": "Mulai album →"
+  },
+  "faq": [
+    ["Apa saja susunan acara Natal?", "Biasanya pembukaan dan doa, ibadah dengan renungan, pujian, drama atau pembacaan kisah Natal, lalu tukar kado dan makan bersama."],
+    ["Apa ide acara Natal sekolah minggu yang kreatif?", "Drama Natal anak, pujian bersama, kuis sederhana dan tukar kado kecil."],
+    ["Bagaimana mengumpulkan foto dari semua peserta?", "Dengan kode QR: setiap orang mengunggah foto dan video lewat browser ke album yang sama, dan Anda bisa menyetujuinya dulu."],
+    ["Apakah peserta perlu aplikasi?", "Tidak. Cukup pindai kode dengan kamera HP dan unggah lewat browser."]
+  ],
+  "related": ["arisan-keluarga", "kado-natal-untuk-orang-tua", "acara-tahun-baru-di-rumah"],
+  "date": "2026-11-21"
+}

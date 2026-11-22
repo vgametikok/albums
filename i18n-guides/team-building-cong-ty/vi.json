@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "team building công ty",
+  "title": "Tổ chức team building công ty: trò chơi và gala | Albums.ink",
+  "desc": "Gợi ý tổ chức team building công ty: chọn địa điểm, trò chơi tập thể, gala dinner và cách gom ảnh của cả đoàn bằng một mã QR.",
+  "h1": "Tổ chức team building công ty",
+  "lead": "Mọi người tìm “team building công ty là gì”, “trò chơi team building công ty”, “slogan” và “áo team building”. Dưới đây là kế hoạch gọn cho chuyến đi, và cách gom ảnh của cả đoàn về một album sau khi về.",
+  "body": [
+    "## Team building là gì",
+    "Là các hoạt động tập thể giúp nhân viên gắn kết, thường kết hợp với chuyến du lịch công ty 2–3 ngày ở biển hoặc vùng núi như Vũng Tàu, Phan Thiết, Đà Lạt.",
+    "## Trò chơi team building phổ biến",
+    "- Kéo co, nhảy bao bố, đua thuyền trên cạn.",
+    "- Truyền nước, chuyền bóng theo đội.",
+    "- Mật thư, tìm kho báu theo trạm.",
+    "- Mỗi đội có tên, màu áo và slogan riêng.",
+    "## Gala dinner",
+    "1. Lời phát biểu của ban giám đốc.",
+    "2. Văn nghệ của các phòng ban.",
+    "3. Trao giải cho đội thắng và bốc thăm trúng thưởng.",
+    "4. Chụp ảnh tập thể cuối buổi.",
+    "## Gom ảnh của mọi người bằng một mã QR",
+    "Ai cũng chụp bằng điện thoại, ảnh nằm rải rác trong nhiều nhóm Zalo. Với <b>album sự kiện</b> trên Albums, mọi thứ về một chỗ:",
+    "1. Tạo album, ví dụ “Team building 2026”.",
+    "2. In mã QR lên bảng tên, banner hoặc gửi vào nhóm chat.",
+    "3. Mọi người quét bằng camera điện thoại và tải ảnh, video lên qua trình duyệt, không cần cài đặt.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau đó tải cả album về dưới dạng một file ZIP.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên</a> và <a href=\"/vi/guides/tiec-chia-tay-dong-nghiep/\">tiệc chia tay đồng nghiệp</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small 39,99 $, Medium 69,99 $ hoặc Large 129,99 $. Khách mời không phải trả gì. Ảnh lưu đến 4K, album giữ 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Một mã QR cho cả đoàn",
+    "p": "Mọi người tải lên qua trình duyệt, không cần ứng dụng. Bạn quyết định ảnh nào hiển thị.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Cả chuyến đi trong một album",
+    "p": "Trả một lần từ 39,99 $. Đến 4K, giữ 6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn.",
+    "btn": "Bắt đầu album →"
+  },
+  "faq": [
+    ["Team building công ty là gì?", "Là các hoạt động tập thể giúp nhân viên gắn kết, thường đi kèm chuyến du lịch công ty và gala dinner."],
+    ["Nên chơi trò gì?", "Kéo co, nhảy bao bố, đua thuyền trên cạn, truyền nước và mật thư là những trò quen thuộc."],
+    ["Làm sao gom ảnh của cả đoàn?", "Dùng một mã QR: mọi người tải ảnh và video qua trình duyệt vào cùng một album, bạn có thể duyệt trước."],
+    ["Có cần cài ứng dụng không?", "Không. Chỉ cần quét mã bằng camera và tải lên qua trình duyệt."]
+  ],
+  "related": ["tiec-tat-nien", "tiec-chia-tay-dong-nghiep", "company-party-photo-sharing"],
+  "date": "2026-11-21"
+}

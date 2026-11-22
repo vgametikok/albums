@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "cadeau pour ma belle-mère",
+  "title": "Cadeau pour ma belle-mère | Albums.ink",
+  "desc": "Un cadeau original pour ta belle-mère à Noël ou pour son anniversaire : un album-récit gratuit avec photos, vidéos et messages vocaux de la famille.",
+  "h1": "Un cadeau original pour ma belle-mère",
+  "lead": "On cherche « cadeau pour ma belle-mère Noël », « original » et « anniversaire ». Plutôt qu'un coffret de plus, offre-lui l'histoire de votre famille. Un album-récit est gratuit et se prépare en une soirée.",
+  "body": [
+    "## Quoi y mettre",
+    "- Les photos des repas de famille, des vacances et du mariage.",
+    "- Des photos anciennes de sa jeunesse – demande à ton conjoint de fouiller les cartons.",
+    "- Des petites vidéos et des messages vocaux des petits-enfants : « Joyeux Noël, mamie ! »",
+    "- Quelques mots de toi et de ton conjoint.",
+    "## Idées de chapitres",
+    "1. Avant que je la connaisse.",
+    "2. Mon arrivée dans la famille.",
+    "3. Mamie et ses petits-enfants.",
+    "4. Merci pour tout.",
+    "## Le faire gratuitement",
+    "Sur Albums, tu crées un <b>album-récit</b> avec photos, vidéos et messages vocaux, en chapitres, avec une narration vocale si tu veux. Les albums sont illimités et restent aussi longtemps que tu le souhaites. Les photos gratuites sont stockées jusqu'à 2048 px sur le grand côté.",
+    "1. Connecte-toi avec Google et crée un album, par exemple « Pour Martine ».",
+    "2. Ajoute des chapitres, envoie photos et vidéos, écris une phrase sous chacune.",
+    "3. Enregistre des messages vocaux dans le navigateur.",
+    "4. Invite un coauteur, par exemple ton conjoint ; il doit être dans ta liste d'amis sur Albums.",
+    "5. Choisis la visibilité : Public, Amis ou Moi seulement. « Amis » veut dire tous tes amis ; pour la surprise, choisis « Amis, sauf… » et exclus ta belle-mère jusqu'au jour J.",
+    "!cta",
+    "Plus d'idées : <a href=\"/fr/guides/album-photo-grands-parents/\">album photo grands-parents</a> et <a href=\"/fr/guides/cadeau-de-noel-pour-mes-parents/\">cadeau de Noël pour mes parents</a>.",
+    "## L'offrir",
+    "Regardez-le ensemble sur la télé ou une tablette. Ensuite, change la visibilité et envoie-lui le lien. En Public, il s'ouvre dans le navigateur avec un aperçu de la couverture, sans rien installer. En Amis, elle doit être connectée et figurer dans ta liste d'amis. Un album en « Moi seulement » ne s'ouvre pas par lien. Tu peux aussi télécharger tout l'album en un seul ZIP."
+  ],
+  "cta": {
+    "h2": "Prépare l'album de ta belle-mère",
+    "p": "Photos, vidéos et voix dans un seul récit. Gratuit dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s'achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que tu le souhaites.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    ["Quel cadeau original pour ma belle-mère ?", "Quelque chose de personnel : un album-récit avec photos de famille, vidéos et messages vocaux des petits-enfants."],
+    ["C'est gratuit ?", "Oui. Les albums-récits sont gratuits et illimités, et restent aussi longtemps que tu le souhaites."],
+    ["Mon conjoint peut-il participer ?", "Tu peux inviter un coauteur qui est dans ta liste d'amis sur Albums."],
+    ["Comment l'ouvre-t-elle ?", "En Public, avec le lien, dans le navigateur, avec un aperçu de la couverture, sans rien installer. En Amis, elle doit se connecter et être dans ta liste d'amis."]
+  ],
+  "related": ["album-photo-grands-parents", "cadeau-de-noel-pour-mes-parents", "album-photo-maman"],
+  "date": "2026-11-21"
+}

@@ -33,7 +33,7 @@
     "!cta",
     "More ideas: <a href=\"/en/guides/photo-album-for-grandma/\">photo album for grandma</a> and <a href=\"/en/guides/add-voice-to-photos/\">add voice to photos</a>.",
     "## Giving it on Christmas",
-    "Open it on a tablet or TV browser on Christmas morning, or text them the link: it opens with a cover preview. Keep in mind that a link works only if the album isn’t set to Only me. You can also download the whole album as one ZIP file."
+    "Open it on a tablet or TV browser on Christmas morning, or text them the link. If the album is Public, it opens in the browser with a cover preview, nothing to install. If it is set to Friends, they must be signed in and on your friends list. An album set to Only me cannot be opened by link. You can also download the whole album as one ZIP file."
   ],
   "cta": {
     "h2": "Make the grandparents’ album tonight",
