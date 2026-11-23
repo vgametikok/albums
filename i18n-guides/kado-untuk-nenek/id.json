@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "kado untuk nenek",
+  "title": "Kado untuk Nenek: Album Cerita dari Cucu | Albums.ink",
+  "desc": "Kado untuk nenek yang berulang tahun ke-60, 70 atau 80: album cerita gratis berisi foto cucu, video, dan pesan suara keluarga. Dibuat langsung di browser.",
+  "h1": "Kado untuk nenek: album cerita dari para cucu",
+  "lead": "Saat mengetik “kado untuk nenek”, muncul saran seperti “70 tahun”, “80 tahun”, “yang murah” dan “apa ya”. Nenek biasanya sudah punya banyak barang, tapi selalu senang melihat cucu-cucunya. Album cerita berisi foto, video, dan suara cucu bisa jadi kado yang berkesan, dan gratis dibuat.",
+  "body": [
+    "## Kenapa album cerita",
+    "- Foto cucu tersebar di ponsel anak-anaknya dan di grup WhatsApp keluarga.",
+    "- Album mengumpulkannya di satu tempat, rapi per bab.",
+    "- Gratis, jadi bisa dipadukan dengan kado kecil lain.",
+    "## Yang bisa dimasukkan",
+    "- Foto cucu dari tahun ini: sekolah, liburan, Lebaran atau Natal bersama.",
+    "- Foto lama nenek dan kakek, kalau ada, difoto ulang dari album cetak.",
+    "- Video pendek cucu mengucapkan “Selamat ulang tahun, Nenek”.",
+    "- Pesan suara dari anak-anak dan menantu.",
+    "## Ide bab",
+    "1. Nenek dulu.",
+    "2. Cucu-cucu Nenek.",
+    "3. Kumpul keluarga.",
+    "4. Terima kasih, Nek.",
+    "## Cara membuat (gratis)",
+    "Di Albums kamu bisa membuat <b>album cerita</b> dari foto, video, dan pesan suara, dibagi per bab, dengan narasi suaramu sendiri. Album tidak terbatas dan tersimpan selama kamu mau. Foto gratis disimpan hingga 2048 px di sisi panjang.",
+    "1. Masuk dengan Google dan buat album, misalnya “Untuk Nenek – 75 tahun”.",
+    "2. Minta saudara mengirim foto, video, dan pesan suara lewat grup keluarga.",
+    "3. Unggah per bab dan tulis satu kalimat di setiap bab.",
+    "4. Pilih siapa yang bisa melihat: publik, teman, atau hanya saya. Album baru bersifat publik, jadi selama menyiapkan, pilih hanya saya. Saat hari H, ubah ke publik agar Nenek bisa membuka tautan tanpa akun.",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/album-foto-keluarga/\">album foto keluarga</a> dan <a href=\"/id/guides/album-foto-untuk-mama/\">album foto untuk mama</a>.",
+    "## Cara memberikannya",
+    "Buka bersama di TV atau tablet saat acara ulang tahun, atau kirim tautannya lewat WhatsApp. Album publik terbuka di browser dengan pratinjau sampul, tanpa instalasi. Album dengan “hanya saya” tidak bisa dibuka lewat tautan. Seluruh album juga bisa diunduh sebagai satu file ZIP."
+  ],
+  "cta": {
+    "h2": "Buat album untuk Nenek",
+    "p": "Foto, video, dan suara cucu dalam satu cerita. Gratis di browser.",
+    "btn": "Buat album cerita →"
+  },
+  "cta2": {
+    "h2": "Kado yang tidak bisa dibeli",
+    "p": "Album tanpa batas, tersimpan selama kamu mau.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    [
+      "Kado apa yang cocok untuk nenek?",
+      "Selain barang yang ia butuhkan, album berisi foto dan pesan suara cucu-cucunya biasanya sangat berkesan."
+    ],
+    [
+      "Apakah albumnya gratis?",
+      "Ya. Album cerita gratis dan tidak terbatas."
+    ],
+    [
+      "Apakah Nenek perlu akun?",
+      "Tidak, jika album publik: tautannya terbuka di browser."
+    ],
+    [
+      "Bisakah album diunduh?",
+      "Ya, seluruh album bisa diunduh sebagai satu file ZIP."
+    ]
+  ],
+  "related": [
+    "album-foto-keluarga",
+    "album-foto-untuk-mama",
+    "arisan-keluarga"
+  ],
+  "date": "2026-11-23"
+}

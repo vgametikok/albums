@@ -1,0 +1,68 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "lễ kỷ niệm thành lập công ty",
+  "title": "Lễ kỷ niệm thành lập công ty: ý tưởng và thu ảnh | Albums.ink",
+  "desc": "Ý tưởng tổ chức lễ kỷ niệm thành lập công ty 5, 10, 20 năm: kịch bản, backdrop, quà tặng và mã QR để nhân viên tải ảnh lên cùng một album.",
+  "h1": "Lễ kỷ niệm thành lập công ty: ý tưởng tổ chức",
+  "lead": "Các gợi ý tìm kiếm quanh “lễ kỷ niệm thành lập công ty” gồm kịch bản, backdrop, quà tặng và các mốc 10 năm, 20 năm. Dưới đây là ý tưởng tổ chức – và cách gom toàn bộ ảnh, video do nhân viên chụp về một chỗ.",
+  "body": [
+    "## Chương trình gợi ý",
+    "1. Đón khách, chụp ảnh tại backdrop.",
+    "2. Phát biểu của ban giám đốc.",
+    "3. Video nhìn lại chặng đường của công ty.",
+    "4. Vinh danh nhân viên gắn bó lâu năm.",
+    "5. Tiệc, văn nghệ và bốc thăm trúng thưởng.",
+    "## Ý tưởng nổi bật",
+    "- Góc “ngày ấy – bây giờ” với ảnh văn phòng đầu tiên và ảnh hiện tại.",
+    "- Bức tường lời chúc của nhân viên và đối tác.",
+    "- Quà lưu niệm có logo và năm kỷ niệm.",
+    "## Gom ảnh của mọi người bằng mã QR",
+    "Trong buổi lễ, ai cũng chụp bằng điện thoại. Với <b>album sự kiện</b> trên Albums, tất cả về một chỗ:",
+    "1. Tạo album, ví dụ “Kỷ niệm 10 năm thành lập”.",
+    "2. Đặt mã QR trên backdrop, bàn tiệc hoặc thiệp mời.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên trên trình duyệt – không cần cài đặt.",
+    "4. Bật <b>Hold guest photos</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau sự kiện, tải toàn bộ album về thành một tệp ZIP để làm truyền thông nội bộ.",
+    "Người tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Người đã đăng nhập còn nhận được một bản nháp riêng tư chỉ gồm ảnh họ đã tải lên.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên</a> và <a href=\"/vi/guides/team-building-cong-ty/\">team building công ty</a>.",
+    "## Giá",
+    "Album sự kiện mua một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Khách không phải trả phí. Ảnh tối đa 4K; album lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album cho lễ kỷ niệm",
+    "p": "Một mã QR, toàn bộ ảnh và video của nhân viên về một chỗ.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Lưu lại cột mốc của công ty",
+    "p": "Khách tải lên trên trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    [
+      "Lễ kỷ niệm thành lập công ty gồm những phần nào?",
+      "Thường có phát biểu, video nhìn lại chặng đường, vinh danh nhân viên, tiệc và văn nghệ."
+    ],
+    [
+      "Khách có phải cài đặt gì không?",
+      "Không. Chỉ cần quét mã QR và tải lên trên trình duyệt."
+    ],
+    [
+      "Có duyệt ảnh trước được không?",
+      "Có, bật Hold guest photos thì ảnh chỉ hiện sau khi bạn duyệt."
+    ],
+    [
+      "Ảnh được lưu bao lâu?",
+      "6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+    ]
+  ],
+  "related": [
+    "tiec-tat-nien",
+    "team-building-cong-ty",
+    "company-party-photo-sharing"
+  ],
+  "date": "2026-11-23"
+}

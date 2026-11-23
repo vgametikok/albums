@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per figlia",
+  "title": "Regalo per figlia: un album racconto con foto e voci | Albums.ink",
+  "desc": "Un regalo per tua figlia di 18, 30 o 40 anni: un album racconto gratuito con le foto della sua vita, video e messaggi vocali della famiglia. Per Natale o il compleanno.",
+  "h1": "Regalo per figlia: l’album della sua storia",
+  "lead": "Cercando “regalo per figlia”, Google suggerisce età e occasioni: 18 anni, 30 anni, 40 anni, “che si laurea”, “che si sposa”. A qualsiasi età c’è un regalo che non si trova in negozio: la sua storia raccontata dalla famiglia, con foto, video e la vostra voce. Si fa gratis nel browser.",
+  "body": [
+    "## Perché un album racconto",
+    "- Raccoglie foto sparse tra i telefoni di mamma, papà e nonni.",
+    "- Va bene per Natale, per i 18 anni, per la laurea o per il matrimonio.",
+    "- È gratuito, quindi si abbina bene a un piccolo regalo.",
+    "## Cosa metterci",
+    "- Le sue foto da neonata e da bambina, il battesimo, la prima comunione.",
+    "- Le vacanze al mare, le feste in famiglia, il primo giorno di scuola.",
+    "- Brevi video dei compleanni.",
+    "- Messaggi vocali di nonni, zii e fratelli.",
+    "## Idee per i capitoli",
+    "1. Quando sei arrivata.",
+    "2. I tuoi primi anni.",
+    "3. I nostri momenti.",
+    "4. Cosa ti auguriamo.",
+    "## Come farlo (gratis)",
+    "Su Albums crei un <b>album racconto</b> con foto, video e note vocali, diviso in capitoli e con narrazione con la tua voce, se vuoi. Gli album sono illimitati e restano finché vuoi. Le foto gratuite sono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google e crea un album, per esempio “Per te, Giulia – Natale 2026”.",
+    "2. Carica foto e video capitolo per capitolo, con una frase per ciascuno.",
+    "3. Registra il tuo messaggio vocale nel browser.",
+    "4. Scegli la visibilità: Pubblico, Amici o Solo io. I nuovi album sono pubblici, quindi mentre lo prepari mettilo su Solo io. “Amici” vale per tutti i tuoi amici: per la sorpresa usa <b>Amici tranne</b> ed escludi tua figlia fino al giorno giusto.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/album-ricordi-neonato/\">album ricordi del neonato</a> e <a href=\"/it/guides/festa-18-anni/\">festa dei 18 anni</a>.",
+    "## Come regalarlo",
+    "Sfogliatelo insieme sulla TV, oppure cambia la visibilità e mandale il link su WhatsApp. Se è Pubblico, si apre nel browser con l’anteprima della copertina, senza installare nulla. Se è su Amici, deve accedere ed essere nella tua lista di amici. Un album su “Solo io” non si apre dal link. L’intero album si può scaricare in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Crea l’album di tua figlia",
+    "p": "Foto, video e voci della famiglia in un unico racconto. Gratis.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un regalo che non si compra",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare a una figlia adulta?",
+      "Qualcosa di personale, come un album con le foto della sua vita e i messaggi vocali della famiglia."
+    ],
+    [
+      "L’album è gratuito?",
+      "Sì. Gli album racconto sono gratuiti e illimitati."
+    ],
+    [
+      "Mia figlia deve avere un account?",
+      "No, se l’album è Pubblico: il link si apre nel browser."
+    ],
+    [
+      "Può scaricarne una copia?",
+      "Sì, l’intero album si scarica in un unico file ZIP."
+    ]
+  ],
+  "related": [
+    "album-ricordi-neonato",
+    "festa-18-anni",
+    "album-foto-mamma"
+  ],
+  "date": "2026-11-23"
+}

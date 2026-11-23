@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "Geschenk für Gotti",
+  "title": "Geschenk für Gotti: Fotoalbum vom Gottikind | Albums.ink",
+  "desc": "Geschenk für Gotti oder Götti zu Weihnachten oder zum Geburtstag: ein Story-Album vom Gottikind mit Fotos, Videos und Sprachnachrichten. Gratis im Browser.",
+  "h1": "Geschenk für Gotti vom Gottikind",
+  "lead": "Bei „Geschenk für Gotti“ schlägt Google Varianten wie „basteln“, „von Kleinkind“, „Weihnachten“ und „selber machen“ vor. Ein Gotti oder Götti freut sich über Gebasteltes – und über Fotos, wie das Gottikind wächst. Ein Story-Album mit Bildern, Videos und Stimme verbindet beides und kostet nichts.",
+  "body": [
+    "## Warum ein Album",
+    "- Gotti und Götti sehen das Kind oft nur ein paar Mal im Jahr.",
+    "- Ein Album zeigt, was dazwischen passiert ist: erste Schritte, Kindergarten, Ferien.",
+    "- Es passt zu Weihnachten, zum Geburtstag oder als Dankeschön nach der Taufe.",
+    "## Was hinein soll",
+    "- Fotos vom Gottikind aus dem Jahr, gern mit Gotti oder Götti zusammen.",
+    "- Fotos von der Taufe, falls vorhanden.",
+    "- Eine Zeichnung oder Bastelei, abfotografiert.",
+    "- Ein kurzes Video oder eine Sprachnachricht: „Merci, Gotti!“",
+    "## Kapitel-Ideen",
+    "1. So bin ich gewachsen.",
+    "2. Unsere Tage zusammen.",
+    "3. Was ich gebastelt habe.",
+    "4. Merci für alles.",
+    "## So geht’s (gratis)",
+    "Auf Albums baut ihr ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange ihr möchtet. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für mein Gotti – Weihnachten 2026“.",
+    "2. Pro Kapitel Fotos und Videos hochladen und kurze Texte schreiben.",
+    "3. Sprachnachricht direkt im Browser aufnehmen.",
+    "4. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. Neue Alben sind öffentlich, also bis zur Übergabe auf „Nur ich“ stellen. „Freunde“ sind alle Freunde; mit „Freunde, außer…“ lässt sich das Gotti bis Weihnachten ausschliessen.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/taufe-feiern/\">Taufe feiern</a> und <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a>.",
+    "## Übergabe",
+    "Gemeinsam auf dem Tablet anschauen oder Sichtbarkeit umstellen und den Link per WhatsApp schicken. Ein öffentliches Album öffnet sich im Browser mit Titelbild-Vorschau, ohne Installation. „Freunde“ sehen nur angemeldete Freunde. Ein Album auf „Nur ich“ lässt sich nicht per Link öffnen. Das ganze Album kann als eine ZIP-Datei heruntergeladen werden.",
+    "## Tipp zur Privatsphäre",
+    "Fotos von Kindern nur so teilen, wie es für die Familie passt. Einzelne Dateien lassen sich für bestimmte Personen ausblenden."
+  ],
+  "cta": {
+    "h2": "Album für Gotti erstellen",
+    "p": "Fotos, Videos und Stimme des Gottikinds. Gratis im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das mitwächst",
+    "p": "Unbegrenzte Alben, die bleiben, so lange ihr möchtet.",
+    "btn": "Gratis starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man dem Gotti zu Weihnachten?",
+      "Etwas Persönliches vom Gottikind: Gebasteltes, Fotos oder ein Album mit Bildern und Sprachnachrichten."
+    ],
+    [
+      "Ist das Album gratis?",
+      "Ja. Story-Alben sind gratis und unbegrenzt."
+    ],
+    [
+      "Braucht das Gotti ein Konto?",
+      "Nicht bei einem öffentlichen Album – der Link öffnet sich im Browser."
+    ],
+    [
+      "Kann man es auch für den Götti machen?",
+      "Ja, genauso – einfach Titel und Kapitel anpassen."
+    ]
+  ],
+  "related": [
+    "taufe-feiern",
+    "fotoalbum-fuer-oma",
+    "weihnachtsgeschenk-fuer-eltern"
+  ],
+  "date": "2026-11-23"
+}

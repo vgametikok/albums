@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "festa de 40 anos",
+  "title": "Festa de 40 anos simples: ideias e temas | Albums.ink",
+  "desc": "Ideias para festa de 40 anos feminina ou masculina, simples e barata: temas como anos 80 e boteco, cardápio, programação e um QR code para juntar as fotos dos convidados.",
+  "h1": "Festa de 40 anos: ideias simples para comemorar",
+  "lead": "Ao digitar “festa de 40 anos”, as sugestões incluem “feminina”, “masculino”, “simples e barata”, “chique” e “tema anos 80”. Aqui estão ideias de tema, cardápio e programação – e um jeito simples de juntar depois todas as fotos e vídeos dos convidados.",
+  "body": [
+    "## Temas que funcionam",
+    "- <b>Anos 80</b>: a década da infância de quem faz 40, com músicas e roupas da época.",
+    "- <b>Boteco</b>: petiscos, cerveja gelada e decoração de bar.",
+    "- <b>Churrasco</b> no quintal ou no salão do prédio, simples e barato.",
+    "- <b>Jantar chique</b> para poucos amigos, se a ideia for algo mais elegante.",
+    "## Cardápio e decoração",
+    "- Petiscos e salgadinhos em vez de jantar completo deixam a festa mais barata.",
+    "- Bolo com topo “40” e fotos da pessoa ao longo das décadas.",
+    "- Uma playlist com músicas dos anos 80 e 90.",
+    "## Programação",
+    "- Um brinde e um discurso curto de um amigo ou da família.",
+    "- Um quiz sobre a vida de quem faz aniversário.",
+    "- Vídeos de amigos que moram longe.",
+    "## Todas as fotos com um QR code",
+    "Na festa, todo mundo tira foto com o celular. Com um <b>álbum de evento</b> no Albums tudo fica em um só lugar:",
+    "1. Crie o álbum, por exemplo “40 da Renata”.",
+    "2. Coloque o QR code nas mesas ou perto do bolo.",
+    "3. Os convidados escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para revisar os envios antes de aparecerem.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem entrar na conta aparece como anônimo. Convidados que entram na conta recebem também uma cópia rascunho privada só com os próprios envios.",
+    "!cta",
+    "Mais: <a href=\"/pt-BR/guides/festa-de-30-anos/\">festa de 30 anos</a> e <a href=\"/pt-BR/guides/festa-de-50-anos/\">festa de 50 anos</a>.",
+    "## Preço",
+    "O álbum de evento é pago uma vez: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Os convidados não pagam. Fotos em até 4K, guardadas por 6 meses a partir do primeiro envio, com opção de estender."
+  ],
+  "cta": {
+    "h2": "Crie o álbum dos 40",
+    "p": "Um QR code, todas as fotos e vídeos dos convidados em um lugar.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde as lembranças da festa",
+    "p": "Convidados enviam pelo navegador, você baixa o álbum inteiro.",
+    "btn": "Começar →"
+  },
+  "faq": [
+    [
+      "Como fazer uma festa de 40 anos simples e barata?",
+      "Escolha um tema fácil, como boteco ou churrasco, sirva petiscos e convide os mais próximos."
+    ],
+    [
+      "Os convidados precisam instalar algo?",
+      "Não. Eles escaneiam o QR code e enviam pelo navegador."
+    ],
+    [
+      "Posso revisar as fotos antes?",
+      "Sim, com Hold guest photos os envios só aparecem depois da sua aprovação."
+    ],
+    [
+      "Por quanto tempo as fotos ficam guardadas?",
+      "6 meses a partir do primeiro envio, com opção de estender."
+    ]
+  ],
+  "related": [
+    "festa-de-30-anos",
+    "festa-de-50-anos",
+    "qr-code-for-photos-at-party"
+  ],
+  "date": "2026-11-23"
+}

@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "cadeau pour ma fille",
+  "title": "Cadeau pour ma fille : un album de son histoire | Albums.ink",
+  "desc": "Un cadeau pour votre fille de 18, 20 ou 30 ans : un album-récit gratuit avec les photos de sa vie, des vidéos et les voix de la famille. Pour Noël ou son anniversaire.",
+  "h1": "Cadeau pour ma fille : l’album de son histoire",
+  "lead": "En tapant « cadeau pour ma fille », Google propose « adulte », « 18 ans », « 20 ans », « 30 ans ». À tout âge, il y a un cadeau qu’on ne trouve pas en magasin : son histoire racontée par la famille, avec des photos, des vidéos et votre voix. Il se fait gratuitement dans le navigateur.",
+  "body": [
+    "## Pourquoi un album-récit",
+    "- Il rassemble les photos dispersées sur plusieurs GSM et disques durs.",
+    "- Il convient pour Noël, ses 18 ans, un diplôme ou un départ de la maison.",
+    "- Il est gratuit : vous pouvez l’accompagner d’un petit cadeau.",
+    "## Quoi mettre dedans",
+    "- Ses photos de bébé et de petite fille.",
+    "- La Saint-Nicolas, les vacances à la mer, les fêtes de famille.",
+    "- De courtes vidéos d’anniversaires.",
+    "- Des messages vocaux des grands-parents, parrain, marraine, frères et sœurs.",
+    "## Idées de chapitres",
+    "1. Ton arrivée.",
+    "2. Tes premières années.",
+    "3. Nos moments à nous.",
+    "4. Ce qu’on te souhaite.",
+    "## Comment le faire (gratuit)",
+    "Sur Albums, vous créez un <b>album-récit</b> avec photos, vidéos et notes vocales, en chapitres, avec narration vocale si vous voulez. Les albums sont illimités et restent aussi longtemps que vous le souhaitez. Les photos gratuites sont gardées jusqu’à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google et créez un album, par ex. « Pour toi, Louise – Noël 2026 ».",
+    "2. Ajoutez photos et vidéos chapitre par chapitre, avec une phrase pour chacun.",
+    "3. Enregistrez votre message vocal dans le navigateur.",
+    "4. Choisissez la visibilité : Public, Amis ou Moi seulement. Les nouveaux albums sont publics : pendant la préparation, passez-le en Moi seulement. « Amis » concerne tous vos amis ; pour la surprise, choisissez <b>Amis, sauf…</b> et excluez votre fille jusqu’au jour J.",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/cadeau-pour-mon-fils/\">cadeau pour mon fils</a> et <a href=\"/fr/guides/idee-anniversaire-18-ans/\">idées pour ses 18 ans</a>.",
+    "## Comment l’offrir",
+    "Regardez-le ensemble sur la télé, ou changez la visibilité et envoyez-lui le lien. En Public, il s’ouvre dans le navigateur avec un aperçu de la couverture, sans rien installer. En Amis, elle doit être connectée et figurer dans votre liste d’amis. Un album en « Moi seulement » ne s’ouvre pas par lien. L’album entier se télécharge en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créer l’album de votre fille",
+    "p": "Photos, vidéos et voix de la famille en un seul récit. Gratuit.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s’achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau original pour sa fille adulte ?",
+      "Un cadeau personnel, comme un album avec les photos de sa vie et des messages vocaux de la famille."
+    ],
+    [
+      "L’album est-il gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités."
+    ],
+    [
+      "Ma fille doit-elle avoir un compte ?",
+      "Non, si l’album est Public : le lien s’ouvre dans le navigateur."
+    ],
+    [
+      "Peut-elle en garder une copie ?",
+      "Oui, l’album entier se télécharge en un seul fichier ZIP."
+    ]
+  ],
+  "related": [
+    "cadeau-pour-mon-fils",
+    "idee-anniversaire-18-ans",
+    "album-photo-maman"
+  ],
+  "date": "2026-11-23"
+}

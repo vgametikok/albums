@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CL",
+  "query": "fiesta de 70 años",
+  "title": "Fiesta de 70 años: ideas para celebrar | Albums.ink",
+  "desc": "Ideas para una fiesta de 70 años para mujer u hombre: asado, once o almuerzo familiar, programa, sorpresas y un código QR para juntar las fotos de todos los invitados.",
+  "h1": "Fiesta de 70 años: ideas para celebrar",
+  "lead": "Al escribir “fiesta de 70” aparecen “años mujer”, “años hombre” e “ideas”. Aquí van ideas para el lugar y el programa, pensadas para Chile, y una forma simple de tener después todas las fotos y videos de los invitados en un solo lugar.",
+  "body": [
+    "## Dónde celebrar",
+    "- Un asado en el quincho con toda la familia.",
+    "- Una once grande en la casa, con torta y sándwiches.",
+    "- Un almuerzo en un restaurante, si hay invitados mayores que prefieren comodidad.",
+    "## Ideas para el programa",
+    "- Un discurso corto de los hijos o los nietos.",
+    "- Un concurso de preguntas sobre sus 70 años: dónde nació, su primer trabajo, cómo conoció a su pareja.",
+    "- Fotos antiguas colgadas en un cordel o en un panel.",
+    "- La música de su juventud para bailar.",
+    "## Sorpresas",
+    "- Invitar a amigos de antes: compañeros de colegio o de trabajo.",
+    "- Videos de saludo de familiares que viven lejos.",
+    "## Todas las fotos con un código QR",
+    "En la fiesta todos sacan fotos con el celular. Con un <b>álbum de evento</b> en Albums todo queda en un solo lugar:",
+    "1. Crea el álbum, por ejemplo “Los 70 del Tata Jorge”.",
+    "2. Pon el código QR en las mesas o junto a la torta.",
+    "3. Los invitados lo escanean con la cámara y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Hold guest photos</b> para revisar las fotos antes de que se vean.",
+    "5. Después descarga el álbum completo en un solo archivo ZIP.",
+    "Quien sube sin iniciar sesión aparece como anónimo. Los invitados con sesión iniciada reciben además una copia borrador privada solo con lo que subieron.",
+    "!cta",
+    "Más: <a href=\"/es/guides/fiesta-de-60-anos/\">fiesta de 60 años</a> y <a href=\"/es/guides/qr-code-for-photos-at-party/\">código QR para fotos de la fiesta</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small 39,99 USD, Medium 69,99 USD o Large 129,99 USD. Los invitados no pagan nada. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de los 70",
+    "p": "Un código QR, todas las fotos y videos de los invitados en un lugar.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Los recuerdos de un gran cumpleaños",
+    "p": "Los invitados suben desde el navegador y tú descargas todo el álbum.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    [
+      "¿Cómo celebrar un cumpleaños de 70 años?",
+      "Con la familia y los amigos de siempre: un asado, una once o un almuerzo, con discurso, fotos antiguas y torta."
+    ],
+    [
+      "¿Los invitados tienen que instalar algo?",
+      "No. Escanean el código QR y suben desde el navegador."
+    ],
+    [
+      "¿Puedo revisar las fotos antes?",
+      "Sí, con Hold guest photos las fotos se ven solo después de que las apruebes."
+    ],
+    [
+      "¿Cuánto tiempo se guardan las fotos?",
+      "6 meses desde la primera subida, y se puede extender."
+    ]
+  ],
+  "related": [
+    "fiesta-de-60-anos",
+    "qr-code-for-photos-at-party",
+    "regalo-para-mi-abuelo"
+  ],
+  "date": "2026-11-23"
+}

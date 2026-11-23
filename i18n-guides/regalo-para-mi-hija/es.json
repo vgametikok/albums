@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CO",
+  "query": "regalo para mi hija",
+  "title": "Regalo para mi hija: un álbum de historias con fotos y voz | Albums.ink",
+  "desc": "Un regalo para tu hija de 15, 18 o 30 años: un álbum de historias gratis con fotos de su vida, videos y mensajes de voz de la familia. Ideal para Navidad o su cumpleaños.",
+  "h1": "Regalo para mi hija: un álbum de su historia",
+  "lead": "Al buscar “regalo para mi hija”, Google sugiere edades: 8, 15, 18, 20, 30 años. Sea cual sea la edad, hay un regalo que no se compra en un centro comercial: su historia contada por la familia, con fotos, videos y tu voz. Lo armas gratis en el navegador.",
+  "body": [
+    "## Por qué un álbum de historias",
+    "- Junta en un solo lugar fotos que hoy están repartidas en varios celulares.",
+    "- Sirve para Navidad, para sus quince, sus 18 o cuando se gradúe.",
+    "- Es gratis, así que puedes acompañarlo con un detalle pequeño.",
+    "## Qué incluir",
+    "- Fotos de bebé y de sus primeros años.",
+    "- Momentos del colegio, de las vacaciones y de las novenas en familia.",
+    "- Videos cortos de cumpleaños y paseos.",
+    "- Mensajes de voz de los abuelos, los tíos y los primos.",
+    "## Ideas de capítulos",
+    "1. Cuando llegaste.",
+    "2. Tus primeros años.",
+    "3. Lo que hemos vivido en familia.",
+    "4. Lo que te deseamos.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums creas un <b>álbum de historias</b> con fotos, videos y notas de voz, dividido en capítulos y con narración opcional con tu voz. Los álbumes son ilimitados y quedan el tiempo que quieras. Las fotos gratis se guardan con hasta 2048 px en el lado largo.",
+    "1. Inicia sesión con Google y crea un álbum, por ejemplo “Para ti, Valentina – Navidad 2026”.",
+    "2. Sube fotos y videos capítulo por capítulo y escribe una frase en cada uno.",
+    "3. Graba tu mensaje de voz en el navegador.",
+    "4. Elige quién lo ve: Público, Amigos o Solo yo. Los álbumes nuevos son públicos, así que mientras lo armas déjalo en Solo yo. “Amigos” son todos tus amigos; para la sorpresa usa “Amigos, excepto…” y déjala por fuera hasta el día.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-hijo/\">regalo para mi hijo</a> y <a href=\"/es/guides/fiesta-xv-anos/\">fiesta de XV años</a>.",
+    "## Cómo entregarlo",
+    "Ábranlo juntos en el televisor en Nochebuena o cambia la visibilidad y mándale el link por WhatsApp. Si está en Público, se abre en el navegador con vista previa de la portada, sin instalar nada. Si está en Amigos, tiene que iniciar sesión y estar en tu lista de amigos. Un álbum en Solo yo no se abre por link. El álbum completo se puede descargar en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de tu hija",
+    "p": "Fotos, videos y voces de la familia en una sola historia. Gratis.",
+    "btn": "Crear un álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi hija que tenga significado?",
+      "Algo hecho por la familia, como un álbum con fotos de su vida y mensajes de voz."
+    ],
+    [
+      "¿El álbum es gratis?",
+      "Sí. Los álbumes de historias son gratis e ilimitados."
+    ],
+    [
+      "¿Mi hija necesita una cuenta para verlo?",
+      "No, si el álbum está en Público: el link se abre en el navegador."
+    ],
+    [
+      "¿Puede guardar una copia?",
+      "Sí, el álbum completo se descarga en un solo archivo ZIP."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-hijo",
+    "fiesta-xv-anos",
+    "album-fotos-para-mama"
+  ],
+  "date": "2026-11-23"
+}
