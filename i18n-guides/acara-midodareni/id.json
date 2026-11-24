@@ -1,0 +1,68 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara midodareni",
+  "title": "Acara Midodareni: Rangkaian dan Foto Keluarga | Albums.ink",
+  "desc": "Acara midodareni dalam pernikahan adat Jawa: arti, rangkaian acara, jam pelaksanaan, dan satu kode QR agar keluarga bisa mengunggah foto ke satu album.",
+  "h1": "Acara midodareni: rangkaian acara dan cara mengumpulkan foto",
+  "lead": "Pencarian “acara midodareni” memunculkan saran seperti “adalah”, “adat Jawa”, “apa saja”, “jam berapa” dan “ngapain aja”. Midodareni adalah malam sebelum hari pernikahan dalam adat Jawa, ketika calon pengantin perempuan diyakini “didatangi para widodari” (bidadari). Berikut gambaran rangkaian acaranya dan cara menyimpan foto malam itu bersama keluarga.",
+  "body": [
+    "## Kapan diadakan",
+    "- Pada malam hari sebelum akad nikah atau upacara panggih, biasanya setelah siraman di siang harinya.",
+    "- Diadakan di rumah keluarga calon pengantin perempuan.",
+    "## Rangkaian yang sering ada",
+    "- Calon pengantin perempuan berada di dalam kamar dan secara adat tidak bertemu calon pengantin pria.",
+    "- Kedatangan calon pengantin pria bersama keluarganya, yang diterima keluarga perempuan.",
+    "- <b>Tantingan:</b> orang tua menanyakan kesiapan putrinya untuk menikah.",
+    "- <b>Catur wedha:</b> nasihat dari ayah calon pengantin perempuan kepada calon pengantin pria.",
+    "- Ramah tamah dan makan bersama kedua keluarga.",
+    "Urutan dan istilah bisa berbeda di setiap daerah dan keluarga, jadi sebaiknya tanyakan pada sesepuh atau perias pengantin.",
+    "## Semua foto dalam satu album",
+    "Malam itu banyak keluarga memotret dengan ponsel masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Midodareni Sekar & Bayu”.",
+    "2. Letakkan kode QR di meja penerima tamu atau ruang tamu.",
+    "3. Keluarga memindainya dengan kamera ponsel dan mengunggah foto serta video lewat browser, tanpa instal aplikasi.",
+    "4. Aktifkan <b>Tahan foto tamu</b> agar foto bisa dicek dulu sebelum tampil.",
+    "5. Album yang sama bisa dipakai untuk rangkaian lain, lalu seluruh album diunduh sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/acara-siraman-pengantin/\">acara siraman pengantin</a> dan <a href=\"/id/guides/acara-akad-nikah/\">acara akad nikah</a>.",
+    "## Harga",
+    "Album acara adalah pembelian sekali bayar: Small $39,99, Medium $69,99, atau Large $129,99 (USD). Gratis untuk tamu. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album pernikahan adat",
+    "p": "Satu kode QR, semua foto dan video keluarga di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan malam midodareni",
+    "p": "Keluarga mengunggah lewat browser, kamu mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    [
+      "Apa itu midodareni?",
+      "Malam sebelum hari pernikahan dalam adat Jawa, diadakan di rumah calon pengantin perempuan."
+    ],
+    [
+      "Apakah keluarga perlu instal aplikasi?",
+      "Tidak. Cukup memindai kode QR dan mengunggah lewat browser."
+    ],
+    [
+      "Bisakah foto dicek sebelum tampil?",
+      "Bisa. Dengan “Tahan foto tamu”, foto baru tampil setelah kamu setujui."
+    ],
+    [
+      "Berapa lama foto disimpan?",
+      "6 bulan sejak unggahan pertama, dan album bisa diperpanjang."
+    ]
+  ],
+  "related": [
+    "acara-siraman-pengantin",
+    "acara-akad-nikah",
+    "acara-lamaran"
+  ],
+  "date": "2026-11-24"
+}

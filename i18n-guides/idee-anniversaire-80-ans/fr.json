@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "anniversaire 80 ans",
+  "title": "Anniversaire 80 ans : idées de fête | Albums.ink",
+  "desc": "Idées pour fêter un anniversaire de 80 ans en Suisse romande : repas, lieu, discours, souvenirs et un code QR pour réunir les photos des invités.",
+  "h1": "Anniversaire 80 ans : idées pour une belle fête",
+  "lead": "Les recherches « anniversaire 80 ans homme », « femme », « texte » et « humour » montrent qu’on cherche surtout à faire plaisir et à trouver les bons mots. À 80 ans, le plus beau cadeau est souvent de réunir toute la famille. Voici des idées pour la fête – et pour garder toutes les photos.",
+  "body": [
+    "## Choisir le lieu",
+    "- <b>Un restaurant</b> avec une salle privée, facile d’accès et sans trop d’escaliers.",
+    "- <b>À la maison</b>, avec un apéritif dînatoire ou une raclette.",
+    "- <b>Une salle communale ou un carnotzet</b> pour une grande famille.",
+    "- Pensez au rythme de la personne fêtée : un repas de midi est souvent plus agréable qu’une soirée tardive.",
+    "## Idées pour la fête",
+    "- Un mur de photos décennie par décennie.",
+    "- Un discours court, avec un peu d’humour, des enfants ou des petits-enfants.",
+    "- Des messages vocaux ou vidéo de la famille qui vit loin.",
+    "- Une chanson ou un petit spectacle des arrière-petits-enfants.",
+    "- Une photo de famille avec toutes les générations.",
+    "## Tous les souvenirs dans un album",
+    "Chacun prend des photos avec son téléphone. Avec un <b>album d’événement</b> Albums, vous les réunissez au même endroit :",
+    "1. Créez l’album, par exemple « Les 80 ans de Mamie Odette ».",
+    "2. Posez le code QR sur les tables ou près du gâteau.",
+    "3. Les invités le scannent avec l’appareil photo du téléphone et ajoutent photos et vidéos dans le navigateur, sans application.",
+    "4. Activez <b>Retenir les photos des invités</b> pour valider les envois avant qu’ils n’apparaissent.",
+    "5. Après la fête, téléchargez l’album entier en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent aussi une copie brouillon privée avec uniquement leurs propres envois.",
+    "!cta",
+    "Voir aussi : <a href=\"/fr/guides/idee-anniversaire-70-ans/\">anniversaire 70 ans</a> et <a href=\"/fr/guides/album-photo-grands-parents/\">album photo grands-parents</a>.",
+    "## Prix",
+    "L’album d’événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Gratuit pour les invités. Photos jusqu’en 4K ; l’album est conservé 6 mois après le premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créez l’album des 80 ans",
+    "p": "Un code QR, toutes les photos et vidéos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez chaque souvenir de la fête",
+    "p": "Les invités ajoutent leurs photos dans le navigateur, vous téléchargez l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    [
+      "Comment fêter les 80 ans d’une personne ?",
+      "Souvent avec un repas en famille, au restaurant ou à la maison, un mur de photos, quelques mots et une photo de toutes les générations."
+    ],
+    [
+      "Les invités doivent-ils installer une application ?",
+      "Non. Ils scannent le code QR et ajoutent leurs photos dans le navigateur."
+    ],
+    [
+      "Peut-on vérifier les photos avant qu’elles apparaissent ?",
+      "Oui. Avec « Retenir les photos des invités », les envois n’apparaissent qu’après votre validation."
+    ],
+    [
+      "Combien de temps les photos sont-elles conservées ?",
+      "6 mois après le premier envoi ; l’album peut être prolongé."
+    ]
+  ],
+  "related": [
+    "idee-anniversaire-70-ans",
+    "album-photo-grands-parents",
+    "idee-fete-60-ans"
+  ],
+  "date": "2026-11-24"
+}

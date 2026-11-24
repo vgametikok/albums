@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "MX",
+  "query": "regalo para mi tía",
+  "title": "Regalo para mi tía: un álbum de recuerdos | Albums.ink",
+  "desc": "Regalo para mi tía por su cumpleaños, sus 50, 60 o 70 años o en Navidad: un álbum gratis con fotos, videos y mensajes de voz de la familia.",
+  "h1": "Regalo para mi tía: un álbum con la familia",
+  "lead": "Al buscar “regalo para mi tía” salen sugerencias como “favorita”, “por su cumpleaños”, “de 60 años” y “personalizado”. En muchas familias mexicanas la tía es casi una segunda mamá. Un álbum con fotos, videos y voces de sobrinos y primos es un regalo personal y gratuito.",
+  "body": [
+    "## Cuándo regalarlo",
+    "- <b>Cumpleaños:</b> sobre todo en los 50, 60 o 70.",
+    "- <b>Navidad o posadas:</b> el año de la familia en un solo álbum.",
+    "- <b>Para tu tía favorita</b>, solo para darle las gracias.",
+    "## Qué incluir",
+    "- Fotos de sus sobrinos de chiquitos, en sus fiestas y graduaciones.",
+    "- Fotos viejas de ella con tu mamá o tu papá.",
+    "- Videos cortos cantando Las Mañanitas.",
+    "- Mensajes de voz de primos y sobrinos que viven lejos.",
+    "## Ideas de capítulos",
+    "1. La tía de antes.",
+    "2. Sus sobrinos.",
+    "3. Fiestas en familia.",
+    "4. Gracias, tía.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums creas un <b>álbum de historia</b> con fotos, videos y notas de voz, dividido en capítulos y narrado con tu propia voz. Los álbumes y publicaciones son ilimitados y se quedan el tiempo que quieras. Las fotos gratis se guardan hasta 2048 px en el lado largo.",
+    "1. Inicia sesión con Google y crea un álbum, por ejemplo “Para mi tía Lupita”.",
+    "2. Pide fotos y audios en el grupo de WhatsApp de la familia.",
+    "3. Súbelos por capítulos y escribe una frase en cada uno.",
+    "4. Los álbumes nuevos son <b>Público</b>. Para que sea sorpresa, elige <b>Solo yo</b> mientras lo preparas.",
+    "5. Puedes sumar un coautor, por ejemplo un primo, si ya son amigos en Albums.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-abuela/\">regalo para mi abuela</a> y <a href=\"/es/guides/regalo-para-mi-hermana/\">regalo para mi hermana</a>.",
+    "## Cómo dárselo",
+    "Ábranlo juntos en la tele o en una tablet durante la fiesta, o mándale el enlace. Para eso cambia el álbum a <b>Público</b>: los álbumes públicos se abren en el navegador sin iniciar sesión, con vista previa de la portada. Los álbumes de <b>Amigos</b> solo los ven tus amigos con sesión iniciada, y <b>Solo yo</b> no se abre por enlace. También puedes descargar el álbum entero como un archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Haz un álbum para tu tía",
+    "p": "Fotos, videos y voces de la familia en una historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historia →"
+  },
+  "cta2": {
+    "h2": "Un regalo con cariño",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empieza gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi tía?",
+      "Algo personal suele gustar mucho: un álbum con fotos de la familia, videos y mensajes de voz de sobrinos y primos."
+    ],
+    [
+      "¿El álbum es gratis?",
+      "Sí. Los álbumes de historia son gratis e ilimitados."
+    ],
+    [
+      "¿Mi tía necesita una cuenta?",
+      "No, si el álbum es público: el enlace se abre en el navegador."
+    ],
+    [
+      "¿Se puede descargar?",
+      "Sí, el álbum entero como un archivo ZIP."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-abuela",
+    "regalo-para-mi-hermana",
+    "album-fotos-para-mama"
+  ],
+  "date": "2026-11-24"
+}

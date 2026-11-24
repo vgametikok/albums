@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc tri ân khách hàng",
+  "title": "Tổ chức tiệc tri ân khách hàng: kịch bản và album ảnh | Albums.ink",
+  "desc": "Cách tổ chức tiệc tri ân khách hàng cuối năm: thư mời, backdrop, kịch bản chương trình và một mã QR để khách tải ảnh lên chung một album.",
+  "h1": "Tổ chức tiệc tri ân khách hàng và lưu lại ảnh của khách",
+  "lead": "Khi tìm “tiệc tri ân khách hàng”, các gợi ý thường gặp là “tổ chức”, “backdrop”, “thư mời”, “bài phát biểu”. Cuối năm là thời điểm nhiều doanh nghiệp tổ chức tiệc để cảm ơn khách hàng và đối tác. Dưới đây là các bước chuẩn bị và cách gom ảnh của khách mời vào một album.",
+  "body": [
+    "## Chuẩn bị",
+    "- <b>Thời gian và địa điểm:</b> nhà hàng, khách sạn hoặc không gian sự kiện, tránh trùng tiệc tất niên của khách.",
+    "- <b>Thư mời:</b> gửi sớm 2–3 tuần, có xác nhận tham dự.",
+    "- <b>Backdrop và khu check-in:</b> logo, thông điệp cảm ơn, nơi khách chụp ảnh.",
+    "- <b>Quà tặng:</b> quà nhỏ mang dấu ấn thương hiệu.",
+    "## Kịch bản chương trình gợi ý",
+    "1. Đón khách, check-in.",
+    "2. Phát biểu khai mạc và lời cảm ơn của lãnh đạo.",
+    "3. Vinh danh khách hàng, đối tác thân thiết.",
+    "4. Tiệc, văn nghệ, bốc thăm may mắn.",
+    "5. Chụp ảnh lưu niệm.",
+    "## Gom ảnh của khách vào một album",
+    "Khách mời và nhân viên đều chụp ảnh bằng điện thoại. Với <b>album sự kiện</b> của Albums, bạn gom tất cả về một chỗ:",
+    "1. Tạo album, ví dụ “Tiệc tri ân khách hàng 2026”.",
+    "2. In mã QR lên backdrop, bàn check-in hoặc thiệp để bàn.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt, không cần cài ứng dụng.",
+    "4. Bật <b>Tạm giữ ảnh của khách</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau sự kiện, tải toàn bộ album về thành một file ZIP cho bộ phận marketing.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ chứa ảnh do chính họ tải lên.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên</a> và <a href=\"/vi/guides/team-building-cong-ty/\">team building công ty</a>.",
+    "## Chi phí",
+    "Album sự kiện là gói mua một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Khách mời không phải trả phí. Ảnh tối đa 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn.",
+    "## Lưu ý",
+    "Nếu dùng ảnh của khách cho truyền thông, hãy xin phép trước."
+  ],
+  "cta": {
+    "h2": "Tạo album cho tiệc tri ân",
+    "p": "Một mã QR, mọi ảnh và video của khách mời ở cùng một chỗ.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Lưu lại khoảnh khắc với khách hàng",
+    "p": "Khách tải lên trên trình duyệt, bạn tải về toàn bộ album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    [
+      "Tiệc tri ân khách hàng thường tổ chức khi nào?",
+      "Nhiều doanh nghiệp tổ chức vào cuối năm hoặc dịp kỷ niệm thành lập."
+    ],
+    [
+      "Khách có cần cài ứng dụng không?",
+      "Không. Khách quét mã QR và tải lên trên trình duyệt."
+    ],
+    [
+      "Có duyệt ảnh trước khi hiển thị được không?",
+      "Có. Khi bật “Tạm giữ ảnh của khách”, ảnh chỉ hiện sau khi bạn duyệt."
+    ],
+    [
+      "Ảnh được lưu bao lâu?",
+      "6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn."
+    ]
+  ],
+  "related": [
+    "tiec-tat-nien",
+    "team-building-cong-ty",
+    "company-party-photo-sharing"
+  ],
+  "date": "2026-11-24"
+}
