@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara perpisahan sekolah",
+  "title": "Acara perpisahan sekolah: susunan acara dan foto | Albums.ink",
+  "desc": "Ide acara perpisahan sekolah untuk kelas 6, SMP, atau SMA: susunan acara, pentas seni, kenang-kenangan untuk guru, dan satu kode QR untuk mengumpulkan foto semua tamu.",
+  "h1": "Acara perpisahan sekolah yang berkesan",
+  "lead": "Saat mencari “acara perpisahan”, Google menyarankan “sekolah” dan “kelas 6”. Biasanya perpisahan digelar setelah ujian akhir, menjelang kelulusan. Berikut ide susunan acara – dan cara mudah mengumpulkan foto yang diambil semua orang dengan ponsel masing-masing.",
+  "body": [
+    "## Susunan acara",
+    "1. Pembukaan oleh MC dan doa.",
+    "2. Sambutan kepala sekolah dan perwakilan orang tua.",
+    "3. Sambutan perwakilan siswa.",
+    "4. Pentas seni: tari, paduan suara, drama, atau band kelas.",
+    "5. Pemberian kenang-kenangan untuk guru.",
+    "6. Pemutaran video kenangan dan foto bersama.",
+    "## Ide supaya berkesan",
+    "- Video berisi pesan dari setiap kelas untuk wali kelasnya.",
+    "- Photo booth dengan bingkai bertuliskan nama sekolah dan angkatan.",
+    "- Tema pakaian: kebaya dan batik, atau warna angkatan.",
+    "- Surat untuk diri sendiri lima tahun lagi.",
+    "## Semua foto dalam satu album",
+    "Hari itu siswa, guru, dan orang tua memotret dengan ponsel masing-masing. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Perpisahan Angkatan 2026”.",
+    "2. Cetak kode QR di meja tamu atau bagikan di grup WhatsApp orang tua.",
+    "3. Tamu memindai dengan kamera ponsel dan mengunggah foto serta video lewat browser, tanpa perlu instal apa pun.",
+    "4. Aktifkan <b>Tahan foto tamu</b> agar foto bisa dicek dulu sebelum tampil – penting karena banyak foto anak-anak.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/album-kenangan-sekolah/\">album kenangan sekolah</a> dan <a href=\"/id/guides/syukuran-wisuda/\">syukuran wisuda</a>.",
+    "## Harga",
+    "Album acara adalah pembelian sekali bayar: Small $39,99, Medium $69,99, atau Large $129,99 (USD). Gratis untuk tamu. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album perpisahan",
+    "p": "Satu kode QR, semua foto tamu di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan semua kenangan hari itu",
+    "p": "Tamu mengunggah lewat browser, Anda mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    [
+      "Apa saja susunan acara perpisahan sekolah?",
+      "Umumnya pembukaan dan doa, sambutan, pentas seni, pemberian kenang-kenangan untuk guru, video kenangan, lalu foto bersama."
+    ],
+    [
+      "Apakah tamu perlu instal sesuatu?",
+      "Tidak. Cukup pindai kode QR dan unggah lewat browser."
+    ],
+    [
+      "Bisakah foto dicek dulu sebelum tampil?",
+      "Bisa. Dengan “Tahan foto tamu”, unggahan baru tampil setelah Anda setujui."
+    ],
+    [
+      "Berapa lama foto disimpan?",
+      "6 bulan sejak unggahan pertama dan bisa diperpanjang."
+    ]
+  ],
+  "related": [
+    "album-kenangan-sekolah",
+    "syukuran-wisuda",
+    "acara-reuni-sekolah"
+  ],
+  "date": "2026-11-25"
+}

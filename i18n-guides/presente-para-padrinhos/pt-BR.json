@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para padrinhos",
+  "title": "Presente para padrinhos: um álbum de histórias | Albums.ink",
+  "desc": "Ideia de presente para padrinhos de batismo ou de casamento: um álbum grátis com fotos, vídeos e mensagens de voz, feito no navegador.",
+  "h1": "Presente para padrinhos que vira lembrança",
+  "lead": "Ao pesquisar “presente para padrinhos”, o Google sugere “de batismo”, “de casamento” e “simples”. Além da lembrancinha, um álbum de histórias com as fotos do grande dia e a voz de quem convidou os padrinhos é um presente que fica.",
+  "body": [
+    "## Por que um álbum de histórias",
+    "- Conta o papel dos padrinhos na vida da família.",
+    "- As fotos do batizado ou do casamento já estão com você e com os convidados.",
+    "- É grátis, então combina com uma lembrancinha simples.",
+    "## O que colocar",
+    "- <b>Batismo:</b> fotos na igreja, o padrinho e a madrinha com o bebê, a festa depois.",
+    "- <b>Casamento:</b> o convite aos padrinhos, a cerimônia, a festa, a viagem.",
+    "- Uma mensagem de voz dos pais do afilhado ou dos noivos.",
+    "- Para batizado: um áudio “do bebê” narrado pelos pais, para ouvir daqui a alguns anos.",
+    "## Ideias de capítulos",
+    "1. Por que escolhemos vocês.",
+    "2. O grande dia.",
+    "3. A festa.",
+    "4. Obrigado, padrinhos.",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e narrado com a sua voz. Álbuns e posts são ilimitados e ficam guardados pelo tempo que você quiser. Fotos grátis são salvas com até 2048 px no lado maior.",
+    "1. Entre com Google e crie um álbum, por exemplo “Para a dinda Carla e o dindo Rafa”.",
+    "2. Reúna as fotos do dia e peça áudios para a família.",
+    "3. Organize em capítulos com uma frase em cada um.",
+    "4. Álbuns novos ficam como <b>Público</b>. Para fazer surpresa enquanto prepara sozinho, escolha <b>Só eu</b>.",
+    "5. Você pode adicionar um coautor, por exemplo seu marido ou esposa, se forem amigos no Albums. Só eu bloqueia também o coautor: enquanto trabalham juntos, escolha <b>Amigos, exceto…</b> e exclua todos os outros (confira de novo ao adicionar amigos).",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-afilhada/\">presente para afilhada</a> e <a href=\"/pt-BR/guides/festa-de-batizado/\">festa de batizado</a>.",
+    "## Como entregar",
+    "Entregue junto com a lembrancinha e mande o link. Para isso, mude o álbum para <b>Público</b>: álbuns públicos abrem no navegador sem login, com prévia da capa. Álbuns em <b>Amigos</b> só aparecem para seus amigos conectados, e Só eu não abre por link. Também dá para baixar o álbum inteiro em um único ZIP."
+  ],
+  "cta": {
+    "h2": "Crie o álbum para os padrinhos",
+    "p": "Fotos, vídeos e vozes da família em uma só história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados, guardados pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para padrinhos de batismo?",
+      "Uma lembrancinha com um álbum de histórias do batizado: fotos da igreja e da festa, e mensagens de voz dos pais."
+    ],
+    [
+      "O álbum é grátis?",
+      "Sim. Álbuns de histórias são grátis e ilimitados."
+    ],
+    [
+      "Os padrinhos precisam de conta para ver?",
+      "Não, se o álbum for Público: o link abre no navegador. Álbuns em Amigos exigem login e amizade no Albums."
+    ],
+    [
+      "Dá para baixar o álbum?",
+      "Sim, o álbum inteiro em um único arquivo ZIP."
+    ]
+  ],
+  "related": [
+    "presente-para-afilhada",
+    "festa-de-batizado",
+    "album-de-recordacoes"
+  ],
+  "date": "2026-11-25"
+}

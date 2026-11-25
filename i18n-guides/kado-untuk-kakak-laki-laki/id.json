@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "kado untuk kakak laki laki",
+  "title": "Kado untuk kakak laki-laki: album kenangan bersaudara | Albums.ink",
+  "desc": "Ide kado untuk kakak laki-laki yang murah tapi berkesan: album cerita gratis berisi foto, video, dan pesan suara keluarga, dibuat lewat browser.",
+  "h1": "Kado untuk kakak laki-laki yang murah tapi berkesan",
+  "lead": "Ketik “kado untuk kakak laki laki” dan Google menyarankan “yang murah”, “ulang tahun”, “wisuda”, dan “yang menikah”. Selain barang, ada kado yang tidak bisa dibeli: kenangan kalian sejak kecil, diceritakan dengan suara keluarga.",
+  "body": [
+    "## Kenapa album cerita",
+    "- Kakak mungkin jarang bilang, tapi kenangan masa kecil selalu berarti.",
+    "- Fotonya sudah ada: di grup keluarga dan album lama orang tua.",
+    "- Gratis, jadi cocok untuk kado murah atau pelengkap kado lain.",
+    "## Isi yang cocok",
+    "- Foto masa kecil berdua: mudik Lebaran, liburan, main di rumah nenek.",
+    "- Momen penting kakak: wisuda, kerja pertama, pernikahan.",
+    "- Pesan suara dari Anda, adik-adik lain, dan orang tua.",
+    "- Video singkat ucapan dari keponakan, kalau ada.",
+    "## Ide bab",
+    "1. Waktu kita kecil.",
+    "2. Mudik dan liburan keluarga.",
+    "3. Kakak sekarang.",
+    "4. Terima kasih, Kak.",
+    "## Cara membuat (gratis)",
+    "Di Albums Anda membuat <b>album cerita</b> dari foto, video, dan catatan suara, dibagi per bab dan dinarasikan dengan suara Anda sendiri. Album dan postingan tidak terbatas dan tetap ada selama Anda mau. Foto gratis disimpan hingga 2048 px di sisi panjang.",
+    "1. Masuk dengan Google dan buat album, misalnya “Selamat ulang tahun, Bang Dimas”.",
+    "2. Minta keluarga mengirim foto dan pesan suara.",
+    "3. Susun per bab dan tulis satu kalimat di setiap bab.",
+    "4. Album baru otomatis <b>Publik</b>. Kalau ingin jadi kejutan, pilih <b>Hanya saya</b> selama Anda menyiapkannya sendiri.",
+    "5. Anda bisa menambah satu rekan penulis, misalnya adik, jika sudah berteman di Albums. Hanya saya juga menutup album untuk rekan penulis, jadi saat mengerjakan bersama pilih <b>Teman, kecuali…</b> dan kecualikan semua teman lain (cek lagi setelah menambah teman baru).",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/kado-untuk-kakak-perempuan/\">kado untuk kakak perempuan</a> dan <a href=\"/id/guides/kado-untuk-sahabat/\">kado untuk sahabat</a>.",
+    "## Cara memberikannya",
+    "Tonton bersama di TV atau tablet, atau kirim tautannya. Untuk itu ubah album ke <b>Publik</b>: album publik terbuka di browser tanpa masuk, dengan pratinjau sampul. Album <b>Teman</b> hanya bisa dilihat teman yang sudah masuk, dan Hanya saya tidak bisa dibuka lewat tautan. Seluruh album juga bisa diunduh sebagai satu file ZIP."
+  ],
+  "cta": {
+    "h2": "Buat album untuk kakak",
+    "p": "Foto, video, dan suara keluarga dalam satu cerita. Gratis di browser.",
+    "btn": "Buat album cerita →"
+  },
+  "cta2": {
+    "h2": "Kado yang tidak bisa dibeli",
+    "p": "Album tanpa batas, tetap ada selama Anda mau.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    [
+      "Kado apa yang murah tapi berkesan untuk kakak laki-laki?",
+      "Album cerita berisi foto masa kecil, momen penting, dan pesan suara keluarga – gratis dan bisa digabung dengan kado kecil."
+    ],
+    [
+      "Apakah albumnya gratis?",
+      "Ya. Album cerita gratis dan tanpa batas."
+    ],
+    [
+      "Apakah kakak perlu akun untuk melihatnya?",
+      "Tidak, jika album Publik: tautan langsung terbuka di browser. Album Teman memerlukan masuk dan pertemanan di Albums."
+    ],
+    [
+      "Bisakah album diunduh?",
+      "Bisa, seluruh album sebagai satu file ZIP."
+    ]
+  ],
+  "related": [
+    "kado-untuk-kakak-perempuan",
+    "kado-untuk-sahabat",
+    "album-foto-keluarga"
+  ],
+  "date": "2026-11-25"
+}

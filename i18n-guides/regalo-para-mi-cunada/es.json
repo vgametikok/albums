@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AR",
+  "query": "regalo para mi cuñada",
+  "title": "Regalo para mi cuñada: un álbum de fotos con historia | Albums.ink",
+  "desc": "Una idea de regalo para tu cuñada en su cumpleaños o en Navidad: un álbum gratis con fotos, videos y mensajes de voz de la familia, hecho desde el navegador.",
+  "h1": "Regalo para tu cuñada: algo personal y que no se compra",
+  "lead": "Si buscás “regalo para mi cuñada”, Google te sugiere “en su cumpleaños”, “en Navidad” y “original”. Antes de caer en el perfume o la taza, pensá en algo que nadie más le puede dar: un álbum con la historia de ustedes como familia, contado con fotos y con tu voz.",
+  "body": [
+    "## Por qué un álbum con historia",
+    "- Habla de ella y de la familia, no de adivinar sus gustos.",
+    "- Las fotos ya existen: están repartidas en el grupo de WhatsApp de la familia.",
+    "- Es gratis, así que lo podés sumar a un regalo chico: un vino, unas flores, algo rico.",
+    "## Qué poner",
+    "- Momentos del año: el asado del domingo, un cumpleaños, unas vacaciones en la costa.",
+    "- Fotos con sus hijos o con los tuyos: los primos juntos.",
+    "- Un audio de tu pareja (su hermano o hermana) y otro tuyo.",
+    "- Alguna foto vieja, si tu pareja la encuentra en la casa de sus viejos.",
+    "## Ideas de capítulos",
+    "1. Cómo nos conocimos.",
+    "2. Los primos.",
+    "3. Asados y cumpleaños.",
+    "4. Gracias por estar.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums creás un <b>álbum con historia</b> con fotos, videos y notas de voz, dividido en capítulos y narrado con tu propia voz. Los álbumes y publicaciones son ilimitados y se quedan todo el tiempo que quieras. Las fotos gratis se guardan hasta 2048 px en el lado largo.",
+    "1. Entrá con Google y creá un álbum, por ejemplo “Para Lucía – feliz cumple”.",
+    "2. Pedile a tu pareja y a la familia que te pasen fotos y audios.",
+    "3. Armá los capítulos y escribí una línea debajo de cada uno.",
+    "4. Los álbumes nuevos son <b>Público</b> por defecto. Para que sea sorpresa, ponelo en <b>Solo yo</b> mientras lo armás solo o sola.",
+    "5. Podés sumar un coautor, por ejemplo tu pareja, si son amigos en Albums. Solo yo también deja afuera al coautor: mientras trabajen juntos, elegí <b>Amigos, excepto…</b> y excluí a todos los demás (revisalo de nuevo si agregás amigos).",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-hermana/\">regalo para mi hermana</a> y <a href=\"/es/guides/regalo-para-mi-suegra/\">regalo para mi suegra</a>.",
+    "## Cómo regalarlo",
+    "Mírenlo juntos en la tele o en una tablet. Para mandarlo, cambialo a <b>Público</b>: los álbumes públicos se abren en el navegador sin iniciar sesión y con vista previa de la portada. Los álbumes en <b>Amigos</b> solo los ven tus amigos con sesión iniciada, y los de Solo yo no se abren por enlace. También podés descargar el álbum entero en un solo ZIP."
+  ],
+  "cta": {
+    "h2": "Armá el álbum para tu cuñada",
+    "p": "Fotos, videos y voces de la familia en una sola historia. Gratis en el navegador.",
+    "btn": "Crear un álbum con historia →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que se quedan todo el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le puedo regalar a mi cuñada?",
+      "Algo personal suele funcionar mejor: un álbum con fotos de la familia, videos de los primos y mensajes de voz."
+    ],
+    [
+      "¿El álbum es gratis?",
+      "Sí. Los álbumes con historia son gratis e ilimitados."
+    ],
+    [
+      "¿Necesita una cuenta para verlo?",
+      "No, si el álbum es Público: el enlace se abre en el navegador. Los álbumes en Amigos requieren que inicie sesión y sea tu amiga en Albums."
+    ],
+    [
+      "¿Se puede descargar?",
+      "Sí, el álbum entero se descarga en un solo archivo ZIP."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-hermana",
+    "regalo-para-mi-suegra",
+    "regalo-para-mi-hermano"
+  ],
+  "date": "2026-11-25"
+}

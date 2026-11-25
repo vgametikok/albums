@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CA",
+  "query": "cadeau pour mon beau-père",
+  "title": "Cadeau pour mon beau-père : un album photo raconté | Albums.ink",
+  "desc": "Idée cadeau pour ton beau-père à Noël ou à sa fête : un album gratuit avec photos, vidéos et messages vocaux de la famille, créé dans ton navigateur.",
+  "h1": "Un cadeau pour ton beau-père qui vient du cœur",
+  "lead": "Quand on cherche « cadeau pour mon beau-père », Google suggère « Noël », « 70 ans » et « anniversaire ». Qu’il s’agisse du père de ton chum ou de ta blonde, ou du conjoint de ta mère, un album raconté de vos moments en famille est un cadeau qu’il ne trouvera pas en magasin.",
+  "body": [
+    "## Pourquoi un album raconté",
+    "- Il parle de lui et de la famille, pas d’un autre gadget.",
+    "- Les photos existent déjà : dans les téléphones et la conversation de groupe de la famille.",
+    "- C’est gratuit, donc facile à joindre à un petit cadeau pour les Fêtes.",
+    "## Quoi mettre dedans",
+    "- Les moments de l’année : le chalet, la cabane à sucre, une partie de hockey, le souper du dimanche.",
+    "- Les petits-enfants : photos, vidéos et un « Joyeux Noël, grand-papa » enregistré.",
+    "- Quelques vieilles photos, si ta blonde ou ton chum en trouve chez ses parents.",
+    "- Un message vocal de toi : merci pour l’accueil dans la famille.",
+    "## Idées de chapitres",
+    "1. Bienvenue dans la famille.",
+    "2. Au chalet.",
+    "3. Les petits-enfants.",
+    "4. Merci.",
+    "## Comment le faire (gratuit)",
+    "Sur Albums, tu crées un <b>album raconté</b> à partir de photos, vidéos et notes vocales, en chapitres, avec ta propre voix en narration. Les albums et publications sont illimités et restent aussi longtemps que tu le souhaites. Les photos gratuites sont conservées jusqu’à 2048 px sur le grand côté.",
+    "1. Connecte-toi avec Google et crée un album, par ex. « Noël 2026 – pour Michel ».",
+    "2. Demande à ton chum ou ta blonde et au reste de la famille d’envoyer photos et messages vocaux.",
+    "3. Ajoute-les chapitre par chapitre avec une phrase sous chacun.",
+    "4. Les nouveaux albums sont <b>Public</b> par défaut. Pour garder la surprise, mets-le sur <b>Moi seulement</b> pendant que tu y travailles seul.",
+    "5. Tu peux ajouter un coauteur, par exemple ton chum ou ta blonde, si vous êtes amis sur Albums. Moi seulement bloque aussi le coauteur : pendant que vous travaillez ensemble, choisis <b>Amis, sauf…</b> et exclus tous les autres (revérifie après chaque nouvel ami).",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/cadeau-pour-ma-belle-mere/\">cadeau pour ma belle-mère</a> et <a href=\"/fr/guides/cadeau-anniversaire-papa/\">cadeau d’anniversaire pour papa</a>.",
+    "## Comment l’offrir",
+    "Regardez-le ensemble à la télé ou sur une tablette pendant les Fêtes. Pour l’envoyer, passe-le en <b>Public</b> : les albums publics s’ouvrent dans le navigateur sans connexion, avec un aperçu de la couverture. Les albums <b>Amis</b> ne sont visibles que par tes amis connectés, et Moi seulement ne s’ouvre pas par lien. Tout l’album peut aussi être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Crée l’album pour ton beau-père",
+    "p": "Photos, vidéos et voix de la famille dans une seule histoire. Gratuit dans le navigateur.",
+    "btn": "Créer un album raconté →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s’achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que tu le souhaites.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quoi offrir à son beau-père qui a déjà tout ?",
+      "Un cadeau personnel marque souvent plus : un album raconté avec les photos de la famille, les vidéos des petits-enfants et des messages vocaux."
+    ],
+    [
+      "L’album est-il gratuit ?",
+      "Oui. Les albums racontés sont gratuits et illimités."
+    ],
+    [
+      "A-t-il besoin d’un compte pour le voir ?",
+      "Pas si l’album est Public : le lien s’ouvre dans le navigateur. Les albums Amis demandent qu’il soit connecté et ton ami sur Albums."
+    ],
+    [
+      "Peut-on télécharger l’album ?",
+      "Oui, tout l’album en un seul fichier ZIP."
+    ]
+  ],
+  "related": [
+    "cadeau-pour-ma-belle-mere",
+    "cadeau-anniversaire-papa",
+    "cadeau-de-noel-pour-mes-parents"
+  ],
+  "date": "2026-11-25"
+}
