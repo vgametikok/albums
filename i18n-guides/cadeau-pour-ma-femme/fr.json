@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "cadeau pour ma femme",
+  "title": "Cadeau pour ma femme : un album de nos souvenirs | Albums.ink",
+  "desc": "Cadeau pour ma femme pour son anniversaire, ses 40 ou 50 ans ou Noël : un album-récit gratuit avec vos photos, vidéos et messages vocaux.",
+  "h1": "Cadeau pour ma femme : l’album de votre histoire",
+  "lead": "En tapant « cadeau pour ma femme », Google propose « anniversaire », « 40 ans », « 50 ans » et « Noël ». Après des années ensemble, trouver une idée qui la touche vraiment n’est pas simple. Un album-récit de votre histoire, avec photos, vidéos et votre voix, est gratuit et se combine avec un petit cadeau.",
+  "body": [
+    "## Pour quelle occasion ?",
+    "- <b>Anniversaire</b>, surtout un anniversaire rond : 30, 40, 50 ans.",
+    "- <b>Noël</b> : l’année écoulée en famille, chapitre par chapitre.",
+    "- <b>Anniversaire de mariage</b> : de la rencontre à aujourd’hui.",
+    "- <b>Après une naissance</b> : les premiers mois avec bébé.",
+    "## Que mettre dedans",
+    "- Vos premières photos ensemble, le mariage, les voyages.",
+    "- Des vidéos courtes : un fou rire, une danse, les enfants.",
+    "- Des messages vocaux des enfants, de ses amies ou de ses parents.",
+    "- Une phrase de vous sous chaque chapitre.",
+    "## Idées de chapitres",
+    "1. Notre rencontre.",
+    "2. Nos voyages.",
+    "3. Notre famille.",
+    "4. Ce que j’aime chez toi.",
+    "## Comment faire (gratuit)",
+    "Sur Albums, vous créez un <b>album-récit</b> à partir de photos, vidéos et notes vocales, découpé en chapitres et raconté avec votre propre voix. Les albums et publications sont illimités et restent aussi longtemps que vous le souhaitez. Les photos gratuites sont conservées jusqu’à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google ou Telegram et créez un album, par exemple « Pour Claire, nos 15 ans ».",
+    "2. Rassemblez photos et vidéos de votre téléphone, et demandez des messages vocaux à ses proches.",
+    "3. Ajoutez-les chapitre par chapitre avec quelques mots.",
+    "4. Les nouveaux albums sont en <b>Public</b>. Pour garder la surprise, choisissez <b>Moi seulement</b> pendant la préparation. Si un coauteur vous aide, ne laissez pas l’album sur Moi seulement : il perdrait l’accès. Pendant le travail commun, utilisez Amis ou « Amis, sauf… », puis passez en Public pour envoyer le lien.",
+    "5. Vous pouvez ajouter un coauteur, par exemple un proche ou un de vos enfants, s’il figure dans votre liste d’amis sur Albums.",
+    "!cta",
+    "Autres idées : <a href=\"/fr/guides/cadeau-pour-mon-mari/\">cadeau pour mon mari</a> et <a href=\"/fr/guides/album-photo-couple/\">album photo couple</a>.",
+    "## Comment l’offrir",
+    "Regardez-le ensemble sur la télé ou une tablette, ou envoyez-lui le lien. Pour cela, passez l’album en <b>Public</b> : les albums publics s’ouvrent dans le navigateur sans connexion, avec un aperçu de la couverture. Un album en <b>Amis</b> n’est visible que par vos amis connectés, et <b>Moi seulement</b> ne s’ouvre pas par lien. Vous pouvez aussi télécharger l’album entier en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créez un album pour votre femme",
+    "p": "Photos, vidéos et voix réunies dans une histoire. Gratuit dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui raconte votre histoire",
+    "p": "Albums illimités, qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau original pour ma femme ?",
+      "Un cadeau personnel touche souvent plus qu’un objet : par exemple un album de votre histoire avec photos, vidéos et messages vocaux."
+    ],
+    [
+      "L’album est-il gratuit ?",
+      "Oui. Les albums-récits sont gratuits et illimités."
+    ],
+    [
+      "Ma femme doit-elle créer un compte ?",
+      "Non, si l’album est public : le lien s’ouvre dans le navigateur."
+    ],
+    [
+      "Peut-on télécharger l’album ?",
+      "Oui, l’album entier en un seul fichier ZIP."
+    ]
+  ],
+  "related": [
+    "cadeau-pour-mon-mari",
+    "album-photo-couple",
+    "album-photo-grossesse"
+  ],
+  "date": "2026-11-24"
+}

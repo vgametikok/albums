@@ -1,0 +1,68 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CO",
+  "query": "noche de velitas",
+  "title": "Noche de velitas: ideas para celebrarla en familia | Albums.ink",
+  "desc": "Ideas para la noche de velitas en Colombia: velas y faroles, natilla y buñuelos, cuidados con los niños y un código QR para reunir las fotos de todos.",
+  "h1": "Noche de velitas: cómo celebrarla en familia y guardar las fotos",
+  "lead": "La noche de velitas, el 7 de diciembre, abre la Navidad en Colombia. En Google la gente busca su “significado”, “mensajes” y “frases”. Aquí van ideas para organizarla en casa, en el conjunto o con la familia – y una forma fácil de reunir las fotos que toma cada invitado.",
+  "body": [
+    "## Qué se celebra",
+    "- La noche del 7 de diciembre, víspera de la fiesta de la Inmaculada Concepción (8 de diciembre).",
+    "- Las familias encienden velas y faroles en andenes, ventanas, balcones y frentes de las casas.",
+    "- Para muchas familias es el inicio oficial de la temporada navideña.",
+    "## Ideas para la noche",
+    "- Faroles de papel hechos por los niños, con su nombre o un deseo.",
+    "- Una vela por cada miembro de la familia, o una por cada deseo para el año.",
+    "- Natilla, buñuelos y algo caliente para compartir con los vecinos.",
+    "- En un conjunto residencial: encender las velas todos a la misma hora y hacer una foto de grupo.",
+    "- Seguridad: velas lejos de cortinas y matas, un adulto pendiente de los niños y nada de pólvora con menores.",
+    "## Todas las fotos en un álbum",
+    "Esa noche cada quien toma fotos con su celular. Con un <b>álbum de evento</b> en Albums las juntas en un solo lugar:",
+    "1. Crea el álbum, por ejemplo “Velitas 2026 – familia Restrepo”.",
+    "2. Imprime el código QR y ponelo en la mesa de la natilla o en la portería del conjunto.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Retener las fotos de los invitados</b> si quieres aprobar cada foto antes de que aparezca – útil cuando hay niños en las fotos.",
+    "5. Después, descarga el álbum completo en un solo ZIP.",
+    "Los invitados que suben sin iniciar sesión aparecen como anónimos. Los que inician sesión reciben además una copia privada en borrador solo con sus propias fotos.",
+    "!cta",
+    "Más: <a href=\"/es/guides/novena-de-aguinaldos/\">novena de aguinaldos</a> y <a href=\"/es/guides/fiesta-de-fin-de-ano/\">fiesta de fin de año</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small $39.99, Medium $69.99 o Large $129.99 (USD). Para los invitados es gratis. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de velitas",
+    "p": "Un código QR, todas las fotos de la familia en un lugar.",
+    "btn": "Crear un álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarda la noche de velitas",
+    "p": "Los invitados suben desde el navegador y tú descargas todo el álbum.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    [
+      "¿Qué significa la noche de velitas?",
+      "Se celebra la noche del 7 de diciembre, víspera de la Inmaculada Concepción, encendiendo velas y faroles. Para muchas familias marca el inicio de la Navidad."
+    ],
+    [
+      "¿Los invitados deben instalar algo?",
+      "No. Escanean el código QR y suben las fotos desde el navegador."
+    ],
+    [
+      "¿Puedo revisar las fotos antes de que aparezcan?",
+      "Sí. Con “Retener las fotos de los invitados” las fotos aparecen solo después de tu aprobación."
+    ],
+    [
+      "¿Cuánto tiempo se guardan las fotos?",
+      "6 meses desde la primera subida, y el álbum se puede extender."
+    ]
+  ],
+  "related": [
+    "novena-de-aguinaldos",
+    "fiesta-de-fin-de-ano",
+    "posada-navidena"
+  ],
+  "date": "2026-11-25"
+}

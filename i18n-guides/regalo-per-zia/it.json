@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per zia",
+  "title": "Regalo per zia: un album di ricordi dai nipoti | Albums.ink",
+  "desc": "Un’idea regalo per la zia, per il compleanno o per Natale: un album gratuito con foto, video e messaggi vocali dei nipoti, creato dal browser.",
+  "h1": "Regalo per la zia: un album di ricordi dai nipoti",
+  "lead": "Cercando “regalo per zia”, Google suggerisce “da nipote”, “50 anni”, “60 anni” e “Natale”. Oltre al mazzo di fiori o al profumo, c’è un regalo che solo voi nipoti potete fare: i ricordi con lei, raccontati con le vostre voci.",
+  "body": [
+    "## Perché un album di storie",
+    "- La zia c’è stata in tanti momenti: compleanni, estati al mare, pranzi della domenica.",
+    "- Le foto esistono già: nel gruppo di famiglia e negli album dei genitori.",
+    "- È gratis, quindi si abbina bene a un piccolo regalo.",
+    "## Cosa metterci",
+    "- Foto di voi bambini con la zia: vacanze, feste, la prima comunione.",
+    "- Una foto della zia da giovane, se la trovate a casa dei nonni.",
+    "- Messaggi vocali dei nipoti e dei cugini.",
+    "- Un breve video di auguri da tutta la famiglia.",
+    "## Idee per i capitoli",
+    "1. La zia da giovane.",
+    "2. Le nostre estati.",
+    "3. Le feste in famiglia.",
+    "4. Grazie, zia.",
+    "## Come farlo (gratis)",
+    "Su Albums crei un <b>album di storie</b> con foto, video e note vocali, diviso in capitoli e narrato con la tua voce. Album e post sono illimitati e restano finché vuoi. Le foto gratuite vengono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google o Telegram e crea un album, ad esempio “Per la zia Anna – buon compleanno”.",
+    "2. Chiedi a cugini e genitori di mandarti foto e vocali.",
+    "3. Organizza i capitoli e scrivi una frase sotto ciascuno.",
+    "4. I nuovi album sono <b>Pubblico</b> per impostazione predefinita. Per la sorpresa, mentre ci lavori da solo, imposta <b>Solo io</b>.",
+    "5. Puoi aggiungere un coautore, ad esempio un cugino, se siete amici su Albums. Solo io esclude anche il coautore: mentre lavorate insieme scegli <b>Amici, tranne…</b> ed escludi tutti gli altri (ricontrolla quando aggiungi nuovi amici).",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/regalo-per-sorella/\">regalo per sorella</a> e <a href=\"/it/guides/album-foto-nonna/\">album foto per la nonna</a>.",
+    "## Come regalarlo",
+    "Guardatelo insieme sulla TV o su un tablet. Per inviarlo, passa l’album a <b>Pubblico</b>: gli album pubblici si aprono nel browser senza accesso, con l’anteprima della copertina. Gli album <b>Amici</b> li vedono solo i tuoi amici che hanno effettuato l’accesso, e Solo io non si apre tramite link. Puoi anche scaricare l’intero album in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Crea l’album per la zia",
+    "p": "Foto, video e voci della famiglia in un’unica storia. Gratis nel browser.",
+    "btn": "Crea un album di storie →"
+  },
+  "cta2": {
+    "h2": "Un regalo che non si compra",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare a una zia?",
+      "Un regalo personale funziona sempre: un album di storie con foto di famiglia, video e messaggi vocali dei nipoti, magari con dei fiori."
+    ],
+    [
+      "L’album è gratis?",
+      "Sì. Gli album di storie sono gratuiti e illimitati."
+    ],
+    [
+      "La zia deve avere un account?",
+      "No, se l’album è Pubblico: il link si apre nel browser. Gli album Amici richiedono l’accesso e l’amicizia su Albums."
+    ],
+    [
+      "Si può scaricare l’album?",
+      "Sì, l’intero album in un unico file ZIP."
+    ]
+  ],
+  "related": [
+    "regalo-per-sorella",
+    "album-foto-nonna",
+    "regalo-per-i-genitori"
+  ],
+  "date": "2026-11-25"
+}

@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng mẹ vợ",
+  "title": "Quà tặng mẹ vợ ý nghĩa: album kỷ niệm gia đình | Albums.ink",
+  "desc": "Gợi ý quà tặng mẹ vợ nhân sinh nhật, 8/3, 20/10 hay Tết: một album câu chuyện miễn phí với ảnh, video và lời chúc bằng giọng nói.",
+  "h1": "Quà tặng mẹ vợ: món quà từ cả gia đình",
+  "lead": "Gõ “quà tặng mẹ vợ”, Google gợi ý “sinh nhật”, “tương lai”, “ngày 8/3” và “Tết”. Bên cạnh giỏ quà hay tổ yến, một album kể lại những khoảnh khắc của gia đình sẽ khiến mẹ vợ cảm động – và hoàn toàn miễn phí.",
+  "body": [
+    "## Vì sao chọn album câu chuyện",
+    "- Mẹ quý nhất là thấy con cháu sum vầy, khỏe mạnh.",
+    "- Ảnh đã có sẵn trong điện thoại và nhóm chat gia đình.",
+    "- Miễn phí, dễ đi kèm một món quà nhỏ dịp sinh nhật hay Tết.",
+    "## Nên đưa gì vào",
+    "- Ảnh cưới, ảnh những lần về thăm nhà ngoại.",
+    "- Ảnh và video các cháu, kèm lời chúc “Bà ngoại ơi, chúc bà luôn khỏe”.",
+    "- Ảnh mẹ thời trẻ, nếu vợ bạn tìm được trong album cũ.",
+    "- Một ghi âm của bạn: cảm ơn mẹ đã tin tưởng gả con gái.",
+    "## Gợi ý chương",
+    "1. Ngày con về làm rể.",
+    "2. Những lần về quê ngoại.",
+    "3. Các cháu của bà.",
+    "4. Cảm ơn mẹ.",
+    "## Cách làm (miễn phí)",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành từng chương và thêm lời kể bằng giọng của mình. Album và bài đăng không giới hạn, được giữ lại bao lâu tùy bạn muốn. Ảnh miễn phí được lưu tối đa 2048 px ở cạnh dài.",
+    "1. Đăng nhập bằng Google hoặc Telegram và tạo album, ví dụ “Chúc mừng sinh nhật mẹ”.",
+    "2. Nhờ vợ và anh chị em gửi ảnh, ghi âm lời chúc.",
+    "3. Sắp xếp theo chương và viết một dòng dưới mỗi chương.",
+    "4. Album mới mặc định là <b>Công khai</b>. Muốn giữ bí mật khi tự chuẩn bị, hãy chọn <b>Chỉ mình tôi</b>.",
+    "5. Có thể thêm 1 đồng tác giả là người đã là bạn bè trên Albums, ví dụ vợ bạn. Chế độ Chỉ mình tôi cũng chặn cả đồng tác giả, nên khi làm cùng nhau hãy chọn <b>Bạn bè, trừ…</b> và loại trừ những người còn lại (kiểm tra lại khi có bạn mới).",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/qua-tang-me-chong/\">quà tặng mẹ chồng</a>, <a href=\"/vi/guides/qua-tang-bo-me/\">quà tặng bố mẹ</a>.",
+    "## Cách tặng",
+    "Cùng xem trên TV hoặc máy tính bảng khi về thăm nhà. Để gửi link, hãy chuyển album sang <b>Công khai</b>: album công khai mở được trên trình duyệt mà không cần đăng nhập, có ảnh bìa xem trước. Album <b>Bạn bè</b> chỉ bạn bè đã đăng nhập mới xem được, còn Chỉ mình tôi thì không mở được bằng link. Có thể tải toàn bộ album thành một file ZIP."
+  ],
+  "cta": {
+    "h2": "Tạo album tặng mẹ vợ",
+    "p": "Ảnh, video và giọng nói của cả nhà trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà không mua được",
+    "p": "Album không giới hạn, giữ lại bao lâu tùy bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Nên tặng gì cho mẹ vợ?",
+      "Quà mang tính cá nhân thường ý nghĩa nhất: một album câu chuyện với ảnh gia đình, video các cháu và lời chúc bằng giọng nói, đi kèm món quà nhỏ."
+    ],
+    [
+      "Album có miễn phí không?",
+      "Có. Album câu chuyện miễn phí và không giới hạn."
+    ],
+    [
+      "Mẹ có cần tài khoản để xem không?",
+      "Không, nếu album ở chế độ Công khai: link mở ngay trên trình duyệt. Album Bạn bè cần đăng nhập và là bạn bè trên Albums."
+    ],
+    [
+      "Có tải album về được không?",
+      "Có, toàn bộ album thành một file ZIP."
+    ]
+  ],
+  "related": [
+    "qua-tang-me-chong",
+    "qua-tang-bo-me",
+    "album-anh-gia-dinh"
+  ],
+  "date": "2026-11-25"
+}

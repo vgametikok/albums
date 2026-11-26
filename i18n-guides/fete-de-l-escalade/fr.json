@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "fête de l’escalade",
+  "title": "Fête de l’Escalade : idées et photos de famille | Albums.ink",
+  "desc": "Fêter l’Escalade à Genève en famille, à l’école ou entre amis : marmite en chocolat, costumes, soupe, vin chaud – et toutes les photos des invités via un QR code.",
+  "h1": "Fêter l’Escalade : idées pour une soirée à la genevoise",
+  "lead": "Chaque décembre, « fête de l’Escalade » fait partie des recherches les plus courantes à Genève, avec la date et le programme. Au-delà du cortège en Vieille-Ville, beaucoup fêtent l’Escalade à la maison, à l’école ou au bureau. Voici des idées – et un moyen simple de réunir les photos de tout le monde.",
+  "body": [
+    "## Un peu d’histoire",
+    "L’Escalade commémore la nuit du 11 au 12 décembre 1602, quand Genève a repoussé l’attaque des troupes du duc de Savoie. Selon la légende, la Mère Royaume a jeté une marmite de soupe brûlante sur un assaillant. D’où la marmite en chocolat qu’on casse aujourd’hui.",
+    "## Le rituel de la marmite",
+    "- La marmite se casse traditionnellement par le plus jeune et le plus âgé de la tablée, d’un coup sur la marmite.",
+    "- On prononce la phrase consacrée : « Ainsi périrent les ennemis de la République ! »",
+    "- Puis tout le monde partage les légumes en massepain et les pétards en chocolat.",
+    "## Idées pour la soirée",
+    "- <b>Costumes :</b> les enfants se déguisent et chantent le « Cé qu’è lainô », l’hymne de l’Escalade, chez les voisins ou dans les commerces.",
+    "- <b>À table :</b> une soupe aux légumes en clin d’œil à la Mère Royaume, puis du vin chaud (et un jus chaud pour les enfants).",
+    "- <b>Sortie :</b> le cortège historique en Vieille-Ville, ou la Course de l’Escalade si la famille court.",
+    "- <b>Quiz :</b> quelques questions sur 1602 pour les grands comme pour les petits.",
+    "## Toutes les photos au même endroit",
+    "Entre la marmite, les costumes et le cortège, chacun prend des photos avec son natel. Avec un <b>album d’événement</b> sur Albums, tout arrive au même endroit :",
+    "1. Créez l’album, par ex. « Escalade 2026 chez nous ».",
+    "2. Posez le QR code à côté de la marmite ou envoyez-le dans le groupe de la famille ou de la classe.",
+    "3. Les invités le scannent avec l’appareil photo du téléphone et envoient photos et vidéos depuis le navigateur, sans application.",
+    "4. Activez <b>Retenir les photos des invités</b> pour valider les envois avant qu’ils n’apparaissent – utile quand il y a des enfants sur les photos.",
+    "5. Ensuite, téléchargez tout l’album en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie privée en brouillon avec uniquement leurs propres envois.",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/fete-de-saint-nicolas/\">fête de la Saint-Nicolas</a> et <a href=\"/fr/guides/idee-soiree-nouvel-an/\">idées de soirée du Nouvel An</a>.",
+    "## Prix",
+    "L’album d’événement est un achat unique : Small $39.99, Medium $69.99 ou Large $129.99 (USD). Gratuit pour les invités. Photos jusqu’en 4K ; l’album est conservé 6 mois à partir du premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créer l’album de votre Escalade",
+    "p": "Un QR code, toutes les photos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez les photos de la soirée",
+    "p": "Les invités envoient depuis le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    [
+      "Qui casse la marmite de l’Escalade ?",
+      "Traditionnellement le plus jeune et le plus âgé de la tablée, en disant « Ainsi périrent les ennemis de la République ! »."
+    ],
+    [
+      "Que commémore la fête de l’Escalade ?",
+      "La nuit du 11 au 12 décembre 1602, quand Genève a repoussé l’attaque savoyarde."
+    ],
+    [
+      "Les invités doivent-ils installer une application ?",
+      "Non. Ils scannent le QR code et envoient depuis le navigateur."
+    ],
+    [
+      "Combien de temps les photos sont-elles conservées ?",
+      "6 mois à partir du premier envoi, et l’album peut être prolongé."
+    ]
+  ],
+  "related": [
+    "fete-de-saint-nicolas",
+    "idee-soiree-nouvel-an",
+    "party-de-noel-bureau"
+  ],
+  "date": "2026-11-26"
+}

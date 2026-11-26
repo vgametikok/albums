@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Sohn",
+  "title": "Geschenk für den Sohn: Fotoalbum mit Geschichte | Albums.ink",
+  "desc": "Geschenk für den Sohn zum 18., 25. oder 30. Geburtstag oder zur Hochzeit: ein kostenloses Album mit Fotos, Videos und Sprachnachrichten der Familie.",
+  "h1": "Geschenk für den Sohn: ein Album über sein Leben",
+  "lead": "Bei „Geschenk für Sohn“ schlägt Google „zum 18. Geburtstag“, „zum 30. Geburtstag“, „zur Hochzeit“ und „von Eltern“ vor. Ein erwachsener Sohn hat meist, was er braucht – aber selten seine Kinderfotos griffbereit. Ein Album mit Geschichte kostet nichts und lässt sich mit einem kleinen Geschenk kombinieren.",
+  "body": [
+    "## Für welchen Anlass?",
+    "- <b>18. Geburtstag:</b> von der Einschulung bis zum Führerschein.",
+    "- <b>25. oder 30. Geburtstag:</b> Studium, erste Wohnung, erster Job.",
+    "- <b>Hochzeit:</b> sein Leben bis zu diesem Tag, als Geschenk der Eltern.",
+    "- <b>Weihnachten:</b> das Jahr der Familie in einem Album.",
+    "## Was hineinkommt",
+    "- Kinderfotos, abfotografiert aus alten Alben.",
+    "- Kurze Videos: erste Schritte, Fußballturnier, Schulaufführung.",
+    "- Sprachnachrichten von Eltern, Großeltern und Geschwistern.",
+    "- Ein paar Sätze zu jedem Lebensabschnitt.",
+    "## Kapitel-Ideen",
+    "1. Die ersten Jahre.",
+    "2. Schulzeit.",
+    "3. Hobbys und Freunde.",
+    "4. Heute.",
+    "## So geht’s (kostenlos)",
+    "Auf Albums erstellst du ein <b>Story-Album</b> aus Fotos, Videos und Sprachnachrichten, in Kapiteln und mit deiner eigenen Stimme erzählt. Alben und Beiträge sind unbegrenzt und bleiben, solange du willst. Kostenlose Fotos werden mit bis zu 2048 px an der langen Kante gespeichert.",
+    "1. Mit Google oder Telegram anmelden und ein Album anlegen, z. B. „Für Jonas zum 30.“.",
+    "2. Fotos aus alten Alben abfotografieren, Videos und Sprachnachrichten der Familie sammeln.",
+    "3. Kapitel für Kapitel hochladen und je einen Satz dazuschreiben.",
+    "4. Neue Alben sind <b>Öffentlich</b>. Damit die Überraschung hält, stell während der Vorbereitung <b>Nur ich</b> ein. Wenn ein Mitautor hilft, das Album nicht auf „Nur ich“ lassen — sonst verliert die Person den Zugang. Während der gemeinsamen Arbeit „Freunde“ oder „Freunde, außer…“ verwenden, zum Versenden des Links auf „Öffentlich“ stellen.",
+    "5. Ein Mitautor ist möglich, z. B. der andere Elternteil – sofern ihr auf Albums befreundet seid.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/geschenk-fuer-tochter/\">Geschenk für die Tochter</a> und <a href=\"/de/guides/18-geburtstag-ideen/\">18. Geburtstag</a>.",
+    "## Übergeben",
+    "Gemeinsam am Fernseher oder Tablet ansehen – oder den Link schicken. Dafür das Album auf <b>Öffentlich</b> stellen: Öffentliche Alben öffnen sich im Browser ohne Anmeldung, mit Vorschaubild. <b>Freunde</b>-Alben sehen nur deine angemeldeten Freunde, <b>Nur ich</b> ist per Link nicht erreichbar. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Album für deinen Sohn erstellen",
+    "p": "Fotos, Videos und Stimmen der Familie in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das mitwächst",
+    "p": "Unbegrenzte Alben, die bleiben, solange du willst.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einem erwachsenen Sohn?",
+      "Etwas Persönliches kommt oft am besten an, zum Beispiel ein Album mit Kinderfotos, Videos und Sprachnachrichten der Familie."
+    ],
+    [
+      "Ist das Album kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ],
+    [
+      "Braucht mein Sohn ein Konto?",
+      "Nicht, wenn das Album öffentlich ist: Der Link öffnet sich im Browser."
+    ],
+    [
+      "Kann man das Album herunterladen?",
+      "Ja, das ganze Album als eine ZIP-Datei."
+    ]
+  ],
+  "related": [
+    "geschenk-fuer-tochter",
+    "18-geburtstag-ideen",
+    "fotoalbum-fuer-papa"
+  ],
+  "date": "2026-11-24"
+}

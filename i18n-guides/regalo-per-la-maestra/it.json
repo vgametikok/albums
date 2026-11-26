@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per la maestra",
+  "title": "Regalo per la maestra: l’album della classe | Albums.ink",
+  "desc": "Regalo per la maestra a Natale, a fine anno o per la pensione: un album racconto gratuito con disegni, foto e messaggi vocali dei bambini della classe.",
+  "h1": "Regalo per la maestra: un album fatto dalla classe",
+  "lead": "Cercando “regalo per la maestra” compaiono “Natale”, “fine anno”, “che va in pensione” e “originale”. Spesso il regalo si organizza nella chat dei genitori, con una colletta. Accanto al regalo comprato, un album con i disegni, le voci e i ricordi dei bambini è gratuito e resta alla maestra come ricordo della classe.",
+  "body": [
+    "## Per quale occasione",
+    "- <b>Natale:</b> gli auguri di tutta la classe.",
+    "- <b>Fine anno</b> o fine del ciclo, in quinta elementare o all’ultimo anno della materna.",
+    "- <b>Pensione:</b> anche con i saluti degli ex alunni.",
+    "## Cosa mettere nell’album",
+    "- Le foto dei disegni e dei biglietti dei bambini.",
+    "- Messaggi vocali: “Buon Natale, maestra!”.",
+    "- Foto di gite e recite, solo se tutti i genitori sono d’accordo.",
+    "- Un messaggio dei rappresentanti di classe a nome dei genitori.",
+    "## Idee per i capitoli",
+    "1. I nostri disegni.",
+    "2. Le nostre voci.",
+    "3. Cose che abbiamo imparato.",
+    "4. Grazie, maestra.",
+    "## Come farlo (gratis)",
+    "Su Albums crei un <b>album racconto</b> con foto, video e note vocali, diviso in capitoli e narrato con la tua voce. Album e post sono illimitati e restano finché vuoi. Le foto gratuite sono salvate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google o Telegram e crea un album, per esempio “Auguri dalla 3ª B”.",
+    "2. Nella chat dei genitori raccogli disegni fotografati e messaggi vocali.",
+    "3. Caricali per capitoli con una frase per ciascuno.",
+    "4. I nuovi album sono <b>Pubblico</b>. Durante la preparazione scegli <b>Solo io</b>. Se un coautore ti aiuta, non lasciare l’album su Solo io: perderebbe l’accesso. Mentre preparate insieme, usa Amici o “Amici, tranne…”, poi passa a Pubblico per inviare il link.",
+    "5. Puoi aggiungere un coautore, per esempio l’altro rappresentante di classe, se siete amici su Albums.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-compleanno-bambini/\">festa di compleanno per bambini</a> e <a href=\"/it/guides/tombola-di-natale/\">tombola di Natale</a>.",
+    "## Come consegnarlo e la privacy",
+    "Un album <b>Pubblico</b> si apre dal link nel browser senza accesso, con l’anteprima della copertina – ma chiunque abbia il link può vederlo. Per un album pubblico usa disegni e voci invece di volti e nomi completi. In alternativa la maestra può accedere con Google o Telegram e diventare tua amica su Albums: con <b>Amici</b> l’album è visibile solo ai tuoi amici che hanno effettuato l’accesso, e con <b>Amici, tranne…</b> puoi escluderne alcuni. <b>Solo io</b> non si apre tramite link. L’album intero si può anche scaricare come un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Crea l’album per la maestra",
+    "p": "Disegni, foto e voci della classe in un racconto. Gratis nel browser.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un grazie da tutta la classe",
+    "p": "Album illimitati, che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    [
+      "Cosa regalare alla maestra a Natale?",
+      "Molte classi fanno un regalo comune; aggiungere un album con disegni e messaggi vocali dei bambini lo rende più personale."
+    ],
+    [
+      "L’album è gratis?",
+      "Sì. Gli album racconto sono gratuiti e illimitati."
+    ],
+    [
+      "La maestra deve registrarsi?",
+      "No, se l’album è pubblico: il link si apre nel browser. Per un album Amici deve accedere ed essere tua amica su Albums."
+    ],
+    [
+      "Si può scaricare l’album?",
+      "Sì, l’intero album come un unico file ZIP."
+    ]
+  ],
+  "related": [
+    "festa-compleanno-bambini",
+    "tombola-di-natale",
+    "regalo-migliore-amica"
+  ],
+  "date": "2026-11-24"
+}

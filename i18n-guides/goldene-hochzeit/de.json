@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "goldene Hochzeit Ideen",
+  "title": "Goldene Hochzeit feiern: Ideen | Albums.ink",
+  "desc": "Ideen zur goldenen Hochzeit nach 50 Jahren: Feier, Programm, Rede, alte Fotos – und ein QR-Code, mit dem alle Gäste ihre Fotos an einem Ort teilen.",
+  "h1": "Goldene Hochzeit feiern: Ideen",
+  "lead": "Nach 50 Ehejahren wird die goldene Hochzeit gefeiert. Neben Glückwünschen und Geschenken wird „goldene Hochzeit Ideen“ gesucht. Hier findet ihr Ideen für Ort und Programm – und wie die Familie nachher alle Fotos und Videos der Gäste beisammen hat.",
+  "body": [
+    "## Wo feiern",
+    "- Im Restaurant oder Landgasthof mit Mittagessen, Kaffee und Kuchen.",
+    "- Im Gemeindesaal, wenn viele Verwandte und Nachbarn kommen.",
+    "- Zu Hause im kleinen Kreis, wenn das Paar es ruhiger mag.",
+    "## Programm-Ideen",
+    "- Ein Gottesdienst oder eine Segnung, wenn das Paar das möchte.",
+    "- Eine kurze Rede der Kinder mit Stationen aus 50 Jahren.",
+    "- Ein Quiz: Wo haben sie sich kennengelernt? Wann war die Hochzeit?",
+    "- Das alte Hochzeitsfoto groß aufgestellt, daneben ein aktuelles.",
+    "- Ein Lied oder Gedicht der Enkel.",
+    "## Alte Fotos sammeln",
+    "Bittet Verwandte vorab um alte Bilder aus Fotoalben. Abfotografiert passen sie in dasselbe Album wie die Fotos von der Feier.",
+    "## Alle Fotos mit einem QR-Code",
+    "Bei der Feier fotografieren alle mit dem Handy. Mit einem <b>Event-Album</b> auf Albums landet alles an einem Ort:",
+    "1. Album anlegen, z. B. „Goldene Hochzeit Ingrid & Klaus“.",
+    "2. QR-Code auf die Tische oder neben die Torte stellen.",
+    "3. Gäste scannen mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. <b>Hold guest photos</b> einschalten, um Uploads vor der Anzeige zu prüfen.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Wer ohne Anmeldung hochlädt, erscheint anonym. Angemeldete Gäste bekommen zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/silberhochzeit-feiern/\">Silberhochzeit feiern</a> und <a href=\"/de/guides/geschenk-hochzeitstag/\">Geschenk zum Hochzeitstag</a>.",
+    "## Preis",
+    "Das Event-Album ist ein einmaliger Kauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Gäste zahlen nichts. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Album zur goldenen Hochzeit",
+    "p": "Ein QR-Code, alle Fotos und Videos der Gäste an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "50 Jahre, ein Album",
+    "p": "Gäste laden im Browser hoch, ihr ladet das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    [
+      "Nach wie vielen Jahren ist die goldene Hochzeit?",
+      "Nach 50 Ehejahren."
+    ],
+    [
+      "Müssen Gäste etwas installieren?",
+      "Nein. QR-Code scannen und im Browser hochladen."
+    ],
+    [
+      "Kann ich Fotos vorher prüfen?",
+      "Ja, mit Hold guest photos erscheinen Uploads erst nach eurer Freigabe."
+    ],
+    [
+      "Wie lange bleiben die Fotos?",
+      "6 Monate ab dem ersten Upload, mit Verlängerung möglich."
+    ]
+  ],
+  "related": [
+    "silberhochzeit-feiern",
+    "geschenk-hochzeitstag",
+    "70-geburtstag-ideen"
+  ],
+  "date": "2026-11-23"
+}

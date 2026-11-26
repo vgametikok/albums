@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "chlausabend ideen",
+  "title": "Chlausabend Ideen: Samichlaus-Feier planen | Albums.ink",
+  "desc": "Chlausabend Ideen für Verein, Firma oder Familie in der Schweiz: Ablauf, Chlaussäckli, Värsli und ein QR-Code, über den alle Gäste ihre Fotos teilen.",
+  "h1": "Chlausabend Ideen: so wird die Samichlaus-Feier gemütlich",
+  "lead": "Wer „Chlausabend“ sucht, landet schnell bei „Chlausabend Ideen“. Ob im Verein, im Geschäft oder mit der Familie rund um den 6. Dezember: Hier sind Ideen für Ablauf, Essen und Programm – und ein einfacher Weg, alle Fotos der Gäste an einem Ort zu sammeln.",
+  "body": [
+    "## Ablauf",
+    "- Apéro zum Ankommen, zum Beispiel Glühwein, Punsch oder Tee.",
+    "- Besuch vom Samichlaus mit Schmutzli: Die Kinder sagen ein Värsli auf, manchmal liest der Samichlaus aus seinem grossen Buch vor.",
+    "- Danach gibt es Chlaussäckli mit Mandarinen, Nüssen, Lebkuchen und Schokolade.",
+    "- Bei Erwachsenen: Der Samichlaus liest lustige Episoden aus dem Vereins- oder Firmenjahr vor.",
+    "## Essen",
+    "- Klassisch und unkompliziert: Fondue, Raclette oder ein Eintopf.",
+    "- Grittibänz und Lebkuchen zum Dessert.",
+    "- Bei einem Waldhaus oder einer Hütte: Feuer, Schlangenbrot für die Kinder und warme Getränke.",
+    "## Programm-Ideen",
+    "- Ein Laternenlauf oder kleiner Waldspaziergang vor dem Essen – vielleicht dem Samichlaus entgegen.",
+    "- Ein Lotto oder Quiz zum Jahresrückblick.",
+    "- Ein Gruppenfoto mit dem Samichlaus.",
+    "## Alle Gästefotos in einem Album",
+    "Am Chlausabend fotografieren alle mit dem eigenen Handy. Mit einem <b>Event-Album</b> auf Albums landen die Bilder an einem Ort:",
+    "1. Album erstellen, z. B. „Chlausabend 2026“.",
+    "2. Den QR-Code auf die Tische oder beim Eingang aufstellen.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Gästefotos zurückhalten</b> prüfen Sie Uploads, bevor sie sichtbar werden – praktisch, wenn Kinder auf den Bildern sind.",
+    "5. Danach laden Sie das ganze Album als eine ZIP-Datei herunter.",
+    "Gäste, die ohne Anmeldung hochladen, erscheinen anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr: <a href=\"/de/guides/weihnachtsfeier-ideen/\">Weihnachtsfeier Ideen</a> und <a href=\"/de/guides/silvesterparty-ideen/\">Silvesterparty Ideen</a>.",
+    "## Preis",
+    "Das Event-Album ist ein Einmalkauf: Small $39.99, Medium $69.99 oder Large $129.99 (USD). Für Gäste kostenlos. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload gespeichert und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Chlausabend-Album erstellen",
+    "p": "Ein QR-Code, alle Gästefotos an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Alle Fotos vom Chlausabend",
+    "p": "Gäste laden im Browser hoch, Sie laden das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    [
+      "Was macht man an einem Chlausabend?",
+      "Typisch sind ein gemeinsames Essen, der Besuch von Samichlaus und Schmutzli, Värsli der Kinder und Chlaussäckli mit Mandarinen, Nüssen und Lebkuchen."
+    ],
+    [
+      "Müssen Gäste etwas installieren?",
+      "Nein. Sie scannen den QR-Code und laden im Browser hoch."
+    ],
+    [
+      "Kann ich Fotos vor der Veröffentlichung prüfen?",
+      "Ja. Mit „Gästefotos zurückhalten“ erscheinen Uploads erst nach Ihrer Freigabe."
+    ],
+    [
+      "Wie lange bleiben die Fotos gespeichert?",
+      "6 Monate ab dem ersten Upload; das Album lässt sich verlängern."
+    ]
+  ],
+  "related": [
+    "weihnachtsfeier-ideen",
+    "silvesterparty-ideen",
+    "kindergeburtstag-ideen"
+  ],
+  "date": "2026-11-25"
+}

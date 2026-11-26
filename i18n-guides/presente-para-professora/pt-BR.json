@@ -1,0 +1,73 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para professora",
+  "title": "Presente para professora no fim do ano: álbum da turma com fotos e vozes | Albums.ink",
+  "desc": "Presente para professora da educação infantil ou do fundamental: um álbum de história gratuito com fotos, vídeos e recados de voz de toda a turma. Fácil de organizar no grupo dos pais.",
+  "h1": "Presente para professora: um álbum da turma",
+  "lead": "Ao digitar “presente para professora”, aparecem sugestões como “infantil”, “educação infantil”, “de papel” e “aniversário”. No fim do ano letivo, um presente coletivo da turma costuma emocionar mais que mais uma caneca: um álbum com fotos, vídeos e recados de voz das crianças. É gratuito e uma mãe ou um pai do grupo consegue montar sozinho.",
+  "body": [
+    "## Por que um álbum da turma",
+    "- Um presente de todos, em vez de vinte e cinco lembrancinhas.",
+    "- Desenhos, bilhetes e vozes das crianças são o que muitas professoras guardam.",
+    "- Como é gratuito, a vaquinha da turma pode ir para outro mimo, se quiserem.",
+    "## O que pedir às famílias",
+    "- Uma foto de cada criança com um desenho ou um cartão de “Obrigado, prô!”.",
+    "- Fotos de passeios, festa junina e apresentações (só com autorização dos pais).",
+    "- Vídeos curtos ou áudios: uma frase de cada criança.",
+    "- Um recado dos pais, se quiserem.",
+    "## Ideias de capítulos",
+    "1. Nossa turma.",
+    "2. Passeios e festas.",
+    "3. O que aprendemos.",
+    "4. Obrigado de cada um de nós.",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de história</b> com fotos, vídeos e notas de voz, dividido em capítulos e com narração na sua voz, se quiser. Os álbuns são ilimitados e ficam guardados pelo tempo que você quiser. As fotos gratuitas ficam com até 2048 px no lado maior.",
+    "1. Entre com o Google ou Telegram e crie um álbum, por exemplo “Obrigado, prô Carla – Infantil 5, 2026”.",
+    "2. Peça no grupo de WhatsApp da turma que os pais mandem fotos, vídeos e áudios para você.",
+    "3. Adicione por capítulo e escreva uma legenda para cada criança.",
+    "4. Convide um coautor, como outro pai ou outra mãe da turma; a pessoa precisa estar na sua lista de amigos no Albums.",
+    "5. Escolha quem vê: Público, Amigos ou Só eu. Álbuns novos são públicos; enquanto monta, deixe em Só eu e mude para Público no dia da entrega, para que a professora abra o link sem conta. Se um coautor estiver ajudando, não deixe o álbum em Só eu — essa pessoa perderia o acesso. Enquanto trabalham juntos, use Amigos (ou Amigos, exceto… se precisar) e no dia da entrega mude para Público.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/album-de-recordacoes/\">álbum de recordações</a> e <a href=\"/pt-BR/guides/digital-scrapbook/\">scrapbook digital</a>.",
+    "## Como entregar",
+    "Coloque o link ou um QR code dentro de um cartão. Em Público, o álbum abre no navegador com a prévia da capa, sem instalar nada. Um álbum em “Só eu” não abre pelo link. O álbum inteiro pode ser baixado em um único arquivo ZIP.",
+    "## Privacidade",
+    "Confirme com cada família antes de incluir foto ou voz de uma criança. Dá para esconder arquivos específicos de algumas pessoas."
+  ],
+  "cta": {
+    "h2": "Monte o álbum da turma",
+    "p": "Fotos, vídeos e vozes de todas as crianças. Grátis, no navegador.",
+    "btn": "Criar álbum de história →"
+  },
+  "cta2": {
+    "h2": "Um obrigado que fica",
+    "p": "Álbuns ilimitados, guardados pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para professora no fim do ano?",
+      "Um presente coletivo da turma, como um álbum com fotos, desenhos e recados das crianças, costuma ser muito valorizado."
+    ],
+    [
+      "O álbum é gratuito?",
+      "Sim. Álbuns de história são gratuitos e ilimitados."
+    ],
+    [
+      "A professora precisa de conta para ver?",
+      "Não, se o álbum estiver em Público: o link abre no navegador."
+    ],
+    [
+      "Dá para baixar tudo?",
+      "Sim, o álbum inteiro é baixado em um único arquivo ZIP."
+    ]
+  ],
+  "related": [
+    "album-de-recordacoes",
+    "digital-scrapbook",
+    "add-voice-to-photos"
+  ],
+  "date": "2026-11-23"
+}

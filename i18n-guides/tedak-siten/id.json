@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "tedak siten",
+  "title": "Tedak Siten: Urutan Acara dan Dokumentasi Foto | Albums.ink",
+  "desc": "Tedak siten adalah tradisi Jawa saat bayi pertama kali menginjak tanah. Urutan acara, perlengkapan, dan cara mengumpulkan foto semua tamu dengan satu kode QR.",
+  "h1": "Tedak siten: urutan acara dan foto dari keluarga",
+  "lead": "Seputar “tedak siten”, orang mencari artinya, umur berapa, dan urutan acaranya. Tedak siten adalah upacara adat Jawa ketika bayi pertama kali menapakkan kaki ke tanah, biasanya saat usia sekitar tujuh lapan (7 × 35 hari). Berikut gambaran urutan acaranya – dan cara mengumpulkan foto serta video dari seluruh keluarga.",
+  "body": [
+    "## Urutan acara yang umum",
+    "Urutan bisa berbeda di tiap keluarga dan daerah. Yang sering dilakukan:",
+    "1. Bayi dituntun menginjak jadah (ketan) tujuh warna.",
+    "2. Bayi menaiki tangga dari batang tebu.",
+    "3. Bayi dimasukkan ke kurungan yang dihias dan memilih barang di dalamnya.",
+    "4. Udik-udik: menyebar uang logam dan beras kuning.",
+    "5. Bayi dimandikan dengan air kembang setaman lalu dipakaikan baju baru.",
+    "Sebaiknya tanyakan urutan dan maknanya pada sesepuh keluarga.",
+    "## Persiapan",
+    "- Jadah tujuh warna, tangga tebu, kurungan, barang-barang pilihan.",
+    "- Air kembang setaman dan baju ganti untuk bayi.",
+    "- Tempat yang teduh untuk tamu dan orang tua.",
+    "## Semua foto dengan satu kode QR",
+    "Saat acara, semua keluarga memotret dengan ponsel. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Tedak Siten Arka”.",
+    "2. Pasang kode QR di meja tamu atau di dekat kurungan.",
+    "3. Tamu memindainya dengan kamera ponsel dan mengunggah foto serta video lewat browser – tanpa instalasi.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk memeriksa unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang masuk juga mendapat salinan draf pribadi berisi unggahannya sendiri.",
+    "!cta",
+    "Lainnya: <a href=\"/id/guides/acara-tujuh-bulanan/\">acara tujuh bulanan</a> dan <a href=\"/id/guides/acara-aqiqah/\">acara aqiqah</a>.",
+    "## Harga",
+    "Album acara dibayar sekali per acara: Small 39,99 USD, Medium 69,99 USD, Large 129,99 USD. Tamu tidak membayar apa pun. Foto disimpan hingga 4K, dan album tersedia 6 bulan sejak unggahan pertama, bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album tedak siten",
+    "p": "Satu kode QR, semua foto dan video keluarga di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan langkah pertama si kecil",
+    "p": "Tamu mengunggah lewat browser, kamu mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    [
+      "Tedak siten dilakukan umur berapa?",
+      "Umumnya saat bayi berusia sekitar tujuh lapan, yaitu 7 × 35 hari menurut hitungan Jawa."
+    ],
+    [
+      "Apakah tamu perlu memasang sesuatu?",
+      "Tidak. Cukup pindai kode QR dan unggah lewat browser."
+    ],
+    [
+      "Bisakah foto diperiksa dulu?",
+      "Bisa, dengan Hold guest photos unggahan baru tampil setelah kamu setujui."
+    ],
+    [
+      "Berapa lama foto disimpan?",
+      "6 bulan sejak unggahan pertama, bisa diperpanjang."
+    ]
+  ],
+  "related": [
+    "acara-tujuh-bulanan",
+    "acara-aqiqah",
+    "album-foto-keluarga"
+  ],
+  "date": "2026-11-23"
+}

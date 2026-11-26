@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para sogro",
+  "title": "Presente para sogro: um álbum de histórias da família | Albums.ink",
+  "desc": "Presente para sogro no aniversário, no Dia dos Pais ou no Natal: um álbum de histórias grátis com fotos dos netos, vídeos e mensagens de voz da família.",
+  "h1": "Presente para sogro: um álbum com a família",
+  "lead": "Ao digitar “presente para sogro”, aparecem sugestões como “aniversário”, “Dia dos Pais”, “simples”, “idoso” e “ideias”. Acertar no presente do sogro costuma ser difícil. Um álbum de histórias com fotos dos netos, vídeos e a voz da família é grátis e combina com uma lembrancinha.",
+  "body": [
+    "## Quando dar",
+    "- <b>Aniversário</b>, especialmente 60, 70 ou 80 anos.",
+    "- <b>Natal:</b> o ano da família em um só álbum.",
+    "- <b>Dia dos Pais</b>, junto com um presente simples.",
+    "## O que colocar",
+    "- Fotos dos netos: escola, praia, festas de aniversário.",
+    "- Vídeos curtos: “Parabéns, vovô!”.",
+    "- Fotos antigas do seu marido ou da sua esposa quando criança, fotografadas do álbum de papel.",
+    "- Mensagens de voz de filhos, noras, genros e netos.",
+    "## Ideias de capítulos",
+    "1. Os netos.",
+    "2. Nossas viagens e churrascos.",
+    "3. O sogro de antigamente.",
+    "4. Obrigado, seu João.",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e narrado com a sua voz. Álbuns e posts são ilimitados e ficam guardados pelo tempo que você quiser. As fotos gratuitas são salvas com até 2048 px no lado maior.",
+    "1. Entre com o Google ou Telegram e crie um álbum, por exemplo “Para o seu João – 70 anos”.",
+    "2. Peça fotos e áudios no grupo da família no WhatsApp.",
+    "3. Suba tudo por capítulos e escreva uma frase em cada um.",
+    "4. Álbuns novos ficam como <b>Público</b>. Para fazer surpresa, escolha <b>Só eu</b> enquanto prepara. Se um coautor estiver ajudando, não deixe o álbum em Só eu — essa pessoa perderia o acesso. Enquanto trabalham juntos, use Amigos ou “Amigos, exceto…”, e para enviar o link mude para Público.",
+    "5. Você pode adicionar um coautor, por exemplo seu cônjuge, se vocês forem amigos no Albums.",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-sogra/\">presente para sogra</a> e <a href=\"/pt-BR/guides/album-fotos-para-pai/\">álbum de fotos para pai</a>.",
+    "## Como entregar",
+    "Vejam juntos na TV ou no tablet durante a festa, ou mande o link. Para isso, mude o álbum para <b>Público</b>: álbuns públicos abrem no navegador sem login, com prévia da capa. Álbuns em <b>Amigos</b> só aparecem para seus amigos com login, e <b>Só eu</b> não abre por link. Também dá para baixar o álbum inteiro em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Crie um álbum para o seu sogro",
+    "p": "Fotos, vídeos e vozes da família em uma história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados, guardados pelo tempo que você quiser.",
+    "btn": "Comece grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para o sogro?",
+      "Algo pessoal costuma emocionar: um álbum com fotos dos netos, vídeos e mensagens de voz da família."
+    ],
+    [
+      "O álbum é grátis?",
+      "Sim. Álbuns de histórias são grátis e ilimitados."
+    ],
+    [
+      "Meu sogro precisa de conta?",
+      "Não, se o álbum for público: o link abre no navegador."
+    ],
+    [
+      "Dá para baixar o álbum?",
+      "Sim, o álbum inteiro em um arquivo ZIP."
+    ]
+  ],
+  "related": [
+    "presente-para-sogra",
+    "album-fotos-para-pai",
+    "presente-para-avo"
+  ],
+  "date": "2026-11-24"
+}

@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "festa 70 anni idee",
+  "title": "Festa 70 anni: idee per festeggiare | Albums.ink",
+  "desc": "Idee per la festa dei 70 anni di mamma, papà o nonni: pranzo al ristorante o in agriturismo, programma, sorprese e un QR code per raccogliere le foto di tutti gli invitati.",
+  "h1": "Festa 70 anni: idee per festeggiare",
+  "lead": "Digitando “festa 70 anni” compaiono “idee”, “donna”, “uomo”, “mamma” e “papà”. Ecco idee per luogo e programma – e un modo semplice per avere poi tutte le foto e i video degli invitati in un unico posto.",
+  "body": [
+    "## Dove festeggiare",
+    "- Un pranzo in agriturismo o in trattoria con tutta la famiglia.",
+    "- Una cena al ristorante per amici e parenti.",
+    "- In casa, con torta e spumante, se si preferisce un clima raccolto.",
+    "## Idee per il programma",
+    "- Un breve discorso dei figli o dei nipoti.",
+    "- Un quiz sui 70 anni del festeggiato: dove è nato, il primo lavoro, come ha conosciuto il partner.",
+    "- Vecchie foto appese a un filo o su un pannello.",
+    "- Le canzoni della sua giovinezza.",
+    "## Sorprese",
+    "- Invitare vecchi amici: compagni di scuola, colleghi, vicini.",
+    "- Video di auguri dei parenti lontani.",
+    "## Tutte le foto con un QR code",
+    "Alla festa tutti scattano con il telefono. Con un <b>album evento</b> su Albums tutto finisce in un unico posto:",
+    "1. Crea l’album, per esempio “I 70 anni di nonno Franco”.",
+    "2. Metti il QR code sui tavoli o vicino alla torta.",
+    "3. Gli invitati lo inquadrano con la fotocamera e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per controllare i caricamenti prima che compaiano.",
+    "5. Dopo la festa scarica l’intero album in un unico file ZIP.",
+    "Chi carica senza accedere appare in forma anonima. Gli invitati che accedono ricevono anche una copia bozza privata con i soli propri caricamenti.",
+    "!cta",
+    "Altro: <a href=\"/it/guides/festa-60-anni/\">festa 60 anni</a> e <a href=\"/it/guides/nozze-d-oro/\">nozze d’oro</a>.",
+    "## Prezzo",
+    "L’album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $. Gli invitati non pagano nulla. Foto fino a 4K, album conservato per 6 mesi dal primo caricamento, con possibilità di estensione."
+  ],
+  "cta": {
+    "h2": "Crea l’album dei 70 anni",
+    "p": "Un QR code, tutte le foto e i video degli invitati in un unico posto.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "I ricordi di un compleanno importante",
+    "p": "Gli invitati caricano dal browser, tu scarichi l’intero album.",
+    "btn": "Inizia →"
+  },
+  "faq": [
+    [
+      "Come festeggiare i 70 anni?",
+      "Con un pranzo o una cena in famiglia, un discorso, vecchie foto e la torta."
+    ],
+    [
+      "Gli invitati devono installare qualcosa?",
+      "No. Inquadrano il QR code e caricano dal browser."
+    ],
+    [
+      "Posso controllare le foto prima?",
+      "Sì, con Hold guest photos i caricamenti compaiono solo dopo la tua approvazione."
+    ],
+    [
+      "Per quanto tempo restano le foto?",
+      "6 mesi dal primo caricamento, con possibilità di estensione."
+    ]
+  ],
+  "related": [
+    "festa-60-anni",
+    "nozze-d-oro",
+    "regalo-per-nonno"
+  ],
+  "date": "2026-11-23"
+}

@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BE",
+  "query": "anniversaire surprise",
+  "title": "Anniversaire surprise : idées et organisation | Albums.ink",
+  "desc": "Organiser un anniversaire surprise pour un homme ou une femme : garder le secret, le jour J, idées originales et un QR code pour réunir les photos des invités.",
+  "h1": "Organiser un anniversaire surprise sans que le secret s’évente",
+  "lead": "En tapant « anniversaire surprise », Google propose « homme », « femme », « original », « 18 ans » ou « 50 ans ». Voici un plan simple pour une fête surprise réussie en Belgique ou ailleurs – et un moyen facile de rassembler toutes les photos des invités.",
+  "body": [
+    "## Garder le secret",
+    "- Un seul complice proche de la personne fêtée, chargé du prétexte : un souper au resto, une visite chez des amis.",
+    "- Une conversation de groupe sans la personne fêtée – vérifiez deux fois avant d’envoyer un message.",
+    "- Les invités arrivent 30 minutes avant, garent leur voiture plus loin et mettent leur GSM en silencieux.",
+    "## Le jour J",
+    "- Lumières éteintes, tout le monde prêt, quelqu’un à la fenêtre pour donner le signal.",
+    "- Un premier verre tout de suite : bulles, bière spéciale ou soft.",
+    "- Prévoyez un petit discours et un gâteau, puis laissez la fête suivre son cours.",
+    "## Idées originales",
+    "- Un thème lié à l’année de naissance : musique, déco et quiz de cette année-là.",
+    "- Des messages vocaux d’amis qui n’ont pas pu venir.",
+    "- Un mur de photos de la personne fêtée, de l’enfance à aujourd’hui.",
+    "## Toutes les photos des invités dans un album",
+    "Pendant la soirée, chacun prend des photos avec son GSM. Avec un <b>album d’événement</b> sur Albums, tout arrive au même endroit :",
+    "1. Créez l’album, par ex. « Les 50 ans surprise de Marc ».",
+    "2. Posez le QR code sur la table du buffet ou près du gâteau.",
+    "3. Les invités le scannent avec l’appareil photo de leur téléphone et ajoutent photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Retenir les photos des invités</b> pour valider les envois avant qu’ils n’apparaissent.",
+    "5. Après la fête, téléchargez tout l’album en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie privée en brouillon avec uniquement leurs propres envois.",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/anniversaire-50-ans/\">anniversaire 50 ans</a> et <a href=\"/fr/guides/idee-anniversaire-30-ans/\">idée anniversaire 30 ans</a>.",
+    "## Prix",
+    "L’album d’événement est un achat unique : Small $39.99, Medium $69.99 ou Large $129.99 (USD). Gratuit pour les invités. Photos jusqu’en 4K ; l’album est conservé 6 mois à partir du premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créer l’album de la fête surprise",
+    "p": "Un QR code, toutes les photos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez toutes les photos de la soirée",
+    "p": "Les invités envoient depuis le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    [
+      "Comment organiser un anniversaire surprise ?",
+      "Choisissez un complice pour le prétexte, faites arriver les invités avant la personne fêtée et préparez le signal, le premier verre et le gâteau."
+    ],
+    [
+      "Les invités doivent-ils installer une application ?",
+      "Non. Ils scannent le QR code et envoient leurs photos depuis le navigateur."
+    ],
+    [
+      "Puis-je vérifier les photos avant qu’elles n’apparaissent ?",
+      "Oui. Avec « Retenir les photos des invités », les envois n’apparaissent qu’après votre validation."
+    ],
+    [
+      "Combien de temps les photos sont-elles conservées ?",
+      "6 mois à partir du premier envoi, et l’album peut être prolongé."
+    ]
+  ],
+  "related": [
+    "anniversaire-50-ans",
+    "idee-anniversaire-30-ans",
+    "idee-fete-60-ans"
+  ],
+  "date": "2026-11-25"
+}

@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "geschenk für enkel",
+  "title": "Geschenk für Enkel: Familienalbum von Oma und Opa | Albums.ink",
+  "desc": "Ein persönliches Geschenk für Enkel von Oma und Opa: ein kostenloses Story-Album mit Familienfotos, Videos und Ihrer Stimme – im Browser erstellt.",
+  "h1": "Geschenk für Enkel: Erinnerungen, die mitwachsen",
+  "lead": "Bei „Geschenk für Enkel“ schlägt Google „von Oma und Opa“, „zur Einschulung“, „zur Taufe“ oder „zum 18. Geburtstag“ vor. Neben Spielzeug oder Geld gibt es etwas, das kein Laden verkauft: die Familiengeschichte mit Ihrer Stimme erzählt.",
+  "body": [
+    "## Warum ein Story-Album",
+    "- Enkel hören gern, wie es früher war – und wie es war, als sie klein waren.",
+    "- Die Fotos gibt es schon: im Schrank, im Familienchat, auf dem Handy.",
+    "- Das Album ist kostenlos und passt zu jedem Anlass: Weihnachten, Einschulung, Taufe oder 18. Geburtstag.",
+    "## Was hinein kann",
+    "- Fotos vom Tag der Geburt und vom ersten Besuch bei Oma und Opa.",
+    "- Gemeinsame Ausflüge, Urlaube, Weihnachten bei den Großeltern.",
+    "- Ein paar alte Familienfotos: die Eltern als Kinder, das Haus der Urgroßeltern.",
+    "- Sprachnachrichten: ein Gutenachtgruss, ein Lieblingsrezept, ein guter Rat.",
+    "## Kapitel-Ideen",
+    "1. Als du geboren wurdest.",
+    "2. Bei Oma und Opa.",
+    "3. Unsere Ausflüge.",
+    "4. Wie es früher war.",
+    "## So geht's (kostenlos)",
+    "Auf Albums erstellen Sie ein <b>Story-Album</b> aus Fotos, Videos und Sprachnachrichten, mit Kapiteln und Ihrer eigenen Stimme als Erzählung. Alben und Beiträge sind unbegrenzt und bleiben, solange Sie möchten. Kostenlose Fotos werden mit bis zu 2048 px an der langen Kante gespeichert.",
+    "1. Mit Google oder Telegram anmelden und ein Album anlegen, z. B. „Für Mia – von Oma und Opa“.",
+    "2. Alte Fotos mit dem Handy abfotografieren oder einscannen, neue aus dem Familienchat sammeln.",
+    "3. Kapitel anlegen und zu jedem Kapitel ein paar Sätze aufnehmen.",
+    "4. Neue Alben sind standardmäßig <b>Öffentlich</b>. Wenn es eine Überraschung bleiben soll, stellen Sie es auf <b>Nur ich</b>, solange Sie allein daran arbeiten.",
+    "5. Sie können einen Co-Autor hinzufügen, zum Beispiel Opa oder Ihre Tochter, wenn Sie auf Albums befreundet sind. „Nur ich“ sperrt auch den Co-Autor aus; für die gemeinsame Arbeit wählen Sie <b>Freunde, außer…</b> und schließen alle anderen aus (nach neuen Freundschaften erneut prüfen).",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a> und <a href=\"/de/guides/geschenk-fuer-opa/\">Geschenk für Opa</a>.",
+    "## So verschenken Sie es",
+    "Schauen Sie das Album gemeinsam auf dem Fernseher oder Tablet an. Zum Verschicken auf <b>Öffentlich</b> stellen: Dann öffnet sich der Link im Browser ohne Anmeldung, mit Vorschau des Titelbilds. Alben mit <b>Freunde</b> sehen nur angemeldete Freunde, „Nur ich“ öffnet sich nicht per Link. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Album für Ihr Enkelkind erstellen",
+    "p": "Fotos, Videos und Ihre Stimme in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Familiengeschichte zum Verschenken",
+    "p": "Unbegrenzte Alben, die bleiben, solange Sie möchten.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenken Oma und Opa ihren Enkeln?",
+      "Neben Spielzeug oder Geld ist ein persönliches Story-Album beliebt: Familienfotos, Videos und Sprachnachrichten von Oma und Opa."
+    ],
+    [
+      "Ist das Album kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ],
+    [
+      "Braucht mein Enkel ein Konto?",
+      "Nicht bei einem öffentlichen Album: Der Link öffnet sich im Browser. Alben mit „Freunde“ erfordern eine Anmeldung und Freundschaft auf Albums."
+    ],
+    [
+      "Kann man das Album herunterladen?",
+      "Ja, das ganze Album als eine ZIP-Datei."
+    ]
+  ],
+  "related": [
+    "fotoalbum-fuer-oma",
+    "geschenk-fuer-opa",
+    "taufe-feiern"
+  ],
+  "date": "2026-11-25"
+}

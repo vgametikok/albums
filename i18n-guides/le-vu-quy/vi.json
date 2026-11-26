@@ -1,0 +1,67 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "lễ vu quy",
+  "title": "Lễ vu quy là gì? Khác lễ thành hôn thế nào | Albums.ink",
+  "desc": "Lễ vu quy là gì, khác lễ thành hôn và lễ ăn hỏi ra sao, nhà gái cần chuẩn bị gì – và cách gom ảnh của khách mời chỉ bằng một mã QR.",
+  "h1": "Lễ vu quy là gì và nhà gái cần chuẩn bị những gì",
+  "lead": "Tìm “lễ vu quy” trên Google, nhiều người hỏi “lễ vu quy là gì”, “lễ vu quy và lễ thành hôn khác gì nhau”, “có phải lễ ăn hỏi không”. Bài này giải thích ngắn gọn và gợi ý cách gom toàn bộ ảnh khách chụp trong ngày vui.",
+  "body": [
+    "## Lễ vu quy là gì",
+    "- “Vu quy” nghĩa là con gái về nhà chồng. Lễ vu quy là lễ cưới tổ chức bên nhà gái, tiễn cô dâu về nhà trai.",
+    "- Lễ thành hôn thường dùng để chỉ lễ cưới bên nhà trai, khi đón cô dâu về.",
+    "- Lễ vu quy không phải lễ ăn hỏi: ăn hỏi là lễ đính hôn diễn ra trước đó, còn dạm ngõ là buổi hai gia đình gặp mặt, làm quen.",
+    "## Nhà gái chuẩn bị gì",
+    "- Bàn thờ gia tiên, nơi nhà trai làm lễ xin dâu và cô dâu chú rể thắp hương.",
+    "- Phông cưới, rạp hoặc nhà hàng cho tiệc vu quy (tùy gia đình tổ chức tiệc trước một ngày hay ngay trong ngày cưới).",
+    "- Người đại diện nhà gái phát biểu, tiếp đón nhà trai.",
+    "- Trình tự cụ thể khác nhau theo vùng miền và từng gia đình – nên thống nhất trước với nhà trai.",
+    "## Gom ảnh của khách vào một album",
+    "Ngày vu quy, họ hàng và bạn bè đều chụp bằng điện thoại. Với <b>album sự kiện</b> của Albums, bạn gom tất cả về một chỗ:",
+    "1. Tạo album, ví dụ “Lễ vu quy Thu & Nam”.",
+    "2. In mã QR đặt ở bàn đón khách, bàn tiệc hoặc gửi trong nhóm Zalo gia đình.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt, không cần cài đặt.",
+    "4. Bật <b>Tạm giữ ảnh của khách</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album về thành một file ZIP.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ chứa ảnh do chính họ tải lên.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/le-thanh-hon/\">lễ thành hôn</a>, <a href=\"/vi/guides/anh-dam-hoi/\">ảnh đám hỏi</a>.",
+    "## Giá",
+    "Album sự kiện là gói mua một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Khách mời không phải trả phí. Ảnh tối đa 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album lễ vu quy",
+    "p": "Một mã QR, mọi ảnh của khách ở một nơi.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại mọi khoảnh khắc ngày vui",
+    "p": "Khách tải lên trên trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    [
+      "Lễ vu quy là gì?",
+      "Là lễ cưới tổ chức bên nhà gái, tiễn cô dâu về nhà chồng."
+    ],
+    [
+      "Lễ vu quy và lễ thành hôn khác gì nhau?",
+      "Lễ vu quy là lễ cưới bên nhà gái, lễ thành hôn thường chỉ lễ cưới bên nhà trai."
+    ],
+    [
+      "Lễ vu quy có phải lễ ăn hỏi không?",
+      "Không. Ăn hỏi là lễ đính hôn diễn ra trước ngày cưới."
+    ],
+    [
+      "Ảnh được lưu bao lâu?",
+      "6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+    ]
+  ],
+  "related": [
+    "le-thanh-hon",
+    "anh-dam-hoi",
+    "le-dam-ngo"
+  ],
+  "date": "2026-11-25"
+}

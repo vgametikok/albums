@@ -1,0 +1,70 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "intimate wedding",
+  "title": "Intimate Wedding: Konsep, Jumlah Tamu, dan Foto Tamu | Albums.ink",
+  "desc": "Panduan intimate wedding di Indonesia: artinya, berapa tamu yang umum, konsep outdoor atau di rumah, tips biaya, dan satu kode QR untuk mengumpulkan foto tamu.",
+  "h1": "Intimate wedding: pernikahan kecil yang tetap berkesan",
+  "lead": "Pencarian “intimate wedding” di Indonesia sering disertai “artinya”, “berapa orang”, “harga” dan “outdoor”. Banyak pasangan memilih pernikahan dengan tamu terbatas agar lebih hangat dan biayanya lebih terkendali. Berikut gambaran konsepnya dan cara menyimpan foto dari semua tamu.",
+  "body": [
+    "## Apa itu intimate wedding",
+    "- Pernikahan dengan tamu terbatas, biasanya keluarga inti dan sahabat dekat.",
+    "- Tidak ada angka baku; banyak pasangan mengundang puluhan orang sampai sekitar seratus tamu.",
+    "- Akad nikah atau pemberkatan tetap dilakukan sesuai agama dan adat, resepsinya saja yang lebih kecil.",
+    "## Pilihan konsep",
+    "- <b>Di rumah:</b> akad di rumah mempelai wanita, lanjut makan bersama keluarga.",
+    "- <b>Outdoor:</b> taman, vila, atau pinggir pantai, cocok untuk sore hari. Siapkan tenda jika musim hujan.",
+    "- <b>Restoran:</b> ruang privat dengan menu set, praktis karena dekorasi lebih sederhana.",
+    "## Tips biaya",
+    "- Jumlah tamu paling berpengaruh pada katering dan venue.",
+    "- Pilih hari biasa atau siang hari jika venue menawarkan harga lebih rendah.",
+    "- Alokasikan dana untuk hal yang paling penting bagi kalian: dekorasi, makanan, atau dokumentasi.",
+    "## Semua foto tamu dalam satu album",
+    "Di intimate wedding, hampir semua tamu memotret dengan ponsel mereka. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Rina & Dimas”.",
+    "2. Taruh kode QR di meja tamu atau sertakan di undangan digital.",
+    "3. Tamu memindainya dengan kamera ponsel dan mengunggah foto serta video lewat browser, tanpa aplikasi.",
+    "4. Aktifkan <b>Tahan foto tamu</b> agar foto bisa dicek dulu sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang sudah masuk juga mendapat salinan draf pribadi yang hanya berisi unggahan mereka sendiri.",
+    "!cta",
+    "Lihat juga: <a href=\"/id/guides/acara-akad-nikah/\">acara akad nikah</a> dan <a href=\"/id/guides/acara-lamaran/\">acara lamaran</a>.",
+    "## Harga",
+    "Album acara adalah pembelian sekali bayar: Small $39,99, Medium $69,99, atau Large $129,99 (USD). Gratis untuk tamu. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album pernikahan kalian",
+    "p": "Satu kode QR, semua foto tamu di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan semua momen hari bahagia",
+    "p": "Tamu mengunggah lewat browser, Anda mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    [
+      "Intimate wedding itu berapa orang?",
+      "Tidak ada aturan baku. Umumnya keluarga inti dan sahabat dekat, dari puluhan hingga sekitar seratus tamu."
+    ],
+    [
+      "Apa arti intimate wedding?",
+      "Pernikahan dengan tamu terbatas yang lebih personal dan hangat dibanding resepsi besar."
+    ],
+    [
+      "Apakah tamu perlu memasang aplikasi?",
+      "Tidak. Cukup pindai kode QR dan unggah lewat browser."
+    ],
+    [
+      "Berapa lama foto disimpan?",
+      "6 bulan sejak unggahan pertama dan bisa diperpanjang."
+    ]
+  ],
+  "related": [
+    "acara-akad-nikah",
+    "acara-lamaran",
+    "acara-ngunduh-mantu"
+  ],
+  "date": "2026-11-26"
+}

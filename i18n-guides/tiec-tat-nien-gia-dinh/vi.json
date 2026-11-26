@@ -1,0 +1,75 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tiệc tất niên gia đình",
+  "title": "Tiệc tất niên gia đình: kịch bản, lời dẫn và gom ảnh | Albums.ink",
+  "desc": "Gợi ý tổ chức tiệc tất niên gia đình, họ hàng: kịch bản, lời dẫn MC, phát biểu, trò chơi và cách gom ảnh của cả nhà bằng một mã QR.",
+  "h1": "Tổ chức tiệc tất niên gia đình ấm cúng",
+  "lead": "Khi tìm “tiệc tất niên gia đình”, nhiều người tìm thêm “kịch bản”, “lời dẫn”, “MC” và “bài phát biểu”. Bữa cơm tất niên là dịp cả nhà quây quần, tổng kết một năm trước khi đón Tết. Dưới đây là gợi ý chương trình và cách giữ lại ảnh của mọi người.",
+  "body": [
+    "## Bữa cơm tất niên",
+    "- Nhiều gia đình làm mâm cúng tất niên mời ông bà tổ tiên về ăn Tết, sau đó cả nhà cùng ăn bữa cơm cuối năm.",
+    "- Mâm cơm thường có những món quen thuộc của từng miền: bánh chưng, giò, thịt đông ở miền Bắc; bánh tét, thịt kho trứng ở miền Nam.",
+    "- Với đại gia đình hoặc họ hàng đông người, có thể tổ chức thành buổi họp mặt có chương trình.",
+    "## Kịch bản gợi ý",
+    "1. Đón khách, chụp ảnh lưu niệm cả nhà.",
+    "2. MC mở đầu, mời người lớn tuổi nhất phát biểu.",
+    "3. Tổng kết năm: thành tích của con cháu, tin vui trong năm.",
+    "4. Dùng bữa và giao lưu.",
+    "5. Trò chơi, văn nghệ, bốc thăm quà.",
+    "## Lời dẫn và phát biểu",
+    "- Lời dẫn nên ngắn gọn, thân mật: “Một năm nữa lại sắp qua, hôm nay cả nhà mình lại được ngồi bên nhau…”.",
+    "- Bài phát biểu của trưởng họ hoặc ông bà: cảm ơn con cháu, nhắc lại những điều đáng nhớ trong năm, chúc mọi người năm mới an khang.",
+    "## Trò chơi và hoạt động",
+    "- Đố vui về các thành viên trong gia đình.",
+    "- Bốc thăm quà nhỏ cho các cháu.",
+    "- Hát karaoke, kể chuyện ngày xưa.",
+    "## Gom ảnh của cả nhà vào một album",
+    "Trong buổi tất niên, ai cũng chụp bằng điện thoại của mình. Với <b>album sự kiện</b> trên Albums, tất cả ảnh về chung một chỗ:",
+    "1. Tạo album, ví dụ “Tất niên nhà mình”.",
+    "2. Đặt mã QR trên bàn hoặc gửi vào nhóm Zalo gia đình.",
+    "3. Mọi người quét mã bằng camera điện thoại và tải ảnh, video lên ngay trên trình duyệt, không cần cài ứng dụng.",
+    "4. Bật <b>Tạm giữ ảnh của khách</b> nếu muốn duyệt ảnh trước khi hiển thị.",
+    "5. Sau tiệc, tải toàn bộ album về dưới dạng một tệp ZIP.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/tiec-tat-nien/\">tiệc tất niên công ty</a> và <a href=\"/vi/guides/mung-tho/\">tiệc mừng thọ</a>.",
+    "## Giá",
+    "Album sự kiện là gói mua một lần: Small $39.99, Medium $69.99 hoặc Large $129.99 (USD). Khách tham gia miễn phí. Ảnh tối đa 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album tất niên gia đình",
+    "p": "Một mã QR, toàn bộ ảnh của cả nhà ở một chỗ.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại khoảnh khắc cuối năm",
+    "p": "Mọi người tải lên qua trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    [
+      "Tiệc tất niên gia đình gồm những gì?",
+      "Thường có mâm cúng tất niên, bữa cơm cả nhà và với đại gia đình thì thêm phần phát biểu, tổng kết năm và trò chơi."
+    ],
+    [
+      "Ai nên phát biểu trong tiệc tất niên gia đình?",
+      "Thường là ông bà hoặc người lớn tuổi nhất, sau đó có thể mời đại diện con cháu."
+    ],
+    [
+      "Mọi người có cần cài ứng dụng không?",
+      "Không. Chỉ cần quét mã QR và tải lên trên trình duyệt."
+    ],
+    [
+      "Ảnh được lưu bao lâu?",
+      "6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn."
+    ]
+  ],
+  "related": [
+    "tiec-tat-nien",
+    "mung-tho",
+    "album-anh-gia-dinh"
+  ],
+  "date": "2026-11-26"
+}

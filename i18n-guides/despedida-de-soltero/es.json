@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "despedida de soltero",
+  "title": "Despedida de soltero: ideas y fotos del grupo | Albums.ink",
+  "desc": "Ideas para una despedida de soltero en España: planes en Madrid, Málaga o Granada, actividades, presupuesto y un código QR para reunir las fotos del grupo.",
+  "h1": "Despedida de soltero: ideas y cómo juntar todas las fotos",
+  "lead": "Al escribir “despedida de soltero” aparecen Madrid, Granada y Málaga, además de búsquedas como “hombre”. Organizar la despedida suele tocarle al mejor amigo o a los testigos. Aquí tienes ideas de planes y una forma sencilla de reunir las fotos y vídeos de todo el grupo.",
+  "body": [
+    "## Antes de organizar",
+    "- Pregunta al novio qué tipo de plan le apetece y qué no.",
+    "- Fija un presupuesto por persona y cerrad la fecha con tiempo.",
+    "- Crea un grupo de WhatsApp solo para la organización.",
+    "## Ideas de planes",
+    "- <b>Fin de semana en otra ciudad:</b> Málaga, Granada, Valencia o Madrid, con tapeo y una cena larga.",
+    "- <b>Actividades:</b> karting, paintball, escape room, kayak o una ruta en barco.",
+    "- <b>Plan tranquilo:</b> casa rural, barbacoa y partido de fútbol entre amigos.",
+    "- <b>Gastronomía:</b> cata de vinos en La Rioja o Ribera del Duero.",
+    "## Detalles que funcionan",
+    "- Camisetas con un mote del novio.",
+    "- Un reto o prueba por la ciudad, sin pasarse.",
+    "- Mensajes de voz de amigos que no pueden venir.",
+    "## Todas las fotos en un álbum",
+    "En una despedida cada uno hace fotos con su móvil y luego nadie las comparte. Con un <b>álbum de evento</b> de Albums las tenéis todas en un solo sitio:",
+    "1. Crea el álbum, por ejemplo “Despedida de Javi – Málaga”.",
+    "2. Comparte el código QR en el grupo o llévalo impreso.",
+    "3. Cada amigo lo escanea con la cámara del móvil y sube fotos y vídeos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Retener las fotos de los invitados</b> para revisar cada subida antes de que se vea. Así no entra en el álbum nada que el novio prefiera no ver.",
+    "5. Después, descarga el álbum entero en un único archivo ZIP.",
+    "Quien sube sin iniciar sesión aparece de forma anónima. Los invitados con sesión iniciada reciben además una copia privada en borrador solo con lo que han subido ellos.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/despedida-de-soltera/\">despedida de soltera</a> y <a href=\"/es/guides/fiesta-de-50-anos/\">fiesta de 50 años</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Los invitados no pagan nada. Fotos de hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede ampliar."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de la despedida",
+    "p": "Un código QR y todas las fotos y vídeos del grupo en un sitio.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Que no se pierda ninguna foto",
+    "p": "Cada amigo sube desde el navegador; tú descargas el álbum entero.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    [
+      "¿Quién organiza la despedida de soltero?",
+      "Normalmente el mejor amigo, los testigos o un grupo de amigos cercanos al novio."
+    ],
+    [
+      "¿Hay que instalar algo?",
+      "No. Se escanea el código QR y se sube desde el navegador."
+    ],
+    [
+      "¿Puedo revisar las fotos antes de que se vean?",
+      "Sí. Con “Retener las fotos de los invitados”, las subidas aparecen solo cuando las apruebas."
+    ],
+    [
+      "¿Cuánto tiempo se guardan las fotos?",
+      "6 meses desde la primera subida, y el álbum se puede ampliar."
+    ]
+  ],
+  "related": [
+    "despedida-de-soltera",
+    "fiesta-de-50-anos",
+    "cumpleanos-de-30"
+  ],
+  "date": "2026-11-24"
+}

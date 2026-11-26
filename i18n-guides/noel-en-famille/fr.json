@@ -1,0 +1,69 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "FR",
+  "query": "Noël en famille idée",
+  "title": "Noël en famille : idées et photos | Albums.ink",
+  "desc": "Idées pour un Noël en famille : réveillon, jeux, pyjamas assortis, photo de groupe – et un QR code pour réunir les photos de tous les invités au même endroit.",
+  "h1": "Noël en famille : idées pour le réveillon",
+  "lead": "Autour de « Noël en famille », on cherche des idées, des jeux, des tenues ou des pyjamas assortis et des photos. Voici des idées simples pour le réveillon ou le déjeuner du 25 – et comment récupérer ensuite toutes les photos prises par la famille.",
+  "body": [
+    "## Organiser le repas",
+    "- Le réveillon du 24 au soir ou le déjeuner du 25 : choisissez selon qui vient de loin.",
+    "- Répartissez les plats : chaque foyer apporte une entrée, un plat ou la bûche.",
+    "- Prévoyez un coin enfants avec coloriages et petits jeux.",
+    "## Jeux et animations",
+    "- Un quiz de famille sur l’année écoulée.",
+    "- Un échange de cadeaux tirés au sort.",
+    "- Des pyjamas ou pulls de Noël assortis pour une photo de groupe.",
+    "- Un blind test de chansons de Noël.",
+    "## La photo de groupe",
+    "Faites-la tôt, avant le dessert, quand tout le monde est encore présent. Posez un téléphone sur une étagère avec le retardateur.",
+    "## Toutes les photos avec un QR code",
+    "Tout le monde prend des photos avec son téléphone, puis elles restent éparpillées. Avec un <b>album d’événement</b> sur Albums, tout est au même endroit :",
+    "1. Créez l’album, par ex. « Noël chez Mamie 2026 ».",
+    "2. Posez le QR code sur la table ou près du sapin.",
+    "3. Les invités le scannent avec l’appareil photo du téléphone et ajoutent photos et vidéos dans le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> pour valider les envois avant leur affichage.",
+    "5. Ensuite, téléchargez l’album entier en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent anonymement. Les invités connectés reçoivent en plus une copie brouillon privée avec seulement leurs propres envois.",
+    "!cta",
+    "Plus : <a href=\"/fr/guides/cadeau-de-noel-pour-mes-parents/\">cadeau de Noël pour mes parents</a> et <a href=\"/fr/guides/idee-soiree-nouvel-an/\">idées de soirée du Nouvel An</a>.",
+    "## Prix",
+    "L’album d’événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Les invités ne paient rien. Photos jusqu’en 4K ; l’album est conservé 6 mois après le premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créer l’album de Noël",
+    "p": "Un QR code, toutes les photos et vidéos de la famille au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez les photos du réveillon",
+    "p": "Les invités envoient dans le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    [
+      "Comment rendre Noël en famille plus convivial ?",
+      "Partagez la préparation du repas, prévoyez quelques jeux et une photo de groupe avant le dessert."
+    ],
+    [
+      "Les invités doivent-ils installer quelque chose ?",
+      "Non. Ils scannent le QR code et envoient dans le navigateur."
+    ],
+    [
+      "Peut-on vérifier les photos avant ?",
+      "Oui, avec Hold guest photos les envois apparaissent seulement après validation."
+    ],
+    [
+      "Combien de temps les photos sont-elles gardées ?",
+      "6 mois après le premier envoi, avec prolongation possible."
+    ]
+  ],
+  "related": [
+    "cadeau-de-noel-pour-mes-parents",
+    "idee-soiree-nouvel-an",
+    "family-reunion-photo-ideas"
+  ],
+  "date": "2026-11-23"
+}
