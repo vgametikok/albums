@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "adventfeier ideen",
+  "title": "Adventfeier Ideen: Ablauf, Texte & Fotos der Gäste | Albums.ink",
+  "desc": "Ideen für die Adventfeier in Volksschule, Kindergarten, Verein oder Seniorenrunde: Ablauf, Lieder, Texte, Punsch und Kekse – und alle Gästefotos per QR-Code.",
+  "h1": "Adventfeier gestalten: Ideen für einen stimmungsvollen Nachmittag",
+  "lead": "Zu „Adventfeier“ schlägt Google „gestalten“, „Texte“, „Volksschule“, „Kindergarten“ und „Senioren“ vor – viele organisieren gerade eine Feier für Kinder, Eltern oder die Seniorenrunde. Hier sind Ideen für den Ablauf und ein einfacher Weg, die Fotos aller Gäste zu sammeln.",
+  "body": [
+    "## Ein bewährter Ablauf",
+    "1. Ankommen bei Punsch (für Kinder Kinderpunsch) und Keksen.",
+    "2. Eine Kerze am Adventkranz anzünden, kurze Begrüßung.",
+    "3. Lieder: von „Wir sagen euch an den lieben Advent“ bis „Stille Nacht“ – das Lied stammt übrigens aus Oberndorf bei Salzburg.",
+    "4. Eine Geschichte oder ein Gedicht, vorgetragen von Kindern oder Enkelkindern.",
+    "5. Gemütliches Beisammensein, eventuell ein kleiner Basar.",
+    "## Ideen je nach Gruppe",
+    "- <b>Volksschule und Kindergarten:</b> Kinder singen und tragen Gedichte vor, Eltern bringen selbst gebackene Kekse, die Kinder basteln Sterne oder Fensterbilder.",
+    "- <b>Senioren:</b> bekannte Adventlieder zum Mitsingen, eine besinnliche Geschichte, ein ruhiger Nachmittag mit Kaffee und Lebkuchen.",
+    "- <b>Verein oder Pfarre:</b> Punschstand, Tombola mit kleinen Preisen, Rückblick auf das Vereinsjahr.",
+    "## Texte und kleine Extras",
+    "- Kurze Adventgeschichten oder Gedichte statt langer Reden.",
+    "- Liedtexte ausdrucken, damit alle mitsingen können.",
+    "- Ein Kekstisch, bei dem jede Familie eine Sorte mitbringt.",
+    "## Alle Fotos an einem Ort",
+    "Bei der Adventfeier fotografieren Eltern, Großeltern und Gäste mit dem eigenen Handy. Mit einem <b>Event-Album</b> auf Albums landen die Bilder an einem Ort:",
+    "1. Album erstellen, z. B. „Adventfeier 2026“.",
+    "2. Den QR-Code beim Eingang, am Punschstand oder auf den Liedblättern anbringen.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Gästefotos zurückhalten</b> prüfen Sie Uploads, bevor sie sichtbar werden – wichtig, wenn Kinder auf den Bildern sind.",
+    "5. Danach laden Sie das ganze Album als eine ZIP-Datei herunter.",
+    "Gäste, die ohne Anmeldung hochladen, erscheinen anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/weihnachtsfeier-ideen/\">Weihnachtsfeier-Ideen</a> und <a href=\"/de/guides/silvesterparty-ideen/\">Silvesterparty-Ideen</a>.",
+    "## Preis",
+    "Das Event-Album ist ein Einmalkauf: Small $39.99, Medium $69.99 oder Large $129.99 (USD). Für Gäste kostenlos. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload gespeichert und lässt sich verlängern."
+  ],
+  "cta": {
+    "h2": "Album für die Adventfeier erstellen",
+    "p": "Ein QR-Code, alle Gästefotos an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Alle Fotos der Adventfeier",
+    "p": "Gäste laden im Browser hoch, Sie laden das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    [
+      "Heißt es Adventfeier oder Adventsfeier?",
+      "Beides ist üblich. In Österreich hört man oft „Adventfeier“, in Deutschland häufiger „Adventsfeier“."
+    ],
+    [
+      "Wie lange sollte eine Adventfeier dauern?",
+      "Für Kinder und Senioren reichen meist ein bis zwei Stunden mit Liedern, einer Geschichte und Zeit zum Plaudern."
+    ],
+    [
+      "Müssen Gäste etwas installieren?",
+      "Nein. Sie scannen den QR-Code und laden im Browser hoch."
+    ],
+    [
+      "Wie lange bleiben die Fotos gespeichert?",
+      "6 Monate ab dem ersten Upload, verlängerbar."
+    ]
+  ],
+  "related": [
+    "weihnachtsfeier-ideen",
+    "silvesterparty-ideen",
+    "klassenzusammenkunft"
+  ],
+  "date": "2026-11-26"
+}

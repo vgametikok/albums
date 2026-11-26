@@ -1,0 +1,72 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ES",
+  "query": "cena de navidad con amigos",
+  "title": "Cena de Navidad con amigos: ideas, qué llevar y fotos | Albums.ink",
+  "desc": "Ideas para una cena de Navidad con amigos en casa: menú para compartir, qué llevar, amigo invisible, juegos y un código QR para reunir las fotos de todos.",
+  "h1": "Ideas para una cena de Navidad con amigos",
+  "lead": "Al escribir “cena de navidad con amigos” Google sugiere “ideas”, “qué llevar” y “qué me pongo”. Antes de las cenas familiares de Nochebuena y Navidad, muchos grupos de amigos organizan su propia cena. Aquí tienes ideas para el menú, el plan de la noche y para que las fotos de todos no se queden en cada móvil.",
+  "body": [
+    "## Un menú fácil de compartir",
+    "- <b>Cada uno trae un plato:</b> reparte en el grupo de WhatsApp entrantes, principal y postre para no repetir.",
+    "- <b>Picoteo:</b> jamón, quesos, croquetas, langostinos y una buena ensalada.",
+    "- <b>Principal:</b> algo que se pueda dejar hecho, como un asado al horno o una lasaña.",
+    "- <b>Para terminar:</b> turrón, polvorones y cava para brindar.",
+    "## Qué llevar si eres invitado",
+    "- El plato que te haya tocado, ya listo para servir.",
+    "- Una botella de vino o cava, o bebida sin alcohol.",
+    "- El regalo del amigo invisible, si lo hay.",
+    "## Planes para la noche",
+    "- <b>Amigo invisible:</b> haced el sorteo con antelación y fijad un presupuesto.",
+    "- <b>Código de vestimenta:</b> jersey navideño, algo de brillo o un color para todos.",
+    "- <b>Juegos:</b> un quiz sobre el año del grupo, Pictionary o mímica de películas navideñas.",
+    "- <b>Brindis:</b> que cada uno diga el mejor momento del año.",
+    "## Todas las fotos en un álbum",
+    "En la cena todo el mundo hace fotos con su móvil y luego nadie las comparte. Con un <b>álbum de evento</b> en Albums se reúnen en un solo sitio:",
+    "1. Crea el álbum, por ejemplo “Cena de Navidad 2026”.",
+    "2. Pon el código QR en la mesa o mándalo al grupo de WhatsApp.",
+    "3. Los invitados lo escanean con la cámara del móvil y suben fotos y vídeos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Retener las fotos de los invitados</b> si quieres aprobar las subidas antes de que aparezcan.",
+    "5. Después, descarga el álbum completo en un único archivo ZIP.",
+    "Los invitados que suben sin iniciar sesión aparecen de forma anónima. Los que han iniciado sesión reciben además una copia privada en borrador solo con sus propias subidas.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/cena-de-empresa-navidad/\">cena de empresa de Navidad</a> y <a href=\"/es/guides/fiesta-de-fin-de-ano/\">fiesta de fin de año</a>.",
+    "## Precio",
+    "El álbum de evento es un pago único: Small $39.99, Medium $69.99 o Large $129.99 (USD). Gratis para los invitados. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede ampliar."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de vuestra cena",
+    "p": "Un código QR, todas las fotos de los invitados en un solo sitio.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarda las fotos de la noche",
+    "p": "Los invitados suben desde el navegador, tú descargas el álbum completo.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    [
+      "¿Qué llevar a una cena de Navidad con amigos?",
+      "El plato que te haya tocado, una bebida y el regalo del amigo invisible si lo hay. Lo mejor es repartir los platos en el grupo."
+    ],
+    [
+      "¿Cómo organizar una cena de Navidad con amigos en casa?",
+      "Fija la fecha pronto, reparte los platos, decide si hay amigo invisible y prepara uno o dos juegos para después de cenar."
+    ],
+    [
+      "¿Los invitados tienen que instalar algo para subir fotos?",
+      "No. Escanean el código QR y suben desde el navegador."
+    ],
+    [
+      "¿Cuánto tiempo se guardan las fotos?",
+      "6 meses desde la primera subida, y se puede ampliar."
+    ]
+  ],
+  "related": [
+    "cena-de-empresa-navidad",
+    "fiesta-de-fin-de-ano",
+    "album-para-mi-mejor-amiga"
+  ],
+  "date": "2026-11-26"
+}

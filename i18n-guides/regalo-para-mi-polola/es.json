@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CL",
+  "query": "regalo de navidad para mi polola",
+  "title": "Regalo para mi polola en Navidad: un álbum de su pololeo | Albums.ink",
+  "desc": "Un regalo de Navidad para tu polola: un álbum gratis con las fotos, videos y notas de voz de su pololeo, hecho desde el navegador.",
+  "h1": "Un regalo para tu polola que cuenta su historia",
+  "lead": "En Chile, Google completa “regalo para mi polola” con “ideas”, “de Navidad” y “de cumpleaños”. Si no quieres caer otra vez en el peluche o el perfume, regálale algo que nadie más le puede dar: un álbum con la historia de su pololeo, con fotos, videos y tu voz.",
+  "body": [
+    "## Por qué funciona",
+    "- Es personal: son sus momentos, no algo de la tienda.",
+    "- Es gratis, así que puedes sumarlo a un detalle chico para el árbol.",
+    "- Lo puedes hacer en una tarde desde el celular o el computador.",
+    "## Qué poner",
+    "- La primera foto juntos y la historia de cómo empezaron a pololear.",
+    "- Panoramas del año: carretes, onces con su familia, la playa en verano, un viaje.",
+    "- Videos cortos y audios: chistes internos, una canción, un “te quiero” grabado.",
+    "- Una nota de voz tuya contando qué te gusta de ella.",
+    "## Ideas de capítulos",
+    "1. Cómo empezamos.",
+    "2. Nuestros panoramas.",
+    "3. Este año juntos.",
+    "4. Feliz Navidad, mi amor.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums creas un <b>álbum de historias</b> con fotos, videos y notas de voz, dividido en capítulos y narrado con tu propia voz. Los álbumes y publicaciones son ilimitados y se quedan el tiempo que tú quieras. Las fotos gratis se guardan hasta 2048 px en el lado largo.",
+    "1. Entra con Google y crea un álbum, por ejemplo “Navidad 2026 – para la Cata”.",
+    "2. Sube fotos y videos capítulo por capítulo, con una frase corta en cada uno.",
+    "3. Graba notas de voz directamente en el navegador.",
+    "4. Los álbumes nuevos son <b>Público</b> por defecto. Para que sea sorpresa, déjalo en <b>Solo yo</b> mientras lo armas solo.",
+    "5. Puedes agregar un coautor, por ejemplo su mejor amiga, si son amigos en Albums. Solo yo también bloquea al coautor: mientras trabajan juntos, elige <b>Amigos, excepto…</b> y excluye a todos los demás (revisa de nuevo si agregas amigos).",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-pololo/\">regalo para mi pololo</a> y <a href=\"/es/guides/album-de-fotos-para-mi-novia/\">álbum de fotos para mi novia</a>.",
+    "## Cómo entregarlo",
+    "Ábranlo juntos en Nochebuena en el tele o en el celular. Para mandárselo, cámbialo a <b>Público</b>: los álbumes públicos se abren en el navegador sin iniciar sesión, con vista previa de la portada. Los álbumes de <b>Amigos</b> solo los ven tus amigos con sesión iniciada, y Solo yo no se abre por enlace. Todo el álbum se puede descargar en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Haz el álbum para tu polola",
+    "p": "Fotos, videos y tu voz en una sola historia. Gratis en el navegador.",
+    "btn": "Crear álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que se quedan el tiempo que tú quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    [
+      "¿Qué le regalo a mi polola en Navidad?",
+      "Algo personal suele funcionar mejor: un álbum con la historia del pololeo, con fotos, videos y una nota de voz tuya."
+    ],
+    [
+      "¿El álbum es gratis?",
+      "Sí. Los álbumes de historias son gratis e ilimitados."
+    ],
+    [
+      "¿Ella necesita una cuenta para verlo?",
+      "No, si el álbum es Público: el enlace se abre en el navegador. Los álbumes de Amigos requieren iniciar sesión y ser amigos en Albums."
+    ],
+    [
+      "¿Se puede descargar el álbum?",
+      "Sí, el álbum completo en un solo archivo ZIP."
+    ]
+  ],
+  "related": [
+    "regalo-para-mi-pololo",
+    "album-de-fotos-para-mi-novia",
+    "album-para-mi-mejor-amiga"
+  ],
+  "date": "2026-11-26"
+}

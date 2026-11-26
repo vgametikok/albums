@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "cadeau pour ma tante",
+  "title": "Cadeau pour ma tante : une idée personnelle pour Noël | Albums.ink",
+  "desc": "Une idée cadeau pour votre tante à Noël ou pour son anniversaire : un album raconté gratuit avec photos de famille, vidéos et messages vocaux.",
+  "h1": "Un cadeau pour votre tante qui vient du cœur",
+  "lead": "Google complète « cadeau pour ma tante » par « noël », « anniversaire » et « mon oncle et ma tante ». Pour une tata qui a déjà tout, le plus touchant reste souvent ce qu’on ne trouve pas en magasin : vos souvenirs communs, réunis dans un album raconté avec photos, vidéos et voix.",
+  "body": [
+    "## Pourquoi un album raconté",
+    "- Il parle d’elle et de la famille, pas de ses goûts qu’on devine mal.",
+    "- Les photos existent déjà, éparpillées dans les téléphones de la famille.",
+    "- C’est gratuit, donc il se marie bien avec un petit cadeau : chocolats, livre, fleurs.",
+    "## Quoi mettre dedans",
+    "- Des photos d’enfance avec elle : vacances chez tata, anniversaires, premier vélo.",
+    "- Les fêtes de famille de l’année : repas du dimanche, mariage d’un cousin, Noël dernier.",
+    "- Une courte vidéo ou un message vocal : « Joyeux Noël, tata ! »",
+    "- Si vous avez des enfants : un petit mot de ses petits-neveux.",
+    "## Idées de chapitres",
+    "1. Quand j’étais petit(e).",
+    "2. Nos fêtes de famille.",
+    "3. Cette année.",
+    "4. Merci, tata.",
+    "## Comment le créer (gratuit)",
+    "Sur Albums, vous créez un <b>album raconté</b> à partir de photos, vidéos et notes vocales, en chapitres, avec votre propre voix en narration. Les albums et publications sont illimités et restent aussi longtemps que vous le souhaitez. Les photos gratuites sont conservées jusqu’à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google et créez un album, par ex. « Noël 2026 – pour tata Sophie ».",
+    "2. Demandez des photos à vos parents, frères, sœurs et cousins.",
+    "3. Ajoutez-les chapitre par chapitre avec une courte légende.",
+    "4. Les nouveaux albums sont <b>Public</b> par défaut. Pour garder la surprise, passez-le en <b>Moi seulement</b> pendant que vous y travaillez seul(e).",
+    "5. Vous pouvez ajouter un coauteur, par exemple votre sœur, si vous êtes amis sur Albums. Moi seulement bloque aussi le coauteur : pendant que vous travaillez ensemble, choisissez <b>Amis, sauf…</b> et excluez tous les autres (revérifiez après chaque nouvel ami).",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/cadeau-de-noel-pour-mes-parents/\">cadeau de Noël pour mes parents</a> et <a href=\"/fr/guides/album-photo-grands-parents/\">album photo pour les grands-parents</a>.",
+    "## L’offrir",
+    "Regardez-le ensemble pendant les fêtes sur la télé ou une tablette. Pour l’envoyer, passez-le en <b>Public</b> : les albums publics s’ouvrent dans le navigateur sans connexion, avec un aperçu de la couverture. Les albums <b>Amis</b> ne sont visibles que par vos amis connectés, et Moi seulement ne s’ouvre pas par lien. Tout l’album peut aussi être téléchargé en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créer l’album pour votre tante",
+    "p": "Photos, vidéos et voix de la famille dans une seule histoire. Gratuit dans le navigateur.",
+    "btn": "Créer un album raconté →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s’achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    [
+      "Quel cadeau offrir à sa tante pour Noël ?",
+      "Un cadeau personnel touche souvent le plus, par exemple un album raconté avec vos photos communes et des messages vocaux."
+    ],
+    [
+      "L’album est-il gratuit ?",
+      "Oui. Les albums racontés sont gratuits et illimités."
+    ],
+    [
+      "A-t-elle besoin d’un compte pour le voir ?",
+      "Pas si l’album est Public : le lien s’ouvre dans le navigateur. Les albums Amis demandent qu’elle soit connectée et votre amie sur Albums."
+    ],
+    [
+      "Peut-on télécharger l’album ?",
+      "Oui, tout l’album en un seul fichier ZIP."
+    ]
+  ],
+  "related": [
+    "cadeau-de-noel-pour-mes-parents",
+    "album-photo-grands-parents",
+    "cadeau-pour-ma-soeur"
+  ],
+  "date": "2026-11-26"
+}

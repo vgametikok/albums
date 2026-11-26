@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "weihnachtsgeschenk für tante",
+  "title": "Weihnachtsgeschenk für Tante: persönlich statt Pralinen | Albums.ink",
+  "desc": "Ein persönliches Weihnachtsgeschenk für die Tante: ein kostenloses Story-Album mit Familienfotos, Videos und Sprachnachrichten von Nichte und Neffe.",
+  "h1": "Ein persönliches Weihnachtsgeschenk für die Tante",
+  "lead": "Bei „Weihnachtsgeschenk für Tante“ schlägt Google „basteln“, „klein“ und „Tante und Onkel“ vor. Gesucht ist also etwas Persönliches, das nicht viel kosten muss. Ein Story-Album mit gemeinsamen Erinnerungen ist genau das – und es ist kostenlos.",
+  "body": [
+    "## Warum ein Story-Album passt",
+    "- Tanten sammeln oft keine Dinge, aber Erinnerungen: Familienfeste, Urlaube, Kinderfotos.",
+    "- Es ist persönlich wie etwas Gebasteltes, nur ohne Kleber und Glitzer.",
+    "- Es kostet nichts und passt zu einer kleinen Aufmerksamkeit wie Plätzchen oder einem Buch.",
+    "## Was hineinkommt",
+    "- Fotos mit ihr aus Ihrer Kindheit: Geburtstage, Ferien bei ihr, das erste Fahrrad.",
+    "- Bilder vom Familienjahr: Ostern, Sommerfest, Geburtstage.",
+    "- Ein kurzes Video oder eine Sprachnachricht: „Frohe Weihnachten, liebe Tante!“",
+    "- Wenn Sie Kinder haben: ein Gruß der Großnichte oder des Großneffen.",
+    "## Ideen für Kapitel",
+    "1. Damals bei dir.",
+    "2. Unsere Familienfeste.",
+    "3. Dieses Jahr.",
+    "4. Danke, dass es dich gibt.",
+    "## So geht es (kostenlos)",
+    "Auf Albums erstellen Sie ein <b>Story-Album</b> aus Fotos, Videos und Sprachnachrichten, mit Kapiteln und Ihrer eigenen Stimme als Erzählung. Alben und Beiträge sind unbegrenzt und bleiben, solange Sie möchten. Kostenlose Fotos werden mit bis zu 2048 px an der langen Kante gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Weihnachten 2026 – für Tante Petra“.",
+    "2. Geschwister und Cousins um alte und neue Fotos bitten.",
+    "3. Kapitel für Kapitel einfügen und je eine kurze Bildunterschrift schreiben.",
+    "4. Neue Alben sind standardmäßig <b>Öffentlich</b>. Wenn es eine Überraschung bleiben soll, stellen Sie es auf <b>Nur ich</b>, solange Sie allein daran arbeiten.",
+    "5. Sie können einen Co-Autor hinzufügen, zum Beispiel Ihre Schwester, wenn Sie auf Albums befreundet sind. „Nur ich“ sperrt auch den Co-Autor aus; für die gemeinsame Arbeit wählen Sie <b>Freunde, außer…</b> und schließen alle anderen aus (nach neuen Freundschaften erneut prüfen).",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/weihnachtsgeschenk-fuer-eltern/\">Weihnachtsgeschenk für Eltern</a> und <a href=\"/de/guides/fotoalbum-fuer-oma/\">Fotoalbum für Oma</a>.",
+    "## Verschenken",
+    "Schauen Sie das Album an den Feiertagen gemeinsam auf dem Fernseher oder Tablet an. Zum Verschicken auf <b>Öffentlich</b> stellen: Dann öffnet sich der Link im Browser ohne Anmeldung, mit Vorschau des Titelbilds. Alben mit <b>Freunde</b> sehen nur angemeldete Freunde, „Nur ich“ öffnet sich nicht per Link. Das ganze Album lässt sich als eine ZIP-Datei herunterladen."
+  ],
+  "cta": {
+    "h2": "Album für Ihre Tante erstellen",
+    "p": "Fotos, Videos und Stimmen der Familie in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Geschenk, das man nicht kaufen kann",
+    "p": "Unbegrenzte Alben, die bleiben, solange Sie möchten.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    [
+      "Was schenkt man einer Tante zu Weihnachten?",
+      "Etwas Persönliches kommt meist am besten an, zum Beispiel ein Story-Album mit gemeinsamen Fotos und Sprachnachrichten."
+    ],
+    [
+      "Ist das Album kostenlos?",
+      "Ja. Story-Alben sind kostenlos und unbegrenzt."
+    ],
+    [
+      "Braucht meine Tante ein Konto?",
+      "Nicht bei einem öffentlichen Album: Der Link öffnet sich im Browser. Alben mit „Freunde“ erfordern eine Anmeldung und Freundschaft auf Albums."
+    ],
+    [
+      "Kann man das Album herunterladen?",
+      "Ja, das ganze Album als eine ZIP-Datei."
+    ]
+  ],
+  "related": [
+    "weihnachtsgeschenk-fuer-eltern",
+    "fotoalbum-fuer-oma",
+    "geschenk-fuer-schwester"
+  ],
+  "date": "2026-11-26"
+}

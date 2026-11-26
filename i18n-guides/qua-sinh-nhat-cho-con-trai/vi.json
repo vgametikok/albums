@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà sinh nhật cho con trai",
+  "title": "Quà sinh nhật cho con trai: album kỷ niệm từ bố mẹ | Albums.ink",
+  "desc": "Gợi ý quà sinh nhật cho con trai: một album câu chuyện miễn phí với ảnh, video và lời chúc bằng giọng nói của bố mẹ, ông bà.",
+  "h1": "Quà sinh nhật cho con trai mà con sẽ giữ mãi trong ký ức",
+  "lead": "Tìm “quà sinh nhật cho con trai”, nhiều bố mẹ thêm cả số tuổi: 7, 10, 13, 15 tuổi. Đồ chơi hay đồ công nghệ rồi sẽ cũ, còn một album kể lại hành trình con lớn lên, kèm giọng nói của bố mẹ, là món quà con có thể mở lại bất cứ lúc nào.",
+  "body": [
+    "## Vì sao nên làm album câu chuyện",
+    "- Ảnh của con nằm rải rác trong điện thoại bố mẹ, ông bà.",
+    "- Có thể thêm video và lời chúc bằng giọng nói.",
+    "- Miễn phí, nên dễ đi kèm món quà con thích.",
+    "## Nên đưa gì vào album",
+    "- Ảnh ngày con chào đời, đầy tháng, thôi nôi.",
+    "- Ngày đầu đi học, các lần đi chơi, những trận bóng.",
+    "- Video ngắn ông bà, anh chị em chúc mừng sinh nhật.",
+    "- Lời nhắn của bố mẹ: “Bố mẹ tự hào về con.”",
+    "## Gợi ý chương",
+    "1. Ngày con chào đời.",
+    "2. Những năm đầu đời.",
+    "3. Năm nay của con.",
+    "4. Chúc mừng sinh nhật con trai!",
+    "## Cách làm (miễn phí)",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành các chương và thuyết minh bằng giọng của mình. Album và bài đăng không giới hạn, giữ lại bao lâu tùy bạn. Ảnh miễn phí được lưu tối đa 2048 px theo cạnh dài.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “Mừng sinh nhật Bin 10 tuổi”.",
+    "2. Thêm ảnh, video theo từng chương và viết một dòng chú thích.",
+    "3. Ghi âm lời chúc ngay trên trình duyệt.",
+    "4. Album mới mặc định là <b>Công khai</b>. Muốn tạo bất ngờ thì chuyển sang <b>Chỉ mình tôi</b> trong lúc bạn tự làm.",
+    "5. Bạn có thể thêm một đồng tác giả, ví dụ bố hoặc mẹ của bé, nếu hai người là bạn bè trên Albums. Chế độ Chỉ mình tôi cũng ẩn album với đồng tác giả, nên khi cùng làm hãy chọn <b>Bạn bè, trừ…</b> và loại trừ tất cả những người còn lại (kiểm tra lại khi có bạn mới).",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/luu-giu-ky-niem-cho-con/\">lưu giữ kỷ niệm cho con</a> và <a href=\"/vi/guides/to-chuc-sinh-nhat-cho-be/\">tổ chức sinh nhật cho bé</a>.",
+    "## Cách tặng",
+    "Cả nhà cùng xem trên TV hoặc máy tính bảng sau khi thổi nến. Để gửi link, chuyển album sang <b>Công khai</b>: album công khai mở được trên trình duyệt mà không cần đăng nhập, có ảnh bìa xem trước. Album <b>Bạn bè</b> chỉ bạn bè đã đăng nhập mới xem được, còn Chỉ mình tôi không mở được bằng link. Toàn bộ album có thể tải về dưới dạng một tệp ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album tặng con trai",
+    "p": "Ảnh, video và giọng nói của cả nhà trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà không mua được",
+    "p": "Album không giới hạn, giữ lại bao lâu tùy bạn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    [
+      "Nên tặng gì cho con trai nhân dịp sinh nhật?",
+      "Bên cạnh món quà con thích, một album kể lại hành trình con lớn lên kèm lời chúc của bố mẹ là món quà rất ý nghĩa."
+    ],
+    [
+      "Album có miễn phí không?",
+      "Có. Album câu chuyện miễn phí và không giới hạn."
+    ],
+    [
+      "Con có cần tài khoản để xem không?",
+      "Nếu album Công khai thì mở link trên trình duyệt là xem được. Album Bạn bè cần đăng nhập và là bạn bè trên Albums."
+    ],
+    [
+      "Có tải album về được không?",
+      "Có, toàn bộ album trong một tệp ZIP."
+    ]
+  ],
+  "related": [
+    "luu-giu-ky-niem-cho-con",
+    "to-chuc-sinh-nhat-cho-be",
+    "album-anh-gia-dinh"
+  ],
+  "date": "2026-11-26"
+}

@@ -1,0 +1,71 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para tia",
+  "title": "Presente para tia: ideia personalizada para o Natal | Albums.ink",
+  "desc": "Uma ideia de presente personalizado para sua tia no Natal ou no aniversário: um álbum de histórias grátis com fotos da família, vídeos e recados de voz.",
+  "h1": "Um presente para a tia que tem lugar especial na família",
+  "lead": "No Google, “presente para tia” vem acompanhado de “personalizado”, “de aniversário” e “de 60 anos”. Para aquela tia que sempre esteve presente, nada mais personalizado que as lembranças de vocês num álbum de histórias com fotos, vídeos e a voz dos sobrinhos.",
+  "body": [
+    "## Por que um álbum de histórias",
+    "- É sobre ela e a família, não sobre adivinhar o gosto dela.",
+    "- As fotos já existem, espalhadas no celular de todo mundo.",
+    "- É grátis, então combina com um mimo pequeno: flores, chocolate, um livro.",
+    "## O que colocar",
+    "- Fotos de infância com ela: férias na casa da tia, aniversários, Natal em família.",
+    "- Momentos deste ano: churrasco de domingo, casamento de um primo, uma viagem.",
+    "- Vídeos curtos dos sobrinhos e sobrinhos-netos.",
+    "- Um recado de voz seu: “Obrigado por tudo, tia!”",
+    "## Ideias de capítulos",
+    "1. Quando eu era pequeno.",
+    "2. Nossas festas de família.",
+    "3. Este ano.",
+    "4. Feliz Natal, tia!",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e narrado com a sua própria voz. Álbuns e posts são ilimitados e ficam guardados pelo tempo que você quiser. As fotos grátis são salvas com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Natal 2026 – para a tia Cida”.",
+    "2. Peça fotos aos seus pais, irmãos e primos no grupo da família.",
+    "3. Adicione tudo capítulo por capítulo, com uma legenda curta.",
+    "4. Álbuns novos são <b>Público</b> por padrão. Para fazer surpresa, deixe em <b>Só eu</b> enquanto monta sozinho.",
+    "5. Você pode adicionar um coautor, por exemplo seu irmão, se vocês forem amigos no Albums. Só eu também bloqueia o coautor: enquanto trabalham juntos, escolha <b>Amigos, exceto…</b> e exclua todos os outros (confira de novo ao adicionar amigos).",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-irma/\">presente para irmã</a> e <a href=\"/pt-BR/guides/album-de-recordacoes/\">álbum de recordações</a>.",
+    "## Como entregar",
+    "Vejam juntos na ceia de Natal, na TV ou no tablet. Para mandar o link, mude para <b>Público</b>: álbuns públicos abrem no navegador sem login, com prévia da capa. Álbuns de <b>Amigos</b> só aparecem para seus amigos conectados, e Só eu não abre por link. O álbum inteiro também pode ser baixado em um único ZIP."
+  ],
+  "cta": {
+    "h2": "Faça o álbum para sua tia",
+    "p": "Fotos, vídeos e vozes da família numa só história. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    [
+      "O que dar de presente para tia?",
+      "Um presente personalizado costuma emocionar mais, como um álbum com fotos da família e recados de voz dos sobrinhos."
+    ],
+    [
+      "O álbum é grátis?",
+      "Sim. Álbuns de histórias são grátis e ilimitados."
+    ],
+    [
+      "Ela precisa de conta para ver?",
+      "Não, se o álbum for Público: o link abre no navegador. Álbuns de Amigos exigem login e amizade no Albums."
+    ],
+    [
+      "Dá para baixar o álbum?",
+      "Sim, o álbum inteiro em um único ZIP."
+    ]
+  ],
+  "related": [
+    "presente-para-irma",
+    "album-de-recordacoes",
+    "presente-para-avo"
+  ],
+  "date": "2026-11-26"
+}
