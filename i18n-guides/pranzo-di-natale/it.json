@@ -1,0 +1,55 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "pranzo di natale",
+  "title": "Pranzo di Natale in famiglia: menu, idee e foto | Albums.ink",
+  "desc": "Idee per il pranzo di Natale a casa: piatti della tradizione regione per regione, giochi dopo pranzo e tutte le foto degli ospiti raccolte con un QR code.",
+  "h1": "Pranzo di Natale in famiglia: idee per il 25 dicembre",
+  "lead": "A dicembre in Italia si cerca “pranzo di Natale” insieme a “menu”, “ricette facili ed economiche” e “ristorante”. Se quest’anno il pranzo è a casa vostra, ecco qualche idea per il menu e il pomeriggio – e un modo semplice per raccogliere le foto di tutti.",
+  "body": [
+    "## Il menu della tradizione",
+    "- <b>Primo:</b> tortellini o cappelletti in brodo in Emilia-Romagna, agnolotti in Piemonte, lasagne o pasta al forno in molte case del Sud.",
+    "- <b>Secondo:</b> bollito misto con le salse, cappone, arrosto o agnello, a seconda della regione.",
+    "- <b>Contorni:</b> patate al forno, verdure gratinate, insalata di rinforzo in Campania.",
+    "- <b>Dolci:</b> panettone e pandoro, torrone, struffoli o panforte.",
+    "## Consigli pratici",
+    "- Preparate il brodo e i sughi il giorno prima.",
+    "- Se la famiglia è grande, ognuno porta un piatto.",
+    "- Tenete qualcosa per Santo Stefano: gli avanzi sono parte della festa.",
+    "## Dopo pranzo",
+    "- La tombola con le cartelle e i premi simbolici.",
+    "- Un mazzo di carte per scopa o sette e mezzo.",
+    "- Una passeggiata prima del caffè e del panettone.",
+    "## Tutte le foto in un posto solo",
+    "Tra la tavola apparecchiata, i bambini e la tombola, tutti fotografano col telefono. Con un <b>album evento</b> su Albums le foto arrivano nello stesso posto:",
+    "1. Create l’album, per esempio “Natale 2026 dai nonni”.",
+    "2. Mettete il QR code sulla tavola o mandatelo nel gruppo WhatsApp di famiglia.",
+    "3. Gli ospiti lo inquadrano con la fotocamera del telefono e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attivate <b>Trattieni le foto degli invitati</b> per approvare i caricamenti prima che compaiano.",
+    "5. Dopo, scaricate l’intero album in un unico file ZIP.",
+    "Gli ospiti che caricano senza accedere compaiono in forma anonima. Chi accede riceve anche una copia privata in bozza con solo i propri caricamenti.",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/cena-della-vigilia/\">cena della Vigilia</a> e <a href=\"/it/guides/tombola-di-natale/\">tombola di Natale</a>.",
+    "## Prezzi",
+    "L’album evento è un acquisto unico: Small $39.99, Medium $69.99 o Large $129.99 (USD). Gratis per gli ospiti. Foto fino a 4K; l’album è conservato 6 mesi dal primo caricamento e si può prolungare."
+  ],
+  "cta": {
+    "h2": "Create l’album del vostro pranzo di Natale",
+    "p": "Un QR code e tutte le foto degli ospiti in un posto solo.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Conservate le foto del 25 dicembre",
+    "p": "Gli ospiti caricano dal browser, voi scaricate tutto l’album.",
+    "btn": "Inizia →"
+  },
+  "faq": [
+    ["Cosa si mangia al pranzo di Natale?", "Dipende dalla regione: tortellini in brodo, agnolotti o lasagne come primo, bollito, cappone o arrosto come secondo, panettone e pandoro come dolce."],
+    ["Cosa fare dopo il pranzo di Natale?", "La tombola, un gioco di carte come scopa o sette e mezzo, oppure una passeggiata."],
+    ["Gli ospiti devono installare qualcosa?", "No. Inquadrano il QR code e caricano dal browser."],
+    ["Per quanto tempo restano le foto?", "6 mesi dal primo caricamento, e l’album si può prolungare."]
+  ],
+  "related": ["cena-della-vigilia", "tombola-di-natale", "capodanno-a-casa"],
+  "date": "2026-11-27"
+}

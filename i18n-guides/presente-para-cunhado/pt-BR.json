@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para cunhado",
+  "title": "Presente para cunhado: um álbum de histórias da família | Albums.ink",
+  "desc": "Presente para cunhado de aniversário ou de Natal: um álbum de histórias grátis com fotos, vídeos e mensagens de voz dos momentos em família.",
+  "h1": "Um presente para o cunhado que ele não espera",
+  "lead": "No Brasil, o Google completa “presente para cunhado” com “de aniversário” e “de Natal”. Cunhado nem sempre é fácil de presentear, mas as fotos dos churrascos, das viagens e do casamento já estão no celular de todo mundo. Com elas dá para montar um álbum de histórias com a voz da família – de graça.",
+  "body": [
+    "## Por que um álbum de histórias",
+    "- Mostra que ele faz parte da família, do primeiro almoço de domingo até hoje.",
+    "- É criativo e funciona mesmo para quem “não precisa de nada”.",
+    "- É grátis e combina com uma lembrancinha, como uma cerveja artesanal ou a camisa do time.",
+    "## O que colocar",
+    "- O dia do casamento ou do noivado com sua irmã ou seu irmão.",
+    "- Churrascos, Natais e réveillons em família.",
+    "- Viagens juntos, jogos do time no sofá, o futebol de fim de semana.",
+    "- Vídeos curtos e mensagens de voz dos sobrinhos e dos sogros.",
+    "## Capítulos",
+    "1. Bem-vindo à família.",
+    "2. Nossos churrascos e festas.",
+    "3. As viagens.",
+    "4. Feliz aniversário, cunhado!",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e narrado com a sua voz. Álbuns e publicações ilimitados, que ficam o tempo que você quiser. As fotos grátis são comprimidas para no máximo 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para o Rafa – parabéns”.",
+    "2. Peça fotos no grupo da família no WhatsApp e adicione por capítulo.",
+    "3. Para manter a surpresa enquanto monta, escolha <b>Só eu</b>.",
+    "4. Dá para adicionar um coautor que seja seu amigo no Albums, como sua irmã. “Só eu” esconde o álbum também do coautor, então durante o trabalho a dois escolha <b>Amigos, exceto…</b> e exclua todos os outros (confira a lista depois de adicionar novos amigos).",
+    "!cta",
+    "Mais ideias: <a href=\"/pt-BR/guides/presente-para-irmao/\">presente para irmão</a> e <a href=\"/pt-BR/guides/amigo-secreto/\">amigo secreto</a>.",
+    "## Como entregar",
+    "Assistam juntos no notebook ou no tablet. Para mandar o link, deixe o álbum em <b>Público</b>: ele abre no navegador sem login e mostra a capa ao compartilhar. Álbuns de <b>Amigos</b> só são vistos pelos seus amigos depois do login, e “Só eu” não abre pelo link. O álbum inteiro pode ser baixado em um único arquivo ZIP."
+  ],
+  "cta": {
+    "h2": "Monte um álbum para o seu cunhado",
+    "p": "Fotos, vídeos e a voz da família em uma história. Grátis no navegador.",
+    "btn": "Criar um álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um presente que não se compra",
+    "p": "Álbuns ilimitados que ficam o tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    ["O que dar de presente para o cunhado?", "Algo pessoal: um álbum de histórias com fotos da família, vídeos e mensagens de voz, junto com uma lembrancinha."],
+    ["É grátis?", "Sim. Álbuns de histórias são grátis e ilimitados."],
+    ["Ele precisa de conta para ver?", "Se o álbum estiver Público, abre pelo link. Para Amigos, ele precisa entrar e ser seu amigo no Albums."],
+    ["Dá para baixar o álbum?", "Sim, o álbum inteiro em um único arquivo ZIP."]
+  ],
+  "related": ["presente-para-irmao", "amigo-secreto", "presente-para-sogro"],
+  "date": "2026-11-27"
+}

@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "AR",
+  "query": "regalo para mi prima",
+  "title": "Regalo para mi prima: un álbum de historias de la familia | Albums.ink",
+  "desc": "Un regalo para tu prima de cumpleaños o Navidad: un álbum de historias gratis con fotos, videos y mensajes de voz de todos los momentos que compartieron.",
+  "h1": "Un regalo para tu prima con todos los recuerdos compartidos",
+  "lead": "En Argentina, Google completa «regalo para mi prima» con «de cumpleaños», «original» y «de Navidad». Si se criaron juntas, entre asados familiares, vacaciones y la fiesta de 15, ya tenés el mejor material: las fotos. Con ellas podés armar un álbum de historias con tu voz, gratis.",
+  "body": [
+    "## Por qué un álbum de historias",
+    "- Junta años de recuerdos que hoy están repartidos en celulares de toda la familia.",
+    "- Es original: nadie más puede regalarle su propia historia con vos.",
+    "- Es gratis, así que combina con un regalo chico, como unas flores o un perfume.",
+    "## Qué poner",
+    "- Fotos de chicas: cumpleaños, Navidades en familia, vacaciones en la costa.",
+    "- La fiesta de 15, el viaje de egresados, el día que se recibió.",
+    "- Videos cortos: el baile, una canción, una broma que solo ustedes entienden.",
+    "- Un mensaje de voz tuyo y, si querés, de los tíos y abuelos.",
+    "## Capítulos",
+    "1. Cuando éramos chicas.",
+    "2. Las fiestas de la familia.",
+    "3. Nuestras aventuras.",
+    "4. Feliz cumple, prima.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums podés crear un <b>álbum de historias</b> con fotos, videos y notas de voz, dividirlo en capítulos y narrarlo con tu voz. Álbumes y publicaciones ilimitados, que se quedan el tiempo que quieras. Las fotos gratis se comprimen a un máximo de 2048 px en el lado largo.",
+    "1. Entrá con Google y creá un álbum, por ejemplo «Para Sofi – feliz cumple».",
+    "2. Pedile fotos al grupo de WhatsApp de la familia y agregalas por capítulos.",
+    "3. Para que sea sorpresa mientras lo armás, elegí <b>Solo yo</b>.",
+    "4. Podés sumar un coautor que sea tu amigo en Albums, por ejemplo tu hermana. «Solo yo» oculta el álbum también al coautor, así que mientras trabajan juntas elegí <b>Amigos, excepto…</b> y excluí a todos los demás (revisá la lista cuando sumes amigos nuevos).",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/regalo-para-mi-hermana/\">regalo para mi hermana</a> y <a href=\"/es/guides/fiesta-xv-anos/\">fiesta de XV años</a>.",
+    "## Cómo regalarlo",
+    "Mírenlo juntas en la compu o la tablet. Para mandarle el link, poné el álbum en <b>Público</b>: se abre en el navegador sin iniciar sesión y muestra la portada al compartirlo. Los álbumes de <b>Amigos</b> solo los ven tus amigos después de iniciar sesión, y «Solo yo» no se abre con el link. Ella puede descargar el álbum entero en un solo archivo ZIP."
+  ],
+  "cta": {
+    "h2": "Armá un álbum para tu prima",
+    "p": "Fotos, videos y tu voz en una historia. Gratis en el navegador.",
+    "btn": "Crear un álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un regalo que no se compra",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    ["¿Qué le puedo regalar a mi prima de cumpleaños?", "Algo personal: un álbum de historias con fotos de la familia, videos y un mensaje de voz tuyo."],
+    ["¿Es gratis?", "Sí. Los álbumes de historias son gratis e ilimitados."],
+    ["¿Necesita una cuenta para verlo?", "Si el álbum es Público, se abre con el link. Para Amigos tiene que iniciar sesión y ser tu amiga en Albums."],
+    ["¿Se puede descargar?", "Sí, el álbum entero en un solo archivo ZIP."]
+  ],
+  "related": ["regalo-para-mi-hermana", "regalo-para-mi-tia", "fiesta-xv-anos"],
+  "date": "2026-11-27"
+}

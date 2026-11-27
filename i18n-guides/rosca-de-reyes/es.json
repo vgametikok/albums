@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "MX",
+  "query": "rosca de reyes",
+  "title": "Partida de rosca de Reyes: ideas para festejar y fotos | Albums.ink",
+  "desc": "Cómo organizar la partida de la rosca de Reyes el 6 de enero: chocolate caliente, el muñequito, los tamales de la Candelaria y todas las fotos de los invitados con un QR.",
+  "h1": "Partida de rosca de Reyes: cómo organizar el festejo",
+  "lead": "Cada enero en México se busca «rosca de Reyes» junto con la receta, el significado y dónde comprarla. Partir la rosca el 6 de enero es una de las reuniones más queridas en casa, en la oficina o en la escuela. Aquí tienes ideas para organizarla y una forma sencilla de juntar las fotos de todos.",
+  "body": [
+    "## La tradición en pocas palabras",
+    "- El Día de Reyes, 6 de enero, recuerda la llegada de los Reyes Magos. La noche anterior los niños dejan su zapato para recibir regalos.",
+    "- La rosca, adornada con ate y fruta cristalizada, esconde uno o varios muñequitos que representan al Niño Dios.",
+    "- A quien le sale el muñequito le toca invitar los tamales el Día de la Candelaria, el 2 de febrero.",
+    "## Ideas para la partida",
+    "- <b>Chocolate caliente</b> o atole para acompañar la rosca.",
+    "- <b>Turnos:</b> cada quien corta su rebanada con el cuchillo de plástico; el suspenso es parte de la diversión.",
+    "- <b>En la oficina:</b> una rosca grande a media tarde y la lista de quién lleva tamales en febrero.",
+    "- <b>Con niños:</b> que muestren los juguetes que les trajeron los Reyes.",
+    "## Todas las fotos en un solo lugar",
+    "El momento en que alguien encuentra el muñequito siempre termina en fotos y videos. Con un <b>álbum de evento</b> en Albums llegan todos al mismo lugar:",
+    "1. Crea el álbum, por ejemplo «Rosca de Reyes 2027 – familia García».",
+    "2. Pon el código QR junto a la rosca o compártelo en el grupo de WhatsApp.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Activa <b>Retener las fotos de los invitados</b> para aprobar lo que se sube antes de que aparezca.",
+    "5. Después descarga el álbum completo en un solo archivo ZIP.",
+    "Los invitados que suben sin iniciar sesión aparecen de forma anónima. Los que inician sesión reciben además una copia privada en borrador solo con lo que ellos subieron.",
+    "!cta",
+    "Más ideas: <a href=\"/es/guides/posada-navidena/\">posada navideña</a> y <a href=\"/es/guides/fiesta-de-fin-de-ano/\">fiesta de fin de año</a>.",
+    "## Precios",
+    "El álbum de evento es un pago único: Small $39.99, Medium $69.99 o Large $129.99 (USD). Gratis para los invitados. Fotos de hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender. Así también te sirve para los tamales del 2 de febrero."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de tu rosca de Reyes",
+    "p": "Un código QR y todas las fotos de los invitados en un solo lugar.",
+    "btn": "Crear un álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarda el momento del muñequito",
+    "p": "Los invitados suben desde el navegador y tú descargas todo el álbum.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    ["¿Qué pasa si te sale el muñequito de la rosca?", "Por tradición te toca invitar los tamales el Día de la Candelaria, el 2 de febrero."],
+    ["¿Cuándo se parte la rosca de Reyes?", "El 6 de enero, Día de Reyes, o en los días cercanos."],
+    ["¿Los invitados tienen que instalar algo?", "No. Escanean el código QR y suben desde el navegador."],
+    ["¿Cuánto tiempo se guardan las fotos?", "6 meses desde la primera subida, y el álbum se puede extender."]
+  ],
+  "related": ["posada-navidena", "fiesta-de-fin-de-ano", "cena-de-navidad-con-amigos"],
+  "date": "2026-11-27"
+}

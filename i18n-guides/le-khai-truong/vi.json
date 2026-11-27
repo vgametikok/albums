@@ -1,0 +1,52 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "lễ khai trương",
+  "title": "Lễ khai trương cửa hàng: cần những gì và cách gom ảnh khách | Albums.ink",
+  "desc": "Chuẩn bị lễ khai trương cửa hàng, công ty: chọn ngày giờ, mâm cúng, múa lân, cắt băng khánh thành, và gom toàn bộ ảnh của khách mời bằng một mã QR.",
+  "h1": "Lễ khai trương: cần chuẩn bị những gì?",
+  "lead": "Trên Google, “lễ khai trương” thường đi kèm “cửa hàng”, “công ty” và “cần những gì”. Ngày khai trương là ngày quan trọng với chủ kinh doanh, khách mời và đối tác đều đến chúc mừng. Dưới đây là danh sách chuẩn bị và cách đơn giản để gom ảnh mọi người chụp về một chỗ.",
+  "body": [
+    "## Những việc cần chuẩn bị",
+    "- <b>Chọn ngày giờ đẹp:</b> nhiều người chọn ngày hợp tuổi chủ cửa hàng hoặc người đứng đầu công ty.",
+    "- <b>Mâm cúng khai trương:</b> thường cúng Thần Tài, Thổ Địa để cầu buôn may bán đắt.",
+    "- <b>Múa lân:</b> tạo không khí rộn ràng và thu hút khách qua đường.",
+    "- <b>Cắt băng khánh thành:</b> chủ cửa hàng cùng khách mời quan trọng cắt băng.",
+    "- <b>Lẵng hoa chúc mừng</b> từ đối tác và bạn bè đặt trước cửa.",
+    "## Ý tưởng thu hút khách",
+    "- Ưu đãi cho những khách đầu tiên ngày khai trương.",
+    "- Góc check-in với logo và backdrop của cửa hàng.",
+    "- Quà nhỏ hoặc bốc thăm may mắn cho khách mời.",
+    "## Gom ảnh của tất cả khách mời",
+    "Ngày khai trương ai cũng chụp ảnh bằng điện thoại, nhưng sau đó ảnh nằm rải rác khắp nơi. Với <b>album sự kiện</b> trên Albums, ảnh được gom về một chỗ:",
+    "1. Tạo album, ví dụ “Khai trương cửa hàng Mộc Trà”.",
+    "2. In mã QR đặt ở quầy, bàn đón khách hoặc gửi vào nhóm Zalo.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên từ trình duyệt, không cần ứng dụng.",
+    "4. Bật <b>Tạm giữ ảnh của khách</b> để duyệt ảnh trước khi hiển thị.",
+    "5. Sau đó tải cả album về thành một tệp ZIP – có sẵn ảnh để đăng fanpage.",
+    "Khách tải lên mà không đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận được một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/le-ky-niem-thanh-lap-cong-ty/\">lễ kỷ niệm thành lập công ty</a> và <a href=\"/vi/guides/tiec-tri-an-khach-hang/\">tiệc tri ân khách hàng</a>.",
+    "## Giá",
+    "Album sự kiện trả một lần: Small $39.99, Medium $69.99 hoặc Large $129.99 (USD). Miễn phí cho khách. Ảnh lên đến 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album cho lễ khai trương",
+    "p": "Một mã QR, toàn bộ ảnh của khách ở một chỗ.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Lưu lại ngày đầu tiên",
+    "p": "Khách tải lên từ trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    ["Lễ khai trương cửa hàng cần những gì?", "Chọn ngày giờ, mâm cúng khai trương, múa lân, cắt băng khánh thành, lẵng hoa và quà cho khách."],
+    ["Khai trương cúng ai?", "Thường cúng Thần Tài và Thổ Địa để cầu buôn may bán đắt."],
+    ["Khách có cần cài ứng dụng không?", "Không. Khách quét mã QR và tải lên từ trình duyệt."],
+    ["Ảnh được lưu bao lâu?", "6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."]
+  ],
+  "related": ["le-ky-niem-thanh-lap-cong-ty", "tiec-tri-an-khach-hang", "tiec-tan-gia"],
+  "date": "2026-11-27"
+}

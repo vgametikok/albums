@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "DE",
+  "query": "wichteln ideen",
+  "title": "Wichteln: Ideen, Spielregeln und Fotos | Albums.ink",
+  "desc": "Wichteln im Büro, mit Freunden oder der Familie: Varianten wie Schrottwichteln und Würfelwichteln, Budget-Tipps und alle Fotos der Runde per QR-Code.",
+  "h1": "Wichteln: Ideen und Regeln für eine lustige Runde",
+  "lead": "Im Dezember sucht Deutschland nach «wichteln auslosen», «wichteln online» und «wichteln ideen». Ob in der Weihnachtsfeier, im Verein oder am Familienabend – mit klaren Regeln und einer guten Variante wird Wichteln zum Highlight. Hier sind Ideen und ein einfacher Weg, die Fotos aller Gäste zu sammeln.",
+  "body": [
+    "## Die Grundregeln",
+    "- <b>Auslosen:</b> Jede Person zieht einen Namen – im Hut oder per Online-Losung.",
+    "- <b>Budget:</b> einen festen Betrag vereinbaren, z. B. 10 oder 15 €.",
+    "- <b>Geheim:</b> Wer wen beschenkt, bleibt bis zur Bescherung ein Geheimnis.",
+    "## Beliebte Varianten",
+    "- <b>Schrottwichteln:</b> Alle bringen etwas Kurioses von zu Hause mit, das sie loswerden wollen. Gelacht wird garantiert.",
+    "- <b>Würfelwichteln:</b> Die Geschenke liegen in der Mitte; wer eine Sechs würfelt, nimmt sich eins. In der zweiten Runde darf man anderen Geschenke wegnehmen.",
+    "- <b>Themenwichteln:</b> etwa «alles Selbstgemachte» oder «etwas Regionales».",
+    "## Ideen für Geschenke um 10 €",
+    "- Plätzchen oder Gewürzmischung im Glas.",
+    "- Ein lustiger Becher, Kuschelsocken oder ein Kartenspiel.",
+    "- Ein kleiner Gutschein für den Weihnachtsmarkt.",
+    "## Alle Fotos an einem Ort",
+    "Beim Auspacken zücken alle das Handy. Mit einem <b>Event-Album</b> auf Albums landen die Bilder an einem Ort:",
+    "1. Album anlegen, z. B. «Wichteln Team 2026».",
+    "2. QR-Code neben den Geschenketisch legen oder in den Gruppenchat schicken.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. Mit <b>Gästefotos zurückhalten</b> gibst du Uploads frei, bevor sie erscheinen.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Gäste, die ohne Anmeldung hochladen, erscheinen anonym. Angemeldete Gäste erhalten zusätzlich eine private Entwurfskopie nur mit ihren eigenen Uploads.",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/weihnachtsfeier-ideen/\">Weihnachtsfeier-Ideen</a> und <a href=\"/de/guides/silvesterparty-ideen/\">Silvesterparty-Ideen</a>.",
+    "## Preise",
+    "Das Event-Album ist ein Einmalkauf: Small $39.99, Medium $69.99 oder Large $129.99 (USD). Für Gäste kostenlos. Fotos bis 4K; das Album wird 6 Monate ab dem ersten Upload gespeichert und kann verlängert werden."
+  ],
+  "cta": {
+    "h2": "Event-Album fürs Wichteln erstellen",
+    "p": "Ein QR-Code, alle Fotos der Gäste an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Die Bescherung festhalten",
+    "p": "Gäste laden im Browser hoch, du lädst das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    ["Wie funktioniert Würfelwichteln?", "Die Geschenke liegen in der Mitte, wer eine Sechs würfelt, nimmt sich eins. In einer zweiten Runde dürfen Geschenke getauscht oder weggenommen werden."],
+    ["Was ist Schrottwichteln?", "Eine Variante, bei der alle etwas Kurioses oder Ungeliebtes von zu Hause mitbringen."],
+    ["Müssen Gäste etwas installieren?", "Nein. Sie scannen den QR-Code und laden im Browser hoch."],
+    ["Wie lange bleiben die Fotos gespeichert?", "6 Monate ab dem ersten Upload, verlängerbar."]
+  ],
+  "related": ["weihnachtsfeier-ideen", "adventfeier-ideen", "silvesterparty-ideen"],
+  "date": "2026-11-27"
+}

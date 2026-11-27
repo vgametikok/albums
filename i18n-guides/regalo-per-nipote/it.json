@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per nipote",
+  "title": "Regalo per nipote: un album racconto da zii e nonni | Albums.ink",
+  "desc": "Un regalo per il nipote o la nipote a 18 anni, alla laurea o a Natale: un album racconto gratuito con foto, video e la voce di zii e nonni.",
+  "h1": "Un regalo per il nipote che racconta la sua storia",
+  "lead": "In Italia Google completa “regalo per nipote” con “18 anni”, “20 anni” e “che si laurea”. Che siate zii o nonni, avete visto crescere vostro nipote dal battesimo in poi: le foto ci sono già. Trasformarle in un album racconto con la vostra voce è un regalo che dura, ed è gratuito.",
+  "body": [
+    "## Perché un album racconto",
+    "- Mette insieme anni di ricordi sparsi nei telefoni di tutta la famiglia.",
+    "- Va bene per un nipote che compie 18 anni come per una nipote che si laurea.",
+    "- È gratuito e si abbina bene a un regalo classico, come un orologio o un viaggio.",
+    "## Cosa metterci",
+    "- Il battesimo, i primi compleanni, la prima comunione.",
+    "- I pranzi di Natale e le domeniche dai nonni, le vacanze al mare.",
+    "- Brevi video: la recita, la partita, la festa dei 18 anni.",
+    "- Un messaggio vocale di zii e nonni: cosa vi rende orgogliosi e un augurio per il futuro.",
+    "## Capitoli",
+    "1. Quando eri piccolo.",
+    "2. Le feste in famiglia.",
+    "3. I tuoi traguardi.",
+    "4. Auguri dagli zii.",
+    "## Come farlo (gratis)",
+    "Su Albums create un <b>album racconto</b> con foto, video e note vocali, diviso in capitoli e narrato con la vostra voce. Album e post illimitati, che restano finché volete. Le foto gratuite vengono compresse, al massimo 2048 px sul lato lungo.",
+    "1. Accedete con Google e create un album, per esempio “Per Luca – 18 anni”.",
+    "2. Chiedete foto nel gruppo WhatsApp di famiglia e aggiungetele capitolo per capitolo.",
+    "3. Per mantenere la sorpresa mentre lavorate, scegliete <b>Solo io</b>.",
+    "4. Potete aggiungere un coautore che sia vostro amico su Albums, per esempio la zia. “Solo io” nasconde l’album anche al coautore: mentre lavorate in due scegliete <b>Amici, tranne…</b> ed escludete tutti gli altri (ricontrollate la lista dopo aver aggiunto nuovi amici).",
+    "!cta",
+    "Altre idee: <a href=\"/it/guides/festa-18-anni/\">festa dei 18 anni</a> e <a href=\"/it/guides/festa-di-laurea/\">festa di laurea</a>.",
+    "## Come regalarlo",
+    "Guardatelo insieme sul computer o sul tablet. Per mandare il link, impostate l’album su <b>Pubblico</b>: si apre nel browser senza accesso e mostra l’anteprima della copertina. Gli album <b>Amici</b> li vedono solo i vostri amici dopo l’accesso, e “Solo io” non si apre dal link. L’intero album si scarica in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Create un album per vostro nipote",
+    "p": "Foto, video e la vostra voce in un’unica storia. Gratis nel browser.",
+    "btn": "Crea un album racconto →"
+  },
+  "cta2": {
+    "h2": "Un regalo che non si compra",
+    "p": "Album illimitati che restano finché volete.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    ["Cosa regalare a un nipote per i 18 anni?", "Oltre al regalo classico, un album racconto con le foto della sua infanzia e i messaggi vocali di zii e nonni."],
+    ["Va bene anche per una nipote che si laurea?", "Sì. Basta un capitolo dedicato agli anni di studio e alla festa di laurea."],
+    ["È gratuito?", "Sì. Gli album racconto sono gratuiti e illimitati."],
+    ["Si può scaricare l’album?", "Sì, l’intero album in un unico file ZIP."]
+  ],
+  "related": ["festa-18-anni", "festa-di-laurea", "regalo-per-zia"],
+  "date": "2026-11-27"
+}

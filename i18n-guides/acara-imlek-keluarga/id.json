@@ -1,0 +1,53 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara imlek",
+  "title": "Acara Imlek Keluarga: Ide Kumpul dan Foto Bersama | Albums.ink",
+  "desc": "Ide acara Imlek bersama keluarga: makan malam reuni, angpao, kue keranjang, kunjungan ke rumah orang tua, dan semua foto tamu terkumpul lewat satu kode QR.",
+  "h1": "Acara Imlek keluarga: ide untuk kumpul bersama",
+  "lead": "Menjelang Imlek, pencarian “acara imlek” di Indonesia ramai, dari acara di kota sampai ide untuk keluarga. Di banyak keluarga Tionghoa Indonesia, Imlek berarti makan malam bersama, berkunjung ke rumah orang tua dan saudara, serta berbagi angpao. Berikut ide acaranya dan cara mudah mengumpulkan foto semua anggota keluarga.",
+  "body": [
+    "## Tradisi yang biasa dilakukan",
+    "- <b>Makan malam reuni</b> pada malam menjelang Imlek, saat keluarga besar berkumpul.",
+    "- <b>Berkunjung</b> ke rumah orang tua, kakek nenek, dan saudara yang lebih tua untuk memberi hormat dan mengucapkan selamat tahun baru.",
+    "- <b>Angpao:</b> biasanya diberikan oleh yang sudah menikah kepada anak-anak dan yang belum menikah.",
+    "- <b>Hidangan:</b> kue keranjang, jeruk mandarin, kue lapis legit, dan masakan keluarga.",
+    "- <b>Warna merah</b> pada baju dan dekorasi, sebagai simbol keberuntungan.",
+    "## Ide acara di rumah",
+    "- Foto keluarga besar dengan baju merah sebelum makan malam.",
+    "- Sesi bagi angpao untuk anak-anak dan sepupu.",
+    "- Menonton barongsai bersama di klenteng atau pusat perbelanjaan terdekat.",
+    "- Menyiapkan rencana Cap Go Meh, hari ke-15 setelah Imlek.",
+    "## Semua foto di satu tempat",
+    "Saat kumpul keluarga, semua orang memotret dengan HP masing-masing. Dengan <b>album acara</b> di Albums, semua foto terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Imlek 2027 Keluarga Tan”.",
+    "2. Taruh kode QR di meja makan atau kirim ke grup WhatsApp keluarga.",
+    "3. Tamu memindainya dengan kamera HP dan mengunggah foto dan video dari browser, tanpa aplikasi.",
+    "4. Aktifkan <b>Tahan foto tamu</b> untuk menyetujui unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album sebagai satu file ZIP.",
+    "Tamu yang mengunggah tanpa login tampil secara anonim. Tamu yang login juga mendapat salinan draf pribadi berisi unggahan mereka sendiri saja.",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/acara-tahun-baru-di-rumah/\">acara tahun baru di rumah</a> dan <a href=\"/id/guides/arisan-keluarga/\">arisan keluarga</a>.",
+    "## Harga",
+    "Album acara dibeli sekali: Small $39.99, Medium $69.99, atau Large $129.99 (USD). Gratis untuk tamu. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album acara Imlek keluarga",
+    "p": "Satu kode QR, semua foto tamu di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan kenangan kumpul Imlek",
+    "p": "Tamu mengunggah dari browser, kamu mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    ["Apa saja tradisi Imlek di keluarga?", "Makan malam reuni, berkunjung ke rumah orang tua dan saudara yang lebih tua, berbagi angpao, serta menyajikan kue keranjang dan jeruk."],
+    ["Siapa yang memberi angpao saat Imlek?", "Biasanya yang sudah menikah memberi angpao kepada anak-anak dan yang belum menikah."],
+    ["Apakah tamu perlu memasang aplikasi?", "Tidak. Mereka memindai kode QR dan mengunggah dari browser."],
+    ["Berapa lama foto disimpan?", "6 bulan sejak unggahan pertama, dan album bisa diperpanjang."]
+  ],
+  "related": ["acara-tahun-baru-di-rumah", "arisan-keluarga", "acara-natal"],
+  "date": "2026-11-27"
+}

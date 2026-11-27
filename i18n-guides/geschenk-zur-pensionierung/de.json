@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CH",
+  "query": "geschenk zur pensionierung",
+  "title": "Geschenk zur Pensionierung: Story-Album vom Team | Albums.ink",
+  "desc": "Geschenk zur Pensionierung für Kollegin oder Kollegen: ein kostenloses Story-Album mit Fotos, Videos und Sprachgrüssen aus all den Jahren im Team.",
+  "h1": "Ein Geschenk zur Pensionierung, das an die Jahre im Team erinnert",
+  "lead": "Wer in der Schweiz «Geschenk zur Pensionierung» sucht, bekommt Vorschläge wie «Frau», «Mann», «Kollegin» und «selber machen». Ein persönliches Geschenk, das das Team gemeinsam machen kann: ein Story-Album mit Fotos vom Arbeitsalltag, Apéros und Ausflügen – und mit Sprachgrüssen der Kolleginnen und Kollegen.",
+  "body": [
+    "## Warum ein Story-Album",
+    "- Es erzählt die gemeinsame Zeit: vom ersten Arbeitstag bis zum Abschiedsapéro.",
+    "- Alle können Fotos und einen kurzen Gruss beisteuern, auch Ehemalige.",
+    "- Es ist kostenlos und passt gut zu einem Gutschein oder einem Blumenstrauss.",
+    "## Was hineingehört",
+    "- Fotos vom Team: Znüni-Pausen, Weihnachtsessen, Betriebsausflug.",
+    "- Momente aus dem Arbeitsalltag: das Büro, die Werkstatt, das Lehrerzimmer.",
+    "- Kurze Videos vom letzten Teamanlass.",
+    "- Sprachgrüsse: Was wir von dir gelernt haben – und was wir vermissen werden.",
+    "## Kapitel",
+    "1. Die Anfänge.",
+    "2. Unser Team.",
+    "3. Feste und Ausflüge.",
+    "4. Alles Gute für den neuen Lebensabschnitt.",
+    "## So geht’s (kostenlos)",
+    "Mit Albums erstellst du ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel und mit deiner Stimme erzählt. Alben und Beiträge sind unbegrenzt und bleiben, so lange du willst. Kostenlose Fotos werden komprimiert, maximal 2048 px an der langen Seite.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. «Merci, Ruth – 32 Jahre bei uns».",
+    "2. Fotos und Sprachgrüsse im Team sammeln, etwa im Gruppenchat, und Kapitel für Kapitel einfügen.",
+    "3. Damit es eine Überraschung bleibt, auf <b>Nur ich</b> stellen.",
+    "4. Eine Person kann als Co-Autor mitarbeiten, wenn ihr auf Albums befreundet seid. «Nur ich» verbirgt das Album auch vor dem Co-Autor; wählt deshalb <b>Freunde, außer…</b> und schliesst alle anderen aus (nach neuen Freundschaften die Liste prüfen).",
+    "!cta",
+    "Mehr Ideen: <a href=\"/de/guides/abschiedsbuch-kollegen/\">Abschiedsbuch für Kollegen</a> und <a href=\"/de/guides/geschenk-fuer-opa/\">Geschenk für Opa</a>.",
+    "## Übergeben",
+    "Am Abschiedsapéro gemeinsam auf dem Laptop oder Beamer durchblättern. Für den Link stellst du das Album auf <b>Öffentlich</b>: Es öffnet sich ohne Anmeldung im Browser, mit Vorschaubild. <b>Freunde</b>-Alben sehen nur deine Freunde nach der Anmeldung, und «Nur ich» lässt sich nicht per Link öffnen. Das ganze Album kann als eine ZIP-Datei heruntergeladen werden."
+  ],
+  "cta": {
+    "h2": "Story-Album zur Pensionierung erstellen",
+    "p": "Fotos, Videos und Grüsse vom Team in einer Geschichte. Kostenlos im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Ein Abschied mit Erinnerungen",
+    "p": "Unbegrenzte Alben, die bleiben, so lange du willst.",
+    "btn": "Kostenlos starten →"
+  },
+  "faq": [
+    ["Was schenkt man zur Pensionierung?", "Neben einem Gutschein oft etwas Persönliches, zum Beispiel ein Story-Album mit Fotos und Sprachgrüssen vom Team."],
+    ["Kann das ganze Team mitmachen?", "Ja. Alle schicken Fotos und Grüsse an eine Person; zusätzlich kann ein befreundeter Co-Autor mitarbeiten."],
+    ["Ist das kostenlos?", "Ja, Story-Alben sind kostenlos und unbegrenzt."],
+    ["Kann man das Album herunterladen?", "Ja, das ganze Album als eine ZIP-Datei."]
+  ],
+  "related": ["abschiedsbuch-kollegen", "retirement-party-photo-ideas", "geschenk-fuer-opa"],
+  "date": "2026-11-27"
+}

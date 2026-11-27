@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng em trai",
+  "title": "Quà tặng em trai: album câu chuyện đầy kỷ niệm | Albums.ink",
+  "desc": "Quà tặng em trai dịp sinh nhật, 18 tuổi hay ngày cưới: album câu chuyện miễn phí với ảnh, video và lời chúc bằng giọng nói của cả nhà.",
+  "h1": "Quà tặng em trai từ những kỷ niệm cùng lớn lên",
+  "lead": "Gõ “quà tặng em trai” trên Google, bạn sẽ thấy gợi ý “sinh nhật”, “18 tuổi”, “20 tuổi” và “đám cưới em trai”. Nếu đang phân vân chọn quà, hãy tặng thêm một món đặc biệt: album câu chuyện với ảnh từ bé đến lớn và giọng nói của cả gia đình – hoàn toàn miễn phí.",
+  "body": [
+    "## Vì sao nên chọn album câu chuyện",
+    "- Gom lại ảnh thời thơ ấu đang nằm rải rác trong điện thoại của bố mẹ, anh chị.",
+    "- Hợp với nhiều dịp: sinh nhật, tròn 18 tuổi, tốt nghiệp, ngày cưới.",
+    "- Miễn phí, nên có thể tặng kèm ví, nước hoa hay đồng hồ.",
+    "## Nên đưa gì vào album",
+    "- Ảnh hồi bé: thôi nôi, ngày đầu đi học, Tết ở quê.",
+    "- Những chuyến đi chơi và sinh nhật cả nhà.",
+    "- Video ngắn: lúc em hát, chơi đá bóng, nghịch ngợm.",
+    "- Lời chúc bằng giọng nói của bố mẹ và anh chị.",
+    "## Gợi ý các chương",
+    "1. Cậu nhóc ngày ấy.",
+    "2. Tết nhà mình.",
+    "3. Em đã lớn.",
+    "4. Chúc mừng sinh nhật em trai.",
+    "## Cách làm (miễn phí)",
+    "Trên Albums, bạn có thể tạo <b>album câu chuyện</b> từ ảnh, video và ghi âm, chia thành chương và tự kể bằng giọng của mình. Album và bài đăng không giới hạn, lưu giữ bao lâu tùy bạn muốn. Ảnh miễn phí được nén, tối đa 2048 px ở cạnh dài.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “Tặng em Minh – sinh nhật 18 tuổi”.",
+    "2. Xin ảnh và lời chúc trong nhóm Zalo gia đình rồi thêm vào từng chương.",
+    "3. Muốn giữ bất ngờ trong lúc làm, hãy chọn <b>Chỉ mình tôi</b>.",
+    "4. Bạn có thể thêm một đồng tác giả là bạn bè của bạn trên Albums. “Chỉ mình tôi” cũng ẩn album với đồng tác giả, nên khi cùng làm hãy chọn <b>Bạn bè, trừ…</b> và loại trừ tất cả những người khác (kiểm tra lại danh sách sau khi kết bạn mới).",
+    "!cta",
+    "Xem thêm: <a href=\"/vi/guides/qua-tang-anh-trai/\">quà tặng anh trai</a> và <a href=\"/vi/guides/qua-tang-em-gai/\">quà tặng em gái</a>.",
+    "## Cách tặng",
+    "Để gửi đường link, hãy chuyển album sang <b>Công khai</b>: album mở được trên trình duyệt không cần đăng nhập và hiện ảnh bìa khi chia sẻ. Album <b>Bạn bè</b> chỉ bạn bè đã đăng nhập mới xem được, còn “Chỉ mình tôi” không mở được bằng link. Có thể tải cả album về thành một tệp ZIP."
+  ],
+  "cta": {
+    "h2": "Làm album câu chuyện tặng em trai",
+    "p": "Ảnh, video và giọng nói trong một câu chuyện. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà không mua được",
+    "p": "Album không giới hạn, lưu giữ bao lâu tùy bạn muốn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    ["Tặng em trai 18 tuổi quà gì ý nghĩa?", "Ngoài món quà thiết thực, hãy tặng kèm album câu chuyện với ảnh từ bé và lời chúc bằng giọng nói của cả nhà."],
+    ["Có dùng làm quà cưới cho em trai được không?", "Được. Thêm một chương về em và người thương cùng lời chúc của gia đình."],
+    ["Có miễn phí không?", "Có. Album câu chuyện miễn phí và không giới hạn."],
+    ["Có tải album về được không?", "Có, cả album thành một tệp ZIP."]
+  ],
+  "related": ["qua-tang-anh-trai", "qua-tang-em-gai", "qua-tang-ban-than"],
+  "date": "2026-11-27"
+}

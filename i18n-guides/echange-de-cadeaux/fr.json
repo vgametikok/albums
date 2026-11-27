@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CA",
+  "query": "échange de cadeaux",
+  "title": "Échange de cadeaux : idées et règles | Albums.ink",
+  "desc": "Échange de cadeaux au party de bureau ou en famille : pige, échange voleur, jeu de dés, budget – et toutes les photos des invités avec un code QR.",
+  "h1": "Échange de cadeaux : les formules qui marchent",
+  "lead": "Au Québec, Google complète « échange de cadeaux » par « tirage au sort », « entre collègues » et « original ». Au party de bureau comme au souper des Fêtes, l’échange est souvent le moment le plus animé de la soirée. Voici les formules populaires et une façon simple de réunir les photos de tout le monde.",
+  "body": [
+    "## Les formules populaires",
+    "- <b>La pige :</b> chacun pige un nom au hasard (dans un chapeau ou avec un tirage en ligne) et offre un cadeau à cette personne.",
+    "- <b>L’échange voleur :</b> chacun apporte un cadeau emballé ; à tour de rôle, on en déballe un ou on vole celui d’un autre.",
+    "- <b>Le jeu de dés :</b> les cadeaux sont au centre, on lance les dés et un double permet de prendre ou de voler un cadeau jusqu’à la fin du chrono.",
+    "- <b>L’éléphant blanc :</b> des cadeaux drôles ou insolites, pour rire.",
+    "## Les règles à fixer d’avance",
+    "- Un budget clair, par exemple 20 $ ou 25 $.",
+    "- Combien de vols par cadeau, pour que ça ne s’éternise pas.",
+    "- Une solution pour ceux qui ne veulent pas jouer.",
+    "## Toutes les photos au même endroit",
+    "Les déballages et les vols de cadeaux finissent toujours en photos et en vidéos. Avec un <b>album d’événement</b> sur Albums, tout arrive au même endroit :",
+    "1. Créez l’album, par ex. « Party des Fêtes 2026 – l’équipe ».",
+    "2. Affichez le code QR près du sapin ou envoyez-le dans la conversation de groupe.",
+    "3. Les invités le scannent avec la caméra du cellulaire et envoient photos et vidéos depuis le navigateur, sans application.",
+    "4. Activez <b>Retenir les photos des invités</b> pour approuver les envois avant qu’ils n’apparaissent.",
+    "5. Ensuite, téléchargez tout l’album en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie privée en brouillon avec uniquement leurs propres envois.",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/party-de-noel-bureau/\">party de Noël au bureau</a> et <a href=\"/fr/guides/noel-en-famille/\">Noël en famille</a>.",
+    "## Prix",
+    "L’album d’événement est un achat unique : Small 39,99 $ US, Medium 69,99 $ US ou Large 129,99 $ US. Gratuit pour les invités. Photos jusqu’en 4K ; l’album est conservé 6 mois à partir du premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créez l’album de votre échange",
+    "p": "Un code QR, toutes les photos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez les fous rires du party",
+    "p": "Les invités envoient depuis le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    ["Comment fonctionne un échange de cadeaux voleur ?", "Chacun apporte un cadeau emballé. À son tour, on déballe un nouveau cadeau ou on vole celui de quelqu’un d’autre."],
+    ["Quel budget pour un échange de cadeaux entre collègues ?", "Souvent autour de 20 $ à 25 $, fixé d’avance pour tout le monde."],
+    ["Les invités doivent-ils installer une application ?", "Non. Ils scannent le code QR et envoient depuis le navigateur."],
+    ["Combien de temps les photos sont-elles conservées ?", "6 mois à partir du premier envoi, et l’album peut être prolongé."]
+  ],
+  "related": ["party-de-noel-bureau", "noel-en-famille", "idee-soiree-nouvel-an"],
+  "date": "2026-11-27"
+}

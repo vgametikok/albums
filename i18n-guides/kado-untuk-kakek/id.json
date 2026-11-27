@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "ID",
+  "query": "kado untuk kakek",
+  "title": "Kado untuk Kakek: Album Cerita dari Cucu | Albums.ink",
+  "desc": "Ide kado untuk kakek yang ulang tahun ke-70 atau ke-80: album cerita gratis berisi foto, video, dan pesan suara dari anak dan cucu.",
+  "h1": "Kado untuk kakek yang penuh kenangan keluarga",
+  "lead": "Di Indonesia, Google melengkapi “kado untuk kakek” dengan “80 tahun”, “70 tahun”, dan “60 tahun”. Kakek biasanya sudah punya semua barang yang ia butuhkan, tetapi jarang punya semua foto keluarga di satu tempat. Album cerita dengan suara cucu-cucunya bisa jadi kado yang paling berkesan – dan gratis.",
+  "body": [
+    "## Kenapa album cerita",
+    "- Mengumpulkan foto lama dan baru yang tersebar di HP seluruh keluarga.",
+    "- Kakek bisa mendengar suara cucu yang tinggal jauh atau merantau.",
+    "- Gratis, jadi cocok dipadukan dengan kado lain seperti sarung, batik, atau kopi kesukaannya.",
+    "## Apa saja isinya",
+    "- Foto lama kakek dan nenek waktu muda, pernikahan, dan rumah pertama.",
+    "- Momen keluarga: Lebaran atau Natal, arisan keluarga, liburan bersama.",
+    "- Video pendek cucu-cucu menyanyikan lagu ulang tahun.",
+    "- Pesan suara dari setiap anak dan cucu: terima kasih dan doa untuk kakek.",
+    "## Bab cerita",
+    "1. Kakek waktu muda.",
+    "2. Keluarga kita.",
+    "3. Para cucu.",
+    "4. Selamat ulang tahun, Kakek.",
+    "## Cara membuat (gratis)",
+    "Di Albums, kamu bisa membuat <b>album cerita</b> dari foto, video, dan catatan suara, dibagi per bab, lalu dinarasikan dengan suaramu sendiri. Album dan postingan tanpa batas, dan tetap ada selama kamu mau. Foto gratis dikompresi, maksimal 2048 px di sisi panjang.",
+    "1. Masuk dengan Google dan buat album, misalnya “Untuk Kakek – 80 tahun”.",
+    "2. Minta foto dan pesan suara di grup WhatsApp keluarga, lalu tambahkan per bab.",
+    "3. Agar tetap jadi kejutan selama dibuat, pilih <b>Hanya saya</b>.",
+    "4. Kamu bisa menambahkan satu rekan penulis yang berteman denganmu di Albums, misalnya sepupu. “Hanya saya” juga menyembunyikan album dari rekan penulis, jadi saat bekerja berdua pilih <b>Teman, kecuali…</b> dan kecualikan semua yang lain (cek lagi daftarnya setelah menambah teman baru).",
+    "!cta",
+    "Ide lain: <a href=\"/id/guides/kado-untuk-nenek/\">kado untuk nenek</a> dan <a href=\"/id/guides/album-foto-keluarga/\">album foto keluarga</a>.",
+    "## Cara memberikannya",
+    "Tonton bersama kakek di laptop atau tablet saat acara ulang tahun. Untuk mengirim tautan, ubah album ke <b>Publik</b>: album terbuka di browser tanpa login dan menampilkan pratinjau sampul. Album <b>Teman</b> hanya bisa dilihat teman-temanmu setelah login, dan “Hanya saya” tidak bisa dibuka lewat tautan. Seluruh album bisa diunduh sebagai satu file ZIP."
+  ],
+  "cta": {
+    "h2": "Buat album cerita untuk kakek",
+    "p": "Foto, video, dan suara keluarga dalam satu cerita. Gratis di browser.",
+    "btn": "Buat album cerita →"
+  },
+  "cta2": {
+    "h2": "Kado yang tidak bisa dibeli",
+    "p": "Album tanpa batas yang tetap ada selama kamu mau.",
+    "btn": "Mulai gratis →"
+  },
+  "faq": [
+    ["Kado apa yang cocok untuk kakek 80 tahun?", "Sesuatu yang personal, seperti album cerita berisi foto keluarga, video, dan pesan suara dari anak dan cucu."],
+    ["Apakah gratis?", "Ya. Album cerita gratis dan tanpa batas."],
+    ["Apakah kakek perlu akun untuk melihatnya?", "Jika album Publik, tautan langsung terbuka di browser. Untuk Teman, perlu login dan berteman di Albums."],
+    ["Apakah album bisa diunduh?", "Ya, seluruh album sebagai satu file ZIP."]
+  ],
+  "related": ["kado-untuk-nenek", "album-foto-keluarga", "kado-untuk-mertua"],
+  "date": "2026-11-27"
+}

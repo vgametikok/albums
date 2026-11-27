@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BE",
+  "query": "cadeau pour ma marraine",
+  "title": "Cadeau pour ma marraine : un album-récit | Albums.ink",
+  "desc": "Une idée cadeau pour votre marraine à Noël, au Nouvel An ou pour son anniversaire : un album-récit gratuit avec photos, vidéos et votre voix.",
+  "h1": "Un cadeau pour ma marraine qui raconte notre histoire",
+  "lead": "En Belgique, Google complète « cadeau pour ma marraine » par « original », « de Noël » et « anniversaire ». Une marraine a souvent été là à chaque étape : le baptême, la Saint-Nicolas, la communion. Lui offrir ces souvenirs racontés avec votre voix, c’est un cadeau original – et gratuit.",
+  "body": [
+    "## Pourquoi un album-récit",
+    "- Il rassemble les photos de vos moments ensemble, dispersées dans les téléphones de la famille.",
+    "- Votre voix le rend unique, quel que soit votre âge.",
+    "- Il est gratuit et accompagne bien des fleurs ou des pralines.",
+    "## Une idée bien belge : la lettre de Nouvel An",
+    "En Belgique, les enfants lisent traditionnellement une lettre de Nouvel An à leurs parents, parrain et marraine le 1er janvier. Enregistrez la vôtre en note vocale dans l’album : votre marraine pourra la réécouter bien après les fêtes.",
+    "## Quoi mettre dedans",
+    "- Le baptême et les premières photos ensemble.",
+    "- La Saint-Nicolas, les Noëls, la communion ou la fête laïque.",
+    "- Les sorties avec elle : la mer, les vacances, les après-midis chez elle.",
+    "- De courtes vidéos et un message vocal : merci d’avoir été là.",
+    "## Chapitres",
+    "1. Le jour de mon baptême.",
+    "2. Nos fêtes en famille.",
+    "3. Nos moments à nous.",
+    "4. Ma lettre pour toi.",
+    "## Comment faire (gratuit)",
+    "Sur Albums, créez un <b>album-récit</b> avec photos, vidéos et notes vocales, découpé en chapitres et raconté avec votre voix. Albums et publications illimités, qui restent aussi longtemps que vous le souhaitez. Les photos gratuites sont compressées, 2048 px maximum sur le côté long.",
+    "1. Connectez-vous avec Google et créez un album, par ex. « Pour ma marraine Anne ».",
+    "2. Demandez des photos à vos parents et ajoutez-les par chapitre.",
+    "3. Pour garder la surprise pendant la préparation, choisissez <b>Moi seulement</b>.",
+    "4. Vous pouvez ajouter un co-auteur s’il est votre ami sur Albums. « Moi seulement » cache aussi l’album au co-auteur : pendant le travail à deux, choisissez <b>Amis, sauf…</b> et excluez tous les autres (vérifiez la liste après chaque nouvel ami).",
+    "!cta",
+    "Plus d’idées : <a href=\"/fr/guides/cadeau-pour-parrain/\">cadeau pour parrain</a> et <a href=\"/fr/guides/fete-de-saint-nicolas/\">fête de la Saint-Nicolas</a>.",
+    "## Comment l’offrir",
+    "Regardez-le ensemble sur un ordinateur ou une tablette. Pour envoyer un lien, passez l’album en <b>Public</b> : il s’ouvre dans le navigateur sans connexion, avec un aperçu de la couverture. Les albums <b>Amis</b> ne sont visibles que par vos amis connectés, et « Moi seulement » ne s’ouvre pas par lien. L’album entier se télécharge en un seul fichier ZIP."
+  ],
+  "cta": {
+    "h2": "Créez un album pour votre marraine",
+    "p": "Photos, vidéos et votre voix dans un seul récit. Gratuit, dans le navigateur.",
+    "btn": "Créer un album-récit →"
+  },
+  "cta2": {
+    "h2": "Un cadeau qui ne s’achète pas",
+    "p": "Des albums illimités qui restent aussi longtemps que vous le souhaitez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    ["Quel cadeau original pour ma marraine ?", "Un album-récit de vos souvenirs ensemble, avec photos, vidéos et un message vocal, par exemple votre lettre de Nouvel An."],
+    ["Qu’est-ce que la lettre de Nouvel An en Belgique ?", "Une lettre que les enfants lisent le 1er janvier à leurs parents, parrain et marraine."],
+    ["C’est gratuit ?", "Oui. Les albums-récits sont gratuits et illimités."],
+    ["Peut-on télécharger l’album ?", "Oui, l’album entier en un seul fichier ZIP."]
+  ],
+  "related": ["cadeau-pour-parrain", "fete-de-saint-nicolas", "cadeau-pour-ma-tante"],
+  "date": "2026-11-27"
+}
