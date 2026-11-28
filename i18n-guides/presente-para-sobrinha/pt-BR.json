@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "BR",
+  "query": "presente para sobrinha",
+  "title": "Presente para sobrinha: um álbum de memórias | Albums.ink",
+  "desc": "Presente para sobrinha que cresce com ela: um álbum com fotos, vídeos e a voz da tia ou do tio, da recém-nascida aos 15 anos. Grátis no navegador.",
+  "h1": "Presente para sobrinha: um álbum que cresce com ela",
+  "lead": "Quando se digita “presente para sobrinha”, o Google sugere “recém-nascida”, “de 10 anos”, “de 15 anos” e até “adulta”. Brinquedo perde a graça, roupa deixa de servir – mas as memórias com a tia ou o tio ficam. Um álbum de histórias com fotos, vídeos e voz ganha um capítulo novo a cada aniversário ou Natal.",
+  "body": [
+    "## Por que um álbum",
+    "- Sua sobrinha vai ver, lá na frente, tudo o que vocês viveram juntas.",
+    "- Serve para qualquer idade: do chá de bebê aos 15 anos.",
+    "- Dá para entregar no aniversário, no Natal ou no Dia das Crianças.",
+    "## O que colocar",
+    "- Fotos de vocês duas desde a maternidade.",
+    "- Passeios, praia, festas de família.",
+    "- Um vídeo curtinho: primeiros passos, apresentação da escola.",
+    "- Um áudio da tia com o que você deseja para ela.",
+    "## Ideias de capítulos",
+    "1. O dia em que você nasceu.",
+    "2. Nossos passeios.",
+    "3. Natais em família.",
+    "4. O que eu desejo para você.",
+    "## Como fazer (grátis)",
+    "No Albums você cria um <b>álbum de histórias</b> com fotos, vídeos e notas de voz, dividido em capítulos e, se quiser, com narração em voz. Os álbuns são ilimitados e ficam pelo tempo que você quiser. As fotos do plano gratuito são armazenadas com até 2048 px no lado maior.",
+    "1. Entre com o Google e crie um álbum, por exemplo “Para a Alice – da tia Ju”.",
+    "2. Envie fotos e vídeos por capítulo e escreva algumas linhas em cada um.",
+    "3. Grave um áudio direto no navegador.",
+    "4. Você pode convidar um coautor, por exemplo o tio; ele precisa estar na sua lista de amigos no Albums.",
+    "5. Escolha a visibilidade: Público, Amigos ou Só eu. Álbuns novos são públicos, então deixe em Só eu até o dia. Se alguém estiver ajudando, não deixe em Só eu – o coautor perde o acesso; use “Amigos, exceto…” e exclua os pais dela até a surpresa.",
+    "!cta",
+    "## A entrega",
+    "Vejam juntas no tablet ou mude a visibilidade e mande o link pelo WhatsApp. Um álbum público abre no navegador com prévia da capa, sem instalar nada. Um álbum em Só eu não abre pelo link. Dá para baixar o álbum inteiro em um único arquivo ZIP.",
+    "## Privacidade",
+    "Compartilhe fotos de crianças só do jeito que os pais acharem bom. Arquivos individuais podem ser ocultados de pessoas específicas."
+  ],
+  "cta": {
+    "h2": "Crie um álbum para sua sobrinha",
+    "p": "Fotos, vídeos e a sua voz. Grátis no navegador.",
+    "btn": "Criar álbum de histórias →"
+  },
+  "cta2": {
+    "h2": "Um capítulo novo a cada ano",
+    "p": "Álbuns ilimitados que ficam pelo tempo que você quiser.",
+    "btn": "Começar grátis →"
+  },
+  "faq": [
+    ["Qual presente dar para a sobrinha?", "Algo pessoal que acompanhe o crescimento dela: memórias juntas, fotos ou um álbum com a sua voz."],
+    ["O álbum é grátis?", "Sim. Os álbuns de histórias são grátis e ilimitados."],
+    ["Minha sobrinha precisa de conta?", "Não, se o álbum for público: o link abre no navegador."],
+    ["Dá para completar todo ano?", "Sim, é só adicionar um capítulo novo a cada ocasião."]
+  ],
+  "related": ["presente-para-tia", "festa-de-15-anos", "album-do-bebe-digital"],
+  "date": "2026-11-28"
+}

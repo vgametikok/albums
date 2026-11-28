@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "DE",
+  "query": "Geschenk für Patenkind",
+  "title": "Geschenk für Patenkind: Erinnerungsalbum | Albums.ink",
+  "desc": "Ein Geschenk für das Patenkind, das mitwächst: ein Story-Album mit Fotos, Videos und der Stimme von Patentante oder Patenonkel. Gratis im Browser.",
+  "h1": "Geschenk für das Patenkind, das mitwächst",
+  "lead": "Bei „Geschenk für Patenkind“ schlägt Google „zur Taufe“, „zur Geburt“, „zum 1. Geburtstag“, „zur Einschulung“ und „18 Jahre“ vor. Jedes Jahr ein neuer Anlass – und jedes Mal die Frage, was bleibt. Ein Story-Album über eure gemeinsame Zeit kann zu jedem dieser Anlässe ein neues Kapitel bekommen.",
+  "body": [
+    "## Warum ein Album",
+    "- Spielzeug ist nach ein paar Jahren vergessen, Erinnerungen nicht.",
+    "- Das Patenkind sieht später, wer bei der Taufe dabei war und wie oft ihr euch gesehen habt.",
+    "- Es passt zur Taufe, zu Weihnachten, zum Geburtstag oder zur Einschulung.",
+    "## Was hinein soll",
+    "- Fotos von der Taufe und von der Taufkerze.",
+    "- Bilder von gemeinsamen Ausflügen, Geburtstagen und Weihnachten.",
+    "- Ein kurzes Video, z. B. die ersten Schritte oder der erste Schultag.",
+    "- Eine Sprachnachricht: was du dem Patenkind mitgeben möchtest.",
+    "## Kapitel-Ideen",
+    "1. Deine Taufe.",
+    "2. Unsere Ausflüge.",
+    "3. Dein erster Schultag.",
+    "4. Was ich dir wünsche.",
+    "## So geht’s (gratis)",
+    "Auf Albums baust du ein <b>Story-Album</b> aus Fotos, Videos und Sprachnotizen, gegliedert in Kapitel, auf Wunsch mit Sprecherstimme. Alben sind unbegrenzt und bleiben, so lange du möchtest. Kostenlose Fotos werden mit bis zu 2048 px an der langen Seite gespeichert.",
+    "1. Mit Google anmelden und ein Album anlegen, z. B. „Für Mia – von deiner Patentante“.",
+    "2. Pro Kapitel Fotos und Videos hochladen und ein paar Zeilen schreiben.",
+    "3. Eine Sprachnachricht direkt im Browser aufnehmen.",
+    "4. Du kannst eine Mitautorin oder einen Mitautor einladen, z. B. den zweiten Paten; die Person muss in deiner Freundesliste auf Albums sein.",
+    "5. Sichtbarkeit wählen: Öffentlich, Freunde oder Nur ich. Neue Alben sind öffentlich, also bis zur Übergabe auf „Nur ich“ stellen. Wenn jemand mitarbeitet, nicht auf „Nur ich“ lassen – Mitautoren verlieren sonst den Zugang. Stattdessen „Freunde, außer…“ verwenden und die Eltern bis zur Überraschung ausschliessen.",
+    "!cta",
+    "## Übergabe",
+    "Gemeinsam auf dem Tablet anschauen oder die Sichtbarkeit umstellen und den Link an die Eltern schicken. Ein öffentliches Album öffnet sich im Browser mit Titelbild-Vorschau, ohne Installation. Ein Album auf „Nur ich“ lässt sich nicht per Link öffnen. Das ganze Album kann als eine ZIP-Datei heruntergeladen werden.",
+    "## Tipp zur Privatsphäre",
+    "Kinderfotos nur so teilen, wie es für die Eltern passt. Einzelne Dateien lassen sich für bestimmte Personen ausblenden."
+  ],
+  "cta": {
+    "h2": "Album für dein Patenkind erstellen",
+    "p": "Fotos, Videos und deine Stimme. Gratis im Browser.",
+    "btn": "Story-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Jedes Jahr ein neues Kapitel",
+    "p": "Unbegrenzte Alben, die bleiben, so lange du möchtest.",
+    "btn": "Gratis starten →"
+  },
+  "faq": [
+    ["Was schenkt man einem Patenkind?", "Etwas Persönliches, das mitwächst: Erinnerungen an die Taufe, gemeinsame Fotos oder ein Album mit deiner Stimme."],
+    ["Ist das Album gratis?", "Ja. Story-Alben sind gratis und unbegrenzt."],
+    ["Braucht das Patenkind ein Konto?", "Nicht bei einem öffentlichen Album – der Link öffnet sich im Browser."],
+    ["Kann ich jedes Jahr etwas ergänzen?", "Ja, einfach zu jedem Anlass ein neues Kapitel hinzufügen."]
+  ],
+  "related": ["taufe-feiern", "geschenk-fuer-gotti", "geschenk-fuer-enkel"],
+  "date": "2026-11-28"
+}

@@ -1,0 +1,52 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CH",
+  "query": "soirée raclette entre amis",
+  "title": "Soirée raclette entre amis | Albums.ink",
+  "desc": "Organiser une soirée raclette entre amis : quantités, accompagnements, boissons et ambiance – et un code QR pour réunir les photos de tous les invités.",
+  "h1": "Soirée raclette entre amis : bien l’organiser",
+  "lead": "En Suisse romande, Google complète « soirée raclette » par « ingrédients », « entre amis » et « restaurant ». La raclette est le souper d’hiver par excellence : un appareil au milieu de la table, du fromage qui fond et des invités qui restent tard. Voici l’essentiel pour l’organiser, et une façon simple de garder les photos de la soirée.",
+  "body": [
+    "## Les quantités",
+    "- <b>Fromage :</b> on compte souvent environ 200 à 250 g par personne, à adapter selon la faim des invités.",
+    "- <b>Pommes de terre</b> en robe des champs, gardées au chaud dans un panier ou un linge.",
+    "- <b>Accompagnements :</b> cornichons, petits oignons au vinaigre, viande séchée, poivre et paprika.",
+    "## Le matériel",
+    "- Un appareil à poêlons pour les grandes tablées, ou un demi-fromage avec un racleur si vous avez l’équipement.",
+    "- Une rallonge électrique et de l’aération : l’odeur reste longtemps.",
+    "## Boissons et ambiance",
+    "- <b>Boissons :</b> un vin blanc sec ou un thé chaud, et des boissons sans alcool pour les conducteurs.",
+    "- <b>Dessert léger :</b> sorbet, salade d’oranges ou meringues avec double-crème si vous êtes en Gruyère.",
+    "- <b>Jeux :</b> un jass ou un jeu de société pendant que le fromage fond.",
+    "## Toutes les photos au même endroit",
+    "Chacun prend des photos avec son téléphone et elles finissent dispersées dans les discussions. Avec un <b>album d’événement</b> sur Albums, tout est au même endroit :",
+    "1. Créez l’album, par exemple « Raclette chez nous – décembre 2026 ».",
+    "2. Posez le code QR sur la table ou envoyez-le dans le groupe WhatsApp.",
+    "3. Les invités le scannent avec l’appareil photo du téléphone et ajoutent photos et vidéos depuis le navigateur, sans rien installer.",
+    "4. Activez <b>Hold guest photos</b> (validation préalable) pour vérifier chaque envoi avant qu’il soit visible.",
+    "5. Ensuite, téléchargez tout l’album en un seul fichier ZIP.",
+    "Les invités qui envoient sans se connecter apparaissent de façon anonyme. Les invités connectés reçoivent en plus une copie brouillon privée avec uniquement leurs propres envois.",
+    "!cta",
+    "## Tarifs",
+    "L’album d’événement est un achat unique : Small 39,99 $, Medium 69,99 $ ou Large 129,99 $ (USD). Gratuit pour les invités. Photos jusqu’en 4K ; l’album est conservé 6 mois à partir du premier envoi et peut être prolongé."
+  ],
+  "cta": {
+    "h2": "Créer l’album de la soirée",
+    "p": "Un code QR, toutes les photos des invités au même endroit.",
+    "btn": "Créer un album d’événement →"
+  },
+  "cta2": {
+    "h2": "Gardez les souvenirs du souper",
+    "p": "Les invités envoient depuis le navigateur, vous téléchargez tout l’album.",
+    "btn": "Commencer →"
+  },
+  "faq": [
+    ["Combien de fromage à raclette par personne ?", "On compte souvent 200 à 250 g par personne pour un repas principal, un peu moins s’il y a beaucoup d’accompagnements."],
+    ["Que servir avec la raclette ?", "Des pommes de terre en robe des champs, des cornichons, des petits oignons au vinaigre et de la viande séchée."],
+    ["Les invités doivent-ils installer quelque chose ?", "Non. Ils scannent le code QR et envoient leurs photos depuis le navigateur."],
+    ["Combien de temps les photos sont-elles conservées ?", "6 mois à partir du premier envoi, et l’album peut être prolongé."]
+  ],
+  "related": ["fete-de-l-escalade", "idee-soiree-nouvel-an", "qr-code-for-photos-at-party"],
+  "date": "2026-11-28"
+}

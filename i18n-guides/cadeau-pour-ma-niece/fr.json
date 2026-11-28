@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "FR",
+  "query": "cadeau pour ma nièce",
+  "title": "Cadeau pour ma nièce : un album souvenir | Albums.ink",
+  "desc": "Un cadeau pour votre nièce qui grandit avec elle : un album de photos, vidéos et messages vocaux, de sa naissance à ses 18 ans. Gratuit dans le navigateur.",
+  "h1": "Cadeau pour ma nièce : un album qui grandit avec elle",
+  "lead": "Quand on tape « cadeau pour ma nièce », Google propose « de 1 an », « de 2 ans », « de 10 ans » et « de 18 ans ». Chaque âge a ses jouets, mais ce qui reste, ce sont les souvenirs avec sa tata ou son tonton. Un album d’histoires avec photos, vidéos et votre voix peut accueillir un nouveau chapitre à chaque anniversaire ou à chaque Noël.",
+  "body": [
+    "## Pourquoi un album",
+    "- Les jouets sont vite oubliés, les moments partagés beaucoup moins.",
+    "- Votre nièce découvrira plus tard tout ce que vous avez vécu ensemble.",
+    "- Il convient pour Noël, un anniversaire, le bac ou ses 18 ans.",
+    "## Que mettre dedans",
+    "- Des photos de vous deux, année après année.",
+    "- Les vacances chez les grands-parents, les goûters, les sorties au parc.",
+    "- Une courte vidéo : ses premiers pas, une chorégraphie, un spectacle d’école.",
+    "- Un message vocal : ce que vous lui souhaitez.",
+    "## Idées de chapitres",
+    "1. Le jour de ta naissance.",
+    "2. Nos sorties.",
+    "3. Les vacances en famille.",
+    "4. Ce que je te souhaite.",
+    "## Comment faire (gratuit)",
+    "Sur Albums, vous créez un <b>album d’histoires</b> avec photos, vidéos et notes vocales, organisé en chapitres, avec narration vocale si vous le souhaitez. Les albums sont illimités et restent aussi longtemps que vous le voulez. Les photos gratuites sont enregistrées jusqu’à 2048 px sur le grand côté.",
+    "1. Connectez-vous avec Google et créez un album, par exemple « Pour Léa – de ta tata ».",
+    "2. Ajoutez photos et vidéos chapitre par chapitre, avec quelques lignes pour chacun.",
+    "3. Enregistrez un message vocal directement dans le navigateur.",
+    "4. Vous pouvez inviter un co-auteur, par exemple votre conjoint ; il doit être dans votre liste d’amis sur Albums.",
+    "5. Choisissez la visibilité : Public, Amis ou Moi uniquement. Les nouveaux albums sont publics, passez-le donc en Moi uniquement jusqu’au jour J. Si quelqu’un vous aide, ne le laissez pas en Moi uniquement : le co-auteur perdrait l’accès. Utilisez plutôt « Amis sauf… » pour exclure les parents jusqu’à la surprise.",
+    "!cta",
+    "## Le jour du cadeau",
+    "Regardez-le ensemble sur une tablette, ou changez la visibilité et envoyez le lien. Un album public s’ouvre dans le navigateur avec un aperçu de couverture, sans rien installer. Un album en Moi uniquement ne s’ouvre pas par lien. Vous pouvez télécharger tout l’album en un seul fichier ZIP.",
+    "## Vie privée",
+    "Partagez les photos d’enfants seulement comme ses parents le souhaitent. Chaque fichier peut être masqué pour certaines personnes."
+  ],
+  "cta": {
+    "h2": "Créer un album pour votre nièce",
+    "p": "Photos, vidéos et votre voix. Gratuit dans le navigateur.",
+    "btn": "Créer un album d’histoires →"
+  },
+  "cta2": {
+    "h2": "Un chapitre de plus chaque année",
+    "p": "Des albums illimités qui restent aussi longtemps que vous le voulez.",
+    "btn": "Commencer gratuitement →"
+  },
+  "faq": [
+    ["Quel cadeau offrir à sa nièce ?", "Quelque chose de personnel qui grandit avec elle : des souvenirs partagés, des photos ou un album avec votre voix."],
+    ["L’album est-il gratuit ?", "Oui. Les albums d’histoires sont gratuits et illimités."],
+    ["Ma nièce a-t-elle besoin d’un compte ?", "Pas pour un album public : le lien s’ouvre dans le navigateur."],
+    ["Peut-on le compléter chaque année ?", "Oui, ajoutez un nouveau chapitre à chaque occasion."]
+  ],
+  "related": ["cadeau-pour-ma-tante", "idee-anniversaire-18-ans", "album-photo-bebe"],
+  "date": "2026-11-28"
+}

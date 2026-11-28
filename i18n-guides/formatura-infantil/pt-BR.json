@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "BR",
+  "query": "formatura infantil",
+  "title": "Formatura infantil: ideias e fotos da turma | Albums.ink",
+  "desc": "Ideias para a formatura infantil do ABC ou do pré: beca, decoração, lembrancinhas e um QR code que junta as fotos de todos os pais num só lugar.",
+  "h1": "Formatura infantil: como organizar e guardar as fotos",
+  "lead": "Ao digitar “formatura infantil”, o Google sugere “ABC”, “decoração”, “roupa” e “beca”. Em dezembro, escolas de todo o Brasil celebram o fim da educação infantil ou do ABC, com beca, canudo e plateia de pais emocionados. Veja ideias para a festa e um jeito simples de reunir as fotos de todo mundo.",
+  "body": [
+    "## Organização",
+    "- <b>Comissão de pais:</b> divide decoração, lembrancinhas e o lanche depois da cerimônia, junto com a escola.",
+    "- <b>Roupa:</b> beca e capelo alugados pela escola, ou camiseta da turma com o ano.",
+    "- <b>Decoração:</b> painel com o nome da turma, balões nas cores da escola e um cantinho para fotos.",
+    "## Programa da cerimônia",
+    "1. Entrada das crianças com música.",
+    "2. Homenagem às professoras.",
+    "3. Apresentação da turma: uma música ou dança ensaiada.",
+    "4. Entrega do canudo e foto de cada criança.",
+    "5. Foto da turma toda com as professoras.",
+    "## Lembrancinhas",
+    "- Canudinho de chocolate, chaveiro com a foto da turma ou um marcador de página para quem vai começar a ler.",
+    "## Todas as fotos num só lugar",
+    "Cada pai fotografa o próprio filho e, no fim, ninguém tem as fotos da turma toda. Com um <b>álbum de evento</b> no Albums tudo fica num só lugar:",
+    "1. Crie o álbum, por exemplo “Formatura Pré II – Turma da Tia Carla 2026”.",
+    "2. Coloque o QR code no convite ou mande no grupo de WhatsApp dos pais.",
+    "3. Os pais escaneiam com a câmera do celular e enviam fotos e vídeos pelo navegador, sem instalar nada.",
+    "4. Ative <b>Hold guest photos</b> para aprovar as fotos antes de aparecerem – importante com fotos de crianças.",
+    "5. Depois, baixe o álbum inteiro em um único arquivo ZIP.",
+    "Quem envia sem fazer login aparece como anônimo. Quem faz login recebe também uma cópia privada em rascunho só com os próprios envios.",
+    "Combine com a escola e com os pais antes de compartilhar fotos de crianças.",
+    "!cta",
+    "## Preços",
+    "O álbum de evento é uma compra única: Small US$ 39,99, Medium US$ 69,99 ou Large US$ 129,99. Grátis para os convidados. Fotos em até 4K; o álbum fica guardado por 6 meses a partir do primeiro envio e pode ser prorrogado."
+  ],
+  "cta": {
+    "h2": "Crie o álbum da formatura",
+    "p": "Um QR code e as fotos de todos os pais num só lugar.",
+    "btn": "Criar álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarde a primeira formatura",
+    "p": "Os pais enviam pelo navegador, você baixa o álbum inteiro.",
+    "btn": "Começar →"
+  },
+  "faq": [
+    ["O que é formatura infantil?", "É a cerimônia de encerramento da educação infantil ou do ABC, com beca, canudo e apresentação das crianças."],
+    ["O que dar de lembrancinha na formatura infantil?", "Algo simples e com o nome da turma: canudinho de chocolate, chaveiro com foto ou marcador de página."],
+    ["Os pais precisam instalar alguma coisa?", "Não. Basta escanear o QR code e enviar pelo navegador."],
+    ["Por quanto tempo as fotos ficam guardadas?", "6 meses a partir do primeiro envio, com opção de prorrogar."]
+  ],
+  "related": ["festa-de-formatura", "confraternizacao-fim-de-ano", "graduation-party-photo-display-ideas"],
+  "date": "2026-11-28"
+}

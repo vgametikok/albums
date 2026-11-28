@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "IT",
+  "query": "regalo per collega di lavoro",
+  "title": "Regalo per collega: un album di ricordi | Albums.ink",
+  "desc": "Un regalo per un collega di lavoro che va via, si sposa o festeggia: un album con foto, video e messaggi vocali di tutto l’ufficio. Gratis nel browser.",
+  "h1": "Regalo per un collega di lavoro, da parte di tutto l’ufficio",
+  "lead": "Scrivendo “regalo per collega”, Google suggerisce “che va via”, “di lavoro”, “che si sposa” e “che va in pensione”. La colletta per il regalo si fa sempre; quello che rende il dono personale sono i ricordi condivisi. Un album di storie con foto, video e voci dei colleghi si prepara in poco tempo e non costa nulla.",
+  "body": [
+    "## Quando regalarlo",
+    "- Un collega che cambia lavoro o città.",
+    "- Un matrimonio o la nascita di un figlio.",
+    "- Un compleanno importante o il Natale in ufficio.",
+    "## Cosa metterci",
+    "- Foto di cene aziendali, pause caffè, trasferte.",
+    "- Il primo giorno, i progetti riusciti, le scrivanie decorate a Natale.",
+    "- Un breve video in cui ognuno dice una frase.",
+    "- Messaggi vocali dei colleghi in smart working o di altre sedi.",
+    "## Idee per i capitoli",
+    "1. Il tuo primo giorno.",
+    "2. I progetti che ricorderemo.",
+    "3. Fuori dall’ufficio.",
+    "4. In bocca al lupo!",
+    "## Come farlo (gratis)",
+    "Su Albums crei un <b>album di storie</b> con foto, video e note vocali, diviso in capitoli e, se vuoi, con narrazione a voce. Gli album sono illimitati e restano finché vuoi. Le foto del piano gratuito sono conservate fino a 2048 px sul lato lungo.",
+    "1. Accedi con Google e crea un album, ad esempio “Grazie Marco – Ufficio Milano”.",
+    "2. Raccogli le foto dei colleghi, caricale per capitolo e scrivi due righe.",
+    "3. Registra un messaggio vocale direttamente dal browser.",
+    "4. Puoi invitare un coautore, ad esempio chi ha organizzato la colletta; deve essere tra i tuoi amici su Albums.",
+    "5. Scegli la visibilità: Pubblico, Amici o Solo io. I nuovi album sono pubblici, quindi impostalo su Solo io fino alla consegna. Se c’è un coautore, non lasciarlo su Solo io – perderebbe l’accesso; usa “Amici, tranne…” ed escludi il festeggiato fino alla sorpresa.",
+    "!cta",
+    "## La consegna",
+    "Guardatelo insieme su un portatile durante il brindisi, oppure cambia la visibilità e manda il link. Un album pubblico si apre nel browser con l’anteprima della copertina, senza installare nulla. Un album su Solo io non si apre tramite link. Puoi scaricare l’album intero in un unico file ZIP."
+  ],
+  "cta": {
+    "h2": "Crea un album per il tuo collega",
+    "p": "Foto, video e le voci dell’ufficio. Gratis nel browser.",
+    "btn": "Crea un album di storie →"
+  },
+  "cta2": {
+    "h2": "Un ricordo da tutto il team",
+    "p": "Album illimitati che restano finché vuoi.",
+    "btn": "Inizia gratis →"
+  },
+  "faq": [
+    ["Cosa regalare a un collega che va via?", "Accanto al regalo della colletta, qualcosa di personale: un album con foto e messaggi vocali di tutto l’ufficio."],
+    ["L’album è gratis?", "Sì. Gli album di storie sono gratuiti e illimitati."],
+    ["Il collega deve avere un account?", "No, se l’album è pubblico: il link si apre nel browser."],
+    ["Possono collaborare più persone?", "Ogni album può avere un coautore; le foto degli altri le raccogli tu e le carichi."]
+  ],
+  "related": ["festa-di-pensionamento", "cena-aziendale-natale", "regalo-migliore-amica"],
+  "date": "2026-11-28"
+}

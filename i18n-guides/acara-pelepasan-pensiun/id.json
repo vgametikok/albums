@@ -1,0 +1,57 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "ID",
+  "query": "acara pelepasan pensiunan",
+  "title": "Acara Pelepasan Pensiunan: Susunan Acara dan Foto | Albums.ink",
+  "desc": "Panduan acara pelepasan pensiunan di kantor: susunan acara, sambutan, kenang-kenangan, dan satu kode QR untuk mengumpulkan foto semua tamu.",
+  "h1": "Acara pelepasan pensiunan yang berkesan",
+  "lead": "Saat mengetik “acara pelepasan pensiun”, Google menyarankan “susunan acara”, “sambutan”, “MC”, “doa”, dan “rundown”. Pelepasan pensiunan adalah momen untuk berterima kasih atas pengabdian bertahun-tahun. Berikut susunan acara yang umum dan cara mudah mengumpulkan semua foto dari rekan kerja.",
+  "body": [
+    "## Susunan acara",
+    "1. Pembukaan oleh MC.",
+    "2. Doa pembuka.",
+    "3. Sambutan pimpinan.",
+    "4. Kesan dan pesan dari rekan kerja.",
+    "5. Sambutan dari yang pensiun.",
+    "6. Penyerahan kenang-kenangan.",
+    "7. Doa penutup, ramah tamah, dan foto bersama.",
+    "## Ide kenang-kenangan",
+    "- Plakat atau piagam penghargaan.",
+    "- Video ucapan dari rekan kerja, termasuk dari kantor cabang.",
+    "- Album foto perjalanan karier: dari foto lama sampai acara hari ini.",
+    "## Tips",
+    "- Undang keluarga yang pensiun; banyak yang terharu melihat suasana kantor.",
+    "- Buat sambutan singkat agar tidak terlalu lama.",
+    "- Siapkan latar foto dengan nama dan tahun pengabdian.",
+    "## Kumpulkan semua foto dengan kode QR",
+    "Semua orang memotret dengan ponsel, lalu foto tersebar di grup WhatsApp. Dengan <b>album acara</b> di Albums, semuanya terkumpul di satu tempat:",
+    "1. Buat album, misalnya “Pelepasan Purna Bakti Bapak Hendra”.",
+    "2. Taruh kode QR di meja tamu atau kirim ke grup kantor.",
+    "3. Tamu memindai dengan kamera ponsel dan mengunggah foto serta video dari browser — tanpa instal apa pun.",
+    "4. Aktifkan <b>Hold guest photos</b> untuk memeriksa unggahan sebelum tampil.",
+    "5. Setelah acara, unduh seluruh album dalam satu file ZIP.",
+    "Tamu yang mengunggah tanpa masuk akan tampil anonim. Tamu yang masuk juga mendapat salinan draf pribadi berisi unggahan mereka sendiri.",
+    "!cta",
+    "## Harga",
+    "Album acara dibeli sekali: Small $39,99, Medium $69,99, atau Large $129,99 (USD). Gratis untuk tamu. Foto hingga 4K; album disimpan 6 bulan sejak unggahan pertama dan bisa diperpanjang."
+  ],
+  "cta": {
+    "h2": "Buat album acara pelepasan",
+    "p": "Satu kode QR, semua foto tamu di satu tempat.",
+    "btn": "Buat album acara →"
+  },
+  "cta2": {
+    "h2": "Simpan kenangan purna bakti",
+    "p": "Tamu mengunggah dari browser, Anda mengunduh seluruh album.",
+    "btn": "Mulai →"
+  },
+  "faq": [
+    ["Bagaimana susunan acara pelepasan pensiunan?", "Umumnya pembukaan, doa, sambutan pimpinan, kesan dan pesan, sambutan yang pensiun, penyerahan kenang-kenangan, lalu ramah tamah dan foto bersama."],
+    ["Kenang-kenangan apa yang cocok untuk pensiunan?", "Plakat penghargaan, video ucapan, atau album foto perjalanan kariernya."],
+    ["Apakah tamu perlu menginstal sesuatu?", "Tidak. Cukup pindai kode QR dan unggah dari browser."],
+    ["Berapa lama foto disimpan?", "6 bulan sejak unggahan pertama, dan bisa diperpanjang."]
+  ],
+  "related": ["kado-perpisahan-rekan-kerja", "acara-gathering-kantor", "retirement-party-photo-ideas"],
+  "date": "2026-11-28"
+}

@@ -1,0 +1,56 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "CO",
+  "query": "regalo para mi ahijada",
+  "title": "Regalo para mi ahijada: un álbum de recuerdos | Albums.ink",
+  "desc": "Un regalo para tu ahijada que crece con ella: un álbum con fotos, videos y tu voz, desde el bautizo hasta sus 15 años. Gratis en el navegador.",
+  "h1": "Regalo para mi ahijada: un álbum que crece con ella",
+  "lead": "En Colombia, al buscar “regalo para mi ahijada” Google sugiere “de bautizo”, “de primera comunión”, “de 1 año”, “de 2 años” y “de 15 años”. Cada año hay una ocasión nueva, también la Navidad. Un álbum de historias con fotos, videos y la voz de la madrina o el padrino puede sumar un capítulo en cada una.",
+  "body": [
+    "## Por qué un álbum",
+    "- Los juguetes y la ropa se quedan pequeños; los recuerdos no.",
+    "- Tu ahijada verá quién estuvo en su bautizo y cuántos momentos compartieron.",
+    "- Sirve para el bautizo, la primera comunión, un cumpleaños, los 15 o el aguinaldo de Navidad.",
+    "## Qué poner",
+    "- Fotos del bautizo: la vela, el vestido, la familia en la iglesia.",
+    "- Paseos, cumpleaños y novenas juntas.",
+    "- Un video corto: sus primeros pasos o su primer día de colegio.",
+    "- Una nota de voz con lo que le deseas.",
+    "## Ideas de capítulos",
+    "1. Tu bautizo.",
+    "2. Nuestras salidas.",
+    "3. Navidades en familia.",
+    "4. Lo que te deseo.",
+    "## Cómo hacerlo (gratis)",
+    "En Albums creas un <b>álbum de historias</b> con fotos, videos y notas de voz, organizado en capítulos y, si quieres, con narración de voz. Los álbumes son ilimitados y se quedan el tiempo que quieras. Las fotos gratuitas se guardan con hasta 2048 px en el lado largo.",
+    "1. Inicia sesión con Google y crea un álbum, por ejemplo “Para Valentina – de tu madrina”.",
+    "2. Sube fotos y videos por capítulo y escribe unas líneas en cada uno.",
+    "3. Graba una nota de voz desde el navegador.",
+    "4. Puedes invitar a un coautor, por ejemplo el padrino; tiene que estar en tu lista de amigos en Albums.",
+    "5. Elige la visibilidad: Público, Amigos o Solo yo. Los álbumes nuevos son públicos, así que ponlo en Solo yo hasta entregarlo. Si alguien te ayuda, no lo dejes en Solo yo: el coautor pierde el acceso. Usa “Amigos excepto…” y excluye a los papás hasta la sorpresa.",
+    "!cta",
+    "## La entrega",
+    "Véanlo juntas en una tableta o cambia la visibilidad y manda el enlace por WhatsApp a los papás. Un álbum público se abre en el navegador con vista previa de portada, sin instalar nada. Un álbum en Solo yo no se puede abrir por enlace. Puedes descargar el álbum completo en un solo archivo ZIP.",
+    "## Sobre la privacidad",
+    "Comparte fotos de niños solo como les parezca bien a los papás. Puedes ocultar archivos sueltos a personas concretas."
+  ],
+  "cta": {
+    "h2": "Crea un álbum para tu ahijada",
+    "p": "Fotos, videos y tu voz. Gratis en el navegador.",
+    "btn": "Crear álbum de historias →"
+  },
+  "cta2": {
+    "h2": "Un capítulo nuevo cada año",
+    "p": "Álbumes ilimitados que se quedan el tiempo que quieras.",
+    "btn": "Empezar gratis →"
+  },
+  "faq": [
+    ["¿Qué le puedo regalar a mi ahijada?", "Algo personal que crezca con ella: recuerdos del bautizo, fotos juntas o un álbum con tu voz."],
+    ["¿El álbum es gratis?", "Sí. Los álbumes de historias son gratis e ilimitados."],
+    ["¿Mi ahijada necesita una cuenta?", "No, si el álbum es público: el enlace se abre en el navegador."],
+    ["¿Puedo agregar fotos cada año?", "Sí, agrega un capítulo nuevo en cada ocasión."]
+  ],
+  "related": ["ideas-para-bautismo", "ideas-primera-comunion", "fiesta-xv-anos"],
+  "date": "2026-11-28"
+}

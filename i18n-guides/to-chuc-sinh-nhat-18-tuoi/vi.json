@@ -1,0 +1,53 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "VN",
+  "query": "tổ chức sinh nhật 18 tuổi",
+  "title": "Tổ chức sinh nhật 18 tuổi: ý tưởng và lưu ảnh | Albums.ink",
+  "desc": "Gợi ý tổ chức sinh nhật 18 tuổi đáng nhớ: địa điểm, chủ đề, hoạt động và cách gom ảnh của tất cả khách mời chỉ bằng một mã QR.",
+  "h1": "Tổ chức sinh nhật 18 tuổi thật đáng nhớ",
+  "lead": "Khi gõ “sinh nhật 18 tuổi”, Google gợi ý “nên làm gì”, “nên tặng gì” và “cách tổ chức sinh nhật tuổi 18”. Tuổi 18 là cột mốc trưởng thành, thường rơi vào năm cuối cấp hoặc năm nhất đại học. Dưới đây là ý tưởng tổ chức và cách gom hết ảnh của bạn bè về một chỗ.",
+  "body": [
+    "## Chọn địa điểm",
+    "- <b>Tại nhà:</b> ấm cúng, có bố mẹ, tiết kiệm; trang trí bóng bay số 18 và đèn nháy.",
+    "- <b>Quán cà phê, nhà hàng:</b> đặt phòng riêng, có sẵn bàn tiệc và chỗ chụp ảnh.",
+    "- <b>Homestay, sân vườn:</b> hợp với nhóm bạn đông, có BBQ và trò chơi.",
+    "## Ý tưởng chủ đề",
+    "- Tông màu yêu thích của nhân vật chính.",
+    "- Chủ đề “hồi ức”: ảnh từ nhỏ đến năm 18 tuổi treo trên dây.",
+    "- Dress code: đồ trắng, đồ vintage hoặc đồng phục học sinh lần cuối.",
+    "## Hoạt động",
+    "1. Bố mẹ và bạn thân nói vài lời.",
+    "2. Viết lời nhắn gửi bản thân tuổi 18, mở lại sau vài năm.",
+    "3. Cắt bánh kem và chụp ảnh nhóm.",
+    "## Gom ảnh bằng mã QR",
+    "Ai cũng chụp bằng điện thoại, rồi ảnh nằm rải rác trong Zalo và Messenger. Với <b>album sự kiện</b> trên Albums, mọi ảnh về một chỗ:",
+    "1. Tạo album, ví dụ “Sinh nhật 18 của Linh”.",
+    "2. Đặt mã QR trên bàn hoặc gửi vào nhóm Zalo.",
+    "3. Khách quét bằng camera điện thoại và tải ảnh, video lên từ trình duyệt — không cần cài đặt.",
+    "4. Bật <b>«Hold guest photos»</b> nếu muốn duyệt trước khi ảnh hiện.",
+    "5. Sau tiệc, tải cả album về thành một file ZIP.",
+    "Khách tải lên khi chưa đăng nhập sẽ hiển thị ẩn danh. Khách đã đăng nhập còn nhận một bản nháp riêng tư chỉ gồm ảnh của chính họ.",
+    "!cta",
+    "## Giá",
+    "Album sự kiện mua một lần: Small 39,99 USD, Medium 69,99 USD hoặc Large 129,99 USD. Miễn phí cho khách. Ảnh tới 4K; album được lưu 6 tháng kể từ lần tải lên đầu tiên và có thể gia hạn."
+  ],
+  "cta": {
+    "h2": "Tạo album sinh nhật 18",
+    "p": "Một mã QR, ảnh của mọi người ở một chỗ.",
+    "btn": "Tạo album sự kiện →"
+  },
+  "cta2": {
+    "h2": "Giữ lại ảnh tuổi 18",
+    "p": "Khách tải lên từ trình duyệt, bạn tải về cả album.",
+    "btn": "Bắt đầu →"
+  },
+  "faq": [
+    ["Sinh nhật 18 tuổi nên làm gì?", "Một buổi tiệc với gia đình và bạn thân, vài lời chúc, một lá thư gửi bản thân và thật nhiều ảnh kỷ niệm."],
+    ["Tổ chức ở đâu thì hợp?", "Tại nhà, quán cà phê có phòng riêng hoặc homestay tùy số lượng khách."],
+    ["Khách có phải cài gì không?", "Không. Chỉ cần quét mã QR và tải lên từ trình duyệt."],
+    ["Ảnh được lưu bao lâu?", "6 tháng kể từ lần tải lên đầu tiên, có thể gia hạn."]
+  ],
+  "related": ["sinh-nhat-bat-ngo", "tiec-tot-nghiep", "qr-code-for-photos-at-party"],
+  "date": "2026-11-28"
+}

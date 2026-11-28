@@ -1,0 +1,54 @@
+{
+  "standalone": true,
+  "type": "social",
+  "country": "VN",
+  "query": "quà tặng sếp ý nghĩa",
+  "title": "Quà tặng sếp ý nghĩa: album kỷ niệm của cả team | Albums.ink",
+  "desc": "Quà tặng sếp ý nghĩa dịp sinh nhật, cuối năm hay khi sếp chuyển công tác: album ảnh, video và lời nhắn giọng nói của cả team. Miễn phí trên trình duyệt.",
+  "h1": "Quà tặng sếp ý nghĩa từ cả team",
+  "lead": "Gõ “quà tặng sếp”, Google gợi ý “sếp nam”, “sếp nữ”, “sinh nhật”, “cao cấp” và “ý nghĩa”. Quà đắt tiền đôi khi khiến cả hai bên ngại, còn một album kỷ niệm do cả team cùng góp ảnh và lời nhắn thì vừa tinh tế vừa khó quên.",
+  "body": [
+    "## Khi nào tặng",
+    "- Sinh nhật sếp.",
+    "- Tất niên, tổng kết cuối năm.",
+    "- Sếp chuyển công tác, nghỉ hưu hoặc được thăng chức.",
+    "## Nên có gì trong album",
+    "- Ảnh team building, du lịch công ty, tiệc tất niên.",
+    "- Những khoảnh khắc làm việc cùng nhau: ra mắt dự án, buổi chốt hợp đồng.",
+    "- Video ngắn mỗi người nói một câu cảm ơn.",
+    "- Lời nhắn giọng nói từ các bạn đã chuyển sang nơi khác.",
+    "## Gợi ý chương",
+    "1. Ngày đầu làm việc cùng anh/chị.",
+    "2. Những dự án đáng nhớ.",
+    "3. Team mình đi chơi.",
+    "4. Lời cảm ơn từ cả team.",
+    "## Cách làm (miễn phí)",
+    "Trên Albums, bạn tạo <b>album câu chuyện</b> từ ảnh, video và ghi chú giọng nói, chia thành các chương và có thể thêm lời dẫn bằng giọng nói. Album không giới hạn và được giữ lại bao lâu tùy bạn. Ảnh miễn phí được lưu tối đa 2048 px ở cạnh dài.",
+    "1. Đăng nhập bằng Google và tạo album, ví dụ “Cảm ơn chị Hương – Team Marketing 2026”.",
+    "2. Gom ảnh của mọi người, tải lên theo từng chương và viết vài dòng.",
+    "3. Ghi âm lời nhắn ngay trên trình duyệt.",
+    "4. Có thể mời một đồng tác giả (đã là bạn trên Albums), ví dụ trưởng nhóm.",
+    "5. Chọn quyền xem: Công khai, Bạn bè hoặc Chỉ mình tôi. Album mới mặc định công khai, nên hãy để Chỉ mình tôi đến ngày tặng. Nếu có đồng tác giả, đừng để Chỉ mình tôi vì họ sẽ mất quyền truy cập; hãy dùng “Bạn bè, trừ…” và loại sếp ra cho đến lúc tặng.",
+    "!cta",
+    "## Cách trao",
+    "Cùng xem trên màn hình laptop trong buổi tiệc, hoặc đổi quyền xem rồi gửi link qua Zalo. Album công khai mở trên trình duyệt kèm ảnh bìa xem trước, không cần cài đặt. Album Chỉ mình tôi không mở được bằng link. Có thể tải cả album về thành một file ZIP."
+  ],
+  "cta": {
+    "h2": "Tạo album tặng sếp",
+    "p": "Ảnh, video và giọng nói của cả team. Miễn phí trên trình duyệt.",
+    "btn": "Tạo album câu chuyện →"
+  },
+  "cta2": {
+    "h2": "Món quà từ cả team",
+    "p": "Album không giới hạn, giữ lại bao lâu tùy bạn.",
+    "btn": "Bắt đầu miễn phí →"
+  },
+  "faq": [
+    ["Nên tặng sếp gì cho ý nghĩa?", "Một món quà có dấu ấn của cả team: album ảnh kỷ niệm kèm lời cảm ơn bằng giọng nói của từng người."],
+    ["Album có mất phí không?", "Không. Album câu chuyện miễn phí và không giới hạn."],
+    ["Sếp có cần tài khoản không?", "Không, nếu album để công khai — link mở trên trình duyệt."],
+    ["Nhiều người có cùng chỉnh sửa được không?", "Mỗi album có một đồng tác giả; ảnh của những người khác bạn gom lại rồi tải lên."]
+  ],
+  "related": ["qua-tang-dong-nghiep", "tiec-chia-tay-dong-nghiep", "tiec-tat-nien"],
+  "date": "2026-11-28"
+}

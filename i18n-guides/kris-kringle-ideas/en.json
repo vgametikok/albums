@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AU",
+  "query": "kris kringle ideas",
+  "title": "Kris Kringle Ideas for Work and Family | Albums.ink",
+  "desc": "Kris Kringle ideas for an Aussie Christmas: budgets, twists for adults, a fair draw – and one QR code that gathers everyone’s photos of the gift swap.",
+  "h1": "Kris Kringle ideas for work and family",
+  "lead": "In Australia, Google suggests “kris kringle ideas with a twist”, “for adults”, “$30” and “$50” as soon as you start typing. Kris Kringle is the local name for Secret Santa: everyone draws one name and buys one gift. Here is how to run a smooth draw, a few twists for adults, and a simple way to keep the photos of the big reveal.",
+  "body": [
+    "## Set the rules early",
+    "- <b>Budget:</b> pick one number and stick to it – $20, $30 or $50 are the amounts Australians search for most.",
+    "- <b>The draw:</b> names in a hat at morning tea, or an online name generator if the team works hybrid.",
+    "- <b>Wish lists:</b> ask everyone for one or two hints (a hobby, a favourite snack, “no candles please”).",
+    "- <b>Date:</b> hold it at the last team lunch before the Christmas break or at the family Christmas Eve get-together.",
+    "## Kris Kringle with a twist",
+    "- <b>Steal (Yankee swap):</b> gifts are opened in turn and anyone can steal one already unwrapped.",
+    "- <b>Theme:</b> “something Australian”, “something for summer”, “something under $30 from an op shop”.",
+    "- <b>Guess the giver:</b> everyone has one guess before the giver is revealed.",
+    "- <b>Kids’ Kris Kringle:</b> a separate draw for the cousins so adults only buy one gift each.",
+    "## Keep the photos of the reveal",
+    "Half the fun is the faces when the gifts are opened – and those photos end up on ten different phones. An <b>event album</b> on Albums puts them in one place:",
+    "1. Create the album, e.g. “Office Kris Kringle 2026”.",
+    "2. Print the QR code and stick it on the gift table, or post it in the team chat.",
+    "3. Guests scan it with their phone camera and upload photos and videos from the browser – nothing to install.",
+    "4. Turn on <b>Hold guest photos</b> if you want to approve uploads first (useful at work).",
+    "5. In January, download the whole album as one ZIP file.",
+    "Guests who upload without signing in appear anonymously. Signed-in guests also get a private draft copy with only their own uploads.",
+    "!cta",
+    "## Pricing",
+    "An event album is a one-off purchase: Small $39.99, Medium $69.99 or Large $129.99 (USD). Free for guests. Photos up to 4K; the album is kept for 6 months from the first upload and can be extended."
+  ],
+  "cta": {
+    "h2": "Create your Kris Kringle album",
+    "p": "One QR code, every gift reveal in one place.",
+    "btn": "Create an event album →"
+  },
+  "cta2": {
+    "h2": "Keep this year’s Kris Kringle",
+    "p": "Guests upload from the browser, you download the whole album.",
+    "btn": "Get started →"
+  },
+  "faq": [
+    ["What is Kris Kringle in Australia?", "The Australian name for Secret Santa: each person draws one name and buys a gift for that person within an agreed budget."],
+    ["How much should you spend on Kris Kringle?", "Whatever the group agrees on; $20, $30 and $50 are common limits."],
+    ["Do guests need to install anything to share photos?", "No. They scan the QR code and upload from the browser."],
+    ["How long are the photos kept?", "6 months from the first upload, and the album can be extended."]
+  ],
+  "related": ["christmas-do-ideas", "family-christmas-party-ideas", "christmas-party-photo-booth-ideas"],
+  "date": "2026-11-28"
+}

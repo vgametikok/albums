@@ -1,0 +1,50 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "CL",
+  "query": "licenciatura cuarto medio",
+  "title": "Licenciatura de 4° medio: ideas y fotos | Albums.ink",
+  "desc": "Ideas para la licenciatura de cuarto medio: ceremonia, decoración, recuerdos para la generación y un código QR que junta las fotos de todos los apoderados.",
+  "h1": "Licenciatura de cuarto medio: ideas para la ceremonia y las fotos",
+  "lead": "En Chile, al escribir “licenciatura cuarto medio” Google sugiere “decoración”, “recuerdos” y “regalo licenciatura cuarto medio hombre” o “mujer”. Es la ceremonia en la que el colegio despide a la generación que termina la enseñanza media, con apoderados, profesores y discursos. Aquí van ideas para organizarla y una forma simple de reunir todas las fotos del día.",
+  "body": [
+    "## Organizar la ceremonia",
+    "- <b>Comisión de apoderados:</b> se reparte la decoración, los recuerdos y la recepción después del acto.",
+    "- <b>Programa:</b> entrada de los alumnos, himno, discursos del director, del profesor jefe y de un alumno, entrega de diplomas y premios.",
+    "- <b>Decoración:</b> colores del colegio, un panel con el nombre de la generación y un rincón para fotos con globos.",
+    "- <b>Recuerdos:</b> una tarjeta con la foto del curso, un llavero o una vela con el año de egreso.",
+    "## Ideas para la generación",
+    "- Un video corto con fotos de primero a cuarto medio, preparado por el curso.",
+    "- Un mensaje grabado de cada profesor jefe que tuvo la generación.",
+    "- Una foto del curso completo al final del acto, con los profesores.",
+    "## Todas las fotos en un solo lugar",
+    "Cada apoderado saca fotos con su celular y después nadie tiene las de todos. Con un <b>álbum de evento</b> en Albums todo queda en un solo lugar:",
+    "1. Crea el álbum, por ejemplo “Licenciatura 4° medio A – Generación 2026”.",
+    "2. Pon el código QR en el programa impreso o compártelo en el grupo de WhatsApp de apoderados.",
+    "3. Los invitados lo escanean con la cámara del celular y suben fotos y videos desde el navegador, sin instalar nada.",
+    "4. Con <b>“Hold guest photos”</b> apruebas cada foto antes de que los demás la vean – útil cuando aparecen menores de edad.",
+    "5. Al final, descarga el álbum completo en un solo archivo ZIP.",
+    "Los invitados que suben sin iniciar sesión aparecen como anónimos. Los que inician sesión reciben además una copia privada en borrador solo con sus propias fotos.",
+    "!cta",
+    "## Precios",
+    "El álbum de evento es un pago único: Small 39,99 US$, Medium 69,99 US$ o Large 129,99 US$. Gratis para los invitados. Fotos hasta 4K; el álbum se guarda 6 meses desde la primera subida y se puede extender."
+  ],
+  "cta": {
+    "h2": "Crea el álbum de la licenciatura",
+    "p": "Un código QR y las fotos de todos los apoderados en un solo lugar.",
+    "btn": "Crear álbum de evento →"
+  },
+  "cta2": {
+    "h2": "Guarda las fotos de la generación",
+    "p": "Los invitados suben desde el navegador y tú descargas el álbum completo.",
+    "btn": "Empezar →"
+  },
+  "faq": [
+    ["¿Qué es la licenciatura de cuarto medio?", "Es la ceremonia del colegio en la que se despide a los alumnos que terminan la enseñanza media, con diplomas, discursos y la familia presente."],
+    ["¿Qué recuerdo se puede dar en la licenciatura?", "Algo con el nombre de la generación: una tarjeta con la foto del curso, un llavero o un álbum con las fotos del día."],
+    ["¿Los apoderados tienen que instalar algo?", "No. Escanean el código QR y suben las fotos desde el navegador."],
+    ["¿Cuánto tiempo se guardan las fotos?", "6 meses desde la primera subida, y el álbum se puede extender."]
+  ],
+  "related": ["fiesta-de-grado", "fiesta-de-18-anos", "graduation-party-photo-display-ideas"],
+  "date": "2026-11-28"
+}

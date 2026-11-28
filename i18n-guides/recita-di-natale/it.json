@@ -1,0 +1,51 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "IT",
+  "query": "recita di Natale scuola",
+  "title": "Recita di Natale a scuola: idee e foto | Albums.ink",
+  "desc": "Idee per la recita di Natale alla scuola dell’infanzia e primaria: temi, canti, costumi e un QR code per raccogliere le foto dei genitori in un solo album.",
+  "h1": "Recita di Natale a scuola: idee e come raccogliere le foto",
+  "lead": "Scrivendo “recita di Natale”, Google suggerisce “scuola primaria”, “scuola infanzia”, “sulle emozioni” e “classe quinta”. A dicembre maestre e rappresentanti di classe preparano canti, poesie e costumi, e in platea ogni genitore riprende il proprio bambino. Ecco qualche idea e un modo semplice per mettere insieme le foto di tutti.",
+  "body": [
+    "## Idee per la recita",
+    "- <b>Infanzia:</b> canti semplici, una breve storia del presepe, costumi da angioletti, stelline o renne.",
+    "- <b>Primaria:</b> poesie a più voci, una scenetta sulle emozioni o sui valori del Natale.",
+    "- <b>Classe quinta:</b> un piccolo spettacolo scritto dai bambini, magari dedicato all’ultimo anno insieme.",
+    "## Organizzazione",
+    "- <b>Rappresentanti di classe:</b> coordinano costumi, merenda e regalo per le maestre.",
+    "- <b>Costumi:</b> semplici e fatti in casa, con materiali che hanno già tutti.",
+    "- <b>Posti:</b> se lo spazio è poco, la scuola può limitare a due adulti per bambino.",
+    "## Le foto: prima le regole",
+    "Molte scuole chiedono di non pubblicare sui social foto in cui compaiono altri bambini. Per questo è meglio un album con accesso limitato che decine di foto sparse nei gruppi. Concordatelo con la scuola e con i genitori.",
+    "## Tutte le foto in un solo album",
+    "Con un <b>album evento</b> su Albums finisce tutto in un unico posto:",
+    "1. Il rappresentante crea l’album, ad esempio “Recita di Natale 2026 – 2ª B”.",
+    "2. Il QR code va nella chat di classe o su un foglio all’uscita.",
+    "3. I genitori lo scansionano con la fotocamera del telefono e caricano foto e video dal browser, senza installare nulla.",
+    "4. Attiva <b>Hold guest photos</b> per controllare i caricamenti prima che siano visibili.",
+    "5. Alla fine scarica l’album intero in un unico file ZIP.",
+    "Chi carica senza accedere compare in forma anonima. Chi accede riceve anche una copia bozza privata con solo i propri caricamenti.",
+    "!cta",
+    "## Prezzi",
+    "L’album evento è un acquisto unico: Small 39,99 $, Medium 69,99 $ o Large 129,99 $ (USD). Gratis per gli ospiti. Foto fino a 4K; l’album resta disponibile 6 mesi dal primo caricamento e si può prolungare."
+  ],
+  "cta": {
+    "h2": "Crea l’album della recita",
+    "p": "Un QR code, le foto di tutti i genitori in un solo posto.",
+    "btn": "Crea un album evento →"
+  },
+  "cta2": {
+    "h2": "Conserva la recita di quest’anno",
+    "p": "I genitori caricano dal browser, tu scarichi l’album intero.",
+    "btn": "Inizia →"
+  },
+  "faq": [
+    ["Cosa fare alla recita di Natale della scuola dell’infanzia?", "Canti semplici, una breve storia e costumi facili, con una durata adatta ai più piccoli."],
+    ["Si possono condividere le foto della recita?", "Dipende dalle regole della scuola: spesso si chiede di non pubblicare foto con altri bambini. Meglio un album ad accesso limitato, concordato con scuola e genitori."],
+    ["I genitori devono installare qualcosa?", "No. Scansionano il QR code e caricano dal browser."],
+    ["Per quanto tempo restano le foto?", "6 mesi dal primo caricamento, e l’album si può prolungare."]
+  ],
+  "related": ["tombola-di-natale", "regalo-per-la-maestra", "festa-compleanno-bambini"],
+  "date": "2026-11-28"
+}

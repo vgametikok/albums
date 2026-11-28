@@ -1,0 +1,50 @@
+{
+  "standalone": true,
+  "type": "event",
+  "country": "AT",
+  "query": "80. Geburtstag feiern",
+  "title": "80. Geburtstag feiern: Ideen | Albums.ink",
+  "desc": "Den 80. Geburtstag feiern – im Gasthaus, beim Heurigen oder daheim: Ideen für Programm und Gäste, und ein QR-Code, der alle Fotos der Feier sammelt.",
+  "h1": "80. Geburtstag feiern: Ideen für Oma und Opa",
+  "lead": "Bei „80. Geburtstag“ schlägt Google in Österreich „Frau“, „Mann“, „Wünsche“, „Sprüche“ und „Geschenk“ vor. Zu einem Achtziger kommt die ganze Verwandtschaft, oft auch Nachbarn und alte Freunde. Hier sind Ideen für eine entspannte Feier – und ein einfacher Weg, damit am Ende alle Fotos beim Geburtstagskind landen.",
+  "body": [
+    "## Wo feiern",
+    "- <b>Gasthaus:</b> ein Extrazimmer mit Mittagessen, danach Kaffee und Torte – ideal, weil niemand kochen muss.",
+    "- <b>Heuriger:</b> gemütlich, mit Jause und Wein, wenn das Geburtstagskind das mag.",
+    "- <b>Daheim:</b> im kleinen Kreis, Buffet von der Familie, Sitzplätze für alle älteren Gäste.",
+    "## Programm-Ideen",
+    "- <b>Zeitreise:</b> alte Fotos aus 80 Jahren auf einer Pinnwand oder in einem Album.",
+    "- <b>Reden und Gedichte</b> der Enkerl – kurz halten.",
+    "- <b>Musik:</b> die Lieder aus der Jugend des Geburtstagskindes.",
+    "- <b>Ruhepausen:</b> nicht zu lang planen; Mittag bis früher Abend reicht.",
+    "## Alle Fotos an einem Ort",
+    "Die Gäste fotografieren mit dem Handy, aber Oma oder Opa sieht die Bilder oft nie. Mit einem <b>Event-Album</b> auf Albums landen sie an einem Ort:",
+    "1. Album anlegen, z. B. „Opas 80er“.",
+    "2. Den QR-Code auf die Tische stellen oder in die Familien-WhatsApp-Gruppe schicken.",
+    "3. Gäste scannen ihn mit der Handykamera und laden Fotos und Videos im Browser hoch – ohne Installation.",
+    "4. <b>„Hold guest photos“</b> einschalten, wenn ihr Uploads vorher freigeben wollt.",
+    "5. Danach das ganze Album als eine ZIP-Datei herunterladen.",
+    "Gäste, die ohne Anmeldung hochladen, erscheinen anonym. Angemeldete Gäste bekommen zusätzlich eine private Entwurfskopie mit nur ihren eigenen Uploads.",
+    "!cta",
+    "## Preise",
+    "Ein Event-Album ist ein Einmalkauf: Small 39,99 $, Medium 69,99 $ oder Large 129,99 $ (USD). Für Gäste gratis. Fotos bis 4K; das Album bleibt 6 Monate ab dem ersten Upload gespeichert und kann verlängert werden."
+  ],
+  "cta": {
+    "h2": "Album für den 80er erstellen",
+    "p": "Ein QR-Code, alle Fotos der Gäste an einem Ort.",
+    "btn": "Event-Album erstellen →"
+  },
+  "cta2": {
+    "h2": "Die Fotos vom Achtziger behalten",
+    "p": "Gäste laden im Browser hoch, ihr ladet das ganze Album herunter.",
+    "btn": "Jetzt starten →"
+  },
+  "faq": [
+    ["Wie feiert man einen 80. Geburtstag?", "Meist mit Familie und Freunden bei einem Mittagessen im Gasthaus oder daheim, mit Torte, kurzen Reden und alten Fotos."],
+    ["Was schenkt man zum 80. Geburtstag?", "Gemeinsame Zeit und Erinnerungen: ein Ausflug, ein Fotoalbum oder die gesammelten Fotos der Feier."],
+    ["Müssen Gäste etwas installieren?", "Nein. QR-Code scannen und im Browser hochladen."],
+    ["Wie lange bleiben die Fotos gespeichert?", "6 Monate ab dem ersten Upload, das Album kann verlängert werden."]
+  ],
+  "related": ["70-geburtstag-ideen", "goldene-hochzeit", "fotoalbum-fuer-oma"],
+  "date": "2026-11-28"
+}
